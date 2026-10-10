@@ -1,0 +1,2218 @@
+{
+  "source": "/Users/egor/Downloads/1.mov",
+  "source_resolution": [
+    3024,
+    1900
+  ],
+  "method": "Registered temporal median, green excess, 8-step Richardson-Lucy with assumed sigma 1.25px, soft threshold. No Unicode assignment.",
+  "atlas_size": [
+    320,
+    320
+  ],
+  "glyphs": [
+    {
+      "id": "g01",
+      "candidate": 0,
+      "source_box": [
+        63,
+        366,
+        103,
+        425
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        12,
+        11,
+        52,
+        70
+      ],
+      "ink_box": [
+        3,
+        1,
+        38,
+        58
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9725,
+          "offset": [
+            2,
+            1
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9725,
+          "offset": [
+            2,
+            1
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9863,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9863,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9863,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9863,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9928,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9928,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9928,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9793,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9793,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g02",
+      "candidate": 1,
+      "source_box": [
+        63,
+        425,
+        103,
+        484
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        76,
+        11,
+        116,
+        70
+      ],
+      "ink_box": [
+        3,
+        1,
+        38,
+        57
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9607,
+          "offset": [
+            2,
+            1
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9607,
+          "offset": [
+            2,
+            1
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9817,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9817,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9817,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9817,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9782,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9782,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9782,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9488,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9488,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g03",
+      "candidate": 2,
+      "source_box": [
+        63,
+        484,
+        103,
+        543
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        140,
+        11,
+        180,
+        70
+      ],
+      "ink_box": [
+        3,
+        6,
+        38,
+        58
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9842,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9842,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9823,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9823,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9823,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9823,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9918,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9918,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9918,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9632,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9632,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g04",
+      "candidate": 3,
+      "source_box": [
+        63,
+        543,
+        103,
+        602
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        204,
+        11,
+        244,
+        70
+      ],
+      "ink_box": [
+        4,
+        1,
+        38,
+        58
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9758,
+          "offset": [
+            2,
+            1
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9758,
+          "offset": [
+            2,
+            1
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9746,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9746,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9746,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9746,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9927,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9927,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9927,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9394,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9394,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g05",
+      "candidate": 5,
+      "source_box": [
+        63,
+        661,
+        103,
+        720
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        268,
+        11,
+        308,
+        70
+      ],
+      "ink_box": [
+        5,
+        1,
+        38,
+        58
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.979,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.979,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9814,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9814,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9814,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9814,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9875,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9875,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9875,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9521,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9521,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g06",
+      "candidate": 6,
+      "source_box": [
+        63,
+        719,
+        103,
+        778
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        12,
+        91,
+        52,
+        150
+      ],
+      "ink_box": [
+        3,
+        8,
+        38,
+        58
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9848,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9848,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9892,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9892,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9892,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9892,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9922,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9922,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9922,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9759,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9759,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g07",
+      "candidate": 7,
+      "source_box": [
+        63,
+        778,
+        103,
+        837
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        76,
+        91,
+        116,
+        150
+      ],
+      "ink_box": [
+        5,
+        4,
+        38,
+        58
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9868,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9868,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9935,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9935,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9935,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9935,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9921,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9921,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9921,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9796,
+          "offset": [
+            -2,
+            1
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9796,
+          "offset": [
+            -2,
+            1
+          ]
+        },
+        {
+          "time": 2.1,
+          "correlation": 0.9203,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g08",
+      "candidate": 10,
+      "source_box": [
+        181,
+        320,
+        221,
+        376
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        140,
+        91,
+        180,
+        147
+      ],
+      "ink_box": [
+        5,
+        2,
+        39,
+        30
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.987,
+          "offset": [
+            2,
+            2
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.987,
+          "offset": [
+            2,
+            2
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9909,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9909,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9909,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9909,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9915,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9915,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9915,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9896,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9896,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.1,
+          "correlation": 0.9333,
+          "offset": [
+            -2,
+            -2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g09",
+      "candidate": 15,
+      "source_box": [
+        181,
+        602,
+        221,
+        658
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        204,
+        91,
+        244,
+        147
+      ],
+      "ink_box": [
+        1,
+        8,
+        38,
+        55
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9941,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9941,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9831,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9831,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9831,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9831,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.99,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.99,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.99,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9838,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9838,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g10",
+      "candidate": 23,
+      "source_box": [
+        219,
+        543,
+        259,
+        602
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        268,
+        91,
+        308,
+        150
+      ],
+      "ink_box": [
+        4,
+        1,
+        39,
+        53
+      ],
+      "observations": [
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9817,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9817,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9817,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9726,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9726,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g11",
+      "candidate": 31,
+      "source_box": [
+        299,
+        427,
+        339,
+        486
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        12,
+        171,
+        52,
+        230
+      ],
+      "ink_box": [
+        10,
+        1,
+        39,
+        58
+      ],
+      "observations": [
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9807,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9807,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9807,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9883,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9883,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g12",
+      "candidate": 39,
+      "source_box": [
+        299,
+        895,
+        339,
+        954
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        76,
+        171,
+        116,
+        230
+      ],
+      "ink_box": [
+        1,
+        1,
+        39,
+        57
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9916,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9916,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9756,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9756,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9756,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9756,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9774,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9774,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9774,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.97,
+          "offset": [
+            -2,
+            1
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.97,
+          "offset": [
+            -2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g13",
+      "candidate": 46,
+      "source_box": [
+        339,
+        720,
+        379,
+        779
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        140,
+        171,
+        180,
+        230
+      ],
+      "ink_box": [
+        2,
+        1,
+        38,
+        58
+      ],
+      "observations": [
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9854,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9854,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9854,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9909,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9909,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g14",
+      "candidate": 65,
+      "source_box": [
+        417,
+        662,
+        457,
+        721
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        204,
+        171,
+        244,
+        230
+      ],
+      "ink_box": [
+        1,
+        2,
+        39,
+        58
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.987,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.987,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9843,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9843,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9843,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9843,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9797,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9797,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9797,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9888,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9888,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.1,
+          "correlation": 0.964,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g15",
+      "candidate": 78,
+      "source_box": [
+        457,
+        836,
+        497,
+        895
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        268,
+        171,
+        308,
+        230
+      ],
+      "ink_box": [
+        1,
+        1,
+        36,
+        54
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9949,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9949,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.976,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.976,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.976,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.976,
+          "offset": [
+            1,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9756,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9756,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9756,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9918,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9918,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.1,
+          "correlation": 0.9324,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g16",
+      "candidate": 110,
+      "source_box": [
+        694,
+        374,
+        734,
+        432
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        12,
+        251,
+        52,
+        309
+      ],
+      "ink_box": [
+        1,
+        2,
+        39,
+        57
+      ],
+      "observations": [
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.986,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.986,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.986,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9851,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9851,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g17",
+      "candidate": 112,
+      "source_box": [
+        694,
+        490,
+        734,
+        548
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        76,
+        251,
+        116,
+        309
+      ],
+      "ink_box": [
+        1,
+        1,
+        35,
+        57
+      ],
+      "observations": [
+        {
+          "time": 1.93333,
+          "correlation": 0.9356,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9356,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9356,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9356,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9418,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9418,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9418,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9658,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9658,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g18",
+      "candidate": 147,
+      "source_box": [
+        814,
+        779,
+        854,
+        838
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        140,
+        251,
+        180,
+        310
+      ],
+      "ink_box": [
+        1,
+        1,
+        31,
+        54
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9891,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9891,
+          "offset": [
+            2,
+            0
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9868,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9868,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9868,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9868,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9901,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9901,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9901,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9912,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9912,
+          "offset": [
+            -2,
+            0
+          ]
+        },
+        {
+          "time": 2.1,
+          "correlation": 0.9955,
+          "offset": [
+            -2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g19",
+      "candidate": 170,
+      "source_box": [
+        1198,
+        366,
+        1238,
+        425
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        204,
+        251,
+        244,
+        310
+      ],
+      "ink_box": [
+        2,
+        7,
+        39,
+        56
+      ],
+      "observations": [
+        {
+          "time": 1.9,
+          "correlation": 0.9669,
+          "offset": [
+            0,
+            1
+          ]
+        },
+        {
+          "time": 1.91667,
+          "correlation": 0.9669,
+          "offset": [
+            0,
+            1
+          ]
+        },
+        {
+          "time": 1.93333,
+          "correlation": 0.9734,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.95,
+          "correlation": 0.9734,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.96667,
+          "correlation": 0.9734,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1.98333,
+          "correlation": 0.9734,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9784,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9784,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9784,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9683,
+          "offset": [
+            -1,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9683,
+          "offset": [
+            -1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g20",
+      "candidate": 182,
+      "source_box": [
+        1316,
+        486,
+        1356,
+        545
+      ],
+      "source_time": 2.0,
+      "atlas_box": [
+        268,
+        251,
+        308,
+        310
+      ],
+      "ink_box": [
+        2,
+        1,
+        38,
+        56
+      ],
+      "observations": [
+        {
+          "time": 2.0,
+          "correlation": 1.0,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.01667,
+          "correlation": 0.9929,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.03333,
+          "correlation": 0.9929,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.05,
+          "correlation": 0.9929,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.06667,
+          "correlation": 0.9829,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 2.08333,
+          "correlation": 0.9829,
+          "offset": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

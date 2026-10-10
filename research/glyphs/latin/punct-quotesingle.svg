@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 1024" width="956" height="1024">
+<!-- quotesingle U+0027: designed calligraphic glyph. Units = font units, y down from ascender. Keep the viewBox and the guide lines. -->
+<g id="guides" fill="none" stroke="#00a0ff" stroke-width="2" stroke-dasharray="8 6"><rect x="0" y="0" width="956" height="1024"/><line x1="0" x2="956" y1="1045" y2="1045"><title>descender</title></line><line x1="0" x2="956" y1="900" y2="900"><title>baseline</title></line><line x1="0" x2="956" y1="340" y2="340"><title>x-height</title></line><line x1="0" x2="956" y1="120" y2="120"><title>cap height</title></line><line x1="0" x2="956" y1="100" y2="100"><title>ascender</title></line></g>
+<g id="glyph" fill="#000"><path d="M431.7 120.7C436.3 120 520.2 120 524.4 120.7C529.1 121.4 534.7 126.7 535.2 130.7C535.6 134.3 493.5 354.7 491.8 357.9C486.5 367.8 470.5 367.8 465.2 357.9C463.5 354.7 421.4 134.3 421.8 130.7C422.2 127.2 428.1 121.3 431.7 120.7Z"/></g>
+</svg>

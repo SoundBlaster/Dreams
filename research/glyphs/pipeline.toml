@@ -1,0 +1,181 @@
+# Конфигурация пайплайна восстановления глифов.
+# Запуск из корня Dreams:  .venv/bin/python scripts/glyphs/pipeline.py build
+# Все пути — относительно research/glyphs/.
+
+[font]
+family = "Dreams Matrix"
+style = "Regular"
+version = "0.3"
+# UPM, advance и сумма ascent+descent совпадают с Sources/Dreams/Matrix-Code.ttf.
+# Базовая линия — y = 0. Ячейка 1024 по вертикали центрирована на теле знака (0…780),
+# поэтому приложение, центрирующее строку по ascent/descent, рисует знаки на прежнем месте.
+upm = 1024
+advance = 956
+ascent = 900
+descent = 124
+# Тело знака фильма = высота прописных: строка листа переводится в 0…780.
+body_bottom = 0
+body_top = 780
+# Фиксированное время в head: одинаковые входы дают побайтно одинаковый TTF.
+timestamp = "2026-10-10T00:00:00Z"
+# Каждый глиф всегда доступен по PUA: pua_base + номер (G01 → U+E001).
+pua_base = 0xE000
+
+[cmap]
+# Назначать стандартный Unicode только при такой или более высокой уверенности
+# (identifications.json): confirmed_by_user > high > medium > low > unidentified.
+unicode_min_confidence = "high"
+
+[trace]
+threshold = 0.5      # граница чернил в листе (0 — чёрный, 1 — белый)
+upscale = 3          # увеличение перед бинаризацией: глаже контур potrace
+min_area = 40        # компоненты и дырки меньше (px листа) считаются мусором
+turdsize = 20        # potrace -t, в px увеличенного растра
+alphamax = 1.0       # potrace -a: порог углов
+opttolerance = 0.2   # potrace -O
+max_quadratic_error = 1.0   # cu2qu, единицы шрифта
+
+[checks]
+min_iou_traced = 0.95     # совпадение трассировки с растром листа (gate)
+mirror_margin = 0.04      # предупреждать, если зеркальная форма ближе к кадру фильма
+override_warn_iou = 0.85  # предупреждать, если ручная правка сильно ушла от растра листа
+
+# Как приложение рисует знак (Sources/Dreams/MatrixRain.swift, glyph()): шрифт font_size px
+# центрируется по ascent/descent в ячейке cell×cell, шейдер берёт центральное окно window×window.
+# Знак, выходящий за окно, будет срезан на экране: для прописных, цифр и знаков дождя это gate.
+[app]
+font_size = 26
+cell = 64
+window = 28
+
+# Листы реконструкции. Каждый лист — неизменяемый вход (хэш в inputs.lock.json).
+# Новую итерацию GPT Image добавлять новым листом, а не перезаписывать старый.
+[[sheet]]
+id = "v5"
+path = "references/restored-v5.png"
+columns = 4
+rows = 5
+glyphs = ["G01", "G02", "G03", "G04",
+          "G05", "G06", "G07", "G08",
+          "G09", "G10", "G11", "G12",
+          "G13", "G14", "G15", "G16",
+          "G17", "G18", "G19", "G20"]
+
+# First expansion: source crops and editable SVG reconstruction, no baked-in glow.
+[[sheet]]
+id = "simple-forms-v1"
+path = "references/simple-forms-v1.png"
+columns = 4
+rows = 2
+# Local y coordinates of the full-height glyph body in every 256px cell.
+# Short signs retain their size and placement instead of being stretched.
+body_bounds = [30, 225]
+glyphs = ["G21", "G22", "G23", "G24", "G25", "G26", "G27", "G28"]
+
+# User correction: the apparent lower bar belonged to the next glyph.
+[[sheet]]
+id = "g22-v2"
+path = "references/g22-v2.png"
+columns = 1
+rows = 1
+body_bounds = [30, 225]
+glyphs = ["G22"]
+
+# --- Латиница и цифры: нарисованы по общим правилам, а не взяты из фильма ---
+# Генератор scripts/glyphs/latin.py строит знаки из этих чисел; пайплайн проверяет,
+# что каждый знак стоит на своих линиях. Менять систему — здесь, а не в отдельных SVG.
+[latin]
+cap_height = 780        # = тело фильмовых знаков
+x_height = 560          # 0.72 высоты прописных
+ascender = 800          # выносные b d f h k l t чуть выше прописных: l ≠ I
+descender = -145        # короче обычного: строчные из команд целиком помещаются в окно атласа ([app])
+tail = -130             # хвосты кириллицы Д Ц Щ д ц щ: короче выносных, одной длины
+overshoot = 12          # заострённые и круглые окончания выходят за линию на столько
+stem = 118              # вертикаль прописных и цифр = штрих фильмовых знаков
+hair = 104              # горизонталь тоньше вертикали (оптическая компенсация); диагонали между ними
+lowercase_ratio = 0.95  # строчные на 5 % легче прописных
+crossbar = 0.52         # средняя перекладина E F H R P B: доля высоты прописных (чуть выше середины)
+lower_crossbar = 0.55   # перекладина a e: доля x-height
+taper_tip = 30          # ширина кончика заострённого штриха
+soften = 13             # радиус, смягчающий прямые концы и углы
+line_tolerance = 24     # допуск проверки линий (2 × overshoot)
+widths = { cap = 530, wide = 600, lower = 480, lower_wide = 560, digit = 510 }
+
+# Набор только со стандартными кодами (без PUA), поэтому в репертуар дождя не попадает.
+# Его коды важнее Unicode-гипотез фильмовых знаков: в словах 5 должна быть пятёркой.
+[[design]]
+id = "latin-v1"
+index = "latin/glyphs.toml"
+reference = "references/latin-specimen-v1.png"
+
+# Русская кириллица на тех же правилах. Общие с латиницей формы — алиасы (тот же контур).
+[[design]]
+id = "cyrillic-v1"
+index = "cyrillic/glyphs.toml"
+proof = { sample = "ЖщдБя", texts = ["ПРОСНИСЬ НЕО", "МАТРИЦА ИМЕЕТ ТЕБЯ", "следуй за белым кроликом", "съешь же ещё этих булок"] }
+
+# Настройки отдельных глифов (все поля необязательны):
+#   sheet  = "v6"            — брать растр из другого листа
+#   dy     = 0               — сдвиг по вертикали в единицах шрифта (вверх > 0)
+#   expect = { components = 1, holes = 0 }
+#                            — ожидаемая топология; без неё ожидается топология растра
+# Инварианты P0 из IDENTIFICATIONS.md зафиксированы явно.
+
+[glyph.G01]
+expect = { components = 1, holes = 0 }   # зеркальная 5, сплошной штрих
+
+[glyph.G02]
+expect = { components = 1, holes = 2 }   # замкнутый перечёркнутый 0
+
+[glyph.G04]
+expect = { holes = 0 }                   # пересечения сплошные
+
+[glyph.G05]
+expect = { holes = 0 }
+
+[glyph.G08]
+dy = 130            # звёздочка выше средней линии (preview_offset_y −0.13 ячейки), сверить с фильмом
+expect = { components = 1, holes = 0 }
+
+[glyph.G10]
+expect = { components = 3 }              # три раздельные компоненты ツ
+
+[glyph.G12]
+expect = { holes = 0 }
+
+[glyph.G14]
+expect = { holes = 0 }
+
+[glyph.G15]
+expect = { components = 2 }              # ハ: две отдельные части
+
+[glyph.G17]
+expect = { components = 1 }              # одна связная форма
+
+[glyph.G19]
+expect = { components = 3 }              # три раздельных штриха ミ
+
+[glyph.G21]
+expect = { components = 1, holes = 2 }    # 8: две настоящие закрытые чаши
+
+[glyph.G22]
+sheet = "g22-v2"
+expect = { components = 1, holes = 1 }    # 4: треугольный counter
+
+[glyph.G23]
+expect = { components = 2, holes = 0 }    # две отдельные точки
+
+[glyph.G24]
+expect = { components = 2, holes = 0 }    # две слегка наклонные полки
+
+[glyph.G25]
+expect = { components = 1, holes = 0 }
+
+[glyph.G26]
+expect = { components = 1, holes = 0 }
+
+[glyph.G27]
+expect = { components = 1, holes = 0 }
+
+[glyph.G28]
+expect = { components = 1, holes = 0 }

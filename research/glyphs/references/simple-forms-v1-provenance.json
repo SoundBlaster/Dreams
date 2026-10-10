@@ -1,0 +1,109 @@
+{
+  "glyphs": [
+    {
+      "id": "G21",
+      "source": "references/film-reference-1.jpg",
+      "source_sha256": "fc0f352a98d1333c03ab1ab60c73cb0510d536a3b1e6effb514798bf40863fa5",
+      "box": [
+        1050,
+        21,
+        1094,
+        85
+      ],
+      "crop": "references/g21-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained."
+    },
+    {
+      "id": "G22",
+      "source": "references/film-reference-2.jpg",
+      "source_sha256": "55351a0b80ee458b0a306ac885abab43a42a69205051d9f1bbfbcbde2a04d5bf",
+      "box": [
+        720,
+        9,
+        768,
+        65
+      ],
+      "crop": "references/g22-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained.",
+      "segmentation_note": "The wide bottom horizontal line in this raw crop belongs to the neighbouring glyph, confirmed by the user 2026-10-10. Exclude it from G22 outlines; retain the unretouched source crop."
+    },
+    {
+      "id": "G23",
+      "source": "references/film-reference-1.jpg",
+      "source_sha256": "fc0f352a98d1333c03ab1ab60c73cb0510d536a3b1e6effb514798bf40863fa5",
+      "box": [
+        675,
+        91,
+        706,
+        151
+      ],
+      "crop": "references/g23-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained."
+    },
+    {
+      "id": "G24",
+      "source": "references/film-reference-2.jpg",
+      "source_sha256": "55351a0b80ee458b0a306ac885abab43a42a69205051d9f1bbfbcbde2a04d5bf",
+      "box": [
+        90,
+        87,
+        133,
+        128
+      ],
+      "crop": "references/g24-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained."
+    },
+    {
+      "id": "G25",
+      "source": "references/film-reference-1.jpg",
+      "source_sha256": "fc0f352a98d1333c03ab1ab60c73cb0510d536a3b1e6effb514798bf40863fa5",
+      "box": [
+        497,
+        151,
+        539,
+        176
+      ],
+      "crop": "references/g25-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained."
+    },
+    {
+      "id": "G26",
+      "source": "references/film-reference-1.jpg",
+      "source_sha256": "fc0f352a98d1333c03ab1ab60c73cb0510d536a3b1e6effb514798bf40863fa5",
+      "box": [
+        287,
+        26,
+        326,
+        81
+      ],
+      "crop": "references/g26-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained."
+    },
+    {
+      "id": "G27",
+      "source": "references/film-reference-2.jpg",
+      "source_sha256": "55351a0b80ee458b0a306ac885abab43a42a69205051d9f1bbfbcbde2a04d5bf",
+      "box": [
+        972,
+        225,
+        1011,
+        269
+      ],
+      "crop": "references/g27-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained."
+    },
+    {
+      "id": "G28",
+      "source": "references/film-reference-2.jpg",
+      "source_sha256": "55351a0b80ee458b0a306ac885abab43a42a69205051d9f1bbfbcbde2a04d5bf",
+      "box": [
+        936,
+        439,
+        972,
+        478
+      ],
+      "crop": "references/g28-source.png",
+      "method": "Manual source box reviewed against the film photograph; original orientation retained."
+    }
+  ]
+}

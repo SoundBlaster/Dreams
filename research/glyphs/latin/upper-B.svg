@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 1024" width="956" height="1024">
+<!-- B U+0042: designed calligraphic glyph. Units = font units, y down from ascender. Keep the viewBox and the guide lines. -->
+<g id="guides" fill="none" stroke="#00a0ff" stroke-width="2" stroke-dasharray="8 6"><rect x="0" y="0" width="956" height="1024"/><line x1="0" x2="956" y1="1045" y2="1045"><title>descender</title></line><line x1="0" x2="956" y1="900" y2="900"><title>baseline</title></line><line x1="0" x2="956" y1="340" y2="340"><title>x-height</title></line><line x1="0" x2="956" y1="120" y2="120"><title>cap height</title></line><line x1="0" x2="956" y1="100" y2="100"><title>ascender</title></line></g>
+<g id="glyph" fill="#000"><path d="M223.7 120.7C233 119.3 641.3 120.1 648.2 121.5C667.8 125.5 683.9 138.8 691.2 156.8L693.5 162.5L693.8 302.6L694 442.6L699.9 443.8C717.7 447.5 734.2 461.5 741.2 478.8L743.5 484.5V671.5V858.5L741.2 864.2C735.7 877.9 726.4 887.7 712.5 894.5C698.4 901.5 715.7 901.1 456.5 900.8C196.2 900.5 220 901.1 215.3 894.2C213.6 891.6 213.5 877.1 213.2 515C213 307.9 213.2 136.1 213.5 133.2C214.2 127.1 218.9 121.5 223.7 120.7ZM575 333.5V225H453.5H332V333.5V442H453.5H575V333.5ZM625 671.5V547H478.5H332V671.5V796H478.5H625V671.5Z"/></g>
+</svg>

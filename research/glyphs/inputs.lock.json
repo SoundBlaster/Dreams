@@ -1,0 +1,37 @@
+{
+  "files": {
+    "research/glyphs/references/restored-v5.png": "995736413836a393093b9abfa765b69ae93ed4b888b1350ec819e46b51f7b165",
+    "research/glyphs/references/simple-forms-v1.png": "83892285bec6617579af30bec3007f135e88058f44ab97d7db3219f256f63844",
+    "research/glyphs/references/g22-v2.png": "38cb1a724219e9e53a5eac81bfe98a7762502eb063f5153c4f0b9508e8d00f5d",
+    "research/glyphs/sources/film-masks/G01.png": "7c4661086dc51416b0d74abaa8f6870532f356abbdc86988fbc2bd7ce16cd31c",
+    "research/glyphs/sources/film-masks/G02.png": "5a6fd778cdbb0598337840e761496a5a736d80e36e78a17e9fcb65b1cbb6c97f",
+    "research/glyphs/sources/film-masks/G03.png": "280e0da12dd8c334b06ebff3caf18b26525a1f0d0fd14a54293cbefe4fc3a5c8",
+    "research/glyphs/sources/film-masks/G04.png": "d9d18c168809cde91131fe5372c0745a9ab1d29f64d2bbe64d6cef85246ec480",
+    "research/glyphs/sources/film-masks/G05.png": "cb16d378ecc18d9176249e9a6ebffb6ae5238253fb1e200df614f6470ee0c829",
+    "research/glyphs/sources/film-masks/G06.png": "93ecc46a056d7d8756cf431ab22190e9c071e1fb9e4a1b982274e15685989b79",
+    "research/glyphs/sources/film-masks/G07.png": "91bef2164c3edcf379845c7414728c24af6e8d353268a1a589c385e68290ea94",
+    "research/glyphs/sources/film-masks/G08.png": "78d7f44b9e3ef0fa19a13aa1fa2d27e50464c7ffd6b6992d6af0245e98f6300e",
+    "research/glyphs/sources/film-masks/G09.png": "ae47b5e12e25079e56f6e22bb4637d14f97b1c2ac8bbf701f2b466f86528a2e2",
+    "research/glyphs/sources/film-masks/G10.png": "cb68504160fbb7091a53af8ab10d30e04e6067b63ad78dc20e2fed68f88bfbb0",
+    "research/glyphs/sources/film-masks/G11.png": "5dce03651569b5f626eec441018c78a71d50e2832f3e653e6e02da38d4d04962",
+    "research/glyphs/sources/film-masks/G12.png": "58afa16bbd5238989ab606dcfc8b44506dafd2ea7073cb654c190fde0c03540b",
+    "research/glyphs/sources/film-masks/G13.png": "63efe97047565083ab7ad52e231528918448dba2e882e0de5bbe539e6b055737",
+    "research/glyphs/sources/film-masks/G14.png": "dd8b6268e72c36248bf999f2c9716cc84d414f81e6f57436cb38031dea7e0190",
+    "research/glyphs/sources/film-masks/G15.png": "dfd923380998eb162e9af6884f44214c83221928f763910c339badfe06f35c7f",
+    "research/glyphs/sources/film-masks/G16.png": "a463e22cfd1a25114c3d3ff212ed94798cd9788c10c881c0864d66ea5cb7e3bd",
+    "research/glyphs/sources/film-masks/G17.png": "567473015e693032655695a7d9025c0f105a01e8a01c026cb8269d5f9dc5cdf8",
+    "research/glyphs/sources/film-masks/G18.png": "7c2fcebc13238adc7d106eae5bef93e016deb57f9805a5d1c9bce4a8a0925cab",
+    "research/glyphs/sources/film-masks/G19.png": "bbc1d59acdf6621aa5a8c6e2fb1a96861f468ce05da0f4d0cdfd2f90ff40b70d",
+    "research/glyphs/sources/film-masks/G20.png": "f0730383f19d22fcb782a01baa8b9fb4f7f4af2e36bedd297e98ff0d31acbf46",
+    "research/glyphs/references/latin-specimen-v1.png": "975051c839e167e45ea714194b235f031a1503f90eb1361a8436afbe8407239c"
+  },
+  "tools": {
+    "python": "3.13.15",
+    "potrace": "1.16.",
+    "fonttools": "4.66.2.dev0",
+    "numpy": "2.5.3",
+    "pillow": "12.3.0",
+    "scipy": "1.18.1",
+    "skia-pathops": "0.9.2"
+  }
+}

@@ -1,0 +1,693 @@
+{
+  "schema_version": 1,
+  "glyphs": [
+    {
+      "id": "G01",
+      "candidate_character": "5",
+      "unicode": "U+0035",
+      "script": "Common / digit",
+      "transform": "mirror_horizontal",
+      "confidence": "confirmed_by_user",
+      "evidence": [
+        "USER-G01: explicit user identification preserved verbatim in meaning.",
+        "REF-G01: references/g01-source.png; 1.mov t=2.00s; source_box=[63, 366, 103, 425] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 1 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities."
+      ],
+      "observations": [
+        "G01-O1: Пользователь подтвердил: horizontally mirrored digit five; внешнее сходство с 2 не меняет идентификацию.",
+        "G01-O2: Верхняя полка, правая верхняя стенка, средняя перемычка; нижняя дуга открыта вправо."
+      ],
+      "alternatives": [],
+      "next_action": "Сохранить идентичность и ориентацию; сравнить радиусы нижней дуги с фильмом.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Stylized horizontally mirrored digit FIVE, not digit two. Keep the top horizontal cap, upper right descending wall, middle turn to the left, and lower rounded bowl opening to the right. Preserve the film silhouette and continuous stroke."
+    },
+    {
+      "id": "G02",
+      "candidate_character": "0",
+      "unicode": "U+0030",
+      "script": "Common / digit",
+      "transform": "not_determined",
+      "confidence": "confirmed_by_user",
+      "evidence": [
+        "USER-G02: explicit user identification preserved verbatim in meaning.",
+        "REF-G02: references/g02-source.png; 1.mov t=2.00s; source_box=[63, 425, 103, 484] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 2 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities."
+      ],
+      "observations": [
+        "G02-O1: Пользователь подтвердил closed slashed ZERO.",
+        "G02-O2: Замкнутая внешняя овальная рамка; диагональ снизу слева вверх вправо соединена с рамкой; два внутренних просвета настоящие."
+      ],
+      "alternatives": [
+        "Ø U+00D8: внешне близко, но противоречит пользовательской идентификации цифры."
+      ],
+      "next_action": "Не размыкать овал; проверить касания диагонали с рамкой.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Closed slashed digit ZERO. A single closed rounded outer loop with a solid internal diagonal rising from bottom left to top right, joined to the loop. Preserve the two real interior counters; do not turn it into an open contour or letter O."
+    },
+    {
+      "id": "G03",
+      "candidate_character": "ワ",
+      "unicode": "U+30EF",
+      "script": "Katakana",
+      "transform": "mirror_horizontal",
+      "confidence": "medium",
+      "evidence": [
+        "REF-G03: references/g03-source.png; 1.mov t=2.00s; source_box=[63, 484, 103, 543] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 3 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance.",
+        "REF-UNICODE-HIRAGANA: https://www.unicode.org/charts/PDF/U3040.pdf; alternative structures compared."
+      ],
+      "observations": [
+        "G03-O1: Одна верхняя перекладина; короткое окончание вниз справа; длинная левая стенка закругляется вправо внизу.",
+        "G03-O2: Такая асимметрия согласуется с горизонтально отражённой ワ; Unicode-глиф не доказывает происхождение киношного контура."
+      ],
+      "alternatives": [
+        "て U+3066, none: похожа длинная нижняя дуга, но короткая правая вертикаль и прямоугольная верхняя часть объясняются хуже.",
+        "フ U+30D5, mirror_horizontal: хуже объясняет отдельное короткое правое окончание."
+      ],
+      "next_action": "Сверить в нескольких повторениях длину короткого правого штриха; не нормализовать под て.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Trace the film geometry: long top horizontal, a short downward terminal at the right end, and a long left descending stroke curving smoothly toward bottom right. Keep the lower region open. Candidate is horizontally mirrored katakana WA; source geometry takes priority over a standard font."
+    },
+    {
+      "id": "G04",
+      "candidate_character": "オ",
+      "unicode": "U+30AA",
+      "script": "Katakana",
+      "transform": "not_determined",
+      "confidence": "confirmed_by_user",
+      "evidence": [
+        "USER-G04-CROSSBAR: точная цитата пользователя: «G04 имеет \"сломанную\" перекладину. G06 наклон \"лапки\" не туда. И кстати G15 на самом деле mirrored. Я бы потом руками вектор потюнил.» Подтверждена особая «сломанная» перекладина; это означает kink/step как рабочую геометрическую интерпретацию, а не доказанный разрыв связности.",
+        "USER-G04: точная цитата пользователя: «G04 - это `o` из катаканы. G06 - это как будто бы `ma` зеркальная.» Для G04 подтверждена идентичность katakana O オ; reflection пользователь явно не назначил, transform остаётся not_determined.",
+        "REF-G04: references/g04-source.png; 1.mov t=2.00s; source_box=[63, 543, 103, 602] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 4 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G04-O1: Две горизонтальные полки сверху и в середине; центральный массив переходит в две нижние ветви.",
+        "G04-O2: Пересечение штрихов сплошное. Белые блики в старой маске не являются дырками.",
+        "G04-O3: Нижняя линия в corrected source выглядит связнее, чем две свободные ноги v5; наличие перемычки требует повторного кадра.",
+        "G04-O4: По прямому уточнению пользователя это katakana O オ, а не ранее предложенные 天/テ; ориентация reflection отдельно не подтверждена.",
+        "G04-O5: Перекладина намеренно имеет излом/ступень; не выпрямлять её в одну ровную полку. Слово «сломанная» не устанавливает реальный disconnected gap, связность уточнять по source."
+      ],
+      "alternatives": [
+        "天 U+5929: предыдущая визуальная гипотеза; уступает прямому пользовательскому подтверждению オ.",
+        "テ U+30C6: предыдущая слабая визуальная гипотеза; уступает прямому пользовательскому подтверждению オ."
+      ],
+      "next_action": "Сохранить オ и излом/ступень перекладины; не уплощать до прямой полки и не добавлять реальный разрыв без source evidence. Reflection сверять отдельно; пересечения сплошные. Подготовить editable SVG для ручной доводки.",
+      "reconstruction_prompt": "Reconstruct only G04 as a clean solid black silhouette on white, without glow, texture or fake highlight holes. The user confirmed katakana O (オ, U+30AA). Reflection is not yet determined: compare the actual film source before choosing orientation. Preserve the film top bar, central crossing, descending stroke and lower branch geometry. All bright intersections are solid. Check the lower terminals against the source rather than inventing a baseline or replacing the silhouette with a standard font outline. The crossbar is intentionally kinked or stepped (user described it as broken); preserve that angular change rather than flattening it into a straight bar. Do not interpret the wording as a disconnected gap unless the film source shows one. Prepare editable contour paths for later manual vector tuning."
+    },
+    {
+      "id": "G05",
+      "candidate_character": "せ",
+      "unicode": "U+305B",
+      "script": "Hiragana (hypothesis)",
+      "transform": "none",
+      "confidence": "medium",
+      "evidence": [
+        "REF-G05: references/g05-source.png; 1.mov t=2.00s; source_box=[63, 661, 103, 720] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 5 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance.",
+        "REF-UNICODE-HIRAGANA: https://www.unicode.org/charts/PDF/U3040.pdf; alternative structures compared."
+      ],
+      "observations": [
+        "G05-O1: Две верхние вертикали пересекаются с общей горизонталью; левая продолжается вниз и широко закругляется вправо; правая заканчивается вскоре ниже перекладины.",
+        "G05-O2: Topology согласуется с せ; отражённая サ также близка.",
+        "G05-O3: Пересечение сплошное, без вырезанных белых бликов."
+      ],
+      "alternatives": [
+        "サ U+30B5, mirror_horizontal: почти та же топология; длинная нижняя дуга может быть стилизацией."
+      ],
+      "next_action": "Сопоставить повторные формы せ/サ: особенно короткое правое окончание и изгиб длинной левой ножки; не считать выбор окончательным.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Two upright stems joined by a solid crossbar. Left stem continues far below the bar and curls toward bottom right; right stem stops shortly below the bar. Preserve the open lower right and all solid intersections. Candidate hiragana SE as-is, alternative mirrored katakana SA; do not impose standard font outlines."
+    },
+    {
+      "id": "G06",
+      "candidate_character": "マ",
+      "unicode": "U+30DE",
+      "script": "Katakana (user-proposed hypothesis)",
+      "transform": "mirror_horizontal",
+      "confidence": "medium",
+      "evidence": [
+        "USER-G06-FOOT: точная цитата пользователя: «G04 имеет \"сломанную\" перекладину. G06 наклон \"лапки\" не туда. И кстати G15 на самом деле mirrored. Я бы потом руками вектор потюнил.» Пользователь указал неверный наклон «лапки», но направление словами не назвал. Визуальная интерпретация: references/kana-candidates-v1.png направляет конец вниз-влево, тогда как film source и прежняя reconstruction направляют его вниз-вправо; исправлять локальный terminal, не отражать весь glyph повторно.",
+        "USER-G06-HYPOTHESIS: точная цитата пользователя: «G04 - это `o` из катаканы. G06 - это как будто бы `ma` зеркальная.» Для G06 предложена horizontally mirrored katakana MA マ; «как будто бы» сохраняет tentative статус, confidence medium.",
+        "REF-G06: references/g06-source.png; 1.mov t=2.00s; source_box=[63, 719, 103, 778] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 6 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G06-O1: Верхняя полка связана с длинной левой стенкой; внутренняя дуга поднимается к короткому среднему выступу; нижний конец сужается вправо.",
+        "G06-O2: Отражённая タ может объяснить внешний обход и внутренний штрих; в v5 они слиты в широкую U-образную массу.",
+        "G06-O3: Пользователь предложил mirrored マ MA как tentative интерпретацию; эта гипотеза получает приоритет над прежней low-confidence タ, но не считается подтверждённой.",
+        "G06-O4: В candidate sheet references/kana-candidates-v1.png наклон нижней «лапки» ушёл вниз-влево; рабочая source-based коррекция — вниз-вправо. Это локальная правка окончания, не основание менять mirror_horizontal для всего знака."
+      ],
+      "alternatives": [
+        "タ U+30BF, mirror_horizontal: предыдущая low-confidence гипотеза; проверить внутренний штрих и внешний обход.",
+        "Неидентифицированная стилизованная форма: остаётся допустимой, если topology mirrored マ не совпадёт с повторными source instances."
+      ],
+      "next_action": "Исправить только наклон нижней «лапки» к нижнему правому углу по film source; сохранить остальную mirrored マ topology, не отражать весь glyph повторно. Текущая candidate sheet не принята; далее editable SVG.",
+      "reconstruction_prompt": "Reconstruct only G06 as a clean solid black silhouette on white, without glow, texture or fake holes. User-proposed candidate is horizontally mirrored katakana MA (マ, U+30DE), still tentative. Compare its upper horizontal bar, main turning/descending stroke and shorter crossing or lower stroke with the actual film source. Preserve the observed left wall, interior rising spur, open interior and tapered lower right terminal. Determine connectivity from the source; do not impose standard font outlines. Mirrored TA remains an alternative if the structure fails to match. Correct only the lower foot direction: the candidate sheet incorrectly sends it toward bottom left; the film-source interpretation requires a tapered terminal toward bottom right. Preserve the rest of the shape and do not horizontally reflect the entire glyph again. The current candidate sheet is not an accepted contour; prepare editable paths for manual tuning."
+    },
+    {
+      "id": "G07",
+      "candidate_character": "3",
+      "unicode": "U+0033",
+      "script": "Common / digit (hypothesis)",
+      "transform": "none",
+      "confidence": "low",
+      "evidence": [
+        "REF-G07: references/g07-source.png; 1.mov t=2.00s; source_box=[63, 778, 103, 837] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 7 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-HIRAGANA: https://www.unicode.org/charts/PDF/U3040.pdf; alternative structures compared."
+      ],
+      "observations": [
+        "G07-O1: Верхняя округлая дуга открыта влево; правая стенка переходит в левую среднюю вершину, затем в правую нижнюю и нижнюю полку влево.",
+        "G07-O2: По силуэту напоминает угловатую 3; нижняя часть может быть стилизованным числовым знаком."
+      ],
+      "alternatives": [
+        "2 U+0032, mirror_horizontal: нижняя диагональ и полка похожи, но ориентация верхней дуги объясняется хуже.",
+        "ろ U+308D, none: похожа центральная смена направления, нижняя чаша слишком угловата."
+      ],
+      "next_action": "P1: сравнить верхнюю дугу и нижний поворот с несколькими экземплярами; не объявлять 3 подтверждённой.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. A rounded upper bowl open to the left, an upper right descending edge, a left-pointing waist, then a lower right point and a bottom horizontal returning left. Preserve the angular lower bowl of the film. Do not silently substitute standard digit two or three."
+    },
+    {
+      "id": "G08",
+      "candidate_character": "*",
+      "unicode": "U+002A",
+      "script": "Common / punctuation",
+      "transform": "not_distinguishable",
+      "confidence": "confirmed_by_user",
+      "evidence": [
+        "USER-G08: точная цитата пользователя: «это звездочка, да, но надо её рисовать выше средней линии». Подтверждены asterisk и размещение выше середины; preview_offset_y=-0.13 высоты ячейки выбран предварительно для preview, не задан пользователем.",
+        "REF-G08: references/g08-source.png; 1.mov t=2.00s; source_box=[181, 320, 221, 376] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 8 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities."
+      ],
+      "observations": [
+        "G08-O1: Шесть лучей: верх/низ и две диагональные пары; центр сплошной.",
+        "G08-O2: Знак заметно ниже полноразмерных букв и цифр; короткий размер является частью формы.",
+        "G08-O3: По указанию пользователя маленькую шестилучевую звёздочку следует размещать выше средней линии ячейки, сохраняя её короткую естественную высоту."
+      ],
+      "alternatives": [
+        "✱ U+2731 HEAVY ASTERISK: подходящее описание начертания, но кодовая точка по изображению не устанавливается."
+      ],
+      "next_action": "Разместить маленькую шестилучевую звёздочку выше средней линии; provisional preview offset −0.13 высоты ячейки проверить визуально с фильмом. Не увеличивать знак до полной высоты.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Compact six-ray asterisk with vertical top and bottom rays and two diagonal pairs. Solid central hub, six free rounded ends, no central hole. Keep its naturally short height relative to full-height digits. Place the small asterisk above the cell midline, preserving its natural short height. A provisional upward preview offset of 0.13 cell height may be used for comparison; the user specified above-midline placement, not this exact numeric offset.",
+      "metrics": {
+        "vertical_anchor": "above_midline",
+        "preview_offset_y": -0.13
+      }
+    },
+    {
+      "id": "G09",
+      "candidate_character": "ム",
+      "unicode": "U+30E0",
+      "script": "Katakana",
+      "transform": "mirror_horizontal",
+      "confidence": "high",
+      "evidence": [
+        "REF-G09: references/g09-source.png; 1.mov t=2.00s; source_box=[181, 602, 221, 658] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 9 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G09-O1: Длинная наклонная правая сторона, нижняя горизонтальная полка и короткая левая восходящая часть; сверху слева форма открыта.",
+        "G09-O2: Отражение по горизонтали даёт характерный контур ム; 180-degree rotation не требуется."
+      ],
+      "alternatives": [
+        "Малый треугольный знак: менее специфичная альтернатива; здесь контур открыт, это не Δ."
+      ],
+      "next_action": "Сохранить реальный открытый верхний левый промежуток; сверить угол длинной стороны.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Horizontally mirrored katakana MU: long slanted right stroke connected to a bottom horizontal returning left and a short left rising stroke. Keep the upper left gap genuinely open; do not close it into a triangle."
+    },
+    {
+      "id": "G10",
+      "candidate_character": "ツ",
+      "unicode": "U+30C4",
+      "script": "Katakana",
+      "transform": "mirror_horizontal",
+      "confidence": "high",
+      "evidence": [
+        "REF-G10: references/g10-source.png; 1.mov t=2.00s; source_box=[219, 543, 259, 602] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 10 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G10-O1: Три раздельные части: длинная левая нисходящая дуга с концом вправо и два коротких правых вертикальных штриха.",
+        "G10-O2: Асимметрия соответствует отражённой ツ; горизонтальная ориентация акцентов シ объясняет форму хуже."
+      ],
+      "alternatives": [
+        "シ U+30B7, mirror_horizontal: проверить наклон коротких штрихов, но текущий порядок больше соответствует ツ.",
+        "ッ U+30C3, mirror_horizontal: small/full-size различить без типографической системы нельзя."
+      ],
+      "next_action": "Проверить три раздельные компоненты и естественный наклон акцентов; не сливать их свечением в чистом контуре.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Horizontally mirrored katakana TSU. Exactly three disconnected strokes: one long left descending stroke curling toward bottom right, and two short upright marks to its upper right. No bridges between the marks and the long stroke."
+    },
+    {
+      "id": "G11",
+      "candidate_character": "1",
+      "unicode": "U+0031",
+      "script": "Common / digit",
+      "transform": "not_determined",
+      "confidence": "high",
+      "evidence": [
+        "REF-G11: references/g11-source.png; 1.mov t=2.00s; source_box=[299, 427, 339, 486] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 11 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities."
+      ],
+      "observations": [
+        "G11-O1: Одна высокая вертикальная стойка с коротким верхним выступом влево; нижней широкой полки нет.",
+        "G11-O2: Структурно digit one; по форме нельзя окончательно исключить Latin small l."
+      ],
+      "alternatives": [
+        "l U+006C: близкий одностоечный силуэт; контекст не подтверждает букву."
+      ],
+      "next_action": "Сохранить маленький верхний выступ, не добавлять широкую нижнюю serif.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Tall digit ONE with a short upper left beak and a straight descending stem. Keep the bottom narrow and flat; do not add the broad bottom slab used by other glyphs."
+    },
+    {
+      "id": "G12",
+      "candidate_character": "セ",
+      "unicode": "U+30BB",
+      "script": "Katakana (user-proposed hypothesis)",
+      "transform": "mirror_horizontal",
+      "confidence": "medium",
+      "evidence": [
+        "USER-G12-HYPOTHESIS: точная цитата пользователя: «G12 будто бы `se` зеркальная». Рабочая интерпретация: horizontally mirrored katakana SE セ U+30BB; «будто бы» означает гипотезу, не подтверждение.",
+        "REF-G12: references/g12-source.png; 1.mov t=2.00s; source_box=[299, 895, 339, 954] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 12 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance.",
+        "REF-UNICODE-HIRAGANA: https://www.unicode.org/charts/PDF/U3040.pdf; alternative structures compared."
+      ],
+      "observations": [
+        "G12-O1: Верхняя перекладина с выступом вверх ближе к правой стороне; длинная правая стойка; короткий левый нисходящий крюк; широкая нижняя полка.",
+        "G12-O2: Верхний узел сплошной, белый блик не является отверстием.",
+        "G12-O3: Похожа на G17, но отличаются верхний выступ и двусторонняя нижняя полка; не объединять без проверки.",
+        "G12-O4: Пользователь предложил mirrored セ; сравнивать crossing stroke, длинный правый нисходящий штрих и короткую открытую левую ветвь, сохраняя наблюдаемую topology. Верхний узел остаётся сплошным, середина слева открыта."
+      ],
+      "alternatives": [
+        "ウ U+30A6, none: верхний акцент, левый короткий штрих и правая длинная ветвь похожи; соединённый верхний акцент и нижняя полка нетипичны.",
+        "ヤ U+30E4, mirror_horizontal: правая длинная стойка и левый крюк похожи; ориентация верхней полки требует проверки.",
+        "す U+3059, none: длинная стойка и верхняя перекладина похожи, но требуется закрытая петля, которой источник уверенно не показывает."
+      ],
+      "next_action": "P1: сравнить source с горизонтально отражённой セ: верхний crossing stroke, правая длинная стойка, открытая левая ветвь и нижняя полка. Сохранить сплошной верхний узел; не подменять контур стандартным font glyph и не объединять с G17.",
+      "reconstruction_prompt": "Reconstruct only G12 as a clean solid black silhouette on white, without glow, texture or fake highlight holes. User-proposed candidate is horizontally mirrored katakana SE (セ, U+30BB), tentative rather than confirmed. Compare the mirrored SE topology with the actual film source: upper crossing stroke and projection, long right descending stem, short attached left downward branch and lower foot. Preserve the open left middle and solid upper junction; bright highlights are not holes. Keep film-specific proportions and connectivity instead of blindly replacing the contour with a standard font glyph. Do not merge it with G17 or add a closed loop."
+    },
+    {
+      "id": "G13",
+      "candidate_character": "7",
+      "unicode": "U+0037",
+      "script": "Common / digit",
+      "transform": "none",
+      "confidence": "high",
+      "evidence": [
+        "REF-G13: references/g13-source.png; 1.mov t=2.00s; source_box=[339, 720, 379, 779] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 13 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities."
+      ],
+      "observations": [
+        "G13-O1: Длинная верхняя горизонталь и один наклонный нисходящий штрих к нижнему левому краю.",
+        "G13-O2: Отдельной средней перекладины нет; 180-degree rotation не нужен."
+      ],
+      "alternatives": [
+        "フ U+30D5, none: возможная стилизация, но почти прямой числовой наклон и контекст поддерживают 7."
+      ],
+      "next_action": "Сохранить простую двухчастную геометрию, не добавлять среднюю перекладину.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Digit SEVEN with a long straight top bar turning into one descending diagonal toward bottom left. No middle crossbar and no extra curved bowl."
+    },
+    {
+      "id": "G14",
+      "candidate_character": "≠",
+      "unicode": "U+2260",
+      "script": "Common / mathematical symbol (user-proposed hypothesis)",
+      "transform": "stylized_cross_stroke_orientation_unresolved",
+      "confidence": "medium",
+      "evidence": [
+        "USER-G14-HYPOTHESIS: точная цитата пользователя: «G14 это вероятно != то есть перечеркнутый пробел». Интерпретация: вероятно NOT EQUAL TO ≠, записанный как !=; слово «пробел» сохранено, его смысл не уточнён. Это предложенная пользователем гипотеза, не окончательное подтверждение.",
+        "REF-G14: references/g14-source.png; 1.mov t=2.00s; source_box=[417, 662, 457, 721] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 14 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G14-O1: Две горизонтальные перекладины пересечены одним почти вертикальным штрихом, выступающим сверху и снизу; пересечения сплошные.",
+        "G14-O2: Пользовательская гипотеза ≠ согласуется с двумя полками и crossing stroke, но почти вертикальная ориентация отличается от обычной диагонали ≠; считать это стилизацией, не доказанным поворотом.",
+        "G14-O3: Буквальное разделение на два знака ! и = источником не подтверждается; observed silhouette является одной связной формой."
+      ],
+      "alternatives": [
+        "キ U+30AD, none or mirror_horizontal: две перекладины и длинная стойка; в стандартном знаке стойка чаще наклонена.",
+        "‡ U+2021 DOUBLE DAGGER, none: геометрически близко; значение не определяется по форме."
+      ],
+      "next_action": "P1: сравнить гипотезу стилизованного ≠ с фильмом: две горизонтальные полки и пересекающий их почти вертикальный штрих; уточнить наклон, сохраняя сплошные пересечения. Не превращать в буквальную пару ! и =.",
+      "reconstruction_prompt": "Reconstruct only G14 as a clean solid black silhouette on white, without glow, texture or fake highlight holes. User-proposed candidate: stylized NOT EQUAL TO (≠), written textually as !=. Match the actual film form: two separate horizontal bars crossed by one near-vertical stroke extending above and below; all intersections solid. Preserve the source inclination and proportions. Do not impose the standard diagonal slash, assert a rotation, split it into literal exclamation-plus-equals characters, or alter other glyphs."
+    },
+    {
+      "id": "G15",
+      "candidate_character": "ハ",
+      "unicode": "U+30CF",
+      "script": "Katakana",
+      "transform": "mirror_horizontal",
+      "confidence": "high",
+      "evidence": [
+        "USER-G15-ORIENTATION: точная цитата пользователя: «G04 имеет \"сломанную\" перекладину. G06 наклон \"лапки\" не туда. И кстати G15 на самом деле mirrored. Я бы потом руками вектор потюнил.» Для G15 horizontal reflection подтверждено пользователем. Это подтверждение orientation, а не отдельное явное подтверждение identity ハ; identity confidence остаётся high.",
+        "REF-G15: references/g15-source.png; 1.mov t=2.00s; source_box=[457, 836, 497, 895] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 15 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G15-O1: Два раздельных длинных штриха расходятся книзу; общей вершины нет.",
+        "G15-O2: Соответствует ハ; пользователь отдельно подтвердил horizontal reflection, поэтому transform — mirror_horizontal. Подтверждение orientation не повышает identity confidence до confirmed_by_user."
+      ],
+      "alternatives": [
+        "八 U+516B: тот же базовый графический мотив, по изолированному силуэту исключить нельзя."
+      ],
+      "next_action": "Сохранить подтверждённое пользователем horizontal reflection ハ: две отдельные расходящиеся части и верхний просвет. Для editable SVG сохранить асимметрию штрихов, не симметризовать.",
+      "reconstruction_prompt": "Reconstruct only G15 as a clean solid black silhouette on white, without glow, texture or fake holes. Horizontally mirrored katakana HA (ハ) is the working identity; horizontal reflection was explicitly confirmed by the user, while identity confidence remains high. Keep exactly two separate long outward-curving strokes, close but disconnected at the top, spreading at the bottom. Preserve the mirrored asymmetry of lengths, curvature and thickness; do not connect their apex or equalize the strokes. Prepare editable vector contour paths for later manual tuning."
+    },
+    {
+      "id": "G16",
+      "candidate_character": "エ",
+      "unicode": "U+30A8",
+      "script": "Katakana (hypothesis)",
+      "transform": "not_distinguishable",
+      "confidence": "medium",
+      "evidence": [
+        "REF-G16: references/g16-source.png; 1.mov t=2.00s; source_box=[694, 374, 734, 432] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 16 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G16-O1: Две широкие горизонтальные полки соединены одной центральной вертикалью.",
+        "G16-O2: Симметрия не позволяет установить reflection; Latin capital I имеет тот же силуэт."
+      ],
+      "alternatives": [
+        "I U+0049 LATIN CAPITAL LETTER I: равноценная визуальная альтернатива.",
+        "工 U+5DE5: структурно тот же мотив; происхождение не доказано."
+      ],
+      "next_action": "Сохранить I-shaped контур; кодовую точку не считать подтверждённой без репертуарного свидетельства.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. I-shaped film glyph: wide upper and lower horizontal slabs joined by a single central vertical stem, with smooth concave corners. Preserve the source width and height. Katakana E is tentative; the same silhouette can represent Latin I."
+    },
+    {
+      "id": "G17",
+      "candidate_character": "セ",
+      "unicode": "U+30BB",
+      "script": "Katakana (user-proposed hypothesis)",
+      "transform": "mirror_horizontal",
+      "confidence": "medium",
+      "evidence": [
+        "USER-G17-HYPOTHESIS: точная цитата пользователя: «G17 тоже похоже на `se`». Пользователь предложил SE, не подтвердив identity или reflection. В контексте mirrored セ для G12 рабочая интерпретация G17 — mirrored セ U+30BB, confidence medium; ориентация остаётся сравнительной гипотезой.",
+        "REF-G17-CLEAR: references/g17-clear.jpg; direct user film crop, strongest source for topology.",
+        "REF-G17: references/g17-source.png; 1.mov t=2.00s; source_box=[694, 490, 734, 548] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 17 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance.",
+        "REF-UNICODE-HIRAGANA: https://www.unicode.org/charts/PDF/U3040.pdf; alternative structures compared."
+      ],
+      "observations": [
+        "G17-O1: По отдельному чёткому фото: одна связная форма, правая вертикаль с коротким выступом вверх; верхняя перекладина уходит влево и загибается вниз свободным крюком; нижняя ножка уходит влево.",
+        "G17-O2: Середина слева открыта. Нельзя отделять крюк или замыкать его в петлю.",
+        "G17-O3: Рабочая гипотеза по уточнению пользователя — セ; horizontal reflection рассматривается по сравнению с G12, а не как явно подтверждённая пользователем ориентация.",
+        "G17-O4: G12 и G17 могут быть вариантами одного character セ, но сохраняют отдельные ID и film contours; объединять их до сравнения источников нельзя."
+      ],
+      "alternatives": [
+        "ヤ U+30E4, mirror_horizontal: предыдущая medium-confidence структурная гипотеза; сохранена как альтернатива после предложения пользователя セ.",
+        "ウ U+30A6, none: схожий короткий левый крюк и длинная правая ветвь, но типичный отдельный верхний акцент здесь не виден.",
+        "す U+3059, none: хуже объясняет отсутствие замкнутой петли."
+      ],
+      "next_action": "P0: по g17-clear.jpg сравнить гипотезу mirrored セ с G12, сохраняя отдельные ID. Правая стойка с коротким верхним выступом, связный левый открытый крюк и нижняя ножка влево обязательны; identity и reflection остаются гипотезами.",
+      "reconstruction_prompt": "Reconstruct only G17 as a clean solid black silhouette on white, without glow, texture or fake holes. User proposed SE (セ, U+30BB); horizontally mirrored SE is a working comparison hypothesis based on G12, not explicitly confirmed orientation. Use g17-clear.jpg as the contour authority. One connected shape: tall right vertical with a short upper projection, attached upper crossbar extending left and curling down into a free hook, and a bottom foot extending left. The entire left middle remains open. No detached hook, closed loop or extra foot to the right. Compare mirrored SE topology without imposing standard font outlines. Keep G17 distinct from G12 even if both represent SE; mirrored YA remains an alternative."
+    },
+    {
+      "id": "G18",
+      "candidate_character": "9",
+      "unicode": "U+0039",
+      "script": "Common / digit (hypothesis)",
+      "transform": "mirror_horizontal",
+      "confidence": "low",
+      "evidence": [
+        "REF-G18: references/g18-source.png; 1.mov t=2.00s; source_box=[814, 779, 854, 838] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 18 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities."
+      ],
+      "observations": [
+        "G18-O1: Одна верхняя замкнутая петля справа от левой стойки; левая стойка продолжается вниз и загибается вправо.",
+        "G18-O2: Такой контур совместим с отражённой 9, но также напоминает lowercase e."
+      ],
+      "alternatives": [
+        "e U+0065, none: сходный верхний counter и нижний свободный конец; семантика не устанавливается по силуэту."
+      ],
+      "next_action": "P1: сравнить с другими цифрами и проверить отношение замкнутого верха к нижнему свободному хвосту; не превращать в сплошной P.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. A closed rounded upper loop to the right of a long left stem, with that stem continuing below the loop and curving toward bottom right into a free tail. Keep one genuine upper counter and an open lower right. Tentative mirrored digit NINE; do not normalize to Latin e or P."
+    },
+    {
+      "id": "G19",
+      "candidate_character": "ミ",
+      "unicode": "U+30DF",
+      "script": "Katakana",
+      "transform": "mirror_horizontal",
+      "confidence": "high",
+      "evidence": [
+        "REF-G19: references/g19-source.png; 1.mov t=2.00s; source_box=[1198, 366, 1238, 425] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 19 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G19-O1: Три отдельные параллельные наклонные полки поднимаются вправо.",
+        "G19-O2: Это соответствует горизонтально отражённой ミ; вариант 三 имеет горизонтальные, а не такие наклонные полки."
+      ],
+      "alternatives": [
+        "三 U+4E09, none: похожее число штрихов, но хуже объясняется общий наклон."
+      ],
+      "next_action": "Сохранить три раздельных штриха, общий наклон и разницу длин; не выпрямлять до знака 三.",
+      "reconstruction_prompt": "Reconstruct only this glyph as a clean solid black silhouette on white, without glow, texture or fake highlight holes. Horizontally mirrored katakana MI: exactly three separate broad strokes, each rising gently toward the right. Preserve their individual lengths and vertical spacing; do not merge them or make them horizontal."
+    },
+    {
+      "id": "G20",
+      "candidate_character": "ス",
+      "unicode": "U+30B9",
+      "script": "Katakana (user-proposed hypothesis)",
+      "transform": "mirror_horizontal",
+      "confidence": "medium",
+      "evidence": [
+        "USER-G20-HYPOTHESIS: пользователь спросил «это отзеркаленная su ?» и приложил стандартное изображение ス SU; вопрос является гипотезой, не окончательным подтверждением.",
+        "REF-G20-SU: references/g20-su.png; пользовательский образец стандартной ス. Исходное вложение: /var/folders/n1/5qrr5k4142l48nzsh8x44t9r0000gn/T/TemporaryItems/NSIRD_screencaptureui_x0Sib8/Screenshot 2026-10-10 at 12.07.38 AM.png. Образец поддерживает сравнение character structure, не является film-source контуром.",
+        "REF-G20: references/g20-source.png; 1.mov t=2.00s; source_box=[1316, 486, 1356, 545] (x0,y0,x1,y1).",
+        "REF-V5: references/restored-v5.png; row-major 20 of 20; reconstruction is secondary evidence.",
+        "REF-CORRECTED: references/extraction-corrected.png; left column is source; masks are estimates, not glyph identities.",
+        "REF-UNICODE-KATAKANA: https://www.unicode.org/charts/PDF/U30A0.pdf; structural reference, not film font provenance."
+      ],
+      "observations": [
+        "G20-O1: Одна верхняя горизонтальная полка, центральная нисходящая стойка, две нижние расходящиеся ветви; верхнего выступа над полкой нет.",
+        "G20-O2: Симметризация v5 могла стереть асимметрию киношного исходника; направление reflection пока не устанавливается.",
+        "G20-O3: Рабочая пользовательская гипотеза — горизонтально отражённая ス SU; сравнивать наклон длинного нисходящего штриха и короткую нижнюю ветвь. Симметрия v5 может быть ошибкой реконструкции, а не свойством знака."
+      ],
+      "alternatives": [
+        "ス U+30B9, none or mirror_horizontal: верхняя полка и две нижние ветви похожи, но центрированная стойка слишком симметрична.",
+        "大 U+5927, stylized: похожи две ноги, но отсутствует характерный верхний выступ.",
+        "T U+0054, stylized: похожа верхняя часть, раздвоенный низ нетипичен."
+      ],
+      "next_action": "P1: сопоставить источник с горизонтально отражённой ス из пользовательского образца: проверить наклон длинного штриха, расположение нижней ветви и асимметрию. Не сохранять симметрию v5 автоматически.",
+      "reconstruction_prompt": "Reconstruct only G20 as a clean solid black silhouette on white, without glow, texture or fake holes. User-proposed candidate is horizontally mirrored katakana SU (ス), not yet confirmed. Compare the actual film source with the mirrored standard SU reference: preserve the inclined long descending stroke and its shorter lower branch, their unequal lengths and source asymmetry. Keep the top bar and do not add an upper projection. Do not automatically center the stem or equalize the lower branches as in the overly symmetric v5."
+    },
+    {
+      "id": "G21",
+      "candidate_character": "8",
+      "unicode": "U+0038",
+      "script": "Common / digit",
+      "transform": "not_determined",
+      "confidence": "high",
+      "evidence": [
+        "REF-G21: references/g21-source.png; primary film-reference-1.jpg, suggested source_box=[1050, 21, 1094, 85] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M01: promoted from provisional M01; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared."
+      ],
+      "observations": [
+        "G21-O1: Два замкнутых counter расположены вертикально; верхняя петля немного уже нижней, внешняя рамка непрерывна.",
+        "G21-O2: Повтор: film-reference-1.jpg около (266,119); film-reference-2.jpg около (815,295). Различать rounded 8 и отдельную rectangular 8/B-like форму M10."
+      ],
+      "alternatives": [
+        "B U+0042: менее вероятно, поскольку слева нет явно прямой независимой стойки.",
+        "M10 rectangular 8/B-like: может быть вариантом, не объединять автоматически."
+      ],
+      "next_action": "Проверить две настоящие внутренние полости и непрерывную внешнюю рамку; ручной SVG оставить предварительным до сравнения source.",
+      "reconstruction_prompt": "Prepare a provisional editable native SVG contour, not an embedded bitmap, from the film source. Clean solid black silhouette without glow or fake highlight holes. A full-height rounded digit EIGHT, one connected outer silhouette and exactly two vertically stacked genuine counters. Preserve a slightly smaller upper bowl and larger lower bowl; no slash. Do not substitute the separate rectangular 8/B-like film form. Preserve editable independent paths and counters for later manual tuning. This is a manual reconstruction hypothesis, not a verified original font outline."
+    },
+    {
+      "id": "G22",
+      "candidate_character": "4",
+      "unicode": "U+0034",
+      "script": "Common / digit",
+      "transform": "none",
+      "confidence": "confirmed_by_user",
+      "evidence": [
+        "REF-G22: references/g22-source.png; primary film-reference-2.jpg, suggested source_box=[720, 9, 768, 65] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M02: promoted from provisional M02; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared.",
+        "USER-G22-2026-10-10: «g22 это простая 4. Нижняя черта от соседнего глифа». Identity and exclusion of the wide bottom bar confirmed by user."
+      ],
+      "observations": [
+        "G22-O1: Длинная правая стойка, левая наклонная сторона верхней части, средняя перекладина; нижняя часть продолжается вправо расположенной стойкой.",
+        "G22-O2: Повторы: film-reference-2.jpg около (1167,300); film-reference-3.jpg около (480,45). Образец не требует произвольного общего правила reflection.",
+        "G22-O3: Нижняя широкая горизонтальная черта в исходном crop принадлежит соседнему глифу. У 4 ниже средней перекладины остаётся только правая вертикальная стойка, без нижней полки."
+      ],
+      "alternatives": [
+        "Числовой стилизованный знак с closed/open top variants: степень закрытости верхнего counter уточнить по source, не изобретать отдельный gap."
+      ],
+      "next_action": "Обычная 4: сохранить диагональ, среднюю перекладину и правую стойку. Нижняя широкая черта в source принадлежит соседнему глифу; в контур её не включать.",
+      "reconstruction_prompt": "Editable plain digit FOUR: sloping upper left stroke, middle crossbar, long right vertical stem and triangular upper counter. Below the crossbar only the right stem continues. No wide horizontal bottom bar or baseline serif: the line in the source crop belongs to the neighbouring glyph, as confirmed by the user. Preserve source orientation and do not reflect the digit."
+    },
+    {
+      "id": "G23",
+      "candidate_character": ":",
+      "unicode": "U+003A",
+      "script": "Common / punctuation",
+      "transform": "not_determined",
+      "confidence": "high",
+      "evidence": [
+        "REF-G23: references/g23-source.png; primary film-reference-1.jpg, suggested source_box=[675, 91, 706, 151] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M03: promoted from provisional M03; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared."
+      ],
+      "observations": [
+        "G23-O1: Две отдельные компактные квадратные точки расположены вертикально; соединяющего штриха нет.",
+        "G23-O2: Дополнительный повтор: film-reference-2.jpg около (885,32), где видны две короткие точки, а не длинные полки equals.",
+        "G23-O3: Оба counter отсутствуют: точки сплошные; знак сохраняет малую ширину."
+      ],
+      "alternatives": [
+        "Две независимые точки из соседних строк: повторяемая компактная пара поддерживает colon, но точные cell metrics ещё нужно сверить."
+      ],
+      "next_action": "Сохранить две раздельные квадратные точки и их вертикальный интервал, узкую ширину; не растягивать каждый квадрат до полки.",
+      "reconstruction_prompt": "Prepare a provisional editable native SVG contour, not an embedded bitmap, from the film source. Clean solid black silhouette without glow or fake highlight holes. A colon composed of exactly two disconnected solid small square-like dots, vertically aligned with a clear gap. No outlines, no interior holes and no joining stem. Keep the narrow width and source spacing rather than stretching to a full-width glyph. Preserve editable independent paths and counters for later manual tuning. This is a manual reconstruction hypothesis, not a verified original font outline."
+    },
+    {
+      "id": "G24",
+      "candidate_character": null,
+      "unicode": null,
+      "script": "Common / Katakana unresolved",
+      "transform": "not_determined",
+      "confidence": "medium",
+      "evidence": [
+        "REF-G24: references/g24-source.png; primary film-reference-2.jpg, suggested source_box=[90, 87, 133, 128] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M04: promoted from provisional M04; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared."
+      ],
+      "observations": [
+        "G24-O1: Две отдельные параллельные полки с лёгким подъёмом вправо; без третьей полки и без соединяющей стойки.",
+        "G24-O2: Прежний ориентир M04 film-reference-1.jpg около (517,201) оказался ненадёжным: там одиночная полка; primary source перенесён на film-reference-2.jpg.",
+        "G24-O3: Идентичность equals против ニ по одному силуэту не устанавливается; Unicode не назначен."
+      ],
+      "alternatives": [
+        "= U+003D EQUALS SIGN: две полки.",
+        "ニ U+30CB KATAKANA NI: две полки; длина и наклон могут поддерживать kana, но не доказывают identity."
+      ],
+      "next_action": "Нарисовать две отдельные слегка наклонённые полки по source; candidate_character и Unicode оставить null до проверки equals/ニ.",
+      "reconstruction_prompt": "Prepare a provisional editable native SVG contour, not an embedded bitmap, from the film source. Clean solid black silhouette without glow or fake highlight holes. An unidentified two-bar film glyph: exactly two separate broad parallel horizontal-ish strokes, each rising slightly toward the right. Preserve their source lengths and spacing. No third bar, connecting vertical or outline. Do not assign equals or katakana NI through font replacement; character mapping stays unresolved. Preserve editable independent paths and counters for later manual tuning. This is a manual reconstruction hypothesis, not a verified original font outline."
+    },
+    {
+      "id": "G25",
+      "candidate_character": null,
+      "unicode": null,
+      "script": "Common / Katakana unresolved",
+      "transform": "not_determined",
+      "confidence": "medium",
+      "evidence": [
+        "REF-G25: references/g25-source.png; primary film-reference-1.jpg, suggested source_box=[497, 151, 539, 176] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M05: promoted from provisional M05; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared."
+      ],
+      "observations": [
+        "G25-O1: Одна короткая широкая горизонтальная полка, без дополнительной точки, второй полки или диагонали.",
+        "G25-O2: Повтор одиночной полки виден в film-reference-2.jpg около (780,456); прежняя соседняя строка film-reference-1.jpg около (517,201) также содержит одиночную полку.",
+        "G25-O3: Minus/hyphen/prolonged sound mark по киношному контуру не разделяются; Unicode не назначен."
+      ],
+      "alternatives": [
+        "− U+2212 MINUS SIGN.",
+        "- U+002D HYPHEN-MINUS.",
+        "ー U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK."
+      ],
+      "next_action": "Сохранить единственную короткую полку с малой высотой и source width; Unicode оставить null, baseline не назначать по одной вырезке.",
+      "reconstruction_prompt": "Prepare a provisional editable native SVG contour, not an embedded bitmap, from the film source. Clean solid black silhouette without glow or fake highlight holes. A single solid short horizontal bar with mildly softened terminals and small stroke height. No vertical stem, second bar or diagonal. Keep a compact bar near the optical middle of its provisional cell, without full-height stretching. Minus, hyphen and prolonged sound mark identity remain unresolved. Preserve editable independent paths and counters for later manual tuning. This is a manual reconstruction hypothesis, not a verified original font outline."
+    },
+    {
+      "id": "G26",
+      "candidate_character": "<",
+      "unicode": "U+003C",
+      "script": "Common / mathematical symbol",
+      "transform": "not_determined",
+      "confidence": "high",
+      "evidence": [
+        "REF-G26: references/g26-source.png; primary film-reference-1.jpg, suggested source_box=[287, 26, 326, 81] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M06: promoted from provisional M06; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared."
+      ],
+      "observations": [
+        "G26-O1: Две диагональные ветви сходятся в левую вершину; справа открытый промежуток, нижней горизонтальной полки нет.",
+        "G26-O2: Повтор: film-reference-2.jpg около (638,296), также несколько левонаправленных углов в film-reference-1.jpg.",
+        "G26-O3: Направление влево наблюдается непосредственно; происхождение через reflection другого знака не доказывается."
+      ],
+      "alternatives": [
+        "‹ U+2039 SINGLE LEFT-POINTING ANGLE QUOTATION MARK: близкий силуэт, но текущая рабочая identity — less-than."
+      ],
+      "next_action": "Сохранить открытый справа угол и слитную левую вершину; отдельный G26 не подменять G27 или треугольной G09.",
+      "reconstruction_prompt": "Prepare a provisional editable native SVG contour, not an embedded bitmap, from the film source. Clean solid black silhouette without glow or fake highlight holes. A left-pointing less-than shape with two diagonal branches meeting at one solid left vertex and opening to the right. Keep two free right ends and no baseline or closed triangle. Preserve source angle and slight branch asymmetry. Preserve editable independent paths and counters for later manual tuning. This is a manual reconstruction hypothesis, not a verified original font outline."
+    },
+    {
+      "id": "G27",
+      "candidate_character": ">",
+      "unicode": "U+003E",
+      "script": "Common / mathematical symbol",
+      "transform": "not_determined",
+      "confidence": "high",
+      "evidence": [
+        "REF-G27: references/g27-source.png; primary film-reference-2.jpg, suggested source_box=[972, 225, 1011, 269] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M07: promoted from provisional M07; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared."
+      ],
+      "observations": [
+        "G27-O1: Две диагональные ветви сходятся в правую вершину; слева открыто.",
+        "G27-O2: Повтор: film-reference-1.jpg около (1075,562). Более широкое окно primary crop захватывает соседние строки сверху и снизу, использовать небольшой crop.",
+        "G27-O3: Правое направление наблюдается непосредственно; не считать автоматически точной зеркальной копией G26: пропорции сравнить отдельно."
+      ],
+      "alternatives": [
+        "› U+203A SINGLE RIGHT-POINTING ANGLE QUOTATION MARK: близкий силуэт, рабочая identity — greater-than."
+      ],
+      "next_action": "Сохранить правую вершину и source asymmetry; не получать принятый контур автоматическим отражением G26 без визуальной проверки.",
+      "reconstruction_prompt": "Prepare a provisional editable native SVG contour, not an embedded bitmap, from the film source. Clean solid black silhouette without glow or fake highlight holes. A right-pointing greater-than shape with two diagonal branches meeting at one solid right vertex and opening to the left. Two free left ends, no closed counter and no horizontal baseline. Trace source asymmetry rather than blindly mirroring the reconstructed G26. Preserve editable independent paths and counters for later manual tuning. This is a manual reconstruction hypothesis, not a verified original font outline."
+    },
+    {
+      "id": "G28",
+      "candidate_character": "+",
+      "unicode": "U+002B",
+      "script": "Common / mathematical symbol",
+      "transform": "not_determined",
+      "confidence": "high",
+      "evidence": [
+        "REF-G28: references/g28-source.png; primary film-reference-2.jpg, suggested source_box=[936, 439, 972, 478] (x0,y0,x1,y1), photograph size1280×589; exact crop provenance is maintained by integration.",
+        "QUEUE-M08: promoted from provisional M08; first batch of manual native SVG reconstruction, not accepted exact film contours.",
+        "REF-FILM: references/film-reference-1.jpg, references/film-reference-2.jpg, references/film-reference-3.jpg; additional repetitions visually compared."
+      ],
+      "observations": [
+        "G28-O1: Один короткий вертикальный штрих пересекается с одной горизонтальной перекладиной; центральный узел сплошной, четыре свободных конца.",
+        "G28-O2: Прежний M08 ориентир film-reference-2.jpg около (990,496) оказался пустым; надёжный плюс расположен около (954,458).",
+        "G28-O3: Знак компактный, заметно ниже полноразмерных цифр; это не шестилучевая G08 и не двухполочная G14."
+      ],
+      "alternatives": [
+        "十 U+5341: тот же базовый крест, по изолированному силуэту исключить нельзя."
+      ],
+      "next_action": "Сохранить компактный четырёхконечный крест с solid center; не растягивать до полной высоты и не добавлять вторую полку или лучи.",
+      "reconstruction_prompt": "Prepare a provisional editable native SVG contour, not an embedded bitmap, from the film source. Clean solid black silhouette without glow or fake highlight holes. A compact solid PLUS sign: one short vertical stroke crossing one horizontal bar, exactly four free ends and a filled center. Keep its naturally small height relative to digits, source proportions and softened corners. No diagonal rays, second horizontal bar or center hole. Preserve editable independent paths and counters for later manual tuning. This is a manual reconstruction hypothesis, not a verified original font outline."
+    }
+  ]
+}

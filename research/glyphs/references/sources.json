@@ -1,0 +1,114 @@
+{
+  "restored-v5.png": {
+    "original_path": "artifacts/film-glyphs/gpt-restored-v5.png",
+    "role": "generated_reconstruction"
+  },
+  "extraction-corrected.png": {
+    "original_path": "artifacts/film-glyphs-green-channel/comparison.png",
+    "role": "processed_evidence"
+  },
+  "provenance.json": {
+    "original_path": "artifacts/film-glyphs/manifest.json",
+    "role": "reference"
+  },
+  "g17-clear.jpg": {
+    "original_path": "/tmp/codex-remote-attachments/01a121d9-410c-7351-a666-da5fbd826611/A3D91490-3A8C-4F82-BE47-0F9C7DC7CB03/1-Photo-1.jpg",
+    "role": "reference"
+  },
+  "hypothetical-table.jpg": {
+    "original_path": "/tmp/codex-remote-attachments/01a121d9-410c-7351-a666-da5fbd826611/A974AC8B-6075-4D72-9247-47DE8ACD91E2/1-Photo-1.jpg",
+    "role": "hypothesis_only"
+  },
+  "film-reference-1.jpg": {
+    "original_path": "/tmp/codex-remote-attachments/01a121d9-410c-7351-a666-da5fbd826611/8AD1B512-86B7-4F9C-8143-8C752DECA026/1-Photo-1.jpg",
+    "role": "reference"
+  },
+  "film-reference-2.jpg": {
+    "original_path": "/tmp/codex-remote-attachments/01a121d9-410c-7351-a666-da5fbd826611/8AD1B512-86B7-4F9C-8143-8C752DECA026/2-Photo-2.jpg",
+    "role": "reference"
+  },
+  "film-reference-3.jpg": {
+    "original_path": "/tmp/codex-remote-attachments/01a121d9-410c-7351-a666-da5fbd826611/8AD1B512-86B7-4F9C-8143-8C752DECA026/3-Photo-3.jpg",
+    "role": "reference"
+  },
+  "g01-source.png": {
+    "original_path": "artifacts/film-glyphs/g01-source.png",
+    "role": "reference"
+  },
+  "g02-source.png": {
+    "original_path": "artifacts/film-glyphs/g02-source.png",
+    "role": "reference"
+  },
+  "g03-source.png": {
+    "original_path": "artifacts/film-glyphs/g03-source.png",
+    "role": "reference"
+  },
+  "g04-source.png": {
+    "original_path": "artifacts/film-glyphs/g04-source.png",
+    "role": "reference"
+  },
+  "g05-source.png": {
+    "original_path": "artifacts/film-glyphs/g05-source.png",
+    "role": "reference"
+  },
+  "g06-source.png": {
+    "original_path": "artifacts/film-glyphs/g06-source.png",
+    "role": "reference"
+  },
+  "g07-source.png": {
+    "original_path": "artifacts/film-glyphs/g07-source.png",
+    "role": "reference"
+  },
+  "g08-source.png": {
+    "original_path": "artifacts/film-glyphs/g08-source.png",
+    "role": "reference"
+  },
+  "g09-source.png": {
+    "original_path": "artifacts/film-glyphs/g09-source.png",
+    "role": "reference"
+  },
+  "g10-source.png": {
+    "original_path": "artifacts/film-glyphs/g10-source.png",
+    "role": "reference"
+  },
+  "g11-source.png": {
+    "original_path": "artifacts/film-glyphs/g11-source.png",
+    "role": "reference"
+  },
+  "g12-source.png": {
+    "original_path": "artifacts/film-glyphs/g12-source.png",
+    "role": "reference"
+  },
+  "g13-source.png": {
+    "original_path": "artifacts/film-glyphs/g13-source.png",
+    "role": "reference"
+  },
+  "g14-source.png": {
+    "original_path": "artifacts/film-glyphs/g14-source.png",
+    "role": "reference"
+  },
+  "g15-source.png": {
+    "original_path": "artifacts/film-glyphs/g15-source.png",
+    "role": "reference"
+  },
+  "g16-source.png": {
+    "original_path": "artifacts/film-glyphs/g16-source.png",
+    "role": "reference"
+  },
+  "g17-source.png": {
+    "original_path": "artifacts/film-glyphs/g17-source.png",
+    "role": "reference"
+  },
+  "g18-source.png": {
+    "original_path": "artifacts/film-glyphs/g18-source.png",
+    "role": "reference"
+  },
+  "g19-source.png": {
+    "original_path": "artifacts/film-glyphs/g19-source.png",
+    "role": "reference"
+  },
+  "g20-source.png": {
+    "original_path": "artifacts/film-glyphs/g20-source.png",
+    "role": "reference"
+  }
+}

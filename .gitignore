@@ -1,0 +1,9 @@
+.build/
+dist/
+.DS_Store
+artifacts/
+.venv/
+research/glyphs/build/
+.build/
+__pycache__/
+*.pyc

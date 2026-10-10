@@ -1,0 +1,9 @@
+# Glyph pipeline dependencies (exact versions are also recorded in research/glyphs/inputs.lock.json
+# and each build's manifest.json; a mismatch is reported in build/report.md).
+# Install:  uv venv --python 3.13 .venv && uv pip install --python .venv/bin/python -r scripts/glyphs/requirements.txt
+# External tool: potrace 1.16 (brew install potrace).
+-e ../fonttools   # local checkout, 4.66.2.dev0; PyPI fonttools>=4.66 also works
+numpy==2.5.3
+pillow==12.3.0
+scipy==1.18.1
+skia-pathops==0.9.2
