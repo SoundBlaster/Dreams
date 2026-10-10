@@ -498,7 +498,11 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     func setupMenu() {
         controller.emergencyHotkeyRegistered = emergencyHotkey.install(controller: controller)
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        item.button?.title = "◒"
+        if let icon = StatusIcon.image() {
+            item.button?.image = icon
+        } else {
+            item.button?.title = "◒"
+        }
         item.button?.setAccessibilityLabel("Dreams")
         let menu = NSMenu()
         if showsControls {
