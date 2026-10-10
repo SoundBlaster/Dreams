@@ -21,6 +21,10 @@ dist/Dreams.app/Contents/MacOS/Dreams --lab
 
 `Ctrl+Option+Command+D` is registered as a global hotkey and a menu shortcut that stops the animation. Registration is verified; a call through a synthetic CUA keyboard was not confirmed. MCP stop and auto-stop are verified separately. A physical key press still needs checking for everyday use.
 
+## Make targets
+
+`make help` lists the shortcuts: `make app`, `make run`, `make test`, `make glyphs`, `make release`, `make release-local`, `make checksum`, `make github-release`, `make install-hooks`, `make clean`. The release targets are described under [Release](#release).
+
 ## Default look
 
 The defaults live in `DreamsPreset` (`Sources/Dreams/DreamsController.swift`) and apply until the user changes a setting: density 0%, fade width 3 glyphs, speed 0.43×, brightness spread 51%, glow 57% (0% on a transparent background), calm background 77%, word colour (0, 255, 100) at 200% brightness, restored film glyphs on. To see the default look on this Mac, erase the saved values: `defaults delete ru.egormerkushev.dreams`.
@@ -188,7 +192,7 @@ To add a language, copy `en.lproj` to `<code>.lproj`, translate the values, add 
 
 ## Release
 
-`scripts/release.sh` builds a universal (arm64 + x86_64) `Dreams.app`, signs it with Developer ID (`P8T2366K8X`) and the hardened runtime, notarizes and staples it, then makes `dist/release/Dreams-<version>.dmg`, notarizes and staples that too, and prints the sha256 for a Homebrew cask. The version comes from `VERSION` and the `Info.plist` template is `scripts/Info.plist.in`; the font comes from the committed `Sources/Dreams/DreamsMatrix.ttf`, so a release does not need Python. Once: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` signs and verifies without submitting to Apple (such a DMG is only good for local checks). A signed executable is bound to its bundle: it cannot be copied out of `Dreams.app`.
+`make release` (or `scripts/release.sh`) builds a universal (arm64 + x86_64) `Dreams.app`, signs it with Developer ID (`P8T2366K8X`) and the hardened runtime, notarizes and staples it, then makes `dist/release/Dreams-<version>.dmg`, notarizes and staples that too, and prints the sha256 for a Homebrew cask. The version comes from `VERSION` and the `Info.plist` template is `scripts/Info.plist.in`; the font comes from the committed `Sources/Dreams/DreamsMatrix.ttf`, so a release does not need Python. Once: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` signs and verifies without submitting to Apple (such a DMG is only good for local checks). A signed executable is bound to its bundle: it cannot be copied out of `Dreams.app`.
 
 ## Testing
 
