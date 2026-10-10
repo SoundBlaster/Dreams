@@ -38,7 +38,7 @@ final class DreamsController: NSObject {
     private static let initialTransparent = CommandLine.arguments.contains("--transparent")
         || UserDefaults.standard.bool(forKey: "transparentBackground")
     private var overlay: NSWindow?
-    private var renderer: WaveRenderer?
+    private var renderer: RainRenderer?
     private var expiryTask: Task<Void, Never>?
     private var demoTask: Task<Void, Never>?
     private var virtualDisplay: DreamsVirtualDisplay?
@@ -50,7 +50,6 @@ final class DreamsController: NSObject {
     private var expiresAt: Date?
     private var lastDuration = 300.0
     private var lastBrightness = 0.18
-    private var lastStyle = "matrix"
     var emergencyHotkeyRegistered = false
     private(set) var restoredGlyphs = UserDefaults.standard.object(forKey: "restoredGlyphs") as? Bool
         ?? DreamsPreset.restoredGlyphs
@@ -63,9 +62,9 @@ final class DreamsController: NSObject {
         rainColor = Self.storedRainColor(transparent: enabled)
         // Window opacity is fixed when the overlay is created: recreate a running Matrix,
         // keeping the time it has left.
-        if overlay?.isVisible == true, lastStyle == "matrix" {
+        if overlay?.isVisible == true {
             let remaining = max(1, min(3600, expiresAt?.timeIntervalSinceNow ?? lastDuration))
-            try start(duration: remaining, brightness: lastBrightness, style: lastStyle)
+            try start(duration: remaining, brightness: lastBrightness)
         }
     }
 
@@ -216,9 +215,8 @@ final class DreamsController: NSObject {
                  "color": message.color, "activity": message.isWorking ? "working" : "idle",
                  "expires_at": ISO8601DateFormatter().string(from: message.expiresAt)] as [String: Any]
             },
-            "waves_visible": overlay?.isVisible ?? false,
-            "visual_style": lastStyle,
-            "transparent_background": transparentBackground && lastStyle == "matrix",
+            "rain_visible": overlay?.isVisible ?? false,
+            "transparent_background": transparentBackground,
             "rain_density": rainDensity,
             "rain_fade_rows": rainFadeRows,
             "rain_speed": rainSpeed,
@@ -229,7 +227,7 @@ final class DreamsController: NSObject {
             "keyword_brightness": keywordBrightness,
             "rain_idle_intensity": rainIdleIntensity,
             "matrix_font": restoredGlyphs ? "restored" : "classic",
-            "waves_window_number": overlay.map { $0.windowNumber as Any } ?? NSNull(),
+            "rain_window_number": overlay.map { $0.windowNumber as Any } ?? NSNull(),
             "frames_rendered": renderer?.framesRendered ?? 0,
             "emergency_hotkey_registered": emergencyHotkeyRegistered,
             "virtual_display_id": virtualDisplay.map { Int($0.displayID) as Any } ?? NSNull(),
@@ -255,19 +253,18 @@ final class DreamsController: NSObject {
         return String(decoding: data, as: UTF8.self)
     }
 
-    func start(duration: Double = 300, brightness: Double = 0.18, style: String = "matrix") throws {
+    func start(duration: Double = 300, brightness: Double = 0.18) throws {
         guard duration.isFinite, (1...3600).contains(duration),
               brightness.isFinite, (0.02...0.35).contains(brightness) else {
             throw DreamsError.unavailable("duration_seconds must be 1...3600; brightness must be 0.02...0.35.")
         }
-        guard ["matrix", "waves"].contains(style) else { throw DreamsError.unavailable("style must be matrix or waves.") }
         guard let screen = NSScreen.screens.first(where: { CGDisplayIsBuiltin($0.displayID) != 0 }) else {
             throw DreamsError.unavailable("No built-in display found. Refusing to cover an arbitrary display.")
         }
         stop()
         let view = MTKView(frame: NSRect(origin: .zero, size: screen.frame.size))
-        let transparent = transparentBackground && style == "matrix"
-        let renderer = try WaveRenderer(view: view, restoredGlyphs: restoredGlyphs,
+        let transparent = transparentBackground
+        let renderer = try RainRenderer(view: view, restoredGlyphs: restoredGlyphs,
             transparentBackground: transparent)
         renderer.keywordTint = keywordTint
         renderer.rainTint = rainTint
@@ -279,10 +276,9 @@ final class DreamsController: NSObject {
         renderer.rainFadeRows = rainFadeRows
         renderer.rainDensity = rainDensity
         renderer.brightness = Float(brightness)
-        renderer.matrixStyle = style == "matrix"
         let window = NSPanel(contentRect: screen.frame, styleMask: [.borderless, .nonactivatingPanel],
                              backing: .buffered, defer: false)
-        window.title = "Dreams Waves"
+        window.title = "Dreams Rain"
         window.isReleasedWhenClosed = false
         window.level = .screenSaver
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary]
@@ -296,7 +292,6 @@ final class DreamsController: NSObject {
         overlay = window
         lastDuration = duration
         lastBrightness = brightness
-        lastStyle = style
         window.orderFrontRegardless()
         let result = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep as CFString,
             IOPMAssertionLevel(kIOPMAssertionLevelOn), "Dreams agent session" as CFString, &assertionID)
@@ -309,12 +304,12 @@ final class DreamsController: NSObject {
     }
 
     func showEventFixtures() throws {
-        if overlay?.isVisible != true || lastStyle != "matrix" { try start(style: "matrix") }
+        if overlay?.isVisible != true { try start() }
         try KeywordInput.publishFixtures()
         // The demo loops an agent turn: each fixture message floods the rain like a real one
         // (RainActivity.surge), the call lines are printed, the rain settles to calm, and after
-        // a short pause the next turn starts — until the rain stops (Esc, timeout or another
-        // style; start() and stop() cancel it).
+        // a short pause the next turn starts — until the rain stops (Esc or timeout;
+        // start() and stop() cancel it).
         demoTask?.cancel()
         demoTask = Task { [weak self] in
             while let self {
@@ -323,7 +318,7 @@ final class DreamsController: NSObject {
                 let wave = 8.5 / max(0.25, self.rainSpeed)
                 let settle = RainActivity.attack + RainActivity.hold + 3 * RainActivity.decay
                 do { try await Task.sleep(for: .seconds(max(wave, settle) + 2)) } catch { return }
-                guard self.overlay?.isVisible == true, self.lastStyle == "matrix" else { return }
+                guard self.overlay?.isVisible == true else { return }
                 try? KeywordInput.publishFixtures()
             }
         }
@@ -345,12 +340,12 @@ final class DreamsController: NSObject {
         }
     }
 
-    func resume() throws { try start(duration: lastDuration, brightness: lastBrightness, style: lastStyle) }
+    func resume() throws { try start(duration: lastDuration, brightness: lastBrightness) }
 
     func previewPNG() async throws -> Data {
         if let renderer { return try await renderer.previewPNG() }
-        let renderer = try WaveRenderer(view: MTKView(frame: .zero), restoredGlyphs: restoredGlyphs,
-            transparentBackground: transparentBackground && lastStyle == "matrix")
+        let renderer = try RainRenderer(view: MTKView(frame: .zero), restoredGlyphs: restoredGlyphs,
+            transparentBackground: transparentBackground)
         renderer.keywordTint = keywordTint
         renderer.rainTint = rainTint
         renderer.keywordBrightness = keywordBrightness
@@ -361,7 +356,6 @@ final class DreamsController: NSObject {
         renderer.rainFadeRows = rainFadeRows
         renderer.rainDensity = rainDensity
         renderer.brightness = Float(lastBrightness)
-        renderer.matrixStyle = lastStyle == "matrix"
         return try await renderer.previewPNG(posedTime: 6)
     }
 
@@ -393,7 +387,7 @@ final class DreamsController: NSObject {
         let heading = NSTextField(labelWithString: "Dreams · Agent Workspace")
         heading.font = .systemFont(ofSize: 30, weight: .semibold)
         let detail = NSTextField(wrappingLabelWithString:
-            "This test window lives on a virtual display. The built-in screen can show waves while an agent reads and clicks here.")
+            "This test window lives on a virtual display. The built-in screen can show the rain while an agent reads and clicks here.")
         detail.font = .systemFont(ofSize: 17)
         detail.preferredMaxLayoutWidth = 640
         counterLabel.font = .monospacedDigitSystemFont(ofSize: 36, weight: .medium)

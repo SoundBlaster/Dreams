@@ -64,7 +64,7 @@ enum DreamsMain {
                     }
                     let directory = URL(fileURLWithPath: CommandLine.arguments[index + 1], isDirectory: true)
                     try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
-                    let renderer = try WaveRenderer(view: MTKView(frame: .zero))
+                    let renderer = try RainRenderer(view: MTKView(frame: .zero))
                     let activityDemo = CommandLine.arguments.contains("--activity-demo")
                     for frame in 0..<(activityDemo ? 480 : 180) {
                         renderer.demoWorkingAgents = activityDemo
@@ -91,7 +91,7 @@ enum DreamsMain {
         let server = Server(name: "dreams", version: "0.2.0", instructions: """
             You control the user's Dreams screen animation. Call dreams_prepare_ui BEFORE taking
             screenshots or sending input to the built-in desktop, then dreams_resume after UI work.
-            Waves may stay visible while using a separately captured virtual-display window only
+            The rain may stay visible while using a separately captured virtual-display window only
             after verifying that your UI tool captures and clicks that window correctly.
             Creating a virtual display does not automatically redirect your computer-use tools.
             Publish short public task labels with dreams_publish_keywords at meaningful milestones.
@@ -118,18 +118,17 @@ enum DreamsMain {
                     "session_id": .object(["type": "string", "minLength": 1, "maxLength": 192])
                 ]), "additionalProperties": false
             ])),
-            Tool(name: "dreams_status", description: "Read wave and virtual workspace state, display IDs, bounds and test click count.", inputSchema: emptySchema),
-            Tool(name: "dreams_preview", description: "Render the current visual style and keyword feed to a PNG without capturing the screen. Does not show or hide the overlay.", inputSchema: emptySchema),
-            Tool(name: "dreams_start", description: "Show Matrix rain (default) or rainbow waves on the built-in display. Covers screenshots of that display. Use prepare_ui before ordinary desktop computer use. Auto-stops after duration_seconds (default 300, maximum 3600).", inputSchema: .object([
+            Tool(name: "dreams_status", description: "Read rain, settings and virtual workspace state, display IDs, bounds and test click count.", inputSchema: emptySchema),
+            Tool(name: "dreams_preview", description: "Render the rain and keyword feed to a PNG without capturing the screen. Does not show or hide the overlay.", inputSchema: emptySchema),
+            Tool(name: "dreams_start", description: "Show Matrix rain on the built-in display. Covers screenshots of that display. Use prepare_ui before ordinary desktop computer use. Auto-stops after duration_seconds (default 300, maximum 3600).", inputSchema: .object([
                 "type": "object", "properties": .object([
                     "duration_seconds": .object(["type": "number", "minimum": 1, "maximum": 3600]),
-                    "brightness": .object(["type": "number", "minimum": 0.02, "maximum": 0.35]),
-                    "style": .object(["type": "string", "enum": ["matrix", "waves"]])
+                    "brightness": .object(["type": "number", "minimum": 0.02, "maximum": 0.35])
                 ]), "additionalProperties": false
             ])),
-            Tool(name: "dreams_stop", description: "Remove waves immediately and release the display sleep assertion. Does not destroy the virtual workspace.", inputSchema: emptySchema),
-            Tool(name: "dreams_prepare_ui", description: "Remove waves BEFORE screenshots, clicks or keyboard actions on the built-in desktop. The screen is unprotected during UI work. Resume afterward.", inputSchema: emptySchema),
-            Tool(name: "dreams_resume", description: "Resume waves using the last brightness and duration after UI work.", inputSchema: emptySchema),
+            Tool(name: "dreams_stop", description: "Remove the rain immediately and release the display sleep assertion. Does not destroy the virtual workspace.", inputSchema: emptySchema),
+            Tool(name: "dreams_prepare_ui", description: "Remove the rain BEFORE screenshots, clicks or keyboard actions on the built-in desktop. The screen is unprotected during UI work. Resume afterward.", inputSchema: emptySchema),
+            Tool(name: "dreams_resume", description: "Resume the rain using the last brightness and duration after UI work.", inputSchema: emptySchema),
             Tool(name: "dreams_workspace_create", description: "EXPERIMENTAL: create a separate virtual display using a private macOS API and show a harmless Increment test window. Does not move existing apps or guarantee native agent compatibility.", inputSchema: emptySchema),
             Tool(name: "dreams_workspace_close", description: "Close the test window and disconnect only the virtual display owned by this Dreams process. Other windows placed on it may move to a physical display.", inputSchema: emptySchema)
         ]
@@ -168,8 +167,7 @@ enum DreamsMain {
                 case "dreams_start":
                     try await controller.start(
                         duration: number(parameters.arguments?["duration_seconds"], fallback: 300),
-                        brightness: number(parameters.arguments?["brightness"], fallback: 0.18),
-                        style: parameters.arguments?["style"].map { try string($0) } ?? "matrix")
+                        brightness: number(parameters.arguments?["brightness"], fallback: 0.18))
                 case "dreams_stop", "dreams_prepare_ui": await controller.stop()
                 case "dreams_resume": try await controller.resume()
                 case "dreams_workspace_create": try await controller.createWorkspace()
@@ -249,10 +247,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             let matrix = NSButton(title: L("button.startMatrix"), target: self, action: #selector(start))
             matrix.setAccessibilityIdentifier("dreams.start-matrix")
             matrix.keyEquivalent = "\r"
-            let waves = NSButton(title: L("button.waves"), target: self, action: #selector(waves))
             let stopButton = NSButton(title: L("button.stop"), target: self, action: #selector(stop))
             stopButton.setAccessibilityIdentifier("dreams.stop")
-            let launch = NSStackView(views: [matrix, waves, stopButton])
+            let launch = NSStackView(views: [matrix, stopButton])
             launch.spacing = 8
             let escapeHint = Self.note(L("hint.escape"))
 
@@ -487,7 +484,6 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             menu.addItem(.separator())
         }
         menu.addItem(withTitle: L("menu.startMatrix"), action: #selector(start), keyEquivalent: "")
-        menu.addItem(withTitle: L("menu.startWaves"), action: #selector(waves), keyEquivalent: "")
         let stopItem = menu.addItem(withTitle: L("menu.stop"), action: #selector(stop), keyEquivalent: "d")
         stopItem.keyEquivalentModifierMask = [.control, .option, .command]
         menu.addItem(.separator())
@@ -572,7 +568,6 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func start() { do { try controller.start() } catch { show(error: error) } }
-    @objc private func waves() { do { try controller.start(style: "waves") } catch { show(error: error) } }
     @objc private func stop() { controller.stop() }
     @objc private func workspace() {
         Task { do { try await controller.createWorkspace() } catch { show(error: error) } }

@@ -11,9 +11,9 @@ zsh scripts/build-app.sh release
 open dist/Dreams.app
 ```
 
-A normal launch opens the Dreams window with the buttons Start Matrix, Rainbow Waves, Stop and Quit Dreams. Reopening the app brings this window back and stops the animation. `Esc` stops the animation while Dreams is the active app.
+A normal launch opens the Dreams window with the buttons Start Matrix, Stop and Quit Dreams. Reopening the app brings this window back and stops the animation. `Esc` stops the animation while Dreams is the active app.
 
-A `◒` item also appears in the menu bar: Start Matrix Rain, Start Rainbow Waves, Stop Animation, Create/Close Agent Workspace, Quit. The animation runs for five minutes. Launching the app never covers the screen by itself. For a separate test window on a virtual display:
+A `◒` item also appears in the menu bar: Start Matrix Rain, Stop Animation, Create/Close Agent Workspace, Quit. The animation runs for five minutes. Launching the app never covers the screen by itself. For a separate test window on a virtual display:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --lab
@@ -43,10 +43,10 @@ Any other stdio MCP client, including Claude, uses the same executable and `--mc
 | --- | --- |
 | `dreams_status` | Animation state, stop time, display IDs, bounds, test click count and the current settings |
 | `dreams_preview` | PNG of the shader itself, without capturing the screen or other windows |
-| `dreams_start` | Show the animation: `style` = `matrix` (default) or `waves`; `duration_seconds` 1–3600, default 300; `brightness` 0.02–0.35, default 0.18 |
+| `dreams_start` | Show the rain: `duration_seconds` 1–3600, default 300; `brightness` 0.02–0.35, default 0.18 |
 | `dreams_stop` | Remove the animation and release the display-sleep assertion |
 | `dreams_prepare_ui` | Remove the animation before screenshots or clicks on the built-in display |
-| `dreams_resume` | Resume the last style, duration and brightness |
+| `dreams_resume` | Resume the rain with the last duration and brightness |
 | `dreams_workspace_create` | Create a virtual display and an «Increment» test window |
 | `dreams_workspace_close` | Close the test window and disconnect Dreams' own virtual display |
 | `dreams_publish_keywords` | Replace this session's keywords: `session_id`, `keywords`, optional `color`, `ttl_seconds` |
@@ -54,7 +54,7 @@ Any other stdio MCP client, including Claude, uses the same executable and `--mc
 
 `brightness` is a multiplier on the shader's linear RGB, not the system backlight. Output is SDR sRGB at a 30 fps target. `frames_rendered` counts submitted command buffers, not measured GPU completions. The visual settings are read-only through MCP (`dreams_status` reports them); they are changed in the window.
 
-**One process controls the fullscreen overlay and the virtual display.** That is either the normal app or a single MCP client started with `--mcp`. Other sessions can run `--mcp --publisher`: they get only status, preview, publish_keywords and clear_keywords. Publishers exchange keywords through a shared local mailbox but cannot control someone else's fullscreen. On EOF the controlling MCP process removes its animation and virtual display; a publisher exiting does not remove its keywords before their TTL expires. The `waves_visible` field is kept for compatibility and covers both styles; `visual_style` shows the current style.
+**One process controls the fullscreen overlay and the virtual display.** That is either the normal app or a single MCP client started with `--mcp`. Other sessions can run `--mcp --publisher`: they get only status, preview, publish_keywords and clear_keywords. Publishers exchange keywords through a shared local mailbox but cannot control someone else's fullscreen. On EOF the controlling MCP process removes its animation and virtual display; a publisher exiting does not remove its keywords before their TTL expires. `rain_visible` in `dreams_status` tells whether the overlay is on screen.
 
 ## Agent hooks (Codex and Claude Code)
 
@@ -78,7 +78,7 @@ On the maintainer's Mac the hooks were confirmed on 9 October 2026, 22:52 MSK: f
 
 ### Rain and agent activity
 
-Matrix answers agent messages with a surge. Any new message in the mailbox (turn start, tool call, its result, turn end, keywords) floods the whole screen with rain at full brightness within 0.4 s, holds the flood for 1.5 s, then decays exponentially (time constant 5 s, about 15 s to rest) to the calm background set by the idle slider. A message during the decay raises the rain again from its current level, so frequent tool calls keep it dense and a pause lets it settle. The parameters are `RainActivity.attack/hold/decay`. Fading of already printed glyphs is irreversible: more activity does not restore old brightness. Columns that became fully hidden are cleared and are printed again from the top when they return. Rainbow Waves works independently of agent events.
+Matrix answers agent messages with a surge. Any new message in the mailbox (turn start, tool call, its result, turn end, keywords) floods the whole screen with rain at full brightness within 0.4 s, holds the flood for 1.5 s, then decays exponentially (time constant 5 s, about 15 s to rest) to the calm background set by the idle slider. A message during the decay raises the rain again from its current level, so frequent tool calls keep it dense and a pause lets it settle. The parameters are `RainActivity.attack/hold/decay`. Fading of already printed glyphs is irreversible: more activity does not restore old brightness. Columns that became fully hidden are cleared and are printed again from the top when they return.
 
 `UserPromptSubmit`, `PreToolUse` and `PostToolUse` mark a session as `working`; `Stop` and `SessionStart` mark it `idle`; `SessionEnd` removes it from the feed. MCP/CLI publish accepts `activity: "working" | "idle"` (default `working`). The `working_agents` field of `dreams_status` shows the count; the window shows it or "Waiting for agents".
 
@@ -105,7 +105,7 @@ This mode does not publish test events into the shared feed.
 
 Hook events start separate one-shot streams: PreToolUse → a call line with its arguments (`bash: brew install fontforge`, `read: Sources/Dreams/MatrixRain.swift`, `grep: func glyph\(`, `mcp: xcode.BuildProject Dreams`), UserPromptSubmit → TASK, PreCompact → CONTEXT if that hook is wired separately (the regular installer does not add it yet). `ToolCallLine` builds the line from `tool_name` and `tool_input`: paths are shown relative to `cwd`, a `cd <cwd> &&` prefix is dropped, and a long line is cut to 60 characters with an ellipsis (a path is cut from the start and keeps its end, a command is cut from the end and keeps its start). Values that look like secrets (`TOKEN=…`, `--password …`, `Authorization: Bearer …`, `user:pass@`, long opaque strings) are replaced with `***`, because everyone who can see the screen sees the rain. The labels are vertical, set in DreamsMatrix, with the word colour and brightness settings. Otherwise a stream behaves like ordinary rain: the same speed, tail and brightness spread, and its letters are churned through random rain glyphs (in the word colour) and return to their own character. PostToolUse does not duplicate a stream. The mailbox keeps at most 24 events per session; the renderer accepts at most 6 new events per update and does not replay events older than 8 seconds. An event stream still finishes printing and fades even at idle 0%.
 
-The "Stream test · DEMO" item is in the debug menu (right-click in the control window, or ◒ → Debug in the menu bar). It starts Matrix if needed and creates four visual fixtures: `bash: brew install fontforge`, `mcp: xcode.BuildProject Dreams`, TASK, CONTEXT. The demo loops and plays an agent turn: the fixtures' message causes the same surge as a real one, the lines are printed, the rain decays to the background, and 2 s after it has calmed the next «turn» starts (about 19 s per loop; longer at a slow rain speed). The loop runs until the rain is stopped by Esc, the timeout, or another style. The CLI flag `--fixture-events` still sends a single wave. The `dreams:visual-fixtures` session is idle, does not raise the working-agent count and expires after 15 s. No external tools are called. The item can be repeated. For an already running Matrix the same can be triggered from the CLI:
+The "Stream test · DEMO" item is in the debug menu (right-click in the control window, or ◒ → Debug in the menu bar). It starts Matrix if needed and creates four visual fixtures: `bash: brew install fontforge`, `mcp: xcode.BuildProject Dreams`, TASK, CONTEXT. The demo loops and plays an agent turn: the fixtures' message causes the same surge as a real one, the lines are printed, the rain decays to the background, and 2 s after it has calmed the next «turn» starts (about 19 s per loop; longer at a slow rain speed). The loop runs until the rain is stopped by Esc or the timeout. The CLI flag `--fixture-events` still sends a single wave. The `dreams:visual-fixtures` session is idle, does not raise the working-agent count and expires after 15 s. No external tools are called. The item can be repeated. For an already running Matrix the same can be triggered from the CLI:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --fixture-events
@@ -117,7 +117,7 @@ Matrix stores the state of every cell: glyph, print time, brightness and tint. A
 
 The opening of the reference clip `1.mov` was analysed: the first 3 seconds in 0.25 s steps (`artifacts/reference-opening-contact.png`) and a close-up of the first 1.2 seconds in 0.1 s steps (`artifacts/reference-column-steps.png`). It shows glyphs being printed progressively from the bottom while the upper glyphs stay still. (These reference frames are not part of the repository.)
 
-The palette is green, as in the reference video. Light heads and single replaced glyphs turn white. A faint diffuse green glow surrounds all visible glyphs and is brighter around white flashes. The near and wide blurs (σ 2.8 and 6.5 atlas pixels) are computed once per glyph and blended into a padded atlas; additive blending adds the neighbours' light. In the shader the halo gets smooth, uneven cloud noise with a slow drift and fades softly near the tile edges, without a fullscreen blur. Inside the strokes a phosphor grain works: a procedural 14×14 grid, faint scanlines and a smoothly changing noise modulation at 8 Hz. That is three integer hashes per visible fragment, no extra textures or draw calls; the alpha of the outline itself is not noised, and the halo is modulated separately by smooth noise. The dense grid has 72 rows. Glyph quads overlap the empty margins of the atlas: visible strokes take about 85% of the cell width and 90–95% of its height, so spacing shrinks while letters stay large. The cursor sometimes leaves gaps of 1–3 empty cells and keeps printing below them. Each glyph's brightness is chosen when it is printed. Keywords appear inside the flow, printed by the same cursor, **one upright letter at a time, top to bottom**. Up to three words are shown, the selection refreshes every 16 seconds, and the new selection shows on the cursor's next pass. Rainbow Waves remains a separate mode without text.
+The palette is green, as in the reference video. Light heads and single replaced glyphs turn white. A faint diffuse green glow surrounds all visible glyphs and is brighter around white flashes. The near and wide blurs (σ 2.8 and 6.5 atlas pixels) are computed once per glyph and blended into a padded atlas; additive blending adds the neighbours' light. In the shader the halo gets smooth, uneven cloud noise with a slow drift and fades softly near the tile edges, without a fullscreen blur. Inside the strokes a phosphor grain works: a procedural 14×14 grid, faint scanlines and a smoothly changing noise modulation at 8 Hz. That is three integer hashes per visible fragment, no extra textures or draw calls; the alpha of the outline itself is not noised, and the halo is modulated separately by smooth noise. The dense grid has 72 rows. Glyph quads overlap the empty margins of the atlas: visible strokes take about 85% of the cell width and 90–95% of its height, so spacing shrinks while letters stay large. The cursor sometimes leaves gaps of 1–3 empty cells and keeps printing below them. Each glyph's brightness is chosen when it is printed. Keywords appear inside the flow, printed by the same cursor, **one upright letter at a time, top to bottom**. Up to three words are shown, the selection refreshes every 16 seconds, and the new selection shows on the cursor's next pass.
 
 Each session publishes 1–6 words of up to 32 characters; up to 24 sessions are stored at once. TTL is 15–300 seconds, default 90. Publishing again replaces only that session. The session colour is stored in the feed for compatibility; the current classic Matrix uses a single green-and-white palette. Mailbox: `~/Library/Application Support/Dreams/Keywords`, directory permissions 0700 / files 0600, atomic writes and a nonblocking lock. `DREAMS_FEED_DIRECTORY` redirects it for isolated tests.
 
@@ -156,7 +156,7 @@ All settings are applied immediately and saved between launches.
   open -n ./dist/Dreams.app --args --transparent
   ```
 
-  The transparent mode shows glyphs and glow over the desktop and clicks pass through the window. Rainbow waves keep an opaque background. `transparent_background` in the status shows the selected mode. Working windows under the transparent Matrix stay visible, including in UI-agent screenshots. In this mode glow is off by default to avoid a haze over working windows.
+  The transparent mode shows glyphs and glow over the desktop and clicks pass through the window. `transparent_background` in the status shows the selected mode. Working windows under the transparent Matrix stay visible, including in UI-agent screenshots. In this mode glow is off by default to avoid a haze over working windows.
 
 Part of the glyph replacements run as a short churn: 4–8 different glyphs in a row on one position, 35–65 ms apart at 1× speed, then the chosen glyph settles without a white flash. The other replacements are single. After settling, a cell is not picked again for at least 0.8 seconds of simulation time. The churn keeps the brightness and the original print time, and stops when fading starts, the column is hidden, or the cell is overwritten by a new pass.
 
@@ -164,11 +164,11 @@ The window also shows the animation state next to the agent activity: stopped, o
 
 ## UI agents and the built-in display
 
-If an agent captures the whole built-in desktop, it will see the waves. Call `dreams_prepare_ui` before such actions and `dreams_resume` after. The fullscreen window does not intercept clicks: it is not a way to block input. There are no waves during UI work on the built-in display.
+If an agent captures the whole built-in desktop, it will see the rain. Call `dreams_prepare_ui` before such actions and `dreams_resume` after. The fullscreen window does not intercept clicks: it is not a way to block input. There are no waves during UI work on the built-in display.
 
 Simultaneous work is possible when a UI tool captures a window on the virtual display separately and sends input there correctly. Creating a second display does not reconfigure Codex or Claude. Windows of other apps are not moved automatically. Focus, clipboard and keyboard input still belong to the shared user session.
 
-In one experiment Codex CUA took a screenshot of the Dreams window on the virtual display and changed `Clicks: 0` to `Clicks: 1` with a coordinate click while MCP reported `waves_visible: true` on the built-in display. That confirms this specific path, CUA → test window. Work with a browser, arbitrary desktop capture and Claude is not confirmed yet.
+In one experiment Codex CUA took a screenshot of the Dreams window on the virtual display and changed `Clicks: 0` to `Clicks: 1` with a coordinate click while MCP reported `rain_visible: true` on the built-in display. That confirms this specific path, CUA → test window. Work with a browser, arbitrary desktop capture and Claude is not confirmed yet.
 
 The virtual display is created with the **private macOS API** `CGVirtualDisplay`, following Chromium's example. It is an experimental local feature and compatibility with macOS updates is not guaranteed. Such code is not suitable for the App Store, which requires public APIs. Other windows that were manually placed on this display may move to a physical screen when it is disconnected.
 

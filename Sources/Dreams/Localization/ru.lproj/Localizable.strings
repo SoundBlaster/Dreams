@@ -7,7 +7,6 @@
 "activity.working" = "Работает агентов: %d · активность %d%%.";
 
 "button.startMatrix" = "Запустить Matrix";
-"button.waves" = "Радужные волны";
 "button.stop" = "Остановить";
 "button.quit" = "Выйти из Dreams";
 "hint.escape" = "Анимация идёт 5 минут на весь экран. Выход — Esc или ⌃⌥⌘D.";
@@ -46,7 +45,6 @@
 
 "menu.openControls" = "Открыть управление Dreams";
 "menu.startMatrix" = "Запустить Matrix (5 минут)";
-"menu.startWaves" = "Запустить радужные волны (5 минут)";
 "menu.stop" = "Остановить анимацию";
 "menu.workspaceCreate" = "Создать экспериментальное рабочее место агента";
 "menu.workspaceClose" = "Закрыть рабочее место агента";

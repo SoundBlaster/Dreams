@@ -1,14 +1,6 @@
 #include <metal_stdlib>
 using namespace metal;
 
-struct Uniforms { float2 resolution; float time; float brightness; float period; };
-struct VertexOutput { float4 position [[position]]; };
-
-vertex VertexOutput waveVertex(uint id [[vertex_id]]) {
-    float2 vertices[] = {float2(-1,-1), float2(3,-1), float2(-1,3)};
-    return {float4(vertices[id], 0, 1)};
-}
-
 struct MatrixCell { float4 rect; float4 uv; float4 color; };
 struct MatrixOutput {
     float4 position [[position]];
@@ -85,16 +77,4 @@ fragment float4 matrixFragment(MatrixOutput in [[stage_in]], texture2d<float> at
         gain = mix(1.0, structure * (0.90 + 0.20 * shimmer) * scanline, noiseParameters.y);
     }
     return float4(in.color.rgb * gain, alpha * in.color.a);
-}
-
-fragment float4 waveFragment(VertexOutput in [[stage_in]], constant Uniforms &u [[buffer(0)]]) {
-    float2 p = (in.position.xy - 0.5 * u.resolution) / u.resolution.y;
-    float phase = 6.2831853 * u.time / u.period;
-    float field = p.x * 4.8 + p.y * 2.2
-        + 0.65 * sin(3.2 * p.y + phase * 0.5)
-        + 0.35 * sin(2.1 * p.x - 2.8 * p.y - phase * 0.25);
-    float hue = field + phase;
-    float3 rainbow = 0.5 + 0.5 * cos(hue + float3(0, 2.0943951, 4.1887902));
-    float glow = 0.35 + 0.65 * pow(0.5 + 0.5 * sin(field * 2.2 - phase), 2.0);
-    return float4(u.brightness * glow * (0.06 + 0.94 * rainbow), 1);
 }

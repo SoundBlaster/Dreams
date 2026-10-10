@@ -11,7 +11,7 @@ from smoke import MCPClient, ROOT
 for transparent in (False, True):
     with tempfile.TemporaryDirectory(prefix='dreams-alpha-') as feed:
         client = MCPClient(env=dict(os.environ, DREAMS_FEED_DIRECTORY=feed), publisher=True,
-            extra_args=['--transparent'] if transparent else [])
+            extra_args=['--transparent'] if transparent else ['-transparentBackground', 'NO'])  # the saved setting must not leak in
         try:
             client.request('initialize', {'protocolVersion': '2025-06-18', 'capabilities': {},
                 'clientInfo': {'name': 'alpha-check', 'version': '1'}})

@@ -101,7 +101,6 @@ def main():
         print("MCP handshake:", initialized["protocolVersion"], flush=True)
         client.call("dreams_start", {"duration_seconds": -1}, expect_error=True)
         client.call("dreams_start", {"brightness": "bright"}, expect_error=True)
-        client.call("dreams_start", {"style": "unknown"}, expect_error=True)
         client.call("dreams_publish_keywords", {"session_id": "invalid", "keywords": []}, expect_error=True)
         client.call("dreams_publish_keywords", {"session_id": "invalid", "keywords": ["a" * 33]}, expect_error=True)
         client.call("dreams_publish_keywords", {"session_id": "invalid", "keywords": ["test"], "activity": "unknown"}, expect_error=True)
@@ -154,8 +153,8 @@ def main():
         assert workspace["virtual_display_id"] is not None, workspace
         assert workspace["workspace_window_display_id"] == workspace["virtual_display_id"], workspace
         state = client.call("dreams_start", {"duration_seconds": 120, "brightness": 0.12})
-        assert state["waves_visible"]
-        assert state["visual_style"] == "matrix"
+        assert state["rain_visible"]
+        assert "visual_style" not in state
         frames = []
         for index in range(2):
             time.sleep(2)
@@ -172,13 +171,13 @@ def main():
                     break
                 command = json.loads(line)
                 print(json.dumps(client.call(command["name"], command.get("arguments"))), flush=True)
-        assert not client.call("dreams_prepare_ui")["waves_visible"]
-        assert client.call("dreams_resume")["waves_visible"]
-        state = client.call("dreams_start", {"duration_seconds": 1, "style": "waves"})
-        assert state["visual_style"] == "waves"
+        assert not client.call("dreams_prepare_ui")["rain_visible"]
+        assert client.call("dreams_resume")["rain_visible"]
+        state = client.call("dreams_start", {"duration_seconds": 1})
+        assert state["rain_visible"]
         time.sleep(1.5)
         state = client.call("dreams_status")
-        assert not state["waves_visible"], state
+        assert not state["rain_visible"], state
         assert not state["prevents_idle_sleep"], state
         assert client.call("dreams_workspace_close")["virtual_display_id"] is None
         client.call("dreams_clear_keywords", {"session_id": "codex-demo"})

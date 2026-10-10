@@ -7,7 +7,6 @@
 "activity.working" = "Agents working: %d · activity %d%%.";
 
 "button.startMatrix" = "Start Matrix";
-"button.waves" = "Rainbow Waves";
 "button.stop" = "Stop";
 "button.quit" = "Quit Dreams";
 "hint.escape" = "The animation runs for 5 minutes, full screen. Exit with Esc or ⌃⌥⌘D.";
@@ -46,7 +45,6 @@
 
 "menu.openControls" = "Open Dreams Controls";
 "menu.startMatrix" = "Start Matrix Rain (5 minutes)";
-"menu.startWaves" = "Start Rainbow Waves (5 minutes)";
 "menu.stop" = "Stop Animation";
 "menu.workspaceCreate" = "Create Experimental Agent Workspace";
 "menu.workspaceClose" = "Close Agent Workspace";
