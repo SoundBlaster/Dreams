@@ -211,6 +211,12 @@ The artwork is `assets/icon/source.png`. `make icon` (`scripts/make-icon.py`) fr
 
 `make release` (or `scripts/release.sh`) builds a universal (arm64 + x86_64) `Dreams.app`, signs it with Developer ID (`P8T2366K8X`) and the hardened runtime, notarizes and staples it, then makes `dist/release/Dreams-<version>.dmg`, notarizes and staples that too, and prints the sha256 for a Homebrew cask. The version comes from `VERSION` and the `Info.plist` template is `scripts/Info.plist.in`; the font comes from the committed `Sources/Dreams/DreamsMatrix.ttf`, so a release does not need Python. Once: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` signs and verifies without submitting to Apple (such a DMG is only good for local checks). A signed executable is bound to its bundle: it cannot be copied out of `Dreams.app`.
 
+### Releasing a new version
+
+1. Bump `VERSION`, commit and merge.
+2. `make release` (signed, notarized DMG), then `make github-release` (tag and GitHub release).
+3. `make tap-update` clones `SoundBlaster/homebrew-tap`, checks that the published DMG is byte-identical to the local one, sets `version` and `sha256` in `Casks/dreams.rb`, and opens a PR (it asks first; `scripts/update-tap.sh --dry-run` only shows the diff). Merge that PR and `brew upgrade --cask dreams` picks the release up.
+
 ## Testing
 
 ```sh

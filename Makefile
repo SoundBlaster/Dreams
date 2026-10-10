@@ -7,7 +7,7 @@ PYTHON := .venv/bin/python
 NOTARY_PROFILE ?= dreams-notary
 
 .PHONY: help icon app run test test-unit glyphs glyphs-verify glyphs-selftest \
-	release release-local checksum github-release notary-profile \
+	release release-local checksum github-release tap-update notary-profile \
 	install-hooks uninstall-hooks uninstall uninstall-purge clean
 
 help:
@@ -30,6 +30,7 @@ help:
 		'  make release-local    The same without notarization (local checks only)' \
 		'  make checksum         sha256 of the DMG, for the Homebrew cask' \
 		'  make github-release   Tag v$(VERSION) and publish the DMG on GitHub (asks first)' \
+		'  make tap-update       Open a PR in homebrew-tap that moves the cask to $(VERSION) (asks first)' \
 		'' \
 		'Agents:' \
 		'  make install-hooks    Add the Dreams hooks to Codex and Claude Code (uses /Applications)' \
@@ -97,6 +98,9 @@ github-release:
 	@printf 'Publish v$(VERSION) with %s to GitHub? [y/N] ' '$(DMG)'; read answer; test "$$answer" = y
 	gh release create v$(VERSION) $(DMG) --title "Dreams $(VERSION)" --generate-notes
 	@shasum -a 256 $(DMG)
+
+tap-update:
+	scripts/update-tap.sh
 
 install-hooks:
 	@test -x /Applications/Dreams.app/Contents/MacOS/Dreams || { echo 'Install Dreams into /Applications first'; exit 1; }
