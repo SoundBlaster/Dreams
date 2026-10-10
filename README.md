@@ -6,13 +6,13 @@
 
 <p align="center"><em>Wake up, Neo...</em></p>
 
-I want to get on with my own things while agents work, not run from window to window and screen to screen to see what they are doing. And I would rather not show everyone around what is going on on my screen. So this app appeared.
+I want to get on with my own things while agents work, not run from window to window and screen to screen to see what they are doing. And I would rather not let everyone around see what is happening on my screen: the terminals, the code, the diffs. So this app appeared.
 
-Dreams puts Matrix digital rain on your Mac and ties it to your coding agents, Codex and Claude Code. Every agent message floods the screen with rain, every tool call runs down it as a line (`bash: brew install fontforge`), and between messages the rain settles into a calm background. One glance tells you the agents are alive and busy. To anyone else it is just an animation.
+Dreams covers your screen with Matrix digital rain and ties it to your coding agents, Codex and Claude Code. Every agent message floods the screen with rain, every tool call runs down it as a line (`bash: brew install fontforge`), and between messages the rain settles into a calm background. One glance tells you the agents are alive and busy; the windows themselves stay out of sight, and to anyone else it is just an animation.
 
 - **The rain follows your agents.** A message, a tool call or the end of a turn makes it surge, then it fades back to calm.
 - **Call lines run in the rain.** The tool and its main argument, with secret-looking values replaced by `***`.
-- **Over your work or on black.** A transparent mode lets the rain fall over your windows, and by default it stays out of your screenshots and recordings, so the windows underneath can be captured.
+- **It hides what is on screen.** On black, the rain covers the whole screen, so what you are working on is not on show. In the transparent mode it falls over your windows instead; either way, by default it stays out of your screenshots and recordings, so the windows underneath can still be captured.
 - **The real glyphs.** A font restored glyph by glyph from the film, plus a calligraphic Latin and Cyrillic set drawn in the same hand, so words and commands look right.
 - **Yours to tune.** Color, density, speed, glow, calm level, word color; reset to defaults in one click.
 
