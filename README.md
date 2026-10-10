@@ -13,7 +13,7 @@ open dist/Dreams.app
 
 A normal launch opens the Dreams window with the buttons Start Matrix, Stop and Quit Dreams. Reopening the app brings this window back and stops the animation. `Esc` stops the animation while Dreams is the active app.
 
-A menu bar item (the restored film glyph G05, drawn from the font as a template image, `StatusIcon.swift`) also appears: Start Matrix Rain, Stop Animation, Create/Close Agent Workspace, Quit. The animation runs for five minutes. Launching the app never covers the screen by itself. For a separate test window on a virtual display:
+A menu bar item (the restored film glyph G05, drawn from the font as a template image, `StatusIcon.swift`) also appears: Start Matrix Rain, Stop Animation, Debug, Quit. The Debug submenu (also the right-click menu of the control window) holds the stream test and the experimental agent workspace (create / close); agents keep the workspace through the MCP tools `dreams_workspace_create` and `dreams_workspace_close`. The animation runs for five minutes. Launching the app never covers the screen by itself. For a separate test window on a virtual display:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --lab

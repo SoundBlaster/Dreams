@@ -6,8 +6,10 @@ import CoreText
 enum StatusIcon {
     static let glyphCodePoint: UniChar = 0xE005
 
+    /// `thinning` shaves that many points off the outline (a clear stroke), which keeps the gap between the
+    /// prongs open at 18 pt. The font glyph itself is untouched: only how it is drawn changes.
     static func image(fontURL: URL? = Bundle.module.url(forResource: "DreamsMatrix", withExtension: "ttf"),
-                      size: CGFloat = 18, inset: CGFloat = 1.5) -> NSImage? {
+                      size: CGFloat = 18, inset: CGFloat = 1, thinning: CGFloat = 0.7) -> NSImage? {
         if let fontURL { CTFontManagerRegisterFontsForURL(fontURL as CFURL, .process, nil) }
         let font = CTFontCreateWithName("DreamsMatrix-Regular" as CFString, 100, nil)
         var code = glyphCodePoint
@@ -26,6 +28,12 @@ enum StatusIcon {
             context.setFillColor(NSColor.black.cgColor)
             context.addPath(path)
             context.fillPath()
+            context.setBlendMode(.clear)
+            if thinning > 0 {
+                context.addPath(path)
+                context.setLineWidth(thinning)
+                context.strokePath()
+            }
             return true
         }
         image.isTemplate = true

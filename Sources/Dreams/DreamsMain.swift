@@ -453,6 +453,11 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         fixtures.target = self
         fixtures.toolTip = L("debug.fixtures.tip")
         fixtures.setAccessibilityIdentifier("dreams.event-fixtures")
+        menu.addItem(.separator())
+        // An experiment (a virtual display through a private API) that agents use through MCP.
+        let create = menu.addItem(withTitle: L("menu.workspaceCreate"), action: #selector(workspace), keyEquivalent: "")
+        let close = menu.addItem(withTitle: L("menu.workspaceClose"), action: #selector(closeWorkspace), keyEquivalent: "")
+        for item in [create, close] { item.target = self }
         return menu
     }
 
@@ -553,9 +558,6 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(withTitle: L("menu.startMatrix"), action: #selector(start), keyEquivalent: "")
         let stopItem = menu.addItem(withTitle: L("menu.stop"), action: #selector(stop), keyEquivalent: "d")
         stopItem.keyEquivalentModifierMask = [.control, .option, .command]
-        menu.addItem(.separator())
-        menu.addItem(withTitle: L("menu.workspaceCreate"), action: #selector(workspace), keyEquivalent: "")
-        menu.addItem(withTitle: L("menu.workspaceClose"), action: #selector(closeWorkspace), keyEquivalent: "")
         menu.addItem(.separator())
         let debug = menu.addItem(withTitle: L("debug.menu"), action: nil, keyEquivalent: "")
         debug.submenu = debugMenu()
