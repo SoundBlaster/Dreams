@@ -302,6 +302,13 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             transparent.setAccessibilityIdentifier("dreams.transparent-background")
             controlsByID["dreams.transparent-background"] = transparent
 
+            let screenshots = NSButton(checkboxWithTitle: L("check.hideFromScreenshots"),
+                target: self, action: #selector(changeHideFromScreenshots(_:)))
+            screenshots.state = controller.hideFromScreenshots ? .on : .off
+            screenshots.toolTip = L("check.hideFromScreenshots.tip")
+            screenshots.setAccessibilityIdentifier("dreams.hide-from-screenshots")
+            controlsByID["dreams.hide-from-screenshots"] = screenshots
+
             // Agent words and call lines.
             let wordColor = NSColorWell()
             wordColor.color = controller.keywordColor
@@ -336,7 +343,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             let stack = NSStackView(views: [
                 activityLabel, launch, escapeHint,
                 Self.section(L("section.rain")), rain,
-                Self.section(L("section.between")), background, transparent,
+                Self.section(L("section.between")), background, transparent, screenshots,
                 Self.section(L("section.words")), words,
                 Self.section(L("section.glyphs")), restored,
                 Self.separator(), footer,
@@ -344,7 +351,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             stack.orientation = .vertical
             stack.alignment = .leading
             stack.spacing = 10
-            for (view, gap) in [(launch, 6.0), (escapeHint, 18.0), (rain, 18.0), (transparent, 18.0),
+            for (view, gap) in [(launch, 6.0), (escapeHint, 18.0), (rain, 18.0), (screenshots, 18.0),
                                 (words, 18.0), (restored, 14.0)] as [(NSView, CGFloat)] {
                 stack.setCustomSpacing(gap, after: view)
             }
@@ -556,7 +563,12 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         (controlsByID["dreams.keyword-color"] as? NSColorWell)?.color = controller.keywordColor
         (controlsByID["dreams.transparent-background"] as? NSButton)?.state = controller.transparentBackground ? .on : .off
         (controlsByID["dreams.restored-glyphs"] as? NSButton)?.state = controller.restoredGlyphs ? .on : .off
+        (controlsByID["dreams.hide-from-screenshots"] as? NSButton)?.state = controller.hideFromScreenshots ? .on : .off
         refreshValueLabels()
+    }
+
+    @objc private func changeHideFromScreenshots(_ sender: NSButton) {
+        controller.setHideFromScreenshots(sender.state == .on)
     }
 
     @objc private func changeGlyphSet(_ sender: NSButton) {

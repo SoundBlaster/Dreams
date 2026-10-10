@@ -27,6 +27,7 @@ enum DreamsPreset {
     static let keywordBrightness = 2.0
     static let restoredGlyphs = true
     static let transparentBackground = false
+    static let hideFromScreenshots = true
     /// Black background: the classic dark film green. Transparent: a light mint that reads on bright desktops.
     static let rainColor = [0.086, 0.547, 0.26]
     static let transparentRainColor = [0.35, 1.0, 0.55]
@@ -87,6 +88,18 @@ final class DreamsController: NSObject {
         keywordColor = NSColor(srgbRed: words[0], green: words[1], blue: words[2], alpha: 1)
         keywordBrightness = DreamsPreset.keywordBrightness
         try setRestoredGlyphs(DreamsPreset.restoredGlyphs)
+        setHideFromScreenshots(DreamsPreset.hideFromScreenshots)
+    }
+
+    /// Keeps the overlay out of screenshots, recordings and the system screenshot tool's window
+    /// picker, so the windows under the rain can be captured. Applies to a running overlay at once.
+    private(set) var hideFromScreenshots = UserDefaults.standard.object(forKey: "hideFromScreenshots") as? Bool
+        ?? DreamsPreset.hideFromScreenshots
+
+    func setHideFromScreenshots(_ enabled: Bool) {
+        hideFromScreenshots = enabled
+        UserDefaults.standard.set(enabled, forKey: "hideFromScreenshots")
+        overlay?.sharingType = enabled ? .none : .readOnly
     }
 
     func setRestoredGlyphs(_ enabled: Bool) throws {
@@ -238,6 +251,7 @@ final class DreamsController: NSObject {
             },
             "rain_visible": overlay?.isVisible ?? false,
             "transparent_background": transparentBackground,
+            "hidden_from_screenshots": hideFromScreenshots,
             "rain_density": rainDensity,
             "rain_fade_rows": rainFadeRows,
             "rain_speed": rainSpeed,
@@ -304,6 +318,7 @@ final class DreamsController: NSObject {
         window.level = .screenSaver
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary]
         window.ignoresMouseEvents = true
+        window.sharingType = hideFromScreenshots ? .none : .readOnly
         window.isOpaque = !transparent
         window.backgroundColor = transparent ? .clear : .black
         window.hasShadow = false

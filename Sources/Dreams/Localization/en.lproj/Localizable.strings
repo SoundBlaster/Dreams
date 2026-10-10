@@ -45,6 +45,9 @@
 "words.brightness.tip" = "0% hides the words; 100% is normal; 200% is brighter.";
 "check.restored" = "Restored glyphs from the film";
 
+"check.hideFromScreenshots" = "Hide the rain from screenshots and recordings";
+"check.hideFromScreenshots.tip" = "On: the system screenshot tool can capture the windows under the rain. Off: the rain is captured too, e.g. for a demo video.";
+
 "debug.menu" = "Debug";
 "debug.fixtures" = "Stream test · DEMO";
 "debug.fixtures.tip" = "Starts Matrix and loops an agent turn: surge, call lines, decay.";
