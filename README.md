@@ -29,7 +29,7 @@ dist/Dreams.app/Contents/MacOS/Dreams --lab
 
 ```toml
 [mcp_servers.dreams]
-command = "/Users/egor/Development/GitHub/Dreams/dist/Dreams.app/Contents/MacOS/Dreams"
+command = "/Applications/Dreams.app/Contents/MacOS/Dreams"
 args = ["--mcp"]
 ```
 
@@ -106,14 +106,16 @@ dist/Dreams.app/Contents/MacOS/Dreams --render-demo artifacts/activity-frames --
 ## Hooks Codex и Claude Code
 
 ```sh
-python3 scripts/install-hooks.py
+/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks
+# Посмотреть, что изменится, ничего не записывая:
+/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks --dry-run
 # Удалить только Dreams hooks, сохранив остальные настройки:
-python3 scripts/install-hooks.py --uninstall
+/Applications/Dreams.app/Contents/MacOS/Dreams --uninstall-hooks
 ```
 
-Installer добавляет user-level hooks в `~/.codex/hooks.json` и `~/.claude/settings.json`, сохраняя существующие settings и создавая timestamped backup рядом. Конфигурация уже установлена на этом Mac. Для Codex необходимо проверить новые hooks в `/hooks` и подтвердить доверие средствами клиента. На этом Mac пользователь подтвердил hooks: 9 октября 2026, 22:52 МСК, в общем mailbox проверены свежие автоматические события четырёх Codex-сессий («задача», «терминал»). Реальная автоматическая доставка из Claude Code пока не подтверждена. При необходимости начните новую сессию после изменения конфигурации. Это интеграция Claude Code, не произвольного Claude chat.
+Установщик встроен в приложение (бинарник запоминает собственный путь, поэтому запускайте его из `/Applications`; из `dist/` в hooks попадёт путь к `dist/`). Он добавляет user-level hooks в `~/.codex/hooks.json` и `~/.claude/settings.json`, сохраняя существующие settings, порядок ключей и чужие hooks, и создаёт timestamped backup рядом. Повторный запуск безопасен, файл, который не является JSON-объектом, не трогается. Проверка: `python3 scripts/test-hooks-install.py`. Прежние hooks на путь `dist/` заменяются при установке. Для Codex необходимо проверить новые hooks в `/hooks` и подтвердить доверие средствами клиента. На этом Mac пользователь подтвердил hooks: 9 октября 2026, 22:52 МСК, в общем mailbox проверены свежие автоматические события четырёх Codex-сессий («задача», «терминал»). Реальная автоматическая доставка из Claude Code пока не подтверждена. При необходимости начните новую сессию после изменения конфигурации. Это интеграция Claude Code, не произвольного Claude chat.
 
-События: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, SessionEnd. Hooks вызывают короткоживущий `Dreams --hook codex|claude`, не открывая окна. Для изображения должен работать основной Dreams. Отправляются только короткие labels, например «поиск», «код», «терминал», «готово», выбранные по имени события/tool. Prompt, tool input/output и transcripts не сохраняются. Это индикатор действий, **не поток inference tokens или скрытых рассуждений**.
+События: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, SessionEnd. Hooks вызывают короткоживущий `Dreams --hook codex|claude`, не открывая окна. Для изображения должен работать основной Dreams. Отправляются короткие labels: «задача», «готово» и строка вызова инструмента (`bash: brew install …`, `read: путь`) с именем tool и главным аргументом, до 60 символов; значения, похожие на секреты, заменяются на `***`, но редакция работает по шаблонам и не гарантирует защиту. Строки хранятся локально в mailbox (права 0600) и видны на экране. Текст prompt, вывод инструментов и transcripts не сохраняются. Это индикатор действий, **не поток inference tokens или скрытых рассуждений**.
 
 Hook всегда возвращает пустой stdout и exit 0, включая ошибки или занятый mailbox, чтобы не менять решения агента. Явные MCP/`--publish` вызовы сообщают ошибки. Примеры конфигурации находятся в `integrations/`.
 
