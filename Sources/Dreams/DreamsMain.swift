@@ -45,6 +45,12 @@ enum DreamsMain {
             && !CommandLine.arguments.contains("--render-demo")
         let application = NSApplication.shared
         application.setActivationPolicy(interactive ? .regular : .accessory)
+        // The normal app has a Dock icon while it runs: set it explicitly, so it never depends on
+        // the icon cache of the Dock or Launch Services (a stale cache shows a blank placeholder).
+        if interactive, let url = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+           let icon = NSImage(contentsOf: url) {
+            application.applicationIconImage = icon
+        }
         let delegate = DreamsDelegate()
         delegate.showsControls = interactive
         application.delegate = delegate
