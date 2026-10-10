@@ -73,6 +73,10 @@ final class DreamsController: NSObject {
     }
     private var lastBrightness = 0.18
     var emergencyHotkeyRegistered = false
+    /// The global stop shortcut; the delegate re-registers it when it changes.
+    var stopHotkey = StopHotkey.load() {
+        didSet { stopHotkey.save() }
+    }
     private(set) var restoredGlyphs = UserDefaults.standard.object(forKey: "restoredGlyphs") as? Bool
         ?? DreamsPreset.restoredGlyphs
 
@@ -111,6 +115,7 @@ final class DreamsController: NSObject {
         try setRestoredGlyphs(DreamsPreset.restoredGlyphs)
         setHideFromScreenshots(DreamsPreset.hideFromScreenshots)
         runTimeSeconds = DreamsPreset.runTimeSeconds
+        stopHotkey = .standard
     }
 
     /// Keeps the overlay out of screenshots, recordings and the system screenshot tool's window
@@ -330,6 +335,7 @@ final class DreamsController: NSObject {
             "rain_window_number": overlay.map { $0.windowNumber as Any } ?? NSNull(),
             "frames_rendered": renderer?.framesRendered ?? 0,
             "emergency_hotkey_registered": emergencyHotkeyRegistered,
+            "stop_hotkey": stopHotkey.display,
             "virtual_display_id": virtualDisplay.map { Int($0.displayID) as Any } ?? NSNull(),
             "private_virtual_display_api_available": DreamsVirtualDisplay.isAvailable(),
             "workspace_clicks": clicks,

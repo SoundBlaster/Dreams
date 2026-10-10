@@ -19,7 +19,7 @@ A menu bar item (the restored film glyph G05, drawn from the font as a template 
 dist/Dreams.app/Contents/MacOS/Dreams --lab
 ```
 
-`Ctrl+Option+Command+D` is registered as a global hotkey and a menu shortcut that stops the animation. Registration is verified; a call through a synthetic CUA keyboard was not confirmed. MCP stop and auto-stop are verified separately. A physical key press still needs checking for everyday use.
+**Stop shortcut.** `Ctrl+Option+Command+D` by default, registered as a global hotkey (Carbon, no input-monitoring permission) and as the menu shortcut of "Stop Animation". You can change it in the window: click the shortcut button, press a combination that includes ⌃, ⌥ or ⌘ (Esc cancels, "Default" restores it). It applies at once and is kept (`stopHotkeyKeyCode`, `stopHotkeyModifiers`, `stopHotkeyKey`); if another app already owns the combination the old one stays and the window says so. `dreams_status` reports `stop_hotkey` and `emergency_hotkey_registered`. Unit checks: `make test-unit`. Registration is verified; a call through a synthetic CUA keyboard was not confirmed. MCP stop and auto-stop are verified separately. A physical key press still needs checking for everyday use.
 
 ## Make targets
 

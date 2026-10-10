@@ -64,19 +64,25 @@
 "runtime.1h" = "1 hour";
 "runtime.unlimited" = "Until stopped";
 "runtime.accessibility" = "Run time";
-"hint.runtime" = "Runs for %@, full screen. Stop: ⌃⌥⌘D, or Esc while Dreams is the active app.";
-"hint.runtime.unlimited" = "Runs until you stop it, full screen. Stop: ⌃⌥⌘D, or Esc while Dreams is the active app.";
+"hint.runtime" = "Runs for %1$@, full screen. Stop: %2$@, or Esc while Dreams is the active app.";
+"hint.runtime.unlimited" = "Runs until you stop it, full screen. Stop: %@, or Esc while Dreams is the active app.";
 "status.stopped.timer" = "Stopped: the run time ended. Press “Start Matrix”.";
 "status.stopped.user" = "Stopped. Press “Start Matrix”.";
 "status.stopped.escape" = "Stopped with Esc. Press “Start Matrix”.";
-"status.stopped.hotkey" = "Stopped with ⌃⌥⌘D. Press “Start Matrix”.";
+"status.stopped.hotkey" = "Stopped with the stop shortcut. Press “Start Matrix”.";
 "status.stopped.reopen" = "Stopped: Dreams was opened again (Dock icon or launch). Press “Start Matrix”.";
 "status.stopped.agent" = "Stopped by an agent (MCP). Press “Start Matrix”.";
 "status.rendering.unlimited" = "Rendering: %d frames · until stopped.";
 "menu.startMatrix" = "Start Matrix Rain";
 
-"hint.runtime.transparent" = "Over your windows: runs until you stop it (the Stop button or ⌃⌥⌘D). The run time applies to the black background.";
+"hint.runtime.transparent" = "Over your windows: runs until you stop it (the Stop button or %@). The run time applies to the black background.";
 "runtime.tip" = "How long the rain runs after Start on the black background. Over windows (transparent) it runs until you stop it.";
+
+"hotkey.label" = "Stop shortcut";
+"hotkey.recording" = "Press a shortcut…";
+"hotkey.reset" = "Default";
+"hotkey.taken" = "%@ is taken by another app; the old shortcut stays.";
+"hotkey.tip" = "Click, then press a combination with ⌃, ⌥ or ⌘. Esc cancels.";
 
 "debug.menu" = "Debug";
 "debug.fixtures" = "Stream test · DEMO";
