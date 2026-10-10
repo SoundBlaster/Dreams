@@ -27,6 +27,7 @@ enum DreamsMain {
             }
             return
         }
+        SettingsMigration.run()
         let publisherOnly = CommandLine.arguments.contains("--publisher")
         let interactive = !CommandLine.arguments.contains("--mcp")
             && !CommandLine.arguments.contains("--lab")

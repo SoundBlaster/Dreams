@@ -17,7 +17,7 @@ cat > "$dreams_app/Contents/Info.plist" <<'PLIST'
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
 <key>CFBundleExecutable</key><string>Dreams</string>
-<key>CFBundleIdentifier</key><string>local.dreams.app</string>
+<key>CFBundleIdentifier</key><string>ru.egormerkushev.dreams</string>
 <key>CFBundleName</key><string>Dreams</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>CFBundleShortVersionString</key><string>0.1.0</string>
