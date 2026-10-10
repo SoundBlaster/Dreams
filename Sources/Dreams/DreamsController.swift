@@ -85,8 +85,9 @@ final class DreamsController: NSObject {
         // Window opacity is fixed when the overlay is created: recreate a running Matrix,
         // keeping the time it has left.
         if rainIsOn {
-            // Keep the time it has left (unlimited stays unlimited).
-            try begin(duration: expiresAt.map { max(1, $0.timeIntervalSinceNow) }, brightness: lastBrightness)
+            // Over windows the rain has no run time; on black it keeps the time it has left.
+            let remaining = expiresAt.map { max(1, $0.timeIntervalSinceNow) } ?? (runTimeSeconds > 0 ? runTimeSeconds : nil)
+            try begin(duration: enabled ? nil : remaining, brightness: lastBrightness)
         }
     }
 
@@ -363,9 +364,16 @@ final class DreamsController: NSObject {
         try begin(duration: duration, brightness: brightness)
     }
 
-    /// The window and the menu: run for the "Run time" setting (0 = until stopped).
+    /// The window and the menu. On black the rain covers the screen, so it follows the "Run time"
+    /// setting (0 = until stopped); over windows (transparent) it runs until it is stopped.
     func startWithRunTime() throws {
-        try begin(duration: runTimeSeconds > 0 ? runTimeSeconds : nil, brightness: 0.18)
+        let limited = !transparentBackground && runTimeSeconds > 0
+        try begin(duration: limited ? runTimeSeconds : nil, brightness: 0.18)
+    }
+
+    /// Opening the app again brings the window back and, on black, stops the rain that covers it.
+    func stopForReopen() {
+        if !transparentBackground { stop(reason: .reopen) }
     }
 
     private func begin(duration: Double?, brightness: Double) throws {
@@ -407,9 +415,12 @@ final class DreamsController: NSObject {
         lastBrightness = brightness
         window.orderFrontRegardless()
         watchForScreenshotTool()
-        let result = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep as CFString,
-            IOPMAssertionLevel(kIOPMAssertionLevelOn), "Dreams agent session" as CFString, &assertionID)
-        assertionActive = result == kIOReturnSuccess
+        // A background overlay with no end must not keep the display awake forever.
+        if !transparent || duration != nil {
+            let result = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep as CFString,
+                IOPMAssertionLevel(kIOPMAssertionLevelOn), "Dreams agent session" as CFString, &assertionID)
+            assertionActive = result == kIOReturnSuccess
+        }
         guard let duration else { return }
         expiresAt = Date().addingTimeInterval(duration)
         expiryTask = Task { [weak self] in

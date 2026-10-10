@@ -456,7 +456,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 Task { @MainActor [weak self] in self?.refreshActivityLabel() }
             }
         }
-        controller.stop(reason: .reopen)
+        controller.stopForReopen()
         NSApplication.shared.activate(ignoringOtherApps: true)
         controlsWindow?.makeKeyAndOrderFront(nil)
     }
@@ -598,6 +598,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         glowSlider?.doubleValue = controller.rainGlow
         rainColorWell?.color = controller.rainColor
         refreshValueLabels()
+        refreshRunTimeHint()
     }
 
     private func refreshHooks() {
@@ -630,8 +631,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
 
     private func refreshRunTimeHint() {
         let seconds = controller.runTimeSeconds
-        runTimeHint?.stringValue = seconds > 0
-            ? L("hint.runtime", Self.runTimeTitle(seconds).lowercased()) : L("hint.runtime.unlimited")
+        (controlsByID["dreams.run-time"] as? NSPopUpButton)?.isEnabled = !controller.transparentBackground
+        runTimeHint?.stringValue = controller.transparentBackground ? L("hint.runtime.transparent")
+            : seconds > 0 ? L("hint.runtime", Self.runTimeTitle(seconds).lowercased()) : L("hint.runtime.unlimited")
     }
 
     @objc private func changeRunTime(_ sender: NSPopUpButton) {

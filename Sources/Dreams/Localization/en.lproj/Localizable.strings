@@ -63,7 +63,6 @@
 "runtime.30m" = "30 minutes";
 "runtime.1h" = "1 hour";
 "runtime.unlimited" = "Until stopped";
-"runtime.tip" = "How long the rain runs after Start. “Until stopped” keeps the display awake until you stop it.";
 "runtime.accessibility" = "Run time";
 "hint.runtime" = "Runs for %@, full screen. Exit with Esc or ⌃⌥⌘D.";
 "hint.runtime.unlimited" = "Runs until you stop it, full screen. Exit with Esc or ⌃⌥⌘D.";
@@ -75,6 +74,9 @@
 "status.stopped.agent" = "Stopped by an agent (MCP). Press “Start Matrix”.";
 "status.rendering.unlimited" = "Rendering: %d frames · until stopped.";
 "menu.startMatrix" = "Start Matrix Rain";
+
+"hint.runtime.transparent" = "Over your windows: runs until you stop it (Stop, Esc or ⌃⌥⌘D). The run time applies to the black background.";
+"runtime.tip" = "How long the rain runs after Start on the black background. Over windows (transparent) it runs until you stop it.";
 
 "debug.menu" = "Debug";
 "debug.fixtures" = "Stream test · DEMO";
