@@ -171,6 +171,8 @@ def main():
                     break
                 command = json.loads(line)
                 print(json.dumps(client.call(command["name"], command.get("arguments"))), flush=True)
+        stopped = client.call("dreams_prepare_ui")
+        assert not stopped["rain_visible"] and stopped["last_stop_reason"] == "agent", stopped
         assert not client.call("dreams_prepare_ui")["rain_visible"]
         assert client.call("dreams_resume")["rain_visible"]
         state = client.call("dreams_start", {"duration_seconds": 1})
@@ -178,6 +180,8 @@ def main():
         time.sleep(1.5)
         state = client.call("dreams_status")
         assert not state["rain_visible"], state
+        assert state["last_stop_reason"] == "timer", state
+        assert state["run_time_seconds"] == 3600, state
         assert not state["prevents_idle_sleep"], state
         assert client.call("dreams_workspace_close")["virtual_display_id"] is None
         client.call("dreams_clear_keywords", {"session_id": "codex-demo"})

@@ -56,6 +56,8 @@ test-unit:
 	.build/activity-checks
 	swiftc -swift-version 6 Sources/Dreams/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
 	.build/matrix-checks
+	swiftc -swift-version 6 -parse-as-library Sources/Dreams/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
+	.build/hotkey-checks
 
 test: app test-unit
 	python3 scripts/test-localization.py

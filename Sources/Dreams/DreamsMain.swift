@@ -1,4 +1,5 @@
 import AppKit
+import Carbon.HIToolbox
 import MetalKit
 import MCP
 
@@ -180,7 +181,7 @@ enum DreamsMain {
                     try await controller.start(
                         duration: number(parameters.arguments?["duration_seconds"], fallback: 300),
                         brightness: number(parameters.arguments?["brightness"], fallback: 0.18))
-                case "dreams_stop", "dreams_prepare_ui": await controller.stop()
+                case "dreams_stop", "dreams_prepare_ui": await controller.stop(reason: .agent)
                 case "dreams_resume": try await controller.resume()
                 case "dreams_workspace_create": try await controller.createWorkspace()
                 case "dreams_workspace_close": await controller.closeWorkspace()
@@ -222,6 +223,11 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     private let keywordBrightnessLabel = NSTextField(labelWithString: "")
     private let idleLabel = NSTextField(labelWithString: "")
     private let glowLabel = NSTextField(labelWithString: "")
+    private var runTimeHint: NSTextField?
+    private var hotkeyButton: NSButton?
+    private var hotkeyNote: NSTextField?
+    private var hotkeyMonitor: Any?
+    private var stopMenuItem: NSMenuItem?
     private var hookStatusLabels: [String: NSTextField] = [:]
     private var hookButtons: [String: NSButton] = [:]
     private var glowSlider: NSSlider?
@@ -253,7 +259,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
             window.title = "Dreams"
             window.isReleasedWhenClosed = false
-            window.onEscape = { [weak self] in self?.controller.stop() }
+            window.onEscape = { [weak self] in self?.controller.stop(reason: .escape) }
 
             // Header: status and the main actions.
             let activityLabel = NSTextField(wrappingLabelWithString: "")
@@ -265,9 +271,39 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             matrix.keyEquivalent = "\r"
             let stopButton = NSButton(title: L("button.stop"), target: self, action: #selector(stop))
             stopButton.setAccessibilityIdentifier("dreams.stop")
-            let launch = NSStackView(views: [matrix, stopButton])
+            let runTime = NSPopUpButton(frame: .zero, pullsDown: false)
+            for seconds in DreamsPreset.runTimeChoices {
+                runTime.addItem(withTitle: Self.runTimeTitle(seconds))
+                runTime.lastItem?.representedObject = seconds
+            }
+            runTime.selectItem(at: DreamsPreset.runTimeChoices.firstIndex(of: controller.runTimeSeconds) ?? 2)
+            runTime.target = self
+            runTime.action = #selector(changeRunTime(_:))
+            runTime.toolTip = L("runtime.tip")
+            runTime.setAccessibilityLabel(L("runtime.accessibility"))
+            runTime.setAccessibilityIdentifier("dreams.run-time")
+            controlsByID["dreams.run-time"] = runTime
+            let launch = NSStackView(views: [matrix, stopButton, runTime])
             launch.spacing = 8
-            let escapeHint = Self.note(L("hint.escape"))
+            let escapeHint = Self.note("")
+            runTimeHint = escapeHint
+
+            // The global stop shortcut: click, press a combination.
+            let hotkeyName = Self.name(L("hotkey.label"))
+            let hotkeyButton = NSButton(title: controller.stopHotkey.display, target: self, action: #selector(recordHotkey(_:)))
+            hotkeyButton.toolTip = L("hotkey.tip")
+            hotkeyButton.setAccessibilityLabel(L("hotkey.label"))
+            hotkeyButton.setAccessibilityIdentifier("dreams.stop-hotkey")
+            hotkeyButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 96).isActive = true
+            self.hotkeyButton = hotkeyButton
+            let hotkeyDefault = NSButton(title: L("hotkey.reset"), target: self, action: #selector(resetHotkey))
+            hotkeyDefault.bezelStyle = .inline
+            hotkeyDefault.setAccessibilityIdentifier("dreams.stop-hotkey-default")
+            let hotkeyNote = Self.note("")
+            self.hotkeyNote = hotkeyNote
+            let hotkeyRow = NSStackView(views: [hotkeyName, hotkeyButton, hotkeyDefault])
+            hotkeyRow.spacing = 8
+            refreshRunTimeHint()
 
             // Rain.
             let rainColor = NSColorWell()
@@ -376,7 +412,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             footer.widthAnchor.constraint(equalToConstant: 420).isActive = true
 
             let stack = NSStackView(views: [
-                activityLabel, launch, escapeHint,
+                activityLabel, launch, escapeHint, hotkeyRow, hotkeyNote,
                 Self.section(L("section.rain")), rain,
                 Self.section(L("section.between")), background, transparent, screenshots,
                 Self.section(L("section.words")), words,
@@ -387,7 +423,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             stack.orientation = .vertical
             stack.alignment = .leading
             stack.spacing = 10
-            for (view, gap) in [(launch, 6.0), (escapeHint, 18.0), (rain, 18.0), (screenshots, 18.0),
+            for (view, gap) in [(launch, 6.0), (escapeHint, 8.0), (hotkeyNote, 18.0), (rain, 18.0), (screenshots, 18.0),
                                 (words, 18.0), (hooksNote, 18.0), (restored, 14.0)] as [(NSView, CGFloat)] {
                 stack.setCustomSpacing(gap, after: view)
             }
@@ -441,7 +477,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 Task { @MainActor [weak self] in self?.refreshActivityLabel() }
             }
         }
-        controller.stop()
+        controller.stopForReopen()
         NSApplication.shared.activate(ignoringOtherApps: true)
         controlsWindow?.makeKeyAndOrderFront(nil)
     }
@@ -542,7 +578,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     }
 
     func setupMenu() {
-        controller.emergencyHotkeyRegistered = emergencyHotkey.install(controller: controller)
+        controller.emergencyHotkeyRegistered = emergencyHotkey.install(controller: controller, hotkey: controller.stopHotkey)
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let icon = StatusIcon.image() {
             item.button?.image = icon
@@ -556,8 +592,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             menu.addItem(.separator())
         }
         menu.addItem(withTitle: L("menu.startMatrix"), action: #selector(start), keyEquivalent: "")
-        let stopItem = menu.addItem(withTitle: L("menu.stop"), action: #selector(stop), keyEquivalent: "d")
-        stopItem.keyEquivalentModifierMask = [.control, .option, .command]
+        let stopItem = menu.addItem(withTitle: L("menu.stop"), action: #selector(stop), keyEquivalent: "")
+        stopMenuItem = stopItem
+        refreshStopMenuItem()
         menu.addItem(.separator())
         let debug = menu.addItem(withTitle: L("debug.menu"), action: nil, keyEquivalent: "")
         debug.submenu = debugMenu()
@@ -583,6 +620,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         glowSlider?.doubleValue = controller.rainGlow
         rainColorWell?.color = controller.rainColor
         refreshValueLabels()
+        refreshRunTimeHint()
     }
 
     private func refreshHooks() {
@@ -604,6 +642,78 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         refreshHooks()
     }
 
+    private static func runTimeTitle(_ seconds: Double) -> String {
+        switch seconds {
+        case 300: return L("runtime.5m")
+        case 1800: return L("runtime.30m")
+        case 3600: return L("runtime.1h")
+        default: return L("runtime.unlimited")
+        }
+    }
+
+    private func refreshRunTimeHint() {
+        let seconds = controller.runTimeSeconds
+        (controlsByID["dreams.run-time"] as? NSPopUpButton)?.isEnabled = !controller.transparentBackground
+        let hotkey = controller.stopHotkey.display
+        runTimeHint?.stringValue = controller.transparentBackground ? L("hint.runtime.transparent", hotkey)
+            : seconds > 0 ? L("hint.runtime", Self.runTimeTitle(seconds).lowercased(), hotkey)
+            : L("hint.runtime.unlimited", hotkey)
+        hotkeyButton?.title = controller.stopHotkey.display
+    }
+
+    private func refreshStopMenuItem() {
+        let equivalent = controller.stopHotkey.menuEquivalent
+        stopMenuItem?.keyEquivalent = equivalent?.key ?? ""
+        stopMenuItem?.keyEquivalentModifierMask = equivalent?.flags ?? []
+    }
+
+    /// Records the next ⌃/⌥/⌘ key combination as the stop shortcut; Esc or a second click cancels.
+    @objc private func recordHotkey(_ sender: NSButton) {
+        if let monitor = hotkeyMonitor { NSEvent.removeMonitor(monitor); hotkeyMonitor = nil; refreshRunTimeHint(); return }
+        sender.title = L("hotkey.recording")
+        hotkeyNote?.stringValue = ""
+        hotkeyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+            guard let self else { return event }
+            if Int(event.keyCode) == kVK_Escape {
+                self.finishRecording(with: nil)
+            } else if let hotkey = StopHotkey(event: event) {
+                self.finishRecording(with: hotkey)
+            } else {
+                NSSound.beep()  // not usable: needs ⌃, ⌥ or ⌘
+            }
+            return nil
+        }
+    }
+
+    private func finishRecording(with hotkey: StopHotkey?) {
+        if let monitor = hotkeyMonitor { NSEvent.removeMonitor(monitor); hotkeyMonitor = nil }
+        if let hotkey, hotkey != controller.stopHotkey { applyStopHotkey(hotkey) }
+        refreshRunTimeHint()
+    }
+
+    @objc private func resetHotkey() {
+        if let monitor = hotkeyMonitor { NSEvent.removeMonitor(monitor); hotkeyMonitor = nil }
+        applyStopHotkey(.standard)
+        refreshRunTimeHint()
+    }
+
+    private func applyStopHotkey(_ hotkey: StopHotkey) {
+        if emergencyHotkey.change(to: hotkey) {
+            controller.stopHotkey = hotkey
+            controller.emergencyHotkeyRegistered = true
+            hotkeyNote?.stringValue = ""
+        } else {
+            hotkeyNote?.stringValue = L("hotkey.taken", hotkey.display)
+        }
+        refreshStopMenuItem()
+    }
+
+    @objc private func changeRunTime(_ sender: NSPopUpButton) {
+        guard let seconds = sender.selectedItem?.representedObject as? Double else { return }
+        controller.runTimeSeconds = seconds
+        refreshRunTimeHint()
+    }
+
     @objc private func resetDefaults() {
         let alert = NSAlert()
         alert.messageText = L("reset.confirm.title")
@@ -612,6 +722,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         alert.addButton(withTitle: L("button.cancel"))
         guard alert.runModal() == .alertFirstButtonReturn else { return }
         do { try controller.resetToDefaults() } catch { show(error: error) }
+        applyStopHotkey(controller.stopHotkey)
         syncControls()
     }
 
@@ -630,6 +741,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         (controlsByID["dreams.transparent-background"] as? NSButton)?.state = controller.transparentBackground ? .on : .off
         (controlsByID["dreams.restored-glyphs"] as? NSButton)?.state = controller.restoredGlyphs ? .on : .off
         (controlsByID["dreams.hide-from-screenshots"] as? NSButton)?.state = controller.hideFromScreenshots ? .on : .off
+        if let popup = controlsByID["dreams.run-time"] as? NSPopUpButton,
+           let index = DreamsPreset.runTimeChoices.firstIndex(of: controller.runTimeSeconds) { popup.selectItem(at: index) }
+        refreshRunTimeHint()
         refreshValueLabels()
     }
 
@@ -688,7 +802,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         do { try controller.showEventFixtures() } catch { show(error: error) }
     }
 
-    @objc private func start() { do { try controller.start() } catch { show(error: error) } }
+    @objc private func start() { do { try controller.startWithRunTime() } catch { show(error: error) } }
     @objc private func stop() { controller.stop() }
     @objc private func workspace() {
         Task { do { try await controller.createWorkspace() } catch { show(error: error) } }

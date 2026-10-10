@@ -13,13 +13,13 @@ open dist/Dreams.app
 
 A normal launch opens the Dreams window with the buttons Start Matrix, Stop and Quit Dreams. Reopening the app brings this window back and stops the animation. `Esc` stops the animation while Dreams is the active app.
 
-A menu bar item (the restored film glyph G05, drawn from the font as a template image, `StatusIcon.swift`) also appears: Start Matrix Rain, Stop Animation, Debug, Quit. The Debug submenu (also the right-click menu of the control window) holds the stream test and the experimental agent workspace (create / close); agents keep the workspace through the MCP tools `dreams_workspace_create` and `dreams_workspace_close`. The animation runs for five minutes. Launching the app never covers the screen by itself. For a separate test window on a virtual display:
+A menu bar item (the restored film glyph G05, drawn from the font as a template image, `StatusIcon.swift`) also appears: Start Matrix Rain, Stop Animation, Debug, Quit. The Debug submenu (also the right-click menu of the control window) holds the stream test and the experimental agent workspace (create / close); agents keep the workspace through the MCP tools `dreams_workspace_create` and `dreams_workspace_close`. The animation runs for the chosen run time (default one hour). Launching the app never covers the screen by itself. For a separate test window on a virtual display:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --lab
 ```
 
-`Ctrl+Option+Command+D` is registered as a global hotkey and a menu shortcut that stops the animation. Registration is verified; a call through a synthetic CUA keyboard was not confirmed. MCP stop and auto-stop are verified separately. A physical key press still needs checking for everyday use.
+**Stop shortcut.** `Ctrl+Option+Command+D` by default, registered as a global hotkey (Carbon, no input-monitoring permission) and as the menu shortcut of "Stop Animation". You can change it in the window: click the shortcut button, press a combination that includes ⌃, ⌥ or ⌘ (Esc cancels, "Default" restores it). It applies at once and is kept (`stopHotkeyKeyCode`, `stopHotkeyModifiers`, `stopHotkeyKey`); if another app already owns the combination the old one stays and the window says so. `dreams_status` reports `stop_hotkey` and `emergency_hotkey_registered`. Unit checks: `make test-unit`. Registration is verified; a call through a synthetic CUA keyboard was not confirmed. MCP stop and auto-stop are verified separately. A physical key press still needs checking for everyday use.
 
 ## Make targets
 
@@ -167,7 +167,7 @@ All settings are applied immediately and saved between launches. **Reset to Defa
 
 Part of the glyph replacements run as a short churn: 4–8 different glyphs in a row on one position, 35–65 ms apart at 1× speed, then the chosen glyph settles without a white flash. The other replacements are single. After settling, a cell is not picked again for at least 0.8 seconds of simulation time. The churn keeps the brightness and the original print time, and stops when fading starts, the column is hidden, or the cell is overwritten by a new pass.
 
-The window also shows the animation state next to the agent activity: stopped, or the number of rendered frames and the time left. A normal launch is limited to five minutes. The settings window scrolls so that every control stays reachable.
+The window also shows the animation state next to the agent activity: stopped, or the number of rendered frames and the time left. **Run time** (a pop-up beside Start/Stop: 5 minutes, 30 minutes, 1 hour, until stopped; default 1 hour, `runTimeSeconds`) limits how long the rain runs after Start **on the black background**, which covers the screen. Over windows (transparent) the rain has no run time and no display-sleep assertion: it runs until you stop it (the Stop button, ⌃⌥⌘D, or an agent over MCP). `Esc` only works while Dreams itself is the active app; it is not a global key, because it belongs to whatever you are working in. On black, "Until stopped" keeps the display-sleep assertion held until you stop it. When the rain stops, the first line of the window says why: the run time ended, Esc, ⌃⌥⌘D, the app was opened again (Dock icon or launch), or an agent stopped it over MCP. `dreams_status` reports `last_stop_reason` and `run_time_seconds`, and each stop is logged (`log show --predicate 'subsystem == "ru.egormerkushev.dreams"'`). Reopening the app (Dock click) stops the black rain on purpose, so the window is always reachable; over windows it does not stop anything. The settings window scrolls so that every control stays reachable.
 
 ## UI agents and the built-in display
 
