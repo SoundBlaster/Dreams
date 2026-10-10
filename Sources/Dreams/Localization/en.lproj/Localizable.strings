@@ -48,6 +48,18 @@
 "check.hideFromScreenshots" = "Hide the rain from screenshots and recordings";
 "check.hideFromScreenshots.tip" = "On: the system screenshot tool can capture the windows under the rain. Off: the rain is captured too, e.g. for a demo video.";
 
+"section.agents" = "Agent hooks";
+"hooks.codex" = "Codex";
+"hooks.claude" = "Claude Code";
+"hooks.state.connected" = "Connected";
+"hooks.state.notConnected" = "Not connected";
+"hooks.state.outdated" = "Needs an update";
+"button.connect" = "Connect";
+"button.disconnect" = "Disconnect";
+"button.update" = "Update";
+"hooks.note" = "Hooks make the rain follow your agents. Codex asks you to review new hooks in /hooks; Claude Code reads them in a new session.";
+"hooks.path.tip" = "The hooks start this copy of Dreams: %@";
+
 "debug.menu" = "Debug";
 "debug.fixtures" = "Stream test · DEMO";
 "debug.fixtures.tip" = "Starts Matrix and loops an agent turn: surge, call lines, decay.";

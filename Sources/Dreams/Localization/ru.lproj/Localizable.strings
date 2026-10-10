@@ -48,6 +48,18 @@
 "check.hideFromScreenshots" = "Скрыть дождь со скриншотов и записей";
 "check.hideFromScreenshots.tip" = "Включено: системный скриншот снимает окна под дождём. Выключено: дождь попадает в кадр, например для демо-видео.";
 
+"section.agents" = "Хуки агентов";
+"hooks.codex" = "Codex";
+"hooks.claude" = "Claude Code";
+"hooks.state.connected" = "Подключено";
+"hooks.state.notConnected" = "Не подключено";
+"hooks.state.outdated" = "Нужно обновить";
+"button.connect" = "Подключить";
+"button.disconnect" = "Отключить";
+"button.update" = "Обновить";
+"hooks.note" = "Хуки заставляют дождь следовать за агентами. Codex попросит проверить новые хуки в /hooks; Claude Code читает их в новой сессии.";
+"hooks.path.tip" = "Хуки запускают эту копию Dreams: %@";
+
 "debug.menu" = "Отладка";
 "debug.fixtures" = "Тест струй · DEMO";
 "debug.fixtures.tip" = "Запускает Matrix и по кругу показывает ход агента: всплеск, строки вызовов, спад.";

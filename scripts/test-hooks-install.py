@@ -48,6 +48,12 @@ with tempfile.TemporaryDirectory() as tmp:
                 '  "hooks": {"Stop": [' + json.dumps(USER_HOOK, ensure_ascii=False) + ']}\n}\n')
     claude.write_text(original)
 
+    def status(binary=None):
+        env = dict(os.environ, HOME=str(home))
+        out = subprocess.run([str(binary or app_binary), "--hooks-status"], env=env, capture_output=True, text=True, timeout=20).stdout
+        return dict(line.split(": ") for line in out.strip().splitlines())
+
+    check(status() == {"codex": "not connected", "claude": "not connected"}, "status before install")
     dry = run(home, "--install-hooks", "--dry-run")
     check(dry.returncode == 0 and claude.read_text() == original and not codex.exists(), "dry run must not write")
 
@@ -66,12 +72,26 @@ with tempfile.TemporaryDirectory() as tmp:
     check(len(list(claude.parent.glob("settings.json.dreams-backup-*"))) == 1, "one backup of the existing config")
     check(not list(codex.parent.glob("hooks.json.dreams-backup-*")), "no backup for a new config")
 
+    check(status() == {"codex": "connected", "claude": "connected"}, "status after install")
+    # The same hooks seen from another copy of the app (moved or reinstalled elsewhere) are outdated.
+    other = home / "Other/Dreams.app/Contents/MacOS/Dreams"
+    shutil.copytree(app_binary.parents[2], other.parents[2], symlinks=True)
+    check(status(other) == {"codex": "outdated", "claude": "outdated"}, "status from another app copy")
+    # A missing event also counts as outdated.
+    broken = json.loads(claude.read_text())
+    del broken["hooks"]["SessionEnd"]
+    claude.write_text(json.dumps(broken))
+    check(status() == {"codex": "connected", "claude": "outdated"}, "status with a missing event")
+    claude.write_text(json.dumps(json.loads(claude.read_text()) | {"hooks": {**broken["hooks"], "SessionEnd": []}}))
+    run(home, "--install-hooks")
+    check(status()["claude"] == "connected", "install repairs outdated hooks")
     again = run(home, "--install-hooks")
     check("unchanged" in again.stdout and len(dreams_commands(json.loads(claude.read_text()))) == 6, "install is idempotent")
 
     gone = run(home, "--uninstall-hooks")
     check(gone.returncode == 0, "uninstall failed: " + gone.stderr)
     check(json.loads(claude.read_text()) == json.loads(original), "uninstall restores the user's config")
+    check(status() == {"codex": "not connected", "claude": "not connected"}, "status after uninstall")
     check(json.loads(codex.read_text()) == {}, "uninstall leaves an empty Codex config")
 
     claude.write_text("[1, 2]")

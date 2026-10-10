@@ -35,11 +35,13 @@ for key in english:
     check(english[key].strip() and russian[key].strip(), f"{key}: empty text")
 check(not re.search("[Ѐ-ӿ]", "".join(english.values())), "en: Cyrillic text in the English table")
 
-# Every L("key") and HookWord used in Swift must exist.
+# Every L("key") and HookWord used in Swift must exist (keys built at run time, like "hooks." + agent, are listed below).
 used = set()
 for source in (ROOT / "Sources/Dreams").glob("*.swift"):
-    used |= set(re.findall(r'\bL\("([^"]+)"', source.read_text(encoding="utf8")))
+    used |= set(re.findall(r'\bL\("([^"]+)"\s*[,)]', source.read_text(encoding="utf8")))
 check(used <= english.keys(), f"keys used in Swift but missing: {sorted(used - english.keys())}")
+for dynamic in ("hooks.codex", "hooks.claude"):
+    check(dynamic in english, f"{dynamic} is missing")
 words = re.search(r"case (start.*)", (ROOT / "Sources/Dreams/Localization.swift").read_text(encoding="utf8"))
 for word in [w.strip() for w in words.group(1).split(",")]:
     check("hook." + word in english, f"hook.{word} is missing")

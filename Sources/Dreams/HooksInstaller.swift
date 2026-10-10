@@ -217,12 +217,40 @@ enum HooksInstaller {
         return .object(root)
     }
 
+    enum State: String { case notConnected = "not connected", connected, outdated }
+
+    /// Whether the agent's config carries all Dreams hooks for this very binary. `outdated` means Dreams
+    /// hooks exist but point elsewhere (the app was moved) or miss an event.
+    static func state(source: String, home: URL = homeDirectory(),
+                      binary: String? = Bundle.main.executablePath) -> State {
+        guard let binary, let relative = targets.first(where: { $0.0 == source })?.1,
+              let text = try? String(contentsOf: home.appendingPathComponent(relative), encoding: .utf8),
+              let config = try? OrderedJSON.parse(text),
+              case .object(let hooks)? = config["hooks"] else { return .notConnected }
+        let expected = shellQuote(binary) + " --hook " + source
+        var anyOwn = false
+        var covered = Set<String>()
+        for (event, groups) in hooks {
+            guard case .array(let items) = groups else { continue }
+            for group in items {
+                guard case .array(let handlers)? = group["hooks"] else { continue }
+                for handler in handlers {
+                    guard case .string(let command)? = handler["command"], isOwn(command) else { continue }
+                    anyOwn = true
+                    if command == expected { covered.insert(event) }
+                }
+            }
+        }
+        if !anyOwn { return .notConnected }
+        return covered.isSuperset(of: events) ? .connected : .outdated
+    }
+
     /// `Dreams --install-hooks|--uninstall-hooks [--dry-run]`; returns the report lines.
-    static func run(uninstall: Bool, dryRun: Bool,
+    static func run(uninstall: Bool, dryRun: Bool, only: [String]? = nil,
                     home: URL = homeDirectory(), binary: String? = Bundle.main.executablePath) throws -> [String] {
         guard let binary else { throw DreamsError.unavailable("Cannot locate the Dreams executable.") }
         var report: [String] = []
-        for (source, relative) in targets {
+        for (source, relative) in targets where only?.contains(source) ?? true {
             let target = home.appendingPathComponent(relative)
             let exists = FileManager.default.fileExists(atPath: target.path)
             let existing = exists ? try OrderedJSON.parse(String(contentsOf: target, encoding: .utf8)) : .object([])

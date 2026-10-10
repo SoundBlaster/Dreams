@@ -22,6 +22,12 @@ enum DreamsMain {
             }
             return
         }
+        if CommandLine.arguments.contains("--hooks-status") {
+            for (source, _) in HooksInstaller.targets {
+                print("\(source): \(HooksInstaller.state(source: source).rawValue)")
+            }
+            return
+        }
         if CommandLine.arguments.contains("--fixture-events") {
             do { try KeywordInput.publishFixtures() }
             catch {
@@ -216,6 +222,8 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     private let keywordBrightnessLabel = NSTextField(labelWithString: "")
     private let idleLabel = NSTextField(labelWithString: "")
     private let glowLabel = NSTextField(labelWithString: "")
+    private var hookStatusLabels: [String: NSTextField] = [:]
+    private var hookButtons: [String: NSButton] = [:]
     private var glowSlider: NSSlider?
     private var rainColorWell: NSColorWell?
     /// The settings controls by accessibility identifier, so a reset can bring them all up to date.
@@ -330,6 +338,27 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                           identifier: "dreams.keyword-brightness", tip: L("words.brightness.tip")),
             ])
 
+            // Agent hooks: connect Dreams to Codex and Claude Code.
+            let hooksGrid = NSGridView(views: HooksInstaller.targets.map { source, _ in
+                let name = Self.name(L("hooks." + source))
+                let status = NSTextField(labelWithString: "")
+                status.textColor = .secondaryLabelColor
+                let button = NSButton(title: L("button.connect"), target: self, action: #selector(toggleHooks(_:)))
+                button.identifier = NSUserInterfaceItemIdentifier(source)
+                button.setAccessibilityIdentifier("dreams.hooks-" + source)
+                hookStatusLabels[source] = status
+                hookButtons[source] = button
+                return [name, status, button]
+            })
+            hooksGrid.rowSpacing = 6
+            hooksGrid.columnSpacing = 12
+            hooksGrid.column(at: 0).width = 120
+            hooksGrid.column(at: 1).width = 170
+            hooksGrid.column(at: 2).width = 110
+            hooksGrid.column(at: 2).xPlacement = .trailing
+            for index in 0..<hooksGrid.numberOfRows { hooksGrid.row(at: index).yPlacement = .center }
+            let hooksNote = Self.note(L("hooks.note"))
+
             // Glyphs and the demo.
             let restored = NSButton(checkboxWithTitle: L("check.restored"),
                 target: self, action: #selector(changeGlyphSet(_:)))
@@ -351,6 +380,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 Self.section(L("section.rain")), rain,
                 Self.section(L("section.between")), background, transparent, screenshots,
                 Self.section(L("section.words")), words,
+                Self.section(L("section.agents")), hooksGrid, hooksNote,
                 Self.section(L("section.glyphs")), restored,
                 Self.separator(), footer,
             ])
@@ -358,11 +388,16 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             stack.alignment = .leading
             stack.spacing = 10
             for (view, gap) in [(launch, 6.0), (escapeHint, 18.0), (rain, 18.0), (screenshots, 18.0),
-                                (words, 18.0), (restored, 14.0)] as [(NSView, CGFloat)] {
+                                (words, 18.0), (hooksNote, 18.0), (restored, 14.0)] as [(NSView, CGFloat)] {
                 stack.setCustomSpacing(gap, after: view)
             }
             stack.translatesAutoresizingMaskIntoConstraints = false
             refreshValueLabels()
+            refreshHooks()
+            NotificationCenter.default.addObserver(forName: NSWindow.didBecomeKeyNotification, object: window,
+                                                   queue: .main) { [weak self] _ in
+                MainActor.assumeIsolated { self?.refreshHooks() }
+            }
             let content = window.contentView!
             let scroll = NSScrollView()
             scroll.hasVerticalScroller = true
@@ -546,6 +581,25 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         glowSlider?.doubleValue = controller.rainGlow
         rainColorWell?.color = controller.rainColor
         refreshValueLabels()
+    }
+
+    private func refreshHooks() {
+        for (source, _) in HooksInstaller.targets {
+            let state = HooksInstaller.state(source: source)
+            hookStatusLabels[source]?.stringValue = L(state == .connected ? "hooks.state.connected"
+                : state == .outdated ? "hooks.state.outdated" : "hooks.state.notConnected")
+            hookStatusLabels[source]?.toolTip = Bundle.main.executablePath.map { L("hooks.path.tip", $0) }
+            hookButtons[source]?.title = L(state == .connected ? "button.disconnect"
+                : state == .outdated ? "button.update" : "button.connect")
+        }
+    }
+
+    @objc private func toggleHooks(_ sender: NSButton) {
+        guard let source = sender.identifier?.rawValue else { return }
+        let connected = HooksInstaller.state(source: source) == .connected
+        do { _ = try HooksInstaller.run(uninstall: connected, dryRun: false, only: [source]) }
+        catch { show(error: error) }
+        refreshHooks()
     }
 
     @objc private func resetDefaults() {

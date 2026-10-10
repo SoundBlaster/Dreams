@@ -62,6 +62,8 @@ Any other stdio MCP client, including Claude, uses the same executable and `--mc
 
 ## Agent hooks (Codex and Claude Code)
 
+The settings window has an **Agent hooks** section: for Codex and Claude Code it shows whether the hooks are connected (*Connected*, *Not connected*, or *Needs an update* when the hooks point to another copy of the app or miss an event) and has a Connect / Disconnect / Update button. It does the same as the commands below, for that one agent. `Dreams --hooks-status` prints the state of both from the terminal.
+
 ```sh
 /Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks
 # See what would change without writing anything:
