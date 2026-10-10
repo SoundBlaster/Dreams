@@ -40,6 +40,11 @@ final class DreamsController: NSObject {
     private static let initialTransparent = CommandLine.arguments.contains("--transparent")
         || UserDefaults.standard.bool(forKey: "transparentBackground")
     private var overlay: NSWindow?
+    /// The rain is "on" while the overlay exists on screen, or is stepping aside for the screenshot tool.
+    private var rainIsOn: Bool { overlay != nil && (overlay!.isVisible || suspendedForCapture) }
+    private var suspendedForCapture = false
+    private var captureWatcher: Timer?
+    private var captureClearSince: Date?
     private var renderer: RainRenderer?
     private var expiryTask: Task<Void, Never>?
     private var demoTask: Task<Void, Never>?
@@ -64,7 +69,7 @@ final class DreamsController: NSObject {
         rainColor = Self.storedRainColor(transparent: enabled)
         // Window opacity is fixed when the overlay is created: recreate a running Matrix,
         // keeping the time it has left.
-        if overlay?.isVisible == true {
+        if rainIsOn {
             let remaining = max(1, min(3600, expiresAt?.timeIntervalSinceNow ?? lastDuration))
             try start(duration: remaining, brightness: lastBrightness)
         }
@@ -100,6 +105,46 @@ final class DreamsController: NSObject {
         hideFromScreenshots = enabled
         UserDefaults.standard.set(enabled, forKey: "hideFromScreenshots")
         overlay?.sharingType = enabled ? .none : .readOnly
+    }
+
+    /// The system screenshot tool picks the window under the cursor, and the full-screen overlay is
+    /// always the topmost one, so it would be picked (and, being hidden from capture, could not be
+    /// captured). While the tool's picker is on screen the overlay steps aside, then comes back.
+    private func watchForScreenshotTool() {
+        captureWatcher?.invalidate()
+        captureWatcher = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            MainActor.assumeIsolated { self?.checkScreenshotTool() }
+        }
+    }
+
+    private func checkScreenshotTool() {
+        guard let overlay else { return }
+        let active = hideFromScreenshots && Self.screenshotToolIsActive()
+        if active {
+            captureClearSince = nil
+            if !suspendedForCapture {
+                suspendedForCapture = true
+                overlay.orderOut(nil)
+            }
+        } else if suspendedForCapture {
+            let since = captureClearSince ?? Date()
+            captureClearSince = since
+            // A short grace period: the picker's windows go away a moment before the capture is saved.
+            if Date().timeIntervalSince(since) > 0.5 {
+                suspendedForCapture = false
+                captureClearSince = nil
+                overlay.orderFrontRegardless()
+            }
+        }
+    }
+
+    /// The picker (⇧⌘4, window mode), ⇧⌘5 and `screencapture -i` show windows owned by these processes.
+    private static func screenshotToolIsActive() -> Bool {
+        let windows = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID) as? [[String: Any]] ?? []
+        return windows.contains { window in
+            guard let owner = window[kCGWindowOwnerName as String] as? String else { return false }
+            return owner == "screencapture" || owner == "screencaptureui"
+        }
     }
 
     func setRestoredGlyphs(_ enabled: Bool) throws {
@@ -231,7 +276,7 @@ final class DreamsController: NSObject {
     }
 
     var animationStatus: String {
-        guard overlay?.isVisible == true, let renderer else {
+        guard rainIsOn, let renderer else {
             return L("status.stopped")
         }
         let remaining = max(0, Int(expiresAt?.timeIntervalSinceNow ?? 0))
@@ -249,7 +294,7 @@ final class DreamsController: NSObject {
                  "color": message.color, "activity": message.isWorking ? "working" : "idle",
                  "expires_at": ISO8601DateFormatter().string(from: message.expiresAt)] as [String: Any]
             },
-            "rain_visible": overlay?.isVisible ?? false,
+            "rain_visible": rainIsOn,
             "transparent_background": transparentBackground,
             "hidden_from_screenshots": hideFromScreenshots,
             "rain_density": rainDensity,
@@ -329,6 +374,7 @@ final class DreamsController: NSObject {
         lastDuration = duration
         lastBrightness = brightness
         window.orderFrontRegardless()
+        watchForScreenshotTool()
         let result = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep as CFString,
             IOPMAssertionLevel(kIOPMAssertionLevelOn), "Dreams agent session" as CFString, &assertionID)
         assertionActive = result == kIOReturnSuccess
@@ -340,7 +386,7 @@ final class DreamsController: NSObject {
     }
 
     func showEventFixtures() throws {
-        if overlay?.isVisible != true { try start() }
+        if !rainIsOn { try start() }
         try KeywordInput.publishFixtures()
         // The demo loops an agent turn: each fixture message floods the rain like a real one
         // (RainActivity.surge), the call lines are printed, the rain settles to calm, and after
@@ -354,7 +400,7 @@ final class DreamsController: NSObject {
                 let wave = 8.5 / max(0.25, self.rainSpeed)
                 let settle = RainActivity.attack + RainActivity.hold + 3 * RainActivity.decay
                 do { try await Task.sleep(for: .seconds(max(wave, settle) + 2)) } catch { return }
-                guard self.overlay?.isVisible == true else { return }
+                guard self.rainIsOn else { return }
                 try? KeywordInput.publishFixtures()
             }
         }
@@ -365,6 +411,10 @@ final class DreamsController: NSObject {
         expiryTask = nil
         demoTask?.cancel()
         demoTask = nil
+        captureWatcher?.invalidate()
+        captureWatcher = nil
+        suspendedForCapture = false
+        captureClearSince = nil
         (overlay?.contentView as? MTKView)?.isPaused = true
         overlay?.close()
         overlay = nil
