@@ -183,12 +183,12 @@ final class MatrixRain {
             pulseWords[column] = (Array(event.label), simulationClock, simulationClock + duration)
         }
         pendingEvents.removeAll()
-        let visibility = (0..<columns).map {
-            pulseWords[$0] != nil ? Float(1) : activity.visibility(rank: 0.02 + hash(Float($0) + 93.1) * 0.88, at: time, density: density)
-        }
         simulation!.setDensity(density)
         simulation!.setFadeRows(fadeRows)
-        simulation!.advance(to: simulationClock, visibility: visibility, mutationRate: 1 + 2 * mutationPressure)
+        // Event streams are one-shot packets and ignore the coverage; ordinary columns re-draw
+        // whether they rain at the end of every pass.
+        simulation!.advance(to: simulationClock, coverage: activity.coverage(at: time, density: density),
+                            mutationRate: 1 + 2 * mutationPressure)
         let cycle = Int(simulationClock / 16)
         if cycle != selectionCycle || selections.isEmpty {
             selections.removeAll()

@@ -237,6 +237,36 @@ struct MatrixChecks {
         pulse.advance(to: pulseDuration + 11.5)
         precondition(pulse.columns[0].lastWrite > lastPulseWrite,
             "Ordinary rain must resume after an event packet")
-        print("PASS: typing, mutation, frame-rate independence, irreversible fade, hidden-column restart, expired-cell removal, draining packets, density occupancy, sequential/wide dissolve, brightness spread and live tuning")
+        // Dynamic occupancy: coverage sets how many columns rain, and which ones changes every pass.
+        func occupied(_ model: MatrixSimulation) -> [Bool] {
+            model.columns.map { $0.cells.contains { $0.glyph >= 0 && !$0.isGap } }
+        }
+        var dynamic = MatrixSimulation(columnCount: 80, rows: 72, glyphCount: 57, density: 0.5)
+        var seenOn = [Bool](repeating: false, count: 80)
+        var seenOff = [Bool](repeating: false, count: 80)
+        var fractions: [Double] = []
+        for frame in 0...(90 * 10) {
+            let time = Double(frame) / 10
+            dynamic.advance(to: time, coverage: 0.4)
+            guard time >= 20, frame % 10 == 0 else { continue }
+            let state = occupied(dynamic)
+            fractions.append(Double(state.filter { $0 }.count) / 80)
+            for index in 0..<80 { if state[index] { seenOn[index] = true } else { seenOff[index] = true } }
+        }
+        let mean = fractions.reduce(0, +) / Double(fractions.count)
+        precondition(mean > 0.2 && mean < 0.7, "Coverage 0.4 should keep roughly half the columns busy (mean \(mean))")
+        let stuck = (0..<80).filter { !(seenOn[$0] && seenOff[$0]) }.count
+        precondition(stuck <= 8, "Columns must not stay occupied or empty forever (\(stuck) of 80 never changed)")
+        // A surge wakes the resting columns; losing coverage lets passes finish and the screen empties.
+        dynamic.advance(to: 90.5, coverage: 1)
+        dynamic.advance(to: 91.5, coverage: 1)
+        precondition(occupied(dynamic).filter { $0 }.count >= 76, "Full coverage must fill the columns within a second")
+        dynamic.advance(to: 92, coverage: 0)
+        dynamic.advance(to: 120, coverage: 0)
+        precondition(!occupied(dynamic).contains(true), "Zero coverage must let every pass finish and leave the screen empty")
+        var full = MatrixSimulation(columnCount: 20, rows: 72, glyphCount: 57, density: 0.5)
+        full.advance(to: 40, coverage: 1)
+        precondition(occupied(full).allSatisfy { $0 }, "Coverage 1 keeps every column raining")
+        print("PASS: typing, mutation, frame-rate independence, irreversible fade, hidden-column restart, expired-cell removal, draining packets, density occupancy, dynamic per-pass column occupancy, sequential/wide dissolve, brightness spread and live tuning")
     }
 }

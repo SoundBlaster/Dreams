@@ -45,6 +45,12 @@ struct MatrixSimulation {
         var gapRemaining = 0
         var isEnabled = true
         var oneShot = false
+        // Dynamic occupancy: at the end of every pass (and at start) a column draws a fresh
+        // `rank`; if it exceeds the coverage the column rests for a pass or so, then draws again.
+        var gated = false
+        var resting = false
+        var rank = 0.0
+        var restUntil = 0.0
         var search: Search?
         var generator: Generator
     }
@@ -106,7 +112,11 @@ struct MatrixSimulation {
         columns[index].isEnabled = false
     }
 
-    mutating func advance(to target: Double, visibility: [Float]? = nil, mutationRate: Double = 1) {
+    /// `coverage` (0...1) is the share of columns that rain: which ones changes with every pass.
+    /// `visibility` hides or fades individual columns outright (a hidden column is cleared).
+    mutating func advance(to target: Double, visibility: [Float]? = nil, coverage: Double = 1,
+                          mutationRate: Double = 1) {
+        let coverage = coverage.isFinite ? min(1, max(0, coverage)) : 1
         let rate = mutationRate.isFinite ? min(3, max(1, mutationRate)) : 1
         guard target >= time, target.isFinite else { return }
         precondition(visibility == nil || visibility!.count == columns.count)
@@ -129,6 +139,34 @@ struct MatrixSimulation {
                 column.lastWrite = -.infinity
                 column.nextWrite = target + column.generator.unit() * 0.35
                 column.nextMutation = column.nextWrite + 0.15 + column.generator.unit() * 0.35
+                column.gated = false
+                column.resting = false
+            }
+            if !column.oneShot {
+                if !column.gated {
+                    column.gated = true
+                    if coverage < 1 {
+                        column.rank = column.generator.unit()
+                        if column.rank > coverage {
+                            column.resting = true
+                            column.restUntil = target + column.generator.unit() * Double(rows) * column.interval
+                            column.nextWrite = .infinity
+                        }
+                    }
+                }
+                while column.resting {
+                    if column.rank <= coverage {
+                        // More coverage (a surge) wakes the resting columns that now fit.
+                        column.resting = false
+                        column.nextRow = 0
+                        column.gapRemaining = 0
+                        column.nextWrite = target + column.generator.unit() * 0.35
+                        break
+                    }
+                    guard target >= column.restUntil else { break }
+                    column.rank = column.generator.unit()
+                    column.restUntil += Double(rows) * column.interval * (0.5 + column.generator.unit())
+                }
             }
             // Process writing and single-cell mutation in timestamp order, independent of fps.
             while min(column.nextWrite, column.nextMutation) <= target {
@@ -169,7 +207,20 @@ struct MatrixSimulation {
                         let next = eventTime + column.interval
                             + (1 - density) * (column.hold + column.fade
                                 + 0.25 + column.generator.unit() * 1.25)
-                        column.nextWrite = column.oneShot ? .infinity : next
+                        if column.oneShot {
+                            column.nextWrite = .infinity
+                        } else if coverage < 1 {
+                            column.rank = column.generator.unit()
+                            if column.rank > coverage {
+                                column.resting = true
+                                column.restUntil = next + Double(rows) * column.interval * (0.5 + column.generator.unit())
+                                column.nextWrite = .infinity
+                            } else {
+                                column.nextWrite = next
+                            }
+                        } else {
+                            column.nextWrite = next
+                        }
                     } else {
                         column.nextWrite = eventTime + column.interval
                     }

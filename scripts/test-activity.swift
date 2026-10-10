@@ -14,15 +14,18 @@ struct ActivityChecks {
             && rain.level(at: 100 + RainActivity.attack / 2) < 1, "A surge rises smoothly")
         precondition(rain.level(at: 100 + RainActivity.attack) == 1
             && rain.level(at: 100 + full - 0.01) == 1, "A message floods the screen and holds")
-        precondition(rain.visibility(rank: 0.9, at: 100 + 1, density: 0.58) == 1,
-            "At full coverage every column is visible")
+        precondition(rain.coverage(at: 100 + 1, density: 0.58) == 1,
+            "At full flood every column rains")
 
         let falling = rain.level(at: 100 + full + RainActivity.decay)
         precondition(falling < 1 && falling > calm, "Then it falls back towards calm")
         precondition(rain.level(at: 100 + full + 3 * RainActivity.decay) - calm < 0.05 * (1 - calm),
             "Three decay constants later the rain is calm again")
-        precondition(rain.visibility(rank: 0.5, at: 200, density: 1) == 0,
-            "Calm stays sparse even at full density")
+        precondition(abs(rain.coverage(at: 200, density: 0) - Double(calm)) < 0.00001,
+            "At density 0 the calm coverage is the calm level")
+        precondition(rain.coverage(at: 200, density: 1) == 1, "Density 100% fills every column, calm or not")
+        precondition(rain.coverage(at: 200, density: 0.5) > Double(calm)
+            && rain.coverage(at: 200, density: 0.5) < 1, "Density raises calm coverage gradually")
 
         // A message during the fall floods again from the current level, without a jump.
         let t = 100 + full + RainActivity.decay

@@ -54,10 +54,11 @@ struct RainActivity {
         min(1, max(0, (level(at: time) - idle) / max(0.001, 0.5 - idle)))
     }
 
-    func visibility(rank: Float, at time: Double, density: Double = 0) -> Float {
-        // Full user density fills the screen during a surge, while calm stays sparse.
-        let threshold = rank * (1 - pow(Float(density), 3) * workBlend(at: time))
-        let t = min(1, max(0, (level(at: time) - threshold) / 0.08))
-        return t * t * (3 - 2 * t)
+    /// Share of columns that rain: the activity level, lifted towards everything by the density
+    /// slider (100% fills every column, calm or not). Which columns is re-drawn on every pass.
+    func coverage(at time: Double, density: Double = 0) -> Double {
+        let level = Double(level(at: time))
+        let d = density.isFinite ? min(1, max(0, density)) : 0
+        return level + (1 - level) * d * d * d
     }
 }
