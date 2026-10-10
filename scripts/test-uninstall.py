@@ -67,4 +67,6 @@ with tempfile.TemporaryDirectory() as tmp:
         check(again.returncode == 0, "running again must be harmless")
     finally:
         subprocess.run(["defaults", "delete", DOMAIN], capture_output=True, env=env)
+        # `defaults` writes to the real preferences even with a fake HOME: leave nothing behind.
+        Path(os.path.expanduser("~/Library/Preferences")).joinpath(DOMAIN + ".plist").unlink(missing_ok=True)
 print("PASS: dry run, hooks and app removed, user config intact, --purge removes settings/mailbox/backups, idempotent")
