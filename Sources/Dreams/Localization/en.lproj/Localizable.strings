@@ -64,8 +64,8 @@
 "runtime.1h" = "1 hour";
 "runtime.unlimited" = "Until stopped";
 "runtime.accessibility" = "Run time";
-"hint.runtime" = "Runs for %@, full screen. Exit with Esc or ⌃⌥⌘D.";
-"hint.runtime.unlimited" = "Runs until you stop it, full screen. Exit with Esc or ⌃⌥⌘D.";
+"hint.runtime" = "Runs for %@, full screen. Stop: ⌃⌥⌘D, or Esc while Dreams is the active app.";
+"hint.runtime.unlimited" = "Runs until you stop it, full screen. Stop: ⌃⌥⌘D, or Esc while Dreams is the active app.";
 "status.stopped.timer" = "Stopped: the run time ended. Press “Start Matrix”.";
 "status.stopped.user" = "Stopped. Press “Start Matrix”.";
 "status.stopped.escape" = "Stopped with Esc. Press “Start Matrix”.";
@@ -75,7 +75,7 @@
 "status.rendering.unlimited" = "Rendering: %d frames · until stopped.";
 "menu.startMatrix" = "Start Matrix Rain";
 
-"hint.runtime.transparent" = "Over your windows: runs until you stop it (Stop, Esc or ⌃⌥⌘D). The run time applies to the black background.";
+"hint.runtime.transparent" = "Over your windows: runs until you stop it (the Stop button or ⌃⌥⌘D). The run time applies to the black background.";
 "runtime.tip" = "How long the rain runs after Start on the black background. Over windows (transparent) it runs until you stop it.";
 
 "debug.menu" = "Debug";
