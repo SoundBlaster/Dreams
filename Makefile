@@ -6,7 +6,7 @@ DMG := dist/release/Dreams-$(VERSION).dmg
 PYTHON := .venv/bin/python
 NOTARY_PROFILE ?= dreams-notary
 
-.PHONY: help icon app run test test-unit glyphs glyphs-verify glyphs-selftest \
+.PHONY: help bump plugins-check icon app run test test-unit glyphs glyphs-verify glyphs-selftest \
 	release release-local checksum github-release tap-update notary-profile \
 	install-hooks uninstall-hooks uninstall uninstall-purge clean
 
@@ -27,6 +27,7 @@ help:
 		'' \
 		'Release (version from VERSION):' \
 		'  make notary-profile KEY=<AuthKey.p8> KEY_ID=<id> ISSUER=<uuid>   One-time notarytool setup' \
+		'  make bump V=x.y.z     Set VERSION and the plugin manifests' \
 		'  make release          Universal build, Developer ID signature, notarized and stapled DMG' \
 		'  make release-local    The same without notarization (local checks only)' \
 		'  make checksum         sha256 of the DMG, for the Homebrew cask' \
@@ -71,6 +72,7 @@ test: app test-unit
 	python3 scripts/test-localization.py
 	python3 scripts/test-hooks-install.py $(APP)/Contents/MacOS/Dreams
 	python3 scripts/test-uninstall.py
+	python3 scripts/test-plugins.py
 	python3 scripts/smoke.py
 	python3 scripts/test-hook-pressure.py
 	$(PYTHON) scripts/test-transparent.py
@@ -89,6 +91,13 @@ notary-profile:
 	@test -n "$(KEY)" -a -n "$(KEY_ID)" -a -n "$(ISSUER)" || { \
 		echo 'Usage: make notary-profile KEY=~/path/AuthKey_XXXX.p8 KEY_ID=XXXX ISSUER=<issuer uuid>'; exit 1; }
 	xcrun notarytool store-credentials $(NOTARY_PROFILE) --key "$(KEY)" --key-id "$(KEY_ID)" --issuer "$(ISSUER)"
+
+bump:
+	@test -n "$(V)" || { echo 'Usage: make bump V=0.1.3'; exit 1; }
+	python3 scripts/bump-version.py $(V)
+
+plugins-check:
+	python3 scripts/test-plugins.py
 
 release:
 	DREAMS_NOTARY_PROFILE=$(NOTARY_PROFILE) scripts/release.sh

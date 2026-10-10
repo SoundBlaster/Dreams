@@ -84,6 +84,11 @@
 "hotkey.taken" = "%@ is taken by another app; the old shortcut stays.";
 "hotkey.tip" = "Click, then press a combination with ⌃, ⌥ or ⌘. Esc cancels.";
 
+"hooks.state.plugin" = "Connected via plugin";
+"hooks.state.duplicate" = "Connected twice";
+"button.removeDuplicate" = "Remove hooks";
+"button.plugin" = "Plugin";
+
 "debug.menu" = "Debug";
 "debug.fixtures" = "Stream test · DEMO";
 "debug.fixtures.tip" = "Starts Matrix and loops an agent turn: surge, call lines, decay.";

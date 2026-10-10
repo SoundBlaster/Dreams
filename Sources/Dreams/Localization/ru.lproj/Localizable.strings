@@ -84,6 +84,11 @@
 "hotkey.taken" = "%@ уже занято другим приложением; прежнее сочетание сохранено.";
 "hotkey.tip" = "Нажмите, затем введите сочетание с ⌃, ⌥ или ⌘. Esc отменяет.";
 
+"hooks.state.plugin" = "Подключено плагином";
+"hooks.state.duplicate" = "Подключено дважды";
+"button.removeDuplicate" = "Убрать хуки";
+"button.plugin" = "Плагин";
+
 "debug.menu" = "Отладка";
 "debug.fixtures" = "Тест струй · DEMO";
 "debug.fixtures.tip" = "Запускает Matrix и по кругу показывает ход агента: всплеск, строки вызовов, спад.";

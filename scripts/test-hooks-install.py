@@ -88,6 +88,20 @@ with tempfile.TemporaryDirectory() as tmp:
     again = run(home, "--install-hooks")
     check("unchanged" in again.stdout and len(dreams_commands(json.loads(claude.read_text()))) == 6, "install is idempotent")
 
+    # An installed Dreams plugin makes the same hooks redundant.
+    settings = json.loads(claude.read_text())
+    claude.write_text(json.dumps({**settings, "enabledPlugins": {"dreams@dreams": True}}))
+    (home / ".codex/config.toml").write_text('[marketplaces.dreams]\nsource = "x"\n\n[plugins."dreams@dreams"]\nenabled = true\n')
+    check(status() == {"codex": "duplicate", "claude": "duplicate"}, "plugin and hooks together are a duplicate")
+    run(home, "--uninstall-hooks")
+    check(status() == {"codex": "via plugin", "claude": "via plugin"}, "plugin alone")
+    claude.write_text(json.dumps({**json.loads(claude.read_text()), "enabledPlugins": {"dreams@dreams": False}}))
+    (home / ".codex/config.toml").write_text('[plugins."dreams@dreams"]\nenabled = false\n')
+    check(status() == {"codex": "not connected", "claude": "not connected"}, "a disabled plugin does not count")
+    claude.write_text(json.dumps({k: v for k, v in json.loads(claude.read_text()).items() if k != "enabledPlugins"}))
+    (home / ".codex/config.toml").unlink()
+    run(home, "--install-hooks")
+
     gone = run(home, "--uninstall-hooks")
     check(gone.returncode == 0, "uninstall failed: " + gone.stderr)
     check(json.loads(claude.read_text()) == json.loads(original), "uninstall restores the user's config")

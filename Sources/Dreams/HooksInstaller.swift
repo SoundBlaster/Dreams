@@ -217,12 +217,42 @@ enum HooksInstaller {
         return .object(root)
     }
 
-    enum State: String { case notConnected = "not connected", connected, outdated }
+    enum State: String {
+        case notConnected = "not connected", connected, outdated
+        /// The Dreams plugin is installed (and the agent loads its hooks), so these hooks are not needed.
+        case plugin = "via plugin"
+        /// Both the plugin and these hooks are active: every event would arrive twice.
+        case duplicate
+    }
+
+    /// Whether the Dreams plugin (`dreams@<marketplace>`) is installed and enabled for that agent.
+    static func pluginEnabled(source: String, home: URL = homeDirectory()) -> Bool {
+        if source == "claude" {
+            guard let text = try? String(contentsOf: home.appendingPathComponent(".claude/settings.json"), encoding: .utf8),
+                  let config = try? OrderedJSON.parse(text), case .object(let plugins)? = config["enabledPlugins"] else { return false }
+            return plugins.contains { key, value in key.hasPrefix("dreams@") && value == .bool(true) }
+        }
+        guard let text = try? String(contentsOf: home.appendingPathComponent(".codex/config.toml"), encoding: .utf8) else { return false }
+        // [plugins."dreams@marketplace"] followed by enabled = true, before the next table.
+        var inSection = false
+        for line in text.split(separator: "\n", omittingEmptySubsequences: false) {
+            let trimmed = line.trimmingCharacters(in: .whitespaces)
+            if trimmed.hasPrefix("[") { inSection = trimmed.hasPrefix("[plugins.\"dreams@") }
+            else if inSection, trimmed.replacingOccurrences(of: " ", with: "") == "enabled=true" { return true }
+        }
+        return false
+    }
 
     /// Whether the agent's config carries all Dreams hooks for this very binary. `outdated` means Dreams
     /// hooks exist but point elsewhere (the app was moved) or miss an event.
     static func state(source: String, home: URL = homeDirectory(),
                       binary: String? = Bundle.main.executablePath) -> State {
+        let own = hookState(source: source, home: home, binary: binary)
+        if pluginEnabled(source: source, home: home) { return own == .notConnected ? .plugin : .duplicate }
+        return own
+    }
+
+    private static func hookState(source: String, home: URL, binary: String?) -> State {
         guard let binary, let relative = targets.first(where: { $0.0 == source })?.1,
               let text = try? String(contentsOf: home.appendingPathComponent(relative), encoding: .utf8),
               let config = try? OrderedJSON.parse(text),

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "dreams": {
+      "command": "/Applications/Dreams.app/Contents/MacOS/Dreams",
+      "args": [
+        "--mcp",
+        "--publisher"
+      ]
+    }
+  }
+}
