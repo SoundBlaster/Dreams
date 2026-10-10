@@ -13,7 +13,7 @@ final class EmergencyHotkey {
         let installed = InstallEventHandler(GetApplicationEventTarget(), { _, _, context in
             guard let context else { return OSStatus(eventNotHandledErr) }
             let controller = Unmanaged<DreamsController>.fromOpaque(context).takeUnretainedValue()
-            Task { @MainActor in controller.stop() }
+            Task { @MainActor in controller.stop(reason: .hotkey) }
             return noErr
         }, 1, &event, context, &handler)
         guard installed == noErr else { return false }

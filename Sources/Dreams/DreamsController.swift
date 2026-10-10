@@ -1,4 +1,5 @@
 import AppKit
+import os
 import MetalKit
 import IOKit.pwr_mgt
 import VirtualDisplayBridge
@@ -28,6 +29,9 @@ enum DreamsPreset {
     static let restoredGlyphs = true
     static let transparentBackground = false
     static let hideFromScreenshots = true
+    /// How long the rain runs after Start: 0 means until it is stopped. One hour by default.
+    static let runTimeSeconds = 3600.0
+    static let runTimeChoices: [Double] = [300, 1800, 3600, 0]
     /// Black background: the classic dark film green. Transparent: a light mint that reads on bright desktops.
     static let rainColor = [0.086, 0.547, 0.26]
     static let transparentRainColor = [0.35, 1.0, 0.55]
@@ -55,7 +59,18 @@ final class DreamsController: NSObject {
     private var assertionID: IOPMAssertionID = 0
     private var assertionActive = false
     private var expiresAt: Date?
-    private var lastDuration = 300.0
+    private var lastDuration: Double? = 300
+    /// Why the rain last stopped, shown in the window until the next start.
+    enum StopReason: String { case user, escape, hotkey, reopen, timer, agent, restart }
+    private let log = Logger(subsystem: "ru.egormerkushev.dreams", category: "rain")
+    private(set) var lastStopReason: StopReason?
+
+    var runTimeSeconds: Double = {
+        let value = UserDefaults.standard.object(forKey: "runTimeSeconds") as? Double ?? DreamsPreset.runTimeSeconds
+        return DreamsPreset.runTimeChoices.contains(value) ? value : DreamsPreset.runTimeSeconds
+    }() {
+        didSet { UserDefaults.standard.set(runTimeSeconds, forKey: "runTimeSeconds") }
+    }
     private var lastBrightness = 0.18
     var emergencyHotkeyRegistered = false
     private(set) var restoredGlyphs = UserDefaults.standard.object(forKey: "restoredGlyphs") as? Bool
@@ -70,8 +85,8 @@ final class DreamsController: NSObject {
         // Window opacity is fixed when the overlay is created: recreate a running Matrix,
         // keeping the time it has left.
         if rainIsOn {
-            let remaining = max(1, min(3600, expiresAt?.timeIntervalSinceNow ?? lastDuration))
-            try start(duration: remaining, brightness: lastBrightness)
+            // Keep the time it has left (unlimited stays unlimited).
+            try begin(duration: expiresAt.map { max(1, $0.timeIntervalSinceNow) }, brightness: lastBrightness)
         }
     }
 
@@ -94,6 +109,7 @@ final class DreamsController: NSObject {
         keywordBrightness = DreamsPreset.keywordBrightness
         try setRestoredGlyphs(DreamsPreset.restoredGlyphs)
         setHideFromScreenshots(DreamsPreset.hideFromScreenshots)
+        runTimeSeconds = DreamsPreset.runTimeSeconds
     }
 
     /// Keeps the overlay out of screenshots, recordings and the system screenshot tool's window
@@ -277,10 +293,13 @@ final class DreamsController: NSObject {
 
     var animationStatus: String {
         guard rainIsOn, let renderer else {
-            return L("status.stopped")
+            switch lastStopReason {
+            case .some(.restart), .none: return L("status.stopped")
+            case .some(let reason): return L("status.stopped." + reason.rawValue)
+            }
         }
-        let remaining = max(0, Int(expiresAt?.timeIntervalSinceNow ?? 0))
-        return L("status.rendering", renderer.framesRendered, remaining)
+        guard let expiresAt else { return L("status.rendering.unlimited", renderer.framesRendered) }
+        return L("status.rendering", renderer.framesRendered, max(0, Int(expiresAt.timeIntervalSinceNow)))
     }
 
     func status() throws -> [String: Any] {
@@ -316,6 +335,8 @@ final class DreamsController: NSObject {
             "workspace_window_number": workspaceWindow.map { $0.windowNumber as Any } ?? NSNull(),
             "workspace_window_display_id": workspaceWindow?.screen.map { Int($0.displayID) as Any } ?? NSNull(),
             "expires_at": expiresAt.map { ISO8601DateFormatter().string(from: $0) as Any } ?? NSNull(),
+            "run_time_seconds": runTimeSeconds,
+            "last_stop_reason": lastStopReason?.rawValue ?? NSNull(),
             "prevents_idle_sleep": assertionActive,
             "displays": NSScreen.screens.map { screen in
                 let bounds = CGDisplayBounds(screen.displayID)
@@ -333,15 +354,26 @@ final class DreamsController: NSObject {
         return String(decoding: data, as: UTF8.self)
     }
 
+    /// The MCP entry point: an explicit duration of 1...3600 seconds.
     func start(duration: Double = 300, brightness: Double = 0.18) throws {
         guard duration.isFinite, (1...3600).contains(duration),
               brightness.isFinite, (0.02...0.35).contains(brightness) else {
             throw DreamsError.unavailable("duration_seconds must be 1...3600; brightness must be 0.02...0.35.")
         }
+        try begin(duration: duration, brightness: brightness)
+    }
+
+    /// The window and the menu: run for the "Run time" setting (0 = until stopped).
+    func startWithRunTime() throws {
+        try begin(duration: runTimeSeconds > 0 ? runTimeSeconds : nil, brightness: 0.18)
+    }
+
+    private func begin(duration: Double?, brightness: Double) throws {
         guard let screen = NSScreen.screens.first(where: { CGDisplayIsBuiltin($0.displayID) != 0 }) else {
             throw DreamsError.unavailable("No built-in display found. Refusing to cover an arbitrary display.")
         }
-        stop()
+        stop(reason: .restart)
+        lastStopReason = nil
         let view = MTKView(frame: NSRect(origin: .zero, size: screen.frame.size))
         let transparent = transparentBackground
         let renderer = try RainRenderer(view: view, restoredGlyphs: restoredGlyphs,
@@ -378,15 +410,16 @@ final class DreamsController: NSObject {
         let result = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep as CFString,
             IOPMAssertionLevel(kIOPMAssertionLevelOn), "Dreams agent session" as CFString, &assertionID)
         assertionActive = result == kIOReturnSuccess
+        guard let duration else { return }
         expiresAt = Date().addingTimeInterval(duration)
         expiryTask = Task { [weak self] in
             do { try await Task.sleep(for: .seconds(duration)) } catch { return }
-            self?.stop()
+            self?.stop(reason: .timer)
         }
     }
 
     func showEventFixtures() throws {
-        if !rainIsOn { try start() }
+        if !rainIsOn { try startWithRunTime() }
         try KeywordInput.publishFixtures()
         // The demo loops an agent turn: each fixture message floods the rain like a real one
         // (RainActivity.surge), the call lines are printed, the rain settles to calm, and after
@@ -406,7 +439,11 @@ final class DreamsController: NSObject {
         }
     }
 
-    func stop() {
+    func stop(reason: StopReason = .user) {
+        if rainIsOn && reason != .restart {
+            lastStopReason = reason
+            log.notice("Rain stopped: \(reason.rawValue, privacy: .public)")
+        }
         expiryTask?.cancel()
         expiryTask = nil
         demoTask?.cancel()
@@ -426,7 +463,7 @@ final class DreamsController: NSObject {
         }
     }
 
-    func resume() throws { try start(duration: lastDuration, brightness: lastBrightness) }
+    func resume() throws { try begin(duration: lastDuration, brightness: lastBrightness) }
 
     func previewPNG() async throws -> Data {
         if let renderer { return try await renderer.previewPNG() }
@@ -511,7 +548,7 @@ final class DreamsController: NSObject {
     }
 
     func cleanUp() {
-        stop()
+        stop(reason: .restart)
         closeWorkspace()
     }
 }

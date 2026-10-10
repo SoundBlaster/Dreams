@@ -15,7 +15,6 @@
 "reset.confirm.text" = "Colors, density, speed, glow, the calm background and the other settings return to their default values.";
 "reset.confirm.action" = "Reset";
 "button.quit" = "Quit Dreams";
-"hint.escape" = "The animation runs for 5 minutes, full screen. Exit with Esc or ⌃⌥⌘D.";
 
 "section.rain" = "Rain";
 "section.between" = "Between agent messages";
@@ -60,12 +59,28 @@
 "hooks.note" = "Hooks make the rain follow your agents. Codex asks you to review new hooks in /hooks; Claude Code reads them in a new session.";
 "hooks.path.tip" = "The hooks start this copy of Dreams: %@";
 
+"runtime.5m" = "5 minutes";
+"runtime.30m" = "30 minutes";
+"runtime.1h" = "1 hour";
+"runtime.unlimited" = "Until stopped";
+"runtime.tip" = "How long the rain runs after Start. “Until stopped” keeps the display awake until you stop it.";
+"runtime.accessibility" = "Run time";
+"hint.runtime" = "Runs for %@, full screen. Exit with Esc or ⌃⌥⌘D.";
+"hint.runtime.unlimited" = "Runs until you stop it, full screen. Exit with Esc or ⌃⌥⌘D.";
+"status.stopped.timer" = "Stopped: the run time ended. Press “Start Matrix”.";
+"status.stopped.user" = "Stopped. Press “Start Matrix”.";
+"status.stopped.escape" = "Stopped with Esc. Press “Start Matrix”.";
+"status.stopped.hotkey" = "Stopped with ⌃⌥⌘D. Press “Start Matrix”.";
+"status.stopped.reopen" = "Stopped: Dreams was opened again (Dock icon or launch). Press “Start Matrix”.";
+"status.stopped.agent" = "Stopped by an agent (MCP). Press “Start Matrix”.";
+"status.rendering.unlimited" = "Rendering: %d frames · until stopped.";
+"menu.startMatrix" = "Start Matrix Rain";
+
 "debug.menu" = "Debug";
 "debug.fixtures" = "Stream test · DEMO";
 "debug.fixtures.tip" = "Starts Matrix and loops an agent turn: surge, call lines, decay.";
 
 "menu.openControls" = "Open Dreams Controls";
-"menu.startMatrix" = "Start Matrix Rain (5 minutes)";
 "menu.stop" = "Stop Animation";
 "menu.workspaceCreate" = "Create Experimental Agent Workspace";
 "menu.workspaceClose" = "Close Agent Workspace";
