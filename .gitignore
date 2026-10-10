@@ -7,3 +7,4 @@ research/glyphs/build/
 .build/
 __pycache__/
 *.pyc
+assets/icon/preview-1024.png

@@ -36,7 +36,7 @@ print "== Assemble"
 mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
 cp "$bin/Dreams" "$app/Contents/MacOS/Dreams"
 cp -R "$bin/Dreams_Dreams.bundle" "$app/Contents/Resources/"
-cp THIRD_PARTY_NOTICES.md LICENSE "$app/Contents/Resources/"
+cp THIRD_PARTY_NOTICES.md LICENSE assets/AppIcon.icns "$app/Contents/Resources/"
 sed "s/__VERSION__/$version/" scripts/Info.plist.in > "$app/Contents/Info.plist"
 lipo -archs "$app/Contents/MacOS/Dreams" | grep -q "x86_64" && lipo -archs "$app/Contents/MacOS/Dreams" | grep -q "arm64" \
   || { print -u2 "Binary is not universal"; exit 1; }

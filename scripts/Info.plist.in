@@ -3,6 +3,7 @@
 <plist version="1.0"><dict>
 <key>CFBundleDevelopmentRegion</key><string>en</string>
 <key>CFBundleLocalizations</key><array><string>en</string><string>ru</string></array>
+<key>CFBundleIconFile</key><string>AppIcon</string>
 <key>CFBundleExecutable</key><string>Dreams</string>
 <key>CFBundleIdentifier</key><string>ru.egormerkushev.dreams</string>
 <key>CFBundleName</key><string>Dreams</string>

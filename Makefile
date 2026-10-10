@@ -6,7 +6,7 @@ DMG := dist/release/Dreams-$(VERSION).dmg
 PYTHON := .venv/bin/python
 NOTARY_PROFILE ?= dreams-notary
 
-.PHONY: help app run test test-unit glyphs glyphs-verify glyphs-selftest \
+.PHONY: help icon app run test test-unit glyphs glyphs-verify glyphs-selftest \
 	release release-local checksum github-release notary-profile \
 	install-hooks uninstall-hooks uninstall uninstall-purge clean
 
@@ -17,6 +17,7 @@ help:
 		'Develop:' \
 		'  make app              Build dist/Dreams.app (rebuilds the glyph font, ad-hoc signed)' \
 		'  make run              Quit a running Dreams, rebuild and open the app' \
+		'  make icon             Rebuild assets/AppIcon.icns from assets/icon/source.png' \
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
@@ -37,6 +38,9 @@ help:
 		'  make uninstall-purge  The same, plus settings, mailbox, caches and hook backups' \
 		'' \
 		'  make clean            Remove .build and dist'
+
+icon:
+	$(PYTHON) scripts/make-icon.py
 
 app:
 	zsh scripts/build-app.sh release

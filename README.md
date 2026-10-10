@@ -201,6 +201,10 @@ The app is localized in American English (the base language) and Russian; it fol
 
 To add a language, copy `en.lproj` to `<code>.lproj`, translate the values, add the code to `Loc.languages` in `Sources/Dreams/Localization.swift` and to `CFBundleLocalizations` in `scripts/Info.plist.in`. `python3 scripts/test-localization.py` checks that every table has the same keys and format specifiers and that every key used in Swift exists.
 
+## App icon
+
+The artwork is `assets/icon/source.png`. `make icon` (`scripts/make-icon.py`) frames it into a macOS-style tile (824 px squircle on a 1024 canvas, soft shadow) and writes `assets/AppIcon.icns`; both are committed, so builds and releases need no Python. The icon is copied into `Dreams.app/Contents/Resources` by `scripts/build-app.sh` and `scripts/release.sh` and named in `Info.plist` (`CFBundleIconFile`). Dreams is a menu bar app (no Dock icon): the icon shows in Finder, the DMG and system dialogs.
+
 ## Release
 
 `make release` (or `scripts/release.sh`) builds a universal (arm64 + x86_64) `Dreams.app`, signs it with Developer ID (`P8T2366K8X`) and the hardened runtime, notarizes and staples it, then makes `dist/release/Dreams-<version>.dmg`, notarizes and staples that too, and prints the sha256 for a Homebrew cask. The version comes from `VERSION` and the `Info.plist` template is `scripts/Info.plist.in`; the font comes from the committed `Sources/Dreams/DreamsMatrix.ttf`, so a release does not need Python. Once: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` signs and verifies without submitting to Apple (such a DMG is only good for local checks). A signed executable is bound to its bundle: it cannot be copied out of `Dreams.app`.
