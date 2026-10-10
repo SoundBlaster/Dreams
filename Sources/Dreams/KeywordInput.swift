@@ -17,19 +17,19 @@ enum KeywordInput {
             if tool.contains("dreams") { return }
             let words: [String]
             switch event {
-            case "SessionStart": words = ["начало"]
-            case "UserPromptSubmit": words = ["задача"]
-            case "Stop", "SubagentStop": words = ["готово"]
-            case "PreCompact", "PostCompact": words = ["контекст"]
+            case "SessionStart": words = [HookWord.start.text]
+            case "UserPromptSubmit": words = [HookWord.task.text]
+            case "Stop", "SubagentStop": words = [HookWord.done.text]
+            case "PreCompact", "PostCompact": words = [HookWord.context.text]
             case "PreToolUse", "PostToolUse":
-                if tool.contains("search") || tool.contains("grep") || tool.contains("glob") { words = ["поиск"] }
-                else if tool.contains("edit") || tool.contains("write") || tool.contains("patch") { words = ["код"] }
-                else if tool.contains("read") || tool.contains("open") || tool.contains("fetch") { words = ["изучение"] }
-                else if tool.contains("test") { words = ["проверка"] }
-                else if tool.contains("bash") || tool.contains("exec") || tool.contains("shell") { words = ["терминал"] }
-                else if tool.contains("browser") || tool.contains("cua") { words = ["интерфейс"] }
-                else if tool.contains("agent") { words = ["делегирование"] }
-                else { words = ["работа"] }
+                if tool.contains("search") || tool.contains("grep") || tool.contains("glob") { words = [HookWord.search.text] }
+                else if tool.contains("edit") || tool.contains("write") || tool.contains("patch") { words = [HookWord.code.text] }
+                else if tool.contains("read") || tool.contains("open") || tool.contains("fetch") { words = [HookWord.study.text] }
+                else if tool.contains("test") { words = [HookWord.check.text] }
+                else if tool.contains("bash") || tool.contains("exec") || tool.contains("shell") { words = [HookWord.terminal.text] }
+                else if tool.contains("browser") || tool.contains("cua") { words = [HookWord.interface.text] }
+                else if tool.contains("agent") { words = [HookWord.delegate.text] }
+                else { words = [HookWord.work.text] }
             default: return
             }
             try feed.publish(sessionID: id, words: words,

@@ -199,10 +199,10 @@ final class DreamsController: NSObject {
 
     var animationStatus: String {
         guard overlay?.isVisible == true, let renderer else {
-            return "Анимация остановлена. Нажмите «Запустить Matrix»."
+            return L("status.stopped")
         }
         let remaining = max(0, Int(expiresAt?.timeIntervalSinceNow ?? 0))
-        return "Рендер: \(renderer.framesRendered) кадров · осталось \(remaining) с."
+        return L("status.rendering", renderer.framesRendered, remaining)
     }
 
     func status() throws -> [String: Any] {

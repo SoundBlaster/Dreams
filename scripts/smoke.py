@@ -87,7 +87,7 @@ def main():
     parser.add_argument("--interactive", action="store_true")
     args = parser.parse_args()
     feed_dir = tempfile.TemporaryDirectory(prefix="dreams-smoke-")
-    env = dict(os.environ, DREAMS_FEED_DIRECTORY=feed_dir.name)
+    env = dict(os.environ, DREAMS_FEED_DIRECTORY=feed_dir.name, DREAMS_LANGUAGE="en")
     client = MCPClient(env=env)
     try:
         initialized = client.request("initialize", {
@@ -121,7 +121,7 @@ def main():
             state = client.call("dreams_status")
             assert len(state["keyword_sessions"]) == 2, state
             assert "MUST_NOT_APPEAR" not in json.dumps(state), state
-            assert any(s["keywords"] == ["код"] for s in state["keyword_sessions"]), state
+            assert any(s["keywords"] == ["code"] for s in state["keyword_sessions"]), state
             assert state["working_agents"] == 2, state
             # Lifecycle events change activity, independent of their displayed words.
             for event, expected in [("Stop", 1), ("SessionStart", 1), ("PreToolUse", 2)]:

@@ -46,13 +46,13 @@ final class MatrixRain {
             CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
         }
         guard let wordFont = NSFont(name: "DreamsMatrix-Regular", size: 26) else {
-            throw DreamsError.unavailable("Шрифт слов DreamsMatrix не найден. Пересоберите приложение.")
+            throw DreamsError.unavailable(L("error.wordFontMissing"))
         }
         let letters = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".utf16)
         var letterGlyphs = [CGGlyph](repeating: 0, count: letters.count)
         guard CTFontGetGlyphsForCharacters(wordFont, letters, &letterGlyphs, letters.count),
               letterGlyphs.allSatisfy({ $0 != 0 }) else {
-            throw DreamsError.unavailable("В DreamsMatrix отсутствуют прописные буквы латиницы или кириллицы.")
+            throw DreamsError.unavailable(L("error.wordFontLetters"))
         }
         self.wordFont = wordFont
         let resource = restoredGlyphs ? "DreamsMatrix" : "Matrix-Code"
@@ -61,7 +61,7 @@ final class MatrixRain {
         }
         if restoredGlyphs {
             guard let font = NSFont(name: "DreamsMatrix-Regular", size: 26) else {
-                throw DreamsError.unavailable("Восстановленный шрифт DreamsMatrix не найден. Пересоберите приложение.")
+                throw DreamsError.unavailable(L("error.restoredFontMissing"))
             }
             // The font is the repertoire: adding a glyph needs no Swift range edit.
             let characterSet = CTFontCopyCharacterSet(font)
@@ -73,7 +73,7 @@ final class MatrixRain {
             guard !codes.isEmpty,
                   CTFontGetGlyphsForCharacters(font, codes, &mapped, codes.count),
                   mapped.allSatisfy({ $0 != 0 }) else {
-                throw DreamsError.unavailable("В восстановленном шрифте отсутствует набор глифов Dreams.")
+                throw DreamsError.unavailable(L("error.restoredFontGlyphs"))
             }
             matrixFont = font
             symbols = codes.map { Character(UnicodeScalar($0)!) }

@@ -1,0 +1,71 @@
+/* Dreams UI text, American English (the base language). */
+
+"status.stopped" = "Animation stopped. Press “Start Matrix”.";
+"status.rendering" = "Rendering: %d frames · %d s left.";
+"activity.waiting" = "Waiting for agents. Background rain.";
+"activity.waitingOff" = "Waiting for agents. Idle rain is off.";
+"activity.working" = "Agents working: %d · activity %d%%.";
+
+"button.startMatrix" = "Start Matrix";
+"button.waves" = "Rainbow Waves";
+"button.stop" = "Stop";
+"button.quit" = "Quit Dreams";
+"hint.escape" = "The animation runs for 5 minutes, full screen. Exit with Esc or ⌃⌥⌘D.";
+
+"section.rain" = "Rain";
+"section.between" = "Between agent messages";
+"section.words" = "Agent words";
+"section.glyphs" = "Glyphs";
+
+"label.color" = "Color";
+"rain.color.accessibility" = "Rain color";
+"rain.color.tip" = "Color of the rain letters. Stored separately for the black and the transparent background.";
+"rain.density" = "Density";
+"rain.density.tip" = "Sparse ← → dense: tail length and pauses between passes. Applies to the next streams.";
+"rain.speed" = "Speed";
+"rain.speed.tip" = "0.25× is slow; 1× is normal; 3× is fast.";
+"rain.fade" = "Fade";
+"rain.fade.tip" = "How many letters fade at once: 1 fades them one by one from the top; 16 is a soft tail.";
+"rain.fade.value" = "%d glyphs";
+"rain.spread" = "Brightness spread";
+"rain.spread.tip" = "0% makes all letters equally bright; 100% mixes dark and bright ones.";
+"rain.glow" = "Glow";
+"rain.glow.tip" = "0% is no halo; 100% is a soft light; 300% is bright. Stored separately for the transparent background.";
+"rain.idle" = "Calm background";
+"rain.idle.tip" = "The level the rain settles to after the surge caused by an agent message. 0% is a black screen.";
+"check.transparent" = "Transparent background — rain over windows";
+
+"words.color.accessibility" = "Agent words color";
+"words.brightness" = "Brightness";
+"words.brightness.tip" = "0% hides the words; 100% is normal; 200% is brighter.";
+"check.restored" = "Restored glyphs from the film";
+
+"debug.menu" = "Debug";
+"debug.fixtures" = "Stream test · DEMO";
+"debug.fixtures.tip" = "Starts Matrix and loops an agent turn: surge, call lines, decay.";
+
+"menu.openControls" = "Open Dreams Controls";
+"menu.startMatrix" = "Start Matrix Rain (5 minutes)";
+"menu.startWaves" = "Start Rainbow Waves (5 minutes)";
+"menu.stop" = "Stop Animation";
+"menu.workspaceCreate" = "Create Experimental Agent Workspace";
+"menu.workspaceClose" = "Close Agent Workspace";
+"menu.quit" = "Quit Dreams";
+
+"error.wordFontMissing" = "The DreamsMatrix word font was not found. Rebuild the app.";
+"error.wordFontLetters" = "DreamsMatrix lacks the capital Latin or Cyrillic letters.";
+"error.restoredFontMissing" = "The restored DreamsMatrix font was not found. Rebuild the app.";
+"error.restoredFontGlyphs" = "The restored font lacks the Dreams glyph set.";
+
+"hook.start" = "start";
+"hook.task" = "task";
+"hook.done" = "done";
+"hook.context" = "context";
+"hook.search" = "search";
+"hook.code" = "code";
+"hook.study" = "reading";
+"hook.check" = "tests";
+"hook.terminal" = "terminal";
+"hook.interface" = "interface";
+"hook.delegate" = "delegating";
+"hook.work" = "work";

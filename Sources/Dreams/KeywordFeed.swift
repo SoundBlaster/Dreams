@@ -37,7 +37,7 @@ struct KeywordMessage: Codable, Equatable {
     var isWorking: Bool {
         if let activity { return activity == .working }
         // Legacy hook messages predate the explicit activity field.
-        return words != ["готово"] && words != ["начало"]
+        return !HookWord.isIdleMarker(words)
     }
 
     static let colors = ["cyan", "violet", "amber", "mint", "rose"]

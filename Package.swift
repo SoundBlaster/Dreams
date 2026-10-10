@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "Dreams",
+    defaultLocalization: "en",
     platforms: [.macOS(.v15)],
     products: [.executable(name: "Dreams", targets: ["Dreams"])],
     dependencies: [
@@ -16,6 +17,6 @@ let package = Package(
         .executableTarget(name: "Dreams", dependencies: [
             "VirtualDisplayBridge", .product(name: "MCP", package: "swift-sdk"),
             .product(name: "Logging", package: "swift-log")
-        ], resources: [.copy("Waves.metal"), .copy("Matrix-Code.ttf"), .copy("DreamsMatrix.ttf")])
+        ], resources: [.copy("Waves.metal"), .copy("Matrix-Code.ttf"), .copy("DreamsMatrix.ttf"), .process("Localization")])
     ]
 )

@@ -246,57 +246,57 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             activityLabel.textColor = .secondaryLabelColor
             activityLabel.preferredMaxLayoutWidth = 420
             self.activityLabel = activityLabel
-            let matrix = NSButton(title: "Запустить Matrix", target: self, action: #selector(start))
+            let matrix = NSButton(title: L("button.startMatrix"), target: self, action: #selector(start))
             matrix.setAccessibilityIdentifier("dreams.start-matrix")
             matrix.keyEquivalent = "\r"
-            let waves = NSButton(title: "Радужные волны", target: self, action: #selector(waves))
-            let stopButton = NSButton(title: "Остановить", target: self, action: #selector(stop))
+            let waves = NSButton(title: L("button.waves"), target: self, action: #selector(waves))
+            let stopButton = NSButton(title: L("button.stop"), target: self, action: #selector(stop))
             stopButton.setAccessibilityIdentifier("dreams.stop")
             let launch = NSStackView(views: [matrix, waves, stopButton])
             launch.spacing = 8
-            let escapeHint = Self.note("Анимация идёт 5 минут на весь экран. Выход — Esc или ⌃⌥⌘D.")
+            let escapeHint = Self.note(L("hint.escape"))
 
             // Rain.
             let rainColor = NSColorWell()
             rainColor.color = controller.rainColor
             rainColor.target = self
             rainColor.action = #selector(changeRainColor(_:))
-            rainColor.setAccessibilityLabel("Цвет дождя")
+            rainColor.setAccessibilityLabel(L("rain.color.accessibility"))
             rainColor.setAccessibilityIdentifier("dreams.rain-color")
-            rainColor.toolTip = "Цвет букв дождя. Для чёрного и прозрачного фона хранится отдельно."
+            rainColor.toolTip = L("rain.color.tip")
             rainColorWell = rainColor
             let rain = settingsGrid([
-                [Self.name("Цвет"), rainColor, NSView()],
-                sliderRow("Плотность", value: controller.rainDensity, min: 0, max: 1,
+                [Self.name(L("label.color")), rainColor, NSView()],
+                sliderRow(L("rain.density"), value: controller.rainDensity, min: 0, max: 1,
                           action: #selector(changeDensity(_:)), valueLabel: densityLabel,
                           identifier: "dreams.rain-density",
-                          tip: "Разреженно ← → плотно: длина хвоста и паузы между проходами. Применяется к следующим струям."),
-                sliderRow("Скорость", value: controller.rainSpeed, min: 0.25, max: 3,
+                          tip: L("rain.density.tip")),
+                sliderRow(L("rain.speed"), value: controller.rainSpeed, min: 0.25, max: 3,
                           action: #selector(changeSpeed(_:)), valueLabel: speedLabel,
-                          identifier: "dreams.rain-speed", tip: "0.25× — медленно; 1× — обычно; 3× — быстро."),
-                sliderRow("Затухание", value: controller.rainFadeRows, min: 1, max: 16,
+                          identifier: "dreams.rain-speed", tip: L("rain.speed.tip")),
+                sliderRow(L("rain.fade"), value: controller.rainFadeRows, min: 1, max: 16,
                           action: #selector(changeFade(_:)), valueLabel: fadeLabel, ticks: 16,
                           identifier: "dreams.rain-fade",
-                          tip: "Сколько букв гаснет одновременно: 1 — по очереди сверху вниз; 16 — мягкий хвост."),
-                sliderRow("Разброс яркости", value: controller.rainBrightnessSpread, min: 0, max: 1,
+                          tip: L("rain.fade.tip")),
+                sliderRow(L("rain.spread"), value: controller.rainBrightnessSpread, min: 0, max: 1,
                           action: #selector(changeBrightnessSpread(_:)), valueLabel: brightnessSpreadLabel,
                           identifier: "dreams.rain-brightness-spread",
-                          tip: "0% — все буквы одинаковой яркости; 100% — тёмные и яркие вперемешку."),
-                sliderRow("Свечение", value: controller.rainGlow, min: 0, max: 3,
+                          tip: L("rain.spread.tip")),
+                sliderRow(L("rain.glow"), value: controller.rainGlow, min: 0, max: 3,
                           action: #selector(changeGlow(_:)), valueLabel: glowLabel,
                           identifier: "dreams.rain-glow",
-                          tip: "0% — без ореола; 100% — мягкий свет; 300% — яркое. Для прозрачного фона хранится отдельно."),
+                          tip: L("rain.glow.tip")),
             ])
             glowSlider = rain.cell(atColumnIndex: 1, rowIndex: 5).contentView as? NSSlider
 
             // Background between agent messages.
             let background = settingsGrid([
-                sliderRow("Спокойный фон", value: controller.rainIdleIntensity, min: 0, max: 1,
+                sliderRow(L("rain.idle"), value: controller.rainIdleIntensity, min: 0, max: 1,
                           action: #selector(changeIdle(_:)), valueLabel: idleLabel,
                           identifier: "dreams.rain-idle",
-                          tip: "До этого уровня дождь стихает после всплеска на сообщение агента. 0% — чёрный экран."),
+                          tip: L("rain.idle.tip")),
             ])
-            let transparent = NSButton(checkboxWithTitle: "Прозрачный фон — дождь поверх окон",
+            let transparent = NSButton(checkboxWithTitle: L("check.transparent"),
                 target: self, action: #selector(changeTransparency(_:)))
             transparent.state = controller.transparentBackground ? .on : .off
             transparent.setAccessibilityIdentifier("dreams.transparent-background")
@@ -306,28 +306,28 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             wordColor.color = controller.keywordColor
             wordColor.target = self
             wordColor.action = #selector(changeKeywordColor(_:))
-            wordColor.setAccessibilityLabel("Цвет слов агентов")
+            wordColor.setAccessibilityLabel(L("words.color.accessibility"))
             wordColor.setAccessibilityIdentifier("dreams.keyword-color")
             let words = settingsGrid([
-                [Self.name("Цвет"), wordColor, NSView()],
-                sliderRow("Яркость", value: controller.keywordBrightness, min: 0, max: 2,
+                [Self.name(L("label.color")), wordColor, NSView()],
+                sliderRow(L("words.brightness"), value: controller.keywordBrightness, min: 0, max: 2,
                           action: #selector(changeKeywordBrightness(_:)), valueLabel: keywordBrightnessLabel,
-                          identifier: "dreams.keyword-brightness", tip: "0% — скрыть слова; 100% — обычно; 200% — ярче."),
+                          identifier: "dreams.keyword-brightness", tip: L("words.brightness.tip")),
             ])
 
             // Glyphs and the demo.
-            let restored = NSButton(checkboxWithTitle: "Восстановленные глифы из фильма",
+            let restored = NSButton(checkboxWithTitle: L("check.restored"),
                 target: self, action: #selector(changeGlyphSet(_:)))
             restored.state = controller.restoredGlyphs ? .on : .off
             restored.setAccessibilityIdentifier("dreams.restored-glyphs")
-            let quitButton = NSButton(title: "Выйти из Dreams", target: self, action: #selector(quit))
+            let quitButton = NSButton(title: L("button.quit"), target: self, action: #selector(quit))
 
             let stack = NSStackView(views: [
                 activityLabel, launch, escapeHint,
-                Self.section("Дождь"), rain,
-                Self.section("Между сообщениями агентов"), background, transparent,
-                Self.section("Слова агентов"), words,
-                Self.section("Глифы"), restored,
+                Self.section(L("section.rain")), rain,
+                Self.section(L("section.between")), background, transparent,
+                Self.section(L("section.words")), words,
+                Self.section(L("section.glyphs")), restored,
                 Self.separator(), quitButton,
             ])
             stack.orientation = .vertical
@@ -387,12 +387,12 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         controlsWindow?.makeKeyAndOrderFront(nil)
     }
 
-    /// Debug actions: the settings window's right-click menu and the status item's «Отладка».
+    /// Debug actions: the settings window's right-click menu and the status item's Debug submenu.
     private func debugMenu() -> NSMenu {
-        let menu = NSMenu(title: "Отладка")
-        let fixtures = menu.addItem(withTitle: "Тест струй · DEMO", action: #selector(showFixtures), keyEquivalent: "")
+        let menu = NSMenu(title: L("debug.menu"))
+        let fixtures = menu.addItem(withTitle: L("debug.fixtures"), action: #selector(showFixtures), keyEquivalent: "")
         fixtures.target = self
-        fixtures.toolTip = "Запускает Matrix и по кругу показывает ход агента: всплеск, строки вызовов, спад."
+        fixtures.toolTip = L("debug.fixtures.tip")
         fixtures.setAccessibilityIdentifier("dreams.event-fixtures")
         return menu
     }
@@ -458,7 +458,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     private func refreshValueLabels() {
         densityLabel.stringValue = "\(Int((controller.rainDensity * 100).rounded()))%"
         speedLabel.stringValue = String(format: "%.2f×", controller.rainSpeed)
-        fadeLabel.stringValue = "\(Int(controller.rainFadeRows)) симв."
+        fadeLabel.stringValue = L("rain.fade.value", Int(controller.rainFadeRows))
         brightnessSpreadLabel.stringValue = "\(Int((controller.rainBrightnessSpread * 100).rounded()))%"
         glowLabel.stringValue = "\(Int((controller.rainGlow * 100).rounded()))%"
         idleLabel.stringValue = "\(Int((controller.rainIdleIntensity * 100).rounded()))%"
@@ -470,9 +470,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         let count = messages.filter(\.isWorking).count
         let activity = count == 0
             ? (controller.rainIdleIntensity > 0
-                ? "Ожидание агентов. Фоновый дождь."
-                : "Ожидание агентов. Idle-дождь отключён.")
-            : "Работает агентов: \(count) · активность \(Int(KeywordMessage.workLevel(messages) * 100))%."
+                ? L("activity.waiting")
+                : L("activity.waitingOff"))
+            : L("activity.working", count, Int(KeywordMessage.workLevel(messages) * 100))
         activityLabel?.stringValue = activity + "\n" + controller.animationStatus
     }
 
@@ -483,21 +483,21 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         item.button?.setAccessibilityLabel("Dreams")
         let menu = NSMenu()
         if showsControls {
-            menu.addItem(withTitle: "Открыть управление Dreams", action: #selector(showControls), keyEquivalent: "")
+            menu.addItem(withTitle: L("menu.openControls"), action: #selector(showControls), keyEquivalent: "")
             menu.addItem(.separator())
         }
-        menu.addItem(withTitle: "Start Matrix Rain (5 minutes)", action: #selector(start), keyEquivalent: "")
-        menu.addItem(withTitle: "Start Rainbow Waves (5 minutes)", action: #selector(waves), keyEquivalent: "")
-        let stopItem = menu.addItem(withTitle: "Stop Animation", action: #selector(stop), keyEquivalent: "d")
+        menu.addItem(withTitle: L("menu.startMatrix"), action: #selector(start), keyEquivalent: "")
+        menu.addItem(withTitle: L("menu.startWaves"), action: #selector(waves), keyEquivalent: "")
+        let stopItem = menu.addItem(withTitle: L("menu.stop"), action: #selector(stop), keyEquivalent: "d")
         stopItem.keyEquivalentModifierMask = [.control, .option, .command]
         menu.addItem(.separator())
-        menu.addItem(withTitle: "Create Experimental Agent Workspace", action: #selector(workspace), keyEquivalent: "")
-        menu.addItem(withTitle: "Close Agent Workspace", action: #selector(closeWorkspace), keyEquivalent: "")
+        menu.addItem(withTitle: L("menu.workspaceCreate"), action: #selector(workspace), keyEquivalent: "")
+        menu.addItem(withTitle: L("menu.workspaceClose"), action: #selector(closeWorkspace), keyEquivalent: "")
         menu.addItem(.separator())
-        let debug = menu.addItem(withTitle: "Отладка", action: nil, keyEquivalent: "")
+        let debug = menu.addItem(withTitle: L("debug.menu"), action: nil, keyEquivalent: "")
         debug.submenu = debugMenu()
         menu.addItem(.separator())
-        menu.addItem(withTitle: "Quit Dreams", action: #selector(quit), keyEquivalent: "q")
+        menu.addItem(withTitle: L("menu.quit"), action: #selector(quit), keyEquivalent: "q")
         for menuItem in menu.items where menuItem.submenu == nil { menuItem.target = self }
         item.menu = menu
         statusItem = item

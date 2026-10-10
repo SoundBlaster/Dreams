@@ -2,8 +2,6 @@
 
 A local macOS prototype: Matrix digital rain on the built-in display. Vertical chains of glyphs react to what your coding agents do: every agent message floods the screen with rain, tool calls are printed in the rain as real call lines (`bash: brew install fontforge`), and the rain settles back to a calm background. It is driven by Codex / Claude Code hooks and by MCP, and it has an experimental virtual display for UI agents.
 
-> The app window and menus are currently in Russian. Their English meanings are given in parentheses where this document refers to them.
-
 ## Build and run
 
 Requires macOS 15+, Swift 6.2+ and Metal. Verified on an Apple M4 Pro with macOS 27.0 (26A428), Swift 6.4 and the built-in Liquid Retina XDR display.
@@ -13,7 +11,7 @@ zsh scripts/build-app.sh release
 open dist/Dreams.app
 ```
 
-A normal launch opens the Dreams window with the buttons «Запустить Matrix» (Start Matrix), «Радужные волны» (Rainbow Waves), «Остановить» (Stop) and «Выйти из Dreams» (Quit Dreams). Reopening the app brings this window back and stops the animation. `Esc` stops the animation while Dreams is the active app.
+A normal launch opens the Dreams window with the buttons Start Matrix, Rainbow Waves, Stop and Quit Dreams. Reopening the app brings this window back and stops the animation. `Esc` stops the animation while Dreams is the active app.
 
 A `◒` item also appears in the menu bar: Start Matrix Rain, Start Rainbow Waves, Stop Animation, Create/Close Agent Workspace, Quit. The animation runs for five minutes. Launching the app never covers the screen by itself. For a separate test window on a virtual display:
 
@@ -82,7 +80,7 @@ On the maintainer's Mac the hooks were confirmed on 9 October 2026, 22:52 MSK: f
 
 Matrix answers agent messages with a surge. Any new message in the mailbox (turn start, tool call, its result, turn end, keywords) floods the whole screen with rain at full brightness within 0.4 s, holds the flood for 1.5 s, then decays exponentially (time constant 5 s, about 15 s to rest) to the calm background set by the idle slider. A message during the decay raises the rain again from its current level, so frequent tool calls keep it dense and a pause lets it settle. The parameters are `RainActivity.attack/hold/decay`. Fading of already printed glyphs is irreversible: more activity does not restore old brightness. Columns that became fully hidden are cleared and are printed again from the top when they return. Rainbow Waves works independently of agent events.
 
-`UserPromptSubmit`, `PreToolUse` and `PostToolUse` mark a session as `working`; `Stop` and `SessionStart` mark it `idle`; `SessionEnd` removes it from the feed. MCP/CLI publish accepts `activity: "working" | "idle"` (default `working`). The `working_agents` field of `dreams_status` shows the count; the window shows it or «Ожидание агентов» (Waiting for agents).
+`UserPromptSubmit`, `PreToolUse` and `PostToolUse` mark a session as `working`; `Stop` and `SessionStart` mark it `idle`; `SessionEnd` removes it from the feed. MCP/CLI publish accepts `activity: "working" | "idle"` (default `working`). The `working_agents` field of `dreams_status` shows the count; the window shows it or "Waiting for agents".
 
 This is an estimate from hooks, not a measurement of inference. If a Stop is missed, the session disappears after its TTL (normally 90 seconds without events); after the TTL a long computation without new hooks stops counting as active too. An idle session can stay in the mailbox with its keywords but adds no rain.
 
@@ -107,7 +105,7 @@ This mode does not publish test events into the shared feed.
 
 Hook events start separate one-shot streams: PreToolUse → a call line with its arguments (`bash: brew install fontforge`, `read: Sources/Dreams/MatrixRain.swift`, `grep: func glyph\(`, `mcp: xcode.BuildProject Dreams`), UserPromptSubmit → TASK, PreCompact → CONTEXT if that hook is wired separately (the regular installer does not add it yet). `ToolCallLine` builds the line from `tool_name` and `tool_input`: paths are shown relative to `cwd`, a `cd <cwd> &&` prefix is dropped, and a long line is cut to 60 characters with an ellipsis (a path is cut from the start and keeps its end, a command is cut from the end and keeps its start). Values that look like secrets (`TOKEN=…`, `--password …`, `Authorization: Bearer …`, `user:pass@`, long opaque strings) are replaced with `***`, because everyone who can see the screen sees the rain. The labels are vertical, set in DreamsMatrix, with the word colour and brightness settings. Otherwise a stream behaves like ordinary rain: the same speed, tail and brightness spread, and its letters are churned through random rain glyphs (in the word colour) and return to their own character. PostToolUse does not duplicate a stream. The mailbox keeps at most 24 events per session; the renderer accepts at most 6 new events per update and does not replay events older than 8 seconds. An event stream still finishes printing and fades even at idle 0%.
 
-The «Тест струй · DEMO» (Stream test · DEMO) item is in the debug menu (right-click in the control window, or «◒ → Отладка» (Debug) in the menu bar). It starts Matrix if needed and creates four visual fixtures: `bash: brew install fontforge`, `mcp: xcode.BuildProject Dreams`, TASK, CONTEXT. The demo loops and plays an agent turn: the fixtures' message causes the same surge as a real one, the lines are printed, the rain decays to the background, and 2 s after it has calmed the next «turn» starts (about 19 s per loop; longer at a slow rain speed). The loop runs until the rain is stopped by Esc, the timeout, or another style. The CLI flag `--fixture-events` still sends a single wave. The `dreams:visual-fixtures` session is idle, does not raise the working-agent count and expires after 15 s. No external tools are called. The item can be repeated. For an already running Matrix the same can be triggered from the CLI:
+The "Stream test · DEMO" item is in the debug menu (right-click in the control window, or ◒ → Debug in the menu bar). It starts Matrix if needed and creates four visual fixtures: `bash: brew install fontforge`, `mcp: xcode.BuildProject Dreams`, TASK, CONTEXT. The demo loops and plays an agent turn: the fixtures' message causes the same surge as a real one, the lines are printed, the rain decays to the background, and 2 s after it has calmed the next «turn» starts (about 19 s per loop; longer at a slow rain speed). The loop runs until the rain is stopped by Esc, the timeout, or another style. The CLI flag `--fixture-events` still sends a single wave. The `dreams:visual-fixtures` session is idle, does not raise the working-agent count and expires after 15 s. No external tools are called. The item can be repeated. For an already running Matrix the same can be triggered from the CLI:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --fixture-events
@@ -151,8 +149,8 @@ All settings are applied immediately and saved between launches.
 - **Calm background** (0–100%, default 77%): the background that the rain decays to after a surge. 0% is a black screen between messages. The background stays muted; a surge always runs at full strength. Without any active agents only sparse columns at 35% of normal exposure remain; with work the rain brightens smoothly over 1.8 s and returns to idle in 4 s. Even at density 100% idle stays sparse.
 - **Rain colour**: stored separately for the black background (`rainColor`, default the classic dark green) and the transparent one (`transparentRainColor`, default a light mint so the letters read on bright wallpapers). The swatch shows the colour as it appears on screen; the halo follows the colour. `rain_color_rgb` (linear RGB) is reported in the status.
 - **Agent words**: colour and brightness are set separately from the rain. Default colour bright green (0, 255, 100); brightness 0–200%, default 200%; 0% hides the words. The colour applies to the letters and their glow; short light heads are kept.
-- **Restored glyphs** («Восстановленные глифы из фильма»): switches on the experimental `DreamsMatrix-Regular`, built from a reconstruction sheet and manual SVG corrections. The choice is saved and changing the set starts a new rain pass. When it is off, the previous `Matrix-Code` is used; in both modes the keywords keep a system font that covers Cyrillic. `scripts/build-app.sh release` rebuilds and checks the font before packaging. The set currently has 28 forms; the new G21–G28 are the digits 8/4 and short signs from the film references. The app reads the whole private-use repertoire from the font file, so new glyphs are picked up by the next build automatically. Instructions for editing glyphs: [PIPELINE.md](research/glyphs/PIPELINE.md).
-- **Transparent background** («Прозрачный фон — дождь поверх окон»): a checkbox in the window. It is saved (`transparentBackground`); when toggled during rain the overlay is recreated with the remaining time. The `--transparent` process flag still enables the mode at launch, including for MCP:
+- **Restored glyphs from the film**: switches on the experimental `DreamsMatrix-Regular`, built from a reconstruction sheet and manual SVG corrections. The choice is saved and changing the set starts a new rain pass. When it is off, the previous `Matrix-Code` is used; in both modes the keywords keep a system font that covers Cyrillic. `scripts/build-app.sh release` rebuilds and checks the font before packaging. The set currently has 28 forms; the new G21–G28 are the digits 8/4 and short signs from the film references. The app reads the whole private-use repertoire from the font file, so new glyphs are picked up by the next build automatically. Instructions for editing glyphs: [PIPELINE.md](research/glyphs/PIPELINE.md).
+- **Transparent background — rain over windows**: a checkbox in the window. It is saved (`transparentBackground`); when toggled during rain the overlay is recreated with the remaining time. The `--transparent` process flag still enables the mode at launch, including for MCP:
 
   ```sh
   open -n ./dist/Dreams.app --args --transparent
@@ -182,6 +180,12 @@ The app does not capture the screen, use the camera or microphone, or draw a fra
 
 While the animation is active the app holds a display-sleep assertion and releases it after it stops. This keeps the animation visible at the cost of power. It does not change the system brightness, lock settings or persistent sleep settings.
 
+## Languages
+
+The app is localized in American English (the base language) and Russian; it follows the system language and falls back to English. The strings live in `Sources/Dreams/Localization/<language>.lproj/Localizable.strings`: window and menu text, error messages and the short words that hooks put into the rain (`task`, `done`, `code`, … / `задача`, `готово`, `код`, …). Tool call lines are never translated. To try another language without changing the system, launch with `DREAMS_LANGUAGE=ru` (or `en`) in the environment, e.g. `DREAMS_LANGUAGE=ru dist/Dreams.app/Contents/MacOS/Dreams`.
+
+To add a language, copy `en.lproj` to `<code>.lproj`, translate the values, add the code to `Loc.languages` in `Sources/Dreams/Localization.swift` and to `CFBundleLocalizations` in `scripts/Info.plist.in`. `python3 scripts/test-localization.py` checks that every table has the same keys and format specifiers and that every key used in Swift exists.
+
 ## Release
 
 `scripts/release.sh` builds a universal (arm64 + x86_64) `Dreams.app`, signs it with Developer ID (`P8T2366K8X`) and the hardened runtime, notarizes and staples it, then makes `dist/release/Dreams-<version>.dmg`, notarizes and staples that too, and prints the sha256 for a Homebrew cask. The version comes from `VERSION` and the `Info.plist` template is `scripts/Info.plist.in`; the font comes from the committed `Sources/Dreams/DreamsMatrix.ttf`, so a release does not need Python. Once: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` signs and verifies without submitting to Apple (such a DMG is only good for local checks). A signed executable is bound to its bundle: it cannot be copied out of `Dreams.app`.
@@ -189,6 +193,7 @@ While the animation is active the app holds a display-sleep assertion and releas
 ## Testing
 
 ```sh
+python3 scripts/test-localization.py   # string tables and localized hook words
 python3 scripts/smoke.py
 # For manual / CUA checks of the working window:
 python3 scripts/smoke.py --interactive
