@@ -25,7 +25,7 @@ struct StopHotkey: Equatable {
     /// A shortcut from a key press: it needs ⌃, ⌥ or ⌘, so a plain key can never be taken over.
     init?(event: NSEvent) {
         let flags = event.modifierFlags.intersection([.control, .option, .shift, .command])
-        guard !flags.intersection([.control, .option, .command]).isEmpty, Int(event.keyCode) != kVK_Escape else { return nil }
+        guard !flags.isDisjoint(with: [.control, .option, .command]), Int(event.keyCode) != kVK_Escape else { return nil }
         var carbon: UInt32 = 0
         if flags.contains(.control) { carbon |= UInt32(controlKey) }
         if flags.contains(.option) { carbon |= UInt32(optionKey) }

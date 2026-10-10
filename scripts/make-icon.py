@@ -6,13 +6,12 @@
 The tile is 824 px on a 1024 canvas with a soft shadow, as in Apple's icon template. The result is
 committed, so releases do not need Python.
 """
-import shutil
 import subprocess
 import tempfile
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageChops, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "assets/icon/source.png"

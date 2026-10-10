@@ -409,7 +409,7 @@ def glyphs(rules):
 def punctuation(rules):
     """ASCII punctuation and the ellipsis, for tool call lines in the rain."""
     g = {}
-    s, l = System(rules), System(rules, lowercase=True)
+    s = System(rules)
     L, R, xl, xr, xc = s.frame('cap')
     C, A, D, yt, yb = s.C, s.A, s.D, s.yt, s.yb
     bar_a, bar_d = A - s.hair / 2, D + s.hair / 2          # bracket bars on ascender / descender

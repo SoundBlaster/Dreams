@@ -1,0 +1,5 @@
+# Errors only: syntax problems and pyflakes (unused names, undefined names). The scripts are
+# short, procedural checks, so style rules would only be noise.
+extend-exclude = [".venv", "research/glyphs/build"]
+[lint]
+select = ["E9", "F"]

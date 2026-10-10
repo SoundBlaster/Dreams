@@ -101,7 +101,7 @@ Installed with Homebrew: remove the hooks first (`/Applications/Dreams.app/Conte
 
 ## Develop
 
-`make help` lists everything: `make app`, `make run`, `make test`, `make glyphs`, `make icon`, `make release`.
+`make help` lists everything: `make app`, `make run`, `make test`, `make lint`, `make glyphs`, `make icon`, `make release`. [CI](.github/workflows/ci.yml) runs the lint job (SwiftLint strict, ruff, shell syntax, documentation links) and the build-and-test job (glyph pipeline reproducibility, the app build without compiler warnings, unit and integration checks) on every pull request.
 
 ## License and credits
 
