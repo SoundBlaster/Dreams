@@ -8,7 +8,7 @@ NOTARY_PROFILE ?= dreams-notary
 
 .PHONY: help app run test test-unit glyphs glyphs-verify glyphs-selftest \
 	release release-local checksum github-release notary-profile \
-	install-hooks uninstall-hooks clean
+	install-hooks uninstall-hooks uninstall uninstall-purge clean
 
 help:
 	@printf '%s\n' \
@@ -33,6 +33,8 @@ help:
 		'Agents:' \
 		'  make install-hooks    Add the Dreams hooks to Codex and Claude Code (uses /Applications)' \
 		'  make uninstall-hooks  Remove them' \
+		'  make uninstall        Quit Dreams, remove its hooks and the app' \
+		'  make uninstall-purge  The same, plus settings, mailbox, caches and hook backups' \
 		'' \
 		'  make clean            Remove .build and dist'
 
@@ -53,6 +55,7 @@ test-unit:
 test: app test-unit
 	python3 scripts/test-localization.py
 	python3 scripts/test-hooks-install.py $(APP)/Contents/MacOS/Dreams
+	python3 scripts/test-uninstall.py
 	python3 scripts/smoke.py
 	python3 scripts/test-hook-pressure.py
 	$(PYTHON) scripts/test-transparent.py
@@ -98,6 +101,12 @@ install-hooks:
 uninstall-hooks:
 	@test -x /Applications/Dreams.app/Contents/MacOS/Dreams || { echo 'Dreams is not in /Applications'; exit 1; }
 	/Applications/Dreams.app/Contents/MacOS/Dreams --uninstall-hooks
+
+uninstall:
+	scripts/uninstall.sh
+
+uninstall-purge:
+	scripts/uninstall.sh --purge
 
 clean:
 	rm -rf .build dist

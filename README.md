@@ -185,6 +185,16 @@ The app does not capture the screen, use the camera or microphone, or draw a fra
 
 While the animation is active the app holds a display-sleep assertion and releases it after it stops. This keeps the animation visible at the cost of power. It does not change the system brightness, lock settings or persistent sleep settings.
 
+## Uninstall
+
+```sh
+scripts/uninstall.sh --dry-run --purge   # list what would be removed
+scripts/uninstall.sh                     # quit Dreams, remove its agent hooks and the app
+scripts/uninstall.sh --purge             # also settings, the keyword mailbox, caches and hook backups
+```
+
+(`make uninstall` and `make uninstall-purge` do the same.) Hooks are removed with the app's own `--uninstall-hooks` before the app is deleted, so other settings and hooks in `~/.codex/hooks.json` and `~/.claude/settings.json` stay. The script also looks for a leftover Dreams MCP entry in your Codex / Claude configs and tells you if it finds one; it does not edit those. Installed with Homebrew: `brew uninstall --cask dreams`. What Dreams keeps on disk: `/Applications/Dreams.app`, the preferences `ru.egormerkushev.dreams` (and the old `local.dreams.app`), `~/Library/Application Support/Dreams` (the keyword mailbox), and the hook backups `*.dreams-backup-*` next to the agent configs. `python3 scripts/test-uninstall.py` checks the script in a throwaway home directory.
+
 ## Languages
 
 The app is localized in American English (the base language) and Russian; it follows the system language and falls back to English. The strings live in `Sources/Dreams/Localization/<language>.lproj/Localizable.strings`: window and menu text, error messages and the short words that hooks put into the rain (`task`, `done`, `code`, … / `задача`, `готово`, `код`, …). Tool call lines are never translated. To try another language without changing the system, launch with `DREAMS_LANGUAGE=ru` (or `en`) in the environment, e.g. `DREAMS_LANGUAGE=ru dist/Dreams.app/Contents/MacOS/Dreams`.
