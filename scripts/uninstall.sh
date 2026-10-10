@@ -75,8 +75,9 @@ if (( purge )); then
 fi
 
 print "== Left for you to check"
+(( dry )) && print "  (leftover MCP entries are checked after a real run)"
 for config in "$home/.codex/config.toml" "$home/.claude.json" "$home/.claude/settings.json"; do
-  if [[ -f "$config" ]] && grep -qi 'dreams' "$config" 2>/dev/null; then
+  if (( ! dry )) && [[ -f "$config" ]] && grep -qi 'dreams' "$config" 2>/dev/null; then
     print "  $config still mentions Dreams (an MCP server entry?): check it by hand"
   fi
 done
