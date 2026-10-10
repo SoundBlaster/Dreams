@@ -34,7 +34,12 @@ with tempfile.TemporaryDirectory() as tmp:
     # Hooks are recognised by the installed app path, so run a copy from an app-shaped directory.
     app_binary = home / "Apps with 'quote'/Dreams.app/Contents/MacOS/Dreams"
     app_binary.parent.mkdir(parents=True)
-    shutil.copy2(BINARY, app_binary)
+    if BINARY.parents[2].suffix == ".app":
+        # A signed binary is bound to its bundle's Info.plist: copy the whole app, not the executable.
+        shutil.rmtree(app_binary.parents[2])
+        shutil.copytree(BINARY.parents[2], app_binary.parents[2], symlinks=True)
+    else:
+        shutil.copy2(BINARY, app_binary)
     (home / ".claude").mkdir()
     (home / ".codex").mkdir()
     claude = home / ".claude/settings.json"

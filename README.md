@@ -103,6 +103,10 @@ dist/Dreams.app/Contents/MacOS/Dreams --render-demo artifacts/activity-frames --
 
 Этот режим не публикует тестовые события в общий feed.
 
+## Релиз
+
+`scripts/release.sh` собирает универсальный (arm64 + x86_64) `Dreams.app`, подписывает его Developer ID (`P8T2366K8X`) с hardened runtime, нотаризует и штампует приложение, затем делает `dist/release/Dreams-<версия>.dmg`, нотаризует и штампует его и печатает sha256 для cask. Версия берётся из `VERSION`, шаблон `Info.plist` — `scripts/Info.plist.in`; шрифт берётся из закоммиченного `Sources/Dreams/DreamsMatrix.ttf`, Python для релиза не нужен. Один раз: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` подписывает и проверяет без отправки в Apple (такой DMG годится только для локальных проверок). Подписанный исполняемый файл привязан к бандлу: копировать его отдельно от `Dreams.app` нельзя.
+
 ## Hooks Codex и Claude Code
 
 ```sh

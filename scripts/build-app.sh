@@ -12,19 +12,6 @@ mkdir -p "$dreams_app/Contents/MacOS" "$dreams_app/Contents/Resources"
 cp "$dreams_bin/Dreams" "$dreams_app/Contents/MacOS/Dreams"
 cp -R "$dreams_bin/Dreams_Dreams.bundle" "$dreams_app/Contents/Resources/"
 cp "$dreams_root/THIRD_PARTY_NOTICES.md" "$dreams_app/Contents/Resources/"
-cat > "$dreams_app/Contents/Info.plist" <<'PLIST'
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0"><dict>
-<key>CFBundleExecutable</key><string>Dreams</string>
-<key>CFBundleIdentifier</key><string>ru.egormerkushev.dreams</string>
-<key>CFBundleName</key><string>Dreams</string>
-<key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.1.0</string>
-<key>LSUIElement</key><true/>
-<key>NSHighResolutionCapable</key><true/>
-<key>LSMinimumSystemVersion</key><string>15.0</string>
-</dict></plist>
-PLIST
+sed "s/__VERSION__/$(<VERSION)/" scripts/Info.plist.in > "$dreams_app/Contents/Info.plist"
 codesign --force --deep --sign - "$dreams_app"
 print "$dreams_app"
