@@ -62,9 +62,9 @@ def main():
                 icon.resize((pixels, pixels), Image.Resampling.LANCZOS).save(iconset / name)
         OUTPUT.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(["iconutil", "-c", "icns", str(iconset), "-o", str(OUTPUT)], check=True)
-        preview = ROOT / "assets/icon/preview-1024.png"
-        icon.save(preview)
-    print(f"Wrote {OUTPUT.relative_to(ROOT)} ({OUTPUT.stat().st_size // 1024} KB) and assets/icon/preview-1024.png")
+        # A transparent PNG for the README (the .icns is for the app).
+        icon.resize((512, 512), Image.Resampling.LANCZOS).save(ROOT / "assets/icon/icon.png", optimize=True)
+    print(f"Wrote {OUTPUT.relative_to(ROOT)} ({OUTPUT.stat().st_size // 1024} KB) and assets/icon/icon.png")
 
 
 if __name__ == "__main__":
