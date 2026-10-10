@@ -20,7 +20,13 @@ Free, MIT-licensed, macOS 15 or newer. Developed on Apple silicon; the build is 
 
 ## Install
 
-Download the notarized `Dreams-<version>.dmg` from the [latest release](https://github.com/SoundBlaster/Dreams/releases/latest), open it and drag `Dreams.app` to `/Applications`. A Homebrew cask is planned.
+With [Homebrew](https://brew.sh):
+
+```sh
+brew install --cask SoundBlaster/tap/dreams
+```
+
+Or download the notarized `Dreams-<version>.dmg` from the [latest release](https://github.com/SoundBlaster/Dreams/releases/latest), open it and drag `Dreams.app` to `/Applications`.
 
 Or build it yourself: `make app` (Swift 6.2+), then `open dist/Dreams.app`.
 
@@ -84,6 +90,8 @@ scripts/uninstall.sh --purge             # quit Dreams, remove hooks, the app, s
 ```
 
 Your other hooks and settings in `~/.codex` and `~/.claude` are left alone.
+
+Installed with Homebrew: remove the hooks first (`/Applications/Dreams.app/Contents/MacOS/Dreams --uninstall-hooks`), then `brew uninstall --cask --zap dreams`.
 
 ## Documentation
 
