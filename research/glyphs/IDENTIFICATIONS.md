@@ -1,127 +1,126 @@
-# Идентификация 28 Matrix glyphs
+# Identification of 28 Matrix glyphs
 
-Состояние: первая исследовательская версия, 2026-10-09. Все G01–G28 учтены; исходные G01–G20 сохранены, первая новая партия — G21–G28. ID фиксируют **форму из фильма**, а не Unicode character: изменение гипотезы не меняет ID. Новые контуры в этой итерации не генерировались, приложение не менялось.
+Status: first research version, 2026-10-09. All G01–G28 are accounted for; the original G01–G20 are kept, and the first new batch is G21–G28. The IDs fix the **shape from the film**, not a Unicode character: changing a hypothesis does not change the ID. No new contours were generated in this iteration and the app was not changed. (Quotations from the user were translated from Russian.)
 
-**Итог:** 4 идентификации подтверждены пользователем, 12 имеют high confidence, 10 — medium, 2 — low. G24/G25 имеют medium confidence в наблюдаемой геометрии, но Unicode identity не назначена. Все неподтверждённые назначения сохраняют статус гипотез. Confidence относится к идентичности символа, не к точности восстановленного контура. Даже high здесь — структурное сопоставление, а не доказательство исходного шрифта фильма.
+**Summary:** 4 identifications are confirmed by the user, 12 have high confidence, 10 medium, 2 low. G24/G25 have medium confidence in the observed geometry, but no Unicode identity is assigned. All unconfirmed assignments remain hypotheses. Confidence refers to the identity of the character, not to the accuracy of the restored contour. Even "high" here is a structural match, not proof of the original film font.
 
-## Как читать доказательства
+## How to read the evidence
 
-- [Прямые вырезки и координаты](references/provenance.json) связывают G01–G20 с `1.mov`, t=2.00 s; координаты даны как `(x0,y0,x1,y1)` в исходном изображении 3024×1900. Видео заново не декодировалось в этом проходе; исследованы сохранённые вырезки и пользовательские фото.
-- [restored-v5.png](references/restored-v5.png) — текущая реконструкция, 4 столбца × 5 строк, row-major. Она помогает находить форму, но не подтверждает её идентичность.
-- [extraction-corrected.png](references/extraction-corrected.png) — источник слева в каждой карточке, оценка маски по центру. Исходная старая маска неверно вычитала белые пересечения через `G-(R+B)/2`. Для G04/G05/G08/G12/G14 эти пересечения **сплошные**, а не дырки.
-- [g17-clear.jpg](references/g17-clear.jpg) имеет приоритет для G17: один связный знак, правая стойка с выступом вверх, верхняя перекладина загибается вниз свободным крюком слева, нижняя ножка влево, середина слева открыта.
-- [Unicode Katakana chart](https://www.unicode.org/charts/PDF/U30A0.pdf) и [Hiragana chart](https://www.unicode.org/charts/PDF/U3040.pdf) просмотрены визуально для сравнения структуры и кодовых точек. Charts сами указывают, что reference glyph shapes не являются предписанными. Это не доказательство репертуара или исходного film font и не источник контуров для копирования.
+- [Direct crops and coordinates](references/provenance.json) tie G01–G20 to `1.mov`, t=2.00 s; coordinates are `(x0,y0,x1,y1)` in the source image of 3024×1900. The video was not decoded again in this pass; the saved crops and the user's photos were studied.
+- [restored-v5.png](references/restored-v5.png) is the current reconstruction, 4 columns × 5 rows, row-major. It helps to find a shape but does not confirm its identity.
+- [extraction-corrected.png](references/extraction-corrected.png) — the source on the left of every card, the mask estimate in the centre. The original old mask wrongly subtracted white intersections through `G-(R+B)/2`. For G04/G05/G08/G12/G14 these intersections are **solid**, not holes.
+- [g17-clear.jpg](references/g17-clear.jpg) takes priority for G17: one connected glyph, a right stem with a bump upward, a top crossbar that bends down into a free hook on the left, a lower leg to the left, the middle open on the left.
+- The [Unicode Katakana chart](https://www.unicode.org/charts/PDF/U30A0.pdf) and [Hiragana chart](https://www.unicode.org/charts/PDF/U3040.pdf) were viewed to compare structure and code points. The charts themselves state that their reference glyph shapes are not prescriptive. This is not evidence of the repertoire or of the original film font and not a source of contours to copy.
 
-Проверялись исходная ориентация, horizontal reflection, vertical reflection и повороты на 90°/180°/270° как структурные варианты. Ни один поворот не получил достаточно положительных признаков для назначения. `mirror_horizontal` означает отражение обычного Unicode-знака слева направо до наблюдаемой формы. `none` — рабочая гипотеза без преобразования. `not_distinguishable` — силуэт почти симметричен; `not_determined` — данных недостаточно. Подтверждённая пользователем G01 отражена независимо от любых догадок о глобальном правиле фильма.
+The original orientation, horizontal reflection, vertical reflection and rotations by 90°/180°/270° were tried as structural variants. No rotation received enough positive features to be assigned. `mirror_horizontal` means the ordinary Unicode character reflected left to right into the observed shape. `none` is a working hypothesis without a transformation. `not_distinguishable` — the silhouette is almost symmetric; `not_determined` — not enough data. G01, confirmed by the user, is reflected independently of any guesses about a global rule of the film.
 
-## Каталог
+## Catalogue
 
-| ID | Рабочий кандидат | Transform | Confidence | Что проверять / исправлять |
+| ID | Working candidate | Transform | Confidence | What to check / fix |
 |---|---|---|---|---|
-| G01 | 5 `U+0035` | `mirror_horizontal` | `confirmed_by_user` | Сохранить идентичность и ориентацию; сравнить радиусы нижней дуги с фильмом. |
-| G02 | 0 `U+0030` | `not_determined` | `confirmed_by_user` | Не размыкать овал; проверить касания диагонали с рамкой. |
-| G03 | ワ `U+30EF` | `mirror_horizontal` | `medium` | Сверить в нескольких повторениях длину короткого правого штриха; не нормализовать под て. |
-| G04 | オ `U+30AA` | `not_determined` | `confirmed_by_user` | Сохранить オ и излом/ступень перекладины; не уплощать до прямой полки и не добавлять реальный разрыв без source evidence. Reflection сверять отдельно; пересечения сплошные. Подготовить editable SVG для ручной доводки. |
-| G05 | せ `U+305B` | `none` | `medium` | Сопоставить повторные формы せ/サ: особенно короткое правое окончание и изгиб длинной левой ножки; не считать выбор окончательным. |
-| G06 | マ `U+30DE` | `mirror_horizontal` | `medium` | Исправить только наклон нижней «лапки» к нижнему правому углу по film source; сохранить остальную mirrored マ topology, не отражать весь glyph повторно. Текущая candidate sheet не принята; далее editable SVG. |
-| G07 | 3 `U+0033` | `none` | `low` | P1: сравнить верхнюю дугу и нижний поворот с несколькими экземплярами; не объявлять 3 подтверждённой. |
-| G08 | * `U+002A` | `not_distinguishable` | `confirmed_by_user` | Разместить маленькую шестилучевую звёздочку выше средней линии; provisional preview offset −0.13 высоты ячейки проверить визуально с фильмом. Не увеличивать знак до полной высоты. |
-| G09 | ム `U+30E0` | `mirror_horizontal` | `high` | Сохранить реальный открытый верхний левый промежуток; сверить угол длинной стороны. |
-| G10 | ツ `U+30C4` | `mirror_horizontal` | `high` | Проверить три раздельные компоненты и естественный наклон акцентов; не сливать их свечением в чистом контуре. |
-| G11 | 1 `U+0031` | `not_determined` | `high` | Сохранить маленький верхний выступ, не добавлять широкую нижнюю serif. |
-| G12 | セ `U+30BB` | `mirror_horizontal` | `medium` | P1: сравнить source с горизонтально отражённой セ: верхний crossing stroke, правая длинная стойка, открытая левая ветвь и нижняя полка. Сохранить сплошной верхний узел; не подменять контур стандартным font glyph и не объединять с G17. |
-| G13 | 7 `U+0037` | `none` | `high` | Сохранить простую двухчастную геометрию, не добавлять среднюю перекладину. |
-| G14 | ≠ `U+2260` | `stylized_cross_stroke_orientation_unresolved` | `medium` | P1: сравнить гипотезу стилизованного ≠ с фильмом: две горизонтальные полки и пересекающий их почти вертикальный штрих; уточнить наклон, сохраняя сплошные пересечения. Не превращать в буквальную пару ! и =. |
-| G15 | ハ `U+30CF` | `mirror_horizontal` | `high` | Сохранить подтверждённое пользователем horizontal reflection ハ: две отдельные расходящиеся части и верхний просвет. Для editable SVG сохранить асимметрию штрихов, не симметризовать. |
-| G16 | エ `U+30A8` | `not_distinguishable` | `medium` | Сохранить I-shaped контур; кодовую точку не считать подтверждённой без репертуарного свидетельства. |
-| G17 | セ `U+30BB` | `mirror_horizontal` | `medium` | P0: по g17-clear.jpg сравнить гипотезу mirrored セ с G12, сохраняя отдельные ID. Правая стойка с коротким верхним выступом, связный левый открытый крюк и нижняя ножка влево обязательны; identity и reflection остаются гипотезами. |
-| G18 | 9 `U+0039` | `mirror_horizontal` | `low` | P1: сравнить с другими цифрами и проверить отношение замкнутого верха к нижнему свободному хвосту; не превращать в сплошной P. |
-| G19 | ミ `U+30DF` | `mirror_horizontal` | `high` | Сохранить три раздельных штриха, общий наклон и разницу длин; не выпрямлять до знака 三. |
-| G20 | ス `U+30B9` | `mirror_horizontal` | `medium` | P1: сопоставить источник с горизонтально отражённой ス из пользовательского образца: проверить наклон длинного штриха, расположение нижней ветви и асимметрию. Не сохранять симметрию v5 автоматически. |
-| G21 | 8 `U+0038` | `not_determined` | `high` | Проверить две настоящие внутренние полости и непрерывную внешнюю рамку; ручной SVG оставить предварительным до сравнения source. |
-| G22 | 4 `U+0034` | `none` | `confirmed_by_user` | Обычная 4 без нижней полки: пользователь уточнил, что нижняя черта принадлежит соседнему глифу. Ниже средней перекладины продолжается только правая стойка. |
-| G23 | : `U+003A` | `not_determined` | `high` | Сохранить две раздельные квадратные точки и их вертикальный интервал, узкую ширину; не растягивать каждый квадрат до полки. |
-| G24 | Unicode не назначен | `not_determined` | `medium` | Нарисовать две отдельные слегка наклонённые полки по source; candidate_character и Unicode оставить null до проверки equals/ニ. |
-| G25 | Unicode не назначен | `not_determined` | `medium` | Сохранить единственную короткую полку с малой высотой и source width; Unicode оставить null, baseline не назначать по одной вырезке. |
-| G26 | < `U+003C` | `not_determined` | `high` | Сохранить открытый справа угол и слитную левую вершину; отдельный G26 не подменять G27 или треугольной G09. |
-| G27 | > `U+003E` | `not_determined` | `high` | Сохранить правую вершину и source asymmetry; не получать принятый контур автоматическим отражением G26 без визуальной проверки. |
-| G28 | + `U+002B` | `not_determined` | `high` | Сохранить компактный четырёхконечный крест с solid center; не растягивать до полной высоты и не добавлять вторую полку или лучи. |
+| G01 | 5 `U+0035` | `mirror_horizontal` | `confirmed_by_user` | Keep the identity and orientation; compare the radii of the lower arc with the film. |
+| G02 | 0 `U+0030` | `not_determined` | `confirmed_by_user` | Do not open the oval; check where the diagonal touches the frame. |
+| G03 | ワ `U+30EF` | `mirror_horizontal` | `medium` | Compare the length of the short right stroke across several repetitions; do not normalise it to て. |
+| G04 | オ `U+30AA` | `not_determined` | `confirmed_by_user` | Keep オ and the kink/step of the crossbar; do not flatten it to a straight bar and do not add a real gap without source evidence. Check reflection separately; the intersections are solid. Prepare an editable SVG for manual finishing. |
+| G05 | せ `U+305B` | `none` | `medium` | Compare the repeated forms of せ/サ: especially the short right end and the bend of the long left leg; do not treat the choice as final. |
+| G06 | マ `U+30DE` | `mirror_horizontal` | `medium` | Fix only the slope of the lower "foot" towards the bottom-right corner per the film source; keep the rest of the mirrored マ topology and do not reflect the whole glyph again. The current candidate sheet is not accepted; next an editable SVG. |
+| G07 | 3 `U+0033` | `none` | `low` | P1: compare the upper arc and the lower turn with several instances; do not declare 3 confirmed. |
+| G08 | * `U+002A` | `not_distinguishable` | `confirmed_by_user` | Place the small six-armed asterisk above the midline; check the provisional preview offset of −0.13 of the cell height visually against the film. Do not enlarge the glyph to full height. |
+| G09 | ム `U+30E0` | `mirror_horizontal` | `high` | Keep the real open upper-left gap; check the angle of the long side. |
+| G10 | ツ `U+30C4` | `mirror_horizontal` | `high` | Check the three separate components and the natural slope of the accents; do not merge them through glow in the clean contour. |
+| G11 | 1 `U+0031` | `not_determined` | `high` | Keep the small upper bump, do not add a wide lower serif. |
+| G12 | セ `U+30BB` | `mirror_horizontal` | `medium` | P1: compare the source with a horizontally mirrored セ: the upper crossing stroke, the long right stem, the open left branch and the lower bar. Keep the solid upper node; do not substitute a standard font glyph and do not merge with G17. |
+| G13 | 7 `U+0037` | `none` | `high` | Keep the simple two-part geometry, do not add a middle crossbar. |
+| G14 | ≠ `U+2260` | `stylized_cross_stroke_orientation_unresolved` | `medium` | P1: compare the hypothesis of a stylised ≠ with the film: two horizontal bars and an almost vertical stroke crossing them; refine the slope while keeping the intersections solid. Do not turn it into a literal pair of ! and =. |
+| G15 | ハ `U+30CF` | `mirror_horizontal` | `high` | Keep the horizontal reflection of ハ confirmed by the user: two separate diverging parts and an upper opening. For the editable SVG keep the asymmetry of the strokes; do not symmetrise. |
+| G16 | エ `U+30A8` | `not_distinguishable` | `medium` | Keep the I-shaped contour; do not treat the code point as confirmed without repertoire evidence. |
+| G17 | セ `U+30BB` | `mirror_horizontal` | `medium` | P0: per g17-clear.jpg compare the hypothesis of a mirrored セ with G12, keeping the separate IDs. A right stem with a short upper bump, a connected open left hook and a lower leg to the left are mandatory; identity and reflection remain hypotheses. |
+| G18 | 9 `U+0039` | `mirror_horizontal` | `low` | P1: compare with the other digits and check the relation of the closed top to the free lower tail; do not turn it into a solid P. |
+| G19 | ミ `U+30DF` | `mirror_horizontal` | `high` | Keep the three separate strokes, the common slope and the difference in lengths; do not straighten it into the character 三. |
+| G20 | ス `U+30B9` | `mirror_horizontal` | `medium` | P1: compare the source with a horizontally mirrored ス from the user's sample: check the slope of the long stroke, the position of the lower branch and the asymmetry. Do not keep the symmetry of v5 automatically. |
+| G21 | 8 `U+0038` | `not_determined` | `high` | Check two real inner cavities and a continuous outer frame; keep the manual SVG preliminary until compared with the source. |
+| G22 | 4 `U+0034` | `none` | `confirmed_by_user` | An ordinary 4 without a lower bar: the user clarified that the lower stroke belongs to the neighbouring glyph. Below the middle crossbar only the right stem continues. |
+| G23 | : `U+003A` | `not_determined` | `high` | Keep two separate square dots and their vertical interval, and the narrow width; do not stretch each square into a bar. |
+| G24 | no Unicode assigned | `not_determined` | `medium` | Draw two separate slightly slanted bars per the source; leave candidate_character and Unicode null until equals/ニ is checked. |
+| G25 | no Unicode assigned | `not_determined` | `medium` | Keep the single short bar of small height and the source width; leave Unicode null, and do not assign a baseline from a single crop. |
+| G26 | < `U+003C` | `not_determined` | `high` | Keep the angle open on the right and the merged left vertex; do not substitute G27 or the triangular G09 for the separate G26. |
+| G27 | > `U+003E` | `not_determined` | `high` | Keep the right vertex and the source asymmetry; do not obtain an accepted contour by automatically mirroring G26 without a visual check. |
+| G28 | + `U+002B` | `not_determined` | `high` | Keep a compact four-armed cross with a solid centre; do not stretch it to full height and do not add a second bar or rays. |
 
-## Спорные места и границы вывода
+## Disputed points and limits of the conclusion
 
-- **G03:** рабочая версия — mirrored ワ, потому что у неё есть короткая правая вертикаль и длинная левая дуга. Hiragana て остаётся альтернативой; автоматически заменять форму на て или フ нельзя.
-- **G05:** せ и mirrored サ имеют близкую topology. Длинная нижняя дуга поддерживает hiragana せ, но не доказывает её. Число и связность штрихов надёжнее этой подписи.
-- **G06:** пользователь уточнил «G04 - это `o` из катаканы. G06 - это как будто бы `ma` зеркальная.» Рабочий кандидат теперь horizontally mirrored マ MA (`U+30DE`), confidence medium: слова «как будто бы» сохраняют гипотетический статус. Прежняя mirrored タ остаётся альтернативой. Сверить верхнюю полку, внутренний выступ, нижний конец и связность с фильмом.
-- **G07:** угловатая 3 — слабая версия. Mirrored 2 и ろ не исключены. Верхняя дуга и нижняя угловатая чаша должны сравниваться отдельно.
-- **G12/G17:** похожие формы нельзя считать дублями. В v5 у G12 широкая нижняя полка с двумя сторонами, у G17 подтверждена ножка влево; отличаются верхние выступы. Для G17 пользователь предложил «G17 тоже похоже на `se`»: основной кандидат теперь セ (`U+30BB`), confidence medium. Horizontal reflection — рабочая интерпретация в контексте G12, пользователь её отдельно не подтвердил; прежняя mirrored ヤ сохранена альтернативой. G12/G17 могут оказаться вариантами одного character, но остаются отдельными ID и контурами. Для G12 пользователь предложил: «G12 будто бы `se` зеркальная» — рабочий кандидат horizontally mirrored セ SE (`U+30BB`), confidence medium, не confirmed. Сверить topology с фильмом; верхний узел сплошной, короткая левая ветвь и середина слева открыты. Предыдущие альтернативы ウ/ヤ/す сохранены в JSON.
-- **G14:** пользователь предложил гипотезу: «G14 это вероятно != то есть перечеркнутый пробел». Рабочая интерпретация — стилизованный NOT EQUAL TO ≠ (`U+2260`), записанный текстуально как `!=`; слово «пробел» сохранено буквально, его смысл не уточнён. Confidence — medium, а не confirmed_by_user. Наблюдаются две горизонтальные полки и пересекающий почти вертикальный штрих; это не основание объявлять поворот или рисовать отдельную пару `!` и `=`. Альтернативы キ и double dagger ‡ сохранены.
-- **G16:** エ против Latin I — настоящая семантическая неоднозначность близких силуэтов. Каталог сохраняет альтернативы; cmap для спорных форм пока не фиксировать.
-- **G18:** mirrored 9 и lowercase e похожи. Замкнутый верхний counter наблюдаем, числовое значение не подтверждено.
-- **G04:** в той же точной цитате «G04 - это `o` из катаканы. G06 - это как будто бы `ma` зеркальная.» пользователь подтвердил オ O (`U+30AA`), confidence confirmed_by_user. Reflection для G04 явно не указан, поэтому transform остаётся not_determined. Пересечения сплошные; нижние окончания и ориентацию сверять с source, не подменять стандартным шрифтовым контуром.
-- **G08:** пользователь подтвердил: «это звездочка, да, но надо её рисовать выше средней линии». Это `* U+002A`, confidence confirmed_by_user. Сохранять небольшой шестилучевой знак выше середины. `metrics.vertical_anchor=above_midline`; `preview_offset_y=-0.13` — предварительный сдвиг на долю высоты ячейки для preview, не точное число от пользователя.
-- **G20:** пользователь спросил «это отзеркаленная su ?» и приложил [стандартную ス SU](references/g20-su.png). Рабочая гипотеза — `ス U+30B9`, horizontal reflection, confidence medium. Вопрос не является подтверждением. Сравнить длинный диагональный штрих и короткую нижнюю ветвь; v5 могла ошибочно сделать знак симметричным. Альтернативы сохранены в JSON.
+- **G03:** the working version is a mirrored ワ, because it has a short right vertical and a long left arc. Hiragana て remains an alternative; the form must not be replaced with て or フ automatically.
+- **G05:** せ and a mirrored サ have a similar topology. The long lower arc supports hiragana せ but does not prove it. The number and connectivity of the strokes are more reliable than this label.
+- **G06:** the user clarified: "G04 is the katakana `o`. G06 is, as it were, a mirrored `ma`." The working candidate is now a horizontally mirrored マ MA (`U+30DE`), confidence medium: the words "as it were" keep the hypothetical status. The earlier mirrored タ remains an alternative. Compare the upper bar, the inner bump, the lower end and the connectivity with the film.
+- **G07:** an angular 3 is a weak version. A mirrored 2 and ろ are not excluded. The upper arc and the lower angular bowl must be compared separately.
+- **G12/G17:** similar forms must not be treated as duplicates. In v5, G12 has a wide lower bar with two sides, while G17 has a confirmed leg to the left; the upper bumps differ. For G17 the user suggested "G17 also looks like `se`": the main candidate is now セ (`U+30BB`), confidence medium. Horizontal reflection is a working interpretation in the context of G12 and the user did not confirm it separately; the earlier mirrored ヤ is kept as an alternative. G12/G17 may turn out to be variants of one character but remain separate IDs and contours. For G12 the user suggested: "G12 looks like a mirrored `se`" — the working candidate is a horizontally mirrored セ SE (`U+30BB`), confidence medium, not confirmed. Compare the topology with the film; the upper node is solid, the short left branch and the middle on the left are open. The earlier alternatives ウ/ヤ/す are kept in the JSON.
+- **G14:** the user proposed a hypothesis: "G14 is probably != that is a crossed-out space". The working interpretation is a stylised NOT EQUAL TO ≠ (`U+2260`), written textually as `!=`; the word "space" is preserved literally, its meaning is not clarified. Confidence is medium, not confirmed_by_user. Two horizontal bars and a crossing almost vertical stroke are observed; this is no basis for declaring a rotation or for drawing a separate pair `!` and `=`. The alternatives キ and the double dagger ‡ are kept.
+- **G16:** エ versus Latin I is a real semantic ambiguity of close silhouettes. The catalogue keeps the alternatives; do not fix a cmap for disputed forms yet.
+- **G18:** a mirrored 9 and a lowercase e look alike. The closed upper counter is observable, the numeric value is not confirmed.
+- **G04:** in the same exact quotation "G04 is the katakana `o`. G06 is, as it were, a mirrored `ma`." the user confirmed オ O (`U+30AA`), confidence confirmed_by_user. The reflection for G04 is not stated explicitly, so the transform remains not_determined. The intersections are solid; check the lower ends and the orientation against the source, and do not replace them with a standard font contour.
+- **G08:** the user confirmed: "it is an asterisk, yes, but it must be drawn above the midline". This is `* U+002A`, confidence confirmed_by_user. Keep a small six-armed glyph above the middle. `metrics.vertical_anchor=above_midline`; `preview_offset_y=-0.13` is a provisional shift as a fraction of the cell height for the preview, not an exact number from the user.
+- **G20:** the user asked "is this a mirrored su?" and attached a [standard ス SU](references/g20-su.png). The working hypothesis is `ス U+30B9`, horizontal reflection, confidence medium. The question is not a confirmation. Compare the long diagonal stroke and the short lower branch; v5 may have wrongly made the glyph symmetric. The alternatives are kept in the JSON.
 
-## Последняя контурная правка пользователя
+## The user's latest contour edit
 
-Точная цитата: «G04 имеет "сломанную" перекладину. G06 наклон "лапки" не туда. И кстати G15 на самом деле mirrored. Я бы потом руками вектор потюнил.»
+Exact quotation: "G04 has a 'broken' crossbar. The slope of G06's 'foot' goes the wrong way. And by the way G15 is in fact mirrored. I would tune the vector by hand later."
 
-- **G04:** сохранить излом/ступень перекладины; не сглаживать до прямой полки. «Сломанная» не доказывает disconnected gap: реальный разрыв без source evidence не добавлять.
-- **G06:** пользователь указал ошибку наклона, а направление — наша визуальная интерпретация: в [candidate sheet](references/kana-candidates-v1.png) конец направлен вниз-влево, в film source и прежней реконструкции — вниз-вправо. Исправлять локальную «лапку» к нижнему правому углу, сохраняя остальную форму; весь glyph повторно не отражать.
-- **G15:** horizontal reflection подтверждено пользователем. Identity ハ сохраняет high confidence: пользователь подтвердил orientation, но отдельно не называл character.
+- **G04:** keep the kink/step of the crossbar; do not smooth it into a straight bar. "Broken" does not prove a disconnected gap: do not add a real gap without source evidence.
+- **G06:** the user pointed out an error in the slope; the direction is our visual interpretation: in the [candidate sheet](references/kana-candidates-v1.png) the end points down-left, while in the film source and the earlier reconstruction it points down-right. Fix the local "foot" towards the bottom-right corner, keeping the rest of the shape; do not reflect the whole glyph again.
+- **G15:** horizontal reflection is confirmed by the user. The identity ハ keeps high confidence: the user confirmed the orientation but did not name the character separately.
 
-Текущая candidate sheet из пяти знаков **не принята**. Следующая фаза — отдельные editable SVG contours для каждого glyph: обвести clean base настоящими paths, сохранить асимметрию и отдельные components, подготовить к ручной доводке пользователем. SVG с единственным embedded bitmap не является таким векторным результатом.
+The current candidate sheet of five glyphs is **not accepted**. The next phase is separate editable SVG contours for every glyph: trace the clean base with real paths, keep the asymmetry and the separate components, and prepare them for the user's manual finishing. An SVG with a single embedded bitmap is not such a vector result.
 
-## Очередь точечных работ
+## Queue of targeted work
 
-1. **P0 — сохранить уже установленные инварианты.** G01 = mirrored 5; G02 = closed slashed 0; G17 — одна связная открытая слева форма. В чистых контурах G04/G05/G08/G12/G14 никаких отверстий от белых бликов. Это проверка topology, а не новая генерация.
-2. **P1 — сначала повторные film instances.** G04 (ориентация и низ), G06 (mirrored マ: внутренний штрих), G07 (нижний поворот), G12/G17 (mirrored セ и различия форм), G14 (гипотеза ≠ и наклон crossing stroke), G16 (identity ambiguity), G18 (9/e), G20 (mirrored ス: диагональ и асимметрия). Для каждого сравнить 2–3 экземпляра из дополнительных фото, затем менять один glyph за раз.
-3. **P2 — контурная доводка узнаваемых форм.** G03/G05 уточнить терминалы без навязывания шрифта; G09/G10/G19 сохранить отдельные штрихи и ориентацию; G15 сохранить подтверждённое horizontal reflection и асимметрию; G08 оставить коротким и поднять выше средней линии ячейки. Размеры, радиусы и serif пропорции сверять на одном масштабе с референсом.
-4. **Проверка результата.** До принятия очередной реконструкции сверить количество components, настоящих counters и свободных окончаний; проверить отсутствие изменений остальных ID. Идентичность по Unicode и visual acceptance контура фиксировать раздельно.
+1. **P0 — keep the invariants already established.** G01 = mirrored 5; G02 = closed slashed 0; G17 is one connected form open on the left. In the clean contours of G04/G05/G08/G12/G14 there are no holes from white highlights. This is a topology check, not a new generation.
+2. **P1 — repeated film instances first.** G04 (orientation and bottom), G06 (mirrored マ: the inner stroke), G07 (the lower turn), G12/G17 (mirrored セ and the differences between the forms), G14 (the ≠ hypothesis and the slope of the crossing stroke), G16 (identity ambiguity), G18 (9/e), G20 (mirrored ス: the diagonal and the asymmetry). For each, compare 2–3 instances from the additional photos, then change one glyph at a time.
+3. **P2 — contour finishing of recognisable forms.** G03/G05: refine the terminals without imposing a font; G09/G10/G19: keep the separate strokes and the orientation; G15: keep the confirmed horizontal reflection and the asymmetry; G08: keep it short and raise it above the cell midline. Check sizes, radii and serif proportions at the same scale as the reference.
+4. **Checking the result.** Before accepting a reconstruction, compare the number of components, real counters and free ends; check that the other IDs did not change. Record the Unicode identity and the visual acceptance of the contour separately.
 
-Готовый brief для каждого знака находится в поле `reconstruction_prompt` [identifications.json](identifications.json). Это инструкция будущей реконструкции, не основание считать её уже выполненной.
+A ready brief for every glyph is in the `reconstruction_prompt` field of [identifications.json](identifications.json). It is an instruction for a future reconstruction, not a reason to consider it already done.
 
-## Первая партия G21–G28 и оставшаяся очередь
+## First batch G21–G28 and the remaining queue
 
-M01–M08 переведены в стабильные G21–G28 соответственно. Это первая партия **предварительной ручной реконструкции** native SVG по пользовательским film references, а не утверждение точной оригинальности контуров. Существующие 20 JSON-записей не изменены. M09–M11 остаются очередью исследования, в эту партию не входят. Ниже сохранены прежние поисковые ориентиры M; исправленные primary source boxes для новой партии приведены отдельно. Размер фото — 1280×589.
+M01–M08 were converted into the stable G21–G28 respectively. This is the first batch of **preliminary manual reconstruction** of native SVG from the user's film references, not a claim that the contours are exactly original. The existing 20 JSON records are unchanged. M09–M11 remain a research queue and are not part of this batch. The earlier search pointers for M are kept below; the corrected primary source boxes for the new batch are given separately. The photo size is 1280×589.
 
-| Новый note ID | Наблюдаемая форма | Где искать | Предварительная версия / оговорка |
+| New note ID | Observed shape | Where to look | Preliminary version / caveat |
 |---|---|---|---|
-| M01 | Два замкнутых counter один над другим | [film-reference-1.jpg](references/film-reference-1.jpg), около (1074, 51); также (268, 117) | G21; digit 8, высокая визуальная узнаваемость. |
-| M02 | Открытый угловатый верх, средняя перекладина, длинная правая стойка | [film-reference-2.jpg](references/film-reference-2.jpg), около (745, 28); [film-reference-3.jpg](references/film-reference-3.jpg), около (476, 50) | G22; digit 4; reflection не назначен. Не путать с G04. |
-| M03 | Две отдельные квадратные точки вертикально | [film-reference-1.jpg](references/film-reference-1.jpg), около (691, 121) | G23; colon `:`; отличать две точки от фрагмента соседних строк. |
-| M04 | Две короткие горизонтальные полки | [film-reference-1.jpg](references/film-reference-1.jpg), около (517, 201) | G24; `=` либо ニ, Unicode не назначен. Прежний locator ненадёжен: использовать исправленный crop ниже. |
-| M05 | Одна короткая горизонтальная полка | [film-reference-1.jpg](references/film-reference-1.jpg), около (518, 165) | G25; minus / hyphen / ー, Unicode не назначен. |
-| M06 | Две диагонали, сходящиеся в левый угол | [film-reference-1.jpg](references/film-reference-1.jpg), около (309, 56) | G26; `<`, две диагонали, не закрытая треугольная G09. |
-| M07 | Две диагонали, сходящиеся в правый угол | [film-reference-1.jpg](references/film-reference-1.jpg), около (1081, 560); [film-reference-2.jpg](references/film-reference-2.jpg), около (991, 276) | G27; `>`, отдельный ID, не автоматически зеркальный контур G26. |
-| M08 | Крест из вертикали и одной перекладины | [film-reference-2.jpg](references/film-reference-2.jpg), около (990, 496); [film-reference-3.jpg](references/film-reference-3.jpg), около (269, 189) | G28; plus `+`. Прежние locators неверны, использовать исправленный crop ниже. |
-| M09 | Два коротких отдельных верхних штриха | [film-reference-1.jpg](references/film-reference-1.jpg), около (813, 118); [film-reference-3.jpg](references/film-reference-3.jpg), около (380, 516) | Quote / dakuten-like mark; не объявлять пунктуацией до проверки, не фрагмент ли это соседней kana. |
-| M10 | Прямоугольная рамка с внутренней поперечиной | [film-reference-1.jpg](references/film-reference-1.jpg), около (817, 500); [film-reference-2.jpg](references/film-reference-2.jpg), около (620, 355) | Угловатая 8/B-like форма; проверить, тот же ли знак M01 в другой стилизации или отдельный glyph. |
-| M11 | Длинный правый вертикальный штрих и три полки влево | [film-reference-1.jpg](references/film-reference-1.jpg), около (818, 60); [film-reference-2.jpg](references/film-reference-2.jpg), около (601, 33) | ヨ-like форма; требует crop, reflection не назначен по общему правилу. |
+| M01 | Two closed counters one above the other | [film-reference-1.jpg](references/film-reference-1.jpg), around (1074, 51); also (268, 117) | G21; digit 8, high visual recognisability. |
+| M02 | Open angular top, a middle crossbar, a long right stem | [film-reference-2.jpg](references/film-reference-2.jpg), around (745, 28); [film-reference-3.jpg](references/film-reference-3.jpg), around (476, 50) | G22; digit 4; no reflection assigned. Do not confuse with G04. |
+| M03 | Two separate square dots, vertical | [film-reference-1.jpg](references/film-reference-1.jpg), around (691, 121) | G23; colon `:`; tell the two dots from a fragment of neighbouring lines. |
+| M04 | Two short horizontal bars | [film-reference-1.jpg](references/film-reference-1.jpg), around (517, 201) | G24; `=` or ニ, no Unicode assigned. The earlier locator is unreliable: use the corrected crop below. |
+| M05 | One short horizontal bar | [film-reference-1.jpg](references/film-reference-1.jpg), around (518, 165) | G25; minus / hyphen / ー, no Unicode assigned. |
+| M06 | Two diagonals meeting at the left corner | [film-reference-1.jpg](references/film-reference-1.jpg), around (309, 56) | G26; `<`, two diagonals, not the closed triangular G09. |
+| M07 | Two diagonals meeting at the right corner | [film-reference-1.jpg](references/film-reference-1.jpg), around (1081, 560); [film-reference-2.jpg](references/film-reference-2.jpg), around (991, 276) | G27; `>`, a separate ID, not automatically the mirrored contour of G26. |
+| M08 | A cross of a vertical and one crossbar | [film-reference-2.jpg](references/film-reference-2.jpg), around (990, 496); [film-reference-3.jpg](references/film-reference-3.jpg), around (269, 189) | G28; plus `+`. The earlier locators are wrong, use the corrected crop below. |
+| M09 | Two short separate upper strokes | [film-reference-1.jpg](references/film-reference-1.jpg), around (813, 118); [film-reference-3.jpg](references/film-reference-3.jpg), around (380, 516) | A quote / dakuten-like mark; do not declare it punctuation before checking whether it is a fragment of a neighbouring kana. |
+| M10 | A rectangular frame with an inner crossbar | [film-reference-1.jpg](references/film-reference-1.jpg), around (817, 500); [film-reference-2.jpg](references/film-reference-2.jpg), around (620, 355) | An angular 8/B-like form; check whether it is the same glyph as M01 in another stylisation or a separate glyph. |
+| M11 | A long right vertical stroke and three bars to the left | [film-reference-1.jpg](references/film-reference-1.jpg), around (818, 60); [film-reference-2.jpg](references/film-reference-2.jpg), around (601, 33) | A ヨ-like form; needs a crop, no reflection assigned by the general rule. |
 
-Не расширять набор автоматически полным Katakana alphabet: эти фото подтверждают видимые формы, а не полный репертуар фильма. Текущая партия ограничена G21–G28. Следующий шаг — сопоставить восемь editable SVG с точными source crops; M09–M11 изучать отдельно после этого.
+Do not extend the set automatically to the full Katakana alphabet: these photos confirm the visible shapes, not the full repertoire of the film. The current batch is limited to G21–G28. The next step is to match the eight editable SVGs against the exact source crops; study M09–M11 separately after that.
 
+## Source boxes and size of the first new batch
 
-## Source boxes и размер первой новой партии
+The windows `(x0,y0,x1,y1)` were visually checked on enlarged crops and contain small margins; they are the recommended windows for integration. The final source crops and their provenance are fixed by the main agent. The sources of G21–G28 are photos, not t=2.00 s video crops like the original G01–G20; the earlier timestamp must not be assigned to them automatically.
 
-Окна `(x0,y0,x1,y1)` визуально проверены по увеличенным crops, содержат небольшие поля; это рекомендуемые окна для интеграции. Финальные source crops и их provenance фиксирует основной агент. Источники G21–G28 — фото, а не t=2.00 s video crops исходных G01–G20; им нельзя автоматически присваивать прежний timestamp.
-
-| ID | Фото | Рекомендуемый box | Пропорции в preview |
+| ID | Photo | Recommended box | Proportions in the preview |
 |---|---|---|---|
-| G21 | film-reference-1.jpg | `[1050,21,1094,85]` | Полноразмерная 8; два настоящих counter. |
-| G22 | film-reference-2.jpg | `[720,9,768,65]` | Полноразмерная 4; сохранить source slope, не отражать автоматически. |
-| G23 | film-reference-1.jpg | `[675,91,706,151]` | Узкая пара квадратных точек; общая высота около 0.8 полноразмерной, ширина около 0.35. |
-| G24 | film-reference-2.jpg | `[90,87,133,128]` | Две полки вместе около 0.55 высоты, 0.8 ширины; лёгкий подъём вправо. |
-| G25 | film-reference-1.jpg | `[497,151,539,176]` | Одна полка около 0.12–0.18 высоты и 0.8 ширины; не вытягивать по вертикали. |
-| G26 | film-reference-1.jpg | `[287,26,326,81]` | Левая вершина, просвет справа; около 0.7–0.8 высоты, 0.6–0.7 ширины. |
-| G27 | film-reference-2.jpg | `[972,225,1011,269]` | Правая вершина, просвет слева; сравнить его собственную асимметрию с G26. |
-| G28 | film-reference-2.jpg | `[936,439,972,478]` | Компактный plus, около 0.6–0.7 полноразмерной высоты и ширины. |
+| G21 | film-reference-1.jpg | `[1050,21,1094,85]` | Full-size 8; two real counters. |
+| G22 | film-reference-2.jpg | `[720,9,768,65]` | Full-size 4; keep the source slope, do not mirror automatically. |
+| G23 | film-reference-1.jpg | `[675,91,706,151]` | A narrow pair of square dots; total height about 0.8 of full size, width about 0.35. |
+| G24 | film-reference-2.jpg | `[90,87,133,128]` | Two bars together about 0.55 of the height, 0.8 of the width; a slight rise to the right. |
+| G25 | film-reference-1.jpg | `[497,151,539,176]` | One bar about 0.12–0.18 of the height and 0.8 of the width; do not stretch vertically. |
+| G26 | film-reference-1.jpg | `[287,26,326,81]` | Left vertex, opening on the right; about 0.7–0.8 of the height, 0.6–0.7 of the width. |
+| G27 | film-reference-2.jpg | `[972,225,1011,269]` | Right vertex, opening on the left; compare its own asymmetry with G26. |
+| G28 | film-reference-2.jpg | `[936,439,972,478]` | A compact plus, about 0.6–0.7 of the full height and width. |
 
-Пропорции — оптические ориентиры по фото относительно полноразмерных соседних знаков, не точные font metrics. Короткие знаки размещать около оптической середины provisional cell; точную baseline по одиночным crops не устанавливать. Указание пользователя «выше средней линии» относится к G08 и не переносится автоматически на G23–G28. Отражение/поворот для новых восьми не назначены: наблюдаемое направление `<`/`>` хранится самим character, а происхождение через transform неизвестно. G24/G25 остаются формами без cmap identity до отдельной проверки.
+The proportions are optical guides from the photos relative to full-size neighbouring glyphs, not exact font metrics. Place the short glyphs near the optical middle of the provisional cell; do not establish an exact baseline from single crops. The user's instruction "above the midline" refers to G08 and is not carried over automatically to G23–G28. No reflection/rotation is assigned for the new eight: the observed direction of `<`/`>` is stored by the character itself, and the origin through a transform is unknown. G24/G25 remain forms without a cmap identity until a separate check.
 
-## Происхождение и воспроизводимость
+## Provenance and reproducibility
 
-JSON содержит ровно 28 стабильных ID, наблюдения `Gxx-O1…`, evidence `REF-Gxx`, альтернативы и per-glyph briefs. Источники — пользовательские film references; reconstruction v5 и маски отделены от первичного визуального материала. Unicode используется как структурный справочник; font outlines из charts не извлекались и не копировались. Перед распространением нового шрифта потребуется отдельно установить допустимость используемых film-derived контуров и assets; этот исследовательский каталог не устанавливает лицензию на них.
+The JSON contains exactly 28 stable IDs, observations `Gxx-O1…`, evidence `REF-Gxx`, alternatives and per-glyph briefs. The sources are the user's film references; reconstruction v5 and the masks are separated from the primary visual material. Unicode is used as a structural reference; no font outlines were extracted or copied from the charts. Before distributing a new font it must be established separately whether the film-derived contours and assets may be used; this research catalogue grants no licence to them.
 
-## Уточнение G22, 2026-10-10
+## Clarification of G22, 2026-10-10
 
-Пользователь: «g22 это простая 4. Нижняя черта от соседнего глифа». В реконструкции удалена широкая нижняя полка, сохранена правая стойка. Оригинальный crop оставлен без ретуши как свидетельство ошибки сегментации. Исправленный лист `references/g22-v2.png` добавлен отдельно; прежний frozen sheet не перезаписан.
+The user: "g22 is a plain 4. The lower stroke is from the neighbouring glyph." The wide lower bar was removed from the reconstruction and the right stem kept. The original crop was left unretouched as evidence of the segmentation error. The corrected sheet `references/g22-v2.png` was added separately; the earlier frozen sheet was not overwritten.

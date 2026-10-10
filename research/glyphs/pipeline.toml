@@ -1,55 +1,55 @@
-# Конфигурация пайплайна восстановления глифов.
-# Запуск из корня Dreams:  .venv/bin/python scripts/glyphs/pipeline.py build
-# Все пути — относительно research/glyphs/.
+# Configuration of the glyph restoration pipeline.
+# Run from the Dreams root:  .venv/bin/python scripts/glyphs/pipeline.py build
+# All paths are relative to research/glyphs/.
 
 [font]
 family = "Dreams Matrix"
 style = "Regular"
 version = "0.3"
-# UPM, advance и сумма ascent+descent совпадают с Sources/Dreams/Matrix-Code.ttf.
-# Базовая линия — y = 0. Ячейка 1024 по вертикали центрирована на теле знака (0…780),
-# поэтому приложение, центрирующее строку по ascent/descent, рисует знаки на прежнем месте.
+# UPM, advance and the sum ascent+descent match Sources/Dreams/Matrix-Code.ttf.
+# The baseline is y = 0. The 1024 vertical cell is centred on the glyph body (0…780),
+# so the app, which centres a line by ascent/descent, draws glyphs where it did before.
 upm = 1024
 advance = 956
 ascent = 900
 descent = 124
-# Тело знака фильма = высота прописных: строка листа переводится в 0…780.
+# The film glyph body = cap height: a sheet row is mapped to 0…780.
 body_bottom = 0
 body_top = 780
-# Фиксированное время в head: одинаковые входы дают побайтно одинаковый TTF.
+# Fixed time in head: the same inputs give a byte-identical TTF.
 timestamp = "2026-10-10T00:00:00Z"
-# Каждый глиф всегда доступен по PUA: pua_base + номер (G01 → U+E001).
+# Every glyph is always available at a PUA code: pua_base + number (G01 → U+E001).
 pua_base = 0xE000
 
 [cmap]
-# Назначать стандартный Unicode только при такой или более высокой уверенности
+# Assign a standard Unicode value only at this confidence or higher
 # (identifications.json): confirmed_by_user > high > medium > low > unidentified.
 unicode_min_confidence = "high"
 
 [trace]
-threshold = 0.5      # граница чернил в листе (0 — чёрный, 1 — белый)
-upscale = 3          # увеличение перед бинаризацией: глаже контур potrace
-min_area = 40        # компоненты и дырки меньше (px листа) считаются мусором
-turdsize = 20        # potrace -t, в px увеличенного растра
-alphamax = 1.0       # potrace -a: порог углов
+threshold = 0.5      # ink threshold in the sheet (0 is black, 1 is white)
+upscale = 3          # upscale before binarisation: a smoother potrace contour
+min_area = 40        # components and holes smaller than this (sheet px) are treated as noise
+turdsize = 20        # potrace -t, in px of the upscaled raster
+alphamax = 1.0       # potrace -a: corner threshold
 opttolerance = 0.2   # potrace -O
-max_quadratic_error = 1.0   # cu2qu, единицы шрифта
+max_quadratic_error = 1.0   # cu2qu, font units
 
 [checks]
-min_iou_traced = 0.95     # совпадение трассировки с растром листа (gate)
-mirror_margin = 0.04      # предупреждать, если зеркальная форма ближе к кадру фильма
-override_warn_iou = 0.85  # предупреждать, если ручная правка сильно ушла от растра листа
+min_iou_traced = 0.95     # agreement of the tracing with the sheet raster (gate)
+mirror_margin = 0.04      # warn if the mirrored shape is closer to the film frame
+override_warn_iou = 0.85  # warn if a manual edit strays far from the sheet raster
 
-# Как приложение рисует знак (Sources/Dreams/MatrixRain.swift, glyph()): шрифт font_size px
-# центрируется по ascent/descent в ячейке cell×cell, шейдер берёт центральное окно window×window.
-# Знак, выходящий за окно, будет срезан на экране: для прописных, цифр и знаков дождя это gate.
+# How the app draws a glyph (Sources/Dreams/MatrixRain.swift, glyph()): a font_size px font
+# is centred by ascent/descent in a cell×cell cell, and the shader takes the central window×window window.
+# A glyph that leaves the window is clipped on screen: for capitals, digits and rain glyphs this is a gate.
 [app]
 font_size = 26
 cell = 64
 window = 28
 
-# Листы реконструкции. Каждый лист — неизменяемый вход (хэш в inputs.lock.json).
-# Новую итерацию GPT Image добавлять новым листом, а не перезаписывать старый.
+# Reconstruction sheets. Every sheet is an immutable input (hash in inputs.lock.json).
+# Add a new GPT Image iteration as a new sheet, do not overwrite the old one.
 [[sheet]]
 id = "v5"
 path = "references/restored-v5.png"
@@ -81,64 +81,64 @@ rows = 1
 body_bounds = [30, 225]
 glyphs = ["G22"]
 
-# --- Латиница и цифры: нарисованы по общим правилам, а не взяты из фильма ---
-# Генератор scripts/glyphs/latin.py строит знаки из этих чисел; пайплайн проверяет,
-# что каждый знак стоит на своих линиях. Менять систему — здесь, а не в отдельных SVG.
+# --- Latin and digits: drawn by common rules, not taken from the film ---
+# The generator scripts/glyphs/latin.py builds glyphs from these numbers; the pipeline checks
+# that every glyph sits on its lines. Change the system here, not in individual SVGs.
 [latin]
-cap_height = 780        # = тело фильмовых знаков
-x_height = 560          # 0.72 высоты прописных
-ascender = 800          # выносные b d f h k l t чуть выше прописных: l ≠ I
-descender = -145        # короче обычного: строчные из команд целиком помещаются в окно атласа ([app])
-tail = -130             # хвосты кириллицы Д Ц Щ д ц щ: короче выносных, одной длины
-overshoot = 12          # заострённые и круглые окончания выходят за линию на столько
-stem = 118              # вертикаль прописных и цифр = штрих фильмовых знаков
-hair = 104              # горизонталь тоньше вертикали (оптическая компенсация); диагонали между ними
-lowercase_ratio = 0.95  # строчные на 5 % легче прописных
-crossbar = 0.52         # средняя перекладина E F H R P B: доля высоты прописных (чуть выше середины)
-lower_crossbar = 0.55   # перекладина a e: доля x-height
-taper_tip = 30          # ширина кончика заострённого штриха
-soften = 13             # радиус, смягчающий прямые концы и углы
-line_tolerance = 24     # допуск проверки линий (2 × overshoot)
+cap_height = 780        # = the body of the film glyphs
+x_height = 560          # 0.72 of the cap height
+ascender = 800          # ascenders of b d f h k l t slightly above the capitals: l ≠ I
+descender = -145        # shorter than usual: lowercase letters from commands fit entirely into the atlas window ([app])
+tail = -130             # tails of Cyrillic Д Ц Щ д ц щ: shorter than descenders, all one length
+overshoot = 12          # pointed and round terminals overshoot the line by this much
+stem = 118              # vertical of capitals and digits = the stroke of the film glyphs
+hair = 104              # horizontals are thinner than verticals (optical compensation); diagonals in between
+lowercase_ratio = 0.95  # lowercase 5 % lighter than capitals
+crossbar = 0.52         # middle crossbar of E F H R P B: fraction of cap height (slightly above the middle)
+lower_crossbar = 0.55   # crossbar of a e: fraction of x-height
+taper_tip = 30          # width of the tip of a tapered stroke
+soften = 13             # radius softening straight ends and corners
+line_tolerance = 24     # tolerance of the line check (2 × overshoot)
 widths = { cap = 530, wide = 600, lower = 480, lower_wide = 560, digit = 510 }
 
-# Набор только со стандартными кодами (без PUA), поэтому в репертуар дождя не попадает.
-# Его коды важнее Unicode-гипотез фильмовых знаков: в словах 5 должна быть пятёркой.
+# A set with standard codes only (no PUA), so it does not enter the rain's repertoire.
+# Its codes outrank the Unicode hypotheses of the film glyphs: in words, 5 must be a five.
 [[design]]
 id = "latin-v1"
 index = "latin/glyphs.toml"
 reference = "references/latin-specimen-v1.png"
 
-# Русская кириллица на тех же правилах. Общие с латиницей формы — алиасы (тот же контур).
+# Russian Cyrillic on the same rules. Forms shared with Latin are aliases (the same contour).
 [[design]]
 id = "cyrillic-v1"
 index = "cyrillic/glyphs.toml"
 proof = { sample = "ЖщдБя", texts = ["ПРОСНИСЬ НЕО", "МАТРИЦА ИМЕЕТ ТЕБЯ", "следуй за белым кроликом", "съешь же ещё этих булок"] }
 
-# Настройки отдельных глифов (все поля необязательны):
-#   sheet  = "v6"            — брать растр из другого листа
-#   dy     = 0               — сдвиг по вертикали в единицах шрифта (вверх > 0)
+# Settings of individual glyphs (all fields are optional):
+#   sheet  = "v6"            — take the raster from another sheet
+#   dy     = 0               — vertical shift in font units (up > 0)
 #   expect = { components = 1, holes = 0 }
-#                            — ожидаемая топология; без неё ожидается топология растра
-# Инварианты P0 из IDENTIFICATIONS.md зафиксированы явно.
+#                            — expected topology; without it the topology of the raster is expected
+# The P0 invariants from IDENTIFICATIONS.md are fixed explicitly.
 
 [glyph.G01]
-expect = { components = 1, holes = 0 }   # зеркальная 5, сплошной штрих
+expect = { components = 1, holes = 0 }   # mirrored 5, solid stroke
 
 [glyph.G02]
-expect = { components = 1, holes = 2 }   # замкнутый перечёркнутый 0
+expect = { components = 1, holes = 2 }   # closed slashed 0
 
 [glyph.G04]
-expect = { holes = 0 }                   # пересечения сплошные
+expect = { holes = 0 }                   # intersections are solid
 
 [glyph.G05]
 expect = { holes = 0 }
 
 [glyph.G08]
-dy = 130            # звёздочка выше средней линии (preview_offset_y −0.13 ячейки), сверить с фильмом
+dy = 130            # asterisk above the midline (preview_offset_y −0.13 of the cell), check against the film
 expect = { components = 1, holes = 0 }
 
 [glyph.G10]
-expect = { components = 3 }              # три раздельные компоненты ツ
+expect = { components = 3 }              # three separate components of ツ
 
 [glyph.G12]
 expect = { holes = 0 }
@@ -147,26 +147,26 @@ expect = { holes = 0 }
 expect = { holes = 0 }
 
 [glyph.G15]
-expect = { components = 2 }              # ハ: две отдельные части
+expect = { components = 2 }              # ハ: two separate parts
 
 [glyph.G17]
-expect = { components = 1 }              # одна связная форма
+expect = { components = 1 }              # one connected form
 
 [glyph.G19]
-expect = { components = 3 }              # три раздельных штриха ミ
+expect = { components = 3 }              # three separate strokes of ミ
 
 [glyph.G21]
-expect = { components = 1, holes = 2 }    # 8: две настоящие закрытые чаши
+expect = { components = 1, holes = 2 }    # 8: two real closed bowls
 
 [glyph.G22]
 sheet = "g22-v2"
-expect = { components = 1, holes = 1 }    # 4: треугольный counter
+expect = { components = 1, holes = 1 }    # 4: triangular counter
 
 [glyph.G23]
-expect = { components = 2, holes = 0 }    # две отдельные точки
+expect = { components = 2, holes = 0 }    # two separate dots
 
 [glyph.G24]
-expect = { components = 2, holes = 0 }    # две слегка наклонные полки
+expect = { components = 2, holes = 0 }    # two slightly slanted bars
 
 [glyph.G25]
 expect = { components = 1, holes = 0 }

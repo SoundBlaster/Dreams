@@ -1,31 +1,37 @@
 # Dreams
 
-Локальный macOS prototype: Matrix rain на встроенном дисплее: вертикальные цепочки символов и keywords агентских сессий, управление через MCP и экспериментальный виртуальный дисплей для UI-агента.
+A local macOS prototype: Matrix digital rain on the built-in display. Vertical chains of glyphs react to what your coding agents do: every agent message floods the screen with rain, tool calls are printed in the rain as real call lines (`bash: brew install fontforge`), and the rain settles back to a calm background. It is driven by Codex / Claude Code hooks and by MCP, and it has an experimental virtual display for UI agents.
 
-## Запуск
+> The app window and menus are currently in Russian. Their English meanings are given in parentheses where this document refers to them.
 
-Требуются macOS 15+, Swift 6.2+ и Metal. Фактически проверено на Apple M4 Pro с macOS 27.0 (26A428), Swift 6.4 и встроенным Liquid Retina XDR.
+## Build and run
+
+Requires macOS 15+, Swift 6.2+ and Metal. Verified on an Apple M4 Pro with macOS 27.0 (26A428), Swift 6.4 and the built-in Liquid Retina XDR display.
 
 ```sh
 zsh scripts/build-app.sh release
 open dist/Dreams.app
 ```
 
-При обычном запуске открывается окно Dreams с кнопками «Запустить Matrix», «Радужные волны», «Остановить» и «Выйти из Dreams». Повторное открытие приложения возвращает это окно и останавливает анимацию. `Esc` останавливает анимацию, пока Dreams — активное приложение.
+A normal launch opens the Dreams window with the buttons «Запустить Matrix» (Start Matrix), «Радужные волны» (Rainbow Waves), «Остановить» (Stop) and «Выйти из Dreams» (Quit Dreams). Reopening the app brings this window back and stops the animation. `Esc` stops the animation while Dreams is the active app.
 
-В menu bar также появится `◒`: Start Matrix Rain, Start Rainbow Waves, Stop Animation, Create/Close Agent Workspace, Quit. Анимация запускается на пять минут. При запуске обычного приложения автоматически экран не закрывается. Для отдельного тестового окна на виртуальном дисплее:
+A `◒` item also appears in the menu bar: Start Matrix Rain, Start Rainbow Waves, Stop Animation, Create/Close Agent Workspace, Quit. The animation runs for five minutes. Launching the app never covers the screen by itself. For a separate test window on a virtual display:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --lab
 ```
 
-`Ctrl+Option+Command+D` зарегистрирован как global hotkey и menu shortcut для остановки. Регистрация проверена; вызов через синтетическую клавиатуру CUA не подтвердился. MCP stop и auto-stop проверены отдельно. Для повседневного использования нужно проверить физическое нажатие.
+`Ctrl+Option+Command+D` is registered as a global hotkey and a menu shortcut that stops the animation. Registration is verified; a call through a synthetic CUA keyboard was not confirmed. MCP stop and auto-stop are verified separately. A physical key press still needs checking for everyday use.
+
+## Default look
+
+The defaults live in `DreamsPreset` (`Sources/Dreams/DreamsController.swift`) and apply until the user changes a setting: density 0%, fade width 3 glyphs, speed 0.43×, brightness spread 51%, glow 57% (0% on a transparent background), calm background 77%, word colour (0, 255, 100) at 200% brightness, restored film glyphs on. To see the default look on this Mac, erase the saved values: `defaults delete ru.egormerkushev.dreams`.
 
 ## MCP
 
-Используется [официальный Swift MCP SDK](https://github.com/modelcontextprotocol/swift-sdk), версия 0.12.1. Server, tool dispatch, JSON-RPC и stdio предоставляет SDK. Из Screener перенесён небольшой compatibility transport: только в `initialize` он удаляет нестандартные experimental capabilities с нестроковыми значениями, которые SDK этой версии не декодирует. Остальные сообщения проходят без изменений.
+Dreams uses the [official Swift MCP SDK](https://github.com/modelcontextprotocol/swift-sdk), version 0.12.1, for the server, tool dispatch, JSON-RPC and stdio. A small compatibility transport, taken from Screener, only edits `initialize`: it drops non-standard `experimental` capabilities with non-string values, which this SDK version cannot decode. All other messages pass through unchanged.
 
-Пример конфигурации Codex (не установлен автоматически):
+Codex configuration example (not installed automatically):
 
 ```toml
 [mcp_servers.dreams]
@@ -33,198 +39,193 @@ command = "/Applications/Dreams.app/Contents/MacOS/Dreams"
 args = ["--mcp"]
 ```
 
-Для stdio MCP client Claude используются те же executable и `--mcp`. Интеграция с самим Claude пока не проверена.
+Any other stdio MCP client, including Claude, uses the same executable and `--mcp`. Integration with Claude itself is not verified yet.
 
-| Tool | Действие |
+| Tool | Action |
 | --- | --- |
-| `dreams_status` | Состояние волн, срок остановки, display IDs, bounds и счётчик тестовых кликов |
-| `dreams_preview` | PNG самого shader без захвата экрана или чужих окон |
-| `dreams_start` | Показать анимацию: `style` = `matrix` (default) или `waves`; `duration_seconds` 1–3600, default 300; `brightness` 0.02–0.35, default 0.18 |
-| `dreams_stop` | Убрать волны, освободить display sleep assertion |
-| `dreams_prepare_ui` | Убрать волны перед screenshots/clicks на встроенном дисплее |
-| `dreams_resume` | Возобновить последний style, длительность и яркость |
-| `dreams_workspace_create` | Создать виртуальный дисплей и тестовое окно Increment |
-| `dreams_workspace_close` | Закрыть тестовое окно и отключить собственный виртуальный дисплей |
-| `dreams_publish_keywords` | Обновить keywords своей сессии: `session_id`, `keywords`, optional `color`, `ttl_seconds` |
-| `dreams_clear_keywords` | Удалить keywords только указанного `session_id` |
+| `dreams_status` | Animation state, stop time, display IDs, bounds, test click count and the current settings |
+| `dreams_preview` | PNG of the shader itself, without capturing the screen or other windows |
+| `dreams_start` | Show the animation: `style` = `matrix` (default) or `waves`; `duration_seconds` 1–3600, default 300; `brightness` 0.02–0.35, default 0.18 |
+| `dreams_stop` | Remove the animation and release the display-sleep assertion |
+| `dreams_prepare_ui` | Remove the animation before screenshots or clicks on the built-in display |
+| `dreams_resume` | Resume the last style, duration and brightness |
+| `dreams_workspace_create` | Create a virtual display and an «Increment» test window |
+| `dreams_workspace_close` | Close the test window and disconnect Dreams' own virtual display |
+| `dreams_publish_keywords` | Replace this session's keywords: `session_id`, `keywords`, optional `color`, `ttl_seconds` |
+| `dreams_clear_keywords` | Remove the keywords of the given `session_id` only |
 
-`brightness` — множитель линейного RGB shader, а не системная яркость подсветки. Вывод SDR sRGB, целевая частота 30 fps. `frames_rendered` считает отправленные command buffers, а не измеренные завершения GPU.
+`brightness` is a multiplier on the shader's linear RGB, not the system backlight. Output is SDR sRGB at a 30 fps target. `frames_rendered` counts submitted command buffers, not measured GPU completions. The visual settings are read-only through MCP (`dreams_status` reports them); they are changed in the window.
 
-**Один процесс управляет fullscreen и виртуальным дисплеем.** Это обычное приложение либо один MCP client с `--mcp`. Другие сессии могут запускать `--mcp --publisher`: им доступны только status, preview, publish_keywords и clear_keywords. Publishers обмениваются keywords через общий локальный mailbox, но не управляют чужим fullscreen. При EOF управляющий MCP process убирает свою анимацию и виртуальный дисплей; завершение publisher не удаляет keywords до истечения TTL. Поле `waves_visible` сохранено для совместимости и относится к обоим styles; `visual_style` показывает текущий style.
+**One process controls the fullscreen overlay and the virtual display.** That is either the normal app or a single MCP client started with `--mcp`. Other sessions can run `--mcp --publisher`: they get only status, preview, publish_keywords and clear_keywords. Publishers exchange keywords through a shared local mailbox but cannot control someone else's fullscreen. On EOF the controlling MCP process removes its animation and virtual display; a publisher exiting does not remove its keywords before their TTL expires. The `waves_visible` field is kept for compatibility and covers both styles; `visual_style` shows the current style.
 
-## Стандартный вид
-
-Значения по умолчанию собраны в `DreamsPreset` (`Sources/Dreams/DreamsController.swift`) и применяются, пока пользователь не изменил настройку: плотность 0%, затухание 3 символа, скорость 0,43×, разброс яркости 51%, свечение 57% (прозрачный фон — 0%), спокойный фон 77%, цвет слов (0, 255, 100) при яркости 200%, восстановленные глифы включены. Чтобы увидеть стандартный вид на этом Mac, сотрите сохранённые значения: `defaults delete ru.egormerkushev.dreams`.
-
-## Matrix и keywords
-
-В Matrix хранится состояние каждой ячейки: символ, момент печати, яркость и оттенок. Независимый курсор каждого столбца печатает сверху вниз. Только новая ячейка подсвечивается светлым цветом; уже напечатанные символы остаются на своих координатах. Каждые 0,12–0,62 секунды в каждом столбце независимо заменяется один старый знак: примерно в пять раз чаще первоначального варианта. Только 20% замен дают короткий белый glint длительностью 0,28 секунды; остальные сохраняют зелёный цвет. Весь столбец одновременно не меняется. Через несколько секунд знаки затухают, затем столбец начинает новый проход. Движущаяся маска шума поверх статичной сетки больше не используется.
-
-Разбор начала `1.mov`: первые 3 секунды с шагом 0,25 секунды — `artifacts/reference-opening-contact.png`; крупный фрагмент первых 1,2 секунды с шагом 0,1 секунды — `artifacts/reference-column-steps.png`. Видно последовательное допечатывание снизу при неподвижных верхних знаках.
-
-Палитра зелёная, как в reference-видео. Светлые головки и отдельные заменяемые символы становятся белыми. Вокруг всех видимых глифов есть слабый рассеянный зелёный glow, ярче вокруг белых вспышек. Ближнее и широкое размытия (σ 2.8 и 6.5 atlas pixels) вычисляются один раз на глиф и смешиваются в padded atlas; additive blending складывает свет соседей. В shader ореол получает плавный неоднородный cloud noise с медленным дрейфом и мягкое исчезновение у краёв tile, без fullscreen blur. Внутри штрихов работает phosphor grain: процедурная сетка 14×14, слабые scanlines и плавно меняющаяся шумовая модуляция с частотой 8 Hz. Три integer hash на видимый fragment, без дополнительных текстур или draw calls; alpha самого контура не зашумляется; ореол модулируется отдельно плавным шумом. Плотная сетка содержит 72 строки. Glyph quads перекрывают пустые поля atlas: видимые штрихи занимают примерно 85% ширины и 90–95% высоты ячейки. Так расстояния уменьшаются при сохранении крупных букв. Курсор иногда оставляет разрывы по 1–3 пустых ячейки и продолжает печать ниже. Яркость каждого знака выбирается при печати. Keywords появляются внутри потока тем же курсором, **по одной прямой букве сверху вниз**. До трёх слов, выбор обновляется каждые 16 секунд; новый выбор виден при следующем проходе курсора. Rainbow Waves остаётся отдельным режимом без текста.
-
-Каждая сессия публикует 1–6 слов до 32 символов каждое; одновременно хранятся до 24 сессий. TTL 15–300 секунд, default 90. Повторная публикация заменяет только свою сессию. Цвет сессии хранится в feed для совместимости; текущий классический Matrix использует единую зелёно-белую палитру. Mailbox: `~/Library/Application Support/Dreams/Keywords`, права directory 0700 / files 0600, atomic writes и nonblocking lock. Для изолированных тестов есть `DREAMS_FEED_DIRECTORY`.
-
-Пример MCP arguments:
-
-```json
-{"session_id":"codex-project-a","keywords":["Swift","контекст","проверка"],"color":"cyan","ttl_seconds":90}
-```
-
-Или без MCP, JSON через stdin:
+## Agent hooks (Codex and Claude Code)
 
 ```sh
-printf '%s' '{"session_id":"demo","keywords":["Swift","поиск"]}' | dist/Dreams.app/Contents/MacOS/Dreams --publish
+/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks
+# See what would change without writing anything:
+/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks --dry-run
+# Remove only the Dreams hooks and keep every other setting:
+/Applications/Dreams.app/Contents/MacOS/Dreams --uninstall-hooks
 ```
 
-`dreams_preview` возвращает offscreen render, не screenshot дисплея. При работающей анимации используется её текущее время; при остановленной — постановочный кадр шестой секунды, чтобы были видны keywords.
+The installer is built into the app. The binary records its own path, so run it from `/Applications`; run from `dist/`, the hooks will point at `dist/`. It adds user-level hooks to `~/.codex/hooks.json` and `~/.claude/settings.json`, keeping your existing settings, key order and other hooks, and writes a timestamped backup next to each file. Running it again is safe, and a file that is not a JSON object is left untouched. Hooks that previously pointed at a `dist/` path are replaced. Tested with `python3 scripts/test-hooks-install.py`.
 
-## Плотность дождя и работа агентов
+Codex asks you to review new hooks in `/hooks` and to trust them in the client. Start a new session after changing the configuration. This is an integration with Claude Code, not with arbitrary Claude chat.
 
-Matrix отвечает на сообщения агентов всплеском. Любое новое сообщение в mailbox (начало хода, вызов инструмента, его результат, конец хода, keywords) за 0.4 с заливает дождём весь экран на полной яркости, держит заливку 1.5 с и затем экспоненциально (постоянная 5 с, около 15 с до покоя) спадает до спокойного фона, заданного «Idle-дождём». Сообщение во время спада снова поднимает дождь с текущего уровня, поэтому частые вызовы инструментов держат его густым, а пауза агента даёт ему успокоиться. Параметры — `RainActivity.attack/hold/decay`. Затухание уже напечатанных символов необратимо: рост активности не возвращает старую яркость. Полностью скрытые столбцы очищаются и при возвращении печатаются заново сверху вниз. Keywords остаются внутри вертикальных столбцов; отдельных титров нет. Rainbow Waves работает независимо от событий агентов.
+Events: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, SessionEnd. Each hook runs a short-lived `Dreams --hook codex|claude` without opening any window; the main Dreams app has to be running for anything to appear on screen. `UserPromptSubmit` publishes the label `TASK`, and `PreToolUse` publishes a tool call line: the tool name and its main argument, up to 60 characters (`bash: brew install …`, `read: <path>`). Values that look like secrets are replaced with `***`, but redaction is pattern-based and not a guarantee. Lines are stored locally in the mailbox (permissions 0600) and are visible on screen. Prompt text, tool output and transcripts are not stored. This is an action indicator, **not a stream of inference tokens or hidden reasoning**.
 
-Hook `UserPromptSubmit`, `PreToolUse` и `PostToolUse` отмечает сессию как `working`; `Stop` и `SessionStart` — как `idle`; `SessionEnd` удаляет её из feed. MCP/CLI publish поддерживает `activity: "working" | "idle"` (default `working`). Поле `working_agents` в `dreams_status` показывает счётчик. Окно управления отображает его или «Ожидание агентов».
+A hook always prints nothing and exits 0, including on errors or a busy mailbox, so it never changes an agent's decisions. Explicit MCP and `--publish` calls do report errors. Example configurations are in `integrations/`.
 
-Это оценка по hooks, а не измерение inference. При пропущенном Stop сессия исчезает после TTL (обычно 90 секунд без событий); по истечении TTL затяжное вычисление без новых hooks также перестаёт считаться активным. Idle-сессия может оставаться в mailbox с keywords, но дождя не добавляет.
+On the maintainer's Mac the hooks were confirmed on 9 October 2026, 22:52 MSK: fresh automatic events from four Codex sessions appeared in the shared mailbox. Automatic delivery from Claude Code has not been confirmed yet; the next check is to see events from a real Claude Code session in the shared keyword feed.
 
-Проверка плавных переходов:
+### Rain and agent activity
+
+Matrix answers agent messages with a surge. Any new message in the mailbox (turn start, tool call, its result, turn end, keywords) floods the whole screen with rain at full brightness within 0.4 s, holds the flood for 1.5 s, then decays exponentially (time constant 5 s, about 15 s to rest) to the calm background set by the idle slider. A message during the decay raises the rain again from its current level, so frequent tool calls keep it dense and a pause lets it settle. The parameters are `RainActivity.attack/hold/decay`. Fading of already printed glyphs is irreversible: more activity does not restore old brightness. Columns that became fully hidden are cleared and are printed again from the top when they return. Rainbow Waves works independently of agent events.
+
+`UserPromptSubmit`, `PreToolUse` and `PostToolUse` mark a session as `working`; `Stop` and `SessionStart` mark it `idle`; `SessionEnd` removes it from the feed. MCP/CLI publish accepts `activity: "working" | "idle"` (default `working`). The `working_agents` field of `dreams_status` shows the count; the window shows it or «Ожидание агентов» (Waiting for agents).
+
+This is an estimate from hooks, not a measurement of inference. If a Stop is missed, the session disappears after its TTL (normally 90 seconds without events); after the TTL a long computation without new hooks stops counting as active too. An idle session can stay in the mailbox with its keywords but adds no rain.
+
+Work intensity is estimated from the observed hook events, not from inference tokens. For `dreams_status`, a working session gives a base level of 50%, each extra agent 18%, recent actions up to 32% (the rain on screen follows the message surges described above, not this level). PreToolUse adds 1 unit, PostToolUse 0.35, UserPromptSubmit 0.5; accumulation is capped at 12 and fades exponentially with a 20 s time constant. Stop resets a session's accumulation; publishing keywords does not raise it. The status exposes `activity_level` and `action_pressure` (0–1), and the window shows the activity percentage. Recent actions increase column density and mutation rate up to 3×; the chosen fall speed does not change. At maximum density the grid is already full, so the boost shows mainly as more glyph churning.
+
+Check the smooth transitions:
 
 ```sh
 swiftc -swift-version 6 Sources/Dreams/RainActivity.swift scripts/test-activity.swift -o /tmp/dreams-activity-checks
 /tmp/dreams-activity-checks
 ```
 
-Для отдельного 16-секундного render-demo с синтетическими состояниями 3 → 1 → 0 → 2 агента:
+A separate 16-second render demo with synthetic states 3 → 1 → 0 → 2 agents:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --render-demo artifacts/activity-frames --activity-demo
 ```
 
-Этот режим не публикует тестовые события в общий feed.
+This mode does not publish test events into the shared feed.
 
-## Релиз
+### Tool call lines
 
-`scripts/release.sh` собирает универсальный (arm64 + x86_64) `Dreams.app`, подписывает его Developer ID (`P8T2366K8X`) с hardened runtime, нотаризует и штампует приложение, затем делает `dist/release/Dreams-<версия>.dmg`, нотаризует и штампует его и печатает sha256 для cask. Версия берётся из `VERSION`, шаблон `Info.plist` — `scripts/Info.plist.in`; шрифт берётся из закоммиченного `Sources/Dreams/DreamsMatrix.ttf`, Python для релиза не нужен. Один раз: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` подписывает и проверяет без отправки в Apple (такой DMG годится только для локальных проверок). Подписанный исполняемый файл привязан к бандлу: копировать его отдельно от `Dreams.app` нельзя.
+Hook events start separate one-shot streams: PreToolUse → a call line with its arguments (`bash: brew install fontforge`, `read: Sources/Dreams/MatrixRain.swift`, `grep: func glyph\(`, `mcp: xcode.BuildProject Dreams`), UserPromptSubmit → TASK, PreCompact → CONTEXT if that hook is wired separately (the regular installer does not add it yet). `ToolCallLine` builds the line from `tool_name` and `tool_input`: paths are shown relative to `cwd`, a `cd <cwd> &&` prefix is dropped, and a long line is cut to 60 characters with an ellipsis (a path is cut from the start and keeps its end, a command is cut from the end and keeps its start). Values that look like secrets (`TOKEN=…`, `--password …`, `Authorization: Bearer …`, `user:pass@`, long opaque strings) are replaced with `***`, because everyone who can see the screen sees the rain. The labels are vertical, set in DreamsMatrix, with the word colour and brightness settings. Otherwise a stream behaves like ordinary rain: the same speed, tail and brightness spread, and its letters are churned through random rain glyphs (in the word colour) and return to their own character. PostToolUse does not duplicate a stream. The mailbox keeps at most 24 events per session; the renderer accepts at most 6 new events per update and does not replay events older than 8 seconds. An event stream still finishes printing and fades even at idle 0%.
 
-## Hooks Codex и Claude Code
+The «Тест струй · DEMO» (Stream test · DEMO) item is in the debug menu (right-click in the control window, or «◒ → Отладка» (Debug) in the menu bar). It starts Matrix if needed and creates four visual fixtures: `bash: brew install fontforge`, `mcp: xcode.BuildProject Dreams`, TASK, CONTEXT. The demo loops and plays an agent turn: the fixtures' message causes the same surge as a real one, the lines are printed, the rain decays to the background, and 2 s after it has calmed the next «turn» starts (about 19 s per loop; longer at a slow rain speed). The loop runs until the rain is stopped by Esc, the timeout, or another style. The CLI flag `--fixture-events` still sends a single wave. The `dreams:visual-fixtures` session is idle, does not raise the working-agent count and expires after 15 s. No external tools are called. The item can be repeated. For an already running Matrix the same can be triggered from the CLI:
 
 ```sh
-/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks
-# Посмотреть, что изменится, ничего не записывая:
-/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks --dry-run
-# Удалить только Dreams hooks, сохранив остальные настройки:
-/Applications/Dreams.app/Contents/MacOS/Dreams --uninstall-hooks
+dist/Dreams.app/Contents/MacOS/Dreams --fixture-events
 ```
 
-Установщик встроен в приложение (бинарник запоминает собственный путь, поэтому запускайте его из `/Applications`; из `dist/` в hooks попадёт путь к `dist/`). Он добавляет user-level hooks в `~/.codex/hooks.json` и `~/.claude/settings.json`, сохраняя существующие settings, порядок ключей и чужие hooks, и создаёт timestamped backup рядом. Повторный запуск безопасен, файл, который не является JSON-объектом, не трогается. Проверка: `python3 scripts/test-hooks-install.py`. Прежние hooks на путь `dist/` заменяются при установке. Для Codex необходимо проверить новые hooks в `/hooks` и подтвердить доверие средствами клиента. На этом Mac пользователь подтвердил hooks: 9 октября 2026, 22:52 МСК, в общем mailbox проверены свежие автоматические события четырёх Codex-сессий («задача», «терминал»). Реальная автоматическая доставка из Claude Code пока не подтверждена. При необходимости начните новую сессию после изменения конфигурации. Это интеграция Claude Code, не произвольного Claude chat.
+## Matrix rain and keywords
 
-События: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, SessionEnd. Hooks вызывают короткоживущий `Dreams --hook codex|claude`, не открывая окна. Для изображения должен работать основной Dreams. Отправляются короткие labels: «задача», «готово» и строка вызова инструмента (`bash: brew install …`, `read: путь`) с именем tool и главным аргументом, до 60 символов; значения, похожие на секреты, заменяются на `***`, но редакция работает по шаблонам и не гарантирует защиту. Строки хранятся локально в mailbox (права 0600) и видны на экране. Текст prompt, вывод инструментов и transcripts не сохраняются. Это индикатор действий, **не поток inference tokens или скрытых рассуждений**.
+Matrix stores the state of every cell: glyph, print time, brightness and tint. An independent cursor in each column prints top to bottom. Only the new cell is highlighted in a light colour; glyphs already printed stay where they are. Every 0.12–0.62 seconds one old glyph in each column is replaced independently, roughly five times as often as in the first version. Only 20% of replacements produce a short white glint lasting 0.28 seconds; the rest keep their green. A whole column never changes at once. After a few seconds the glyphs fade, then the column starts a new pass. The moving noise mask over a static grid is no longer used.
 
-Hook всегда возвращает пустой stdout и exit 0, включая ошибки или занятый mailbox, чтобы не менять решения агента. Явные MCP/`--publish` вызовы сообщают ошибки. Примеры конфигурации находятся в `integrations/`.
+The opening of the reference clip `1.mov` was analysed: the first 3 seconds in 0.25 s steps (`artifacts/reference-opening-contact.png`) and a close-up of the first 1.2 seconds in 0.1 s steps (`artifacts/reference-column-steps.png`). It shows glyphs being printed progressively from the bottom while the upper glyphs stay still. (These reference frames are not part of the repository.)
 
-## UI-агент и встроенный экран
+The palette is green, as in the reference video. Light heads and single replaced glyphs turn white. A faint diffuse green glow surrounds all visible glyphs and is brighter around white flashes. The near and wide blurs (σ 2.8 and 6.5 atlas pixels) are computed once per glyph and blended into a padded atlas; additive blending adds the neighbours' light. In the shader the halo gets smooth, uneven cloud noise with a slow drift and fades softly near the tile edges, without a fullscreen blur. Inside the strokes a phosphor grain works: a procedural 14×14 grid, faint scanlines and a smoothly changing noise modulation at 8 Hz. That is three integer hashes per visible fragment, no extra textures or draw calls; the alpha of the outline itself is not noised, and the halo is modulated separately by smooth noise. The dense grid has 72 rows. Glyph quads overlap the empty margins of the atlas: visible strokes take about 85% of the cell width and 90–95% of its height, so spacing shrinks while letters stay large. The cursor sometimes leaves gaps of 1–3 empty cells and keeps printing below them. Each glyph's brightness is chosen when it is printed. Keywords appear inside the flow, printed by the same cursor, **one upright letter at a time, top to bottom**. Up to three words are shown, the selection refreshes every 16 seconds, and the new selection shows on the cursor's next pass. Rainbow Waves remains a separate mode without text.
 
-Если агент снимает весь встроенный desktop, он увидит волны. Перед такими действиями вызывайте `dreams_prepare_ui`, после — `dreams_resume`. Полноэкранное окно не перехватывает клики: это не средство блокировки ввода. Во время UI-работы на встроенном дисплее волны отсутствуют.
+Each session publishes 1–6 words of up to 32 characters; up to 24 sessions are stored at once. TTL is 15–300 seconds, default 90. Publishing again replaces only that session. The session colour is stored in the feed for compatibility; the current classic Matrix uses a single green-and-white palette. Mailbox: `~/Library/Application Support/Dreams/Keywords`, directory permissions 0700 / files 0600, atomic writes and a nonblocking lock. `DREAMS_FEED_DIRECTORY` redirects it for isolated tests.
 
-Одновременная работа возможна, когда UI-инструмент отдельно захватывает окно на виртуальном дисплее и правильно направляет туда ввод. Сам факт создания второго дисплея не перенастраивает Codex или Claude. Окна других приложений автоматически не переносятся. Focus, clipboard и keyboard input по-прежнему принадлежат общей пользовательской сессии.
+Example MCP arguments:
 
-В эксперименте Codex CUA получил screenshot окна Dreams на виртуальном дисплее и координатным кликом изменил `Clicks: 0` на `Clicks: 1`, пока MCP сообщал `waves_visible: true` на встроенном дисплее. Это подтверждает конкретный путь CUA → тестовое окно. Работа с браузером, произвольным desktop capture и Claude ещё не подтверждена.
+```json
+{"session_id":"codex-project-a","keywords":["Swift","context","check"],"color":"cyan","ttl_seconds":90}
+```
 
-Виртуальный дисплей создаётся через **private macOS API** `CGVirtualDisplay`, по примеру Chromium. Это экспериментальная локальная функция; совместимость с обновлениями macOS не гарантируется. Такой код не подходит для App Store, где требуются public APIs. Другие окна, вручную помещённые на этот дисплей, при отключении могут переместиться на физический экран.
+Or without MCP, JSON on stdin:
 
-## Дисплей и системные индикаторы
+```sh
+printf '%s' '{"session_id":"demo","keywords":["Swift","search"]}' | dist/Dreams.app/Contents/MacOS/Dreams --publish
+```
 
-Dreams убирает статичное изображение, но не обещает предотвращение burn-in или image retention. Встроенный Liquid Retina XDR этого Mac — LCD с mini-LED подсветкой. Чередование всех цветов не является доказанным способом защиты. При 60 Hz за минуту можно показать максимум 3600 отдельных значений одному пикселю, а RGB с 8 битами на канал содержит 16 777 216 цветов; ещё 8 бит в типичном 32-bit pixel format — alpha.
+`dreams_preview` returns an offscreen render, not a screenshot of the display. While an animation is running it uses the animation's current time; when stopped it renders a staged frame at the sixth second so that keywords are visible.
 
-Приложение само не захватывает экран, не использует камеру или микрофон и не рисует рамку/пульсирующую точку. Захват окна UI-инструментом может включать системные privacy indicators поверх изображения. По описанию пользователя точный источник рамки не установлен; Dreams не скрывает такие индикаторы.
+Agent words in both rain sets are drawn in DreamsMatrix-Regular, in capitals only. The case conversion happens before a word is split into vertical glyphs; the original keywords in the mailbox are unchanged. Call lines are printed as they are: case and spaces are part of the command.
 
-Пока волны активны, приложение удерживает display sleep assertion; после остановки освобождает его. Это сохраняет видимую анимацию ценой энергопотребления. Системную яркость, параметры блокировки и постоянные sleep settings оно не меняет.
+## Settings
 
-## Проверка
+All settings are applied immediately and saved between launches.
+
+- **Rain density** (0–100%, default 0%): length of the tail and the pause between passes. The scale is non-linear: 100% fills the whole grid after the initial pass, with no random holes or pauses; all columns are active whenever agents are working. Tail length is about 26–100% of the grid height; the lifetime is tied to the printing speed. At low density a dark pause remains between passes; at high density new passes follow faster and at 100% they are continuous. A new value applies to the next streams and does not bring back glyphs that already faded. Mutations do not extend a glyph's life. Below 100%, agent activity also raises the number of columns; with no work a faint, sparse rain remains at any density setting.
+- **Fade width** (1–16 glyphs, default 3): how many rows dissolve at once from the top edge of a tail. At 1 the next glyph starts to fade after the previous has gone; at 16 the edge is soft. It applies to new streams regardless of density.
+- **Rain speed** (0.25×–3×, default 0.43×): changes the pace of printing, mutation and fading together while keeping the tail length in cells; the decay time of agent activity stays the same.
+- **Brightness spread** (0–100%, default 51%): at 0 ordinary green glyphs all have the same brightness, at 100% the original random range is used. White flashes and tail fading remain.
+- **Glow** (0–300%, default 57%, 0% when transparent): the strength of the diffuse halo; 0% turns it off and keeps the brightness of the glyphs themselves. It is stored separately for the black and the transparent background (`rainGlow` and `transparentRainGlow`, default 0), and the slider shows the value of the selected mode.
+- **Calm background** (0–100%, default 77%): the background that the rain decays to after a surge. 0% is a black screen between messages. The background stays muted; a surge always runs at full strength. Without any active agents only sparse columns at 35% of normal exposure remain; with work the rain brightens smoothly over 1.8 s and returns to idle in 4 s. Even at density 100% idle stays sparse.
+- **Rain colour**: stored separately for the black background (`rainColor`, default the classic dark green) and the transparent one (`transparentRainColor`, default a light mint so the letters read on bright wallpapers). The swatch shows the colour as it appears on screen; the halo follows the colour. `rain_color_rgb` (linear RGB) is reported in the status.
+- **Agent words**: colour and brightness are set separately from the rain. Default colour bright green (0, 255, 100); brightness 0–200%, default 200%; 0% hides the words. The colour applies to the letters and their glow; short light heads are kept.
+- **Restored glyphs** («Восстановленные глифы из фильма»): switches on the experimental `DreamsMatrix-Regular`, built from a reconstruction sheet and manual SVG corrections. The choice is saved and changing the set starts a new rain pass. When it is off, the previous `Matrix-Code` is used; in both modes the keywords keep a system font that covers Cyrillic. `scripts/build-app.sh release` rebuilds and checks the font before packaging. The set currently has 28 forms; the new G21–G28 are the digits 8/4 and short signs from the film references. The app reads the whole private-use repertoire from the font file, so new glyphs are picked up by the next build automatically. Instructions for editing glyphs: [PIPELINE.md](research/glyphs/PIPELINE.md).
+- **Transparent background** («Прозрачный фон — дождь поверх окон»): a checkbox in the window. It is saved (`transparentBackground`); when toggled during rain the overlay is recreated with the remaining time. The `--transparent` process flag still enables the mode at launch, including for MCP:
+
+  ```sh
+  open -n ./dist/Dreams.app --args --transparent
+  ```
+
+  The transparent mode shows glyphs and glow over the desktop and clicks pass through the window. Rainbow waves keep an opaque background. `transparent_background` in the status shows the selected mode. Working windows under the transparent Matrix stay visible, including in UI-agent screenshots. In this mode glow is off by default to avoid a haze over working windows.
+
+Part of the glyph replacements run as a short churn: 4–8 different glyphs in a row on one position, 35–65 ms apart at 1× speed, then the chosen glyph settles without a white flash. The other replacements are single. After settling, a cell is not picked again for at least 0.8 seconds of simulation time. The churn keeps the brightness and the original print time, and stops when fading starts, the column is hidden, or the cell is overwritten by a new pass.
+
+The window also shows the animation state next to the agent activity: stopped, or the number of rendered frames and the time left. A normal launch is limited to five minutes. The settings window scrolls so that every control stays reachable.
+
+## UI agents and the built-in display
+
+If an agent captures the whole built-in desktop, it will see the waves. Call `dreams_prepare_ui` before such actions and `dreams_resume` after. The fullscreen window does not intercept clicks: it is not a way to block input. There are no waves during UI work on the built-in display.
+
+Simultaneous work is possible when a UI tool captures a window on the virtual display separately and sends input there correctly. Creating a second display does not reconfigure Codex or Claude. Windows of other apps are not moved automatically. Focus, clipboard and keyboard input still belong to the shared user session.
+
+In one experiment Codex CUA took a screenshot of the Dreams window on the virtual display and changed `Clicks: 0` to `Clicks: 1` with a coordinate click while MCP reported `waves_visible: true` on the built-in display. That confirms this specific path, CUA → test window. Work with a browser, arbitrary desktop capture and Claude is not confirmed yet.
+
+The virtual display is created with the **private macOS API** `CGVirtualDisplay`, following Chromium's example. It is an experimental local feature and compatibility with macOS updates is not guaranteed. Such code is not suitable for the App Store, which requires public APIs. Other windows that were manually placed on this display may move to a physical screen when it is disconnected.
+
+## Display and system indicators
+
+Dreams removes the static image but does not promise to prevent burn-in or image retention. The built-in Liquid Retina XDR display of this Mac is an LCD with a mini-LED backlight. Cycling through all colours is not a proven protection. At 60 Hz at most 3600 distinct values can be shown to one pixel in a minute, and 8-bit-per-channel RGB has 16,777,216 colours; the remaining 8 bits in a typical 32-bit pixel format are alpha.
+
+The app does not capture the screen, use the camera or microphone, or draw a frame or a pulsing dot. A UI tool capturing a window may bring system privacy indicators on top of the image. By the user's description the exact source of one such frame has not been established; Dreams does not hide such indicators.
+
+While the animation is active the app holds a display-sleep assertion and releases it after it stops. This keeps the animation visible at the cost of power. It does not change the system brightness, lock settings or persistent sleep settings.
+
+## Release
+
+`scripts/release.sh` builds a universal (arm64 + x86_64) `Dreams.app`, signs it with Developer ID (`P8T2366K8X`) and the hardened runtime, notarizes and staples it, then makes `dist/release/Dreams-<version>.dmg`, notarizes and staples that too, and prints the sha256 for a Homebrew cask. The version comes from `VERSION` and the `Info.plist` template is `scripts/Info.plist.in`; the font comes from the committed `Sources/Dreams/DreamsMatrix.ttf`, so a release does not need Python. Once: `xcrun notarytool store-credentials dreams-notary`. `scripts/release.sh --skip-notarize` signs and verifies without submitting to Apple (such a DMG is only good for local checks). A signed executable is bound to its bundle: it cannot be copied out of `Dreams.app`.
+
+## Testing
 
 ```sh
 python3 scripts/smoke.py
-# Для ручной/CUA проверки рабочего окна:
+# For manual / CUA checks of the working window:
 python3 scripts/smoke.py --interactive
 ```
 
-Проверка модели печати (без GUI):
+The printing model (no GUI):
 
 ```sh
 swiftc -swift-version 6 Sources/Dreams/MatrixSimulation.swift scripts/test-matrix.swift -o /tmp/dreams-matrix-checks
 /tmp/dreams-matrix-checks
 ```
 
-Проверяются последовательная запись, неподвижность старых символов, одиночная замена, одинаковый результат при разной частоте кадров и отсутствие изменений при повторном render того же времени. Отдельно проверяются пять циклов стекающего дождя: хвост очищает верх экрана до ухода головки вниз, полностью исчезает, оставляет тёмный промежуток и начинает новый проход с одной верхней ячейки.
+It checks sequential writing, that old glyphs stay still, a single replacement, an identical result at different frame rates, and no changes when the same time is rendered again. Five cycles of flowing rain are checked separately: the tail clears the top of the screen before the head leaves, disappears completely, leaves a dark gap and starts a new pass from a single top cell.
 
-Ползунок «Плотность дождя» (0–100%, default 0%) сохраняется между запусками и регулирует длину хвоста и паузу между проходами. Шкала нелинейная: 100% заполняет всю сетку после начального прохода, без случайных дыр и пауз; все колонки активны при наличии работы агентов. Длина хвоста — примерно 26–100% высоты сетки; время жизни связано со скоростью печати. Отдельный ползунок «Ширина затухания» (1–16 символов, default 3) задаёт число одновременно растворяющихся строк с верхнего края хвоста. При 1 следующий глиф начинает гаснуть после исчезновения предыдущего; при 16 край мягкий. Настройка сохраняется и применяется к новым струям, независимо от плотности. При низкой плотности между проходами остаётся тёмная пауза; при высокой новые проходы следуют быстрее, при 100% — непрерывно. Новое значение применяется к следующим струям, не возвращая погасшие символы. Мутации не продлевают жизнь символа. Ниже 100% активность агентов дополнительно влияет на число колонок; без работы остаётся слабый разреженный дождь при любой настройке плотности.
-
-В окне управления также доступны «Скорость дождя» (0.25×–3×, default 0.43×) и «Разброс яркости» (0–100%, default 51%). Скорость одновременно меняет темп печати, мутаций и затухания, сохраняя длину хвоста в ячейках; время затухания активности агентов остаётся прежним. При нулевом разбросе обычные зелёные глифы одинаковы по яркости, при 100% используется исходный случайный диапазон. Белые вспышки и затухание хвоста сохраняются. Оба регулятора применяются сразу и сохраняются между запусками.
-
-Часть замен символов проходит как короткий перебор комбинации: 4–8 разных глифов подряд на одной позиции с шагом 35–65 мс при скорости 1×, затем фиксация выбранного знака без белой вспышки. Остальные замены одиночные. После фиксации ячейка не выбирается снова минимум 0.8 секунды времени симуляции. Перебор сохраняет яркость и исходное время записи, прекращается при начале затухания, скрытии колонки или перезаписи ячейки новым проходом дождя.
-
-Переключатель «Восстановленные глифы» включает экспериментальный `DreamsMatrix-Regular`, собранный из листа реконструкции и ручных SVG-правок. Выбор сохраняется, смена набора начинает новый проход дождя. Выключенный переключатель выбирает прежний `Matrix-Code`; keywords в обоих режимах сохраняют системный шрифт с кириллицей. `scripts/build-app.sh release` автоматически пересобирает и проверяет новый шрифт перед упаковкой приложения. Набор сейчас содержит 28 форм; новые G21–G28 — цифры 8/4 и короткие знаки из film references. Приложение читает весь PUA-репертуар из файла шрифта, поэтому новые глифы подключаются следующей сборкой автоматически. Инструкция для правки глифов — [PIPELINE.md](research/glyphs/PIPELINE.md).
-
-Для записи 180 настоящих Metal-кадров (6 секунд при 30 fps) без fullscreen:
+To record 180 real Metal frames (6 seconds at 30 fps) without fullscreen:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --render-demo artifacts/typing-frames
 ffmpeg -framerate 30 -i artifacts/typing-frames/%04d.png -c:v libx264 -pix_fmt yuv420p artifacts/matrix-typing.mp4
 ```
 
-Smoke запускает настоящий executable через stdio, выполняет Codex-shaped initialize, проверяет десять tools, четыре publisher tools, отказ publisher в управлении fullscreen, общий keyword feed двух процессов, hook mapping, TTL, некорректные параметры, PNG preview и изменение кадров во времени, создание/размещение окна на виртуальном дисплее, start/prepare/resume, таймер, освобождение assertion и cleanup по EOF. Preview сохраняется в `artifacts/matrix-preview.png`; два кадра работающей анимации — `artifacts/matrix-live-0.png` и `artifacts/matrix-live-1.png`. Это protocol integration test; он не заменяет проверку обнаружения сервера настоящим MCP client.
+The smoke test starts the real executable over stdio, performs a Codex-shaped initialize, and checks the ten tools, the four publisher tools, a publisher being refused fullscreen control, the shared keyword feed between two processes, hook mapping, TTL, invalid parameters, the PNG preview and frame changes over time, creation and placement of a window on the virtual display, start/prepare/resume, the timer, assertion release and cleanup on EOF. The preview is saved as `artifacts/matrix-preview.png`; two frames of the running animation as `artifacts/matrix-live-0.png` and `artifacts/matrix-live-1.png`. This is a protocol integration test; it does not replace checking server discovery with a real MCP client.
 
-Release build и smoke прошли на указанном Mac. Во время предыдущего ручного прогона счётчик кадров рос примерно на 30 в секунду. Длительный thermal/GPU benchmark не проводился.
+The release build and the smoke test passed on the Mac named above. During an earlier manual run the frame counter grew by about 30 per second. A long thermal/GPU benchmark was not run.
 
-## Источники и лицензии
+## Sources and licenses
 
-- [Rezmason/matrix: визуальный принцип illumination waves](https://github.com/Rezmason/matrix)
-- [cassmtnr: Matrix-Code font и glyph repertoire, MIT](https://github.com/cassmtnr/matrix-macos-screensaver)
-- [OscarL/MatrixSS: визуальный reference](https://github.com/OscarL/MatrixSS)
+- [Rezmason/matrix: the visual principle of illumination waves](https://github.com/Rezmason/matrix)
+- [cassmtnr: Matrix-Code font and glyph repertoire, MIT](https://github.com/cassmtnr/matrix-macos-screensaver)
+- [OscarL/MatrixSS: visual reference](https://github.com/OscarL/MatrixSS)
 - [Codex hooks](https://learn.chatgpt.com/docs/hooks)
 - [Claude Code hooks](https://code.claude.com/docs/en/hooks)
 - [Apple: MTKView](https://developer.apple.com/documentation/metalkit/mtkview)
-- [Apple: ScreenCaptureKit sample — display/window capture](https://developer.apple.com/documentation/screencapturekit/capturing-screen-content-in-macos)
+- [Apple: ScreenCaptureKit sample, display/window capture](https://developer.apple.com/documentation/screencapturekit/capturing-screen-content-in-macos)
 - [Chromium: virtual display implementation](https://chromium.googlesource.com/chromium/src/+/HEAD/ui/display/mac/test/virtual_display_util_mac.mm)
 - [Apple: App Review Guidelines, 2.5.1](https://developer.apple.com/app-store/review/guidelines/#software-requirements)
 - [Apple: screen observation privacy reminder](https://support.apple.com/en-lamr/120315)
 - [Codex: MCP configuration](https://developers.openai.com/codex/mcp/)
 
-Лицензии адаптированного кода Screener (MIT), Chromium (BSD), Matrix Digital Rain (MIT, шрифт и repertoire) и Swift dependencies сохранены в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) и включены в app bundle.
-
-Следующая проверка: увидеть автоматические события реальной Claude Code сессии в общем keyword feed.
-
-Сила рассеянного свечения регулируется в окне Dreams: 0–300%, по умолчанию 57% (в прозрачном режиме 0%). Настройка применяется сразу и сохраняется между запусками; 0% отключает ореол, сохраняя яркость самих глифов.
-
-В окне управления рядом с активностью агентов отображается состояние анимации: остановлена либо число отрисованных кадров и оставшееся время. Обычный запуск ограничен пятью минутами.
-
-Idle: без активных агентов остаются редкие колонки с 35% обычной экспозиции. При работе дождь плавно усиливается за 1.8 с; после остановки возвращается в idle за 4 с. Даже при плотности 100% idle остаётся разреженным.
-
-Ползунок «Спокойный фон» (0–100%, default 77%) задаёт спокойный фон, до которого спадает дождь после всплеска. 0% — чёрный экран между сообщениями. Фон остаётся приглушённым; всплеск всегда идёт в полную силу. Значение применяется плавно и сохраняется.
-
-Интенсивность работы оценивается по наблюдаемым событиям hooks, не по inference tokens. Для `dreams_status` рабочая сессия даёт базовый уровень 50%, дополнительные агенты — по 18%, недавние действия — до 32% (дождь на экране следует не этому уровню, а всплескам на сообщения, см. выше). PreToolUse добавляет 1 условную единицу, PostToolUse — 0.35, UserPromptSubmit — 0.5; накопление ограничено 12, вклад экспоненциально ослабевает с постоянной времени 20 с. Stop сбрасывает накопление сессии; отправка keywords сама по себе его не увеличивает. В статусе доступны activity_level и action_pressure (0–1), в окне — процент активности. Недавние действия усиливают плотность колонок и частоту мутаций до 3×; выбранная скорость падения не меняется. При максимальной плотности сетка уже заполнена, поэтому усиление заметно прежде всего по перебору глифов. Idle-регулятор сохранён.
-
-Прозрачный Matrix включается галочкой «Прозрачный фон (дождь поверх окон)» в окне управления. Настройка сохраняется между запусками (`transparentBackground`); при переключении во время дождя оверлей пересоздаётся с оставшимся временем. Флаг процесса `--transparent` по-прежнему включает режим при запуске, в том числе для MCP:
-
-```sh
-open -n ./dist/Dreams.app --args --transparent
-```
-
-Прозрачный режим показывает глифы и glow поверх рабочего стола, клики проходят сквозь окно. Rainbow waves сохраняют непрозрачный фон. `transparent_background` в статусе показывает выбранный режим. Рабочие окна под прозрачным Matrix остаются видимыми, включая screenshots UI-агента.
-
-Цвет букв дождя задаётся палитрой «Цвет» в разделе «Дождь» и, как свечение, хранится отдельно для чёрного (`rainColor`, по умолчанию классический тёмно-зелёный) и прозрачного фона (`transparentRainColor`, по умолчанию светлый мятный, чтобы буквы читались на светлых обоях). Палитра показывает цвет на экране; ореол следует цвету. В статусе — `rain_color_rgb` (линейный RGB). В прозрачном режиме glow по умолчанию отключён, чтобы не создавать дымку поверх рабочих окон. Его можно включить регулятором «Свечение»; при переключении фона регулятор показывает силу свечения выбранного режима.
-
-Сила свечения прозрачного режима хранится отдельно (`transparentRainGlow`, default 0); её изменение не затрагивает обычный режим (`rainGlow`).
-
-Слова агентов в обоих наборах дождя отображаются шрифтом DreamsMatrix-Regular, только прописными буквами. Преобразование регистра выполняется перед разбиением слова на вертикальные глифы; исходные keywords в mailbox сохраняются. Строки вызовов (см. ниже) печатаются как есть: регистр и пробелы — часть команды.
-
-Цвет и яркость слов агентов настраиваются отдельно от дождя, применяются сразу и сохраняются. Цвет по умолчанию — ярко-зелёный (0, 255, 100), яркость 0–200%, default 200%; 0% скрывает слова. Цвет применяется к буквам и их glow; короткие светлые головки сохраняются. Окно настроек прокручивается, чтобы все элементы оставались доступны.
-
-События hooks запускают отдельные однократные струи: PreToolUse → строка вызова с аргументами (`bash: brew install fontforge`, `read: Sources/Dreams/MatrixRain.swift`, `grep: func glyph\(`, `mcp: xcode.BuildProject Dreams`), UserPromptSubmit → TASK, PreCompact → CONTEXT, если этот hook подключён отдельно (обычный installer его пока не добавляет). Строку собирает `ToolCallLine` из `tool_name` и `tool_input`: пути показываются относительно `cwd`, префикс `cd <cwd> &&` отбрасывается, длинная строка обрезается до 60 символов многоточием (путь — с начала, команда — с конца). Значения, похожие на секреты (`TOKEN=…`, `--password …`, `Authorization: Bearer …`, `user:pass@`, длинные непрозрачные строки), заменяются на `***`: дождь видят все, кто видит экран. Метки вертикальные, DreamsMatrix, с настройками цвета/яркости слов. В остальном струя ведёт себя как обычный дождь: та же скорость, хвост и разброс яркости, а буквы так же перебираются случайными знаками дождя (в цвете слов) и возвращаются к своему символу. PostToolUse не дублирует струю. Mailbox хранит максимум 24 события на сессию, рендер принимает максимум 6 новых событий за обновление и не воспроизводит события старше 8 секунд. Событийная струя допечатывается и гаснет даже при idle 0%.
-
-Пункт «Тест струй · DEMO» (отладочное меню: правый клик в окне управления или «◒ → Отладка» в строке меню) запускает Matrix при необходимости и создаёт четыре визуальные фикстуры: `bash: brew install fontforge`, `mcp: xcode.BuildProject Dreams`, TASK, CONTEXT. Демо идёт по кругу и изображает ход агента: сообщение фикстур вызывает такой же всплеск, как настоящее, печатаются строки, дождь спадает до фона, и через 2 с после успокоения начинается следующий «ход» (около 19 с на круг; при медленной скорости дождя дольше). Цикл идёт, пока дождь не остановлен Esc, таймаутом или другим стилем. CLI `--fixture-events` по-прежнему отправляет одну волну. Сессия `dreams:visual-fixtures` имеет activity idle, не увеличивает число работающих агентов и истекает через 15 с. Никакие внешние tools не вызываются. Можно повторять пункт. Для уже запущенного Matrix то же можно вызвать из CLI:
-
-```sh
-dist/Dreams.app/Contents/MacOS/Dreams --fixture-events
-```
+The licenses of the adapted Screener code (MIT), Chromium (BSD), Matrix Digital Rain (MIT, font and repertoire) and the Swift dependencies are kept in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and included in the app bundle. Dreams itself is MIT-licensed, see [LICENSE](LICENSE).

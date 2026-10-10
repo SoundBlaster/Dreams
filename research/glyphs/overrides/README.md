@@ -1,9 +1,9 @@
-# Ручные правки контуров
+# Manual contour edits
 
-`Gxx.svg` в этой папке заменяет трассировку глифа Gxx. Взять контур в правку:
+`Gxx.svg` in this folder replaces the tracing of glyph Gxx. To take a contour into editing:
 
 ```sh
 .venv/bin/python scripts/glyphs/pipeline.py adopt G06
 ```
 
-Сохраняй `viewBox`, рисуй внутри `id="glyph"`, после правки запускай `build`. Подробности в [../PIPELINE.md](../PIPELINE.md#ручная-правка-контура).
+Keep the `viewBox`, draw inside `id="glyph"`, and run `build` after editing. Details in [../PIPELINE.md](../PIPELINE.md#editing-a-contour-by-hand).
