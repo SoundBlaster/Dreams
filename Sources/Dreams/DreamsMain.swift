@@ -212,6 +212,8 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     private let glowLabel = NSTextField(labelWithString: "")
     private var glowSlider: NSSlider?
     private var rainColorWell: NSColorWell?
+    /// The settings controls by accessibility identifier, so a reset can bring them all up to date.
+    private var controlsByID: [String: NSControl] = [:]
     private let speedLabel = NSTextField(labelWithString: "")
     private let brightnessSpreadLabel = NSTextField(labelWithString: "")
     let controller = DreamsController()
@@ -262,6 +264,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             rainColor.setAccessibilityIdentifier("dreams.rain-color")
             rainColor.toolTip = L("rain.color.tip")
             rainColorWell = rainColor
+            controlsByID["dreams.rain-color"] = rainColor
             let rain = settingsGrid([
                 [Self.name(L("label.color")), rainColor, NSView()],
                 sliderRow(L("rain.density"), value: controller.rainDensity, min: 0, max: 1,
@@ -297,6 +300,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 target: self, action: #selector(changeTransparency(_:)))
             transparent.state = controller.transparentBackground ? .on : .off
             transparent.setAccessibilityIdentifier("dreams.transparent-background")
+            controlsByID["dreams.transparent-background"] = transparent
 
             // Agent words and call lines.
             let wordColor = NSColorWell()
@@ -305,6 +309,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             wordColor.action = #selector(changeKeywordColor(_:))
             wordColor.setAccessibilityLabel(L("words.color.accessibility"))
             wordColor.setAccessibilityIdentifier("dreams.keyword-color")
+            controlsByID["dreams.keyword-color"] = wordColor
             let words = settingsGrid([
                 [Self.name(L("label.color")), wordColor, NSView()],
                 sliderRow(L("words.brightness"), value: controller.keywordBrightness, min: 0, max: 2,
@@ -317,7 +322,16 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 target: self, action: #selector(changeGlyphSet(_:)))
             restored.state = controller.restoredGlyphs ? .on : .off
             restored.setAccessibilityIdentifier("dreams.restored-glyphs")
+            controlsByID["dreams.restored-glyphs"] = restored
             let quitButton = NSButton(title: L("button.quit"), target: self, action: #selector(quit))
+            let resetButton = NSButton(title: L("button.reset"), target: self, action: #selector(resetDefaults))
+            resetButton.setAccessibilityIdentifier("dreams.reset-defaults")
+            resetButton.toolTip = L("button.reset.tip")
+            let spacer = NSView()
+            spacer.setContentHuggingPriority(.init(1), for: .horizontal)
+            let footer = NSStackView(views: [resetButton, spacer, quitButton])
+            footer.orientation = .horizontal
+            footer.widthAnchor.constraint(equalToConstant: 420).isActive = true
 
             let stack = NSStackView(views: [
                 activityLabel, launch, escapeHint,
@@ -325,7 +339,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 Self.section(L("section.between")), background, transparent,
                 Self.section(L("section.words")), words,
                 Self.section(L("section.glyphs")), restored,
-                Self.separator(), quitButton,
+                Self.separator(), footer,
             ])
             stack.orientation = .vertical
             stack.alignment = .leading
@@ -430,6 +444,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         }
         slider.setAccessibilityLabel(title)
         slider.setAccessibilityIdentifier(identifier)
+        controlsByID[identifier] = slider
         slider.toolTip = tip
         let label = Self.name(title)
         label.toolTip = tip
@@ -513,6 +528,34 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         // Each background keeps its own glow strength and rain colour.
         glowSlider?.doubleValue = controller.rainGlow
         rainColorWell?.color = controller.rainColor
+        refreshValueLabels()
+    }
+
+    @objc private func resetDefaults() {
+        let alert = NSAlert()
+        alert.messageText = L("reset.confirm.title")
+        alert.informativeText = L("reset.confirm.text")
+        alert.addButton(withTitle: L("reset.confirm.action"))
+        alert.addButton(withTitle: L("button.cancel"))
+        guard alert.runModal() == .alertFirstButtonReturn else { return }
+        do { try controller.resetToDefaults() } catch { show(error: error) }
+        syncControls()
+    }
+
+    /// Brings every control up to date with the controller (after a reset).
+    private func syncControls() {
+        func slider(_ id: String, _ value: Double) { (controlsByID[id] as? NSSlider)?.doubleValue = value }
+        slider("dreams.rain-density", controller.rainDensity)
+        slider("dreams.rain-speed", controller.rainSpeed)
+        slider("dreams.rain-fade", controller.rainFadeRows)
+        slider("dreams.rain-brightness-spread", controller.rainBrightnessSpread)
+        slider("dreams.rain-glow", controller.rainGlow)
+        slider("dreams.rain-idle", controller.rainIdleIntensity)
+        slider("dreams.keyword-brightness", controller.keywordBrightness)
+        (controlsByID["dreams.rain-color"] as? NSColorWell)?.color = controller.rainColor
+        (controlsByID["dreams.keyword-color"] as? NSColorWell)?.color = controller.keywordColor
+        (controlsByID["dreams.transparent-background"] as? NSButton)?.state = controller.transparentBackground ? .on : .off
+        (controlsByID["dreams.restored-glyphs"] as? NSButton)?.state = controller.restoredGlyphs ? .on : .off
         refreshValueLabels()
     }
 

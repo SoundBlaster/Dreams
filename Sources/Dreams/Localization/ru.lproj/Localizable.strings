@@ -8,6 +8,12 @@
 
 "button.startMatrix" = "Запустить Matrix";
 "button.stop" = "Остановить";
+"button.reset" = "Сбросить настройки";
+"button.reset.tip" = "Вернуть все настройки к значениям по умолчанию.";
+"button.cancel" = "Отмена";
+"reset.confirm.title" = "Сбросить все настройки?";
+"reset.confirm.text" = "Цвета, плотность, скорость, свечение, спокойный фон и остальные настройки вернутся к значениям по умолчанию.";
+"reset.confirm.action" = "Сбросить";
 "button.quit" = "Выйти из Dreams";
 "hint.escape" = "Анимация идёт 5 минут на весь экран. Выход — Esc или ⌃⌥⌘D.";
 

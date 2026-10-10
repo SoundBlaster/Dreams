@@ -26,6 +26,7 @@ enum DreamsPreset {
     static let keywordColor = [0.0, 1.0, 0.39]
     static let keywordBrightness = 2.0
     static let restoredGlyphs = true
+    static let transparentBackground = false
     /// Black background: the classic dark film green. Transparent: a light mint that reads on bright desktops.
     static let rainColor = [0.086, 0.547, 0.26]
     static let transparentRainColor = [0.35, 1.0, 0.55]
@@ -66,6 +67,26 @@ final class DreamsController: NSObject {
             let remaining = max(1, min(3600, expiresAt?.timeIntervalSinceNow ?? lastDuration))
             try start(duration: remaining, brightness: lastBrightness)
         }
+    }
+
+    /// Every setting back to `DreamsPreset`, for both backgrounds. Live renderers follow at once.
+    func resetToDefaults() throws {
+        let defaults = UserDefaults.standard
+        for key in ["rainColor", "transparentRainColor", "rainGlow", "transparentRainGlow"] {
+            defaults.removeObject(forKey: key)
+        }
+        try setTransparentBackground(DreamsPreset.transparentBackground)
+        rainGlow = Self.storedGlow(transparent: transparentBackground)
+        rainColor = Self.storedRainColor(transparent: transparentBackground)
+        rainDensity = DreamsPreset.density
+        rainFadeRows = DreamsPreset.fadeRows
+        rainSpeed = DreamsPreset.speed
+        rainBrightnessSpread = DreamsPreset.brightnessSpread
+        rainIdleIntensity = DreamsPreset.idleIntensity
+        let words = DreamsPreset.keywordColor
+        keywordColor = NSColor(srgbRed: words[0], green: words[1], blue: words[2], alpha: 1)
+        keywordBrightness = DreamsPreset.keywordBrightness
+        try setRestoredGlyphs(DreamsPreset.restoredGlyphs)
     }
 
     func setRestoredGlyphs(_ enabled: Bool) throws {

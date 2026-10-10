@@ -143,7 +143,7 @@ Agent words in both rain sets are drawn in DreamsMatrix-Regular, in capitals onl
 
 ## Settings
 
-All settings are applied immediately and saved between launches.
+All settings are applied immediately and saved between launches. **Reset to Defaults** (bottom left of the window, with a confirmation) returns every setting, for both backgrounds, to the values of `DreamsPreset`. Presets like in Apple Terminal (named, switchable looks) are planned.
 
 - **Rain density** (0–100%, default 0%): length of the tail and the pause between passes. The scale is non-linear: 100% fills the whole grid after the initial pass, with no random holes or pauses; every column is active during a surge. Tail length is about 26–100% of the grid height; the lifetime is tied to the printing speed. At low density a dark pause remains between passes; at high density new passes follow faster and at 100% they are continuous. A new value applies to the next streams and does not bring back glyphs that already faded. Mutations do not extend a glyph's life. The number of busy columns is the current rain level (the calm background between messages, full during a surge) lifted towards all columns by the density: at 100% every column rains, calm or not. Which columns are busy is not fixed: at the end of every pass a column draws again whether it rains or rests for about one pass, so the pattern keeps changing; a surge wakes the resting columns at once.
 - **Fade width** (1–16 glyphs, default 3): how many rows dissolve at once from the top edge of a tail. At 1 the next glyph starts to fade after the previous has gone; at 16 the edge is soft. It applies to new streams regardless of density.

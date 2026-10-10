@@ -8,6 +8,12 @@
 
 "button.startMatrix" = "Start Matrix";
 "button.stop" = "Stop";
+"button.reset" = "Reset to Defaults";
+"button.reset.tip" = "Return all settings to their default values.";
+"button.cancel" = "Cancel";
+"reset.confirm.title" = "Reset all settings?";
+"reset.confirm.text" = "Colors, density, speed, glow, the calm background and the other settings return to their default values.";
+"reset.confirm.action" = "Reset";
 "button.quit" = "Quit Dreams";
 "hint.escape" = "The animation runs for 5 minutes, full screen. Exit with Esc or ⌃⌥⌘D.";
 
