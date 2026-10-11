@@ -218,6 +218,7 @@ final class DreamsSettingsDocumentView: NSView {
 
 @MainActor
 final class DreamsDelegate: NSObject, NSApplicationDelegate {
+    private let columnsLabel = NSTextField(labelWithString: "")
     private let densityLabel = NSTextField(labelWithString: "")
     private let fadeLabel = NSTextField(labelWithString: "")
     private let keywordBrightnessLabel = NSTextField(labelWithString: "")
@@ -315,7 +316,17 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
             rainColor.toolTip = L("rain.color.tip")
             rainColorWell = rainColor
             controlsByID["dreams.rain-color"] = rainColor
+            let automaticColumns = NSButton(checkboxWithTitle: L("rain.columns.auto"), target: self,
+                                            action: #selector(changeAutomaticColumns(_:)))
+            automaticColumns.state = controller.rainColumnCount == 0 ? .on : .off
+            automaticColumns.setAccessibilityIdentifier("dreams.rain-columns-auto")
+            controlsByID["dreams.rain-columns-auto"] = automaticColumns
             let rain = settingsGrid([
+                [Self.name(L("rain.grid")), automaticColumns, NSView()],
+                sliderRow(L("rain.columns"), value: Double(controller.rainColumnCount == 0
+                          ? controller.automaticColumnCount : controller.rainColumnCount), min: 24, max: 240,
+                          action: #selector(changeColumns(_:)), valueLabel: columnsLabel,
+                          identifier: "dreams.rain-columns", tip: L("rain.columns.tip")),
                 [Self.name(L("label.color")), rainColor, NSView()],
                 sliderRow(L("rain.density"), value: controller.rainDensity, min: 0, max: 1,
                           action: #selector(changeDensity(_:)), valueLabel: densityLabel,
@@ -337,7 +348,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                           identifier: "dreams.rain-glow",
                           tip: L("rain.glow.tip")),
             ])
-            glowSlider = rain.cell(atColumnIndex: 1, rowIndex: 5).contentView as? NSSlider
+            glowSlider = controlsByID["dreams.rain-glow"] as? NSSlider
 
             // Background between agent messages.
             let background = settingsGrid([
@@ -557,6 +568,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func refreshValueLabels() {
+        columnsLabel.stringValue = String(controller.rainColumnCount == 0
+            ? controller.automaticColumnCount : controller.rainColumnCount)
+        (controlsByID["dreams.rain-columns"] as? NSSlider)?.isEnabled = controller.rainColumnCount != 0
         densityLabel.stringValue = "\(Int((controller.rainDensity * 100).rounded()))%"
         speedLabel.stringValue = String(format: "%.2f×", controller.rainSpeed)
         fadeLabel.stringValue = L("rain.fade.value", Int(controller.rainFadeRows))
@@ -729,6 +743,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     /// Brings every control up to date with the controller (after a reset).
     private func syncControls() {
         func slider(_ id: String, _ value: Double) { (controlsByID[id] as? NSSlider)?.doubleValue = value }
+        slider("dreams.rain-columns", Double(controller.rainColumnCount == 0
+            ? controller.automaticColumnCount : controller.rainColumnCount))
+        (controlsByID["dreams.rain-columns-auto"] as? NSButton)?.state = controller.rainColumnCount == 0 ? .on : .off
         slider("dreams.rain-density", controller.rainDensity)
         slider("dreams.rain-speed", controller.rainSpeed)
         slider("dreams.rain-fade", controller.rainFadeRows)
@@ -790,6 +807,17 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func changeBrightnessSpread(_ sender: NSSlider) {
         controller.rainBrightnessSpread = sender.doubleValue
+        refreshValueLabels()
+    }
+
+    @objc private func changeAutomaticColumns(_ sender: NSButton) {
+        controller.rainColumnCount = sender.state == .on ? 0 : min(240, max(24, controller.automaticColumnCount))
+        syncControls()
+    }
+
+    @objc private func changeColumns(_ sender: NSSlider) {
+        controller.rainColumnCount = Int(sender.doubleValue.rounded())
+        sender.doubleValue = Double(controller.rainColumnCount)
         refreshValueLabels()
     }
 

@@ -112,7 +112,7 @@ final class MatrixRain {
     }
 
     func draw(encoder: any MTLRenderCommandEncoder, resolution: SIMD2<Float>, brightness: Float,
-              previewTime: Float? = nil, demoWorkingAgents: Int? = nil, density: Double = 0.8,
+              previewTime: Float? = nil, demoWorkingAgents: Int? = nil, columnCount: Int = 0, density: Double = 0.8,
               fadeRows: Double = 1, speed: Double = 1, brightnessSpread: Double = 1, glow: Double = 1, idleIntensity: Double = 0.2,
               keywordTint: SIMD3<Float> = SIMD3(0.10, 0.65, 0.24), keywordBrightness: Double = 1,
               rainTint: SIMD3<Float> = SIMD3(0.008, 0.26, 0.055)) {
@@ -165,10 +165,12 @@ final class MatrixRain {
         // Activity transitions and texture noise stay on real time. Only the
         // rain's writing, mutation and dissolution clock follows this control.
         simulationClock += elapsed * min(3, max(0.25, speed))
-        let rows = 72
-        let columns = max(24, Int(resolution.x / resolution.y * Float(rows)))
-        if simulation?.columns.count != columns {
+        let aspect = max(0.1, resolution.x / max(1, resolution.y))
+        let columns = columnCount == 0 ? max(24, Int(aspect * 72)) : min(240, max(24, columnCount))
+        let rows = columnCount == 0 ? 72 : max(8, Int((Float(columns) / aspect).rounded()))
+        if simulation?.columns.count != columns || simulation?.rows != rows {
             pulseWords.removeAll()
+            selections.removeAll()
             simulation = MatrixSimulation(columnCount: columns, rows: rows, glyphCount: symbols.count, density: density, fadeRows: fadeRows)
         }
         for column in Array(pulseWords.keys) where pulseWords[column]!.ends <= simulationClock {

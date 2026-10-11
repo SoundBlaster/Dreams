@@ -111,3 +111,8 @@
 "hook.interface" = "interface";
 "hook.delegate" = "delegating";
 "hook.work" = "work";
+
+"rain.grid" = "Grid";
+"rain.columns.auto" = "Automatic";
+"rain.columns" = "Columns";
+"rain.columns.tip" = "24–240 columns. Fewer columns make larger glyphs. Automatic preserves the original display grid.";

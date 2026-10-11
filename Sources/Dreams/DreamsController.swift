@@ -17,6 +17,7 @@ extension NSScreen {
 
 /// The default look: what a first launch (or a missing setting) falls back to.
 enum DreamsPreset {
+    static let columnCount = 0 // Automatic grid based on the display aspect ratio.
     static let density = 0.0
     static let fadeRows = 3.0
     static let speed = 0.43
@@ -104,6 +105,7 @@ final class DreamsController: NSObject {
         try setTransparentBackground(DreamsPreset.transparentBackground)
         rainGlow = Self.storedGlow(transparent: transparentBackground)
         rainColor = Self.storedRainColor(transparent: transparentBackground)
+        rainColumnCount = DreamsPreset.columnCount
         rainDensity = DreamsPreset.density
         rainFadeRows = DreamsPreset.fadeRows
         rainSpeed = DreamsPreset.speed
@@ -175,6 +177,26 @@ final class DreamsController: NSObject {
         restoredGlyphs = enabled
         UserDefaults.standard.set(enabled, forKey: "restoredGlyphs")
     }
+    /// Zero keeps the original automatic grid; otherwise use an exact horizontal count.
+    var rainColumnCount: Int = {
+        let value = UserDefaults.standard.integer(forKey: "rainColumnCount")
+        return value == 0 ? 0 : min(240, max(24, value))
+    }() {
+        didSet {
+            UserDefaults.standard.set(rainColumnCount, forKey: "rainColumnCount")
+            renderer?.rainColumnCount = rainColumnCount
+        }
+    }
+
+    private var rainScreen: NSScreen? {
+        NSScreen.screens.first { CGDisplayIsBuiltin($0.displayID) != 0 }
+    }
+
+    var automaticColumnCount: Int {
+        let size = rainScreen?.frame.size ?? NSSize(width: 1512, height: 982)
+        return max(24, Int(size.width / size.height * 72))
+    }
+
     var rainDensity: Double = {
         let value = UserDefaults.standard.object(forKey: "rainDensity") as? Double ?? DreamsPreset.density
         return value.isFinite ? min(1, max(0, value)) : DreamsPreset.density
@@ -322,6 +344,7 @@ final class DreamsController: NSObject {
             "rain_visible": rainIsOn,
             "transparent_background": transparentBackground,
             "hidden_from_screenshots": hideFromScreenshots,
+            "rain_columns": rainColumnCount,
             "rain_density": rainDensity,
             "rain_fade_rows": rainFadeRows,
             "rain_speed": rainSpeed,
@@ -383,7 +406,7 @@ final class DreamsController: NSObject {
     }
 
     private func begin(duration: Double?, brightness: Double) throws {
-        guard let screen = NSScreen.screens.first(where: { CGDisplayIsBuiltin($0.displayID) != 0 }) else {
+        guard let screen = rainScreen else {
             throw DreamsError.unavailable("No built-in display found. Refusing to cover an arbitrary display.")
         }
         stop(reason: .restart)
@@ -400,6 +423,7 @@ final class DreamsController: NSObject {
         renderer.rainSpeed = rainSpeed
         renderer.rainBrightnessSpread = rainBrightnessSpread
         renderer.rainFadeRows = rainFadeRows
+        renderer.rainColumnCount = rainColumnCount
         renderer.rainDensity = rainDensity
         renderer.brightness = Float(brightness)
         let window = NSPanel(contentRect: screen.frame, styleMask: [.borderless, .nonactivatingPanel],
@@ -494,6 +518,7 @@ final class DreamsController: NSObject {
         renderer.rainSpeed = rainSpeed
         renderer.rainBrightnessSpread = rainBrightnessSpread
         renderer.rainFadeRows = rainFadeRows
+        renderer.rainColumnCount = rainColumnCount
         renderer.rainDensity = rainDensity
         renderer.brightness = Float(lastBrightness)
         return try await renderer.previewPNG(posedTime: 6)

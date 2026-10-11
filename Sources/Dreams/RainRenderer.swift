@@ -7,6 +7,7 @@ final class RainRenderer: NSObject {
     private var keywords: MatrixRain
     private let library: any MTLLibrary
     private let transparentBackground: Bool
+    var rainColumnCount = DreamsPreset.columnCount
     var rainDensity = DreamsPreset.density
     var rainFadeRows = DreamsPreset.fadeRows
     var keywordTint = SIMD3<Float>(0.0, 1.0, 0.39)
@@ -69,7 +70,7 @@ final class RainRenderer: NSObject {
         }
         keywords.draw(encoder: encoder, resolution: SIMD2(Float(width), Float(height)),
             brightness: brightness, previewTime: posedTime, demoWorkingAgents: demoWorkingAgents,
-            density: rainDensity, fadeRows: rainFadeRows, speed: rainSpeed,
+            columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows, speed: rainSpeed,
             brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)
         encoder.endEncoding()
@@ -108,7 +109,7 @@ extension RainRenderer: @MainActor MTKViewDelegate {
               let encoder = buffer.makeRenderCommandEncoder(descriptor: descriptor) else { return }
         keywords.draw(encoder: encoder,
             resolution: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)),
-            brightness: brightness, density: rainDensity, fadeRows: rainFadeRows,
+            brightness: brightness, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)
         encoder.endEncoding()
