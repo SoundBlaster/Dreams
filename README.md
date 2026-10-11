@@ -55,7 +55,7 @@ Words and lines are drawn in the film's own letterforms, vertically, one glyph p
 
 Everything in the window applies at once and is remembered. **Reset to Defaults** brings back the default look.
 
-- **Rain**: color, density, speed, fade, brightness spread, glow.
+- **Rain**: color, column count (24–240 or Automatic), density, speed, fade, brightness spread, glow. Fewer columns make larger glyphs; Automatic keeps the original display grid.
 - **Between agent messages**: how calm the background is; transparent background; hide the rain from screenshots and recordings.
 - **Agent words**: color and brightness.
 - **Agent hooks**: connect or disconnect Codex and Claude Code.

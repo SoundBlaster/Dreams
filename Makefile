@@ -66,6 +66,7 @@ test: app test-unit
 	python3 scripts/smoke.py
 	python3 scripts/test-hook-pressure.py
 	$(PYTHON) scripts/test-transparent.py
+	$(PYTHON) scripts/test-columns.py
 
 glyphs:
 	$(PYTHON) scripts/glyphs/pipeline.py build
