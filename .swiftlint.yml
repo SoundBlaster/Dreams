@@ -1,0 +1,26 @@
+# Style rules that fit this codebase: dense, math-heavy rendering code with short names.
+included:
+  - Sources
+disabled_rules:
+  - identifier_name          # x, y, uv, rgb... are the natural names in the rendering and geometry code
+  - trailing_comma
+  - statement_position
+  - type_body_length
+  - function_body_length
+  - file_length
+  - cyclomatic_complexity
+  - function_parameter_count
+  - large_tuple
+  - nesting
+  - todo
+opt_in_rules:
+  - empty_count
+  - first_where
+  - sorted_first_last
+  - unused_import
+line_length:
+  warning: 160
+  error: 220
+  ignores_comments: true
+  ignores_urls: true
+  ignores_function_declarations: true

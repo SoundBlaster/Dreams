@@ -112,6 +112,7 @@ enum DreamsMain {
             intended for display. Publishing never opens the overlay. Hooks can provide automatic
             activity labels while MCP can provide more specific topics.
             """, capabilities: .init(tools: .init()))
+        // swiftlint:disable line_length
         let emptySchema: Value = .object(["type": "object", "properties": .object([:]),
                                           "additionalProperties": false])
         var tools: [Tool] = [
@@ -145,6 +146,7 @@ enum DreamsMain {
             Tool(name: "dreams_workspace_create", description: "EXPERIMENTAL: create a separate virtual display using a private macOS API and show a harmless Increment test window. Does not move existing apps or guarantee native agent compatibility.", inputSchema: emptySchema),
             Tool(name: "dreams_workspace_close", description: "Close the test window and disconnect only the virtual display owned by this Dreams process. Other windows placed on it may move to a physical display.", inputSchema: emptySchema)
         ]
+        // swiftlint:enable line_length
         if publisherOnly {
             tools = tools.filter { ["dreams_status", "dreams_preview", "dreams_publish_keywords", "dreams_clear_keywords"].contains($0.name) }
         }

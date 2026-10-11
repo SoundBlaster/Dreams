@@ -217,6 +217,15 @@ The artwork is `assets/icon/source.png`. `make icon` (`scripts/make-icon.py`) fr
 2. `make release` (signed, notarized DMG), then `make github-release` (tag and GitHub release).
 3. `make tap-update` clones `SoundBlaster/homebrew-tap`, checks that the published DMG is byte-identical to the local one, sets `version` and `sha256` in `Casks/dreams.rb`, and opens a PR (it asks first; `scripts/update-tap.sh --dry-run` only shows the diff). Merge that PR and `brew upgrade --cask dreams` picks the release up.
 
+## Continuous integration
+
+`.github/workflows/ci.yml` runs on every pull request and push to `main`, on a `macos-26` runner:
+
+- **Lint**: `swiftlint lint --strict` (configured in `.swiftlint.yml` for this code base), `ruff check scripts` (syntax errors and unused names, `ruff.toml`), `zsh -n` / `sh -n` on the shell scripts, and `scripts/check-docs.py` (relative Markdown links).
+- **Build and test**: the glyph pipeline must rebuild byte-identically (`make glyphs-verify`; `fonttools` comes from PyPI there, the requirements file points at a local checkout), the app must build with no compiler warnings in `Sources/Dreams`, then `make test-unit` and the string, hooks, uninstall and plugin checks. The MCP smoke test and the Metal alpha test are best effort there (`continue-on-error`): hosted macOS runners may expose no GPU.
+
+`make lint` and `make test` run the same checks locally.
+
 ## Testing
 
 ```sh

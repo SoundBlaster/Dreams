@@ -9,14 +9,14 @@ struct KeywordMessage: Codable, Equatable {
     let color: String
     let updatedAt: Date
     let expiresAt: Date
-    var activity: Activity? = nil
+    var activity: Activity?
     struct RainEvent: Codable, Equatable {
         let id: UUID
         let time: Date
         let label: String
     }
-    var events: [RainEvent]? = nil
-    var actionScore: Double? = nil
+    var events: [RainEvent]?
+    var actionScore: Double?
 
     func actionPressure(at now: Date) -> Double {
         guard isWorking, expiresAt > now else { return 0 }

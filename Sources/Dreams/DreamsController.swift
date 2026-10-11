@@ -381,7 +381,7 @@ final class DreamsController: NSObject {
 
     func statusJSON() throws -> String {
         let data = try JSONSerialization.data(withJSONObject: try status(), options: [.sortedKeys])
-        return String(decoding: data, as: UTF8.self)
+        return String(bytes: data, encoding: .utf8) ?? "{}"
     }
 
     /// The MCP entry point: an explicit duration of 1...3600 seconds.

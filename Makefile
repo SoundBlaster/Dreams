@@ -18,6 +18,7 @@ help:
 		'  make app              Build dist/Dreams.app (rebuilds the glyph font, ad-hoc signed)' \
 		'  make run              Quit a running Dreams, rebuild and open the app' \
 		'  make icon             Rebuild assets/AppIcon.icns from assets/icon/source.png' \
+		'  make lint             SwiftLint (strict), ruff, shell syntax, documentation links' \
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
@@ -50,6 +51,13 @@ run: app
 	-pkill -x Dreams
 	@sleep 1
 	open $(APP)
+
+lint:
+	swiftlint lint --strict --quiet
+	ruff check scripts
+	for script in scripts/*.sh; do zsh -n "$$script"; done
+	for script in $$(ls plugins/*/scripts/*.sh 2>/dev/null); do sh -n "$$script"; done
+	python3 scripts/check-docs.py
 
 test-unit:
 	swiftc -swift-version 6 Sources/Dreams/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
