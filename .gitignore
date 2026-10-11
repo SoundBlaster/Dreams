@@ -7,3 +7,4 @@ research/glyphs/build/
 .build/
 __pycache__/
 *.pyc
+.fsd-ios-tooling/

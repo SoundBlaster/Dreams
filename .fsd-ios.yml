@@ -1,0 +1,10 @@
+version: 1
+root: Sources/Dreams
+strict: true
+architecture: true
+rules:
+  rootStructure: true
+  layerSegments: true
+  sliceSegments: true
+  dependencyDirection: true
+  sameLayerSliceIsolation: true
