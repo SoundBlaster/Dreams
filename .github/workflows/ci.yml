@@ -15,10 +15,19 @@ jobs:
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install lint tools
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+        run: |
+          brew install swiftlint
+          python3 -m pip install ruff
       - name: SwiftLint (strict)
         run: swiftlint lint --strict --quiet
       - name: Ruff (syntax errors and unused names)
-        run: pipx run ruff check scripts
+        run: ruff check scripts
       - name: Shell script syntax
         run: |
           for script in scripts/*.sh; do zsh -n "$script"; done
@@ -59,7 +68,8 @@ jobs:
           python3 scripts/test-localization.py
           python3 scripts/test-hooks-install.py dist/Dreams.app/Contents/MacOS/Dreams
           python3 scripts/test-uninstall.py
-          python3 scripts/test-plugins.py
+          # Plugin support is introduced by a separate PR. Require its tests once it is present.
+          if [ -d plugins ]; then python3 scripts/test-plugins.py; fi
       - name: "MCP smoke and Metal rendering (best effort, hosted runners may have no GPU)"
         continue-on-error: true
         run: |
