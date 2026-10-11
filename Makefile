@@ -19,6 +19,7 @@ help:
 		'  make run              Quit a running Dreams, rebuild and open the app' \
 		'  make icon             Rebuild assets/AppIcon.icns from assets/icon/source.png' \
 		'  make lint             SwiftLint (strict), ruff, shell syntax, documentation links' \
+		'  make lint-architecture Strict FSD structure and Swift symbol dependencies' \
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
@@ -53,22 +54,30 @@ run: app
 	@sleep 1
 	open $(APP)
 
-lint:
+lint: lint-architecture
 	swiftlint lint --strict --quiet
 	ruff check scripts
 	for script in scripts/*.sh; do zsh -n "$$script"; done
 	for script in $$(ls plugins/*/scripts/*.sh 2>/dev/null); do sh -n "$$script"; done
 	python3 scripts/check-docs.py
 
+.PHONY: lint lint-architecture test-settings
+lint-architecture:
+	zsh scripts/lint-architecture.sh
+
 test-unit:
-	swiftc -swift-version 6 Sources/Dreams/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
+	swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
 	.build/activity-checks
-	swiftc -swift-version 6 Sources/Dreams/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
+	swiftc -swift-version 6 Sources/Dreams/features/rain/model/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
 	.build/matrix-checks
-	swiftc -swift-version 6 -parse-as-library Sources/Dreams/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
+	swiftc -swift-version 6 -parse-as-library Sources/Dreams/shared/lib/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
 	.build/hotkey-checks
 
-test: app test-unit
+test-settings:
+	zsh scripts/test-settings.sh
+
+test: app test-unit test-settings
+	python3 scripts/test-architecture.py
 	python3 scripts/test-localization.py
 	python3 scripts/test-hooks-install.py $(APP)/Contents/MacOS/Dreams
 	python3 scripts/test-uninstall.py

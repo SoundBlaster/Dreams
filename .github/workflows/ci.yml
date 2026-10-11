@@ -26,6 +26,10 @@ jobs:
           python3 -m pip install ruff
       - name: SwiftLint (strict)
         run: swiftlint lint --strict --quiet
+      - name: FSD architecture (strict, pinned tooling)
+        run: make lint-architecture
+      - name: Architecture gate regression checks
+        run: python3 scripts/test-architecture.py
       - name: Ruff (syntax errors and unused names)
         run: ruff check scripts
       - name: Shell script syntax
@@ -63,6 +67,8 @@ jobs:
           if grep -E "Sources/Dreams.*warning:" build.log; then echo "::error::Compiler warnings in Sources/Dreams"; exit 1; fi
       - name: Unit checks
         run: make test-unit
+      - name: Settings page controls
+        run: make test-settings
       - name: Strings, hooks, uninstall, plugins
         run: |
           python3 scripts/test-localization.py

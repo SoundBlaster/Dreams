@@ -30,6 +30,8 @@ Or download the notarized `Dreams-<version>.dmg` from the [latest release](https
 
 Or build it yourself: `make app` (Swift 6.2+), then `open dist/Dreams.app`.
 
+The AppKit GUI follows [Feature-Sliced Design](docs/ARCHITECTURE.md); `make lint` includes the pinned architecture gate.
+
 ## Quick start
 
 1. Open Dreams. Its window appears and a glyph icon sits in the menu bar.

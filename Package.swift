@@ -17,6 +17,7 @@ let package = Package(
         .executableTarget(name: "Dreams", dependencies: [
             "VirtualDisplayBridge", .product(name: "MCP", package: "swift-sdk"),
             .product(name: "Logging", package: "swift-log")
-        ], resources: [.copy("Rain.metal"), .copy("Matrix-Code.ttf"), .copy("DreamsMatrix.ttf"), .process("Localization")])
+        ], resources: [.copy("Rain.metal"), .copy("Matrix-Code.ttf"), .copy("DreamsMatrix.ttf"), .process("shared/assets/Localization")]),
+        .testTarget(name: "DreamsTests", dependencies: ["Dreams"])
     ]
 )
