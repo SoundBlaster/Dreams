@@ -188,8 +188,12 @@ final class DreamsController: NSObject {
         }
     }
 
+    private var rainScreen: NSScreen? {
+        NSScreen.screens.first { CGDisplayIsBuiltin($0.displayID) != 0 }
+    }
+
     var automaticColumnCount: Int {
-        let size = NSScreen.main?.frame.size ?? NSSize(width: 1512, height: 982)
+        let size = rainScreen?.frame.size ?? NSSize(width: 1512, height: 982)
         return max(24, Int(size.width / size.height * 72))
     }
 
@@ -402,7 +406,7 @@ final class DreamsController: NSObject {
     }
 
     private func begin(duration: Double?, brightness: Double) throws {
-        guard let screen = NSScreen.screens.first(where: { CGDisplayIsBuiltin($0.displayID) != 0 }) else {
+        guard let screen = rainScreen else {
             throw DreamsError.unavailable("No built-in display found. Refusing to cover an arbitrary display.")
         }
         stop(reason: .restart)

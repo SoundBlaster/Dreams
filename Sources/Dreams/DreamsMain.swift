@@ -348,7 +348,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                           identifier: "dreams.rain-glow",
                           tip: L("rain.glow.tip")),
             ])
-            glowSlider = rain.cell(atColumnIndex: 1, rowIndex: 5).contentView as? NSSlider
+            glowSlider = controlsByID["dreams.rain-glow"] as? NSSlider
 
             // Background between agent messages.
             let background = settingsGrid([
