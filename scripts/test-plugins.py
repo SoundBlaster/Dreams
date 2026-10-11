@@ -2,7 +2,6 @@
 """Check the Claude Code and Codex plugins in plugins/ and their marketplaces."""
 import json
 import os
-import re
 import shutil
 import subprocess
 import sys
