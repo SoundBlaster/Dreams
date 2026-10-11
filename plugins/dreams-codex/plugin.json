@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dreams",
+  "version": "0.1.3",
+  "description": "Matrix digital rain that follows your coding agents: every message floods the screen, every tool call runs down it as a line. Needs the Dreams app.",
+  "extensions": {
+    "com.openai": {
+      "hooks": "./hooks/hooks.json",
+      "interface": {
+        "displayName": "Dreams",
+        "shortDescription": "Matrix rain that follows your agents",
+        "category": "Coding"
+      }
+    }
+  }
+}

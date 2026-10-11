@@ -1,0 +1,14 @@
+{
+  "name": "dreams",
+  "description": "Dreams: Matrix digital rain for coding agents",
+  "owner": {
+    "name": "Egor Merkushev"
+  },
+  "plugins": [
+    {
+      "name": "dreams",
+      "source": "./plugins/dreams-claude",
+      "description": "Hooks and a status MCP server for the Dreams app (install the app first: brew install --cask SoundBlaster/tap/dreams)."
+    }
+  ]
+}

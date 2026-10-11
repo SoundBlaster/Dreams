@@ -642,17 +642,28 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     private func refreshHooks() {
         for (source, _) in HooksInstaller.targets {
             let state = HooksInstaller.state(source: source)
-            hookStatusLabels[source]?.stringValue = L(state == .connected ? "hooks.state.connected"
-                : state == .outdated ? "hooks.state.outdated" : "hooks.state.notConnected")
+            let statusKey: String
+            switch state {
+            case .connected: statusKey = "hooks.state.connected"
+            case .outdated: statusKey = "hooks.state.outdated"
+            case .plugin: statusKey = "hooks.state.plugin"
+            case .duplicate: statusKey = "hooks.state.duplicate"
+            case .notConnected: statusKey = "hooks.state.notConnected"
+            }
+            hookStatusLabels[source]?.stringValue = L(statusKey)
             hookStatusLabels[source]?.toolTip = Bundle.main.executablePath.map { L("hooks.path.tip", $0) }
             hookButtons[source]?.title = L(state == .connected ? "button.disconnect"
-                : state == .outdated ? "button.update" : "button.connect")
+                : state == .outdated ? "button.update" : state == .duplicate ? "button.removeDuplicate"
+                : state == .plugin ? "button.plugin" : "button.connect")
+            // With the plugin there is nothing to connect here: it is managed by the agent's plugin commands.
+            hookButtons[source]?.isEnabled = state != .plugin
         }
     }
 
     @objc private func toggleHooks(_ sender: NSButton) {
         guard let source = sender.identifier?.rawValue else { return }
-        let connected = HooksInstaller.state(source: source) == .connected
+        let state = HooksInstaller.state(source: source)
+        let connected = state == .connected || state == .duplicate
         do { _ = try HooksInstaller.run(uninstall: connected, dryRun: false, only: [source]) }
         catch { show(error: error) }
         refreshHooks()

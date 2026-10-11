@@ -39,6 +39,22 @@ Or build it yourself: `make app` (Swift 6.2+), then `open dist/Dreams.app`.
 
 The same from a terminal: `/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks`. Nothing leaves your Mac: the hooks only write short labels to a local mailbox.
 
+### Or as a plugin
+
+Instead of **Connect** you can install the Dreams plugin, which carries the same hooks (and a read-only status MCP server) and is updated by the agent's own plugin commands:
+
+```sh
+claude plugin marketplace add SoundBlaster/Dreams
+claude plugin install dreams@dreams
+```
+
+```sh
+codex plugin marketplace add SoundBlaster/Dreams
+codex plugin add dreams@dreams
+```
+
+Codex asks you to review and trust the plugin's hooks in `/hooks`. Use either the plugin or **Connect** for an agent, not both: with both, every event would arrive twice. The Dreams window notices the plugin and shows *Connected via plugin* (or *Connected twice*, with a button to remove the duplicate). The plugin does not install the app: `brew install --cask SoundBlaster/tap/dreams` first; without the app its hooks do nothing and say nothing.
+
 ## What it shows
 
 | Moment | In the rain |
