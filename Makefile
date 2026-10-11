@@ -23,6 +23,7 @@ help:
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
 		'  make test-displays    Opt-in live display lifecycle and Screener settings trace' \
 		'  make test-exit        Opt-in Esc, exit button, focus and display unplug checks' \
+		'  make test-gui-trace   Record settings scenarios with Screener (local GUI session)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
 		'  make glyphs-verify    Check that a rebuild is byte-identical' \
@@ -67,7 +68,7 @@ lint: lint-architecture
 	for script in $$(ls plugins/*/scripts/*.sh 2>/dev/null); do sh -n "$$script"; done
 	python3 scripts/check-docs.py
 
-.PHONY: lint lint-architecture test-settings
+.PHONY: lint lint-architecture test-settings test-gui-trace
 lint-architecture:
 	zsh scripts/lint-architecture.sh
 
@@ -88,6 +89,9 @@ test-exit:
 
 test-settings:
 	zsh scripts/test-settings.sh
+
+test-gui-trace:
+	python3 scripts/test-gui-trace.py
 
 test: app test-unit test-settings
 	python3 scripts/test-architecture.py
