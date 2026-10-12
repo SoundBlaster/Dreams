@@ -75,6 +75,10 @@ element('preserveWidth').checked=true;element('preserveWidth').onchange();
 assert.equal(state().glyphs[4].preserveWidth,true);
 assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs[4].preserveWidth,true);
 element('undo').onclick();assert.equal(state().glyphs[4].preserveWidth,undefined);
+const beforeJoin=state();element('strokeJoin').value='miter';element('strokeJoin').onchange();
+assert.equal(state().glyphs[4].strokes[0].join,'miter');
+assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs[4].strokes[0].join,'miter');
+element('undo').onclick();assert.deepEqual(state(),beforeJoin);
 const originalCap=state().glyphs[4].strokes[0].endCap;
 element('endCap').value='round';element('endCap').onchange();
 assert.equal(state().glyphs[4].strokes[0].endCap,'round');
@@ -88,6 +92,17 @@ const stage=element('stage');stage.events.pointerdown({target:{dataset:{key:'sta
 stage.events.pointermove({clientX:40,clientY:34,pointerId:7});stage.events.pointerup({pointerId:7});
 assert.deepEqual(state().glyphs[4].strokes[0].segments[0].start,[71.5588,34]);
 element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].segments[0].start[0],18);
+const snapBefore=state(), snapSegment=snapBefore.glyphs[4].strokes[0].segments[0];
+stage.events.pointerdown({target:{dataset:{key:'end'}},pointerId:8,preventDefault(){}});
+stage.events.pointermove({clientX:40,clientY:snapSegment.start[1]+1,pointerId:8,shiftKey:true});stage.events.pointerup({pointerId:8});
+assert.equal(state().glyphs[4].strokes[0].segments[0].end[1],snapSegment.start[1]);
+element('undo').onclick();assert.deepEqual(state(),snapBefore);
+stage.events.pointerdown({target:{dataset:{key:'start'}},pointerId:9,preventDefault(){}});
+// Mirrored 85% glyph: screen x that maps to the opposite endpoint's x.
+const screenX=54.5+(snapSegment.end[0]-54.5)*-.85;
+stage.events.pointermove({clientX:screenX,clientY:90,pointerId:9,shiftKey:true});stage.events.pointerup({pointerId:9});
+assert.equal(state().glyphs[4].strokes[0].segments[0].start[0],snapSegment.end[0]);
+element('undo').onclick();assert.deepEqual(state(),snapBefore);
 const count=state().glyphs[4].strokes[0].segments.length;
 element('addSegmentAfter').onclick();assert.equal(state().glyphs[4].strokes[0].segments.length,count+1);
 element('removeSegment').onclick();assert.equal(state().glyphs[4].strokes[0].segments.length,count);

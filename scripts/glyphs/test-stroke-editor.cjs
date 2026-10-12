@@ -8,6 +8,27 @@ assert.equal(seed.glyphs.length,46);
 let checks=0;
 function check(name,fn){fn();checks++;console.log('PASS:',name);}
 const base = {segments:[{kind:'line',start:[10,20],mid:[45,20],end:[80,20]}],width:10,peak:.3,startWidth:4,endWidth:6,startCap:'flat',endCap:'flat'};
+check('explicit joins distinguish sharp, bevel and round corners while preserving legacy outlines',()=>{
+  const stroke={...base,width:10,startWidth:10,endWidth:10,segments:[{kind:'line',start:[20,20],mid:[40,20],end:[60,20]},{kind:'line',start:[60,20],mid:[60,40],end:[60,60]}]};
+  const contains=(d,x,y)=>d.match(/M[^Z]+Z/g).some(poly=>{
+    const points=poly.slice(1,-1).split('L').map(p=>p.split(' ').map(Number));let inside=false;
+    for(let i=0,j=points.length-1;i<points.length;j=i++) {const a=points[i],b=points[j];if((a[1]>y)!==(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])inside=!inside;}
+    return inside;
+  });
+  assert.equal(M.outline(stroke),M.outline({...stroke,join:'legacy'}));
+  const miter=M.outline({...stroke,join:'miter'}),bevel=M.outline({...stroke,join:'bevel'}),round=M.outline({...stroke,join:'round'});
+  assert.equal(contains(miter,64,16),true);assert.equal(contains(bevel,64,16),false);assert.equal(contains(round,64,16),false);
+  assert.equal(contains(round,63,17),true);assert.equal(contains(bevel,63,17),false);
+  for(const join of ['miter','bevel','round'])for(const stretch of [.5,1,1.2]){
+    const g=M.copy(seed.glyphs[0]);g.strokes=[{...stroke,join}];g.stretch=stretch;g.preserveWidth=true;
+    M.validate({...seed,glyphs:[g]});assert.ok(!/NaN|Infinity/.test(M.svg(g,seed.attribution)));
+  }
+  const reversed={...stroke,segments:stroke.segments.toReversed().map(s=>({...s,start:s.end,end:s.start}))};
+  assert.equal(contains(M.outline({...reversed,join:'miter'}),64,16),true);
+  assert.equal(contains(M.outline({...reversed,join:'bevel'}),64,16),false);
+  assert.equal(contains(M.outline({...reversed,join:'round'}),63,17),true);
+  const invalid=M.copy(seed);invalid.glyphs[0].strokes[0].join='invalid';assert.throws(()=>M.validate(invalid));
+});
 check('middle handle is on curve; straight lines ignore off-axis middle handles',()=>{
   const part={kind:'arc',start:[10,20],mid:[40,75],end:[85,25]};
   assert.deepEqual(M.point(part,0),part.start);assert.deepEqual(M.point(part,.5),part.mid);assert.deepEqual(M.point(part,1),part.end);

@@ -61,17 +61,46 @@
   const number = v => Number(v.toFixed(4));
   function outline(stroke, widthStretch=1) {
     const pts = samples(stroke), polygons = [];
+    // Explicit joins sweep each section independently, retaining global arc-length pressure.
+    let groups=[pts];
+    if(stroke.join && stroke.join!=='legacy') {
+      groups=stroke.segments.map(segment=>samples({segments:[segment]})).filter(group=>group.length>1);
+      const lengths=groups.map(group=>group.slice(1).reduce((sum,p,i)=>sum+distance(p,group[i]),0)),total=lengths.reduce((a,b)=>a+b,0);
+      let offset=0;
+      groups=groups.map((group,i)=>{const result=group.map(p=>[p[0],p[1],(offset+p[2]*lengths[i])/total]);offset+=lengths[i];return result;});
+    }
+    for(const group of groups) {
     let previous = [];
-    for (let i=0; i<pts.length; i++) {
-      const a = pts[Math.max(0,i-1)], b = pts[Math.min(pts.length-1,i+1)];
+    for (let i=0; i<group.length; i++) {
+      const a = group[Math.max(0,i-1)], b = group[Math.min(group.length-1,i+1)];
       // Build normals in displayed coordinates, then map back into the glyph group.
       const dx=(b[0]-a[0])*widthStretch, dy=b[1]-a[1], norm=Math.hypot(dx,dy)||1;
       const nx=-dy/norm/widthStretch, ny=dx/norm;
-      const [x,y,s] = pts[i], r = widthAt(stroke,s)/2;
+      const [x,y,s] = group[i], r = widthAt(stroke,s)/2;
       const current = [[x+nx*r,y+ny*r],[x-nx*r,y-ny*r]];
       const polygon = hull([...previous,...current]);
       if (polygon.length >= 3) polygons.push(polygon);
       previous = current;
+    }
+    }
+    if(groups.length>1)for(let i=1;i<groups.length;i++) {
+      const before=groups[i-1],after=groups[i],p=after[0],r=widthAt(stroke,p[2])/2;
+      const tangent=(a,b)=>{const dx=(b[0]-a[0])*widthStretch,dy=b[1]-a[1],l=Math.hypot(dx,dy);return l>1e-9?[dx/l,dy/l]:null;};
+      const u=tangent(before.at(-2),before.at(-1)),v=tangent(after[0],after[1]);if(!u||!v||!r)continue;
+      const cross=u[0]*v[1]-u[1]*v[0];if(Math.abs(cross)<1e-7)continue;
+      const sign=cross>0?-1:1,local=q=>[p[0]+q[0]/widthStretch,p[1]+q[1]];
+      const a=[-u[1]*r*sign,u[0]*r*sign],b=[-v[1]*r*sign,v[0]*r*sign];
+      if(stroke.join==='round') {
+        polygons.push(hull(Array.from({length:48},(_,j)=>local([Math.cos(j*Math.PI/24)*r,Math.sin(j*Math.PI/24)*r]))));
+      } else {
+        const wedge=[[p[0],p[1]],local(a)];
+        if(stroke.join==='miter') {
+          const t=((b[0]-a[0])*v[1]-(b[1]-a[1])*v[0])/cross,tip=[a[0]+t*u[0],a[1]+t*u[1]];
+          // Limit acute spikes to four half-widths, falling back to bevel.
+          if(Math.hypot(...tip)<=r*4)wedge.push(local(tip));
+        }
+        wedge.push(local(b));polygons.push(hull(wedge));
+      }
     }
     // Shallow half-ellipses soften each terminal independently. Their depth is
     // 35% of the local half-width, so the tip stays gently rounded, not bulbous.
@@ -150,6 +179,7 @@
       if (!finite(g.stretch,.5,1.2) || typeof g.mirror !== 'boolean') fail('Неверные пропорции знака');
       if (!Array.isArray(g.strokes) || !g.strokes.length || g.strokes.length>24) fail('Нужно от 1 до 24 штрихов');
       for (const st of g.strokes) {
+        if(st.join!==undefined&&!['legacy','miter','bevel','round'].includes(st.join))fail('Неверное соединение участков');
         if (!finite(st.width,.5,16) || !finite(st.startWidth,0,st.width) || !finite(st.endWidth,0,st.width) || !finite(st.peak,.05,.95)) fail('Неверный профиль толщины');
         if (!['sharp','flat','round'].includes(st.startCap) || !['sharp','flat','round'].includes(st.endCap)) fail('Неверное окончание');
         if (!Array.isArray(st.segments) || !st.segments.length || st.segments.length>32) fail('Нужно от 1 до 32 участков');

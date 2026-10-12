@@ -78,6 +78,7 @@ function renderControls() {
   el('stretch').value=Math.round(g.stretch*100);el('stretchValue').textContent=Math.round(g.stretch*100)+'%';
   el('placementStatus').textContent=g.placement?`Масштаб всего глифа: ${(g.placement.scale*100).toFixed(1)}% · включая толщину`:'';
   el('resetPlacement').disabled=!g.placement;
+  el('strokeJoin').value=s.join||'legacy';
   el('mirror').checked=g.mirror;el('preserveWidth').checked=!!g.preserveWidth;
   for(const k of ['start','end']){el(k+'Cap').value=s[k+'Cap'];el(k+'Width').disabled=s[k+'Cap']==='sharp';}
   for(const kind of ['line','arc'])el(kind).setAttribute('aria-pressed',String(part.kind===kind));
@@ -157,6 +158,7 @@ for(const id of ['width','peak','startWidth','endWidth','stretch']) {
 for(const id of ['startCap','endCap'])el(id).onchange=()=>{const value=el(id).value;edit(()=>{currentStroke()[id]=value;});};
 el('mirror').onchange=()=>{const value=el('mirror').checked;edit(()=>{currentGlyph().mirror=value;});};
 el('preserveWidth').onchange=()=>{const value=el('preserveWidth').checked;edit(()=>{currentGlyph().preserveWidth=value;});};
+el('strokeJoin').onchange=()=>{const join=el('strokeJoin').value;edit(()=>{if(join==='legacy')delete currentStroke().join;else currentStroke().join=join;});};
 el('fitGlyph').onclick=()=>edit(()=>M.fitGlyph(currentGlyph(),fontMetrics));
 el('resetPlacement').onclick=()=>edit(()=>{delete currentGlyph().placement;});
 el('handles').onchange=paint;
@@ -402,7 +404,7 @@ el('stage').addEventListener('pointerdown',event=>{
     else if(event.target.dataset.stroke!==undefined){strokeIndex=Number(event.target.dataset.stroke);segmentIndex=0;renderControls();paint();}
     return;
   }
-  finishRange();drag={key,before:snapshot(),pointer:event.pointerId};el('stage').setPointerCapture(event.pointerId);event.preventDefault();
+  finishRange();drag={key,before:snapshot(),pointer:event.pointerId,anchor:[...currentSegment()[key==='start'?'end':key==='end'?'start':'mid']]};el('stage').setPointerCapture(event.pointerId);event.preventDefault();
 });
 el('stage').addEventListener('pointermove',event=>{
   if(moveReferenceDrag(event))return;
@@ -414,7 +416,12 @@ el('stage').addEventListener('pointermove',event=>{
     renderControls();paint();return;
   }
   const p=new DOMPoint(event.clientX,event.clientY).matrixTransform(el('geometry').getScreenCTM().inverse());
-  M.setPoint(currentStroke(),segmentIndex,drag.key,[p.x,p.y]);renderControls();paint();
+  let position=[p.x,p.y];
+  if(event.shiftKey) {
+    const a=drag.anchor,g=currentGlyph(),dx=Math.abs((p.x-a[0])*g.stretch),dy=Math.abs(p.y-a[1]);
+    position=dx>=dy?[p.x,a[1]]:[a[0],p.y];
+  }
+  M.setPoint(currentStroke(),segmentIndex,drag.key,position);renderControls();paint();
 });
 function endDrag(event) {
   if(referenceDrag && event.pointerId===referenceDrag.pointer){referenceDrag=null;storeReferences();return;}

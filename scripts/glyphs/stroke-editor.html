@@ -30,7 +30,7 @@
 <div class="actions"><button id="addStroke">＋ Штрих</button><button id="removeStroke">Удалить штрих</button></div>
 
 <div class="actions"><button id="line" aria-pressed="false">Прямая</button><button id="arc" aria-pressed="false">Дуга</button><button id="addSegmentBefore" title="Вставить перед выбранным участком">＋ До</button><button id="addSegmentAfter" title="Вставить после выбранного участка">＋ После</button><button id="removeSegment">− Участок</button></div>
-<div class="coords" id="coordinates"></div>
+<label>Соединение участков<select id="strokeJoin" aria-label="Соединение участков"><option value="legacy">Текущее · автоматически</option><option value="miter">Miter · острое</option><option value="bevel">Bevel · скошенное</option><option value="round">Round · округлое</option></select></label><div class="coords" id="coordinates"></div><p class="hint">Shift + конец участка: выровнять по горизонтали/вертикали относительно другого конца. Shift + середина: двигать вдоль одной оси.</p>
 <div class="divider"><h2>Толщина по длине</h2><svg id="widthGraph" viewBox="0 0 260 65" aria-label="Профиль толщины"></svg></div>
 <label><span>Максимальная толщина <output id="widthValue"></output></span><input id="width" type="range" min="0.5" max="16" step="0.1"></label>
 <label><span>Место максимума <output id="peakValue"></output></span><input id="peak" type="range" min="5" max="95" step="1"></label>
