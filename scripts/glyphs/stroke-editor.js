@@ -5,6 +5,8 @@ const el = id => document.getElementById(id);
 const STORAGE = 'dreams.stroke-editor.v1';
 let project = M.copy(seed), selected = 4, strokeIndex = 0, segmentIndex = 0;
 let history = [], future = [], rangeBefore = null, drag = null;
+let references = [], referenceSelected = -1, referenceDrag = null;
+const REFERENCE_STORAGE = STORAGE+'.references';
 let checkpointParent = null, checkpointHead = null, checkpointBusy = false, checkpointAvailable = false;
 const currentGlyph = () => project.glyphs[selected];
 const currentStroke = () => currentGlyph().strokes[strokeIndex];
@@ -79,13 +81,13 @@ function paint() {
     return `<circle cx="${x}" cy="${y}" r="1.8" fill="${colors[i]}" data-key="${key}"/>`;
   }).join('');
   const allPoints=s.segments.map((seg,i)=>`<circle cx="${seg.start[0]}" cy="${seg.start[1]}" r=".8" fill="#afc0b3" data-segment="${i}"/>`).join('');
-  el('stage').innerHTML=`<defs><pattern id="grid" width="10.9" height="10.9" patternUnits="userSpaceOnUse"><path d="M10.9 0H0V10.9" fill="none" stroke="#dae0d3" stroke-width=".16"/></pattern></defs><rect width="109" height="109" fill="url(#grid)"/><path d="M54.5 0V109M0 54.5H109" stroke="#b9caba" stroke-width=".25"/><g id="geometry" transform="${M.transform(g)}"><g fill="#173b2e" fill-rule="nonzero">${ink}</g><g class="guides">${guides}${allPoints}${handles}</g></g>`;
+  el('stage').innerHTML=`<defs><pattern id="grid" width="10.9" height="10.9" patternUnits="userSpaceOnUse"><path d="M10.9 0H0V10.9" fill="none" stroke="#dae0d3" stroke-width=".16"/></pattern></defs><rect width="109" height="109" fill="url(#grid)"/><path d="M54.5 0V109M0 54.5H109" stroke="#b9caba" stroke-width=".25"/>${referenceMarkup()}<g id="geometry" transform="${M.transform(g)}"><g fill="#173b2e" fill-rule="nonzero">${ink}</g><g class="guides">${guides}${allPoints}${handles}</g></g>${referenceFrame()}`;
   el('stage').classList.toggle('hide-handles',!el('handles').checked);
   el('sizes').innerHTML=[20,26,32,48].map(size=>`<div class="sample"><svg width="${size}" height="${size}" viewBox="0 0 109 109" aria-label="${size} пикселей"><g fill="#41d88a" transform="${M.transform(g)}">${ink}</g></svg><span>${size}px</span></div>`).join('');
   const points=Array.from({length:101},(_,i)=>`${10+i*2.4},${55-M.widthAt(s,i/100)/16*45}`).join(' ');
   el('widthGraph').innerHTML=`<path d="M10 10V55H250" fill="none" stroke="#c0cab8"/><polyline points="${points}" stroke="#277758" stroke-width="2" fill="none"/><circle cx="${10+s.peak*240}" cy="${55-s.width/16*45}" r="3" fill="#cb8731"/>`;
 }
-function render(){el('credit').textContent=project.attribution;renderAlphabet();renderControls();paint();}
+function render(){renderReferences();el('credit').textContent=project.attribution;renderAlphabet();renderControls();paint();}
 function blankStroke() {return {segments:[{kind:'line',start:[35,30],mid:[50,50],end:[65,70]}],width:7.5,peak:.5,startWidth:5,endWidth:5,startCap:'flat',endCap:'flat'};}
 function download(name,data,type) {
   const url=URL.createObjectURL(new Blob([data],{type}));
@@ -170,6 +172,109 @@ el('projectFile').onchange=async()=>{
   } catch(error){status('Не удалось открыть: '+error.message,true);}
   finally{el('projectFile').value='';}
 };
+
+function selectedReference() {return references[referenceSelected];}
+function validateReferences(data) {
+  if(!data||data.schema!=='dreams.references/v1'||!Array.isArray(data.images)||data.images.length>24)throw new Error('Неверный файл референсов (максимум 24 изображения).');
+  for(const r of data.images) {
+    if(!r||typeof r.character!=='string'||[...r.character].length!==1||typeof r.name!=='string'||r.name.length>200||
+      typeof r.src!=='string'||!/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(r.src)||
+      !['x','y','width','height','opacity'].every(k=>Number.isFinite(r[k]))||
+      Math.abs(r.x)>1000||Math.abs(r.y)>1000||r.width<1||r.width>1000||r.height<1||r.height>1000||r.opacity<0||r.opacity>1||
+      !['flipX','flipY','locked','ratio'].every(k=>typeof r[k]==='boolean'))throw new Error('Повреждённые параметры изображения.');
+  }
+  return data.images;
+}
+function storeReferences() {
+  try{localStorage.setItem(REFERENCE_STORAGE,JSON.stringify({schema:'dreams.references/v1',images:references}));el('referenceStatus').textContent='Референсы сохранены в браузере. Для переносимой копии сохрани референсы JSON.';}
+  catch{el('referenceStatus').textContent='Не хватает места в браузере. Сохрани референсы JSON, чтобы не потерять изображения.';}
+}
+function loadReferences() {
+  try{const saved=localStorage.getItem(REFERENCE_STORAGE);if(saved)references=validateReferences(JSON.parse(saved));}
+  catch{el('referenceStatus').textContent='Сохранённые референсы не прочитаны; исходная копия в браузере сохранена.';}
+}
+function renderReferences() {
+  const visible=references.map((r,i)=>[r,i]).filter(([r])=>r.character===currentGlyph().character);
+  if(!visible.some(([,i])=>i===referenceSelected))referenceSelected=visible[0]?.[1]??-1;
+  const list=el('referenceList');list.replaceChildren();
+  for(const [r,i] of visible){const o=document.createElement('option');o.value=i;o.textContent=r.name;list.append(o);}
+  list.value=referenceSelected;
+  const r=selectedReference();
+  for(const id of ['referenceList','referenceRemove','referenceX','referenceY','referenceWidth','referenceHeight','referenceRatio','referenceLock','referenceFlipX','referenceFlipY','referenceOpacity'])el(id).disabled=!r;
+  if(!r)return;
+  for(const [id,key] of [['referenceX','x'],['referenceY','y'],['referenceWidth','width'],['referenceHeight','height']]){el(id).value=+r[key].toFixed(2);el(id).disabled=r.locked;}
+  el('referenceRatio').checked=r.ratio;el('referenceLock').checked=r.locked;el('referenceOpacity').value=Math.round(r.opacity*100);
+  el('referenceFlipX').disabled=el('referenceFlipY').disabled=r.locked;
+}
+function referenceMarkup() {
+  return references.map((r,i)=>r.character!==currentGlyph().character?'':`<image href="${r.src}" width="${r.width}" height="${r.height}" preserveAspectRatio="none" opacity="${r.opacity}" transform="translate(${r.x+(r.flipX?r.width:0)} ${r.y+(r.flipY?r.height:0)}) scale(${r.flipX?-1:1} ${r.flipY?-1:1})" data-reference="${i}" style="cursor:${r.locked?'default':'move'};pointer-events:${r.locked?'none':'all'}"/>`).join('');
+}
+function referenceFrame() {
+  const r=selectedReference();if(!r||r.locked)return '';
+  return `<g fill="#fffdf6" stroke="#b17f24" stroke-width=".3"><rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="none" stroke-dasharray="1 1" pointer-events="none"/>${['nw','ne','sw','se'].map(c=>`<rect x="${r.x+(c[1]==='e'?r.width:0)-1}" y="${r.y+(c[0]==='s'?r.height:0)-1}" width="2" height="2" data-reference="${referenceSelected}" data-corner="${c}" style="cursor:${c==='nw'||c==='se'?'nwse':'nesw'}-resize"/>`).join('')}</g>`;
+}
+function referencePoint(event) {
+  const p=new DOMPoint(event.clientX,event.clientY).matrixTransform(el('stage').getScreenCTM().inverse());return [p.x,p.y];
+}
+function beginReferenceDrag(event) {
+  if(event.target.dataset.reference===undefined)return false;
+  referenceSelected=Number(event.target.dataset.reference);const r=selectedReference();if(!r||r.locked)return true;
+  finishRange();referenceDrag={pointer:event.pointerId,start:referencePoint(event),before:{...r},corner:event.target.dataset.corner};
+  el('stage').setPointerCapture(event.pointerId);event.preventDefault();renderReferences();paint();return true;
+}
+function resizeReference(before,corner,dx,dy,uniform) {
+  const east=corner[1]==='e',south=corner[0]==='s';
+  let w=Math.max(1,Math.min(1000,before.width+(east?dx:-dx))), h=Math.max(1,Math.min(1000,before.height+(south?dy:-dy)));
+  if(uniform){const scale=Math.abs(w/before.width-1)>Math.abs(h/before.height-1)?w/before.width:h/before.height;
+    const bounded=Math.max(1/Math.min(before.width,before.height),Math.min(1000/Math.max(before.width,before.height),scale));w=before.width*bounded;h=before.height*bounded;}
+  return {width:w,height:h,x:east?before.x:before.x+before.width-w,y:south?before.y:before.y+before.height-h};
+}
+function moveReferenceDrag(event) {
+  if(!referenceDrag||referenceDrag.pointer!==event.pointerId)return false;
+  const d=referenceDrag,r=selectedReference(),p=referencePoint(event),dx=p[0]-d.start[0],dy=p[1]-d.start[1];
+  if(d.corner){Object.assign(r,resizeReference(d.before,d.corner,dx,dy,r.ratio||event.shiftKey));r.x=Math.max(-1000,Math.min(1000,r.x));r.y=Math.max(-1000,Math.min(1000,r.y));}
+  else {r.x=Math.max(-1000,Math.min(1000,d.before.x+dx));r.y=Math.max(-1000,Math.min(1000,d.before.y+dy));}
+  renderReferences();paint();return true;
+}
+function referenceChange(fn) {const r=selectedReference();if(!r)return;fn(r);renderReferences();paint();storeReferences();}
+el('referenceList').onchange=()=>{referenceSelected=Number(el('referenceList').value);renderReferences();paint();};
+el('referenceRemove').onclick=()=>{if(referenceSelected<0)return;references.splice(referenceSelected,1);referenceSelected=-1;renderReferences();paint();storeReferences();};
+for(const [id,key] of [['referenceX','x'],['referenceY','y'],['referenceWidth','width'],['referenceHeight','height']])el(id).onchange=()=>{
+  const value=Number(el(id).value),r=selectedReference();if(!r||r.locked)return;
+  if(el(id).value===''||!Number.isFinite(value)||Math.abs(value)>1000||(['width','height'].includes(key)&&value<1)){renderReferences();return;}
+  referenceChange(r=>{if(r.ratio&&['width','height'].includes(key)){const other=key==='width'?'height':'width',next=r[other]*value/r[key];if(next<1||next>1000)return;r[other]=next;}r[key]=value;});
+};
+for(const [id,key] of [['referenceRatio','ratio'],['referenceLock','locked']])el(id).onchange=()=>referenceChange(r=>{r[key]=el(id).checked;});
+for(const axis of ['X','Y'])el('referenceFlip'+axis).onclick=()=>referenceChange(r=>{if(!r.locked)r['flip'+axis]=!r['flip'+axis];});
+el('referenceOpacity').oninput=()=>{const r=selectedReference();if(r){r.opacity=Number(el('referenceOpacity').value)/100;paint();}};
+el('referenceOpacity').onchange=storeReferences;
+el('referenceAdd').onclick=()=>el('referenceFile').click();
+el('referenceFile').onchange=async()=>{
+  const character=currentGlyph().character;
+  try{for(const file of el('referenceFile').files){
+    if(references.length>=24)throw new Error('Максимум 24 изображения в рабочем пространстве.');
+    if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>20_000_000)throw new Error('Нужен PNG, JPEG или WebP до 20 МБ.');
+    const url=URL.createObjectURL(file);
+    try{const image=new Image();image.src=url;await image.decode();
+      const scale=Math.min(1,1024/Math.max(image.naturalWidth,image.naturalHeight)),canvas=document.createElement('canvas');
+      canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);
+      const src=canvas.toDataURL(file.type==='image/png'?'image/png':'image/jpeg',.85);
+      const size=Math.min(80/canvas.width,80/canvas.height);
+      const r={character,name:file.name.slice(0,200),src,x:(109-canvas.width*size)/2,y:(109-canvas.height*size)/2,width:canvas.width*size,height:canvas.height*size,flipX:false,flipY:false,opacity:.6,locked:false,ratio:true};
+      validateReferences({schema:'dreams.references/v1',images:[r]});references.push(r);referenceSelected=references.length-1;
+    }finally{URL.revokeObjectURL(url);}
+  }renderReferences();paint();storeReferences();}
+  catch(error){renderReferences();paint();storeReferences();el('referenceStatus').textContent=error.message;}
+  finally{el('referenceFile').value='';}
+};
+el('referenceExport').onclick=()=>download('dreams-references.json',JSON.stringify({schema:'dreams.references/v1',images:references},null,2),'application/json');
+el('referenceImport').onclick=()=>el('referenceJSON').click();
+el('referenceJSON').onchange=async()=>{
+  try{const file=el('referenceJSON').files[0];if(!file)return;if(file.size>20_000_000)throw new Error('JSON больше 20 МБ.');
+    const images=validateReferences(JSON.parse(await file.text()));references=images;referenceSelected=-1;renderReferences();paint();storeReferences();}
+  catch(error){el('referenceStatus').textContent=error.message;}finally{el('referenceJSON').value='';}
+};
+
 async function checkpointRequest(path, options) {
   const response=await fetch(path,options);
   if(!response.ok){
@@ -239,6 +344,7 @@ el('checkpointRestore').onclick=()=>checkpointAction(async()=>{
 });
 if(typeof fetch==='function')el('checkpointRefresh').onclick();
 el('stage').addEventListener('pointerdown',event=>{
+  if(beginReferenceDrag(event))return;
   const key=event.target.dataset.key;
   if(!key) {
     if(event.target.dataset.segment!==undefined){segmentIndex=Number(event.target.dataset.segment);renderControls();paint();}
@@ -248,11 +354,13 @@ el('stage').addEventListener('pointerdown',event=>{
   finishRange();drag={key,before:snapshot(),pointer:event.pointerId};el('stage').setPointerCapture(event.pointerId);event.preventDefault();
 });
 el('stage').addEventListener('pointermove',event=>{
+  if(moveReferenceDrag(event))return;
   if(!drag || event.pointerId!==drag.pointer)return;
   const p=new DOMPoint(event.clientX,event.clientY).matrixTransform(el('geometry').getScreenCTM().inverse());
   M.setPoint(currentStroke(),segmentIndex,drag.key,[p.x,p.y]);renderControls();paint();
 });
 function endDrag(event) {
+  if(referenceDrag && event.pointerId===referenceDrag.pointer){referenceDrag=null;storeReferences();return;}
   if(!drag || event.pointerId!==drag.pointer)return;
   const before=drag.before;drag=null;
   try{M.validate(project);remember(before);renderControls();}
@@ -264,8 +372,8 @@ document.addEventListener('keydown',event=>{
     event.preventDefault();el(event.shiftKey?'redo':'undo').click();
   }
 });
-window.addEventListener('pagehide',()=>{finishRange();if(drag)store();});
+window.addEventListener('pagehide',()=>{finishRange();if(drag)store();if(referenceDrag)storeReferences();});
 try {const saved=localStorage.getItem(STORAGE);if(saved){project=M.validate(JSON.parse(saved));checkpointParent=localStorage.getItem(STORAGE+'.parent') || null;selected=Math.min(4,project.glyphs.length-1);status('Восстановлены сохранённые правки');}}
 catch {status('Сохранённый проект не прочитан. Исходные знаки загружены; старая копия не перезаписана.',true);}
 el('credit').textContent=project.attribution;
-M.validate(project);render();
+loadReferences();M.validate(project);render();

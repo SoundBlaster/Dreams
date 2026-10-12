@@ -66,6 +66,29 @@ element('alphabet').children[0].onclick();nameInput.value='вариант';tab()
 nameInput.value='x'.repeat(120);tab();assert.equal(nameInput.value.length,120);assert.equal(tabPrevented,false);
 element('alphabet').children[4].onclick();
 console.log('PASS: checkpoint name Tab inserts the selected glyph once and preserves keyboard navigation');
+const ref={character:'オ',name:'Frame',src:'data:image/png;base64,AAAA',x:10,y:20,width:40,height:60,opacity:.6,flipX:false,flipY:false,locked:false,ratio:true};
+sandbox.ref=ref;vm.runInContext('references=[{...ref}];referenceSelected=0;renderReferences();paint();',sandbox);
+const refs=()=>JSON.parse(vm.runInContext('JSON.stringify(references)',sandbox));
+element('referenceWidth').value='80';element('referenceWidth').onchange();assert.equal(refs()[0].height,120);
+element('referenceRatio').checked=false;element('referenceRatio').onchange();
+element('referenceHeight').value='30';element('referenceHeight').onchange();assert.equal(refs()[0].width,80);
+element('referenceFlipX').onclick();element('referenceFlipY').onclick();assert.equal(refs()[0].flipX,true);assert.equal(refs()[0].flipY,true);
+assert.ok(element('stage').innerHTML.includes('scale(-1 -1)'));
+element('referenceLock').checked=true;element('referenceLock').onchange();assert.equal(element('referenceWidth').disabled,true);
+element('referenceFlipX').onclick();assert.equal(refs()[0].flipX,true,'locked reference cannot flip');
+element('referenceOpacity').value='25';element('referenceOpacity').oninput();element('referenceOpacity').onchange();assert.equal(refs()[0].opacity,.25);
+assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1.references')).images[0].opacity,.25);
+assert.equal(state().references,undefined,'reference images never enter the glyph project');
+assert.throws(()=>vm.runInContext("validateReferences({schema:'dreams.references/v1',images:[{...ref,src:'javascript:alert(1)'}]})",sandbox));
+const resize=(corner,dx,dy,uniform)=>JSON.parse(vm.runInContext(`JSON.stringify(resizeReference(ref,'${corner}',${dx},${dy},${uniform}))`,sandbox));
+assert.deepEqual(resize('se',20,0,false),{width:60,height:60,x:10,y:20});
+assert.deepEqual(resize('nw',-20,0,true),{width:60,height:90,x:-10,y:-10});
+assert.equal(resize('se',-100,-100,true).width,1);
+element('alphabet').children[0].onclick();assert.equal(element('referenceList').children.length,0);
+element('alphabet').children[4].onclick();assert.equal(element('referenceList').children.length,1);
+element('referenceRemove').onclick();assert.equal(refs().length,0);
+console.log('PASS: reference transforms, proportional resizing, locks, per-glyph storage and safe image validation');
+
 (async()=>{
   let head=null, records=[], savedProject;
   sandbox.fetch=async(url,options)=>{
