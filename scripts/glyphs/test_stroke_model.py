@@ -4,6 +4,7 @@ import json
 import math
 from pathlib import Path
 import shutil
+import subprocess
 import tempfile
 import unittest
 
@@ -38,6 +39,31 @@ class StrokeModelTests(unittest.TestCase):
     def test_zero_pressure_lifts_brush(self):
         self.assertEqual(Brush().radius(0), 0)
         self.assertEqual(Stroke('M10 50L90 50', ((0, 0), (1, 0))).outline(Brush()).area, 0)
+
+    def test_interior_knots_do_not_pause_thickness_change(self):
+        knots = ((0, .1), (.2, .3), (.7, .8), (1, 1))
+        epsilon = 1e-6
+        for s, p in knots[1:-1]:
+            left = (p - pressure_at(knots, s - epsilon)) / epsilon
+            right = (pressure_at(knots, s + epsilon) - p) / epsilon
+            self.assertGreater(left, .5)
+            self.assertAlmostEqual(left, right, delta=1e-4)
+
+    def test_profiles_preserve_local_bounds_and_plateaus(self):
+        profiles = [((0, .1), (.01, .9), (.7, .9), (.9, 0), (1, .8)),
+                    ((0, 1), (.6, .8), (1, .75)), ((0, 0), (1, 1))]
+        for knots in profiles:
+            for (a, p), (b, q) in zip(knots, knots[1:]):
+                samples = [pressure_at(knots, a + (b - a) * i / 100) for i in range(101)]
+                self.assertTrue(all(min(p, q) <= v <= max(p, q) for v in samples))
+                self.assertEqual(samples, sorted(samples, reverse=q < p))
+
+    def test_harai_releases_throughout_the_stroke(self):
+        library, _, _ = load_library()
+        profile = library['profiles']['harai']
+        values = [pressure_at(profile, i / 100) for i in range(101)]
+        self.assertTrue(all(a > b for a, b in zip(values, values[1:])))
+        self.assertEqual(values[-1], 0)
 
     def test_width_depends_on_nib_orientation_as_well_as_pressure(self):
         brush = Brush(width=10, angle=0, aspect=.5, gamma=1)
@@ -132,6 +158,17 @@ class StrokeModelTests(unittest.TestCase):
                 return {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.iterdir()}
             self.assertEqual(hashes(a), hashes(b))
             self.assertEqual(len(list(a.glob('*.svg'))), 92)
+            # Compare the actual browser interpolation with Python export values.
+            library, _, _ = load_library()
+            profiles = list(library['profiles'].values()) + [
+                [[0, .1], [.01, .9], [.7, .9], [.9, 0], [1, .8]]]
+            fixture = Path(tmp) / 'pressure-parity.json'
+            fixture.write_text(json.dumps([
+                {'knots': knots, 'samples': [[i / 100, pressure_at(knots, i / 100)]
+                                            for i in range(101)]}
+                for knots in profiles]))
+            subprocess.run(['node', str(Path(__file__).with_name('test-katakana-catalog.mjs')),
+                            str(a / 'catalog.html'), str(fixture)], check=True)
 
 
 if __name__ == '__main__':

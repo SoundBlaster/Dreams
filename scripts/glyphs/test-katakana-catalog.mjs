@@ -31,6 +31,15 @@ const sandbox = vm.createContext({document,performance:{now:()=>0},
     cancelAnimationFrame: id => frames.delete(id),
 });
 vm.runInContext(script,sandbox);
+// A linear ramp must keep moving through its interior control point.
+const ramp = [[0,0],[.4,.4],[1,1]];
+for (let i=0;i<=100;i++) assert.ok(Math.abs(sandbox.interpolate(ramp,i/100)-i/100)<1e-12);
+if(process.argv[3]) {
+    for(const {knots,samples} of JSON.parse(readFileSync(process.argv[3],'utf8'))) {
+        for(const [s,expected] of samples) assert.ok(Math.abs(sandbox.interpolate(knots,s)-expected)<1e-12);
+    }
+    console.log('PASS: Python export / JavaScript preview pressure parity');
+}
 assert.equal(element('alphabet').children.length,46);
 assert.equal(element('title').textContent,'オ');
 assert.ok(paints>0);

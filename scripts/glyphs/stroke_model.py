@@ -32,12 +32,48 @@ def validate_profile(knots):
         raise ValueError('pressure must cover the entire stroke: 0...1')
 
 
+def pressure_slopes(knots):
+    """Shape-preserving cubic Hermite tangents (PCHIP), in arc-length units.
+
+    Interior knots retain motion through a rising/falling profile. Only actual
+    extrema or explicitly flat segments require a zero tangent.
+    """
+    lengths = [b[0] - a[0] for a, b in zip(knots, knots[1:])]
+    secants = [(b[1] - a[1]) / h for a, b, h in zip(knots, knots[1:], lengths)]
+    if len(secants) == 1:
+        return [secants[0], secants[0]]
+
+    def endpoint(h, next_h, d, next_d):
+        slope = ((2 * h + next_h) * d - h * next_d) / (h + next_h)
+        if slope * d <= 0:
+            return 0.0
+        if d * next_d <= 0 and abs(slope) > abs(3 * d):
+            return 3 * d
+        return slope
+
+    slopes = [endpoint(lengths[0], lengths[1], secants[0], secants[1])]
+    for i in range(1, len(knots) - 1):
+        left, right = secants[i - 1], secants[i]
+        if left * right <= 0:
+            slopes.append(0.0)
+        else:
+            w1, w2 = 2 * lengths[i] + lengths[i - 1], lengths[i] + 2 * lengths[i - 1]
+            slopes.append((w1 + w2) / (w1 / left + w2 / right))
+    slopes.append(endpoint(lengths[-1], lengths[-2], secants[-1], secants[-2]))
+    return slopes
+
+
 def pressure_at(knots, s):
-    """Piecewise smoothstep: exact knots, no overshoot, permits thick terminals."""
-    for (a, p), (b, q) in zip(knots, knots[1:]):
+    """C1 continuous, exact knots and no overshoot; no forced pauses at knots."""
+    slopes = pressure_slopes(knots)
+    for i, ((a, p), (b, q)) in enumerate(zip(knots, knots[1:])):
         if s <= b:
             t = max(0, min(1, (s - a) / (b - a)))
-            return p + (q - p) * t * t * (3 - 2 * t)
+            value = ((2 * t**3 - 3 * t**2 + 1) * p
+                     + (t**3 - 2 * t**2 + t) * (b - a) * slopes[i]
+                     + (-2 * t**3 + 3 * t**2) * q
+                     + (t**3 - t**2) * (b - a) * slopes[i + 1])
+            return max(min(p, q), min(max(p, q), value))
     return knots[-1][1]
 
 

@@ -56,7 +56,22 @@ const library = __LIBRARY_JSON__;
 const el = id => document.getElementById(id);
 const palette = ['#bd6139','#237f87','#7757a0','#426d30'];
 let selected = library.glyphs.findIndex(g => g.character === 'オ'), focus = 1, animation = 0;
-function interpolate(knots,s){for(let i=1;i<knots.length;i++){const [a,p]=knots[i-1],[b,q]=knots[i];if(s<=b){const t=Math.max(0,Math.min(1,(s-a)/(b-a)));return p+(q-p)*t*t*(3-2*t);}}return knots.at(-1)[1];}
+// PCHIP, kept in parity with stroke_model.py: no artificial stops at knots.
+function pressureSlopes(knots){
+ const h=knots.slice(1).map((k,i)=>k[0]-knots[i][0]);
+ const d=knots.slice(1).map((k,i)=>(k[1]-knots[i][1])/h[i]);
+ if(d.length===1)return [d[0],d[0]];
+ function endpoint(h,nextH,d,nextD){const m=((2*h+nextH)*d-h*nextD)/(h+nextH);return m*d<=0?0:d*nextD<=0&&Math.abs(m)>Math.abs(3*d)?3*d:m;}
+ const m=[endpoint(h[0],h[1],d[0],d[1])];
+ for(let i=1;i<knots.length-1;i++){const left=d[i-1],right=d[i],w1=2*h[i]+h[i-1],w2=h[i]+2*h[i-1];m.push(left*right<=0?0:(w1+w2)/(w1/left+w2/right));}
+ m.push(endpoint(h.at(-1),h.at(-2),d.at(-1),d.at(-2)));return m;
+}
+function interpolate(knots,s){
+ const m=pressureSlopes(knots);
+ for(let i=1;i<knots.length;i++){const [a,p]=knots[i-1],[b,q]=knots[i];if(s<=b){const t=Math.max(0,Math.min(1,(s-a)/(b-a)));
+ const v=(2*t**3-3*t**2+1)*p+(t**3-2*t**2+t)*(b-a)*m[i-1]+(-2*t**3+3*t**2)*q+(t**3-t**2)*(b-a)*m[i];
+ return Math.max(Math.min(p,q),Math.min(Math.max(p,q),v));}}return knots.at(-1)[1];
+}
 function knots(g,i){return el('profile').value==='authored'?g.pressure[i]:library.profiles[el('profile').value];}
 function draw(){
  const g=library.glyphs[selected], mirrored=el('mirror').checked, fraction=+el('progress').value/1000;
