@@ -204,21 +204,98 @@
           "terminal": "tome",
           "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M18,39 C22,42 26,40 32,39 C48,36 65,33 77,31 L86,34",
+          "pressure": [
+            [
+              0,
+              0.04
+            ],
+            [
+              0.09,
+              0.55
+            ],
+            [
+              0.45,
+              0.5
+            ],
+            [
+              0.78,
+              0.65
+            ],
+            [
+              0.9,
+              1
+            ],
+            [
+              1,
+              0.7
+            ]
+          ]
         },
         {
           "source_id": "kvg:030aa-s2",
           "terminal": "hane",
           "profile": "hane",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M56,14 C61,16 62,18 62,23 L62,84 C62,88 62,91 60,92 L49,85",
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.06,
+              0.85
+            ],
+            [
+              0.18,
+              0.65
+            ],
+            [
+              0.65,
+              0.7
+            ],
+            [
+              0.82,
+              1
+            ],
+            [
+              0.9,
+              0.8
+            ],
+            [
+              1,
+              0
+            ]
+          ]
         },
         {
           "source_id": "kvg:030aa-s3",
           "terminal": "harai",
           "profile": "harai",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M59,40 C50,53 35,67 18,78",
+          "pressure": [
+            [
+              0,
+              0.9
+            ],
+            [
+              0.2,
+              0.85
+            ],
+            [
+              0.55,
+              0.5
+            ],
+            [
+              1,
+              0
+            ]
+          ]
         }
       ]
     },
@@ -250,24 +327,105 @@
       "strokes": [
         {
           "source_id": "kvg:030ad-s1",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M27,39 C31,42 36,40 41,38 C52,35 65,31 72,28 L79,30",
+          "pressure": [
+            [
+              0,
+              0.04
+            ],
+            [
+              0.09,
+              0.55
+            ],
+            [
+              0.45,
+              0.5
+            ],
+            [
+              0.78,
+              0.65
+            ],
+            [
+              0.9,
+              1
+            ],
+            [
+              1,
+              0.7
+            ]
+          ]
         },
         {
           "source_id": "kvg:030ad-s2",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M18,65 C23,68 29,65 35,63 C53,57 70,52 81,49 L88,51",
+          "pressure": [
+            [
+              0,
+              0.04
+            ],
+            [
+              0.09,
+              0.55
+            ],
+            [
+              0.45,
+              0.5
+            ],
+            [
+              0.78,
+              0.65
+            ],
+            [
+              0.9,
+              1
+            ],
+            [
+              1,
+              0.7
+            ]
+          ]
         },
         {
           "source_id": "kvg:030ad-s3",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M46,15 C51,17 52,20 53,27 C55,43 58,64 62,81 C63,86 65,91 66,94",
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.08,
+              0.8
+            ],
+            [
+              0.25,
+              0.55
+            ],
+            [
+              0.55,
+              0.65
+            ],
+            [
+              0.82,
+              0.95
+            ],
+            [
+              1,
+              0.85
+            ]
+          ]
         }
       ]
     },
@@ -378,7 +536,24 @@
           "source_id": "kvg:030b7-s1",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.35, 0.4], [0.75, 1], [1, 0.6]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.35,
+              0.4
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
           "path_override": "M37,18 C42,19 48,22 50,26",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -387,7 +562,24 @@
           "source_id": "kvg:030b7-s2",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.35, 0.4], [0.75, 0.95], [1, 0.55]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.35,
+              0.4
+            ],
+            [
+              0.75,
+              0.95
+            ],
+            [
+              1,
+              0.55
+            ]
+          ],
           "path_override": "M23,40 C29,41 36,45 38,49",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -396,7 +588,28 @@
           "source_id": "kvg:030b7-s3",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.05], [0.08, 0.9], [0.3, 0.85], [0.65, 0.4], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.05
+            ],
+            [
+              0.08,
+              0.9
+            ],
+            [
+              0.3,
+              0.85
+            ],
+            [
+              0.65,
+              0.4
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M30,84 C34,88 40,83 45,80 C64,69 80,51 91,34",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -412,7 +625,36 @@
           "source_id": "kvg:030b9-s1",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.08], [0.1, 0.55], [0.27, 0.7], [0.36, 1], [0.55, 0.8], [0.8, 0.36], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.08
+            ],
+            [
+              0.1,
+              0.55
+            ],
+            [
+              0.27,
+              0.7
+            ],
+            [
+              0.36,
+              1
+            ],
+            [
+              0.55,
+              0.8
+            ],
+            [
+              0.8,
+              0.36
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M29,29 C32,31 35,30 39,29 C48,27 60,24 69,22 L73,25 C65,46 46,71 19,87",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -421,7 +663,24 @@
           "source_id": "kvg:030b9-s2",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.25, 0.35], [0.7, 1], [1, 0.65]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.25,
+              0.35
+            ],
+            [
+              0.7,
+              1
+            ],
+            [
+              1,
+              0.65
+            ]
+          ],
           "path_override": "M58,54 C69,60 83,73 88,84",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -437,7 +696,32 @@
           "source_id": "kvg:030bb-s1",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.05], [0.15, 0.55], [0.6, 0.6], [0.77, 1], [0.86, 0.7], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.05
+            ],
+            [
+              0.15,
+              0.55
+            ],
+            [
+              0.6,
+              0.6
+            ],
+            [
+              0.77,
+              1
+            ],
+            [
+              0.86,
+              0.7
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M17,48 C20,50 23,50 27,49 C43,45 65,39 80,35 L85,38 C81,44 76,50 69,56",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -446,7 +730,36 @@
           "source_id": "kvg:030bb-s2",
           "terminal": "tome",
           "profile": "tome",
-          "pressure": [[0, 0.03], [0.07, 0.95], [0.18, 0.65], [0.62, 0.62], [0.78, 0.5], [0.94, 0.9], [1, 0.65]],
+          "pressure": [
+            [
+              0,
+              0.03
+            ],
+            [
+              0.07,
+              0.95
+            ],
+            [
+              0.18,
+              0.65
+            ],
+            [
+              0.62,
+              0.62
+            ],
+            [
+              0.78,
+              0.5
+            ],
+            [
+              0.94,
+              0.9
+            ],
+            [
+              1,
+              0.65
+            ]
+          ],
           "path_override": "M38,18 C41,18 43,21 43,25 C43,39 42,58 43,70 C44,80 47,83 56,83 C66,83 76,82 85,81",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -462,7 +775,24 @@
           "source_id": "kvg:030bd-s1",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.3, 0.4], [0.75, 1], [1, 0.6]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.3,
+              0.4
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
           "path_override": "M24,23 C31,29 34,36 35,43",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -471,7 +801,28 @@
           "source_id": "kvg:030bd-s2",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.03], [0.1, 1], [0.25, 0.85], [0.6, 0.55], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.03
+            ],
+            [
+              0.1,
+              1
+            ],
+            [
+              0.25,
+              0.85
+            ],
+            [
+              0.6,
+              0.55
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M83,19 C87,21 88,26 85,35 C77,59 55,82 32,94",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -543,7 +894,24 @@
           "source_id": "kvg:030c4-s1",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.35, 0.4], [0.75, 0.95], [1, 0.55]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.35,
+              0.4
+            ],
+            [
+              0.75,
+              0.95
+            ],
+            [
+              1,
+              0.55
+            ]
+          ],
           "path_override": "M23,27 C27,31 30,37 30,42",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -552,7 +920,24 @@
           "source_id": "kvg:030c4-s2",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.35, 0.4], [0.75, 1], [1, 0.6]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.35,
+              0.4
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
           "path_override": "M47,19 C52,25 54,31 54,36",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -561,7 +946,28 @@
           "source_id": "kvg:030c4-s3",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.03], [0.1, 1], [0.25, 0.85], [0.6, 0.55], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.03
+            ],
+            [
+              0.1,
+              1
+            ],
+            [
+              0.25,
+              0.85
+            ],
+            [
+              0.6,
+              0.55
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M84,25 C87,27 87,31 84,38 C75,60 55,80 32,92",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -689,7 +1095,24 @@
           "source_id": "kvg:030cd-s1",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.35, 0.4], [0.75, 1], [1, 0.55]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.35,
+              0.4
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.55
+            ]
+          ],
           "path_override": "M41,11 C45,14 51,15 55,20",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -698,7 +1121,36 @@
           "source_id": "kvg:030cd-s2",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.06], [0.1, 0.55], [0.32, 0.7], [0.43, 1], [0.58, 0.85], [0.8, 0.4], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.06
+            ],
+            [
+              0.1,
+              0.55
+            ],
+            [
+              0.32,
+              0.7
+            ],
+            [
+              0.43,
+              1
+            ],
+            [
+              0.58,
+              0.85
+            ],
+            [
+              0.8,
+              0.4
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M26,38 C29,39 32,38 36,37 C47,34 60,31 67,28 L70,30 C58,46 35,66 16,75",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -707,7 +1159,28 @@
           "source_id": "kvg:030cd-s3",
           "terminal": "tome",
           "profile": "tome",
-          "pressure": [[0, 0.6], [0.3, 0.58], [0.7, 0.65], [0.9, 1], [1, 0.7]],
+          "pressure": [
+            [
+              0,
+              0.6
+            ],
+            [
+              0.3,
+              0.58
+            ],
+            [
+              0.7,
+              0.65
+            ],
+            [
+              0.9,
+              1
+            ],
+            [
+              1,
+              0.7
+            ]
+          ],
           "path_override": "M51,53 C52,55 52,60 52,66 C52,76 51,85 51,94",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -716,7 +1189,24 @@
           "source_id": "kvg:030cd-s4",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.25, 0.3], [0.72, 1], [1, 0.65]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.25,
+              0.3
+            ],
+            [
+              0.72,
+              1
+            ],
+            [
+              1,
+              0.65
+            ]
+          ],
           "path_override": "M62,55 C70,58 82,64 85,73",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -814,31 +1304,127 @@
       "strokes": [
         {
           "source_id": "kvg:030db-s1",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M20,39 C24,42 29,41 35,40 C51,38 68,36 78,34 L87,37",
+          "pressure": [
+            [
+              0,
+              0.04
+            ],
+            [
+              0.09,
+              0.55
+            ],
+            [
+              0.45,
+              0.5
+            ],
+            [
+              0.78,
+              0.65
+            ],
+            [
+              0.9,
+              1
+            ],
+            [
+              1,
+              0.7
+            ]
+          ]
         },
         {
           "source_id": "kvg:030db-s2",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "hane",
+          "profile": "hane",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M51,15 C55,17 56,20 56,25 L56,83 C56,88 55,91 54,92 L43,85",
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.06,
+              0.85
+            ],
+            [
+              0.18,
+              0.65
+            ],
+            [
+              0.65,
+              0.7
+            ],
+            [
+              0.82,
+              1
+            ],
+            [
+              0.9,
+              0.8
+            ],
+            [
+              1,
+              0
+            ]
+          ]
         },
         {
           "source_id": "kvg:030db-s3",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M29,57 C28,66 24,74 20,78",
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.3,
+              0.35
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.6
+            ]
+          ]
         },
         {
           "source_id": "kvg:030db-s4",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M73,55 C81,60 86,67 88,76",
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.3,
+              0.35
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.6
+            ]
+          ]
         }
       ]
     },
@@ -851,7 +1437,32 @@
           "source_id": "kvg:030de-s1",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.05], [0.13, 0.55], [0.55, 0.62], [0.68, 1], [0.82, 0.65], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.05
+            ],
+            [
+              0.13,
+              0.55
+            ],
+            [
+              0.55,
+              0.62
+            ],
+            [
+              0.68,
+              1
+            ],
+            [
+              0.82,
+              0.65
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M20,31 C23,33 27,32 31,31 C47,29 65,26 82,24 L87,28 C78,41 65,54 54,64",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -860,7 +1471,24 @@
           "source_id": "kvg:030de-s2",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.3, 0.35], [0.75, 1], [1, 0.65]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.3,
+              0.35
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.65
+            ]
+          ],
           "path_override": "M39,53 C48,58 60,71 64,81",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -944,24 +1572,109 @@
       "strokes": [
         {
           "source_id": "kvg:030e2-s1",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M28,27 C32,30 37,28 42,27 C54,25 65,22 71,20 L78,23",
+          "pressure": [
+            [
+              0,
+              0.04
+            ],
+            [
+              0.09,
+              0.55
+            ],
+            [
+              0.45,
+              0.5
+            ],
+            [
+              0.78,
+              0.65
+            ],
+            [
+              0.9,
+              1
+            ],
+            [
+              1,
+              0.7
+            ]
+          ]
         },
         {
           "source_id": "kvg:030e2-s2",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M18,53 C22,56 27,55 34,54 C52,51 69,48 79,47 L88,49",
+          "pressure": [
+            [
+              0,
+              0.04
+            ],
+            [
+              0.09,
+              0.55
+            ],
+            [
+              0.45,
+              0.5
+            ],
+            [
+              0.78,
+              0.65
+            ],
+            [
+              0.9,
+              1
+            ],
+            [
+              1,
+              0.7
+            ]
+          ]
         },
         {
           "source_id": "kvg:030e2-s3",
-          "terminal": "unspecified",
-          "profile": "neutral",
+          "terminal": "tome",
+          "profile": "tome",
           "duration": 0.7,
-          "pressure_evidence": "design-hypothesis"
+          "pressure_evidence": "design-hypothesis",
+          "path_override": "M45,27 C47,30 47,34 47,40 L47,72 C47,81 50,86 60,86 C69,86 77,85 84,84",
+          "pressure": [
+            [
+              0,
+              0.6
+            ],
+            [
+              0.18,
+              0.6
+            ],
+            [
+              0.48,
+              0.65
+            ],
+            [
+              0.67,
+              0.85
+            ],
+            [
+              0.82,
+              0.55
+            ],
+            [
+              0.94,
+              0.9
+            ],
+            [
+              1,
+              0.8
+            ]
+          ]
         }
       ]
     },
@@ -1198,7 +1911,24 @@
           "source_id": "kvg:030f3-s1",
           "terminal": "tome",
           "profile": "swelling",
-          "pressure": [[0, 0], [0.35, 0.4], [0.75, 1], [1, 0.6]],
+          "pressure": [
+            [
+              0,
+              0
+            ],
+            [
+              0.35,
+              0.4
+            ],
+            [
+              0.75,
+              1
+            ],
+            [
+              1,
+              0.6
+            ]
+          ],
           "path_override": "M26,23 C33,25 40,31 43,36",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"
@@ -1207,7 +1937,28 @@
           "source_id": "kvg:030f3-s2",
           "terminal": "harai",
           "profile": "harai",
-          "pressure": [[0, 0.05], [0.08, 0.9], [0.3, 0.85], [0.65, 0.4], [1, 0]],
+          "pressure": [
+            [
+              0,
+              0.05
+            ],
+            [
+              0.08,
+              0.9
+            ],
+            [
+              0.3,
+              0.85
+            ],
+            [
+              0.65,
+              0.4
+            ],
+            [
+              1,
+              0
+            ]
+          ],
           "path_override": "M28,83 C33,88 37,83 43,80 C62,69 78,54 91,38",
           "duration": 0.7,
           "pressure_evidence": "design-hypothesis"

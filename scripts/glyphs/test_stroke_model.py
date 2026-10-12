@@ -84,6 +84,41 @@ class StrokeModelTests(unittest.TestCase):
             self.assertGreater(left, .5)
             self.assertAlmostEqual(left, right, delta=1e-4)
 
+    def test_crossbar_studies_keep_joins_filled_and_side_marks_detached(self):
+        _, brush, entries = load_library()
+        joins = {'オ': [(62, 34), (59, 40)], 'キ': [(54, 34), (58, 56)],
+                 'ホ': [(56, 38)], 'モ': [(47, 26), (47, 52)]}
+        for glyph, strokes in entries:
+            character = glyph['character']
+            if character not in joins:
+                continue
+            with self.subTest(character=character):
+                for stroke in strokes:
+                    self.assertEqual(len(list(stroke.outline(brush).contours)), 1)
+                outline = union_strokes(strokes, brush)
+                self.assertEqual(len(list(outline.contours)), 3 if character == 'ホ' else 1)
+                for point in joins[character]:
+                    self.assertTrue(outline.contains(point), f'empty join at {point}')
+                self.assertAlmostEqual(outline.area, outline.transform(-1, 0, 0, 1, 109, 0).area, delta=.01)
+
+    def test_hooks_release_up_left_while_full_endings_keep_weight(self):
+        _, _, entries = load_library()
+        by_character = {glyph['character']: strokes for glyph, strokes in entries}
+        for character in 'オホ':
+            stroke = by_character[character][1]
+            samples = stroke.samples()
+            bottom = max(samples, key=lambda sample: sample[1])
+            self.assertLess(samples[-1][0], bottom[0])
+            self.assertLess(samples[-1][1], bottom[1])
+            self.assertEqual(samples[-1][3], 0)
+            self.assertGreater(pressure_at(stroke.pressure, .82), .9)
+        for character in 'キモ':
+            stroke = by_character[character][-1]
+            self.assertGreater(stroke.pressure[-1][1], .7)
+        for stroke in by_character['ホ'][2:]:
+            self.assertEqual(stroke.pressure[0][1], 0)
+            self.assertGreater(pressure_at(stroke.pressure, .75), .9)
+
     def test_profiles_preserve_local_bounds_and_plateaus(self):
         profiles = [((0, .1), (.01, .9), (.7, .9), (.9, 0), (1, .8)),
                     ((0, 1), (.6, .8), (1, .75)), ((0, 0), (1, 1))]
