@@ -40,7 +40,8 @@ used = set()
 for source in (ROOT / "Sources/Dreams").glob("*.swift"):
     used |= set(re.findall(r'\bL\("([^"]+)"\s*[,)]', source.read_text(encoding="utf8")))
 check(used <= english.keys(), f"keys used in Swift but missing: {sorted(used - english.keys())}")
-for dynamic in ("hooks.codex", "hooks.claude", *[f"status.stopped.{r}" for r in ("user", "escape", "hotkey", "reopen", "timer", "agent")]):
+for dynamic in ("hooks.codex", "hooks.claude",
+                *[f"display.{kind}.{mode}" for kind in ("mode", "hint") for mode in ("automatic", "all", "selected")], *[f"status.stopped.{r}" for r in ("user", "escape", "hotkey", "reopen", "timer", "agent")]):
     check(dynamic in english, f"{dynamic} is missing")
 words = re.search(r"case (start.*)", (ROOT / "Sources/Dreams/Localization.swift").read_text(encoding="utf8"))
 for word in [w.strip() for w in words.group(1).split(",")]:

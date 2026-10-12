@@ -103,7 +103,7 @@ enum DreamsMain {
     static func runServer(controller: DreamsController, publisherOnly: Bool) async throws {
         let server = Server(name: "dreams", version: "0.2.0", instructions: """
             You control the user's Dreams screen animation. Call dreams_prepare_ui BEFORE taking
-            screenshots or sending input to the built-in desktop, then dreams_resume after UI work.
+            screenshots or sending input to a covered desktop, then dreams_resume after UI work.
             The rain may stay visible while using a separately captured virtual-display window only
             after verifying that your UI tool captures and clicks that window correctly.
             Creating a virtual display does not automatically redirect your computer-use tools.
@@ -134,14 +134,14 @@ enum DreamsMain {
             ])),
             Tool(name: "dreams_status", description: "Read rain, settings and virtual workspace state, display IDs, bounds and test click count.", inputSchema: emptySchema),
             Tool(name: "dreams_preview", description: "Render the rain and keyword feed to a PNG without capturing the screen. Does not show or hide the overlay.", inputSchema: emptySchema),
-            Tool(name: "dreams_start", description: "Show Matrix rain on the built-in display. Covers screenshots of that display. Use prepare_ui before ordinary desktop computer use. Auto-stops after duration_seconds (default 300, maximum 3600).", inputSchema: .object([
+            Tool(name: "dreams_start", description: "Show Matrix rain on the displays selected in Settings (automatic by default: built-in, otherwise main). Covers screenshots of those displays. Use prepare_ui before ordinary desktop computer use. Auto-stops after duration_seconds (default 300, maximum 3600).", inputSchema: .object([
                 "type": "object", "properties": .object([
                     "duration_seconds": .object(["type": "number", "minimum": 1, "maximum": 3600]),
                     "brightness": .object(["type": "number", "minimum": 0.02, "maximum": 0.35])
                 ]), "additionalProperties": false
             ])),
             Tool(name: "dreams_stop", description: "Remove the rain immediately and release the display sleep assertion. Does not destroy the virtual workspace.", inputSchema: emptySchema),
-            Tool(name: "dreams_prepare_ui", description: "Remove the rain BEFORE screenshots, clicks or keyboard actions on the built-in desktop. The screen is unprotected during UI work. Resume afterward.", inputSchema: emptySchema),
+            Tool(name: "dreams_prepare_ui", description: "Remove the rain BEFORE screenshots, clicks or keyboard actions on a covered desktop. The screen is unprotected during UI work. Resume afterward.", inputSchema: emptySchema),
             Tool(name: "dreams_resume", description: "Resume the rain using the last brightness and duration after UI work.", inputSchema: emptySchema),
             Tool(name: "dreams_workspace_create", description: "EXPERIMENTAL: create a separate virtual display using a private macOS API and show a harmless Increment test window. Does not move existing apps or guarantee native agent compatibility.", inputSchema: emptySchema),
             Tool(name: "dreams_workspace_close", description: "Close the test window and disconnect only the virtual display owned by this Dreams process. Other windows placed on it may move to a physical display.", inputSchema: emptySchema)
@@ -426,6 +426,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
 
             let stack = NSStackView(views: [
                 activityLabel, launch, escapeHint, hotkeyRow, hotkeyNote,
+                Self.section(L("section.displays")), DisplaySettingsView(controller: controller),
                 Self.section(L("section.rain")), rain,
                 Self.section(L("section.between")), background, transparent, screenshots,
                 Self.section(L("section.words")), words,

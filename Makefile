@@ -8,7 +8,7 @@ NOTARY_PROFILE ?= dreams-notary
 
 .PHONY: help bump plugins-check icon app run test test-unit glyphs glyphs-verify glyphs-selftest \
 	release release-local checksum github-release tap-update notary-profile \
-	install-hooks uninstall-hooks uninstall uninstall-purge clean
+	install-hooks uninstall-hooks uninstall uninstall-purge clean test-displays
 
 help:
 	@printf '%s\n' \
@@ -20,6 +20,7 @@ help:
 		'  make icon             Rebuild assets/AppIcon.icns from assets/icon/source.png' \
 		'  make lint             SwiftLint (strict), ruff, shell syntax, documentation links' \
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
+		'  make test-displays    Opt-in live display lifecycle and Screener settings trace' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
 		'  make glyphs-verify    Check that a rebuild is byte-identical' \
@@ -67,6 +68,10 @@ test-unit:
 	.build/matrix-checks
 	swiftc -swift-version 6 -parse-as-library Sources/Dreams/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
 	.build/hotkey-checks
+	swift test -c release
+
+test-displays:
+	python3 scripts/test-displays.py
 
 test: app test-unit
 	python3 scripts/test-localization.py

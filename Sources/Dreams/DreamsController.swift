@@ -9,12 +9,6 @@ enum DreamsError: LocalizedError {
     var errorDescription: String? { if case .unavailable(let message) = self { message } else { nil } }
 }
 
-extension NSScreen {
-    var displayID: CGDirectDisplayID {
-        (deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber)?.uint32Value ?? 0
-    }
-}
-
 /// The default look: what a first launch (or a missing setting) falls back to.
 enum DreamsPreset {
     static let columnCount = 0 // Automatic grid based on the display aspect ratio.
@@ -44,13 +38,72 @@ final class DreamsController: NSObject {
     private(set) var transparentBackground = DreamsController.initialTransparent
     private static let initialTransparent = CommandLine.arguments.contains("--transparent")
         || UserDefaults.standard.bool(forKey: "transparentBackground")
-    private var overlay: NSWindow?
-    /// The rain is "on" while the overlay exists on screen, or is stepping aside for the screenshot tool.
-    private var rainIsOn: Bool { overlay != nil && (overlay!.isVisible || suspendedForCapture) }
+    private let screenManager = RainScreenManager()
+    private var rainRequested = false
+    private var rainIsOn: Bool { rainRequested && !screenManager.overlays.isEmpty }
+    private var overlay: NSWindow? { screenManager.orderedOverlays.first?.window }
+    private var renderer: RainRenderer? { screenManager.renderers.first }
+    static let displaysDidChange = Notification.Name("DreamsDisplaysDidChange")
+    private(set) var displayError: String?
+
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(screenParametersChanged),
+            name: NSApplication.didChangeScreenParametersNotification, object: nil)
+    }
+
+    deinit { NotificationCenter.default.removeObserver(self) }
+
+    var displays: [RainDisplay] { screenManager.displays }
+    var displaySelection: RainDisplaySelection { screenManager.selection }
+
+    func setDisplaySelection(_ selection: RainDisplaySelection) throws {
+        let previous = screenManager.selection
+        screenManager.selection = selection
+        do { try reconcileScreens() }
+        catch {
+            screenManager.selection = previous
+            throw error
+        }
+        selection.save()
+        NotificationCenter.default.post(name: Self.displaysDidChange, object: self)
+    }
+
+    @objc private func screenParametersChanged() {
+        if virtualDisplay == nil, let excluded = screenManager.excludedDisplayID,
+           !NSScreen.screens.contains(where: { $0.displayID == excluded }) {
+            screenManager.excludedDisplayID = nil
+        }
+        do { try reconcileScreens() }
+        catch {
+            displayError = error.localizedDescription
+            log.error("Display update failed: \(error.localizedDescription, privacy: .public)")
+        }
+        NotificationCenter.default.post(name: Self.displaysDidChange, object: self)
+    }
+
+    private func reconcileScreens() throws {
+        guard rainRequested else { return }
+        try screenManager.reconcile(restoredGlyphs: restoredGlyphs, transparent: transparentBackground,
+            hiddenFromCapture: hideFromScreenshots, suspended: suspendedForCapture, configure: configureRenderer)
+        displayError = nil
+        updateSleepAssertion()
+    }
+
+    private func updateSleepAssertion() {
+        let needed = rainIsOn && (!transparentBackground || lastDuration != nil)
+        if needed && !assertionActive {
+            let result = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep as CFString,
+                IOPMAssertionLevel(kIOPMAssertionLevelOn), "Dreams agent session" as CFString, &assertionID)
+            assertionActive = result == kIOReturnSuccess
+        } else if !needed && assertionActive {
+            IOPMAssertionRelease(assertionID)
+            assertionActive = false
+        }
+    }
     private var suspendedForCapture = false
     private var captureWatcher: Timer?
     private var captureClearSince: Date?
-    private var renderer: RainRenderer?
     private var expiryTask: Task<Void, Never>?
     private var demoTask: Task<Void, Never>?
     private var virtualDisplay: DreamsVirtualDisplay?
@@ -89,7 +142,7 @@ final class DreamsController: NSObject {
         rainColor = Self.storedRainColor(transparent: enabled)
         // Window opacity is fixed when the overlay is created: recreate a running Matrix,
         // keeping the time it has left.
-        if rainIsOn {
+        if rainRequested {
             // Over windows the rain has no run time; on black it keeps the time it has left.
             let remaining = expiresAt.map { max(1, $0.timeIntervalSinceNow) } ?? (runTimeSeconds > 0 ? runTimeSeconds : nil)
             try begin(duration: enabled ? nil : remaining, brightness: lastBrightness)
@@ -118,6 +171,7 @@ final class DreamsController: NSObject {
         setHideFromScreenshots(DreamsPreset.hideFromScreenshots)
         runTimeSeconds = DreamsPreset.runTimeSeconds
         stopHotkey = .standard
+        try setDisplaySelection(RainDisplaySelection())
     }
 
     /// Keeps the overlay out of screenshots, recordings and the system screenshot tool's window
@@ -128,7 +182,7 @@ final class DreamsController: NSObject {
     func setHideFromScreenshots(_ enabled: Bool) {
         hideFromScreenshots = enabled
         UserDefaults.standard.set(enabled, forKey: "hideFromScreenshots")
-        overlay?.sharingType = enabled ? .none : .readOnly
+        screenManager.orderedOverlays.forEach { $0.window.sharingType = enabled ? .none : .readOnly }
     }
 
     /// The system screenshot tool picks the window under the cursor, and the full-screen overlay is
@@ -142,13 +196,13 @@ final class DreamsController: NSObject {
     }
 
     private func checkScreenshotTool() {
-        guard let overlay else { return }
+        guard rainIsOn else { return }
         let active = hideFromScreenshots && Self.screenshotToolIsActive()
         if active {
             captureClearSince = nil
             if !suspendedForCapture {
                 suspendedForCapture = true
-                overlay.orderOut(nil)
+                screenManager.orderedOverlays.forEach { $0.window.orderOut(nil) }
             }
         } else if suspendedForCapture {
             let since = captureClearSince ?? Date()
@@ -157,7 +211,7 @@ final class DreamsController: NSObject {
             if Date().timeIntervalSince(since) > 0.5 {
                 suspendedForCapture = false
                 captureClearSince = nil
-                overlay.orderFrontRegardless()
+                screenManager.orderedOverlays.forEach { $0.window.orderFrontRegardless() }
             }
         }
     }
@@ -173,7 +227,7 @@ final class DreamsController: NSObject {
 
     func setRestoredGlyphs(_ enabled: Bool) throws {
         guard enabled != restoredGlyphs else { return }
-        try renderer?.setRestoredGlyphs(enabled)
+        for renderer in screenManager.renderers { try renderer.setRestoredGlyphs(enabled) }
         restoredGlyphs = enabled
         UserDefaults.standard.set(enabled, forKey: "restoredGlyphs")
     }
@@ -184,12 +238,12 @@ final class DreamsController: NSObject {
     }() {
         didSet {
             UserDefaults.standard.set(rainColumnCount, forKey: "rainColumnCount")
-            renderer?.rainColumnCount = rainColumnCount
+            screenManager.renderers.forEach { $0.rainColumnCount = rainColumnCount }
         }
     }
 
     private var rainScreen: NSScreen? {
-        NSScreen.screens.first { CGDisplayIsBuiltin($0.displayID) != 0 }
+        screenManager.targetScreens.first
     }
 
     var automaticColumnCount: Int {
@@ -203,7 +257,7 @@ final class DreamsController: NSObject {
     }() {
         didSet {
             UserDefaults.standard.set(rainDensity, forKey: "rainDensity")
-            renderer?.rainDensity = rainDensity
+            screenManager.renderers.forEach { $0.rainDensity = rainDensity }
         }
     }
 
@@ -213,7 +267,7 @@ final class DreamsController: NSObject {
     }() {
         didSet {
             UserDefaults.standard.set(rainFadeRows, forKey: "rainFadeRows")
-            renderer?.rainFadeRows = rainFadeRows
+            screenManager.renderers.forEach { $0.rainFadeRows = rainFadeRows }
         }
     }
 
@@ -223,7 +277,7 @@ final class DreamsController: NSObject {
     }() {
         didSet {
             UserDefaults.standard.set(rainSpeed, forKey: "rainSpeed")
-            renderer?.rainSpeed = rainSpeed
+            screenManager.renderers.forEach { $0.rainSpeed = rainSpeed }
         }
     }
 
@@ -233,7 +287,7 @@ final class DreamsController: NSObject {
     }() {
         didSet {
             UserDefaults.standard.set(rainBrightnessSpread, forKey: "rainBrightnessSpread")
-            renderer?.rainBrightnessSpread = rainBrightnessSpread
+            screenManager.renderers.forEach { $0.rainBrightnessSpread = rainBrightnessSpread }
         }
     }
 
@@ -248,7 +302,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainGlow, forKey:
                 transparentBackground ? "transparentRainGlow" : "rainGlow")
-            renderer?.rainGlow = rainGlow
+            screenManager.renderers.forEach { $0.rainGlow = rainGlow }
         }
     }
 
@@ -259,7 +313,7 @@ final class DreamsController: NSObject {
     }() {
         didSet {
             UserDefaults.standard.set(rainIdleIntensity, forKey: "rainIdleIntensity")
-            renderer?.rainIdleIntensity = rainIdleIntensity
+            screenManager.renderers.forEach { $0.rainIdleIntensity = rainIdleIntensity }
         }
     }
 
@@ -274,7 +328,7 @@ final class DreamsController: NSObject {
         didSet {
             guard let rgb = keywordColor.usingColorSpace(.sRGB) else { return }
             UserDefaults.standard.set([rgb.redComponent, rgb.greenComponent, rgb.blueComponent], forKey: "keywordColor")
-            renderer?.keywordTint = keywordTint
+            screenManager.renderers.forEach { $0.keywordTint = keywordTint }
         }
     }
     var keywordBrightness: Double = {
@@ -284,7 +338,7 @@ final class DreamsController: NSObject {
     }() {
         didSet {
             UserDefaults.standard.set(keywordBrightness, forKey: "keywordBrightness")
-            renderer?.keywordBrightness = keywordBrightness
+            screenManager.renderers.forEach { $0.keywordBrightness = keywordBrightness }
         }
     }
     /// Rain letter colour, stored per background like glow. The swatch shows the on-screen colour:
@@ -301,7 +355,7 @@ final class DreamsController: NSObject {
             guard let rgb = rainColor.usingColorSpace(.sRGB) else { return }
             UserDefaults.standard.set([rgb.redComponent, rgb.greenComponent, rgb.blueComponent],
                 forKey: transparentBackground ? "transparentRainColor" : "rainColor")
-            renderer?.rainTint = rainTint
+            screenManager.renderers.forEach { $0.rainTint = rainTint }
         }
     }
 
@@ -320,6 +374,8 @@ final class DreamsController: NSObject {
     }
 
     var animationStatus: String {
+        if let displayError { return L("status.displayError", displayError) }
+        if rainRequested && !rainIsOn { return L("status.waitingDisplay") }
         guard rainIsOn, let renderer else {
             switch lastStopReason {
             case .some(.restart), .none: return L("status.stopped")
@@ -342,6 +398,15 @@ final class DreamsController: NSObject {
                  "expires_at": ISO8601DateFormatter().string(from: message.expiresAt)] as [String: Any]
             },
             "rain_visible": rainIsOn,
+            "rain_requested": rainRequested,
+            "display_mode": displaySelection.mode.rawValue,
+            "selected_display_ids": displaySelection.selectedIDs.sorted(),
+            "display_error": displayError as Any? ?? NSNull(),
+            "rain_windows": screenManager.overlays.keys.sorted().compactMap { id -> [String: Any]? in
+                guard let overlay = screenManager.overlays[id] else { return nil }
+                return ["display_uuid": id, "display_id": Int(overlay.displayID),
+                        "window_number": overlay.window.windowNumber, "frames_rendered": overlay.renderer.framesRendered]
+            },
             "transparent_background": transparentBackground,
             "hidden_from_screenshots": hideFromScreenshots,
             "rain_columns": rainColumnCount,
@@ -356,7 +421,7 @@ final class DreamsController: NSObject {
             "rain_idle_intensity": rainIdleIntensity,
             "matrix_font": restoredGlyphs ? "restored" : "classic",
             "rain_window_number": overlay.map { $0.windowNumber as Any } ?? NSNull(),
-            "frames_rendered": renderer?.framesRendered ?? 0,
+            "frames_rendered": screenManager.renderers.reduce(0) { $0 + $1.framesRendered },
             "emergency_hotkey_registered": emergencyHotkeyRegistered,
             "stop_hotkey": stopHotkey.display,
             "virtual_display_id": virtualDisplay.map { Int($0.displayID) as Any } ?? NSNull(),
@@ -371,6 +436,7 @@ final class DreamsController: NSObject {
             "displays": NSScreen.screens.map { screen in
                 let bounds = CGDisplayBounds(screen.displayID)
                 return ["id": Int(screen.displayID), "name": screen.localizedName,
+                        "uuid": screen.stableDisplayID, "excluded": screen.displayID == screenManager.excludedDisplayID,
                         "built_in": CGDisplayIsBuiltin(screen.displayID) != 0,
                         "is_main": screen.displayID == CGMainDisplayID(),
                         "quartz_bounds": ["x": bounds.minX, "y": bounds.minY,
@@ -405,16 +471,7 @@ final class DreamsController: NSObject {
         if !transparentBackground { stop(reason: .reopen) }
     }
 
-    private func begin(duration: Double?, brightness: Double) throws {
-        guard let screen = rainScreen else {
-            throw DreamsError.unavailable("No built-in display found. Refusing to cover an arbitrary display.")
-        }
-        stop(reason: .restart)
-        lastStopReason = nil
-        let view = MTKView(frame: NSRect(origin: .zero, size: screen.frame.size))
-        let transparent = transparentBackground
-        let renderer = try RainRenderer(view: view, restoredGlyphs: restoredGlyphs,
-            transparentBackground: transparent)
+    private func configureRenderer(_ renderer: RainRenderer) {
         renderer.keywordTint = keywordTint
         renderer.rainTint = rainTint
         renderer.keywordBrightness = keywordBrightness
@@ -425,32 +482,21 @@ final class DreamsController: NSObject {
         renderer.rainFadeRows = rainFadeRows
         renderer.rainColumnCount = rainColumnCount
         renderer.rainDensity = rainDensity
-        renderer.brightness = Float(brightness)
-        let window = NSPanel(contentRect: screen.frame, styleMask: [.borderless, .nonactivatingPanel],
-                             backing: .buffered, defer: false)
-        window.title = "Dreams Rain"
-        window.isReleasedWhenClosed = false
-        window.level = .screenSaver
-        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary]
-        window.ignoresMouseEvents = true
-        window.sharingType = hideFromScreenshots ? .none : .readOnly
-        window.isOpaque = !transparent
-        window.backgroundColor = transparent ? .clear : .black
-        window.hasShadow = false
-        window.contentView = view
-        window.setFrame(screen.frame, display: true)
-        self.renderer = renderer
-        overlay = window
+        renderer.brightness = Float(lastBrightness)
+    }
+
+    private func begin(duration: Double?, brightness: Double) throws {
+        guard !screenManager.targetScreens.isEmpty else {
+            throw DreamsError.unavailable(L("display.none"))
+        }
+        stop(reason: .restart)
         lastDuration = duration
         lastBrightness = brightness
-        window.orderFrontRegardless()
+        rainRequested = true
+        do { try reconcileScreens() }
+        catch { stop(reason: .restart); throw error }
+        lastStopReason = nil
         watchForScreenshotTool()
-        // A background overlay with no end must not keep the display awake forever.
-        if !transparent || duration != nil {
-            let result = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep as CFString,
-                IOPMAssertionLevel(kIOPMAssertionLevelOn), "Dreams agent session" as CFString, &assertionID)
-            assertionActive = result == kIOReturnSuccess
-        }
         guard let duration else { return }
         expiresAt = Date().addingTimeInterval(duration)
         expiryTask = Task { [weak self] in
@@ -481,7 +527,7 @@ final class DreamsController: NSObject {
     }
 
     func stop(reason: StopReason = .user) {
-        if rainIsOn && reason != .restart {
+        if rainRequested && reason != .restart {
             lastStopReason = reason
             log.notice("Rain stopped: \(reason.rawValue, privacy: .public)")
         }
@@ -493,15 +539,11 @@ final class DreamsController: NSObject {
         captureWatcher = nil
         suspendedForCapture = false
         captureClearSince = nil
-        (overlay?.contentView as? MTKView)?.isPaused = true
-        overlay?.close()
-        overlay = nil
-        renderer = nil
+        rainRequested = false
+        screenManager.close()
         expiresAt = nil
-        if assertionActive {
-            IOPMAssertionRelease(assertionID)
-            assertionActive = false
-        }
+        displayError = nil
+        updateSleepAssertion()
     }
 
     func resume() throws { try begin(duration: lastDuration, brightness: lastBrightness) }
@@ -510,17 +552,7 @@ final class DreamsController: NSObject {
         if let renderer { return try await renderer.previewPNG() }
         let renderer = try RainRenderer(view: MTKView(frame: .zero), restoredGlyphs: restoredGlyphs,
             transparentBackground: transparentBackground)
-        renderer.keywordTint = keywordTint
-        renderer.rainTint = rainTint
-        renderer.keywordBrightness = keywordBrightness
-        renderer.rainIdleIntensity = rainIdleIntensity
-        renderer.rainGlow = rainGlow
-        renderer.rainSpeed = rainSpeed
-        renderer.rainBrightnessSpread = rainBrightnessSpread
-        renderer.rainFadeRows = rainFadeRows
-        renderer.rainColumnCount = rainColumnCount
-        renderer.rainDensity = rainDensity
-        renderer.brightness = Float(lastBrightness)
+        configureRenderer(renderer)
         return try await renderer.previewPNG(posedTime: 6)
     }
 
@@ -529,6 +561,8 @@ final class DreamsController: NSObject {
         // Private API, opt-in tool only. Never change the user's primary display or mirror settings.
         let display = try DreamsVirtualDisplay(width: 1512, height: 982)
         virtualDisplay = display
+        screenManager.excludedDisplayID = display.displayID
+        screenParametersChanged()
         var screen: NSScreen?
         for _ in 0..<30 {
             guard virtualDisplay?.displayID == display.displayID else {
@@ -540,6 +574,8 @@ final class DreamsController: NSObject {
         }
         guard let screen else {
             virtualDisplay = nil
+            screenManager.excludedDisplayID = nil
+            screenParametersChanged()
             throw DreamsError.unavailable("Virtual display did not become available to AppKit within 3 seconds.")
         }
         clicks = 0
@@ -552,7 +588,7 @@ final class DreamsController: NSObject {
         let heading = NSTextField(labelWithString: "Dreams · Agent Workspace")
         heading.font = .systemFont(ofSize: 30, weight: .semibold)
         let detail = NSTextField(wrappingLabelWithString:
-            "This test window lives on a virtual display. The built-in screen can show the rain while an agent reads and clicks here.")
+            "This test window lives on a virtual display. The selected screens can show the rain while an agent reads and clicks here.")
         detail.font = .systemFont(ofSize: 17)
         detail.preferredMaxLayoutWidth = 640
         counterLabel.font = .monospacedDigitSystemFont(ofSize: 36, weight: .medium)
@@ -586,7 +622,9 @@ final class DreamsController: NSObject {
     func closeWorkspace() {
         workspaceWindow?.close()
         workspaceWindow = nil
+        // Keep its ID excluded until after releasing the virtual display and its AppKit screen.
         virtualDisplay = nil
+        screenParametersChanged()
     }
 
     func cleanUp() {

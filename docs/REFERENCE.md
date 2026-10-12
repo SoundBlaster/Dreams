@@ -49,7 +49,7 @@ Any other stdio MCP client, including Claude, uses the same executable and `--mc
 | `dreams_preview` | PNG of the shader itself, without capturing the screen or other windows |
 | `dreams_start` | Show the rain: `duration_seconds` 1–3600, default 300; `brightness` 0.02–0.35, default 0.18 |
 | `dreams_stop` | Remove the animation and release the display-sleep assertion |
-| `dreams_prepare_ui` | Remove the animation before screenshots or clicks on the built-in display |
+| `dreams_prepare_ui` | Remove the animation before screenshots or clicks on a covered display |
 | `dreams_resume` | Resume the rain with the last duration and brightness |
 | `dreams_workspace_create` | Create a virtual display and an «Increment» test window |
 | `dreams_workspace_close` | Close the test window and disconnect Dreams' own virtual display |
@@ -147,6 +147,7 @@ Agent words in both rain sets are drawn in DreamsMatrix-Regular, in capitals onl
 
 All settings are applied immediately and saved between launches. **Reset to Defaults** (bottom left of the window, with a confirmation) returns every setting, for both backgrounds, to the values of `DreamsPreset`. Presets like in Apple Terminal (named, switchable looks) are planned.
 
+- **Displays**: Automatic (default) uses the connected built-in display, otherwise the main external monitor, otherwise the first eligible screen. This supports a MacBook with its lid closed. All displays covers every connected screen; Selected displays uses the checked monitors. The choice is saved in `rainDisplayMode` and `rainDisplayIDs` using CoreGraphics display UUIDs, rather than transient numeric IDs. If none of the selected monitors are connected, Automatic is used temporarily; disconnected choices remain saved. Dreams' own agent workspace is excluded in every mode. Each target has its own overlay and renderer; display changes reconcile the windows without restarting retained animations or extending the run time. If every eligible screen disconnects, rain waits for a display and releases its sleep assertion; the existing expiry timer still runs. Stop, Esc, the global shortcut and MCP stop all overlays. `dreams_status` exposes `display_mode`, `selected_display_ids`, `rain_requested`, `display_error`, and `rain_windows` (display UUID/ID, window number and frame count). Legacy `rain_window_number` refers to the first overlay; `frames_rendered` is the total across overlays.
 - **Rain density** (0–100%, default 0%): length of the tail and the pause between passes. The scale is non-linear: 100% fills the whole grid after the initial pass, with no random holes or pauses; every column is active during a surge. Tail length is about 26–100% of the grid height; the lifetime is tied to the printing speed. At low density a dark pause remains between passes; at high density new passes follow faster and at 100% they are continuous. A new value applies to the next streams and does not bring back glyphs that already faded. Mutations do not extend a glyph's life. The number of busy columns is the current rain level (the calm background between messages, full during a surge) lifted towards all columns by the density: at 100% every column rains, calm or not. Which columns are busy is not fixed: at the end of every pass a column draws again whether it rains or rests for about one pass, so the pattern keeps changing; a surge wakes the resting columns at once.
 - **Fade width** (1–16 glyphs, default 3): how many rows dissolve at once from the top edge of a tail. At 1 the next glyph starts to fade after the previous has gone; at 16 the edge is soft. It applies to new streams regardless of density.
 - **Rain speed** (0.25×–3×, default 0.43×): changes the pace of printing, mutation and fading together while keeping the tail length in cells; the decay time of agent activity stays the same.
@@ -178,9 +179,9 @@ The window also shows the animation state next to the agent activity: stopped, o
 - Checks: `make plugins-check` validates the manifests, requires the version to equal `VERSION` (`make bump V=x.y.z` sets both), runs the hook script, and, when the CLIs are present, `claude plugin validate`, an install into a throwaway `CLAUDE_CONFIG_DIR` and a Codex `plugin marketplace add` / `plugin add` into a throwaway `CODEX_HOME`.
 - Not verified here: that Codex runs the plugin's hooks after you trust them (the desktop app review UI), and that Codex expands `${PLUGIN_ROOT}` the way its documentation says.
 
-## UI agents and the built-in display
+## Displays and UI agents
 
-If an agent captures the whole built-in desktop it may see the rain, unless "Hide the rain from screenshots and recordings" is on (the default) and the capture tool honors it. To be safe call `dreams_prepare_ui` before such actions and `dreams_resume` after. The fullscreen window does not intercept clicks: it is not a way to block input. There are no waves during UI work on the built-in display.
+If an agent captures a covered desktop it may see the rain, unless "Hide the rain from screenshots and recordings" is on (the default) and the capture tool honors it. To be safe call `dreams_prepare_ui` before such actions and `dreams_resume` after. The fullscreen window does not intercept clicks: it is not a way to block input. Rain resumes on the configured displays after UI work.
 
 Simultaneous work is possible when a UI tool captures a window on the virtual display separately and sends input there correctly. Creating a second display does not reconfigure Codex or Claude. Windows of other apps are not moved automatically. Focus, clipboard and keyboard input still belong to the shared user session.
 
@@ -252,6 +253,14 @@ swiftc -swift-version 6 Sources/Dreams/MatrixSimulation.swift scripts/test-matri
 ```
 
 It checks sequential writing, that old glyphs stay still, a single replacement, an identical result at different frame rates, and no changes when the same time is rendered again. Five cycles of flowing rain are checked separately: the tail clears the top of the screen before the head leaves, disappears completely, leaves a dark gap and starts a new pass from a single top cell.
+
+Display selection and persistence are also checked by `swift test -c release` (included in `make test-unit`). The opt-in runtime scenario creates and removes an additional virtual display, exercises live selection and fallback, checks timer/window preservation, and verifies that the agent workspace stays uncovered. It records the actual settings view with Screener:
+
+```sh
+make test-displays
+```
+
+The trace is written under `~/Library/Caches/Screener/Traces` for inspection through Screener MCP. This scenario needs a logged-in graphical session and Metal; it is disabled in the ordinary unit test run. A physical USB-C monitor with a closed MacBook lid still needs a hardware check.
 
 To record 180 real Metal frames (6 seconds at 30 fps) without fullscreen:
 
