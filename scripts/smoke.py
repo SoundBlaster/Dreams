@@ -16,11 +16,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class MCPClient:
-    def __init__(self, env=None, publisher=False, extra_args=()):
+    def __init__(self, env=None, publisher=False, extra_args=(), executable=None):
         self.publisher = publisher
         self.stderr = tempfile.TemporaryFile(mode="w+")
         self.process = subprocess.Popen(
-            [str(ROOT / "dist/Dreams.app/Contents/MacOS/Dreams"), "--mcp"]
+            [str(executable or ROOT / "dist/Dreams.app/Contents/MacOS/Dreams"), "--mcp"]
             + (["--publisher"] if publisher else []) + list(extra_args),
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=self.stderr,
             text=True, bufsize=1, env=env)

@@ -121,3 +121,20 @@
 "rain.columns.auto" = "Automatic";
 "rain.columns" = "Columns";
 "rain.columns.tip" = "24–240 columns. Fewer columns make larger glyphs. Automatic preserves the original display grid.";
+
+// Display management.
+"section.displays" = "Displays";
+"display.mode.automatic" = "Automatic";
+"display.mode.all" = "All displays";
+"display.mode.selected" = "Selected displays";
+"display.builtIn" = "Built-in";
+"display.main" = "Main";
+"display.agentWorkspace" = "Agent workspace (excluded)";
+"display.hint.automatic" = "Uses the built-in display when available; with the lid closed, uses the main external display.";
+"display.hint.all" = "Covers every connected display except the Dreams agent workspace. Changes apply immediately.";
+"display.hint.selected" = "Choose one or more displays. Your selection is remembered when displays reconnect.";
+"display.fallback" = "No selected display is available, so Automatic is used.";
+"display.disconnected" = "Disconnected selections: %ld.";
+"display.none" = "No eligible display is available. Connect a display and try again.";
+"status.waitingDisplay" = "Waiting for a display; rain will resume when one connects.";
+"status.displayError" = "Could not update displays: %@";
