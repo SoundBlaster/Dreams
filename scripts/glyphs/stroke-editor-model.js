@@ -166,12 +166,20 @@
   function transform(glyph) {
     return `translate(54.5 0) scale(${glyph.stretch*(glyph.mirror?-1:1)} 1) translate(-54.5 0)`;
   }
+  const exportCell={width:956,height:1024,x:96.5,y:74,scaleX:7,scaleY:8};
+  function metricGuides(metrics) {
+    const c=exportCell,toY=value=>(metrics.ascent-value-c.y)/c.scaleY;
+    return {baseline:toY(0),cap:toY(metrics.capHeight),xHeight:toY(metrics.xHeight),
+      ascent:toY(metrics.ascent),descent:toY(-metrics.descent),
+      left:-c.x/c.scaleX,right:(metrics.advance-c.x)/c.scaleX,
+      lineHeight:metrics.ascent+metrics.descent+(metrics.lineGap||0)};
+  }
   function svg(glyph, attribution) {
     const escape = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
     // Same cell metrics as the existing katakana export. Guides are excluded from glyph reads.
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 1024" width="956" height="1024"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(96.5 74) scale(7 8)"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s,glyph.preserveWidth?glyph.stretch:1)}"/>`).join('')}</g></g></svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${exportCell.width} ${exportCell.height}" width="${exportCell.width}" height="${exportCell.height}"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(${exportCell.x} ${exportCell.y}) scale(${exportCell.scaleX} ${exportCell.scaleY})"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s,glyph.preserveWidth?glyph.stretch:1)}"/>`).join('')}</g></g></svg>`;
   }
-  const api = {point,samples,widthAt,outline,centerPath,setPoint,insertSegment,validate,transform,svg,copy,mix};
+  const api = {point,samples,widthAt,outline,centerPath,setPoint,insertSegment,validate,transform,metricGuides,svg,copy,mix};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.StrokeEditorModel = api;
 })(globalThis);

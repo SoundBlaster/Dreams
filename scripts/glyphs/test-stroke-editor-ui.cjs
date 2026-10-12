@@ -14,7 +14,7 @@ function element(id=''){
   };
   if(id)elements.set(id,e);return e;
 }
-const sandbox=vm.createContext({seed,M:undefined,globalThis:null,document:{getElementById:element,createElement:()=>element(),addEventListener(){}},
+const sandbox=vm.createContext({fontMetrics:{upm:1024,advance:956,ascent:900,descent:124,capHeight:780,xHeight:560},seed,M:undefined,globalThis:null,document:{getElementById:element,createElement:()=>element(),addEventListener(){}},
   localStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)},window:{addEventListener(){}},
   Blob,URL:{createObjectURL:()=>'',revokeObjectURL(){}},setTimeout:()=>{},
   DOMPoint:class{constructor(x,y){this.x=x;this.y=y;}matrixTransform(m){const [x,y]=m.apply(this.x,this.y);return {x,y};}},
@@ -25,6 +25,16 @@ sandbox.globalThis=sandbox;
 vm.runInContext(fs.readFileSync('scripts/glyphs/stroke-editor.js','utf8'),sandbox);
 const state=()=>JSON.parse(vm.runInContext('JSON.stringify(project)',sandbox));
 assert.equal(element('alphabet').children.length,46);
+assert.equal(element('stage').viewBox,'-49 -18 210 153');
+assert.ok(element('stage').innerHTML.includes('Baseline 0'));
+assert.ok(element('stage').innerHTML.includes('Line height 1024'));
+const metricProject=state();element('guideBaseline').checked=false;element('guideBaseline').onchange();
+assert.ok(!element('stage').innerHTML.includes('Baseline 0'));
+element('guideBaseline').checked=true;element('guideBaseline').onchange();
+element('metricGuides').checked=false;element('metricGuides').onchange();
+assert.equal(element('stage').viewBox,'0 0 109 109');assert.deepEqual(state(),metricProject);
+element('metricGuides').checked=true;element('metricGuides').onchange();
+
 element('width').value='9';element('width').oninput();element('width').onchange();
 assert.equal(state().glyphs[4].strokes[0].width,9);
 element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].width,7.5);

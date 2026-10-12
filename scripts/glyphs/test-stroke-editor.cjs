@@ -113,6 +113,15 @@ check('mirror and proportions affect SVG output',()=>{
   g.mirror=true;assert.notEqual(M.svg(g,seed.attribution),normal);assert.ok(M.transform(g).includes('scale(-0.85 1)'));
   g.stretch=.65;assert.ok(M.transform(g).includes('scale(-0.65 1)'));
 });
+check('font metric guides use the same coordinate mapping as exported SVG',()=>{
+  const metrics={ascent:900,descent:124,advance:956,capHeight:780,xHeight:560};
+  const g=M.metricGuides(metrics);
+  assert.equal(g.baseline,103.25);assert.equal(g.cap,5.75);assert.equal(g.xHeight,33.25);
+  assert.equal(g.ascent,-9.25);assert.equal(g.descent,118.75);assert.equal(g.lineHeight,1024);
+  assert.equal(96.5+7*g.left,0);assert.equal(96.5+7*g.right,956);
+  assert.equal(74+8*g.baseline,900);assert.equal(74+8*g.cap,120);
+  assert.equal(M.metricGuides({...metrics,lineGap:30}).lineHeight,1054);
+});
 check('Latin/Cyrillic custom signs and XML-special characters',()=>{
   const p=M.copy(seed);for(const character of ['R','Ж','<'])p.glyphs.push({character,stretch:.85,mirror:false,strokes:[M.copy(base)]});
   M.validate(p);assert.ok(M.svg(p.glyphs.at(-1),'A&B').includes('<title>&lt;</title>'));

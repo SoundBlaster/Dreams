@@ -167,3 +167,20 @@ python3 scripts/glyphs/stroke_library.py save /path/to/dreams-strokes.json --lab
 и выбирает его первую половину. На границах штрих продолжается прямой по касательной
 на 12 единиц холста, с ограничением координат 0…109; у края доступное направление
 корректируется внутрь холста. Undo возвращает исходную форму. Максимум — 32 участка.
+
+## Ориентиры шрифта
+
+Переключатель **Метрики** показывает font cell и подписанные линии в координатах
+экспорта. В блоке **Ориентиры шрифта** отдельно включаются Baseline, Cap/body height,
+Meanline/x-height, Ascent/descent, Bounding box и Advance/line height. Meanline по
+умолчанию выключена: x-height нужна прежде всего для латиницы. Выбор запоминается
+в браузере и не меняет проект, checkpoints или SVG.
+
+Метрики читаются при сборке редактора из `research/glyphs/pipeline.toml`:
+UPM 1024, ascent 900, descent 124, advance 956, cap height 780, x-height 560.
+Leading — 0 при отсутствии `font.line_gap`; line height = ascent + descent + leading.
+Это номинальная строка шрифта, а не шаг строк дождя приложения. Baseline соответствует
+Y=103,25 на рабочем холсте после преобразования `translate(96.5 74) scale(7 8)`.
+Пунктирная bounding box считается по текущему контуру с учётом отражения, сужения
+и режима сохранения толщины. Рамка font cell показывает advance и ascent/descent;
+origin обозначен точкой на baseline у левой границы ячейки.
