@@ -134,13 +134,20 @@ def study_sheet(records, characters='ネマスセ', title='Четыре калл
 def build(destination=OUTPUT):
     library, brush, glyphs = load_library()
     destination.mkdir(parents=True, exist_ok=True)
+    generated = []
+
+    def write(name, content):
+        path = destination / name
+        path.write_text(content)
+        generated.append(path)
+
     font = tomllib.loads((ROOT / 'research/glyphs/pipeline.toml').read_text())['font']
     records, cards = [], []
     for glyph, strokes in glyphs:
         character = glyph['character']
         name = f'uni{ord(character):04X}'
         for mirrored in (False, True):
-            (destination / f'{name}{"-mirrored" if mirrored else ""}.svg').write_text(
+            write(f'{name}{"-mirrored" if mirrored else ""}.svg',
                 export_svg(strokes, brush, font, mirrored))
         record = {**glyph, 'outlines': [], 'samples': [], 'paths': [], 'pressure': []}
         for stroke in strokes:
@@ -156,20 +163,20 @@ def build(destination=OUTPUT):
     payload = json.dumps({'brush': library['brush'], 'profiles': library['profiles'], 'glyphs': records},
                          ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
     template = (Path(__file__).parent / 'katakana-catalog.html').read_text()
-    (destination / 'catalog.html').write_text(template.replace('__LIBRARY_JSON__', payload))
+    write('catalog.html', template.replace('__LIBRARY_JSON__', payload))
     for slug, characters, title in STUDIES:
-        (destination / f'{slug}.html').write_text(study_sheet(records, characters, title, slug == 'pairs'))
-    (destination / 'alphabet.html').write_text(study_sheet(records, REPERTOIRE, 'Катакана · 46 каллиграфических этюдов'))
-    (destination / 'proof.html').write_text('<!doctype html><meta charset="utf-8"><title>Katakana proof</title>'
+        write(f'{slug}.html', study_sheet(records, characters, title, slug == 'pairs'))
+    write('alphabet.html', study_sheet(records, REPERTOIRE, 'Катакана · 46 каллиграфических этюдов'))
+    write('proof.html', '<!doctype html><meta charset="utf-8"><title>Katakana proof</title>'
         '<style>body{background:#f4f0e5;font:16px system-ui;padding:24px}main{display:grid;'
         'grid-template-columns:repeat(10,1fr);gap:12px}svg{width:100%;border:1px solid #b9c7bd}</style>'
         '<h1>Katakana · 46 construction studies</h1><p>Pressure = editable hypothesis; all glyphs DRAFT.</p>'
         f'<main>{"".join(cards)}</main><p>{html.escape(ATTRIBUTION)}</p>')
-    (destination / 'ATTRIBUTION.txt').write_text(ATTRIBUTION + '\n')
+    write('ATTRIBUTION.txt', ATTRIBUTION + '\n')
     from stroke_editor import build as build_editor
-    build_editor(destination)
+    generated.extend(build_editor(destination))
     hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-              for p in sorted(destination.iterdir()) if p.is_file() and p.name != 'manifest.json'}
+              for p in sorted(generated)}
     (destination / 'manifest.json').write_text(json.dumps(hashes, indent=2) + '\n')
     print(f'{len(glyphs)} glyphs, {sum(len(s) for _, s in glyphs)} directed strokes, 92 editable SVGs')
     print(destination / 'catalog.html')

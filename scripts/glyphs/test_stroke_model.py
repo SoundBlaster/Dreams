@@ -309,10 +309,22 @@ class StrokeModelTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             a, b = Path(tmp) / 'a', Path(tmp) / 'b'
             build(a)
+            b.mkdir()
+            unrelated = {'.DS_Store': b'finder metadata', 'manual-edit.svg': b'<svg/>',
+                         'old-study.html': b'previous experiment'}
+            for name, content in unrelated.items():
+                (b / name).write_bytes(content)
+            (b / 'manifest.json').write_text('{"stale": "manifest"}')
             build(b)
             def hashes(root):
-                return {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.iterdir()}
+                return {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                        for p in root.iterdir() if p.name not in unrelated}
             self.assertEqual(hashes(a), hashes(b))
+            manifest = json.loads((b / 'manifest.json').read_text())
+            self.assertEqual(manifest, {name: digest for name, digest in hashes(a).items()
+                                       if name != 'manifest.json'})
+            for name, content in unrelated.items():
+                self.assertEqual((b / name).read_bytes(), content)
             self.assertEqual(len(list(a.glob('*.svg'))), 92)
             for slug, characters, _ in STUDIES:
                 page = (a / f'{slug}.html').read_text()
