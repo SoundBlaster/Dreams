@@ -1,5 +1,6 @@
 "settings.title" = "Dreams";
 "settings.columns" = "Столбцы";
+"settings.density" = "Плотность дождя";
 "settings.brightness" = "Яркость";
 "settings.speed" = "Скорость";
 "settings.fade" = "Затухание · символы";

@@ -1,7 +1,7 @@
 import SwiftUI
 
 private enum SettingsField: Hashable {
-    case columns, brightness, speed, fade, floating, typeface, size, done
+    case columns, density, brightness, speed, fade, floating, typeface, size, done
 }
 
 struct SettingsPage: View {
@@ -14,6 +14,10 @@ struct SettingsPage: View {
             Text("settings.title").font(.largeTitle.weight(.semibold)).padding(.bottom, 8)
             AdjustmentRow(title: "settings.columns", value: "\(settings.tuning.columns)", focus: $focusedField, field: .columns) { direction in
                 settings.tuning.columns += direction * 4
+            }
+            AdjustmentRow(title: "settings.density", value: settings.tuning.density.formatted(.percent.precision(.fractionLength(0))),
+                          focus: $focusedField, field: .density) {
+                settings.tuning.density += Double($0) * 0.05
             }
             AdjustmentRow(title: "settings.brightness", value: settings.tuning.brightness.formatted(.percent.precision(.fractionLength(0))),
                           focus: $focusedField, field: .brightness) {
