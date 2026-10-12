@@ -11,6 +11,7 @@ final class MatrixRain {
         var color: SIMD4<Float>
     }
     private let device: any MTLDevice
+    private let transparentBackground: Bool
     private let pipeline: any MTLRenderPipelineState
     private let glowPipeline: any MTLRenderPipelineState
     private let atlas: any MTLTexture
@@ -40,8 +41,10 @@ final class MatrixRain {
     // Repertoire from cassmtnr/MatrixDigitalRain (MIT; see THIRD_PARTY_NOTICES.md).
     private let symbols: [Character]
 
-    init(device: any MTLDevice, library: any MTLLibrary, restoredGlyphs: Bool = false) throws {
+    init(device: any MTLDevice, library: any MTLLibrary, restoredGlyphs: Bool = false,
+         transparentBackground: Bool = false) throws {
         self.device = device
+        self.transparentBackground = transparentBackground
         if let url = Bundle.module.url(forResource: "DreamsMatrix", withExtension: "ttf") {
             CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
         }
@@ -86,7 +89,7 @@ final class MatrixRain {
         descriptor.vertexFunction = library.makeFunction(name: "matrixVertex")
         descriptor.fragmentFunction = library.makeFunction(name: "matrixFragment")
         let color = descriptor.colorAttachments[0]!
-        color.pixelFormat = .bgra8Unorm_srgb
+        color.pixelFormat = transparentBackground ? .bgra8Unorm : .bgra8Unorm_srgb
         color.isBlendingEnabled = true
         color.sourceRGBBlendFactor = .sourceAlpha
         color.destinationRGBBlendFactor = .oneMinusSourceAlpha
@@ -227,6 +230,9 @@ final class MatrixRain {
                 let visibility = cell.visibility
                 let opacity = simulation!.opacity(column: column, row: row)
                 guard cell.glyph >= 0, opacity > 0.008 else { continue }
+                // Over windows, dissolve the coverage instead of leaving an opaque black stroke.
+                let inkOpacity: Float = transparentBackground ? 1 : opacity
+                let glyphAlpha = visibility * (transparentBackground ? opacity : 1)
                 let head = simulation!.headIntensity(column: column, row: row)
                     * (cell.ink > 0.45 ? 1 : 0.2)
                 let mutation = Float(max(0, 1 - (simulationClock - cell.flashedAt) / 0.28))
@@ -250,11 +256,11 @@ final class MatrixRain {
                     text = mutating ? String(symbols[cell.glyph]) : String(selection.characters[wordIndex])
                     // Same ink as the rain (brightness spread included); colour and the
                     // word brightness setting are the only differences.
-                    rgb = keywordTint * ink * opacity
+                    rgb = keywordTint * ink * inkOpacity
                 } else {
                     text = String(symbols[cell.glyph])
                     let tint = rainTint + SIMD3<Float>(0, 0, 0.02 * cell.warmth)
-                    rgb = tint * ink * opacity
+                    rgb = tint * ink * inkOpacity
                 }
                 // Only the newly printed cell is pale; older signs keep their own ink level.
                 rgb = rgb * (1 - white) + SIMD3<Float>(0.86, 0.96, 0.88) * white
@@ -278,8 +284,8 @@ final class MatrixRain {
                     + SIMD3<Float>(0.52, 0.95, 0.65) * white
                 if glow > 0 { halos.append(Cell(rect: glowRect, uv: glowUV,
                     color: SIMD4(haloTint * exposure * wordExposure,
-                        (0.30 * ink * opacity + 0.75 * white) * visibility * Float(min(3, glow))))) }
-                cells.append(Cell(rect: rect, uv: uv, color: SIMD4(rgb * exposure, visibility)))
+                        (0.30 * ink * inkOpacity + 0.75 * white) * glyphAlpha * Float(min(3, glow))))) }
+                cells.append(Cell(rect: rect, uv: uv, color: SIMD4(rgb * exposure, glyphAlpha)))
             }
         }
         guard !cells.isEmpty else { return }
@@ -298,7 +304,7 @@ final class MatrixRain {
         guard let buffer else { return }
         encoder.setVertexBuffer(buffer, offset: 0, index: 0)
         encoder.setFragmentTexture(texture, index: 0)
-        var parameters = SIMD4<Float>(time, noise, diffuse ? 1 : 0, 0)
+        var parameters = SIMD4<Float>(time, noise, diffuse ? 1 : 0, transparentBackground ? 1 : 0)
         encoder.setFragmentBytes(&parameters, length: MemoryLayout<SIMD4<Float>>.stride, index: 0)
         encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6, instanceCount: cells.count)
     }

@@ -77,3 +77,5 @@ jobs:
         run: |
           python3 scripts/smoke.py
           .venv/bin/python scripts/test-transparent.py
+          DREAMS_TEST_METAL=1 DREAMS_FEED_DIRECTORY="$(mktemp -d)" \
+            swift test -c release --filter TransparentFadeRenderingTests

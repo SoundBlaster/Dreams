@@ -164,7 +164,7 @@ All settings are applied immediately and saved between launches. **Reset to Defa
   open -n ./dist/Dreams.app --args --transparent
   ```
 
-  The transparent mode shows glyphs and glow over the desktop and clicks pass through the window. `transparent_background` in the status shows the selected mode. Working windows under the transparent Matrix stay visible, including in UI-agent screenshots. In this mode glow is off by default to avoid a haze over working windows.
+  The transparent mode shows glyphs and glow over the desktop and clicks pass through the window. `transparent_background` in the status shows the selected mode. Working windows under the transparent Matrix stay visible, including in UI-agent screenshots. Tail fading reduces alpha instead of darkening the ink, so disappearing rain and event letters reveal the desktop without a black silhouette. The transparent target uses premultiplied sRGB colour: the shader encodes RGB before blending into a BGRA8 unorm drawable, preserving the hue as alpha decreases. The black background keeps its linear-light blending and sRGB drawable. In transparent mode glow is off by default to avoid a haze over working windows; when enabled it follows the same alpha fade.
 
 Part of the glyph replacements run as a short churn: 4–8 different glyphs in a row on one position, 35–65 ms apart at 1× speed, then the chosen glyph settles without a white flash. The other replacements are single. After settling, a cell is not picked again for at least 0.8 seconds of simulation time. The churn keeps the brightness and the original print time, and stops when fading starts, the column is hidden, or the cell is overwritten by a new pass.
 
@@ -262,6 +262,15 @@ DREAMS_FEED_DIRECTORY="$(mktemp -d)" DREAMS_CAPTURE_TRAILS_DIR="$PWD/artifacts/s
 ```
 
 This opt-in scenario saves 100 PNGs at 10 fps using restored glyphs, 48 columns, density 0%, fade width 3 and speed 1×. It does not change saved settings or the live agent feed.
+
+To check transparent tail fading on a Mac with Metal:
+
+```sh
+DREAMS_TEST_METAL=1 DREAMS_FEED_DIRECTORY="$(mktemp -d)" \
+  swift test -c release --filter TransparentFadeRenderingTests
+```
+
+The GPU regression measures a fixed glyph at four stages: alpha must decrease with its lifetime, straight colour must remain stable, and expired ink must leave zero alpha. It covers rain and event text with both glyph sets, including switching glyph sets in transparent mode. Set `DREAMS_CAPTURE_ALPHA_DIR` to save the PNGs and crop coordinates. CI attempts this alongside the other Metal checks; hosted runners without a GPU may skip that best-effort step.
 
 Display selection and persistence are also checked by `swift test -c release` (included in `make test-unit`). The opt-in runtime scenario creates and removes an additional virtual display, exercises live selection and fallback, checks timer/window preservation, and verifies that the agent workspace stays uncovered. It records the actual settings view with Screener:
 

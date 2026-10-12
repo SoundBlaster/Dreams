@@ -48,6 +48,14 @@ float lightCloud(float2 p, uint seed) {
     return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
 }
 
+float3 compositingColor(float3 rgb, bool transparent) {
+    if (!transparent) return rgb;
+    // Core Animation and PNG expect premultiplied sRGB bytes. Encode before
+    // blending into an unorm target, so alpha scales the encoded colour too.
+    rgb = clamp(rgb, 0.0, 1.0);
+    return select(12.92 * rgb, 1.055 * pow(rgb, float3(1.0 / 2.4)) - 0.055, rgb > 0.0031308);
+}
+
 fragment float4 matrixFragment(MatrixOutput in [[stage_in]], texture2d<float> atlas [[texture(0)]],
     constant float4 &noiseParameters [[buffer(0)]]) {
     constexpr sampler glyphSampler(filter::linear, address::clamp_to_edge);
@@ -59,7 +67,8 @@ fragment float4 matrixFragment(MatrixOutput in [[stage_in]], texture2d<float> at
             + 0.30 * lightCloud(in.localUV * float2(11, 13) - drift, in.seed ^ 2246822519u);
         float2 edge = min(in.localUV, 1.0 - in.localUV);
         float skirt = smoothstep(0.0, 0.12, min(edge.x, edge.y));
-        return float4(in.color.rgb, alpha * in.color.a * (0.65 + 0.65 * cloud) * skirt);
+        return float4(compositingColor(in.color.rgb, noiseParameters.w > 0.5),
+            alpha * in.color.a * (0.65 + 0.65 * cloud) * skirt);
     }
     float gain = 1;
     if (noiseParameters.y > 0 && alpha > 0.01) {
@@ -76,5 +85,5 @@ fragment float4 matrixFragment(MatrixOutput in [[stage_in]], texture2d<float> at
         float scanline = (grain.y % 3u == 0u) ? 0.88 : 1.0;
         gain = mix(1.0, structure * (0.90 + 0.20 * shimmer) * scanline, noiseParameters.y);
     }
-    return float4(in.color.rgb * gain, alpha * in.color.a);
+    return float4(compositingColor(in.color.rgb * gain, noiseParameters.w > 0.5), alpha * in.color.a);
 }
