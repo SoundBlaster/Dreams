@@ -61,6 +61,20 @@ class StrokeModelTests(unittest.TestCase):
         self.assertEqual(strokes[1].pressure[-1][1], 0)
         self.assertGreater(pressure_at(strokes[2].pressure, .9), pressure_at(strokes[2].pressure, .3))
 
+    def test_calibrated_studies_keep_their_intended_connections(self):
+        _, brush, entries = load_library()
+        for glyph, strokes in entries:
+            if glyph['character'] not in 'ネマスセ':
+                continue
+            with self.subTest(character=glyph['character']):
+                for stroke in strokes:
+                    self.assertEqual(len(list(stroke.outline(brush).contours)), 1)
+                outline = union_strokes(strokes, brush)
+                # ネ retains two detached short marks; the other studies meet.
+                self.assertEqual(len(list(outline.contours)), 3 if glyph['character'] == 'ネ' else 1)
+                reflected = outline.transform(-1, 0, 0, 1, 109, 0)
+                self.assertAlmostEqual(outline.area, reflected.area, delta=.01)
+
     def test_interior_knots_do_not_pause_thickness_change(self):
         knots = ((0, .1), (.2, .3), (.7, .8), (1, 1))
         epsilon = 1e-6

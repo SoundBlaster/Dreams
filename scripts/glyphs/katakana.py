@@ -70,6 +70,37 @@ def export_svg(strokes, brush, font, mirrored=False):
     return vector.write_svg(outline, font, 'katakana', ATTRIBUTION)
 
 
+def study_sheet(records):
+    """Focused normal/reflected proof of the first four calibrated studies."""
+    selected = [next(g for g in records if g['character'] == char) for char in 'ネマスセ']
+    rows = []
+    for mirrored in (False, True):
+        cards = []
+        for glyph in selected:
+            paths = ''.join(f'<path d="{d}"/>' for d in glyph['outlines'])
+            transform = 'translate(109 0) scale(-1 1)' if mirrored else ''
+            label = f'{glyph["character"]} · {glyph["reading"]}'
+            cards.append(f'<article><h2>{label}</h2><svg viewBox="0 0 109 109" role="img" '
+                         f'aria-label="{label}, {"mirrored" if mirrored else "normal"}">'
+                         f'<g fill="#173b2e" transform="{transform}">{paths}</g></svg></article>')
+        rows.append(f'<h3>{"Зеркальное отражение" if mirrored else "Обычное начертание"}</h3>'
+                    f'<section>{"".join(cards)}</section>')
+    return ('<!doctype html><html lang="ru"><meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width, initial-scale=1">'
+            '<title>Dreams · четыре каллиграфических этюда</title><link rel="icon" href="data:,">'
+            '<style>body{background:#f4f0e5;color:#173b2e;font:16px system-ui;'
+            'max-width:1340px;margin:28px auto;padding:0 24px}h1{margin:0 0 8px}h3{margin:20px 0 8px}'
+            'p{color:#52635d}section{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}'
+            'article{background:#fffdf6;border:1px solid #ccd1c4;border-radius:12px;padding:12px}'
+            'h2{font-size:18px;margin:0}svg{display:block;width:100%}a{color:inherit}'
+            '@media(max-width:640px){section{grid-template-columns:repeat(2,1fr)}}</style>'
+            '<h1>Четыре каллиграфических этюда</h1><p>Индивидуальные траектории и нажим · DRAFT · '
+            '<a href="catalog.html">Открыть каталог</a></p>' + ''.join(rows)
+            + '<p>Зеркальные варианты получены отражением готового следа кисти. '
+            'Профили — художественная настройка по образцу, а не измеренный нажим.</p>'
+            f'<small>{html.escape(ATTRIBUTION)}</small></html>')
+
+
 def build(destination=OUTPUT):
     library, brush, glyphs = load_library()
     destination.mkdir(parents=True, exist_ok=True)
@@ -96,6 +127,7 @@ def build(destination=OUTPUT):
                          ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
     template = (Path(__file__).parent / 'katakana-catalog.html').read_text()
     (destination / 'catalog.html').write_text(template.replace('__LIBRARY_JSON__', payload))
+    (destination / 'studies.html').write_text(study_sheet(records))
     (destination / 'proof.html').write_text('<!doctype html><meta charset="utf-8"><title>Katakana proof</title>'
         '<style>body{background:#f4f0e5;font:16px system-ui;padding:24px}main{display:grid;'
         'grid-template-columns:repeat(10,1fr);gap:12px}svg{width:100%;border:1px solid #b9c7bd}</style>'
