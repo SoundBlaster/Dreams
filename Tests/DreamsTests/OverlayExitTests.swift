@@ -102,7 +102,11 @@ struct OverlayExitTests {
             if !NSWorkspace.shared.isVoiceOverEnabled && !application.isFullKeyboardAccessEnabled {
                 #expect(content.exitButton.isHidden)
             }
-            content.revealExitControls()
+            let move = try #require(NSEvent.mouseEvent(with: .mouseMoved, location: NSPoint(x: 100, y: 100),
+                modifierFlags: [], timestamp: ProcessInfo.processInfo.systemUptime,
+                windowNumber: key.windowNumber, context: nil, eventNumber: 1, clickCount: 0, pressure: 0))
+            key.sendEvent(move)
+            #expect(!content.exitButton.isHidden, "Pointer movement alone must reveal the exit button")
             try await checkpoint("02.ControlsRevealed", view: content)
             try escape(key)
             #expect(escaped == 1 && manager.overlays.isEmpty)
