@@ -47,8 +47,16 @@ stage.events.pointermove({clientX:40,clientY:34,pointerId:7});stage.events.point
 assert.deepEqual(state().glyphs[4].strokes[0].segments[0].start,[71.5588,34]);
 element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].segments[0].start[0],18);
 const count=state().glyphs[4].strokes[0].segments.length;
-element('addSegment').onclick();assert.equal(state().glyphs[4].strokes[0].segments.length,count+1);
+element('addSegmentAfter').onclick();assert.equal(state().glyphs[4].strokes[0].segments.length,count+1);
 element('removeSegment').onclick();assert.equal(state().glyphs[4].strokes[0].segments.length,count);
+element('segment').value='0';element('segment').onchange();
+const beforeInsertion=state();
+element('addSegmentBefore').onfocus();assert.ok(element('stage').innerHTML.includes('stroke="#b17f24"'));
+element('addSegmentBefore').onclick();assert.equal(element('segment').value,0);
+assert.equal(state().glyphs[4].strokes[0].segments.length,count+1);
+element('undo').onclick();assert.deepEqual(state(),beforeInsertion);
+element('addSegmentAfter').onclick();assert.equal(element('segment').value,1);
+element('undo').onclick();assert.deepEqual(state(),beforeInsertion);
 const previous=state();
 element('pasteText').value='{}';element('applyPaste').onclick();assert.deepEqual(state(),previous);assert.ok(element('pasteError').textContent);
 const custom=M.copy(seed);custom.attribution='Custom fixture';custom.glyphs=[custom.glyphs[0]];

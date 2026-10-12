@@ -71,6 +71,32 @@ check('shared endpoints remain connected when either section moves',()=>{
   M.setPoint(s,0,'end',[70,30]);assert.deepEqual(s.segments[1].start,[70,30]);
   M.setPoint(s,1,'start',[60,40]);assert.deepEqual(s.segments[0].end,[60,40]);assert.deepEqual(s.segments[0].mid,[35,30]);
 });
+check('insert before/after the selection preserves interior curves and extends boundary joins',()=>{
+  const segments=[{kind:'line',start:[10,20],mid:[25,20],end:[40,20]},
+    {kind:'arc',start:[40,20],mid:[65,45],end:[80,70]},
+    {kind:'line',start:[80,70],mid:[90,70],end:[100,70]}];
+  for(const [index,side,neighborIndex,newIndex] of [[0,'after',1,1],[2,'before',1,2]]) {
+    const stroke={...M.copy(base),segments:M.copy(segments)};
+    assert.equal(M.insertSegment(stroke,index,side),newIndex);assert.equal(stroke.segments.length,4);
+    for(let i=0;i<=20;i++) {
+      const t=i/20,split=t<=.5?stroke.segments[neighborIndex]:stroke.segments[neighborIndex+1];
+      const actual=M.point(split,t<=.5?t*2:(t-.5)*2),expected=M.point(segments[neighborIndex],t);
+      assert.ok(Math.hypot(...actual.map((v,j)=>v-expected[j]))<1e-10);
+    }
+    for(let i=1;i<stroke.segments.length;i++)assert.deepEqual(stroke.segments[i-1].end,stroke.segments[i].start);
+  }
+  for(const side of ['before','after']) {
+    const stroke={...M.copy(base),segments:[M.copy(segments[0])]};
+    const inserted=M.insertSegment(stroke,0,side);assert.equal(inserted,side==='before'?0:1);
+    assert.deepEqual(stroke.segments[0].end,stroke.segments[1].start);
+    assert.ok(M.samples(stroke).length>0);
+    const project=M.copy(seed);project.glyphs[0].strokes=[stroke];M.validate(project);
+  }
+  const boundary={...M.copy(base),segments:[{kind:'line',start:[10,0],mid:[5,0],end:[0,0]}]};
+  M.insertSegment(boundary,0,'after');assert.notDeepEqual(boundary.segments[1].start,boundary.segments[1].end);
+  const full={...M.copy(base),segments:Array.from({length:32},()=>M.copy(segments[0]))};
+  assert.throws(()=>M.insertSegment(full,0,'after'));assert.equal(full.segments.length,32);
+});
 check('reject NaN, broken joins, duplicate signs, oversized and zero-length strokes',()=>{
   const p=M.copy(seed);p.glyphs[0].strokes[0].width=NaN;assert.throws(()=>M.validate(p));
   const joined=M.copy(seed);joined.glyphs[4].strokes[0].segments[1].start=[0,0];assert.throws(()=>M.validate(joined));

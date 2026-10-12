@@ -111,6 +111,30 @@
     if (key === 'end' && index+1 < stroke.segments.length) stroke.segments[index+1].start = [...p];
     for (const s of stroke.segments) if (s.kind === 'line') s.mid = mix(s.start,s.end,.5);
   }
+  function insertSegment(stroke,index,side) {
+    if(!['before','after'].includes(side)||!Number.isInteger(index)||!stroke.segments[index])throw new Error('Выбери участок штриха');
+    if(stroke.segments.length>=32)throw new Error('Максимум 32 участка');
+    const before=side==='before', neighborIndex=before?index-1:index+1;
+    const neighbor=stroke.segments[neighborIndex];
+    if(neighbor) {
+      // Exact subdivision keeps the existing curve and joins in place.
+      const half=point(neighbor,.5);
+      const first={kind:neighbor.kind,start:[...neighbor.start],mid:point(neighbor,.25),end:[...half]};
+      const second={kind:neighbor.kind,start:[...half],mid:point(neighbor,.75),end:[...neighbor.end]};
+      stroke.segments.splice(neighborIndex,1,first,second);
+      return before?index:index+1;
+    }
+    const part=stroke.segments[index],anchor=before?part.start:part.end;
+    const inside=point(part,before?.01:.99);
+    let dx=anchor[0]-inside[0],dy=anchor[1]-inside[1],length=Math.hypot(dx,dy);
+    if(length<1e-8){dx=before?part.start[0]-part.end[0]:part.end[0]-part.start[0];dy=before?part.start[1]-part.end[1]:part.end[1]-part.start[1];length=Math.hypot(dx,dy);}
+    let outside=anchor.map((v,i)=>number(clamp(v+12*(i?dy:dx)/(length||1),0,109)));
+    if(distance(anchor,outside)<.1)outside=mix(anchor,[54.5,54.5],.2).map(number);
+    const start=before?outside:[...anchor],end=before?[...anchor]:outside;
+    const insertion=before?index:index+1;
+    stroke.segments.splice(insertion,0,{kind:'line',start,mid:mix(start,end,.5),end});
+    return insertion;
+  }
   function validate(project) {
     const fail = message => {throw new Error(message);};
     if (!project || project.schema !== 'dreams.stroke-editor/v1') fail('Неподдерживаемый формат проекта');
@@ -147,7 +171,7 @@
     // Same cell metrics as the existing katakana export. Guides are excluded from glyph reads.
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 1024" width="956" height="1024"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(96.5 74) scale(7 8)"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s,glyph.preserveWidth?glyph.stretch:1)}"/>`).join('')}</g></g></svg>`;
   }
-  const api = {point,samples,widthAt,outline,centerPath,setPoint,validate,transform,svg,copy,mix};
+  const api = {point,samples,widthAt,outline,centerPath,setPoint,insertSegment,validate,transform,svg,copy,mix};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.StrokeEditorModel = api;
 })(globalThis);

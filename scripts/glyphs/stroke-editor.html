@@ -26,7 +26,7 @@
 <label>Штрих<select id="stroke" aria-label="Штрих"></select></label>
 <div class="actions"><button id="addStroke">＋ Штрих</button><button id="removeStroke">Удалить штрих</button></div>
 <label>Участок штриха<select id="segment" aria-label="Участок штриха"></select></label>
-<div class="actions"><button id="line" aria-pressed="false">Прямая</button><button id="arc" aria-pressed="false">Дуга</button><button id="addSegment" title="Продолжить текущий штрих">＋ Участок</button><button id="removeSegment">− Участок</button></div>
+<div class="actions"><button id="line" aria-pressed="false">Прямая</button><button id="arc" aria-pressed="false">Дуга</button><button id="addSegmentBefore" title="Вставить перед выбранным участком">＋ До</button><button id="addSegmentAfter" title="Вставить после выбранного участка">＋ После</button><button id="removeSegment">− Участок</button></div>
 <div class="coords" id="coordinates"></div>
 <div class="divider"><h2>Толщина по длине</h2><svg id="widthGraph" viewBox="0 0 260 65" aria-label="Профиль толщины"></svg></div>
 <label><span>Максимальная толщина <output id="widthValue"></output></span><input id="width" type="range" min="0.5" max="16" step="0.1"></label>

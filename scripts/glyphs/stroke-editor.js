@@ -5,6 +5,7 @@ const el = id => document.getElementById(id);
 const STORAGE = 'dreams.stroke-editor.v1';
 let project = M.copy(seed), selected = 4, strokeIndex = 0, segmentIndex = 0;
 let history = [], future = [], rangeBefore = null, drag = null;
+let segmentInsertPreview = null;
 let references = [], referenceSelected = -1, referenceDrag = null;
 const REFERENCE_STORAGE = STORAGE+'.references';
 let checkpointParent = null, checkpointHead = null, checkpointBusy = false, checkpointAvailable = false;
@@ -65,7 +66,7 @@ function renderControls() {
     el(k+axis).disabled=part.kind==='line' && k==='mid';
   }
   el('removeStroke').disabled=g.strokes.length===1;el('addStroke').disabled=g.strokes.length>=24;
-  el('addSegment').disabled=s.segments.length>=32;
+  for(const id of ['addSegmentBefore','addSegmentAfter'])el(id).disabled=s.segments.length>=32;
   el('removeSegment').disabled=s.segments.length===1;
   el('undo').disabled=!history.length;el('redo').disabled=!future.length;
   el('resetGlyph').disabled=!seed.glyphs.some(g=>g.character===currentGlyph().character);
@@ -80,8 +81,10 @@ function paint() {
     if(key==='mid' && part.kind==='line')return '';
     return `<circle cx="${x}" cy="${y}" r="1.8" fill="${colors[i]}" data-key="${key}"/>`;
   }).join('');
+  const join=segmentInsertPreview ? part[segmentInsertPreview==='before'?'start':'end'] : null;
+  const insertionHint=join?`<circle cx="${join[0]}" cy="${join[1]}" r="3" fill="none" stroke="#b17f24" stroke-width=".65" pointer-events="none"/>`:'';
   const allPoints=s.segments.map((seg,i)=>`<circle cx="${seg.start[0]}" cy="${seg.start[1]}" r=".8" fill="#afc0b3" data-segment="${i}"/>`).join('');
-  el('stage').innerHTML=`<defs><pattern id="grid" width="10.9" height="10.9" patternUnits="userSpaceOnUse"><path d="M10.9 0H0V10.9" fill="none" stroke="#dae0d3" stroke-width=".16"/></pattern></defs><rect width="109" height="109" fill="url(#grid)"/><path d="M54.5 0V109M0 54.5H109" stroke="#b9caba" stroke-width=".25"/>${referenceMarkup()}<g id="geometry" transform="${M.transform(g)}"><g fill="#173b2e" fill-rule="nonzero">${ink}</g><g class="guides">${guides}${allPoints}${handles}</g></g>${referenceFrame()}`;
+  el('stage').innerHTML=`<defs><pattern id="grid" width="10.9" height="10.9" patternUnits="userSpaceOnUse"><path d="M10.9 0H0V10.9" fill="none" stroke="#dae0d3" stroke-width=".16"/></pattern></defs><rect width="109" height="109" fill="url(#grid)"/><path d="M54.5 0V109M0 54.5H109" stroke="#b9caba" stroke-width=".25"/>${referenceMarkup()}<g id="geometry" transform="${M.transform(g)}"><g fill="#173b2e" fill-rule="nonzero">${ink}</g><g class="guides">${guides}${allPoints}${handles}</g>${insertionHint}</g>${referenceFrame()}`;
   el('stage').classList.toggle('hide-handles',!el('handles').checked);
   el('sizes').innerHTML=[20,26,32,48].map(size=>`<div class="sample"><svg width="${size}" height="${size}" viewBox="0 0 109 109" aria-label="${size} пикселей"><g fill="#41d88a" transform="${M.transform(g)}">${ink}</g></svg><span>${size}px</span></div>`).join('');
   const points=Array.from({length:101},(_,i)=>`${10+i*2.4},${55-M.widthAt(s,i/100)/16*45}`).join(' ');
@@ -126,12 +129,12 @@ for(const kind of ['line','arc'])el(kind).onclick=()=>edit(()=>{
   const part=currentSegment();part.kind=kind;
   if(kind==='line')part.mid=M.mix(part.start,part.end,.5);
 });
-el('addSegment').onclick=()=>edit(()=>{
-  const s=currentStroke(), start=[...s.segments.at(-1).end];
-  const end=[Math.min(100,start[0]+12),Math.min(100,start[1]+12)];
-  if(M.mix(start,end,.5).every((v,i)=>v===start[i]))end[0]=Math.max(0,start[0]-12);
-  s.segments.push({kind:'line',start,mid:M.mix(start,end,.5),end});segmentIndex=s.segments.length-1;
-});
+for(const [id,side] of [['addSegmentBefore','before'],['addSegmentAfter','after']]) {
+  const button=el(id);
+  button.onclick=()=>edit(()=>{segmentInsertPreview=null;segmentIndex=M.insertSegment(currentStroke(),segmentIndex,side);});
+  button.onmouseenter=button.onfocus=()=>{if(!button.disabled){segmentInsertPreview=side;paint();}};
+  button.onmouseleave=button.onblur=()=>{segmentInsertPreview=null;paint();};
+}
 el('addStroke').onclick=()=>edit(()=>{currentGlyph().strokes.push(blankStroke());strokeIndex=currentGlyph().strokes.length-1;segmentIndex=0;});
 el('removeSegment').onclick=()=>edit(()=>{
   const s=currentStroke();if(s.segments.length===1)return;
