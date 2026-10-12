@@ -29,6 +29,10 @@ element('width').value='9';element('width').oninput();element('width').onchange(
 assert.equal(state().glyphs[4].strokes[0].width,9);
 element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].width,7.5);
 element('redo').onclick();assert.equal(state().glyphs[4].strokes[0].width,9);
+element('preserveWidth').checked=true;element('preserveWidth').onchange();
+assert.equal(state().glyphs[4].preserveWidth,true);
+assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs[4].preserveWidth,true);
+element('undo').onclick();assert.equal(state().glyphs[4].preserveWidth,undefined);
 const originalCap=state().glyphs[4].strokes[0].endCap;
 element('endCap').value='round';element('endCap').onchange();
 assert.equal(state().glyphs[4].strokes[0].endCap,'round');

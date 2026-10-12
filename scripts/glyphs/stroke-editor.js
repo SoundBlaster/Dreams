@@ -57,7 +57,7 @@ function renderControls() {
   el('startWidth').max=el('endWidth').max=s.width;
   el('peak').value=Math.round(s.peak*100);el('peakValue').textContent=Math.round(s.peak*100)+'%';
   el('stretch').value=Math.round(g.stretch*100);el('stretchValue').textContent=Math.round(g.stretch*100)+'%';
-  el('mirror').checked=g.mirror;
+  el('mirror').checked=g.mirror;el('preserveWidth').checked=!!g.preserveWidth;
   for(const k of ['start','end']){el(k+'Cap').value=s[k+'Cap'];el(k+'Width').disabled=s[k+'Cap']==='sharp';}
   for(const kind of ['line','arc'])el(kind).setAttribute('aria-pressed',String(part.kind===kind));
   for(const k of ['start','mid','end'])for(let axis=0;axis<2;axis++) {
@@ -72,7 +72,7 @@ function renderControls() {
 }
 function paint() {
   const g=currentGlyph(), s=currentStroke(), part=currentSegment();
-  const paths=g.strokes.map(st=>M.outline(st));
+  const paths=g.strokes.map(st=>M.outline(st,g.preserveWidth?g.stretch:1));
   const ink=paths.map(d=>`<path d="${d}"/>`).join('');
   const guides=g.strokes.map((st,i)=>`<path d="${M.centerPath(st)}" fill="none" stroke="${i===strokeIndex?'#ce8231':'#8faaa1'}" stroke-width="${i===strokeIndex?.55:.25}" stroke-dasharray="${i===strokeIndex?'':'1 1'}" data-stroke="${i}"/>`).join('');
   const handles=['start','mid','end'].map((key,i)=>{
@@ -118,6 +118,7 @@ for(const id of ['width','peak','startWidth','endWidth','stretch']) {
 }
 for(const id of ['startCap','endCap'])el(id).onchange=()=>{const value=el(id).value;edit(()=>{currentStroke()[id]=value;});};
 el('mirror').onchange=()=>{const value=el('mirror').checked;edit(()=>{currentGlyph().mirror=value;});};
+el('preserveWidth').onchange=()=>{const value=el('preserveWidth').checked;edit(()=>{currentGlyph().preserveWidth=value;});};
 el('handles').onchange=paint;
 el('stroke').onchange=()=>{finishRange();strokeIndex=Number(el('stroke').value);segmentIndex=0;render();};
 el('segment').onchange=()=>{finishRange();segmentIndex=Number(el('segment').value);render();};

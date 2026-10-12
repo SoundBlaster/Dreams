@@ -59,12 +59,14 @@
     return [...half(sorted), ...half([...sorted].reverse())];
   }
   const number = v => Number(v.toFixed(4));
-  function outline(stroke) {
+  function outline(stroke, widthStretch=1) {
     const pts = samples(stroke), polygons = [];
     let previous = [];
     for (let i=0; i<pts.length; i++) {
       const a = pts[Math.max(0,i-1)], b = pts[Math.min(pts.length-1,i+1)];
-      const norm = distance(a,b) || 1, nx = -(b[1]-a[1])/norm, ny = (b[0]-a[0])/norm;
+      // Build normals in displayed coordinates, then map back into the glyph group.
+      const dx=(b[0]-a[0])*widthStretch, dy=b[1]-a[1], norm=Math.hypot(dx,dy)||1;
+      const nx=-dy/norm/widthStretch, ny=dx/norm;
       const [x,y,s] = pts[i], r = widthAt(stroke,s)/2;
       const current = [[x+nx*r,y+ny*r],[x-nx*r,y-ny*r]];
       const polygon = hull([...previous,...current]);
@@ -76,14 +78,14 @@
     for (const end of [false, true]) {
       if (stroke[end ? 'endCap' : 'startCap'] !== 'round' || pts.length < 2) continue;
       const p = end ? pts.at(-1) : pts[0], inside = end ? pts.at(-2) : pts[1];
-      const length = distance(p, inside), r = widthAt(stroke, end ? 1 : 0) / 2;
+      const length = Math.hypot((p[0]-inside[0])*widthStretch,p[1]-inside[1]), r = widthAt(stroke, end ? 1 : 0) / 2;
       if (!length || !r) continue;
-      const tx = (p[0] - inside[0]) / length, ty = (p[1] - inside[1]) / length;
+      const tx = (p[0] - inside[0])*widthStretch / length, ty = (p[1] - inside[1]) / length;
       const cap = [];
       for (let i = 0; i <= 16; i++) {
         const angle = -Math.PI / 2 + Math.PI * i / 16;
         const along = Math.cos(angle) * r * .35, across = Math.sin(angle) * r;
-        cap.push([p[0] + tx * along - ty * across, p[1] + ty * along + tx * across]);
+        cap.push([p[0] + (tx * along - ty * across)/widthStretch, p[1] + ty * along + tx * across]);
       }
       polygons.push(hull(cap));
     }
@@ -119,6 +121,7 @@
     for (const g of project.glyphs) {
       if (typeof g.character !== 'string' || [...g.character].length !== 1 || /[\u0000-\u001f\u007f]/.test(g.character) || ids.has(g.character)) fail('Знаки должны быть уникальными одиночными символами');
       ids.add(g.character);
+      if(g.preserveWidth!==undefined && typeof g.preserveWidth!=='boolean')fail('Неверный режим толщины');
       if (!finite(g.stretch,.5,1.2) || typeof g.mirror !== 'boolean') fail('Неверные пропорции знака');
       if (!Array.isArray(g.strokes) || !g.strokes.length || g.strokes.length>24) fail('Нужно от 1 до 24 штрихов');
       for (const st of g.strokes) {
@@ -142,7 +145,7 @@
   function svg(glyph, attribution) {
     const escape = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
     // Same cell metrics as the existing katakana export. Guides are excluded from glyph reads.
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 1024" width="956" height="1024"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(96.5 74) scale(7 8)"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s)}"/>`).join('')}</g></g></svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 1024" width="956" height="1024"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(96.5 74) scale(7 8)"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s,glyph.preserveWidth?glyph.stretch:1)}"/>`).join('')}</g></g></svg>`;
   }
   const api = {point,samples,widthAt,outline,centerPath,setPoint,validate,transform,svg,copy,mix};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

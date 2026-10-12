@@ -34,7 +34,7 @@
 <label><span>Толщина в начале <output id="startWidthValue"></output></span><input id="startWidth" type="range" min="0" max="16" step="0.1"></label>
 <label>Конец<select id="endCap"><option value="flat">Тупой · срез</option><option value="round">Слегка округлый</option><option value="sharp">Острый · сход в точку</option></select></label>
 <label><span>Толщина в конце <output id="endWidthValue"></output></span><input id="endWidth" type="range" min="0" max="16" step="0.1"></label>
-<div class="divider"><label><span>Ширина всего знака <output id="stretchValue"></output></span><input id="stretch" type="range" min="50" max="120" step="1"></label><label class="switch"><input id="mirror" type="checkbox"> Отразить знак</label></div>
+<div class="divider"><label><span>Ширина всего знака <output id="stretchValue"></output></span><input id="stretch" type="range" min="50" max="120" step="1"></label><label class="switch"><input id="mirror" type="checkbox"> Отразить знак</label><label class="switch"><input id="preserveWidth" type="checkbox"> Сохранять толщину при сужении</label><p class="hint">Меняет ширину расположения штрихов, сохраняя их толщину. Выключено — сжимается весь контур.</p></div>
 </section></main>
 <footer id="credit"></footer>
 <script>const seed = __PROJECT_JSON__;</script>

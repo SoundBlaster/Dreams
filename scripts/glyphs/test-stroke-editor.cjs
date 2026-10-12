@@ -51,6 +51,21 @@ check('rounded terminals extend gently along the tangent with consistent winding
   assert.ok(M.svg(project.glyphs[0],project.attribution).includes(M.outline(rounded)));
   project.glyphs[0].strokes[0].endCap='unknown';assert.throws(()=>M.validate(project));
 });
+check('optional proportion changes retain displayed stroke thickness in every direction',()=>{
+  for(const stretch of [.5,.59,1,1.2])for(const end of [[70,20],[10,80],[70,80]]) {
+    const stroke={...base,width:13,startWidth:13,endWidth:13,segments:[{kind:'line',start:[10,20],mid:[40,50],end}]};
+    const points=M.outline(stroke,stretch).match(/M[^Z]+Z/g).flatMap(d=>d.slice(1,-1).split('L').map(p=>p.split(' ').map(Number)));
+    const dx=(end[0]-10)*stretch,dy=end[1]-20,norm=Math.hypot(dx,dy);
+    const projections=points.map(([x,y])=>-dy/norm*x*stretch+dx/norm*y);
+    assert.ok(Math.abs(Math.max(...projections)-Math.min(...projections)-13)<.0003);
+    if(stretch===1)assert.equal(M.outline(stroke,stretch),M.outline(stroke));
+  }
+  const glyph={...M.copy(seed.glyphs[4]),stretch:.59,preserveWidth:true};
+  assert.ok(M.svg(glyph,seed.attribution).includes(M.outline(glyph.strokes[0],.59)));
+  const project=M.copy(seed);project.glyphs[4]=glyph;
+  assert.equal(M.validate(JSON.parse(JSON.stringify(project))).glyphs[4].preserveWidth,true);
+  glyph.preserveWidth='yes';assert.throws(()=>M.validate(project));
+});
 check('shared endpoints remain connected when either section moves',()=>{
   const s=M.copy(base);s.segments.push({kind:'line',start:[80,20],mid:[80,40],end:[80,60]});
   M.setPoint(s,0,'end',[70,30]);assert.deepEqual(s.segments[1].start,[70,30]);
