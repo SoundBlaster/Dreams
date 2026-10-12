@@ -219,7 +219,8 @@ final class MatrixRain {
             let selection = pulse.map { (session: "event", characters: $0.characters, color: SIMD4<Float>(0, 0, 0, 1)) }
                 ?? selections[column]
             let lastStart = max(2, rows - (selection?.characters.count ?? 8) - 2)
-            let wordStart = 2 + Int(hash(Float(column + cycle * 31)) * Float(lastStart - 2))
+            // A hook's first character belongs to the new head at the top of the screen.
+            let wordStart = pulse != nil ? 0 : 2 + Int(hash(Float(column + cycle * 31)) * Float(lastStart - 2))
             for row in 0..<rows {
                 let cell = simulation!.columns[column].cells[row]
                 let ink = cell.ink(brightnessSpread: brightnessSpread)
