@@ -146,6 +146,7 @@
       if (typeof g.character !== 'string' || [...g.character].length !== 1 || /[\u0000-\u001f\u007f]/.test(g.character) || ids.has(g.character)) fail('Знаки должны быть уникальными одиночными символами');
       ids.add(g.character);
       if(g.preserveWidth!==undefined && typeof g.preserveWidth!=='boolean')fail('Неверный режим толщины');
+      if(g.placement!==undefined && (!g.placement || !finite(g.placement.scale,.05,20) || !finite(g.placement.x,-2000,2000) || !finite(g.placement.y,-2000,2000)))fail('Неверное размещение знака');
       if (!finite(g.stretch,.5,1.2) || typeof g.mirror !== 'boolean') fail('Неверные пропорции знака');
       if (!Array.isArray(g.strokes) || !g.strokes.length || g.strokes.length>24) fail('Нужно от 1 до 24 штрихов');
       for (const st of g.strokes) {
@@ -164,7 +165,8 @@
     return project;
   }
   function transform(glyph) {
-    return `translate(54.5 0) scale(${glyph.stretch*(glyph.mirror?-1:1)} 1) translate(-54.5 0)`;
+    const p=glyph.placement;
+    return (p?`translate(${p.x} ${p.y}) scale(${p.scale}) `:'')+`translate(54.5 0) scale(${glyph.stretch*(glyph.mirror?-1:1)} 1) translate(-54.5 0)`;
   }
   const exportCell={width:956,height:1024,x:96.5,y:74,scaleX:7,scaleY:8};
   function metricGuides(metrics) {
@@ -174,12 +176,30 @@
       left:-c.x/c.scaleX,right:(metrics.advance-c.x)/c.scaleX,
       lineHeight:metrics.ascent+metrics.descent+(metrics.lineGap||0)};
   }
+  function glyphBounds(glyph,paths=glyph.strokes.map(s=>outline(s,glyph.preserveWidth?glyph.stretch:1))) {
+    const p=glyph.placement||{scale:1,x:0,y:0},xs=[],ys=[];
+    for(const path of paths) {
+      const values=(path.match(/-?\d+(?:\.\d+)?/g)||[]).map(Number);
+      for(let i=0;i<values.length;i+=2){xs.push((54.5+(values[i]-54.5)*glyph.stretch*(glyph.mirror?-1:1))*p.scale+p.x);ys.push(values[i+1]*p.scale+p.y);}
+    }
+    const left=Math.min(...xs),top=Math.min(...ys),right=Math.max(...xs),bottom=Math.max(...ys);
+    return {left,top,right,bottom,width:right-left,height:bottom-top};
+  }
+  function fitGlyph(glyph,metrics) {
+    const bounds=glyphBounds(glyph),guides=metricGuides(metrics),p=glyph.placement||{scale:1,x:0,y:0};
+    if(bounds.height<1e-6)throw new Error('Контур слишком мал для вписывания');
+    const factor=(guides.baseline-guides.cap)/bounds.height;
+    const placement={scale:p.scale*factor,x:54.5-((bounds.left+bounds.right)/2-p.x)*factor,y:guides.cap-(bounds.top-p.y)*factor};
+    if(placement.scale<.05||placement.scale>20||Math.abs(placement.x)>2000||Math.abs(placement.y)>2000)throw new Error('Масштаб вписывания вне допустимого диапазона');
+    // Avoid accumulating floating-point drift when the button is pressed again.
+    if(Math.abs(factor-1)>1e-10||Math.abs((bounds.left+bounds.right)/2-54.5)>1e-10||Math.abs(bounds.top-guides.cap)>1e-10)glyph.placement=placement;
+  }
   function svg(glyph, attribution) {
     const escape = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
     // Same cell metrics as the existing katakana export. Guides are excluded from glyph reads.
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${exportCell.width} ${exportCell.height}" width="${exportCell.width}" height="${exportCell.height}"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(${exportCell.x} ${exportCell.y}) scale(${exportCell.scaleX} ${exportCell.scaleY})"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s,glyph.preserveWidth?glyph.stretch:1)}"/>`).join('')}</g></g></svg>`;
   }
-  const api = {point,samples,widthAt,outline,centerPath,setPoint,insertSegment,validate,transform,metricGuides,svg,copy,mix};
+  const api = {point,samples,widthAt,outline,centerPath,setPoint,insertSegment,validate,transform,metricGuides,glyphBounds,fitGlyph,svg,copy,mix};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.StrokeEditorModel = api;
 })(globalThis);

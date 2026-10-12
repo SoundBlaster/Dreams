@@ -122,6 +122,21 @@ check('font metric guides use the same coordinate mapping as exported SVG',()=>{
   assert.equal(74+8*g.baseline,900);assert.equal(74+8*g.cap,120);
   assert.equal(M.metricGuides({...metrics,lineGap:30}).lineHeight,1054);
 });
+check('fit glyph uniformly aligns ink bounds with cap height and baseline without changing strokes',()=>{
+  const metrics={ascent:900,descent:124,advance:956,capHeight:780,xHeight:560},guides=M.metricGuides(metrics);
+  for(const original of seed.glyphs)for(const mirror of [false,true])for(const preserveWidth of [false,true]) {
+    const glyph={...M.copy(original),mirror,preserveWidth},strokes=M.copy(glyph.strokes),before=M.glyphBounds(glyph);
+    M.fitGlyph(glyph,metrics);const bounds=M.glyphBounds(glyph);
+    assert.ok(Math.abs(bounds.top-guides.cap)<1e-8);assert.ok(Math.abs(bounds.bottom-guides.baseline)<1e-8);
+    assert.ok(Math.abs((bounds.left+bounds.right)/2-54.5)<1e-8);
+    assert.ok(Math.abs(bounds.width/before.width-bounds.height/before.height)<1e-8);
+    assert.deepEqual(glyph.strokes,strokes);
+    const fitted=JSON.stringify(glyph);M.fitGlyph(glyph,metrics);assert.equal(JSON.stringify(glyph),fitted);
+    const project=M.copy(seed);project.glyphs=[glyph];M.validate(project);
+    assert.ok(M.svg(glyph,seed.attribution).includes(`scale(${glyph.placement.scale})`));
+  }
+  const invalid=M.copy(seed);invalid.glyphs[0].placement={scale:NaN,x:0,y:0};assert.throws(()=>M.validate(invalid));
+});
 check('Latin/Cyrillic custom signs and XML-special characters',()=>{
   const p=M.copy(seed);for(const character of ['R','Ж','<'])p.glyphs.push({character,stretch:.85,mirror:false,strokes:[M.copy(base)]});
   M.validate(p);assert.ok(M.svg(p.glyphs.at(-1),'A&B').includes('<title>&lt;</title>'));

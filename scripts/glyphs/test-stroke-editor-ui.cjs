@@ -35,6 +35,14 @@ element('metricGuides').checked=false;element('metricGuides').onchange();
 assert.equal(element('stage').viewBox,'0 0 109 109');assert.deepEqual(state(),metricProject);
 element('metricGuides').checked=true;element('metricGuides').onchange();
 
+const beforeFit=state();element('fitGlyph').onclick();
+assert.ok(state().glyphs[4].placement);assert.equal(element('resetPlacement').disabled,false);
+assert.ok(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs[4].placement);
+element('undo').onclick();assert.deepEqual(state(),beforeFit);
+element('redo').onclick();assert.ok(state().glyphs[4].placement);
+element('resetPlacement').onclick();assert.equal(state().glyphs[4].placement,undefined);
+element('undo').onclick();assert.ok(state().glyphs[4].placement);
+element('undo').onclick();assert.deepEqual(state(),beforeFit);
 element('width').value='9';element('width').oninput();element('width').onchange();
 assert.equal(state().glyphs[4].strokes[0].width,9);
 element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].width,7.5);

@@ -58,6 +58,8 @@ function renderControls() {
   el('startWidth').max=el('endWidth').max=s.width;
   el('peak').value=Math.round(s.peak*100);el('peakValue').textContent=Math.round(s.peak*100)+'%';
   el('stretch').value=Math.round(g.stretch*100);el('stretchValue').textContent=Math.round(g.stretch*100)+'%';
+  el('placementStatus').textContent=g.placement?`Масштаб всего глифа: ${(g.placement.scale*100).toFixed(1)}% · включая толщину`:'';
+  el('resetPlacement').disabled=!g.placement;
   el('mirror').checked=g.mirror;el('preserveWidth').checked=!!g.preserveWidth;
   for(const k of ['start','end']){el(k+'Cap').value=s[k+'Cap'];el(k+'Width').disabled=s[k+'Cap']==='sharp';}
   for(const kind of ['line','arc'])el(kind).setAttribute('aria-pressed',String(part.kind===kind));
@@ -82,9 +84,7 @@ function paintMetricGuides(g,paths) {
     [m.xHeight,'Meanline',fontMetrics.xHeight,'#8f83a2','guideMeanline'],
     [m.baseline,'Baseline',0,'#b46e35','guideBaseline'],
     [m.descent,'Descent',-fontMetrics.descent,'#7a899c','guideLimits']].filter(line=>el(line[4]).checked);
-  const points=paths.flatMap(path=>(path.match(/-?\d+(?:\.\d+)?/g)||[]).map(Number).reduce((a,n,i,values)=>{if(i%2===0)a.push([54.5+(n-54.5)*g.stretch*(g.mirror?-1:1),values[i+1]]);return a;},[]));
-  const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
-  const x=Math.min(...xs),y=Math.min(...ys),width=Math.max(...xs)-x,height=Math.max(...ys)-y;
+  const bounds=M.glyphBounds(g,paths),x=bounds.left,y=bounds.top,width=bounds.width,height=bounds.height;
   return `<g pointer-events="none" font-family="system-ui" font-size="3" fill="#647468"><defs><marker id="metricArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#7a899c"/></marker></defs><rect x="${m.left}" y="${m.ascent}" width="${m.right-m.left}" height="${m.descent-m.ascent}" fill="none" stroke="#a8b2ad" stroke-width=".2"/>${lines.map(([y,label,value,color])=>`<path d="M${m.left} ${y}H${m.right}" stroke="${color}" stroke-width="${label==='Baseline'?.45:.25}" stroke-dasharray="${label==='Meanline'?'1 1':''}"/><text x="-47" y="${y-1}" fill="${color}">${label} ${value}</text>`).join('')}<circle cx="${m.left}" cy="${m.baseline}" r=".8" fill="#b46e35"/>${el('guideBounds').checked?`<rect x="${x}" y="${y}" width="${width}" height="${height}" fill="none" stroke="#857b44" stroke-width=".25" stroke-dasharray="1 1"/>`: ''}${el('guideCell').checked?`<path d="M${m.right+4} ${m.ascent}V${m.descent}" stroke="#7a899c" stroke-width=".3" marker-start="url(#metricArrow)" marker-end="url(#metricArrow)"/><text transform="translate(${m.right+8} ${(m.ascent+m.descent)/2}) rotate(90)" text-anchor="middle">Line height ${m.lineHeight}</text><path d="M${m.left} ${m.descent+6}H${m.right}" stroke="#7a899c" stroke-width=".3" marker-start="url(#metricArrow)" marker-end="url(#metricArrow)"/><text x="${(m.left+m.right)/2}" y="${m.descent+10}" text-anchor="middle">Advance ${fontMetrics.advance} · leading ${fontMetrics.lineGap||0}</text>`:''}</g>`;
 }
 function paint() {
@@ -138,6 +138,8 @@ for(const id of ['width','peak','startWidth','endWidth','stretch']) {
 for(const id of ['startCap','endCap'])el(id).onchange=()=>{const value=el(id).value;edit(()=>{currentStroke()[id]=value;});};
 el('mirror').onchange=()=>{const value=el('mirror').checked;edit(()=>{currentGlyph().mirror=value;});};
 el('preserveWidth').onchange=()=>{const value=el('preserveWidth').checked;edit(()=>{currentGlyph().preserveWidth=value;});};
+el('fitGlyph').onclick=()=>edit(()=>M.fitGlyph(currentGlyph(),fontMetrics));
+el('resetPlacement').onclick=()=>edit(()=>{delete currentGlyph().placement;});
 el('handles').onchange=paint;
 for(const id of ['metricGuides','guideBaseline','guideCap','guideMeanline','guideLimits','guideBounds','guideCell'])el(id).onchange=()=>{paint();try{localStorage.setItem(STORAGE+'.'+id,String(el(id).checked));}catch{}};
 el('stroke').onchange=()=>{finishRange();strokeIndex=Number(el('stroke').value);segmentIndex=0;render();};
