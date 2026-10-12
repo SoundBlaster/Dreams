@@ -32,6 +32,8 @@ Or build it yourself: `make app` (Swift 6.2+), then `open dist/Dreams.app`.
 
 The AppKit GUI follows [Feature-Sliced Design](docs/ARCHITECTURE.md); `make lint` includes the pinned architecture gate.
 
+An experimental [Apple TV clock app](tvOS/README.md) uses the same film glyphs and rain simulation, with time formed by a brightness mask. Build it with `make app-tv` (XcodeGen and the tvOS SDK required).
+
 ## Quick start
 
 1. Open Dreams. Its window appears and a glyph icon sits in the menu bar.

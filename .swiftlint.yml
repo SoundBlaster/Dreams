@@ -1,6 +1,7 @@
 # Style rules that fit this codebase: dense, math-heavy rendering code with short names.
 included:
   - Sources
+  - tvOS/Sources
 disabled_rules:
   - identifier_name          # x, y, uv, rgb... are the natural names in the rendering and geometry code
   - trailing_comma

@@ -10,6 +10,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  tvos-build:
+    name: tvOS build
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install project generator
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+        run: brew install xcodegen
+      - name: Build the Apple TV app
+        run: make app-tv
+
   lint:
     name: Lint
     runs-on: macos-26
