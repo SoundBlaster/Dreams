@@ -53,3 +53,31 @@ assert.equal(element('credit').textContent,'Custom fixture');
 element('undo').onclick();assert.equal(state().glyphs.length,46);assert.equal(element('credit').textContent,seed.attribution);
 assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs.length,46);
 console.log('PASS: edits, undo/redo, mirrored pointer coordinates, sections, validation, import rollback, attribution and autosave');
+(async()=>{
+  let head=null, records=[], savedProject;
+  sandbox.fetch=async(url,options)=>{
+    if(options?.method==='POST'){
+      const body=JSON.parse(options.body);
+      if(body.expectedHead!==head)return {ok:false,json:async()=>({error:'Conflict'})};
+      savedProject=M.copy(body.project);head='checkpoint-1';
+      const record={id:head,label:body.label,createdAt:new Date().toISOString(),changedGlyphs:['オ']};
+      records.push(record);return {ok:true,json:async()=>record};
+    }
+    return {ok:true,json:async()=>url==='/api/checkpoints'?{head,checkpoints:records}:M.copy(savedProject)};
+  };
+  await element('checkpointRefresh').onclick();
+  assert.equal(element('checkpointSave').disabled,false,'empty database accepts its first checkpoint');
+  assert.equal(element('checkpointRestore').disabled,true);
+  element('checkpointName').value='Round オ';await element('checkpointSave').onclick();
+  const before=state();
+  assert.equal(records.length,1);assert.equal(element('checkpointRestore').disabled,false);
+  assert.equal(storage.get('dreams.stroke-editor.v1.parent'),'checkpoint-1');
+  element('width').value='12';element('width').oninput();element('width').onchange();
+  const edited=state();assert.notDeepEqual(edited,before);
+  await element('checkpointRestore').onclick();assert.deepEqual(state(),before);
+  element('undo').onclick();assert.deepEqual(state(),edited,'restore can be undone');
+  sandbox.fetch=async()=>({ok:false,json:async()=>({error:'Disk full'})});
+  const unchanged=state();await element('checkpointSave').onclick();
+  assert.deepEqual(state(),unchanged);assert.equal(element('checkpointStatus').textContent,'Disk full');
+  console.log('PASS: empty library, checkpoint save/restore/undo and server failure preserve editable state');
+})().catch(error=>{console.error(error);process.exitCode=1;});

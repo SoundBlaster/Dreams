@@ -5,13 +5,14 @@ const el = id => document.getElementById(id);
 const STORAGE = 'dreams.stroke-editor.v1';
 let project = M.copy(seed), selected = 4, strokeIndex = 0, segmentIndex = 0;
 let history = [], future = [], rangeBefore = null, drag = null;
+let checkpointParent = null, checkpointHead = null, checkpointBusy = false, checkpointAvailable = false;
 const currentGlyph = () => project.glyphs[selected];
 const currentStroke = () => currentGlyph().strokes[strokeIndex];
 const currentSegment = () => currentStroke().segments[segmentIndex];
 function status(message, error=false) {el('status').textContent=message;el('status').dataset.error=String(error);}
-function snapshot() {return JSON.stringify({project,selected,strokeIndex,segmentIndex});}
+function snapshot() {return JSON.stringify({project,selected,strokeIndex,segmentIndex,checkpointParent});}
 function store() {
-  try {localStorage.setItem(STORAGE,JSON.stringify(project));status('Сохранено в браузере · JSON сохраняет переносимую копию');}
+  try {localStorage.setItem(STORAGE,JSON.stringify(project));localStorage.setItem(STORAGE+'.parent',checkpointParent || '');status('Сохранено в браузере · JSON сохраняет переносимую копию');}
   catch {status('Браузер не сохранил правки. Скачай JSON, чтобы их не потерять.',true);}
 }
 function remember(before) {
@@ -27,6 +28,7 @@ function edit(fn) {
 function restore(saved) {
   const state=JSON.parse(saved);project=state.project;selected=state.selected;
   strokeIndex=state.strokeIndex;segmentIndex=state.segmentIndex;render();
+  checkpointParent=state.checkpointParent ?? null;
 }
 function finishRange() {if(rangeBefore){const before=rangeBefore;rangeBefore=null;remember(before);}}
 function options(id,count,prefix,selectedValue) {
@@ -151,7 +153,7 @@ el('import').onclick=()=>el('projectFile').click();
 function loadProject(text) {
   if(text.length>2_000_000)throw new Error('JSON больше 2 МБ');
   const loaded=M.validate(JSON.parse(text));
-  edit(()=>{project=loaded;selected=strokeIndex=segmentIndex=0;});
+  edit(()=>{project=loaded;selected=strokeIndex=segmentIndex=0;checkpointParent=null;});
   el('credit').textContent=project.attribution;
 }
 el('pasteProject').onclick=()=>{el('pasteError').textContent='';el('pasteDialog').showModal();};
@@ -168,6 +170,66 @@ el('projectFile').onchange=async()=>{
   } catch(error){status('Не удалось открыть: '+error.message,true);}
   finally{el('projectFile').value='';}
 };
+async function checkpointRequest(path, options) {
+  const response=await fetch(path,options);
+  if(!response.ok){
+    let message='База недоступна. Запусти make glyph-editor вместо обычного HTTP-сервера.';
+    try {message=(await response.json()).error || message;} catch {}
+    throw new Error(message);
+  }
+  return response.json();
+}
+async function refreshCheckpoints() {
+  const data=await checkpointRequest('/api/checkpoints');
+  checkpointAvailable=true;
+  checkpointHead=data.head;
+  if(checkpointParent && !data.checkpoints.some(record=>record.id===checkpointParent))checkpointParent=null;
+  const list=el('checkpointList'), selectedID=list.value;
+  list.replaceChildren();
+  for(const record of [...data.checkpoints].reverse()) {
+    const option=document.createElement('option');option.value=record.id;
+    const changed=record.changedGlyphs.length>8 ? `${record.changedGlyphs.length} знаков`
+      : record.changedGlyphs.length ? record.changedGlyphs.join(' ') : 'без изменения глифов';
+    option.textContent=`${record.label} · ${new Date(record.createdAt).toLocaleString()} · ${changed}`;
+    list.append(option);
+  }
+  if(data.checkpoints.some(record=>record.id===selectedID))list.value=selectedID;
+  el('checkpointSave').disabled=false;
+  el('checkpointRestore').disabled=!data.checkpoints.length;
+  el('checkpointStatus').textContent=`На диске: ${data.checkpoints.length} checkpoints. Восстановление не удаляет историю.`;
+}
+async function checkpointAction(action) {
+  if(checkpointBusy)return;
+  checkpointBusy=true;
+  for(const id of ['checkpointSave','checkpointRestore','checkpointRefresh'])el(id).disabled=true;
+  try {await action();}
+  catch(error){el('checkpointStatus').textContent=error.message;}
+  finally {
+    checkpointBusy=false;el('checkpointRefresh').disabled=false;
+    el('checkpointSave').disabled=!checkpointAvailable;
+    el('checkpointRestore').disabled=!el('checkpointList').children.length;
+  }
+}
+el('checkpointRefresh').onclick=()=>checkpointAction(refreshCheckpoints);
+el('checkpointSave').onclick=()=>checkpointAction(async()=>{
+  finishRange();
+  const label=el('checkpointName').value.trim();
+  if(!label)throw new Error('Дай checkpoint короткое название.');
+  const record=await checkpointRequest('/api/checkpoints',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({project,label,expectedHead:checkpointHead,parent:checkpointParent})});
+  checkpointParent=record.id;
+  store();
+  await refreshCheckpoints();
+  el('checkpointList').value=record.id;
+  el('checkpointStatus').textContent=`Checkpoint «${record.label}» сохранён на диске. Для истории в Git закоммить stroke-library.`;
+});
+el('checkpointRestore').onclick=()=>checkpointAction(async()=>{
+  const id=el('checkpointList').value;
+  const loaded=M.validate(await checkpointRequest('/api/checkpoints/'+encodeURIComponent(id)));
+  edit(()=>{project=loaded;selected=Math.min(selected,project.glyphs.length-1);strokeIndex=segmentIndex=0;checkpointParent=id;});
+  el('checkpointStatus').textContent='Версия восстановлена в редакторе. Undo возвращает предыдущую форму; база не изменена.';
+});
+if(typeof fetch==='function')el('checkpointRefresh').onclick();
 el('stage').addEventListener('pointerdown',event=>{
   const key=event.target.dataset.key;
   if(!key) {
@@ -195,7 +257,7 @@ document.addEventListener('keydown',event=>{
   }
 });
 window.addEventListener('pagehide',()=>{finishRange();if(drag)store();});
-try {const saved=localStorage.getItem(STORAGE);if(saved){project=M.validate(JSON.parse(saved));selected=Math.min(4,project.glyphs.length-1);status('Восстановлены сохранённые правки');}}
+try {const saved=localStorage.getItem(STORAGE);if(saved){project=M.validate(JSON.parse(saved));checkpointParent=localStorage.getItem(STORAGE+'.parent') || null;selected=Math.min(4,project.glyphs.length-1);status('Восстановлены сохранённые правки');}}
 catch {status('Сохранённый проект не прочитан. Исходные знаки загружены; старая копия не перезаписана.',true);}
 el('credit').textContent=project.attribution;
 M.validate(project);render();
