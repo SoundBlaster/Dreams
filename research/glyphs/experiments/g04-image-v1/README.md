@@ -48,7 +48,7 @@ From the repository root, using the project's Python environment:
 ```sh
 .venv/bin/python scripts/glyphs/image_pilot.py \
   research/glyphs/experiments/g04-image-v1 \
-  --candidates refined.png terminals.png
+  --candidates terminals.png film.png
 ```
 
 The first build creates `<candidate>.svg` next to the raster. Further builds use
@@ -65,8 +65,17 @@ Saved [comparison proof](proof.png) and `verification.json` describe this run.
 The `terminals` candidate has ink ratio 0.6949, 46 outline segments, one connected
 contour and no holes. Its source-to-TTF IoU is 0.98939; topology survives all four
 tested sizes. The earlier `refined` candidate has a detached pixel at 20 px and
-keeps that warning. All three test fonts rebuilt byte-identically in two runs.
-These results select `terminals` for further review, not automatic promotion.
+keeps that warning. All four test fonts rebuilt byte-identically in two runs.
+
+The latest movie close-up exposed a construction/orientation mismatch: the upper
+film glyph has its diagonal descending right, unlike conventional オ used in the
+first three candidates. `film.png` / `film.svg` follows that photographed layout
+and is mapped **only to PUA U+E004** in its test font. No Unicode identification
+or production catalog assignment was changed. The new candidate has 37 segments,
+IoU 0.99235 and correct topology at all four sizes, but ratio 0.5978 is outside
+the target range and produces an explicit warning. Its terminals are also too
+rounded/heavy. Use it for manual refinement against the film, not automatic
+promotion. The clean normal オ variants remain construction studies.
 
 ## Continue the alphabet
 

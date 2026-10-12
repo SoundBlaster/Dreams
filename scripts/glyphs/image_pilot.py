@@ -24,6 +24,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def prepare(experiment, candidate, retrace=False):
     config = json.loads((experiment / 'manifest.json').read_text())
+    variant = next((v for v in config.get('variants', []) if v['image'] == candidate), {})
+    # Film orientation can remain a PUA study while textbook kana uses Unicode.
+    config['codepoint'] = variant.get('codepoint', config['codepoint'])
     image_path = experiment / candidate
     gray = raster.load_gray(image_path)
     mask = gray < config['trace']['threshold']
@@ -87,7 +90,8 @@ def prepare(experiment, candidate, retrace=False):
     if abs(ratio - proportions['target_ink_width_over_height']) > proportions['tolerance']:
         warnings.append(f'Generated aspect ratio {ratio:.4f} needs review')
     report = {
-        'candidate': candidate, 'sha256': hashlib.sha256(image_path.read_bytes()).hexdigest(),
+        'candidate': candidate, 'codepoint': config['codepoint'],
+        'sha256': hashlib.sha256(image_path.read_bytes()).hexdigest(),
         'svg_sha256': hashlib.sha256(svg_path.read_bytes()).hexdigest(),
         'ink_box': box, 'aspect_ratio': round((x1 - x0) / (y1 - y0), 4),
         'topology': topology, 'trace_iou': round(iou, 5),
@@ -107,13 +111,13 @@ def make_proof(config, fonts, out):
     draw = ImageDraw.Draw(image)
     label = ImageFont.truetype(proof.LABEL_FONT, 20)
     small = ImageFont.truetype(proof.LABEL_FONT, 16)
-    draw.text((32, 24), 'G04 / KATAKANA O — IMAGE TO SVG TO TEST FONT', font=label, fill='#162820')
+    draw.text((32, 24), 'G04 RECONSTRUCTION — IMAGE TO SVG TO TEST FONT', font=label, fill='#162820')
     draw.text((32, 57), 'Generated candidates; technical proof only. Film-style approval pending.', font=small, fill='#536359')
     for i, (name, font_path, report) in enumerate(fonts):
         x = 32 + i * 540
         draw.text((x, 98), name, font=label, fill='#162820')
         glyph_font = ImageFont.truetype(str(font_path), 530)
-        draw.text((x + 240, 560), chr(config['codepoint']), font=glyph_font, anchor='ms', fill='#102e22')
+        draw.text((x + 240, 560), chr(report['codepoint']), font=glyph_font, anchor='ms', fill='#102e22')
         draw.text((x, 584), f'Trace IoU {report["trace_iou"]:.3f} | {report["contours"]} contour | {report["segments"]} segments', font=small, fill='#536359')
         for row, size in enumerate((20, 26, 32, 48)):
             y = 628 + row * 51
@@ -121,7 +125,7 @@ def make_proof(config, fonts, out):
             draw.rectangle((x + 72, y - 4, x + 488, y + 43), fill='#020705')
             f = ImageFont.truetype(str(font_path), size)
             for j in range(10):
-                draw.text((x + 86 + j * 38, y + 34), chr(config['codepoint']), font=f,
+                draw.text((x + 86 + j * 38, y + 34), chr(report['codepoint']), font=f,
                           anchor='ls', fill=('#1e7549', '#32c77b', '#c9ffe1')[j % 3])
     image.save(out)
 

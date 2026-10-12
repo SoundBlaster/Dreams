@@ -66,6 +66,13 @@
       "sha256": "27f198b9b85cbfb120c7195663b5d35a06330a7c2a3317af22bf92fe2282eee3",
       "repository_path": null,
       "source": "user crop of generated candidate"
+    },
+    {
+      "role": "authoritative-film-closeup-upper-glyph",
+      "name": "1-Photo-1.jpg",
+      "sha256": "11a20aa9574d6aa626d93119f14fbed90a583c22393d0b47bb4dfa8ccc41669e",
+      "repository_path": null,
+      "source": "user attachment; lower adjacent glyph excluded"
     }
   ],
   "proportions": {
@@ -91,6 +98,14 @@
       "parent": "refined.png",
       "intent": "Retain small curved pen turns instead of triangular terminal spikes",
       "sha256": "88e55842011076401862eceaa0490da2c3c74a685429b59160df5353a1346c3e"
+    },
+    {
+      "image": "film.png",
+      "prompt": "prompt-film.txt",
+      "codepoint": 57348,
+      "orientation": "as filmed: diagonal descends right; no standard Unicode claim",
+      "intent": "Upper glyph in latest movie close-up; film silhouette overrides conventional オ anatomy",
+      "sha256": "f31fdcd6468ae44a25595a2b763a87623a23376649ef1d258625ad513f3ae6f7"
     }
   ],
   "minimum_font_size": 26
