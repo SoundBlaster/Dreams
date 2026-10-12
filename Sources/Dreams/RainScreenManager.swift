@@ -19,11 +19,10 @@ final class RainScreenManager {
     @MainActor
     struct Overlay {
         let displayID: CGDirectDisplayID
-        let window: NSWindow
+        let window: RainOverlayWindow
         let renderer: RainRenderer
 
         func close() {
-            (window.contentView as? MTKView)?.isPaused = true
             window.close()
         }
     }
@@ -31,6 +30,9 @@ final class RainScreenManager {
     var selection = RainDisplaySelection.load()
     var excludedDisplayID: CGDirectDisplayID?
     private(set) var overlays: [String: Overlay] = [:]
+    private var hasPresented = false
+    private var returnApplication: NSRunningApplication?
+    private weak var returnWindow: NSWindow?
     var orderedOverlays: [Overlay] { overlays.keys.sorted().compactMap { overlays[$0] } }
     var renderers: [RainRenderer] { orderedOverlays.map(\.renderer) }
 
@@ -49,26 +51,21 @@ final class RainScreenManager {
 
     /// Prepare additions before removing any working windows. Retained screens keep their simulation.
     func reconcile(restoredGlyphs: Bool, transparent: Bool, hiddenFromCapture: Bool,
-                   suspended: Bool, configure: (RainRenderer) -> Void) throws {
+                   suspended: Bool, configure: (RainRenderer) -> Void,
+                   onEscape: @escaping () -> Void, onExit: @escaping () -> Void) throws {
         let targets = targetScreens
+        let oldKey = overlays.first { $0.value.window.isKeyWindow }?.key
+        let hadAppFocus = NSApplication.shared.isActive
         var additions: [String: Overlay] = [:]
         do {
             for screen in targets where overlays[screen.stableDisplayID]?.displayID != screen.displayID {
                 let view = MTKView(frame: NSRect(origin: .zero, size: screen.frame.size))
                 let renderer = try RainRenderer(view: view, restoredGlyphs: restoredGlyphs, transparentBackground: transparent)
                 configure(renderer)
-                let window = NSPanel(contentRect: screen.frame, styleMask: [.borderless, .nonactivatingPanel],
-                                     backing: .buffered, defer: false, screen: screen)
+                let window = RainOverlayWindow(frame: screen.frame, metalView: view,
+                    transparent: transparent, onEscape: onEscape, onExit: onExit)
                 window.title = "Dreams Rain · \(screen.localizedName)"
-                window.isReleasedWhenClosed = false
-                window.level = .screenSaver
-                window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary]
-                window.ignoresMouseEvents = true
                 window.sharingType = hiddenFromCapture ? .none : .readOnly
-                window.isOpaque = !transparent
-                window.backgroundColor = transparent ? .clear : .black
-                window.hasShadow = false
-                window.contentView = view
                 additions[screen.stableDisplayID] = Overlay(displayID: screen.displayID, window: window, renderer: renderer)
             }
         } catch {
@@ -85,10 +82,36 @@ final class RainScreenManager {
             overlay.window.setFrame(screen.frame, display: true)
             if !suspended { overlay.window.orderFrontRegardless() }
         }
+        // Only the initial presentation and removal of our key window take focus.
+        // A user working on an uncovered display must keep their application's Esc.
+        let replacingKey = oldKey.map { !targetIDs.contains($0) || additions[$0] != nil } ?? false
+        if !transparent, !suspended, !targets.isEmpty, !hasPresented || (replacingKey && hadAppFocus) {
+            if !hasPresented {
+                returnApplication = NSWorkspace.shared.frontmostApplication
+                returnWindow = hadAppFocus ? NSApplication.shared.keyWindow : nil
+            }
+            let screen = targets.first { NSMouseInRect(NSEvent.mouseLocation, $0.frame, false) }
+                ?? targets.first { $0.displayID == CGMainDisplayID() } ?? targets[0]
+            let window = overlays[screen.stableDisplayID]!.window
+            NSApplication.shared.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+            window.makeFirstResponder(window.contentView)
+        }
+        if !targets.isEmpty { hasPresented = true }
     }
 
     func close() {
+        let ownedFocus = NSApplication.shared.isActive && overlays.values.contains { $0.window.isKeyWindow }
         overlays.values.forEach { $0.close() }
         overlays.removeAll()
+        if ownedFocus {
+            if let returnWindow, returnWindow.isVisible { returnWindow.makeKeyAndOrderFront(nil) }
+            else if let returnApplication, returnApplication.processIdentifier != ProcessInfo.processInfo.processIdentifier {
+                returnApplication.activate(options: [])
+            }
+        }
+        hasPresented = false
+        returnApplication = nil
+        returnWindow = nil
     }
 }

@@ -34,7 +34,7 @@ Or build it yourself: `make app` (Swift 6.2+), then `open dist/Dreams.app`.
 
 1. Open Dreams. Its window appears and a glyph icon sits in the menu bar.
 2. In **Agent hooks**, press **Connect** for Codex and for Claude Code. Codex asks you to review the new hooks in `/hooks`; Claude Code reads them in a new session.
-3. Press **Start Matrix**. On the black background the rain runs for an hour by default (pick 5 minutes, 30 minutes, 1 hour or *Until stopped* next to the buttons); over your windows (transparent) it runs until you stop it. ⌃⌥⌘D stops it from anywhere (you can change that shortcut in the window; `Esc` only works while Dreams is the active app, since Esc belongs to the app you are working in); if it ever stops by itself, the window says why.
+3. Press **Start Matrix**. On black, press **Esc** to exit while the rain has focus, or move the pointer to reveal **Exit · Esc** on any covered display. Both stop the rain on all selected displays. On black it runs for an hour by default (pick 5 minutes, 30 minutes, 1 hour or *Until stopped*); over your windows (transparent) it runs until stopped and leaves Esc and clicks to your working apps. ⌃⌥⌘D stops either mode from anywhere; you can change that backup shortcut in the window. If the animation stops by itself, the window says why.
 4. Start an agent. Each message makes the rain surge; tool calls fall as lines.
 
 The same from a terminal: `/Applications/Dreams.app/Contents/MacOS/Dreams --install-hooks`. Nothing leaves your Mac: the hooks only write short labels to a local mailbox.

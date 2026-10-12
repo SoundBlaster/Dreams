@@ -85,7 +85,9 @@ final class DreamsController: NSObject {
     private func reconcileScreens() throws {
         guard rainRequested else { return }
         try screenManager.reconcile(restoredGlyphs: restoredGlyphs, transparent: transparentBackground,
-            hiddenFromCapture: hideFromScreenshots, suspended: suspendedForCapture, configure: configureRenderer)
+            hiddenFromCapture: hideFromScreenshots, suspended: suspendedForCapture, configure: configureRenderer,
+            onEscape: { [weak self] in self?.handleEscape() },
+            onExit: { [weak self] in self?.stop(reason: .user) })
         displayError = nil
         updateSleepAssertion()
     }
@@ -524,6 +526,10 @@ final class DreamsController: NSObject {
                 try? KeywordInput.publishFixtures()
             }
         }
+    }
+
+    func handleEscape() {
+        if !transparentBackground { stop(reason: .escape) }
     }
 
     func stop(reason: StopReason = .user) {
