@@ -5,7 +5,7 @@ const el = id => document.getElementById(id);
 const STORAGE = 'dreams.stroke-editor.v1';
 let project = M.copy(seed), selected = 4, strokeIndex = 0, segmentIndex = 0;
 let history = [], future = [], rangeBefore = null, drag = null;
-let segmentInsertPreview = null;
+let segmentInsertPreview = null, moveGlyphMode = false, layerSignature = '';
 let references = [], referenceSelected = -1, referenceDrag = null;
 const REFERENCE_STORAGE = STORAGE+'.references';
 let checkpointParent = null, checkpointHead = null, checkpointBusy = false, checkpointAvailable = false;
@@ -34,10 +34,26 @@ function restore(saved) {
   checkpointParent=state.checkpointParent ?? null;
 }
 function finishRange() {if(rangeBefore){const before=rangeBefore;rangeBefore=null;remember(before);}}
-function options(id,count,prefix,selectedValue) {
-  const select=el(id);select.replaceChildren();
-  for(let i=0;i<count;i++){const o=document.createElement('option');o.value=i;o.textContent=`${prefix} ${i+1}`;select.append(o);}
-  select.value=selectedValue;
+function selectLayer(stroke,segment=0) {
+  finishRange();strokeIndex=stroke;segmentIndex=segment;segmentInsertPreview=null;renderControls();paint();
+  el('strokeLayers').children[stroke]?.children[1]?.children[segment]?.children[0]?.focus?.();
+}
+function renderLayers() {
+  const signature=JSON.stringify([selected,strokeIndex,segmentIndex,currentGlyph().strokes.map(s=>s.segments.map(p=>p.kind))]);
+  if(signature===layerSignature)return;layerSignature=signature;
+  const list=el('strokeLayers');list.replaceChildren();
+  currentGlyph().strokes.forEach((stroke,i)=>{
+    const row=document.createElement('li'),button=document.createElement('button'),children=document.createElement('ul');
+    button.textContent=`Штрих ${i+1} · ${stroke.segments.length} уч.`;
+    button.setAttribute('aria-label',`Выбрать штрих ${i+1}`);button.setAttribute('aria-pressed',String(i===strokeIndex));
+    button.onclick=()=>selectLayer(i);row.append(button);
+    stroke.segments.forEach((segment,j)=>{
+      const item=document.createElement('li'),part=document.createElement('button');
+      part.className='section-row';part.textContent=`${segment.kind==='line'?'╱':'⌒'} Участок ${j+1} · ${segment.kind==='line'?'прямая':'дуга'}`;
+      part.setAttribute('aria-label',`Штрих ${i+1}, участок ${j+1}`);part.setAttribute('aria-pressed',String(i===strokeIndex&&j===segmentIndex));
+      part.onclick=()=>selectLayer(i,j);item.append(part);children.append(item);
+    });row.append(children);list.append(row);
+  });
 }
 function renderAlphabet() {
   el('alphabet').replaceChildren();
@@ -53,9 +69,11 @@ function renderControls() {
   const g=currentGlyph(), s=currentStroke(), part=currentSegment();
   el('glyphTitle').textContent=g.character;
   el('selection').textContent=`Штрих ${strokeIndex+1} / ${g.strokes.length} · участок ${segmentIndex+1} / ${s.segments.length}`;
-  options('stroke',g.strokes.length,'Штрих',strokeIndex);options('segment',s.segments.length,'Участок',segmentIndex);
-  for(const id of ['width','startWidth','endWidth']){el(id).value=s[id];el(id+'Value').textContent=s[id].toFixed(1);}
+  renderLayers();
+  el('glyphX').value=(g.placement?.x||0).toFixed(2);el('glyphY').value=(g.placement?.y||0).toFixed(2);
+  el('editPoints').setAttribute('aria-pressed',String(!moveGlyphMode));el('moveGlyph').setAttribute('aria-pressed',String(moveGlyphMode));
   el('startWidth').max=el('endWidth').max=s.width;
+  for(const id of ['width','startWidth','endWidth']){el(id).value=s[id];el(id+'Value').textContent=s[id].toFixed(1);}
   el('peak').value=Math.round(s.peak*100);el('peakValue').textContent=Math.round(s.peak*100)+'%';
   el('stretch').value=Math.round(g.stretch*100);el('stretchValue').textContent=Math.round(g.stretch*100)+'%';
   el('placementStatus').textContent=g.placement?`Масштаб всего глифа: ${(g.placement.scale*100).toFixed(1)}% · включая толщину`:'';
@@ -101,7 +119,8 @@ function paint() {
   const insertionHint=join?`<circle cx="${join[0]}" cy="${join[1]}" r="3" fill="none" stroke="#b17f24" stroke-width=".65" pointer-events="none"/>`:'';
   const allPoints=s.segments.map((seg,i)=>`<circle cx="${seg.start[0]}" cy="${seg.start[1]}" r=".8" fill="#afc0b3" data-segment="${i}"/>`).join('');
   el('stage').innerHTML=`<defs><pattern id="grid" width="10.9" height="10.9" patternUnits="userSpaceOnUse"><path d="M10.9 0H0V10.9" fill="none" stroke="#dae0d3" stroke-width=".16"/></pattern></defs><rect width="109" height="109" fill="url(#grid)"/><path d="M54.5 0V109M0 54.5H109" stroke="#b9caba" stroke-width=".25"/>${referenceMarkup()}<g id="geometry" transform="${M.transform(g)}"><g fill="#173b2e" fill-rule="nonzero">${ink}</g><g class="guides">${guides}${allPoints}${handles}</g>${insertionHint}</g>${referenceFrame()}${paintMetricGuides(g,paths)}`;
-  el('stage').classList.toggle('hide-handles',!el('handles').checked);
+  el('stage').classList.toggle('hide-handles',!el('handles').checked||moveGlyphMode);
+  el('stage').classList.toggle('move-glyph',moveGlyphMode);
   el('sizes').innerHTML=[20,26,32,48].map(size=>`<div class="sample"><svg width="${size}" height="${size}" viewBox="0 0 109 109" aria-label="${size} пикселей"><g fill="#41d88a" transform="${M.transform(g)}">${ink}</g></svg><span>${size}px</span></div>`).join('');
   const points=Array.from({length:101},(_,i)=>`${10+i*2.4},${55-M.widthAt(s,i/100)/16*45}`).join(' ');
   el('widthGraph').innerHTML=`<path d="M10 10V55H250" fill="none" stroke="#c0cab8"/><polyline points="${points}" stroke="#277758" stroke-width="2" fill="none"/><circle cx="${10+s.peak*240}" cy="${55-s.width/16*45}" r="3" fill="#cb8731"/>`;
@@ -142,8 +161,12 @@ el('fitGlyph').onclick=()=>edit(()=>M.fitGlyph(currentGlyph(),fontMetrics));
 el('resetPlacement').onclick=()=>edit(()=>{delete currentGlyph().placement;});
 el('handles').onchange=paint;
 for(const id of ['metricGuides','guideBaseline','guideCap','guideMeanline','guideLimits','guideBounds','guideCell'])el(id).onchange=()=>{paint();try{localStorage.setItem(STORAGE+'.'+id,String(el(id).checked));}catch{}};
-el('stroke').onchange=()=>{finishRange();strokeIndex=Number(el('stroke').value);segmentIndex=0;render();};
-el('segment').onchange=()=>{finishRange();segmentIndex=Number(el('segment').value);render();};
+for(const [id,mode] of [['editPoints',false],['moveGlyph',true]])el(id).onclick=()=>{finishRange();moveGlyphMode=mode;renderControls();paint();};
+for(const [id,axis] of [['glyphX','x'],['glyphY','y']])el(id).onchange=()=>{
+  const value=Number(el(id).value),empty=el(id).value==='';
+  edit(()=>{if(empty||!Number.isFinite(value))throw new Error('Введи числовой сдвиг');
+    const g=currentGlyph();g.placement={scale:1,x:0,y:0,...g.placement,[axis]:value};});
+};
 for(const kind of ['line','arc'])el(kind).onclick=()=>edit(()=>{
   const part=currentSegment();part.kind=kind;
   if(kind==='line')part.mid=M.mix(part.start,part.end,.5);
@@ -367,6 +390,11 @@ el('checkpointRestore').onclick=()=>checkpointAction(async()=>{
 });
 if(typeof fetch==='function')el('checkpointRefresh').onclick();
 el('stage').addEventListener('pointerdown',event=>{
+  if(event.button!==undefined && event.button!==0)return;
+  if(moveGlyphMode) {
+    finishRange();drag={key:'glyph',before:snapshot(),pointer:event.pointerId,start:referencePoint(event),placement:{scale:1,x:0,y:0,...currentGlyph().placement}};
+    el('stage').setPointerCapture(event.pointerId);event.preventDefault();return;
+  }
   if(beginReferenceDrag(event))return;
   const key=event.target.dataset.key;
   if(!key) {
@@ -379,13 +407,20 @@ el('stage').addEventListener('pointerdown',event=>{
 el('stage').addEventListener('pointermove',event=>{
   if(moveReferenceDrag(event))return;
   if(!drag || event.pointerId!==drag.pointer)return;
+  if(drag.key==='glyph') {
+    const p=referencePoint(event);let dx=p[0]-drag.start[0],dy=p[1]-drag.start[1];
+    if(event.shiftKey){if(Math.abs(dx)>=Math.abs(dy))dy=0;else dx=0;}
+    currentGlyph().placement={...drag.placement,x:Math.max(-2000,Math.min(2000,drag.placement.x+dx)),y:Math.max(-2000,Math.min(2000,drag.placement.y+dy))};
+    renderControls();paint();return;
+  }
   const p=new DOMPoint(event.clientX,event.clientY).matrixTransform(el('geometry').getScreenCTM().inverse());
   M.setPoint(currentStroke(),segmentIndex,drag.key,[p.x,p.y]);renderControls();paint();
 });
 function endDrag(event) {
   if(referenceDrag && event.pointerId===referenceDrag.pointer){referenceDrag=null;storeReferences();return;}
   if(!drag || event.pointerId!==drag.pointer)return;
-  const before=drag.before;drag=null;
+  const before=drag.before, cancelled=event.type==='pointercancel'&&drag.key==='glyph';drag=null;
+  if(cancelled){restore(before);return;}
   try{M.validate(project);remember(before);renderControls();}
   catch(error){restore(before);status(error.message,true);}
 }

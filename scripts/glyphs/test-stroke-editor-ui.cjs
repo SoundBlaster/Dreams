@@ -35,6 +35,30 @@ element('metricGuides').checked=false;element('metricGuides').onchange();
 assert.equal(element('stage').viewBox,'0 0 109 109');assert.deepEqual(state(),metricProject);
 element('metricGuides').checked=true;element('metricGuides').onchange();
 
+// Visible hierarchy selects actual stroke/section, including non-first strokes.
+const layers=element('strokeLayers');assert.equal(layers.children.length,state().glyphs[4].strokes.length);
+layers.children[1].children[1].children[0].children[0].onclick();
+assert.equal(vm.runInContext('strokeIndex',sandbox),1);assert.equal(vm.runInContext('segmentIndex',sandbox),0);
+element('strokeLayers').children[0].children[0].onclick();
+const beforeMove=state();element('glyphX').value='12.5';element('glyphX').onchange();
+element('glyphY').value='-8';element('glyphY').onchange();
+assert.deepEqual(state().glyphs[4].placement,{scale:1,x:12.5,y:-8});
+assert.deepEqual(state().glyphs[4].strokes,beforeMove.glyphs[4].strokes);
+element('undo').onclick();element('undo').onclick();assert.deepEqual(state(),beforeMove);
+element('moveGlyph').onclick();const moveStage=element('stage');
+moveStage.events.pointerdown({target:{dataset:{}},clientX:50,clientY:50,pointerId:12,preventDefault(){}});
+moveStage.events.pointermove({clientX:50,clientY:60,pointerId:12});moveStage.events.pointerup({pointerId:12});
+assert.equal(state().glyphs[4].placement.y,10);assert.deepEqual(state().glyphs[4].strokes,beforeMove.glyphs[4].strokes);
+element('undo').onclick();assert.deepEqual(state(),beforeMove);element('editPoints').onclick();
+element('glyphX').value='3000';element('glyphX').onchange();assert.deepEqual(state(),beforeMove);
+element('moveGlyph').onclick();
+moveStage.events.pointerdown({target:{dataset:{}},clientX:50,clientY:50,pointerId:13,preventDefault(){}});
+moveStage.events.pointermove({clientX:55,clientY:70,pointerId:13,shiftKey:true});
+assert.equal(state().glyphs[4].placement.x,0);assert.equal(state().glyphs[4].placement.y,20);
+moveStage.events.pointercancel({type:'pointercancel',pointerId:13});assert.deepEqual(state(),beforeMove);
+element('editPoints').onclick();
+console.log('PASS: layer hierarchy selection and whole-glyph movement preserve strokes and support Undo');
+
 const beforeFit=state();element('fitGlyph').onclick();
 assert.ok(state().glyphs[4].placement);assert.equal(element('resetPlacement').disabled,false);
 assert.ok(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs[4].placement);
@@ -67,13 +91,13 @@ element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].segments[0].
 const count=state().glyphs[4].strokes[0].segments.length;
 element('addSegmentAfter').onclick();assert.equal(state().glyphs[4].strokes[0].segments.length,count+1);
 element('removeSegment').onclick();assert.equal(state().glyphs[4].strokes[0].segments.length,count);
-element('segment').value='0';element('segment').onchange();
+element('strokeLayers').children[0].children[1].children[0].children[0].onclick();
 const beforeInsertion=state();
 element('addSegmentBefore').onfocus();assert.ok(element('stage').innerHTML.includes('stroke="#b17f24"'));
-element('addSegmentBefore').onclick();assert.equal(element('segment').value,0);
+element('addSegmentBefore').onclick();assert.equal(vm.runInContext('segmentIndex',sandbox),0);
 assert.equal(state().glyphs[4].strokes[0].segments.length,count+1);
 element('undo').onclick();assert.deepEqual(state(),beforeInsertion);
-element('addSegmentAfter').onclick();assert.equal(element('segment').value,1);
+element('addSegmentAfter').onclick();assert.equal(vm.runInContext('segmentIndex',sandbox),1);
 element('undo').onclick();assert.deepEqual(state(),beforeInsertion);
 const previous=state();
 element('pasteText').value='{}';element('applyPaste').onclick();assert.deepEqual(state(),previous);assert.ok(element('pasteError').textContent);
