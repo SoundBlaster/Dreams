@@ -120,7 +120,7 @@ struct MatrixChecks {
                 "A descending packet must still have visible ink")
             rain.advance(to: start + 71 * interval + 0.000001)
             let bottom = rain.columns[0].lastWrite
-            let lifetime = rain.columns[0].hold + rain.columns[0].fade
+            let lifetime = rain.columns[0].cells[71].hold + rain.columns[0].cells[71].fade
             let next = rain.columns[0].nextWrite
             precondition(next > bottom + lifetime + 0.24, "Packets need a genuinely dark gap")
             rain.advance(to: bottom + lifetime + 0.001)
@@ -172,7 +172,7 @@ struct MatrixChecks {
         var sequential = MatrixSimulation(columnCount: 1, rows: 72, glyphCount: 57, fadeRows: 1)
         sequential.advance(to: 0)
         let hold = sequential.columns[0].hold
-        let tick = sequential.columns[0].interval
+        let tick = sequential.columns[0].tailInterval
         sequential.advance(to: hold + tick * 0.5)
         precondition(abs(sequential.opacity(column: 0, row: 0) - 0.5) < 0.001)
         precondition(sequential.opacity(column: 0, row: 1) == 1,
@@ -183,7 +183,7 @@ struct MatrixChecks {
             "Dissolution must advance exactly one row after the preceding glyph disappears")
         var soft = MatrixSimulation(columnCount: 1, rows: 72, glyphCount: 57, fadeRows: 8)
         soft.advance(to: 0)
-        soft.advance(to: soft.columns[0].hold + soft.columns[0].interval * 4)
+        soft.advance(to: soft.columns[0].hold + soft.columns[0].tailInterval * 4)
         precondition((0..<4).allSatisfy {
             let opacity = soft.opacity(column: 0, row: $0)
             return opacity > 0 && opacity < 1

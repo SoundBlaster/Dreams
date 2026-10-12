@@ -173,6 +173,8 @@ final class MatrixRain {
             selections.removeAll()
             simulation = MatrixSimulation(columnCount: columns, rows: rows, glyphCount: symbols.count, density: density, fadeRows: fadeRows)
         }
+        simulation!.setDensity(density)
+        simulation!.setFadeRows(fadeRows)
         for column in Array(pulseWords.keys) where pulseWords[column]!.ends <= simulationClock {
             simulation!.finishPulse(column: column)
             pulseWords.removeValue(forKey: column)
@@ -185,8 +187,6 @@ final class MatrixRain {
             pulseWords[column] = (Array(event.label), simulationClock, simulationClock + duration)
         }
         pendingEvents.removeAll()
-        simulation!.setDensity(density)
-        simulation!.setFadeRows(fadeRows)
         // Event streams are one-shot packets and ignore the coverage; ordinary columns re-draw
         // whether they rain at the end of every pass.
         simulation!.advance(to: simulationClock, coverage: activity.coverage(at: time, density: density),

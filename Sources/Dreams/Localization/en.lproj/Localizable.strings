@@ -25,7 +25,7 @@
 "rain.color.accessibility" = "Rain color";
 "rain.color.tip" = "Color of the rain letters. Stored separately for the black and the transparent background.";
 "rain.density" = "Density";
-"rain.density.tip" = "Sparse ← → dense: tail length and pauses between passes. Applies to the next streams.";
+"rain.density.tip" = "Sparse ← → dense: initial trace length and pauses between passes. Traces stretch as they descend. Applies to new streams.";
 "rain.speed" = "Speed";
 "rain.speed.tip" = "0.25× is slow; 1× is normal; 3× is fast.";
 "rain.fade" = "Fade";
