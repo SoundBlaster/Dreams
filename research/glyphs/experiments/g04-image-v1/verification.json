@@ -1,0 +1,221 @@
+{
+  "checks": "four candidate TTFs rebuilt twice with identical bytes; SVGs preserved; film variant maps only to PUA, not standard katakana",
+  "reports": [
+    {
+      "candidate": "candidate.png",
+      "codepoint": 12458,
+      "sha256": "48a1416a323888289063cfea189381782b608224c1b55cba0cf9b4719e447381",
+      "svg_sha256": "a17af71205c50f92b0509c3df4af96c481559e874e0307c1ce03064df5168866",
+      "ink_box": [
+        131,
+        191,
+        956,
+        1261
+      ],
+      "aspect_ratio": 0.771,
+      "topology": {
+        "source": {
+          "components": 1,
+          "holes": 0
+        },
+        "font": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "trace_iou": 0.99586,
+      "font_bounds": [
+        177.2942657470703,
+        0.2496630847454071,
+        778.4970092773438,
+        779.9300537109375
+      ],
+      "contours": 1,
+      "segments": 49,
+      "small_sizes": {
+        "20": {
+          "components": 1,
+          "holes": 0
+        },
+        "26": {
+          "components": 1,
+          "holes": 0
+        },
+        "32": {
+          "components": 1,
+          "holes": 0
+        },
+        "48": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "failures": [],
+      "warnings": [],
+      "artistic_status": "review required; these checks do not establish film fidelity"
+    },
+    {
+      "candidate": "refined.png",
+      "codepoint": 12458,
+      "sha256": "6c871e50247b7b26ac327247b820397c712090fe3d88ef9f70ab71e1cd943009",
+      "svg_sha256": "4bb558b26ad3f624392fb9f105d81555892f67dde1be2aa7d0bae80d3e6de91b",
+      "ink_box": [
+        191,
+        206,
+        895,
+        1220
+      ],
+      "aspect_ratio": 0.6943,
+      "topology": {
+        "source": {
+          "components": 1,
+          "holes": 0
+        },
+        "font": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "trace_iou": 0.9939,
+      "font_bounds": [
+        207.3529052734375,
+        0.0,
+        748.388671875,
+        780.0
+      ],
+      "contours": 1,
+      "segments": 56,
+      "small_sizes": {
+        "20": {
+          "components": 2,
+          "holes": 0
+        },
+        "26": {
+          "components": 1,
+          "holes": 0
+        },
+        "32": {
+          "components": 1,
+          "holes": 0
+        },
+        "48": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "failures": [],
+      "warnings": [
+        "Topology lost at 20px: {'components': 2, 'holes': 0}"
+      ],
+      "artistic_status": "review required; these checks do not establish film fidelity"
+    },
+    {
+      "candidate": "terminals.png",
+      "codepoint": 12458,
+      "sha256": "88e55842011076401862eceaa0490da2c3c74a685429b59160df5353a1346c3e",
+      "svg_sha256": "a4a814da3c1f47cc93b53854633bd7dd6e86be2038a60c8f9532e76a961faaa4",
+      "ink_box": [
+        168,
+        180,
+        915,
+        1255
+      ],
+      "aspect_ratio": 0.6949,
+      "topology": {
+        "source": {
+          "components": 1,
+          "holes": 0
+        },
+        "font": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "trace_iou": 0.98939,
+      "font_bounds": [
+        206.96881103515625,
+        0.22269272804260254,
+        748.5354614257812,
+        779.8864135742188
+      ],
+      "contours": 1,
+      "segments": 46,
+      "small_sizes": {
+        "20": {
+          "components": 1,
+          "holes": 0
+        },
+        "26": {
+          "components": 1,
+          "holes": 0
+        },
+        "32": {
+          "components": 1,
+          "holes": 0
+        },
+        "48": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "failures": [],
+      "warnings": [],
+      "artistic_status": "review required; these checks do not establish film fidelity"
+    },
+    {
+      "candidate": "film.png",
+      "codepoint": 57348,
+      "sha256": "f31fdcd6468ae44a25595a2b763a87623a23376649ef1d258625ad513f3ae6f7",
+      "svg_sha256": "0bbe9849f523c5eaf8027652e7656603fc5b51e64716b2eb244920d2e3c85f3c",
+      "ink_box": [
+        246,
+        190,
+        857,
+        1212
+      ],
+      "aspect_ratio": 0.5978,
+      "topology": {
+        "source": {
+          "components": 1,
+          "holes": 0
+        },
+        "font": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "trace_iou": 0.99235,
+      "font_bounds": [
+        245.2872314453125,
+        -0.3226318359375,
+        711.0983276367188,
+        779.9682006835938
+      ],
+      "contours": 1,
+      "segments": 37,
+      "small_sizes": {
+        "20": {
+          "components": 1,
+          "holes": 0
+        },
+        "26": {
+          "components": 1,
+          "holes": 0
+        },
+        "32": {
+          "components": 1,
+          "holes": 0
+        },
+        "48": {
+          "components": 1,
+          "holes": 0
+        }
+      },
+      "failures": [],
+      "warnings": [
+        "Generated aspect ratio 0.5978 needs review"
+      ],
+      "artistic_status": "review required; these checks do not establish film fidelity"
+    }
+  ]
+}

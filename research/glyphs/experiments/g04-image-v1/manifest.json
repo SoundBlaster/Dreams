@@ -1,0 +1,112 @@
+{
+  "schema": "dreams.image-glyph-pilot/v1",
+  "glyph": "G04",
+  "character": "オ",
+  "codepoint": 12458,
+  "candidate": "candidate.png",
+  "status": "review-candidate",
+  "generation": {
+    "mode": "built-in imagegen",
+    "model_version": "tool default; exact model not exposed",
+    "date": "2026-10-12",
+    "prompt": "prompt.txt"
+  },
+  "font": {
+    "family": "Dreams G04 Image Pilot",
+    "style": "Regular",
+    "version": "0.3",
+    "upm": 1024,
+    "advance": 956,
+    "ascent": 900,
+    "descent": 124,
+    "body_bottom": 0,
+    "body_top": 780,
+    "timestamp": "2026-10-10T00:00:00Z",
+    "pua_base": 57344
+  },
+  "trace": {
+    "threshold": 0.5,
+    "upscale": 1,
+    "min_area": 40,
+    "turdsize": 20,
+    "alphamax": 1.0,
+    "opttolerance": 1.2,
+    "max_quadratic_error": 1.0
+  },
+  "expected": {
+    "components": 1,
+    "holes": 0
+  },
+  "minimum_trace_iou": 0.95,
+  "references": [
+    {
+      "role": "target",
+      "name": "g04-source.png",
+      "sha256": "5350b39da8c481f422733e64bf476fbef604c81deea1ef37a4822bd1c37de924",
+      "repository_path": "research/glyphs/references/g04-source.png",
+      "source": "existing film crop"
+    },
+    {
+      "role": "film-style",
+      "name": "1-Photo-1.jpg",
+      "sha256": "fc0f352a98d1333c03ab1ab60c73cb0510d536a3b1e6effb514798bf40863fa5",
+      "repository_path": null,
+      "source": "user attachment; external reference not copied into repository"
+    },
+    {
+      "role": "film-style",
+      "name": "2-Photo-2.jpg",
+      "sha256": "2ba9669e5ee8a17532bc3bee18da36b3aa800d84eace069f539c2847781852aa",
+      "repository_path": null,
+      "source": "user attachment; external reference not copied into repository"
+    },
+    {
+      "role": "negative-terminal-example",
+      "name": "1-Photo-1.jpg",
+      "sha256": "27f198b9b85cbfb120c7195663b5d35a06330a7c2a3317af22bf92fe2282eee3",
+      "repository_path": null,
+      "source": "user crop of generated candidate"
+    },
+    {
+      "role": "authoritative-film-closeup-upper-glyph",
+      "name": "1-Photo-1.jpg",
+      "sha256": "11a20aa9574d6aa626d93119f14fbed90a583c22393d0b47bb4dfa8ccc41669e",
+      "repository_path": null,
+      "source": "user attachment; lower adjacent glyph excluded"
+    }
+  ],
+  "proportions": {
+    "target_ink_width_over_height": 0.7333333333333333,
+    "tolerance": 0.05,
+    "policy": "Preserve generated aspect ratio in tracing; review outside tolerance. Do not apply blind horizontal compression."
+  },
+  "variants": [
+    {
+      "image": "candidate.png",
+      "prompt": "prompt.txt",
+      "sha256": "48a1416a323888289063cfea189381782b608224c1b55cba0cf9b4719e447381"
+    },
+    {
+      "image": "refined.png",
+      "prompt": "prompt-refine.txt",
+      "parent": "candidate.png",
+      "sha256": "6c871e50247b7b26ac327247b820397c712090fe3d88ef9f70ab71e1cd943009"
+    },
+    {
+      "image": "terminals.png",
+      "prompt": "prompt-terminals.txt",
+      "parent": "refined.png",
+      "intent": "Retain small curved pen turns instead of triangular terminal spikes",
+      "sha256": "88e55842011076401862eceaa0490da2c3c74a685429b59160df5353a1346c3e"
+    },
+    {
+      "image": "film.png",
+      "prompt": "prompt-film.txt",
+      "codepoint": 57348,
+      "orientation": "as filmed: diagonal descends right; no standard Unicode claim",
+      "intent": "Upper glyph in latest movie close-up; film silhouette overrides conventional オ anatomy",
+      "sha256": "f31fdcd6468ae44a25595a2b763a87623a23376649ef1d258625ad513f3ae6f7"
+    }
+  ],
+  "minimum_font_size": 26
+}

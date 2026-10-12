@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dreams · Katakana stroke lab</title>
+<link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f0e7;color:#17332c;font:15px/1.5 system-ui,sans-serif}
+main{max-width:1220px;margin:auto;padding:32px}h1{font-size:34px;letter-spacing:-1px;margin:0}h2{font-size:17px;margin:0 0 14px}
+p{max-width:850px}.muted{color:#53655f}.tag{background:#ded8bb;padding:4px 10px;border-radius:20px;font-size:12px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:24px;margin-top:24px}.alphabet{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+button,select{font:inherit;background:#fffcf4;color:#17332c;border:1px solid #a5b4a8;border-radius:7px;padding:7px;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #b37737;outline-offset:2px}
+button[aria-pressed=true]{background:#173d31;color:white}.alphabet button{font-size:21px;padding:7px 0}
+.panel{padding:20px;background:#fffcf4;border:1px solid #cbd2c6;border-radius:14px}.views{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.drawing{width:100%;background:linear-gradient(90deg,transparent 49.8%,#d8ddd3 50%,transparent 50.2%),linear-gradient(0deg,transparent 49.8%,#d8ddd3 50%,transparent 50.2%);border:1px solid #d8ddd3;aspect-ratio:1}
+canvas{display:block;width:100%;height:auto}.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0}
+.toolbar label{display:flex;align-items:center;gap:8px}input[type=range]{accent-color:#206b4c;min-width:120px;max-width:200px}
+.stroke-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}#pressure{width:100%;height:140px;display:block}
+.full{width:100%;max-width:none!important}.reading{font-size:14px;font-weight:400;margin-left:10px}.note{background:#eee7d2;border-radius:8px;padding:12px}
+footer{font-size:12px;color:#53655f;margin-top:24px}a{color:#276148}.downloads{display:flex;gap:16px;flex-wrap:wrap}
+@media(max-width:760px){main{padding:16px}.layout{grid-template-columns:1fr}.alphabet{grid-template-columns:repeat(10,1fr)}.views{grid-template-columns:1fr}}
+</style>
+<main>
+<span class="tag">RESEARCH · v1 · 46 знаков / 108 штрихов</span>
+<h1>От движения кисти — к контуру</h1>
+<p><a href="editor.html">Открыть редактор точек и толщины штрихов →</a></p>
+<p class="muted">Направление задаёт ход пера. Нажим задаётся отдельно и может расти, ослабевать или оставаться постоянным — в том числе на конце черты.</p>
+<div class="layout">
+<aside><h2>Катакана</h2><div id="alphabet" class="alphabet" aria-label="Выбор символа"></div>
+<p class="note">Все профили нажима — <strong>гипотезы</strong>. Геометрия и порядок: KanjiVG. Здесь не измеренные движения кисти и не восстановленный киношрифт.</p>
+<p class="muted">Начнём с オ・マ・ス・セ и пар シ/ツ, ソ/ン. Зеркалирование сохраняет последовательность штрихов и отражает готовый след кисти.</p></aside>
+<section class="panel">
+<h2><span id="title"></span><span id="reading" class="reading"></span> <span class="tag">DRAFT</span></h2>
+<div class="views">
+<div><h2>Порядок и направление</h2><svg class="drawing" id="skeleton" viewBox="0 0 109 109" role="img" aria-label="Направленные траектории штрихов"></svg></div>
+<div><h2>След кисти</h2><canvas class="drawing" id="ink" width="654" height="654" aria-label="Контур из отпечатков кисти"></canvas></div>
+</div>
+<div class="toolbar"><button id="play">▶ Написать</button><label><input id="mirror" type="checkbox"> Зеркально</label><span id="progressText" aria-live="polite"></span></div>
+<input id="progress" class="full" type="range" min="0" max="1000" value="1000" aria-label="Ход написания">
+<div id="strokes" class="stroke-list" aria-label="Выбор штриха для графика"></div>
+<div class="toolbar">
+<label>Профиль <select id="profile"><option value="authored">Из библиотеки</option><option value="neutral">Постоянный</option><option value="tome">Остановка · толстый конец</option><option value="harai">Плавный выход · тонкий конец</option><option value="hane">Короткий выход</option><option value="swelling">Нарастание нажима</option></select></label>
+<label>Ширина <input id="width" type="range" min="2" max="14" step="0.5" value="8"><output id="widthValue">8</output></label>
+</div>
+<p id="strokeInfo" class="muted"></p>
+<svg id="pressure" viewBox="0 0 600 140" role="img" aria-label="График нажима вдоль выбранного штриха"></svg>
+<p class="muted">График: нажим p ∈ [0, 1] по длине штриха s ∈ [0, 1]. Скорость воспроизведения условная. Смена профиля не меняет траекторию; hane требует уже нарисованного поворота. Настройки предпросмотра не сохраняются.</p>
+<div class="downloads"><a id="normalSVG">SVG по профилю библиотеки</a><a id="mirrorSVG">Зеркальный SVG</a><a href="studies.html">Сравнить ネ・マ・ス・セ</a><a href="pairs.html">Пары シ/ツ и ソ/ン</a><a href="crossings.html">Перекладины オ・キ・ホ・モ</a><a href="turns.html">Повороты ア・ウ・ワ・ヲ</a><a href="alphabet.html">Алфавит и все группы</a><a href="proof.html">Компактный лист · 46 знаков</a></div>
+</section></div>
+<footer>Based on <a href="https://kanjivg.tagaini.net/">KanjiVG</a>, © Ulrich Apel and contributors.
+Данные и производные контуры: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.
+Изменения Dreams: профили нажима, отпечатки кисти, контуры, отражение. Текущий шрифт приложения не изменён.</footer>
+</main>
+<script>
+const library = __LIBRARY_JSON__;
+const el = id => document.getElementById(id);
+const palette = ['#bd6139','#237f87','#7757a0','#426d30'];
+let selected = library.glyphs.findIndex(g => g.character === 'オ'), focus = 1, animation = 0;
+// PCHIP, kept in parity with stroke_model.py: no artificial stops at knots.
+function pressureSlopes(knots){
+ const h=knots.slice(1).map((k,i)=>k[0]-knots[i][0]);
+ const d=knots.slice(1).map((k,i)=>(k[1]-knots[i][1])/h[i]);
+ if(d.length===1)return [d[0],d[0]];
+ function endpoint(h,nextH,d,nextD){const m=((2*h+nextH)*d-h*nextD)/(h+nextH);return m*d<=0?0:d*nextD<=0&&Math.abs(m)>Math.abs(3*d)?3*d:m;}
+ const m=[endpoint(h[0],h[1],d[0],d[1])];
+ for(let i=1;i<knots.length-1;i++){const left=d[i-1],right=d[i],w1=2*h[i]+h[i-1],w2=h[i]+2*h[i-1];m.push(left*right<=0?0:(w1+w2)/(w1/left+w2/right));}
+ m.push(endpoint(h.at(-1),h.at(-2),d.at(-1),d.at(-2)));return m;
+}
+function interpolate(knots,s){
+ const m=pressureSlopes(knots);
+ for(let i=1;i<knots.length;i++){const [a,p]=knots[i-1],[b,q]=knots[i];if(s<=b){const t=Math.max(0,Math.min(1,(s-a)/(b-a)));
+ const v=(2*t**3-3*t**2+1)*p+(t**3-2*t**2+t)*(b-a)*m[i-1]+(-2*t**3+3*t**2)*q+(t**3-t**2)*(b-a)*m[i];
+ return Math.max(Math.min(p,q),Math.min(Math.max(p,q),v));}}return knots.at(-1)[1];
+}
+function knots(g,i){return el('profile').value==='authored'?g.pressure[i]:library.profiles[el('profile').value];}
+function hull(points){
+ const sorted=[...new Map(points.map(p=>[`${p[0]},${p[1]}`,p])).values()].sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+ if(sorted.length<3)return sorted;
+ function half(points){const out=[];for(const p of points){while(out.length>1){const a=out.at(-2),b=out.at(-1);if((b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0])>0)break;out.pop();}out.push(p);}return out.slice(0,-1);}
+ return [...half(sorted),...half([...sorted].reverse())];
+}
+function draw(){
+ const g=library.glyphs[selected], mirrored=el('mirror').checked, fraction=+el('progress').value/1000;
+ const total=g.strokes.reduce((a,s)=>a+s.duration,0);let elapsed=fraction*total;
+ const limits=g.strokes.map(s=>{const limit=Math.min(1,Math.max(0,elapsed/s.duration));elapsed-=s.duration;return limit;});
+ el('progressText').textContent=`${Math.round(fraction*100)}%`;
+ el('widthValue').textContent=el('width').value;
+ const c=el('ink').getContext('2d');c.clearRect(0,0,654,654);c.save();c.scale(6,6);
+ if(mirrored){c.translate(109,0);c.scale(-1,1);}
+ const angle=library.brush.angle*Math.PI/180,cos=Math.cos(angle),sin=Math.sin(angle),aspect=library.brush.aspect;
+ g.samples.forEach((samples,i)=>{c.fillStyle='#173b2e';let previous=[];for(const [x,y,s] of samples){if(s>limits[i]||(limits[i]===0))continue;
+   const radius=+el('width').value*.5*Math.pow(interpolate(knots(g,i),s),library.brush.gamma);
+   const current=[];if(radius<1e-4)current.push([x,y]);else for(let k=0;k<32;k++){const t=2*Math.PI*k/32;current.push([x+radius*(Math.cos(t)*cos-aspect*Math.sin(t)*sin),y+radius*(Math.cos(t)*sin+aspect*Math.sin(t)*cos)]);}
+   const points=hull([...previous,...current]);previous=current;if(points.length<3)continue;
+   c.beginPath();points.forEach(([x,y],k)=>k?c.lineTo(x,y):c.moveTo(x,y));c.closePath();c.fill();}});c.restore();
+ let paths='',defs='';
+ g.paths.forEach((path,i)=>{const color=palette[i%palette.length],first=g.samples[i][0];
+  defs+=`<marker id="arrow${i}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="${color}"/></marker>`;
+  paths+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="${i===focus?1.4:0.7}" marker-end="url(#arrow${i})"/><circle cx="${first[0]}" cy="${first[1]}" r="1.5" fill="${color}"/>`;
+ });
+ const numbers=g.samples.map((samples,i)=>{const p=samples[0],x=mirrored?109-p[0]:p[0];return `<text x="${x-5}" y="${p[1]-3}" font-size="5" fill="${palette[i%palette.length]}">${i+1}</text>`;}).join('');
+ el('skeleton').innerHTML=`<defs>${defs}</defs><g transform="${mirrored?'translate(109 0) scale(-1 1)':''}">${paths}</g>${numbers}`;
+ const profile=knots(g,focus),points=Array.from({length:101},(_,i)=>`${40+i*5.3},${105-85*interpolate(profile,i/100)}`).join(' ');
+ el('pressure').innerHTML=`<path d="M40 15V105H570" fill="none" stroke="#a7b4a6"/><text x="8" y="23" font-size="13">1</text><text x="8" y="108" font-size="13">0</text><text x="40" y="130" font-size="12">Начало</text><text x="515" y="130" font-size="12">Конец</text><polyline points="${points}" stroke="#237657" stroke-width="3" fill="none"/>`;
+ const p0=g.samples[focus][0],p1=g.samples[focus].at(-1);
+ el('strokeInfo').textContent=`Штрих ${focus+1} · ${g.strokes[focus].terminal} · (${p0[0].toFixed(1)}, ${p0[1].toFixed(1)}) → (${p1[0].toFixed(1)}, ${p1[1].toFixed(1)})${mirrored?' до отражения':''}. Тип окончания — предварительная аннотация.`;
+}
+function stop(){cancelAnimationFrame(animation);animation=0;el('play').textContent='▶ Написать';}
+function choose(index){stop();selected=index;focus=0;el('progress').value=1000;el('profile').value='authored';
+ const g=library.glyphs[selected];el('title').textContent=g.character;el('reading').textContent=`${g.reading} · ${g.strokes.length} штр.`;
+ [...el('alphabet').children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
+ el('strokes').replaceChildren();g.strokes.forEach((_,i)=>{const b=document.createElement('button');b.textContent=`Штрих ${i+1}`;b.setAttribute('aria-pressed',String(i===focus));b.onclick=()=>{focus=i;[...el('strokes').children].forEach((b,j)=>b.setAttribute('aria-pressed',String(j===i)));draw();};el('strokes').append(b);});
+ const name='uni'+g.character.codePointAt(0).toString(16).toUpperCase();el('normalSVG').href=name+'.svg';el('mirrorSVG').href=name+'-mirrored.svg';draw();}
+library.glyphs.forEach((g,i)=>{const b=document.createElement('button');b.textContent=g.character;b.setAttribute('aria-label',`${g.character} ${g.reading}`);b.onclick=()=>choose(i);el('alphabet').append(b);});
+el('play').onclick=()=>{if(animation){stop();return;}const start=performance.now(),duration=library.glyphs[selected].strokes.reduce((a,s)=>a+s.duration,0)*1000;el('progress').value=0;draw();el('play').textContent='Ⅱ Пауза';const tick=now=>{el('progress').value=Math.min(1000,(now-start)/duration*1000);draw();if(+el('progress').value<1000)animation=requestAnimationFrame(tick);else stop();};animation=requestAnimationFrame(tick);};
+for(const id of ['progress','mirror','profile','width'])for(const event of ['input','change'])el(id).addEventListener(event,()=>{stop();draw();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+choose(selected);
+</script>
+</html>

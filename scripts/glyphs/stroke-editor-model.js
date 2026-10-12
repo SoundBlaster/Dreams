@@ -1,0 +1,134 @@
+/* Parametric centerlines and width envelopes; shared by browser and Node checks. */
+(function (root) {
+  'use strict';
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const mix = (a, b, t) => a.map((v, i) => v + (b[i] - v) * t);
+  const distance = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+  const copy = value => JSON.parse(JSON.stringify(value));
+  function point(segment, t) {
+    if (segment.kind === 'line') return mix(segment.start, segment.end, t);
+    // The middle handle lies ON the curve at t=.5, not off-curve like a Bezier control.
+    const control = segment.mid.map((v, i) => 2 * v - (segment.start[i] + segment.end[i]) / 2);
+    return mix(mix(segment.start, control, t), mix(control, segment.end, t), t);
+  }
+  function samples(stroke) {
+    const raw = [stroke.segments[0].start];
+    for (const segment of stroke.segments) {
+      for (let i = 1; i <= 48; i++) {
+        const p = point(segment, i / 48);
+        if (distance(p, raw.at(-1)) > 1e-7) raw.push(p);
+      }
+    }
+    if (raw.length < 2) return [];
+    const lengths = [0];
+    for (let i = 1; i < raw.length; i++) lengths.push(lengths.at(-1) + distance(raw[i], raw[i - 1]));
+    const total = lengths.at(-1), result = [];
+    // Uniform physical spacing: width peak is a fraction of ARC LENGTH.
+    const count = Math.min(1600, Math.max(2, Math.ceil(total / .4)));
+    let j = 0;
+    for (let i = 0; i <= count; i++) {
+      const d = total * i / count;
+      while (j + 1 < raw.length - 1 && lengths[j + 1] < d) j++;
+      result.push([...mix(raw[j], raw[j + 1], (d - lengths[j]) / (lengths[j + 1] - lengths[j])), i / count]);
+    }
+    return result;
+  }
+  function widthAt(stroke, s) {
+    const peak = stroke.peak;
+    const a = stroke.startCap === 'sharp' ? 0 : stroke.startWidth;
+    const b = stroke.endCap === 'sharp' ? 0 : stroke.endWidth;
+    const smooth = t => t * t * (3 - 2 * t);
+    return s <= peak ? a + (stroke.width - a) * smooth(s / peak)
+      : stroke.width + (b - stroke.width) * smooth((s - peak) / (1 - peak));
+  }
+  function hull(points) {
+    const sorted = [...new Map(points.map(p => [p.join(','), p])).values()].sort((a,b) => a[0]-b[0] || a[1]-b[1]);
+    if (sorted.length < 3) return sorted;
+    function half(points) {
+      const out = [];
+      for (const p of points) {
+        while (out.length > 1) {
+          const a=out.at(-2), b=out.at(-1);
+          if ((b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0]) > 0) break;
+          out.pop();
+        }
+        out.push(p);
+      }
+      return out.slice(0,-1);
+    }
+    return [...half(sorted), ...half([...sorted].reverse())];
+  }
+  const number = v => Number(v.toFixed(4));
+  function outline(stroke) {
+    const pts = samples(stroke), polygons = [];
+    let previous = [];
+    for (let i=0; i<pts.length; i++) {
+      const a = pts[Math.max(0,i-1)], b = pts[Math.min(pts.length-1,i+1)];
+      const norm = distance(a,b) || 1, nx = -(b[1]-a[1])/norm, ny = (b[0]-a[0])/norm;
+      const [x,y,s] = pts[i], r = widthAt(stroke,s)/2;
+      const current = [[x+nx*r,y+ny*r],[x-nx*r,y-ny*r]];
+      const polygon = hull([...previous,...current]);
+      if (polygon.length >= 3) polygons.push(polygon);
+      previous = current;
+    }
+    // Consistently wound overlapping sweep cells: intersections add ink, never XOR.
+    return polygons.map(p => 'M'+p.map(v=>v.map(number).join(' ')).join('L')+'Z').join('');
+  }
+  function centerPath(stroke) {
+    let d = 'M'+stroke.segments[0].start.join(' ');
+    for (const s of stroke.segments) {
+      if (s.kind === 'line') d += 'L'+s.end.join(' ');
+      else {
+        const c = s.mid.map((v,i)=>2*v-(s.start[i]+s.end[i])/2);
+        d += 'Q'+c.join(' ')+' '+s.end.join(' ');
+      }
+    }
+    return d;
+  }
+  function setPoint(stroke, index, key, p) {
+    p = p.map(v=>number(clamp(v,0,109)));
+    stroke.segments[index][key] = p;
+    if (key === 'mid') stroke.segments[index].kind = 'arc';
+    if (key === 'start' && index) stroke.segments[index-1].end = [...p];
+    if (key === 'end' && index+1 < stroke.segments.length) stroke.segments[index+1].start = [...p];
+    for (const s of stroke.segments) if (s.kind === 'line') s.mid = mix(s.start,s.end,.5);
+  }
+  function validate(project) {
+    const fail = message => {throw new Error(message);};
+    if (!project || project.schema !== 'dreams.stroke-editor/v1') fail('Неподдерживаемый формат проекта');
+    if (!Array.isArray(project.glyphs) || !project.glyphs.length || project.glyphs.length > 256) fail('Нужно от 1 до 256 знаков');
+    if (typeof project.attribution !== 'string' || project.attribution.length > 4000) fail('Нет сведений об источнике');
+    const ids = new Set();
+    const finite = (v,a,b) => typeof v==='number' && Number.isFinite(v) && v>=a && v<=b;
+    for (const g of project.glyphs) {
+      if (typeof g.character !== 'string' || [...g.character].length !== 1 || /[\u0000-\u001f\u007f]/.test(g.character) || ids.has(g.character)) fail('Знаки должны быть уникальными одиночными символами');
+      ids.add(g.character);
+      if (!finite(g.stretch,.5,1.2) || typeof g.mirror !== 'boolean') fail('Неверные пропорции знака');
+      if (!Array.isArray(g.strokes) || !g.strokes.length || g.strokes.length>24) fail('Нужно от 1 до 24 штрихов');
+      for (const st of g.strokes) {
+        if (!finite(st.width,.5,16) || !finite(st.startWidth,0,st.width) || !finite(st.endWidth,0,st.width) || !finite(st.peak,.05,.95)) fail('Неверный профиль толщины');
+        if (!['sharp','flat'].includes(st.startCap) || !['sharp','flat'].includes(st.endCap)) fail('Неверное окончание');
+        if (!Array.isArray(st.segments) || !st.segments.length || st.segments.length>32) fail('Нужно от 1 до 32 участков');
+        for (let i=0;i<st.segments.length;i++) {
+          const seg=st.segments[i];
+          if (!['line','arc'].includes(seg.kind)) fail('Неизвестный вид участка');
+          for (const k of ['start','mid','end']) if (!Array.isArray(seg[k]) || seg[k].length!==2 || !seg[k].every(v=>finite(v,0,109))) fail('Координаты должны лежать в 0…109');
+          if (i && distance(st.segments[i-1].end,seg.start)>1e-4) fail('Разрыв между участками штриха');
+        }
+        if (!samples(st).length) fail('Штрих имеет нулевую длину');
+      }
+    }
+    return project;
+  }
+  function transform(glyph) {
+    return `translate(54.5 0) scale(${glyph.stretch*(glyph.mirror?-1:1)} 1) translate(-54.5 0)`;
+  }
+  function svg(glyph, attribution) {
+    const escape = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    // Same cell metrics as the existing katakana export. Guides are excluded from glyph reads.
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 956 1024" width="956" height="1024"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(96.5 74) scale(7 8)"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s)}"/>`).join('')}</g></g></svg>`;
+  }
+  const api = {point,samples,widthAt,outline,centerPath,setPoint,validate,transform,svg,copy,mix};
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.StrokeEditorModel = api;
+})(globalThis);

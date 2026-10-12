@@ -6,7 +6,7 @@ DMG := dist/release/Dreams-$(VERSION).dmg
 PYTHON := .venv/bin/python
 NOTARY_PROFILE ?= dreams-notary
 
-.PHONY: help bump plugins-check icon app run test test-unit glyphs glyphs-verify glyphs-selftest \
+.PHONY: help bump plugins-check icon app run test test-unit glyphs glyphs-verify glyphs-selftest katakana katakana-check \
 	release release-local checksum github-release tap-update notary-profile \
 	install-hooks uninstall-hooks uninstall uninstall-purge clean test-displays
 
@@ -25,6 +25,8 @@ help:
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
 		'  make glyphs-verify    Check that a rebuild is byte-identical' \
 		'  make glyphs-selftest  Check that every glyph check catches its own defect' \
+		'  make katakana         Build the directed katakana stroke research catalogue' \
+		'  make katakana-check   Validate stroke data, pressure laws and SVG determinism' \
 		'' \
 		'Release (version from VERSION):' \
 		'  make notary-profile KEY=<AuthKey.p8> KEY_ID=<id> ISSUER=<uuid>   One-time notarytool setup' \
@@ -91,6 +93,16 @@ glyphs-verify: glyphs
 
 glyphs-selftest:
 	$(PYTHON) scripts/glyphs/selftest.py
+
+katakana:
+	$(PYTHON) scripts/glyphs/katakana.py build
+
+katakana-check: katakana
+	$(PYTHON) scripts/glyphs/katakana.py check
+	$(PYTHON) scripts/glyphs/test_stroke_model.py
+	node scripts/glyphs/test-katakana-catalog.mjs research/glyphs/build/katakana/catalog.html
+	node scripts/glyphs/test-stroke-editor.cjs research/glyphs/build/katakana/editor-seed.json
+	node scripts/glyphs/test-stroke-editor-ui.cjs research/glyphs/build/katakana/editor-seed.json
 
 notary-profile:
 	@test -n "$(KEY)" -a -n "$(KEY_ID)" -a -n "$(ISSUER)" || { \

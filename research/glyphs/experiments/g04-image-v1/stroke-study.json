@@ -1,0 +1,116 @@
+{
+  "schema": "dreams.katakana-strokes/v1",
+  "coordinate_system": "109 units, x-right, y-down",
+  "brush": {
+    "width": 8,
+    "aspect": 0.72,
+    "angle": -35,
+    "gamma": 0.7
+  },
+  "glyph": {
+    "character": "オ",
+    "reading": "o",
+    "review": "draft",
+    "strokes": [
+      {
+        "source_id": "kvg:030aa-s1",
+        "terminal": "tome",
+        "profile": "tome",
+        "duration": 0.7,
+        "pressure_evidence": "design-hypothesis",
+        "path_override": "M18,39 C22,42 26,40 32,39 C48,36 65,33 77,31 L86,34",
+        "pressure": [
+          [
+            0,
+            0.04
+          ],
+          [
+            0.09,
+            0.55
+          ],
+          [
+            0.45,
+            0.5
+          ],
+          [
+            0.78,
+            0.65
+          ],
+          [
+            0.9,
+            1
+          ],
+          [
+            1,
+            0.7
+          ]
+        ]
+      },
+      {
+        "source_id": "kvg:030aa-s2",
+        "terminal": "hane",
+        "profile": "hane",
+        "duration": 0.7,
+        "pressure_evidence": "design-hypothesis",
+        "path_override": "M56,14 C61,16 62,18 62,23 L62,84 C62,88 62,91 60,92 L49,85",
+        "pressure": [
+          [
+            0,
+            0
+          ],
+          [
+            0.06,
+            0.85
+          ],
+          [
+            0.18,
+            0.65
+          ],
+          [
+            0.65,
+            0.7
+          ],
+          [
+            0.82,
+            1
+          ],
+          [
+            0.9,
+            0.8
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "source_id": "kvg:030aa-s3",
+        "terminal": "harai",
+        "profile": "harai",
+        "duration": 0.7,
+        "pressure_evidence": "design-hypothesis",
+        "path_override": "M59,40 C50,53 35,67 18,78",
+        "pressure": [
+          [
+            0,
+            0.9
+          ],
+          [
+            0.2,
+            0.85
+          ],
+          [
+            0.55,
+            0.5
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  "role": "Construction and movement reference; pressure is an authored hypothesis, not a measurement from film."
+}
