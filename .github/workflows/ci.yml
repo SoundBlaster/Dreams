@@ -56,6 +56,8 @@ jobs:
           .venv/bin/pip install --quiet -r "$RUNNER_TEMP/requirements.txt" "fonttools>=4.66"
       - name: Glyph pipeline is reproducible
         run: make glyphs-verify
+      - name: Directed katakana strokes and pressure profiles
+        run: make katakana-check
       - name: Build the app (no warnings in our sources)
         run: |
           set -o pipefail

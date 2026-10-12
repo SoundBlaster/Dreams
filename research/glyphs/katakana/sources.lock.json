@@ -1,0 +1,238 @@
+{
+  "project": "KanjiVG",
+  "revision": "70a0b7ae0c18ceb5cb358274b029cce0234a43bc",
+  "license": "CC-BY-SA-3.0",
+  "attribution": "KanjiVG, copyright Ulrich Apel and contributors",
+  "sources": {
+    "ア": {
+      "file": "sources/030a2.svg",
+      "sha256": "f7dfe4a6af4c4622b611b5b1e92005fe3356c808dbb44ea0e877e02e46f6ee73",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030a2.svg"
+    },
+    "イ": {
+      "file": "sources/030a4.svg",
+      "sha256": "4b4f6d1b99e37559893e291713eccf05f7a3cbb2daa3273a856de29b839042e6",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030a4.svg"
+    },
+    "ウ": {
+      "file": "sources/030a6.svg",
+      "sha256": "3e166f9fe86da6edd06aead4bd8c0f43a33f8195f83047c9aa2182eb9f05feb3",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030a6.svg"
+    },
+    "エ": {
+      "file": "sources/030a8.svg",
+      "sha256": "639c0194da2e36e82ef30409f367d52433a1ed4692936ec9dbd4d9b7f3aed4c9",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030a8.svg"
+    },
+    "オ": {
+      "file": "sources/030aa.svg",
+      "sha256": "6a26eb24121f4d6ff6192067925a40c842360949a6a72ae6bc3dd876cd802f1e",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030aa.svg"
+    },
+    "カ": {
+      "file": "sources/030ab.svg",
+      "sha256": "179d16fc65b0db69f691f5efb5da26c641449277d0d67e4ddd08dbb84b1afce6",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ab.svg"
+    },
+    "キ": {
+      "file": "sources/030ad.svg",
+      "sha256": "bc7956fc043fa06b1fa2eb7312896c8441d600bc724e709362faf7b67705c2b7",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ad.svg"
+    },
+    "ク": {
+      "file": "sources/030af.svg",
+      "sha256": "b4a0abdf5423b32d642c286ed33cb8f91e1ca788e0695913814e80765d058d52",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030af.svg"
+    },
+    "ケ": {
+      "file": "sources/030b1.svg",
+      "sha256": "43334e1e96016c2aa045cfe468c1fe6e720330b23b837c7f786c23b2b455a1a8",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030b1.svg"
+    },
+    "コ": {
+      "file": "sources/030b3.svg",
+      "sha256": "0f366054dfa2bdaa80defb0418f0e3def2a7c286e7279904e6a5a3578e76a7fc",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030b3.svg"
+    },
+    "サ": {
+      "file": "sources/030b5.svg",
+      "sha256": "6849ccaa3f91530f5d8bb33e994511a3851b584ca1d94df770051533ba328be1",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030b5.svg"
+    },
+    "シ": {
+      "file": "sources/030b7.svg",
+      "sha256": "777a0eef4d858337a43e30a78ee09f265080cb3f33975b6e23148849027b1769",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030b7.svg"
+    },
+    "ス": {
+      "file": "sources/030b9.svg",
+      "sha256": "2facf6236f57fb23d13b8e58591eef9b3f5a87bc91a5b46f7b2a4148f041445b",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030b9.svg"
+    },
+    "セ": {
+      "file": "sources/030bb.svg",
+      "sha256": "bd54af254ca5b1f85df58fd7bd054bcb52dd77a50a08e80db75a5c01b4aef4f1",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030bb.svg"
+    },
+    "ソ": {
+      "file": "sources/030bd.svg",
+      "sha256": "f225b489929dc7483b07b7cc8f6138c02d41afda88f693ece9119b8ccb84c13e",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030bd.svg"
+    },
+    "タ": {
+      "file": "sources/030bf.svg",
+      "sha256": "be5768ceb910a36dda67906f7380c861d94395ad4738bbafe5ac2b6e381319d1",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030bf.svg"
+    },
+    "チ": {
+      "file": "sources/030c1.svg",
+      "sha256": "dffb0a69dd17e7492698fee6c0efafb7f6a910f3f94ed27764a6c5e2c588ee30",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030c1.svg"
+    },
+    "ツ": {
+      "file": "sources/030c4.svg",
+      "sha256": "161c7a7be52dc62a9db1d99002a827e4c71a2ff9272c969ecb60995c1044a9fc",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030c4.svg"
+    },
+    "テ": {
+      "file": "sources/030c6.svg",
+      "sha256": "539a4cbd57ad96d14090234e2d7a22086784cc21a54492f41bf7821f5ca95022",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030c6.svg"
+    },
+    "ト": {
+      "file": "sources/030c8.svg",
+      "sha256": "390feff352209925ca9df574561e7867855bdb2256677030b845dd609c9c4f93",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030c8.svg"
+    },
+    "ナ": {
+      "file": "sources/030ca.svg",
+      "sha256": "842bc219e8bd86d3fcce2596cbb229fc3f9b4c45fd0f22260efc32ca26105e72",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ca.svg"
+    },
+    "ニ": {
+      "file": "sources/030cb.svg",
+      "sha256": "150810f2c90970b7e432d4b75da4bb1cc83bce08dd20e02bf1a534da00af605a",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030cb.svg"
+    },
+    "ヌ": {
+      "file": "sources/030cc.svg",
+      "sha256": "15cb49d3112264fa744549e51afa45537f9782ab4c980adba5593e544de4ecf0",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030cc.svg"
+    },
+    "ネ": {
+      "file": "sources/030cd.svg",
+      "sha256": "3607ca36dea181a59100d0d9b2591f5539b7d75b1acb84364843d5c6e9f11ebd",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030cd.svg"
+    },
+    "ノ": {
+      "file": "sources/030ce.svg",
+      "sha256": "ae39d6040adfbbeb5db4f822dde0cc11b7e66c150282f8abbeb940b5dbf6a03b",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ce.svg"
+    },
+    "ハ": {
+      "file": "sources/030cf.svg",
+      "sha256": "816e69c07fb4d5a2d0cc66758c2c9c59d4c27c3a13c96057cd417bb9840e119a",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030cf.svg"
+    },
+    "ヒ": {
+      "file": "sources/030d2.svg",
+      "sha256": "58b7eddec372f7ae621ff65a2fa0075857f658e084d6d95b8a261c6a88ec0bd8",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030d2.svg"
+    },
+    "フ": {
+      "file": "sources/030d5.svg",
+      "sha256": "1aa669f5ba4c3a795d62ce1ec41444d06206bd29f61bf5be70e7ddaa80dd930a",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030d5.svg"
+    },
+    "ヘ": {
+      "file": "sources/030d8.svg",
+      "sha256": "baab8c06699c0aa4774f1b90bc971f7f6034ec460437596c5a6e496ade458e46",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030d8.svg"
+    },
+    "ホ": {
+      "file": "sources/030db.svg",
+      "sha256": "7e1e9e1073b81cf5ad9c10cad0f10b465d5e608c8294ebc25e9dd11d4eed6a96",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030db.svg"
+    },
+    "マ": {
+      "file": "sources/030de.svg",
+      "sha256": "a32affa8337fc8315588ee800603a6594c325f9080dbde7887d47ee5d4cf34a4",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030de.svg"
+    },
+    "ミ": {
+      "file": "sources/030df.svg",
+      "sha256": "358cdedf0fb052b35c22d35bdde8f004cadbd9b4e230b48143bc811b53056397",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030df.svg"
+    },
+    "ム": {
+      "file": "sources/030e0.svg",
+      "sha256": "7aa8ecfcb8c309f8ea867787825979974fb810ea5ce5271dd0374455d7ad2f79",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030e0.svg"
+    },
+    "メ": {
+      "file": "sources/030e1.svg",
+      "sha256": "c2e0dd96e95b558a5c6004163c43f75023ea07f8b6f6263d068bb30ef860f166",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030e1.svg"
+    },
+    "モ": {
+      "file": "sources/030e2.svg",
+      "sha256": "550500b1e204fe6d625e73799b3ef3f16a4014126f33d70d947fcb9c78eeeaf4",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030e2.svg"
+    },
+    "ヤ": {
+      "file": "sources/030e4.svg",
+      "sha256": "d843888e471d9312d8e396943475d5ff7c235a16f488f83820be9024122491d4",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030e4.svg"
+    },
+    "ユ": {
+      "file": "sources/030e6.svg",
+      "sha256": "4cb44f6fdc053e0847d6148c5fd43c0fa32358c60081631313c0f0753d17a3a4",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030e6.svg"
+    },
+    "ヨ": {
+      "file": "sources/030e8.svg",
+      "sha256": "5b82d555778c5b0d3d4eda5a453c09f7f1c0be687986003b49ab3e33d8fb4b88",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030e8.svg"
+    },
+    "ラ": {
+      "file": "sources/030e9.svg",
+      "sha256": "ee11d9622dee5ed32bd8d6c4ca1ba4dd77852475f694c3cb9e5d7ec0d72298f4",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030e9.svg"
+    },
+    "リ": {
+      "file": "sources/030ea.svg",
+      "sha256": "2958cc8c5ee1cd5289ee82cfb33b1b6842c2d2a7afb4e54158dc269ad6d52138",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ea.svg"
+    },
+    "ル": {
+      "file": "sources/030eb.svg",
+      "sha256": "bd5b120af6debd4feaa0a0d4fe46955f1f1f94dd7e3d64fe3b69c13fc4bdca3a",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030eb.svg"
+    },
+    "レ": {
+      "file": "sources/030ec.svg",
+      "sha256": "8a61e26d9b462aa669a058d15640dd72aa19ceafc9bcb7fc56e4f4e52e6baec0",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ec.svg"
+    },
+    "ロ": {
+      "file": "sources/030ed.svg",
+      "sha256": "8eeeeed120e9f7d816353eff6af991e04162f6cb38106b855d4454cd640a772a",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ed.svg"
+    },
+    "ワ": {
+      "file": "sources/030ef.svg",
+      "sha256": "2f41b88f39b92d0959a3c96ebc7093c6254ff27e96890e8c7de7adf9766556ab",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030ef.svg"
+    },
+    "ヲ": {
+      "file": "sources/030f2.svg",
+      "sha256": "14f0310c562007fc04e13a655cc9267698904273754c5ecff3cb81eeeee9dbd2",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030f2.svg"
+    },
+    "ン": {
+      "file": "sources/030f3.svg",
+      "sha256": "0e6ea9722247514cc5068ac2b409882c6e47ccc12530e69da680246f72884229",
+      "url": "https://raw.githubusercontent.com/KanjiVG/kanjivg/70a0b7ae0c18ceb5cb358274b029cce0234a43bc/kanji/030f3.svg"
+    }
+  }
+}

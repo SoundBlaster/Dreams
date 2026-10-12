@@ -1,5 +1,9 @@
 # Glyph restoration pipeline
 
+Directed katakana construction is an independent research layer:
+[Katakana stroke library](katakana/README.md). `make katakana` generates pressure-driven
+editable contours and an animated catalogue; it does not replace the production font.
+
 One deterministic run turns verified inputs into a font, editable SVGs and a report. The same inputs give **byte-identical** outputs. The `verify` command and the self-test check this.
 
 ```

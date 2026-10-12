@@ -1,0 +1,1178 @@
+{
+  "schema": "dreams.katakana-strokes/v1",
+  "coordinate_system": "109 units, x-right, y-down",
+  "profiles": {
+    "neutral": [
+      [
+        0,
+        0.7
+      ],
+      [
+        1,
+        0.7
+      ]
+    ],
+    "tome": [
+      [
+        0,
+        0.45
+      ],
+      [
+        0.15,
+        0.7
+      ],
+      [
+        0.7,
+        0.7
+      ],
+      [
+        1,
+        0.85
+      ]
+    ],
+    "harai": [
+      [
+        0,
+        0.5
+      ],
+      [
+        0.16,
+        0.8
+      ],
+      [
+        0.52,
+        0.75
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "hane": [
+      [
+        0,
+        0.5
+      ],
+      [
+        0.12,
+        0.75
+      ],
+      [
+        0.8,
+        0.8
+      ],
+      [
+        0.9,
+        0.65
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "swelling": [
+      [
+        0,
+        0.25
+      ],
+      [
+        0.25,
+        0.45
+      ],
+      [
+        0.6,
+        1
+      ],
+      [
+        1,
+        0.8
+      ]
+    ]
+  },
+  "brush": {
+    "width": 8,
+    "aspect": 0.72,
+    "angle": -35,
+    "gamma": 0.7
+  },
+  "glyphs": [
+    {
+      "character": "ア",
+      "reading": "a",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030a2-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030a2-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "イ",
+      "reading": "i",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030a4-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030a4-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ウ",
+      "reading": "u",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030a6-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030a6-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030a6-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "エ",
+      "reading": "e",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030a8-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030a8-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030a8-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "オ",
+      "reading": "o",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030aa-s1",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030aa-s2",
+          "terminal": "hane",
+          "profile": "hane",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030aa-s3",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "カ",
+      "reading": "ka",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ab-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ab-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "キ",
+      "reading": "ki",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ad-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ad-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ad-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ク",
+      "reading": "ku",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030af-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030af-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ケ",
+      "reading": "ke",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030b1-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b1-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b1-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "コ",
+      "reading": "ko",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030b3-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b3-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "サ",
+      "reading": "sa",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030b5-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b5-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b5-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "シ",
+      "reading": "shi",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030b7-s1",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b7-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b7-s3",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ス",
+      "reading": "su",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030b9-s1",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030b9-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "セ",
+      "reading": "se",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030bb-s1",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030bb-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ソ",
+      "reading": "so",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030bd-s1",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030bd-s2",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "タ",
+      "reading": "ta",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030bf-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030bf-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030bf-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "チ",
+      "reading": "chi",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030c1-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030c1-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030c1-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ツ",
+      "reading": "tsu",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030c4-s1",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030c4-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030c4-s3",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "テ",
+      "reading": "te",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030c6-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030c6-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030c6-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ト",
+      "reading": "to",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030c8-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030c8-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ナ",
+      "reading": "na",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ca-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ca-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ニ",
+      "reading": "ni",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030cb-s1",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030cb-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ヌ",
+      "reading": "nu",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030cc-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030cc-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ネ",
+      "reading": "ne",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030cd-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030cd-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030cd-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030cd-s4",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ノ",
+      "reading": "no",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ce-s1",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ハ",
+      "reading": "ha",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030cf-s1",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030cf-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ヒ",
+      "reading": "hi",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030d2-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030d2-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "フ",
+      "reading": "fu",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030d5-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ヘ",
+      "reading": "he",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030d8-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ホ",
+      "reading": "ho",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030db-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030db-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030db-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030db-s4",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "マ",
+      "reading": "ma",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030de-s1",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030de-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ミ",
+      "reading": "mi",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030df-s1",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030df-s2",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030df-s3",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ム",
+      "reading": "mu",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030e0-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e0-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "メ",
+      "reading": "me",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030e1-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e1-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "モ",
+      "reading": "mo",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030e2-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e2-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e2-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ヤ",
+      "reading": "ya",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030e4-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e4-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ユ",
+      "reading": "yu",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030e6-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e6-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ヨ",
+      "reading": "yo",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030e8-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e8-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e8-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ラ",
+      "reading": "ra",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030e9-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030e9-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "リ",
+      "reading": "ri",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ea-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ea-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ル",
+      "reading": "ru",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030eb-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030eb-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "レ",
+      "reading": "re",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ec-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ロ",
+      "reading": "ro",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ed-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ed-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ed-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ワ",
+      "reading": "wa",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030ef-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030ef-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ヲ",
+      "reading": "wo",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030f2-s1",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030f2-s2",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030f2-s3",
+          "terminal": "unspecified",
+          "profile": "neutral",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    },
+    {
+      "character": "ン",
+      "reading": "n",
+      "review": "draft",
+      "strokes": [
+        {
+          "source_id": "kvg:030f3-s1",
+          "terminal": "tome",
+          "profile": "tome",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        },
+        {
+          "source_id": "kvg:030f3-s2",
+          "terminal": "harai",
+          "profile": "harai",
+          "duration": 0.7,
+          "pressure_evidence": "design-hypothesis"
+        }
+      ]
+    }
+  ]
+}
