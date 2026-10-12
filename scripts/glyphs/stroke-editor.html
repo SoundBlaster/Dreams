@@ -21,9 +21,10 @@
 <p class="hint" id="referenceStatus" role="status">Перетаскивай изображение; углы растягивают. Shift сохраняет пропорции. Изображения хранятся отдельно для каждого знака в браузере, не входят в checkpoint и SVG.</p></section>
 <div class="preview"><span class="muted">Проверка малого размера · без свечения</span><div id="sizes"></div></div>
 <section class="panel" style="margin-top:12px" aria-label="Версии глифов"><h2>Checkpoints · база проекта</h2><div class="actions"><input id="checkpointName" type="text" maxlength="120" placeholder="Например: オ · мягкий хвост" aria-label="Название checkpoint" title="Tab — добавить выбранный глиф; повторный Tab — перейти дальше"><button id="checkpointSave" disabled>Создать checkpoint</button></div><div class="actions" style="margin-top:8px"><select id="checkpointList" aria-label="История checkpoints" style="max-width:100%"></select><button id="checkpointRestore" disabled>Восстановить</button><button id="checkpointRefresh">Обновить список</button></div><p id="checkpointStatus" class="hint" role="status" aria-live="polite">Подключение к локальной базе…</p></section>
-<div class="actions" style="margin-top:12px"><button id="addStroke">＋ Штрих</button><button id="removeStroke">Удалить штрих</button><button id="resetGlyph">Вернуть исходный знак</button></div><p class="hint">Правки сохраняются в этом браузере. JSON — переносимая копия всех знаков. Экспорт SVG содержит текущую форму.</p></section>
+<div class="actions" style="margin-top:12px"><button id="resetGlyph">Вернуть исходный знак</button></div><p class="hint">Правки сохраняются в этом браузере. JSON — переносимая копия всех знаков. Экспорт SVG содержит текущую форму.</p></section>
 <section class="panel controls" aria-label="Параметры штриха">
 <label>Штрих<select id="stroke" aria-label="Штрих"></select></label>
+<div class="actions"><button id="addStroke">＋ Штрих</button><button id="removeStroke">Удалить штрих</button></div>
 <label>Участок штриха<select id="segment" aria-label="Участок штриха"></select></label>
 <div class="actions"><button id="line" aria-pressed="false">Прямая</button><button id="arc" aria-pressed="false">Дуга</button><button id="addSegment" title="Продолжить текущий штрих">＋ Участок</button><button id="removeSegment">− Участок</button></div>
 <div class="coords" id="coordinates"></div>
