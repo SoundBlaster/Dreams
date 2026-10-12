@@ -40,6 +40,27 @@ class StrokeModelTests(unittest.TestCase):
         self.assertEqual(Brush().radius(0), 0)
         self.assertEqual(Stroke('M10 50L90 50', ((0, 0), (1, 0))).outline(Brush()).area, 0)
 
+    def test_thin_sweep_remains_connected_and_reaches_both_tips(self):
+        stroke = Stroke('M10 50L90 50', ((0, 0), (.5, .005), (1, 0)))
+        outline = stroke.outline(Brush())
+        self.assertEqual(len(list(outline.contours)), 1)
+        self.assertAlmostEqual(outline.bounds[0], 10, places=4)
+        self.assertAlmostEqual(outline.bounds[2], 90, places=4)
+        for i in range(1, 800):
+            self.assertTrue(outline.contains((10 + i / 10, 50)))
+
+    def test_ne_calligraphic_strokes_are_connected_and_directional(self):
+        _, brush, entries = load_library()
+        glyph, strokes = next(entry for entry in entries if entry[0]['character'] == 'ネ')
+        self.assertEqual(glyph['review'], 'draft')
+        for stroke in strokes:
+            self.assertEqual(len(list(stroke.outline(brush).contours)), 1)
+        for i in (0, 3):
+            self.assertEqual(strokes[i].pressure[0][1], 0)
+            self.assertGreater(pressure_at(strokes[i].pressure, .7), .8)
+        self.assertEqual(strokes[1].pressure[-1][1], 0)
+        self.assertGreater(pressure_at(strokes[2].pressure, .9), pressure_at(strokes[2].pressure, .3))
+
     def test_interior_knots_do_not_pause_thickness_change(self):
         knots = ((0, .1), (.2, .3), (.7, .8), (1, 1))
         epsilon = 1e-6

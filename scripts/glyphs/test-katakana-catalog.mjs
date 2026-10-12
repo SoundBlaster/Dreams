@@ -31,6 +31,9 @@ const sandbox = vm.createContext({document,performance:{now:()=>0},
     cancelAnimationFrame: id => frames.delete(id),
 });
 vm.runInContext(script,sandbox);
+assert.equal(JSON.stringify(sandbox.hull([[0,0],[2,0],[1,1],[1,0],[0,0]])),
+    JSON.stringify([[0,0],[2,0],[1,1]]));
+assert.equal(sandbox.hull([[0,0],[0,0],[1,0]]).length,2);
 // A linear ramp must keep moving through its interior control point.
 const ramp = [[0,0],[.4,.4],[1,1]];
 for (let i=0;i<=100;i++) assert.ok(Math.abs(sandbox.interpolate(ramp,i/100)-i/100)<1e-12);

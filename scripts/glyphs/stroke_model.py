@@ -77,6 +77,26 @@ def pressure_at(knots, s):
     return knots[-1][1]
 
 
+def convex_hull(points):
+    """Envelope bridging adjacent nib footprints, including zero-width tips."""
+    points = sorted(set(points))
+    if len(points) < 3:
+        return points
+
+    def cross(a, b, c):
+        return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+
+    def half(sequence):
+        result = []
+        for p in sequence:
+            while len(result) > 1 and cross(result[-2], result[-1], p) <= 0:
+                result.pop()
+            result.append(p)
+        return result
+
+    return half(points)[:-1] + half(reversed(points))[:-1]
+
+
 @dataclass(frozen=True)
 class Brush:
     width: float = 8
@@ -95,13 +115,13 @@ class Brush:
         return self.width * 0.5 * pressure ** self.gamma
 
     def footprint(self, x, y, pressure):
-        """16-sided ellipse; union of footprints approximates the wet brush sweep."""
+        """32-sided ellipse; adjacent footprints form a continuous brush sweep."""
         radius = self.radius(pressure)
         angle = math.radians(self.angle)
         c, s = math.cos(angle), math.sin(angle)
         return [(x + radius * (math.cos(t) * c - self.aspect * math.sin(t) * s),
                  y + radius * (math.cos(t) * s + self.aspect * math.sin(t) * c))
-                for t in (2 * math.pi * i / 16 for i in range(16))]
+                for t in (2 * math.pi * i / 32 for i in range(32))]
 
     def width_across(self, tangent, pressure):
         """Footprint width normal to movement (not simply pressure = width)."""
@@ -208,12 +228,15 @@ class Stroke:
 
     def outline(self, brush):
         footprints = []
+        previous = []
         for x, y, _, pressure in self.samples():
-            if brush.radius(pressure) < 1e-4:
-                continue
+            current = brush.footprint(x, y, pressure) if brush.radius(pressure) >= 1e-4 else [(x, y)]
+            points = convex_hull(previous + current)
+            previous = current
+            if len(points) < 3:
+                continue  # An entirely lifted brush leaves no filled area.
             footprint = pathops.Path()
             pen = footprint.getPen()
-            points = brush.footprint(x, y, pressure)
             pen.moveTo(points[0])
             for p in points[1:]:
                 pen.lineTo(p)
