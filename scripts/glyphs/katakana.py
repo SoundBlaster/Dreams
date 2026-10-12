@@ -122,7 +122,7 @@ def study_sheet(records, characters='ネマスセ', title='Четыре калл
             'h2{font-size:18px;margin:0}svg{display:block;width:100%}a{color:inherit}'
             '.gesture{font-size:14px;margin:0}nav{margin-bottom:12px;display:flex;flex-wrap:wrap;gap:20px}'
             '@media(max-width:640px){section{grid-template-columns:repeat(2,1fr)}}</style>'
-            '<nav><a href="alphabet.html">Весь алфавит и группы</a>'
+            '<nav><a href="editor.html">Редактор штрихов</a><a href="alphabet.html">Весь алфавит и группы</a>'
             '<a href="#normal">Обычные формы</a><a href="#mirrored">Зеркальные формы</a></nav>'
             f'<h1>{html.escape(title)}</h1><p>Индивидуальные траектории и нажим · DRAFT · '
             '<a href="catalog.html">Открыть каталог</a></p>' + index + ''.join(rows)
@@ -166,6 +166,8 @@ def build(destination=OUTPUT):
         '<h1>Katakana · 46 construction studies</h1><p>Pressure = editable hypothesis; all glyphs DRAFT.</p>'
         f'<main>{"".join(cards)}</main><p>{html.escape(ATTRIBUTION)}</p>')
     (destination / 'ATTRIBUTION.txt').write_text(ATTRIBUTION + '\n')
+    from stroke_editor import build as build_editor
+    build_editor(destination)
     hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
               for p in sorted(destination.iterdir()) if p.is_file() and p.name != 'manifest.json'}
     (destination / 'manifest.json').write_text(json.dumps(hashes, indent=2) + '\n')

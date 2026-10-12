@@ -96,6 +96,8 @@ katakana-check: katakana
 	$(PYTHON) scripts/glyphs/katakana.py check
 	$(PYTHON) scripts/glyphs/test_stroke_model.py
 	node scripts/glyphs/test-katakana-catalog.mjs research/glyphs/build/katakana/catalog.html
+	node scripts/glyphs/test-stroke-editor.cjs research/glyphs/build/katakana/editor-seed.json
+	node scripts/glyphs/test-stroke-editor-ui.cjs research/glyphs/build/katakana/editor-seed.json
 
 notary-profile:
 	@test -n "$(KEY)" -a -n "$(KEY_ID)" -a -n "$(ISSUER)" || { \

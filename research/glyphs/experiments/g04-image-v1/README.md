@@ -1,5 +1,9 @@
 # G04 / オ — image-assisted reconstruction pilot
 
+**Archived approach.** Image generation was rejected after review. Continue with
+the [parametric stroke editor](../../katakana/EDITOR.md); keep these artifacts only
+as evidence of the experiment, not as a production source or active workflow.
+
 This is a review experiment, not an approved replacement for the production font.
 The film provides visual evidence; the directed katakana library provides a
 construction hypothesis. Neither image generation nor tracing proves that the

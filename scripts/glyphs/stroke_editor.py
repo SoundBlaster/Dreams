@@ -1,0 +1,92 @@
+"""Build a self-contained constrained editor from the directed katakana library."""
+import argparse
+import json
+import math
+from pathlib import Path
+
+from fontTools.pens.basePen import BasePen
+from fontTools.svgLib.path import parse_path
+
+from katakana import ATTRIBUTION, OUTPUT, load_library
+
+
+class SegmentPen(BasePen):
+    """Approximate cubic centerlines with on-curve quadratic midpoint controls."""
+    def __init__(self):
+        super().__init__(None)
+        self.segments = []
+        self.current = None
+
+    def _moveTo(self, point):
+        self.current = point
+
+    def _lineTo(self, point):
+        if math.dist(self.current, point) > 1e-7:
+            self.segments.append({'kind': 'line', 'start': self.current,
+                                  'mid': [(a + b) / 2 for a, b in zip(self.current, point)], 'end': point})
+        self.current = point
+
+    def _curveToOne(self, b, c, d):
+        def mix(p, q):
+            return tuple((a + b) / 2 for a, b in zip(p, q))
+
+        def split(a, b, c, d, depth=0):
+            ab, bc, cd = mix(a, b), mix(b, c), mix(c, d)
+            abc, bcd = mix(ab, bc), mix(bc, cd)
+            mid = mix(abc, bcd)
+            control = tuple(2 * m - (x + y) / 2 for m, x, y in zip(mid, a, d))
+            errors = []
+            for t in (.25, .75):
+                cubic = [(1-t)**3*a[i] + 3*(1-t)**2*t*b[i] + 3*(1-t)*t*t*c[i] + t**3*d[i] for i in range(2)]
+                quad = [(1-t)**2*a[i] + 2*(1-t)*t*control[i] + t*t*d[i] for i in range(2)]
+                errors.append(math.dist(cubic, quad))
+            if max(errors) <= .15 or depth >= 8:
+                self.segments.append({'kind': 'arc', 'start': a, 'mid': mid, 'end': d})
+            else:
+                split(a, ab, abc, mid, depth + 1)
+                split(mid, bcd, cd, d, depth + 1)
+        split(self.current, b, c, d)
+        self.current = d
+
+    def _qCurveToOne(self, control, end):
+        start = self.current
+        mid = [(a + 2*b + c) / 4 for a, b, c in zip(start, control, end)]
+        self.segments.append({'kind': 'arc', 'start': start, 'mid': mid, 'end': end})
+        self.current = end
+
+    def _endPath(self):
+        pass
+
+
+def build(destination=OUTPUT):
+    _, _, glyphs = load_library()
+    project = {'schema': 'dreams.stroke-editor/v1', 'attribution': ATTRIBUTION, 'glyphs': []}
+    for glyph, strokes in glyphs:
+        record = {'character': glyph['character'], 'stretch': .85, 'mirror': False, 'strokes': []}
+        for stroke in strokes:
+            pen = SegmentPen()
+            parse_path(stroke.path, pen)
+            peak = max(stroke.pressure, key=lambda knot: knot[1])[0]
+            record['strokes'].append({
+                'segments': pen.segments, 'width': 7.5, 'peak': max(.05, min(.95, peak)),
+                'startWidth': 5.0, 'endWidth': 5.0,
+                'startCap': 'sharp' if stroke.pressure[0][1] == 0 else 'flat',
+                'endCap': 'sharp' if stroke.pressure[-1][1] == 0 else 'flat',
+            })
+        project['glyphs'].append(record)
+    destination.mkdir(parents=True, exist_ok=True)
+    here = Path(__file__).parent
+    template = (here / 'stroke-editor.html').read_text()
+    payload = json.dumps(project, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
+    template = template.replace('__PROJECT_JSON__', payload)
+    template = template.replace('__MODEL_JS__', (here / 'stroke-editor-model.js').read_text())
+    template = template.replace('__EDITOR_JS__', (here / 'stroke-editor.js').read_text())
+    (destination / 'editor.html').write_text(template)
+    (destination / 'editor-seed.json').write_text(json.dumps(project, ensure_ascii=False, indent=2) + '\n')
+    print(f'Editor: {destination / "editor.html"} (46 glyphs; no external dependencies)')
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, default=OUTPUT)
+    build(parser.parse_args().output)
