@@ -151,6 +151,26 @@ class StrokeModelTests(unittest.TestCase):
             dy = sample[-1][1] - sample[0][1]
             self.assertLess(dy, 0) if char in 'シン' else self.assertGreater(dy, 0)
 
+    def test_calibrated_pairs_preserve_detached_marks_and_tip_direction(self):
+        _, brush, entries = load_library()
+        for glyph, strokes in entries:
+            if glyph['character'] not in 'シツソン':
+                continue
+            with self.subTest(character=glyph['character']):
+                self.assertEqual(len(list(union_strokes(strokes, brush).contours)), len(strokes))
+                for stroke in strokes:
+                    self.assertEqual(len(list(stroke.outline(brush).contours)), 1)
+                for mark in strokes[:-1]:
+                    self.assertEqual(mark.pressure[0][1], 0)
+                    self.assertGreater(pressure_at(mark.pressure, .7), .8)
+                    samples = mark.samples()
+                    dx = samples[-1][0] - samples[0][0]
+                    dy = samples[-1][1] - samples[0][1]
+                    self.assertGreater(dx, dy) if glyph['character'] in 'シン' else self.assertGreater(dy, dx)
+                self.assertEqual(strokes[-1].pressure[-1][1], 0)
+                self.assertGreater(pressure_at(strokes[-1].pressure, .15),
+                                   pressure_at(strokes[-1].pressure, .85))
+
     def test_source_tampering_and_reordered_strokes_are_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             directory = Path(tmp) / 'library'
@@ -195,7 +215,9 @@ class StrokeModelTests(unittest.TestCase):
             self.assertEqual(len(list(a.glob('*.svg'))), 92)
             # Compare the actual browser interpolation with Python export values.
             library, _, _ = load_library()
-            profiles = list(library['profiles'].values()) + [
+            overrides = [stroke['pressure'] for glyph in library['glyphs']
+                         for stroke in glyph['strokes'] if 'pressure' in stroke]
+            profiles = list(library['profiles'].values()) + overrides + [
                 [[0, .1], [.01, .9], [.7, .9], [.9, 0], [1, .8]]]
             fixture = Path(tmp) / 'pressure-parity.json'
             fixture.write_text(json.dumps([
