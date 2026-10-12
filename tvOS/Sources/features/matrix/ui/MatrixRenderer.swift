@@ -87,13 +87,14 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         let rows = max(12, Int((Double(value.columns) / aspect).rounded()))
         if simulation?.columns.count != value.columns || simulation?.rows != rows {
             simulation = MatrixSimulation(columnCount: value.columns, rows: rows, glyphCount: FilmGlyphs.variantCount,
-                                          seed: UInt64.random(in: 1...UInt64.max), density: 0.82, fadeRows: value.fade)
+                                          seed: UInt64.random(in: 1...UInt64.max), density: value.density, fadeRows: value.fade)
             clock = 0
             lastFrame = nil
         }
         let now = CACurrentMediaTime()
         clock += min(0.1, max(0, now - (lastFrame ?? now))) * value.speed
         lastFrame = now
+        simulation?.setDensity(value.density)
         simulation?.setFadeRows(value.fade)
         simulation?.advance(to: clock, mutationRate: 1.5)
         let appearanceChanged = maskTypeface != value.clockTypeface || maskSize != value.clockSize
@@ -126,8 +127,8 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         for column in simulation.columns.indices {
             for row in 0..<rows {
                 let symbol = simulation.columns[column].cells[row]
-                let opacity = simulation.opacity(column: column, row: row)
-                guard symbol.glyph >= 0, opacity > 0.002 else { continue }
+                let opacity = value.glyphOpacity(simulation.opacity(column: column, row: row))
+                guard symbol.glyph >= 0, !symbol.isGap, opacity > 0.002 else { continue }
                 let center = SIMD2((Float(column) + 0.5) / Float(value.columns), (Float(row) + 0.5) / Float(rows))
                 let exposure = globalExposure * (mask.illuminates(center: center - offset) ? 1.6 : 0.22)
                 let ink = symbol.ink(brightnessSpread: 0.51)

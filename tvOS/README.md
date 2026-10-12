@@ -15,12 +15,15 @@ The app uses the same `MatrixSimulation.swift`, `Rain.metal` helpers and `Dreams
 | Setting | Range | Default |
 |---|---|---|
 | Columns | 48–160, steps of 4 | 96 |
+| Rain density | 10–100%, steps of 5 percentage points | 82% |
 | Brightness | 2–35% | 18% |
 | Speed | 0.25–3× | 0.43× |
 | Fade | 1–16 glyphs | 3 |
 | Floating clock | On / Off | On |
 | Clock font | System / Rounded / Monospaced | System |
 | Clock size | 50–115% | 100% |
+
+Density controls packet length, random gaps and the pause between passes. At 100%, every column wraps immediately and has no random gaps: after a top-to-bottom warmup, all grid cells stay occupied. Fade still controls the sequential dimming at each packet's tail, with a 20% opacity floor at full density until the cursor replaces the glyph. Live density changes take effect as new packets are written, without revealing expired symbols.
 
 Clock motion shifts the sampling positions on a cached brightness mask; it never moves the underlying rain grid. Its slow horizontal and vertical paths are bounded by the measured text extents, leaving a margin at every edge. The mask is rebuilt only when the minute, font, size or screen aspect changes. Each visible glyph needs one bitmap lookup per frame, with no per-fragment clock-mask texture sampling.
 
@@ -52,10 +55,10 @@ The generated project and build artifacts are ignored; `project.yml` is the sour
 
 Checked locally on Apple TV 4K (3rd generation, 1080p), tvOS 27 Simulator:
 
-- Nine unit tests pass, including actual font loading and runtime Metal shader compilation, whole-glyph selection, minute updates, mask silhouettes, three distinct system fonts at maximum size, preference persistence and bounds.
-- Remote input opens settings using Select, Play/Pause or Back, changes all seven values, and returns to the clock using Back or Show clock.
+- Twelve unit tests pass, covering actual font loading and runtime Metal shader compilation, whole-glyph selection, minute updates, mask silhouettes, three distinct system fonts at maximum size, preference persistence and bounds, sparse rain and sustained full-grid occupancy at 100% density.
+- Remote input opens settings using Select, Play/Pause or Back, changes the values, and returns to the clock using Back or Show clock.
 - Columns clamp to 48/160; clock size clamps to 50/115%. Changed preferences survive termination and relaunch.
-- The clock consists of illuminated rain glyphs, is upright and readable, and the seven settings fit on a 1080p screen.
+- The clock consists of illuminated rain glyphs and is upright and readable. All eight settings, the remote hint and Show clock fit on a 1080p screen.
 - `make lint`, the FSD regression checks and existing macOS simulation checks pass.
 
 Physical Apple TV performance, TV overscan and readability at viewing distance still need device verification. CI builds the tvOS target; the interactive Simulator checks are local.

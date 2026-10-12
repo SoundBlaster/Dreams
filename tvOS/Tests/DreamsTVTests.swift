@@ -8,7 +8,7 @@ final class DreamsTVTests: XCTestCase {
         for language in ["en", "ru"] {
             let path = try XCTUnwrap(Bundle.main.path(forResource: language, ofType: "lproj"))
             let bundle = try XCTUnwrap(Bundle(path: path))
-            for key in ["settings.columns", "settings.brightness", "settings.speed", "settings.fade", "settings.done",
+            for key in ["settings.columns", "settings.density", "settings.brightness", "settings.speed", "settings.fade", "settings.done",
                         "settings.floating", "settings.typeface", "settings.size", "settings.font.rounded"] {
                 XCTAssertNotEqual(bundle.localizedString(forKey: key, value: nil, table: nil), key)
             }
@@ -46,6 +46,55 @@ final class DreamsTVTests: XCTestCase {
         XCTAssertFalse(restored.floatingClock)
         XCTAssertEqual(restored.clockTypeface, .rounded)
         XCTAssertEqual(restored.clockSize, 1.15)
+    }
+
+    func testDensityDefaultsBoundsAndPersistence() {
+        let name = "DreamsTVTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: name)!
+        defer { defaults.removePersistentDomain(forName: name) }
+        let settings = RainSettings(defaults: defaults)
+        XCTAssertEqual(settings.tuning.density, 0.82)
+        settings.tuning.density = 4
+        XCTAssertEqual(settings.tuning.density, 1)
+        XCTAssertEqual(RainSettings(defaults: defaults).tuning.density, 1)
+        XCTAssertEqual(settings.tuning.glyphOpacity(0.001), 0.2)
+        settings.tuning.density = -1
+        XCTAssertEqual(settings.tuning.density, 0.1)
+        XCTAssertEqual(settings.tuning.glyphOpacity(0.001), 0.001)
+        settings.tuning.density = .nan
+        XCTAssertEqual(settings.tuning.density, 0.82)
+    }
+
+    func testFullDensityKeepsEveryCellOccupiedAfterWarmup() {
+        // Also exercise a live change from sparse rain; old packets expire naturally.
+        for fade in [1.0, 3.0, 16.0] {
+            var rain = MatrixSimulation(columnCount: 48, rows: 27, glyphCount: FilmGlyphs.variantCount,
+                                        seed: 14, density: 0.1, fadeRows: fade)
+            rain.advance(to: 10)
+            rain.setDensity(1)
+            for frame in 0..<300 {
+                rain.advance(to: 25 + Double(frame) / 30)
+                for column in rain.columns.indices {
+                    for row in 0..<rain.rows {
+                        let symbol = rain.columns[column].cells[row]
+                        XCTAssertGreaterThanOrEqual(symbol.glyph, 0)
+                        XCTAssertFalse(symbol.isGap)
+                        let opacity = rain.opacity(column: column, row: row)
+                        XCTAssertGreaterThan(opacity, 0)
+                        XCTAssertGreaterThanOrEqual(RainTuning(density: 1).glyphOpacity(opacity), 0.2)
+                    }
+                }
+            }
+        }
+    }
+
+    func testLowDensityLeavesSpaceBetweenPackets() {
+        var rain = MatrixSimulation(columnCount: 48, rows: 27, glyphCount: FilmGlyphs.variantCount,
+                                    seed: 14, density: 0.1)
+        rain.advance(to: 25)
+        let occupied = rain.columns.flatMap(\.cells).filter { $0.glyph >= 0 && !$0.isGap }.count
+        XCTAssertLessThan(occupied, 48 * 27 / 2)
+        XCTAssertGreaterThan(occupied, 0)
     }
 
     func testEveryClockFontFitsAtMaximumSizeAndHasDistinctShape() throws {
