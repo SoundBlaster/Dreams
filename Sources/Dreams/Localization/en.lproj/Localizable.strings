@@ -25,7 +25,7 @@
 "rain.color.accessibility" = "Rain color";
 "rain.color.tip" = "Color of the rain letters. Stored separately for the black and the transparent background.";
 "rain.density" = "Density";
-"rain.density.tip" = "Sparse ← → dense: tail length and pauses between passes. Applies to the next streams.";
+"rain.density.tip" = "Sparse ← → dense: initial trace length and pauses between passes. Traces stretch as they descend. Applies to new streams.";
 "rain.speed" = "Speed";
 "rain.speed.tip" = "0.25× is slow; 1× is normal; 3× is fast.";
 "rain.fade" = "Fade";
@@ -64,8 +64,11 @@
 "runtime.1h" = "1 hour";
 "runtime.unlimited" = "Until stopped";
 "runtime.accessibility" = "Run time";
-"hint.runtime" = "Runs for %1$@, full screen. Stop: %2$@, or Esc while Dreams is the active app.";
-"hint.runtime.unlimited" = "Runs until you stop it, full screen. Stop: %@, or Esc while Dreams is the active app.";
+"hint.runtime" = "Runs for %1$@, full screen. Esc exits while the rain has focus. Move the pointer for the Exit button. Backup shortcut: %2$@.";
+"hint.runtime.unlimited" = "Runs until stopped, full screen. Esc exits while the rain has focus. Move the pointer for the Exit button. Backup shortcut: %@.";
+"overlay.exit" = "Exit · Esc";
+"overlay.exit.label" = "Exit screen animation";
+"overlay.exit.tip" = "Stop the animation on all selected displays.";
 "status.stopped.timer" = "Stopped: the run time ended. Press “Start Matrix”.";
 "status.stopped.user" = "Stopped. Press “Start Matrix”.";
 "status.stopped.escape" = "Stopped with Esc. Press “Start Matrix”.";

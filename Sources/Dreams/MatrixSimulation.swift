@@ -2,6 +2,8 @@ import Foundation
 
 /// A fixed character grid. Only a column's writing cursor advances; cells never move.
 struct MatrixSimulation {
+    private static let tailIntervalScale = 1.6
+
     struct Symbol {
         var glyph = -1
         var writtenAt = -Double.infinity
@@ -40,6 +42,8 @@ struct MatrixSimulation {
         var nextWrite: Double
         var nextMutation: Double
         var interval: Double
+        // The writing head outruns the dissolving rear; glyphs themselves stay fixed.
+        var tailInterval: Double { interval * MatrixSimulation.tailIntervalScale }
         var hold: Double
         var fade: Double
         var gapRemaining = 0
@@ -83,11 +87,11 @@ struct MatrixSimulation {
         for index in 0..<columnCount {
             let delay = index == columnCount / 3 ? 0 : unit() * 2.8
             let interval = 1 / (18 + unit() * 24)
-            // A moving packet of ink, shorter than the screen. Its rear follows
-            // the writing cursor at the same speed; glyph positions stay fixed.
-            let tailRows = Double(rows) * (0.3 + 0.7 * self.density) * (1 - unit() * 0.15 * (1 - self.density))
-            let lifetime = tailRows * interval
-            let fade = min(lifetime, self.fadeRows * interval)
+            // A short initial trace stretches as the faster head writes downward.
+            let initialRows = Double(rows) * (0.1 + 0.9 * self.density) * (1 - unit() * 0.15 * (1 - self.density))
+            let tailInterval = interval * Self.tailIntervalScale
+            let lifetime = max(tailInterval, initialRows * interval)
+            let fade = min(lifetime, self.fadeRows * tailInterval)
             columns.append(Column(cells: Array(repeating: Symbol(), count: rows),
                 nextWrite: delay, nextMutation: delay + 0.15 + unit() * 0.35,
                 interval: interval, hold: lifetime - fade,
@@ -104,7 +108,11 @@ struct MatrixSimulation {
         columns[index].nextWrite = time
         columns[index].search = nil
         columns[index].nextMutation = time + 0.2
-        return Double(rows) * columns[index].interval + columns[index].hold + columns[index].fade + 0.2
+        // Bound the whole stretched trace, including its slow rear after the head
+        // leaves the screen. Row zero will draw the packet's actual lifetime.
+        let column = columns[index]
+        let initialLifetime = max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density) * column.interval)
+        return Double(rows - 1) * column.tailInterval + initialLifetime + 0.2
     }
 
     mutating func finishPulse(column index: Int) {
@@ -176,9 +184,9 @@ struct MatrixSimulation {
                     if row == 0 {
                         // Existing cells retain their lifetime when a new packet
                         // uses changed tuning, including overlapping passes.
-                        let lifetime = Double(rows) * (0.3 + 0.7 * density)
-                            * (1 - column.generator.unit() * 0.15 * (1 - density)) * column.interval
-                        column.fade = min(lifetime, fadeRows * column.interval)
+                        let lifetime = max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density)
+                            * (1 - column.generator.unit() * 0.15 * (1 - density)) * column.interval)
+                        column.fade = min(lifetime, fadeRows * column.tailInterval)
                         column.hold = lifetime - column.fade
                     }
                     let ink = Float(0.14 + pow(column.generator.unit(), 1.3) * 0.7)
@@ -191,7 +199,7 @@ struct MatrixSimulation {
                     column.gapRemaining = max(0, column.gapRemaining - 1)
                     column.cells[row] = Symbol(glyph: glyph, writtenAt: eventTime,
                         changedAt: eventTime, ink: ink, warmth: warmth, isGap: isGap,
-                        hold: column.hold, fade: column.fade)
+                        hold: column.hold + Double(row) * (column.tailInterval - column.interval), fade: column.fade)
                     if column.search?.row == row {
                         // A new packet owns this cell now; discard the old search.
                         column.search = nil
@@ -205,7 +213,7 @@ struct MatrixSimulation {
                         // At full density, wrap immediately. Lower densities
                         // leave a gap between successive packets.
                         let next = eventTime + column.interval
-                            + (1 - density) * (column.hold + column.fade
+                            + (1 - density) * (column.cells[row].hold + column.cells[row].fade
                                 + 0.25 + column.generator.unit() * 1.25)
                         if column.oneShot {
                             column.nextWrite = .infinity

@@ -8,7 +8,7 @@ NOTARY_PROFILE ?= dreams-notary
 
 .PHONY: help bump plugins-check icon app run test test-unit glyphs glyphs-verify glyphs-selftest katakana katakana-check \
 	release release-local checksum github-release tap-update notary-profile \
-	install-hooks uninstall-hooks uninstall uninstall-purge clean test-displays
+	install-hooks uninstall-hooks uninstall uninstall-purge clean test-displays test-exit
 
 help:
 	@printf '%s\n' \
@@ -21,6 +21,7 @@ help:
 		'  make lint             SwiftLint (strict), ruff, shell syntax, documentation links' \
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
 		'  make test-displays    Opt-in live display lifecycle and Screener settings trace' \
+		'  make test-exit        Opt-in Esc, exit button, focus and display unplug checks' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
 		'  make glyphs-verify    Check that a rebuild is byte-identical' \
@@ -74,6 +75,9 @@ test-unit:
 
 test-displays:
 	python3 scripts/test-displays.py
+
+test-exit:
+	python3 scripts/test-overlay-exit.py
 
 test: app test-unit
 	python3 scripts/test-localization.py

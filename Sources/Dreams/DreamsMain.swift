@@ -262,7 +262,7 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
                 styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
             window.title = "Dreams"
             window.isReleasedWhenClosed = false
-            window.onEscape = { [weak self] in self?.controller.stop(reason: .escape) }
+            window.onEscape = { [weak self] in self?.controller.handleEscape() }
 
             // Header: status and the main actions.
             let activityLabel = NSTextField(wrappingLabelWithString: "")

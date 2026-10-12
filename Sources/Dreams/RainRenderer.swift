@@ -7,6 +7,7 @@ final class RainRenderer: NSObject {
     private var keywords: MatrixRain
     private let library: any MTLLibrary
     private let transparentBackground: Bool
+    private var colorPixelFormat: MTLPixelFormat { transparentBackground ? .bgra8Unorm : .bgra8Unorm_srgb }
     var rainColumnCount = DreamsPreset.columnCount
     var rainDensity = DreamsPreset.density
     var rainFadeRows = DreamsPreset.fadeRows
@@ -31,10 +32,12 @@ final class RainRenderer: NSObject {
         let library = try device.makeLibrary(source: source, options: nil)
         self.library = library
         self.queue = queue
-        keywords = try MatrixRain(device: device, library: library, restoredGlyphs: restoredGlyphs)
+        keywords = try MatrixRain(device: device, library: library, restoredGlyphs: restoredGlyphs,
+                                  transparentBackground: transparentBackground)
         super.init()
         view.device = device
-        view.colorPixelFormat = .bgra8Unorm_srgb
+        view.colorPixelFormat = colorPixelFormat
+        if transparentBackground { view.colorspace = CGColorSpace(name: CGColorSpace.sRGB) }
         view.framebufferOnly = true
         view.preferredFramesPerSecond = 30
         view.delegate = self
@@ -44,7 +47,8 @@ final class RainRenderer: NSObject {
 
     func setRestoredGlyphs(_ enabled: Bool) throws {
         // Prepare a complete atlas before replacing the active renderer.
-        keywords = try MatrixRain(device: queue.device, library: library, restoredGlyphs: enabled)
+        keywords = try MatrixRain(device: queue.device, library: library, restoredGlyphs: enabled,
+                                  transparentBackground: transparentBackground)
     }
 
     /// Renders our shader into a texture, without capturing any screen content.
@@ -52,7 +56,7 @@ final class RainRenderer: NSObject {
         let width = 1512
         let height = 982
         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
-            pixelFormat: .bgra8Unorm_srgb, width: width, height: height, mipmapped: false)
+            pixelFormat: colorPixelFormat, width: width, height: height, mipmapped: false)
         textureDescriptor.storageMode = .shared
         textureDescriptor.usage = [.renderTarget]
         guard let texture = queue.device.makeTexture(descriptor: textureDescriptor),
@@ -88,7 +92,8 @@ final class RainRenderer: NSObject {
         }
         guard let provider = CGDataProvider(data: Data(pixels) as CFData),
               let image = CGImage(width: width, height: height, bitsPerComponent: 8,
-                bitsPerPixel: 32, bytesPerRow: width * 4, space: CGColorSpaceCreateDeviceRGB(),
+                bitsPerPixel: 32, bytesPerRow: width * 4,
+                space: transparentBackground ? CGColorSpace(name: CGColorSpace.sRGB)! : CGColorSpaceCreateDeviceRGB(),
                 bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
                     .union(.byteOrder32Little), provider: provider,
                 decode: nil, shouldInterpolate: false, intent: .defaultIntent),
