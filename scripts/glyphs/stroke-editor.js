@@ -210,6 +210,14 @@ async function checkpointAction(action) {
     el('checkpointRestore').disabled=!el('checkpointList').children.length;
   }
 }
+el('checkpointName').addEventListener('keydown',event=>{
+  if(event.key!=='Tab'||event.shiftKey||event.metaKey||event.ctrlKey||event.altKey||event.isComposing)return;
+  const input=el('checkpointName'), character=currentGlyph().character;
+  if(input.value.includes(character))return;
+  const value=`${character} · ${input.value.trimStart()}`;
+  if(value.length>input.maxLength)return;
+  event.preventDefault();input.value=value;input.setSelectionRange(value.length,value.length);
+});
 el('checkpointRefresh').onclick=()=>checkpointAction(refreshCheckpoints);
 el('checkpointSave').onclick=()=>checkpointAction(async()=>{
   finishRange();

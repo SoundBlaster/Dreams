@@ -53,6 +53,19 @@ assert.equal(element('credit').textContent,'Custom fixture');
 element('undo').onclick();assert.equal(state().glyphs.length,46);assert.equal(element('credit').textContent,seed.attribution);
 assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs.length,46);
 console.log('PASS: edits, undo/redo, mirrored pointer coordinates, sections, validation, import rollback, attribution and autosave');
+const nameInput=element('checkpointName');nameInput.maxLength=120;
+nameInput.setSelectionRange=(start,end)=>{nameInput.selectionStart=start;nameInput.selectionEnd=end;};
+let tabPrevented=false;
+const tab=extra=>{tabPrevented=false;nameInput.events.keydown({key:'Tab',preventDefault(){tabPrevented=true;},...extra});};
+nameInput.value='мягкий хвост';tab();assert.equal(nameInput.value,'オ · мягкий хвост');assert.equal(tabPrevented,true);
+assert.equal(nameInput.selectionStart,nameInput.value.length);
+tab();assert.equal(tabPrevented,false,'second Tab retains focus navigation');
+nameInput.value='';tab({shiftKey:true});assert.equal(nameInput.value,'');assert.equal(tabPrevented,false);
+tab();assert.equal(nameInput.value,'オ · ');
+element('alphabet').children[0].onclick();nameInput.value='вариант';tab();assert.equal(nameInput.value,'ア · вариант');
+nameInput.value='x'.repeat(120);tab();assert.equal(nameInput.value.length,120);assert.equal(tabPrevented,false);
+element('alphabet').children[4].onclick();
+console.log('PASS: checkpoint name Tab inserts the selected glyph once and preserves keyboard navigation');
 (async()=>{
   let head=null, records=[], savedProject;
   sandbox.fetch=async(url,options)=>{
