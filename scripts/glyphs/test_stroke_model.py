@@ -12,12 +12,37 @@ from fontTools.misc.transform import Transform
 from fontTools.pens.transformPen import TransformPen
 import pathops
 
-from katakana import DATA, build, export_svg, load_library
+from katakana import DATA, REPERTOIRE, STUDIES, build, export_svg, load_library
 from stroke_model import Brush, Stroke, centerline, pressure_at, svg_path, union_strokes, validate_profile
 import vector
 
 
 class StrokeModelTests(unittest.TestCase):
+    def test_complete_alphabet_has_calibrated_connected_strokes_and_correct_topology(self):
+        _, brush, entries = load_library()
+        detached = {'ア': 2, 'シ': 3, 'ソ': 2, 'ツ': 3, 'テ': 2, 'ニ': 2,
+                    'ネ': 3, 'ハ': 2, 'ホ': 3, 'ミ': 3, 'ラ': 2, 'リ': 2,
+                    'ル': 2, 'ロ': 2, 'ヲ': 2, 'ン': 2}
+        for glyph, strokes in entries:
+            with self.subTest(character=glyph['character']):
+                self.assertTrue(all('path_override' in s and 'pressure' in s for s in glyph['strokes']))
+                for stroke in strokes:
+                    self.assertNotEqual(stroke.terminal, 'unspecified')
+                    self.assertEqual(len(list(stroke.outline(brush).contours)), 1)
+                outline = union_strokes(strokes, brush)
+                self.assertEqual(len(list(outline.contours)), detached.get(glyph['character'], 1))
+                self.assertTrue(all(0 <= value <= 109 for value in outline.bounds))
+                self.assertGreater(outline.area, 0)
+                if glyph['character'] == 'ロ':
+                    self.assertFalse(outline.contains((54, 55)))
+                    for point in ((31, 55), (79, 55), (54, 34), (54, 77)):
+                        self.assertTrue(outline.contains(point))
+
+    def test_study_groups_cover_the_alphabet_exactly_once(self):
+        characters = ''.join(chars for _, chars, _ in STUDIES)
+        self.assertCountEqual(characters, REPERTOIRE)
+        self.assertEqual(len({slug for slug, _, _ in STUDIES}), len(STUDIES))
+
     def test_pressure_is_not_inferred_from_movement_direction(self):
         constant = ((0, .6), (1, .6))
         for path in ('M10 10L90 10', 'M90 10L10 10', 'M10 10L10 90'):
@@ -263,18 +288,22 @@ class StrokeModelTests(unittest.TestCase):
     def test_editable_svg_round_trip_preserves_outline(self):
         _, brush, entries = load_library()
         font = dict(advance=956, ascent=900, descent=124, body_bottom=0, body_top=780)
-        strokes = entries[4][1]  # オ: crossings and a hooked second stroke
-        text = export_svg(strokes, brush, font)
-        vector.check_viewbox(text, font, 'test')
-        parsed = vector.clean(vector.read_svg(text))
-        expected = union_strokes(strokes, brush).transform(7, 0, 0, 8, 96.5, 74)
-        self.assertAlmostEqual(parsed.area, expected.area, delta=5)
-        self.assertIn('CC BY-SA', text)
-        # The ordinary glyph-pipeline loader can consume this SVG as an override.
-        recording = vector.read_svg(text, Transform(1, 0, 0, -1, 0, 900))[0][0]
-        path = pathops.Path()
-        recording.replay(TransformPen(path.getPen(), Transform()))
-        self.assertTrue(svg_path(path))
+        for glyph, strokes in entries:
+            for mirrored in (False, True):
+                with self.subTest(character=glyph['character'], mirrored=mirrored):
+                    text = export_svg(strokes, brush, font, mirrored)
+                    vector.check_viewbox(text, font, 'test')
+                    parsed = vector.clean(vector.read_svg(text))
+                    sx = -7 if mirrored else 7
+                    expected = union_strokes(strokes, brush).transform(sx, 0, 0, 8, 478 - sx * 54.5, 74)
+                    self.assertAlmostEqual(parsed.area, expected.area, delta=5)
+                    self.assertEqual(len(list(parsed.contours)), len(list(expected.contours)))
+                    self.assertIn('CC BY-SA', text)
+                    # The ordinary glyph-pipeline loader can consume each SVG as an override.
+                    recording = vector.read_svg(text, Transform(1, 0, 0, -1, 0, 900))[0][0]
+                    path = pathops.Path()
+                    recording.replay(TransformPen(path.getPen(), Transform()))
+                    self.assertTrue(svg_path(path))
 
     def test_build_is_reproducible(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -285,6 +314,10 @@ class StrokeModelTests(unittest.TestCase):
                 return {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.iterdir()}
             self.assertEqual(hashes(a), hashes(b))
             self.assertEqual(len(list(a.glob('*.svg'))), 92)
+            for slug, characters, _ in STUDIES:
+                page = (a / f'{slug}.html').read_text()
+                self.assertEqual(page.count('<article>'), len(characters) * 2)
+            self.assertEqual((a / 'alphabet.html').read_text().count('<article>'), 92)
             # Compare the actual browser interpolation with Python export values.
             library, _, _ = load_library()
             overrides = [stroke['pressure'] for glyph in library['glyphs']
