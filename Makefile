@@ -16,6 +16,8 @@ help:
 		'' \
 		'Develop:' \
 		'  make app              Build dist/Dreams.app (rebuilds the glyph font, ad-hoc signed)' \
+		'  make app-tv           Generate and build the Apple TV simulator app' \
+		'  make test-tv TV_DEVICE=<UDID>  Run Apple TV unit tests on an installed simulator' \
 		'  make run              Quit a running Dreams, rebuild and open the app' \
 		'  make icon             Rebuild assets/AppIcon.icns from assets/icon/source.png' \
 		'  make lint             SwiftLint (strict), ruff, shell syntax, documentation links' \
@@ -65,6 +67,19 @@ lint: lint-architecture
 .PHONY: lint lint-architecture test-settings test-gui-trace
 lint-architecture:
 	zsh scripts/lint-architecture.sh
+	zsh scripts/lint-architecture.sh --root tvOS/Sources
+
+.PHONY: app-tv test-tv
+app-tv:
+	xcodegen generate --spec tvOS/project.yml
+	xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
+		-destination 'generic/platform=tvOS Simulator' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO build
+
+test-tv:
+	@test -n "$(TV_DEVICE)" || { echo 'Usage: make test-tv TV_DEVICE=<simulator UDID>'; exit 1; }
+	xcodegen generate --spec tvOS/project.yml
+	xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
+		-destination 'platform=tvOS Simulator,id=$(TV_DEVICE)' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO test
 
 test-unit:
 	swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
