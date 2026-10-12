@@ -101,10 +101,10 @@ def study_sheet(records, characters='ネマスセ', title='Четыре калл
             'p{color:#52635d}section{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}'
             'article{background:#fffdf6;border:1px solid #ccd1c4;border-radius:12px;padding:12px}'
             'h2{font-size:18px;margin:0}svg{display:block;width:100%}a{color:inherit}'
-            '.gesture{font-size:14px;margin:0}nav{margin-bottom:12px;display:flex;gap:20px}'
+            '.gesture{font-size:14px;margin:0}nav{margin-bottom:12px;display:flex;flex-wrap:wrap;gap:20px}'
             '@media(max-width:640px){section{grid-template-columns:repeat(2,1fr)}}</style>'
             '<nav><a href="studies.html">ネ・マ・ス・セ</a><a href="pairs.html">シ/ツ и ソ/ン</a>'
-            '<a href="crossings.html">オ・キ・ホ・モ</a></nav>'
+            '<a href="crossings.html">オ・キ・ホ・モ</a><a href="turns.html">ア・ウ・ワ・ヲ</a></nav>'
             f'<h1>{html.escape(title)}</h1><p>Индивидуальные траектории и нажим · DRAFT · '
             '<a href="catalog.html">Открыть каталог</a></p>' + ''.join(rows)
             + '<p>Зеркальные варианты получены отражением готового следа кисти. '
@@ -141,6 +141,7 @@ def build(destination=OUTPUT):
     (destination / 'studies.html').write_text(study_sheet(records))
     (destination / 'pairs.html').write_text(study_sheet(records, 'シツソン', 'シ/ツ и ソ/ン: направление росчерка', True))
     (destination / 'crossings.html').write_text(study_sheet(records, 'オキホモ', 'Перекладины, пересечения и крючки'))
+    (destination / 'turns.html').write_text(study_sheet(records, 'アウワヲ', 'Повороты и длинные росчерки'))
     (destination / 'proof.html').write_text('<!doctype html><meta charset="utf-8"><title>Katakana proof</title>'
         '<style>body{background:#f4f0e5;font:16px system-ui;padding:24px}main{display:grid;'
         'grid-template-columns:repeat(10,1fr);gap:12px}svg{width:100%;border:1px solid #b9c7bd}</style>'

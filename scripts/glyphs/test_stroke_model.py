@@ -119,6 +119,43 @@ class StrokeModelTests(unittest.TestCase):
             self.assertEqual(stroke.pressure[0][1], 0)
             self.assertGreater(pressure_at(stroke.pressure, .75), .9)
 
+    def test_turn_studies_preserve_open_counters_and_detached_parts(self):
+        _, brush, entries = load_library()
+        components = {'ア': 2, 'ウ': 1, 'ワ': 1, 'ヲ': 2}
+        for glyph, strokes in entries:
+            character = glyph['character']
+            if character not in components:
+                continue
+            with self.subTest(character=character):
+                for stroke in strokes:
+                    self.assertEqual(len(list(stroke.outline(brush).contours)), 1)
+                outline = union_strokes(strokes, brush)
+                self.assertEqual(len(list(outline.contours)), components[character])
+                # The central opening must not be filled by a whole-glyph convex hull.
+                self.assertFalse(outline.contains((63, 55)))
+                self.assertAlmostEqual(outline.area, outline.transform(-1, 0, 0, 1, 109, 0).area, delta=.01)
+
+    def test_long_releases_reach_the_tip_and_continuously_lose_pressure(self):
+        _, brush, entries = load_library()
+        for glyph, strokes in entries:
+            if glyph['character'] not in 'アウワヲ':
+                continue
+            with self.subTest(character=glyph['character']):
+                stroke = strokes[-1]
+                samples = stroke.samples()
+                # ウ/ワ first travel right across the top before descending left.
+                turn = max(samples, key=lambda sample: sample[0])
+                self.assertLess(samples[-1][0], turn[0])
+                self.assertGreater(samples[-1][1], turn[1])
+                self.assertEqual(samples[-1][3], 0)
+                release = [pressure_at(stroke.pressure, .6 + .4 * i / 100) for i in range(101)]
+                self.assertTrue(all(a > b for a, b in zip(release, release[1:])))
+                outline = stroke.outline(brush)
+                for x, y, s, pressure in samples:
+                    if .65 < s < .99 and pressure > 0:
+                        self.assertTrue(outline.contains((x, y)))
+                self.assertAlmostEqual(outline.bounds[3], samples[-1][1], delta=.01)
+
     def test_profiles_preserve_local_bounds_and_plateaus(self):
         profiles = [((0, .1), (.01, .9), (.7, .9), (.9, 0), (1, .8)),
                     ((0, 1), (.6, .8), (1, .75)), ((0, 0), (1, 1))]
