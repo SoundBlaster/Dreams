@@ -85,3 +85,40 @@ rendered frames. Those partial traces are not passing evidence. The committed tr
 scenario intentionally covers settings only; live rendering is checked in the application.
 
 PR #8 remains unmerged pending the remaining runtime checks.
+
+
+## Combined macOS/tvOS branch rebase (2026-10-12)
+
+PR #9 was merged into PR #8, then the combined branch was rebased onto
+`f1d33b5` (main, Dreams 0.1.5). This pass validates the combined production
+sources at `aa8fb3b`; the follow-up changes only remove an extra blank line
+and record this evidence.
+
+The rebase keeps main's display selection, multi-display overlay lifecycle,
+opaque Esc/button exit, transparent alpha compositing, stretching trails and
+hook labels typed from row zero. Display controls live in the settings page;
+display state and overlay lifecycle live in the rain feature.
+
+Fresh local checks passed:
+
+- `make lint` and architecture gate regression checks.
+- `make test`: macOS app build, simulation/settings tests, localization,
+  hook install/uninstall, plugins, MCP smoke, hook pressure, transparent alpha
+  and column bounds/rendering.
+- `make test-gui-trace`: all 13 settings checkpoints. Trace
+  `0F1BC070-5852-4E8A-9873-66822B2D31F3`, inspected with Screener MCP.
+  The captured settings page includes the display selection controls.
+- `make test-exit`: Esc/button stop all overlays, ordinary clicks keep rain,
+  previous focus restores, unplugging the active display chooses a surviving
+  overlay, and transparent overlays remain click-through. Four checkpoints:
+  `5C28C402-8218-467B-B3C0-7C2B1E0C0369`.
+- `DREAMS_TEST_METAL=1 swift test -c release --filter TransparentFadeRenderingTests`:
+  all four rain/event and restored/classic font cases passed on the local GPU.
+- `make app-tv`: universal Apple TV simulator build passed.
+- `make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB`:
+  12 tests passed on the tvOS 27 simulator, including the font/shader GPU load,
+  whole-glyph clock mask and continuous full-density occupancy.
+
+This pass does not retest the physical Apple TV or the physical-keyboard global
+Carbon shortcut. The older shortcut uncertainty above remains open; simple Esc
+and the overlay exit button have separate passing native lifecycle checks.

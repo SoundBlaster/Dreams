@@ -4,7 +4,6 @@ import MetalKit
 import IOKit.pwr_mgt
 import VirtualDisplayBridge
 
-
 @MainActor
 final class DreamsController: NSObject {
     /// Transparent Matrix: a saved setting; the `--transparent` launch flag still turns it on.
