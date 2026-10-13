@@ -51,12 +51,6 @@ struct DropDecelerationSettingsTests {
         reloaded.cleanUp()
 
         content.layoutSubtreeIfNeeded()
-        if let path = ProcessInfo.processInfo.environment["DREAMS_CAPTURE_DROP_SETTINGS"] {
-            let image = try #require(content.bitmapImageRepForCachingDisplay(in: content.bounds))
-            content.cacheDisplay(in: content.bounds, to: image)
-            let png = try #require(image.representation(using: .png, properties: [:]))
-            try png.write(to: URL(fileURLWithPath: path))
-        }
         enabled.performClick(nil)
         #expect(!delegate.controller.rainDecelerationEnabled && !acceleration.isEnabled)
         #expect(delegate.controller.rainDeceleration == -24.5)
