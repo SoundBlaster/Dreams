@@ -6,7 +6,8 @@ metadata:
   version: 0.1.0-draft.1
   status: draft
 intent:
-  summary: Let new rain heads enter at their existing speed and decelerate while their fixed glyph trails fade in order.
+  summary: Let new rain heads enter at their existing speed and decelerate while their fixed glyph trails fade in
+    order.
 scope:
   boundedContext: rain_simulation
   includes:
@@ -21,9 +22,11 @@ provides:
 requires:
   capabilities:
   - id: platform.apple.windowserver
-    summary: Native macOS settings integration requires AppKit/WindowServer; the simulation core itself performs no OS I/O.
+    summary: Native macOS settings integration requires AppKit/WindowServer; the simulation core itself performs
+      no OS I/O.
   - id: platform.apple.metal_renderer
-    summary: Preview/live adoption needs the existing Metal renderer; analytic simulation tests do not require a GPU.
+    summary: Preview/live adoption needs the existing Metal renderer; analytic simulation tests do not require a
+      GPU.
 interfaces:
   inbound:
   - id: tuning
@@ -52,9 +55,9 @@ constraints:
     random sequence and glyph lifetimes; do not change the existing speed control or add a second entry-speed control.
 - id: kinematics
   level: MUST
-  statement: At each packet start, retain the existing randomized column entry speed V. Apply the configured
-    negative acceleration until speed reaches 20 percent of V, then continue at that positive speed. Do not reverse
-    or permanently stop the head. A new pass enters at V again.
+  statement: At each packet start, retain the existing randomized column entry speed V. Apply the configured negative
+    acceleration until speed reaches 20 percent of V, then continue at that positive speed. Do not reverse or permanently
+    stop the head. A new pass enters at V again.
 - id: units_and_validation
   level: MUST
   statement: Acceleration is in glyph rows per simulation second squared, bounded to -120 through 0; default -12.
@@ -62,23 +65,23 @@ constraints:
     simulation time; at constant S, real-time entry speed is S times V and acceleration is S squared times a.
 - id: deterministic_timing
   level: MUST
-  statement: Compute row arrival times analytically and process writes/mutations in timestamp order. Different
-    frame subdivisions at fixed tuning and full coverage must reach identical simulation state.
+  statement: Compute row arrival times analytically and process writes/mutations in timestamp order. Different frame
+    subdivisions at fixed tuning and full coverage must reach identical simulation state.
 - id: tail_lifecycle
   level: MUST
   statement: Glyph cells stay in place. Each captures its own hold/fade lifetime when written; the rear follows
-    the slower sequential dissolution schedule. Within one packet, fade starts and expiry times increase from
-    top to bottom. Expired ink remains absent until a new writing pass owns that cell. At full density/coverage
-    and unattenuated visibility, repeated active passes have no empty cells after a full-density pass fills them.
+    the slower sequential dissolution schedule. Within one packet, fade starts and expiry times increase from top
+    to bottom. Expired ink remains absent until a new writing pass owns that cell. At full density/coverage and
+    unattenuated visibility, repeated active passes have no empty cells after a full-density pass fills them.
 - id: stable_packet
   level: MUST
   statement: Capture motion tuning at row zero. Changing the option or acceleration affects subsequent packets,
     including new event packets, without retiming already written glyphs or jumping the current head.
 - id: bounded_event
   level: MUST
-  statement: With tuning/density applied before trigger and kept through its initial advance, the returned
-    duration bounds the final glyph expiry including the slower rear. Do not remove an event stream when only
-    its head has left the screen.
+  statement: With tuning/density applied before trigger and kept through its initial advance, the returned duration
+    bounds the final glyph expiry including the slower rear. Do not remove an event stream when only its head has
+    left the screen.
 - id: parent_assembly
   level: MUST
   statement: Propagate saved enabled/acceleration values from controller to new and live renderers, and through
@@ -96,7 +99,7 @@ effects:
 evidence:
 - id: simulation_source
   kind: source
-  path: evidence/2026-10-13/source/Sources/Dreams/MatrixSimulation.swift
+  path: evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints.opt_in
   - constraints.kinematics
@@ -107,22 +110,22 @@ evidence:
   - constraints.bounded_event
 - id: model_tests
   kind: test
-  path: evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationTests.swift
+  path: evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationTests.swift
   supports:
   - constraints
 - id: integration_source
   kind: source
-  path: evidence/2026-10-13/source/Sources/Dreams/MatrixRain.swift
+  path: evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: controls_test
   kind: test
-  path: evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+  path: evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
   supports:
   - constraints.parent_assembly
 - id: validation_results
   kind: test
-  path: validation/2026-10-13/README.md
+  path: validation/2026-10-14-motion-fsd/README.md
   supports:
   - constraints
 provenance:
@@ -131,25 +134,31 @@ provenance:
     boundary: medium
     behavior: medium
   notes:
-  - User requested opt-in braking and clarified that entry speed stays unchanged and only negative acceleration is adjustable.
-  - The 20-percent terminal speed is an explicit implementation assumption to prevent stalled rain; it is not a user-specified number.
-  - Descriptive draft; runtime checks and formal acceptance are separate. Source identities and run evidence are linked from README.md.
+  - User requested opt-in braking and clarified that entry speed stays unchanged and only negative acceleration
+    is adjustable.
+  - The 20-percent terminal speed is an explicit implementation assumption to prevent stalled rain; it is not a
+    user-specified number.
+  - Descriptive draft; runtime checks and formal acceptance are separate. Source identities and run evidence are
+    linked from README.md.
 implementationBindings:
 - id: motion_swift
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 984a8a114dc24a38a79bc042b06c1f195be31d64
+    revision: 9cd68b861d4f201c8ff934e54af6d86f0a00839d
   files:
     owned:
-    - evidence/2026-10-13/source/Sources/Dreams/MatrixSimulation.swift
-    - evidence/2026-10-13/source/Sources/Dreams/RainRenderer.swift
-    - evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationTests.swift
-    - evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
-    - evidence/2026-10-13/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-13/source/Sources/Dreams/MatrixRain.swift
-    - evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
-    - evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
-    - evidence/2026-10-13/source/Sources/Dreams/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-13/source/Sources/Dreams/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationTests.swift
+    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/RainTrailRenderingTests.swift
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/SettingsPageTests.swift
     border: []

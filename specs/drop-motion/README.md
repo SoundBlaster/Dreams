@@ -24,3 +24,5 @@ not configure the running app or prove runtime behavior.
 The change concerns macOS rain motion. Existing overlay/exit, glyph-editor
 contracts and tvOS behavior remain separately scoped. The screenshot-status
 fix in PR #18 is independent; this branch starts from main after PR #17.
+
+Current motion FSD source and checks: [2026-10-14 validation](validation/2026-10-14-motion-fsd/README.md). Historical snapshots remain unchanged.

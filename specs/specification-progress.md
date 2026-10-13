@@ -129,3 +129,5 @@ frame subdivision, sequential fading, full density, event expiry and native UI
 persistence. Terminal speed 20%, range -120…0, default -12 and next-packet tuning
 are explicit implementation choices, not inferred user-specified values.
 Next boundary: renderer shader/atlas composition, when changes require it.
+
+Current motion FSD source and checks: [2026-10-14 validation](drop-motion/validation/2026-10-14-motion-fsd/README.md). Historical snapshots remain unchanged.

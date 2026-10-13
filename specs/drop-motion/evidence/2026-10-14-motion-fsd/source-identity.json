@@ -1,0 +1,184 @@
+{
+  "sourceRevision": "9cd68b861d4f201c8ff934e54af6d86f0a00839d",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "previousPath": "Sources/Dreams/MatrixSimulation.swift",
+      "sha256": "ae7b7448c55f0a6be2f754d1244b66d68c59452da9f1a81151ab148194c2ebe1",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "ae7b7448c55f0a6be2f754d1244b66d68c59452da9f1a81151ab148194c2ebe1"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "previousPath": "Sources/Dreams/RainRenderer.swift",
+      "sha256": "cf58863500f4697882791f02e952b6fbf653ddf82336feefcca0aada950a0032",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "cf58863500f4697882791f02e952b6fbf653ddf82336feefcca0aada950a0032"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "previousPath": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "sha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "previousPath": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "sha256": "afd3568a740eda0c82c744c43f27a5452857a48dcd92967b26ed03521f2d8459",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "afd3568a740eda0c82c744c43f27a5452857a48dcd92967b26ed03521f2d8459"
+    },
+    {
+      "path": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "previousPath": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "sha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousPath": "Sources/Dreams/MatrixRain.swift",
+      "sha256": "3b84eb92ad33bcbd41a4b78db6373f1f8e66f3668e6567f917280e872c696c07",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          113,
+          128
+        ],
+        [
+          175,
+          190
+        ]
+      ],
+      "snapshotSha256": "2a61b1a14531840124232d55493800e738eb1cddb571cb0629cb5948f5fbddc8"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "previousPath": "Sources/Dreams/DreamsController.swift",
+      "sha256": "726265fcc52a79497997e918a9d85a503e28797122a128563c12f426b7720be0",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          132,
+          148
+        ],
+        [
+          253,
+          288
+        ],
+        [
+          408,
+          424
+        ],
+        [
+          475,
+          490
+        ]
+      ],
+      "snapshotSha256": "b4d5c885fb4b7b9735f2d607ee7b1e7c28a8d01354c716c7c9e3cccc5090bebd"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "previousPath": "Sources/Dreams/DreamsMain.swift",
+      "sha256": "1416c086feda7c26e3456c8f7dfc97caf733ca478000de1d8d2041a01f5c62f7",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          21,
+          36
+        ],
+        [
+          57,
+          73
+        ],
+        [
+          215,
+          231
+        ],
+        [
+          269,
+          290
+        ]
+      ],
+      "snapshotSha256": "d69e949db8a0508d5f2f4143d707e8a2214577304d895b3a7ab32b900932d4d7"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "previousPath": "Sources/Dreams/Localization/en.lproj/Localizable.strings",
+      "sha256": "4af2572483e0ae9993174945809fb6349259ab1fd0d453471d3f6952299297ee",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "4af2572483e0ae9993174945809fb6349259ab1fd0d453471d3f6952299297ee"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "previousPath": "Sources/Dreams/Localization/ru.lproj/Localizable.strings",
+      "sha256": "b0a6ce44e3de9a2d76f439efae6bbb7da6f84476b822ceee44338c24e2719063",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "b0a6ce44e3de9a2d76f439efae6bbb7da6f84476b822ceee44338c24e2719063"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "previousPath": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "d77554df8e02bdec949b2ee23f2160d9acea3829a79156e0bfde2fe095adf32f",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "d77554df8e02bdec949b2ee23f2160d9acea3829a79156e0bfde2fe095adf32f"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "previousPath": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "5b72ad3e66df82420e03145e867397cc75cec49eedfca84403bc17116e38fa6f",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          64,
+          103
+        ]
+      ],
+      "snapshotSha256": "99f177d812de5dd1eb917c8166fe0a5a5fb6ad5d862d3f464b49c3587639ac32"
+    },
+    {
+      "path": "Tests/DreamsTests/SettingsPageTests.swift",
+      "previousPath": "Tests/DreamsTests/SettingsPageTests.swift",
+      "sha256": "d1e7aa37a4fd09f7735c3a4ab00a06be3992312b44e92d980fc3e08339af5293",
+      "snapshot": "evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "d1e7aa37a4fd09f7735c3a4ab00a06be3992312b44e92d980fc3e08339af5293"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/drop-motion.hc",
+      "sha256": "5dcd162608f73faa0781fe7a3d60379dca405af2f45d9db6a8d199c85c2e6704",
+      "snapshot": "evidence/2026-10-14-motion-fsd/maps/drop-motion.hc"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hcs",
+      "sha256": "a5f4219932b6ffbc1f7acf2f92ded8553fc7e62300376d830bb865a776fac7fd",
+      "snapshot": "evidence/2026-10-14-motion-fsd/maps/drop-motion.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "48a3e53b9a7619034db7db0380973fc93e1de50339fc5483737dde56ac973628",
+      "snapshot": "evidence/2026-10-14-motion-fsd/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "ab2c7f30f903e4e139fdf6c9363d5b1c59ee874c990c7448d614fca87d47005e",
+      "snapshot": "evidence/2026-10-14-motion-fsd/maps/overlay-session.hcs"
+    }
+  ],
+  "motionParity": "MatrixSimulation source bytes equal original PR19 34d0f93; UI moved into FSD page and config files."
+}

@@ -1,5 +1,5 @@
 DropMotion:
-  source: "Sources/Dreams/MatrixSimulation.swift"
+  source: "Sources/Dreams/features/rain/model/MatrixSimulation.swift"
   enabled: false
   acceleration: -12
   acceleration_units: "glyph-rows-per-simulation-second-squared"
@@ -12,7 +12,7 @@ TailLifetime:
 EventLifetime:
   implementation: "trigger conservative duration"
 Tuning:
-  source: "Sources/Dreams/DreamsController.swift"
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
   implementation: "saved tuning -> RainRenderer -> MatrixRain -> simulation"
   effective: "next-packet-at-row-zero"
 @motion[decelerating]:
