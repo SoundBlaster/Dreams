@@ -11,3 +11,4 @@ RainOverlaySession
   CaptureVisibility
   Renderer
     DropMotion
+    GlyphSearch

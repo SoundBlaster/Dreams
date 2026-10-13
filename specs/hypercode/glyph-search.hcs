@@ -1,0 +1,22 @@
+GlyphSearch:
+  source: "Sources/Dreams/MatrixSimulation.swift"
+  fraction: 0.1
+Population:
+  definition: "live-non-gap-unhidden-cells-including-fading-ink"
+Quota:
+  implementation: "maintainSearchShare"
+  target: "ceil(population-times-fraction)"
+BurstLifecycle:
+  implementation: "advanceSearch + expireCells + writeNext"
+  timing: "global-timestamp-order"
+  settlement: "ordinary-ink-no-flash"
+Tuning:
+  source: "Sources/Dreams/DreamsController.swift"
+  implementation: "rainSearchFraction -> preview-and-live-renderers"
+  persistence: "UserDefaults"
+@search[disabled]:
+  GlyphSearch:
+    fraction: 0
+@search[saturated]:
+  GlyphSearch:
+    fraction: 1

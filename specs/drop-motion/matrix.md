@@ -7,7 +7,7 @@ implementation choices. Formal acceptance and observed film fidelity are separat
 
 | Claim | Contribution / owner | Evidence / limit |
 | --- | --- | --- |
-| opt_in | Simulation keeps the legacy branch when disabled or a=0; GUI defaults off | Legacy main/current state witness plus unit tests; no new random draws |
+| opt_in | Simulation keeps the legacy branch when disabled or a=0; GUI defaults off | Historical legacy witness retained; current disabled/zero tests at the same search policy. Search now has an independent PRNG |
 | kinematics | Motion.arrival gives decreasing head speed then positive terminal speed | Independent analytic examples and nine acceleration/density cases |
 | units_and_validation | Deceleration normalizes input; MatrixRain scales simulation time | Input boundary tests; real-time acceleration S²a assumes constant global speed S |
 | deterministic_timing | Row arrival timestamps drive writes/mutations | Fine/coarse timestamp subdivision comparison at full coverage |
@@ -23,3 +23,7 @@ movie reconstruction is claimed. Dynamic activity/visibility follows existing
 policies; the deterministic path test holds those inputs constant.
 
 Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-motion-stack/README.md). Prior source/test records remain historical.
+
+Current search-policy source and validation are linked in [search claims](search-matrix.md).
+The original PRNG parity result identifies its old baseline only. Motion claim IDs stay stable;
+opt_in now explicitly scopes parity to the same selected mutation policy.

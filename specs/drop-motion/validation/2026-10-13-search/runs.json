@@ -1,0 +1,123 @@
+[
+  {
+    "command": [
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "structure.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/test-localization.py"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "localization.log"
+  },
+  {
+    "command": [
+      "codesign",
+      "--verify",
+      "--deep",
+      "--strict",
+      "dist/Dreams.app"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "signature.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/check-docs.py"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "docs.log"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "whitespace.log"
+  },
+  {
+    "command": [
+      "make",
+      "test-unit"
+    ],
+    "environment": {},
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "unit.log",
+    "sourceRevision": "3a4ad943d727fb657ac9e3ada28b6e586c0b26e1"
+  },
+  {
+    "command": [
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "DropDecelerationSettingsTests"
+    ],
+    "environment": {
+      "DREAMS_TEST_DROP_SETTINGS": "1",
+      "DREAMS_FEED_DIRECTORY": "artifacts/search-occupancy/feed"
+    },
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "native-ui.log",
+    "sourceRevision": "3a4ad943d727fb657ac9e3ada28b6e586c0b26e1"
+  },
+  {
+    "command": [
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "SearchSettingsTraceTests"
+    ],
+    "environment": {
+      "DREAMS_CAPTURE_SEARCH_SETTINGS": "1",
+      "DREAMS_FEED_DIRECTORY": "artifacts/search-occupancy/capture-feed"
+    },
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "settings-capture.log",
+    "sourceRevision": "3a4ad943d727fb657ac9e3ada28b6e586c0b26e1"
+  },
+  {
+    "command": [
+      "make",
+      "app"
+    ],
+    "environment": {
+      "temporaryVenvLink": "/Users/egor/Development/GitHub/Dreams/.venv"
+    },
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "app.log",
+    "sourceRevision": "3a4ad943d727fb657ac9e3ada28b6e586c0b26e1"
+  },
+  {
+    "command": [
+      "make",
+      "lint"
+    ],
+    "environment": {},
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "diagnostics": "lint.log",
+    "sourceRevision": "3a4ad943d727fb657ac9e3ada28b6e586c0b26e1"
+  }
+]

@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.rain.drop_motion
   title: DropMotion
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Let new rain heads enter at their existing speed and decelerate while their fixed glyph trails fade in
@@ -51,8 +51,10 @@ interfaces:
 constraints:
 - id: opt_in
   level: MUST
-  statement: Default to disabled. Disabled tuning or zero acceleration uses the previous constant-speed schedule,
-    random sequence and glyph lifetimes; do not change the existing speed control or add a second entry-speed control.
+  statement: Default braking to disabled. Disabled tuning and zero acceleration use the same constant-speed writing
+    schedule and glyph lifetimes under the selected search policy; do not change the existing speed control or add
+    a second entry-speed control. Search occupancy independently replaces the former opportunistic mutation policy,
+    so historical whole-state random-sequence parity is not a current guarantee.
 - id: kinematics
   level: MUST
   statement: At each packet start, retain the existing randomized column entry speed V. Apply the configured negative
@@ -140,6 +142,8 @@ provenance:
     user-specified number.
   - Descriptive draft; runtime checks and formal acceptance are separate. Source identities and run evidence are
     linked from README.md.
+  - Search occupancy changes mutation selection and separates its PRNG from writing. The earlier legacy-parity witness
+    remains historical; the current opt_in claim compares disabled and zero braking at the same search policy.
 implementationBindings:
 - id: motion_swift
   language: swift

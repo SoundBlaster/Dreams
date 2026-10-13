@@ -1,0 +1,22 @@
+Building for production...
+[Computing dependencies]
+[Pre-planning 1 / 363]
+[Planning deferred tasks]
+[1 / 1]
+[3 / 9] Dreams-product
+[5 / 11] Dreams
+[11 / 14] Dreams-product
+[12 / 14] Dreams-product
+[16 / 17] DreamsTests-product
+[17 / 18] DreamsTests-product
+[23 / 27] DreamsTests-product
+[25 / 27] DreamsTests-product
+Build complete! (18.71 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropDecelerationSettingsTests started.
+􀟈  Test controlsEnablePersistAndDisableDeceleration() started.
+􁁛  Test controlsEnablePersistAndDisableDeceleration() passed after 0.749 seconds.
+􁁛  Suite DropDecelerationSettingsTests passed after 0.749 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.749 seconds.

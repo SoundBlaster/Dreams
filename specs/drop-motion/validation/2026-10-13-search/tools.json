@@ -1,0 +1,26 @@
+{
+  "hypercode": {
+    "executable": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "sha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f",
+    "resolverVersion": {
+      "name": "hypercode-swift",
+      "version": "0.6.0-dev"
+    },
+    "buildRevision": "unknown"
+  },
+  "specpm": {
+    "executable": "/opt/homebrew/bin/specpm",
+    "version": "specpm 0.2.0",
+    "launcherSha256": "1c80370f940afd1be509c5bd53fb0c7c6d1bd558d8e6718fdf19b9179ae09142",
+    "schema": "/Users/egor/Development/GitHub/0AL/SpecPM/src/specpm/core.py",
+    "schemaSha256": "bba078a38f075c2dc5df78ed0f9b13ea7a7e30afb09967f54436e0d86126ce6e",
+    "sourceRevision": "1c3acad25805b4332428fb03857808575202ab07"
+  },
+  "swift": {
+    "versionOutput": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0"
+  },
+  "rfc": {
+    "path": "/Users/egor/Development/GitHub/0AL/SpecPM/RFC/SpecGraph-RFC-0001.md",
+    "sha256": "2cee49b7c98325cb947b240d7e65969cce0930feca6d43242c4d27893a088984"
+  }
+}

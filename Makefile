@@ -216,3 +216,7 @@ specs-check:
 	"$(HYPERCODE)" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs
 	"$(HYPERCODE)" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs --ctx motion=decelerating
 	"$(SPECPM)" validate specs/drop-motion --json
+	"$(HYPERCODE)" parse specs/hypercode/glyph-search.hc
+	"$(HYPERCODE)" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs
+	"$(HYPERCODE)" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=disabled
+	"$(HYPERCODE)" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=saturated
