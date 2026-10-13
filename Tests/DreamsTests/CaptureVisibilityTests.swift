@@ -60,6 +60,17 @@ struct CaptureVisibilityTests {
         controller.setHideFromScreenshots(true)
         controller.checkScreenshotTool(active: true, at: start.addingTimeInterval(4))
         try expectStatus(visible: false, suspended: true)
+        // Reconciliation can remove the final overlay while retaining the requested
+        // session. Exercise that ownership state without disconnecting real hardware.
+        let manager = try #require(Mirror(reflecting: controller).children
+            .first { $0.label == "screenManager" }?.value as? RainScreenManager)
+        manager.close()
+        controller.checkScreenshotTool(active: false, at: start.addingTimeInterval(5))
+        let unavailable = try controller.status()
+        #expect((unavailable["rain_windows"] as? [[String: Any]])?.isEmpty == true)
+        #expect(unavailable["rain_requested"] as? Bool == true)
+        #expect(unavailable["rain_visible"] as? Bool == false)
+        #expect(unavailable["rain_suspended_for_capture"] as? Bool == false)
         controller.stop()
         let stopped = try controller.status()
         #expect(stopped["rain_visible"] as? Bool == false)

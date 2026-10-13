@@ -378,7 +378,7 @@ final class DreamsController: NSObject {
                  "expires_at": ISO8601DateFormatter().string(from: message.expiresAt)] as [String: Any]
             },
             "rain_visible": rainIsOn && !suspendedForCapture,
-            "rain_suspended_for_capture": suspendedForCapture,
+            "rain_suspended_for_capture": rainIsOn && suspendedForCapture,
             "rain_requested": rainRequested,
             "display_mode": displaySelection.mode.rawValue,
             "selected_display_ids": displaySelection.selectedIDs.sorted(),
