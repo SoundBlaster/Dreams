@@ -119,9 +119,11 @@
       polygons.push(hull(cap));
     }
     // Consistently wound overlapping sweep cells: intersections add ink, never XOR.
-    return polygons.map(p => 'M'+p.map(v=>v.map(number).join(' ')).join('L')+'Z').join('');
+    const offset=stroke.offset||[0,0];
+    return polygons.map(p => 'M'+p.map(v=>v.map((n,i)=>number(n+offset[i])).join(' ')).join('L')+'Z').join('');
   }
   function centerPath(stroke) {
+    if(stroke.offset)stroke={...stroke,segments:stroke.segments.map(s=>({...s,...Object.fromEntries(['start','mid','end'].map(k=>[k,s[k].map((n,i)=>n+stroke.offset[i])]))}))};
     let d = 'M'+stroke.segments[0].start.join(' ');
     for (const s of stroke.segments) {
       if (s.kind === 'line') d += 'L'+s.end.join(' ');
@@ -169,6 +171,12 @@
     if (!project || project.schema !== 'dreams.stroke-editor/v1') fail('Неподдерживаемый формат проекта');
     if (!Array.isArray(project.glyphs) || !project.glyphs.length || project.glyphs.length > 256) fail('Нужно от 1 до 256 знаков');
     if (typeof project.attribution !== 'string' || project.attribution.length > 4000) fail('Нет сведений об источнике');
+    const components=project.components===undefined?[]:project.components;
+    if(!Array.isArray(components)||components.length>256||new Set(components.map(c=>c?.id)).size!==components.length)fail('Неверная библиотека компонентов');
+    for(const c of components) {
+      if(!c||typeof c.id!=='string'||!/^[a-zA-Z0-9_-]{1,80}$/.test(c.id)||typeof c.name!=='string'||!c.name.trim()||c.name.length>120||!c.stroke||c.stroke.componentId!==undefined||c.stroke.offset!==undefined)fail('Неверный компонент');
+      validate({schema:project.schema,attribution:project.attribution,glyphs:[{character:'X',stretch:1,mirror:false,strokes:[c.stroke]}]});
+    }
     const ids = new Set();
     const finite = (v,a,b) => typeof v==='number' && Number.isFinite(v) && v>=a && v<=b;
     for (const g of project.glyphs) {
@@ -179,6 +187,9 @@
       if (!finite(g.stretch,.5,1.2) || typeof g.mirror !== 'boolean') fail('Неверные пропорции знака');
       if (!Array.isArray(g.strokes) || !g.strokes.length || g.strokes.length>24) fail('Нужно от 1 до 24 штрихов');
       for (const st of g.strokes) {
+        if(!st||typeof st!=='object')fail('Неверный штрих');
+        if(st.offset!==undefined&&(!Array.isArray(st.offset)||st.offset.length!==2||!st.offset.every(v=>finite(v,-2000,2000))))fail('Неверное положение штриха');
+        if(st.componentId!==undefined){if(typeof st.componentId!=='string'||!components.some(c=>c.id===st.componentId)||st.segments!==undefined)fail('Неверная ссылка на компонент');continue;}
         if(st.join!==undefined&&!['legacy','miter','bevel','round'].includes(st.join))fail('Неверное соединение участков');
         if (!finite(st.width,.5,16) || !finite(st.startWidth,0,st.width) || !finite(st.endWidth,0,st.width) || !finite(st.peak,.05,.95)) fail('Неверный профиль толщины');
         if (!['sharp','flat','round'].includes(st.startCap) || !['sharp','flat','round'].includes(st.endCap)) fail('Неверное окончание');
@@ -224,12 +235,21 @@
     // Avoid accumulating floating-point drift when the button is pressed again.
     if(Math.abs(factor-1)>1e-10||Math.abs((bounds.left+bounds.right)/2-54.5)>1e-10||Math.abs(bounds.top-guides.cap)>1e-10)glyph.placement=placement;
   }
-  function svg(glyph, attribution) {
+  function strokeShape(project,instance) {
+    if(!instance.componentId)return instance;
+    const component=project.components?.find(c=>c.id===instance.componentId);
+    if(!component)throw new Error('Компонент не найден');return component.stroke;
+  }
+  function resolveGlyph(project,glyph) {
+    return {...glyph,strokes:glyph.strokes.map(st=>st.componentId?{...strokeShape(project,st),...(st.offset?{offset:st.offset}:{})}:st)};
+  }
+  function svg(glyph, attribution, project) {
+    if(project)glyph=resolveGlyph(project,glyph);
     const escape = text => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
     // Same cell metrics as the existing katakana export. Guides are excluded from glyph reads.
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${exportCell.width} ${exportCell.height}" width="${exportCell.width}" height="${exportCell.height}"><title>${escape(glyph.character)}</title><metadata>${escape(attribution)}</metadata><g id="glyph" fill="black" fill-rule="nonzero" transform="translate(${exportCell.x} ${exportCell.y}) scale(${exportCell.scaleX} ${exportCell.scaleY})"><g transform="${transform(glyph)}">${glyph.strokes.map(s=>`<path d="${outline(s,glyph.preserveWidth?glyph.stretch:1)}"/>`).join('')}</g></g></svg>`;
   }
-  const api = {point,samples,widthAt,outline,centerPath,setPoint,insertSegment,validate,transform,metricGuides,glyphBounds,fitGlyph,svg,copy,mix};
+  const api = {point,samples,widthAt,outline,centerPath,setPoint,insertSegment,validate,transform,metricGuides,glyphBounds,fitGlyph,strokeShape,resolveGlyph,svg,copy,mix};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.StrokeEditorModel = api;
 })(globalThis);

@@ -29,6 +29,17 @@ check('explicit joins distinguish sharp, bevel and round corners while preservin
   assert.equal(contains(M.outline({...reversed,join:'round'}),63,17),true);
   const invalid=M.copy(seed);invalid.glyphs[0].strokes[0].join='invalid';assert.throws(()=>M.validate(invalid));
 });
+check('components validate references, share shape and preserve instance offsets in bounds and SVG',()=>{
+  const project=M.copy(seed),shape=M.copy(project.glyphs[0].strokes[0]);project.components=[{id:'shared',name:'Shared',stroke:shape}];
+  project.glyphs[0].strokes=[{componentId:'shared',offset:[10,20]}];project.glyphs[1].strokes=[{componentId:'shared',offset:[-5,7]}];
+  M.validate(project);assert.equal(M.strokeShape(project,project.glyphs[0].strokes[0]),shape);
+  const resolved=M.resolveGlyph(project,project.glyphs[0]),plain={...resolved,strokes:[shape]};
+  const a=M.glyphBounds(resolved),b=M.glyphBounds(plain);assert.ok(Math.abs(a.left-b.left-10*resolved.stretch)<1e-8);assert.ok(Math.abs(a.top-b.top-20)<1e-8);
+  assert.equal(M.svg(project.glyphs[0],project.attribution,project),M.svg(resolved,project.attribution));
+  project.components[0].stroke.width=12;assert.equal(M.resolveGlyph(project,project.glyphs[1]).strokes[0].width,12);
+  const restored=M.validate(JSON.parse(JSON.stringify(project)));assert.deepEqual(restored.glyphs[1].strokes[0].offset,[-5,7]);
+  for(const mutate of [p=>p.glyphs[0].strokes[0].componentId='missing',p=>p.components[0].stroke.componentId='shared',p=>p.components.push(p.components[0]),p=>p.glyphs[0].strokes[0].offset=[NaN,0]]){const bad=M.copy(project);mutate(bad);assert.throws(()=>M.validate(bad));}
+});
 check('middle handle is on curve; straight lines ignore off-axis middle handles',()=>{
   const part={kind:'arc',start:[10,20],mid:[40,75],end:[85,25]};
   assert.deepEqual(M.point(part,0),part.start);assert.deepEqual(M.point(part,.5),part.mid);assert.deepEqual(M.point(part,1),part.end);

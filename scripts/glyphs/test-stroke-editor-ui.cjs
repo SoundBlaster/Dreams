@@ -105,6 +105,34 @@ const beforeJoin=state();element('strokeJoin').value='miter';element('strokeJoin
 assert.equal(state().glyphs[4].strokes[0].join,'miter');
 assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs[4].strokes[0].join,'miter');
 element('undo').onclick();assert.deepEqual(state(),beforeJoin);
+const componentBefore=state();element('makeComponent').onclick();
+let component=state().components[0];assert.equal(state().glyphs[4].strokes[0].componentId,component.id);
+assert.equal(element('width').disabled,true);assert.equal(element('start0').disabled,true);
+element('undo').onclick();
+element('copyStroke').onclick();element('alphabet').children[0].onclick();element('pasteLinkedStroke').onclick();
+component=state().components[0];
+assert.equal(state().glyphs[4].strokes[0].componentId,component.id,'linked paste converts the unchanged source');
+const linkedIndex=state().glyphs[0].strokes.length-1;assert.equal(state().glyphs[0].strokes[linkedIndex].componentId,component.id);
+element('pasteLinkedStroke').onclick();assert.equal(state().components.length,1);assert.equal(state().glyphs[0].strokes.at(-1).componentId,component.id);element('undo').onclick();
+element('strokeX').value='12';element('strokeX').onchange();assert.deepEqual(state().glyphs[0].strokes[linkedIndex].offset,[12,0]);
+assert.deepEqual(state().glyphs[4].strokes[0].offset,[0,0]);
+const frozen=state();element('width').value='11';element('width').oninput();assert.deepEqual(state(),frozen);
+element('editComponent').onclick();element('width').value='11';element('width').oninput();element('width').onchange();
+assert.equal(state().components[0].stroke.width,11);
+assert.equal(M.resolveGlyph(state(),state().glyphs[4]).strokes[0].width,11);
+assert.equal(M.resolveGlyph(state(),state().glyphs[0]).strokes[linkedIndex].width,11);
+assert.deepEqual(state().glyphs[0].strokes[linkedIndex].offset,[12,0]);
+element('undo').onclick();assert.equal(state().components[0].stroke.width,component.stroke.width);assert.equal(element('width').disabled,true);
+element('detachComponent').onclick();assert.equal(state().glyphs[0].strokes[linkedIndex].componentId,undefined);assert.deepEqual(state().glyphs[0].strokes[linkedIndex].offset,[12,0]);
+element('copyStroke').onclick();element('pasteStroke').onclick();const copied=state().glyphs[0].strokes.at(-1);assert.equal(copied.componentId,undefined);
+const beforeTrace=state();element('traceEnabled').checked=true;element('traceEnabled').onchange();
+assert.ok(element('stage').innerHTML.includes('id="glyphTrace"'));assert.deepEqual(state(),beforeTrace);
+element('traceOpacity').value='40';element('traceOpacity').oninput();assert.ok(element('stage').innerHTML.includes('opacity="0.4"'));
+element('traceEnabled').checked=false;element('traceEnabled').onchange();
+// Return to the exact pre-component project, leaving the clipboard as a plain snapshot.
+while(JSON.stringify(state())!==JSON.stringify(componentBefore)){assert.ok(element('undo').disabled===false);element('undo').onclick();}
+element('alphabet').children[4].onclick();
+console.log('PASS: copied strokes, frozen components, shared edits, independent positions, detaching, Undo and tracing');
 const originalCap=state().glyphs[4].strokes[0].endCap;
 element('endCap').value='round';element('endCap').onchange();
 assert.equal(state().glyphs[4].strokes[0].endCap,'round');

@@ -39,6 +39,18 @@ class Checkpoints(unittest.TestCase):
         self.assertEqual(branch['parent'], first['id'])
         self.assertEqual(len(self.library.history()['checkpoints']), 4)
 
+    def test_component_edits_report_all_affected_glyphs(self):
+        shape = copy.deepcopy(self.project['glyphs'][0]['strokes'][0])
+        self.project['components'] = [{'id': 'shared', 'name': 'Shared', 'stroke': shape}]
+        for index in [0, 4]:
+            self.project['glyphs'][index]['strokes'][0] = {'componentId': 'shared', 'offset': [index, 0]}
+        original = copy.deepcopy(shape)
+        first = self.save()
+        self.project['components'][0]['stroke']['endCap'] = 'round'
+        second = self.save('Shared edit')
+        self.assertEqual(second['changedGlyphs'], ['ア', 'オ'])
+        self.assertEqual(self.library.project(first['id'])['components'][0]['stroke'], original)
+
     def test_two_writers_cannot_overwrite_history(self):
         first = self.save()
 

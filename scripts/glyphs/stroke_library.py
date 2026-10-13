@@ -98,8 +98,15 @@ class Library:
                 raise Conflict('История обновилась в другой вкладке. Обнови список и повтори сохранение.')
             parent = parent or history['head']
             previous = self.project(parent) if parent else {'glyphs': [], 'attribution': ''}
-            before = {g['character']: g for g in previous['glyphs']}
-            after = {g['character']: g for g in project['glyphs']}
+            def effective_glyphs(document):
+                components = {c['id']: c['stroke'] for c in document.get('components', [])}
+                return {g['character']: {**g, 'strokes': [
+                    {**components[s['componentId']], 'offset': s.get('offset', [0, 0])}
+                    if 'componentId' in s else s for s in g['strokes']]}
+                    for g in document['glyphs']}
+
+            before = effective_glyphs(previous)
+            after = effective_glyphs(project)
             changed = sorted(k for k in before.keys() | after.keys() if before.get(k) != after.get(k))
             record = {'id': uuid.uuid4().hex, 'parent': parent,
                       'createdAt': datetime.now(timezone.utc).isoformat(timespec='microseconds'),
