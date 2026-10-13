@@ -1,0 +1,78 @@
+{
+  "sourceRevision": "74d6a83ea5eae45573282ee1f0cbedc93f0da4f4",
+  "revisionNote": "Working documentation delta on this parent; runtime source unchanged.",
+  "recordedAt": "2026-10-13T14:10:09.227117+00:00",
+  "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+  "sha256": {
+    "specs/overlay-session/README.md": "9feeb14f5f264be3efd4327db5a367762b68b516d65bd361ba866836face541c",
+    "specs/overlay-session/matrix.md": "459b6ff2d35e336097a85ffc980d816db78fe1baf0569e35a9ab04ab83255b2c",
+    "specs/overlay-session/specpm.yaml": "8685fd70c1d0f0ac67bd6cb717c0683caa25f5f27cd8d40156714d598054c7ef",
+    "specs/specification-progress.md": "48e3860ec610dcb7deb774a0ca0127dd900407a278221977498910f959c39872",
+    "Sources/Dreams/RainOverlayWindow.swift": "ab6bff00b84b369082d222c1475ab3f108f668aab88919a531aed5b1652575e1",
+    "specs/overlay-session/specs/session.spec.yaml": "1a583b8251747e765417023d890267f4f384dd4d30ebc3cf9c0eb3edab750dd2",
+    "specs/overlay-session/specs/displays.spec.yaml": "90d411a71389e67992b44c546514fcc007983a05ff2846916ff1e3bd9ac8e655",
+    "specs/overlay-session/specs/presentation.spec.yaml": "88c1d822a94b01952b90f58c7e34c851c611e496263192dd91e299b82849bf01",
+    "specs/overlay-session/specs/exit.spec.yaml": "0064df6df624cb91b4f962d157440f88f1feb1ac52df37bfcd3af39af74f552a",
+    "specs/hypercode/application.hcs": "81bec4555d2d12205e9acc5e1045d1a9903de32b4df336ee74350f5c01f9ac7a",
+    "specs/hypercode/overlay-session.hcs": "72baff0524bba8a7b19a3619702251532be8d6bf0e71cabeeb09b7e5542b95ea",
+    "specs/hypercode/application.hc": "f1023e675c2c4b66e42f210895b27d0b760d24a1837346bc90e8b5836e000ca6",
+    "specs/hypercode/overlay-session.hc": "7c362179371da54af072ad75ba7050cd8644ecb507f5e83fa7e44422b310e738",
+    "specs/hypercode/glyph-editor.hc": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+    "specs/hypercode/glyph-editor.hcs": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4"
+  },
+  "runs": [
+    {
+      "name": "specs-check",
+      "command": [
+        "rtk",
+        "proxy",
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0,
+      "stdout": "specs-check.txt",
+      "stderr": "specs-check.stderr.txt"
+    },
+    {
+      "name": "overlay-specpm",
+      "command": [
+        "rtk",
+        "proxy",
+        "specpm",
+        "validate",
+        "specs/overlay-session",
+        "--json"
+      ],
+      "exitCode": 0,
+      "stdout": "overlay-specpm.txt",
+      "stderr": "overlay-specpm.stderr.txt"
+    },
+    {
+      "name": "markdown-links",
+      "command": [
+        "rtk",
+        "proxy",
+        "python3",
+        "scripts/check-docs.py"
+      ],
+      "exitCode": 0,
+      "stdout": "markdown-links.txt",
+      "stderr": "markdown-links.stderr.txt"
+    },
+    {
+      "name": "staged-whitespace",
+      "command": [
+        "rtk",
+        "proxy",
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "staged-whitespace.txt",
+      "stderr": "staged-whitespace.stderr.txt"
+    }
+  ]
+}

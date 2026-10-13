@@ -31,6 +31,10 @@ stays with that application. Settings-window shortcut recording has its own
 Esc-cancels-recording behavior. `resume` starts a new interval using the last
 full duration; it does not continue the former remaining deadline.
 
+Exit-button auto-hide uses a tracked hover flag updated by mouse movement.
+It is not initialized from the cursor on presentation, so a stationary cursor
+already over Exit does not prevent hiding after four seconds (matrix O7).
+
 ## State and observation
 
 | State | Meaning |
@@ -50,6 +54,7 @@ creation/destruction itself remains outside this package.
 and review decisions. [Source identities](evidence/2026-10-13/source-identity.json)
 pin full files or exact excerpts with full-source hashes. [HC map](../hypercode/overlay-session.hc)
 and [profiles](../hypercode/overlay-session.hcs) describe composition, not runtime
-configuration. [Validation](validation/2026-10-13/README.md) checks structure only.
+configuration. [Initial validation](validation/2026-10-13/README.md) and the
+[P2 review correction](validation/2026-10-13-review-p2/README.md) check structure only.
 No live overlay, physical keyboard, capture or display-topology test was run
 in this documentation pass; existing test code is an expectation, not a new pass.

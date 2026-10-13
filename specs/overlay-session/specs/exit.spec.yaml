@@ -60,8 +60,11 @@ constraints:
 - id: button_visibility
   level: MUST
   statement: Opaque content initially reveals the accessible dreams.exit-overlay button. Movement/entry/exit reveal
-    it and renew a four-second hide deadline. Hide only when the deadline elapsed, pointer is not over the button,
-    it is not first responder, VoiceOver is off and Full Keyboard Access is off.
+    it and renew a four-second hide deadline. Hide only when the deadline elapsed, tracked pointerOverButton is
+    false, the button is not first responder, VoiceOver is off and Full Keyboard Access is off. The tracked flag
+    starts false, mouseMoved updates it from the event position and mouseExited clears it; window attachment and
+    mouseEntered reveal the control without initializing the flag from the current cursor position. A stationary
+    cursor already over the button at presentation therefore does not prevent timed hiding.
 - id: transparent_escape
   level: MUST
   statement: Transparent content has no exit button and does not take keyboard/mouse input; parent ignores handleEscape

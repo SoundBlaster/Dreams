@@ -64,3 +64,14 @@ reporting, conditional focus recovery and capture-tool limits. No implementation
 fixes, app tests, live windows, physical keys or topology changes were performed.
 Next useful boundary: MCP controller/publisher authority and stop/prepare/resume
 composition; renderer, hook privacy and tvOS remain separately scoped backlog.
+
+### PR #17 review correction — 2026-10-13
+
+`dreams.overlay.exit/button_visibility` now explicitly describes the tracked
+pointer flag, its false initial state and its mouseMoved/mouseExited updates.
+A stationary cursor over Exit at presentation does not guarantee that the
+button stays visible. Matrix O7 preserves that source-derived limitation;
+this changes a descriptive draft, not an accepted product requirement or
+runtime code. Source bindings and HC profiles are unchanged.
+[Review validation](overlay-session/validation/2026-10-13-review-p2/README.md)
+is separate from the preserved initial baseline.
