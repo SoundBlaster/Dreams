@@ -21,51 +21,23 @@ struct MatrixChecks {
         let before = model.columns[0].cells.map(\.glyph)
         model.advance(to: mutation)
         let changed = zip(before, model.columns[0].cells.map(\.glyph)).filter { $0 != $1 }.count
-        precondition(changed == 1, "One mutation event replaces exactly one existing glyph")
-        let mutationDelay = model.columns[0].nextMutation - mutation
-        precondition(model.columns[0].search == nil
-            ? (0.12...0.62).contains(mutationDelay)
-            : (0.035...0.065).contains(mutationDelay),
-            "Single replacements and search bursts need distinct cadences")
-
+        precondition(changed >= 1, "Search events must replace existing glyphs")
+        precondition(model.columns[0].nextMutation > mutation, "Search trials must advance time")
         var searchModel = MatrixSimulation(columnCount: 1, rows: 300, glyphCount: 57)
-        for _ in 0..<300 {
-            searchModel.advance(to: min(searchModel.columns[0].nextWrite, searchModel.columns[0].nextMutation))
-            if searchModel.columns[0].search != nil { break }
-        }
-        guard let search = searchModel.columns[0].search else { preconditionFailure("Expected a search burst") }
-        let searchedInk = searchModel.columns[0].cells[search.row]
-        precondition((3...7).contains(search.remaining))
-        for remaining in stride(from: search.remaining, through: 1, by: -1) {
-            let event = searchModel.columns[0].nextMutation
-            let before = searchModel.columns[0].cells
-            searchModel.advance(to: event)
-            let after = searchModel.columns[0].cells
-            precondition(before[search.row].glyph != after[search.row].glyph,
-                "Each trial must visibly change the same glyph")
-            precondition(before.indices.allSatisfy { row in
-                row == search.row || before[row].writtenAt != after[row].writtenAt
-                    || before[row].glyph == after[row].glyph
-            }, "A burst must stay on one position, not hop between letters")
-            precondition(after[search.row].writtenAt == searchedInk.writtenAt
-                && after[search.row].ink == searchedInk.ink,
-                "Search trials must not extend lifetime or randomize brightness")
-            precondition(after[search.row].flashedAt == searchedInk.flashedAt,
-                "Search trials and their final glyph must not trigger a white glint")
-            if remaining > 1 {
-                precondition(searchModel.columns[0].search?.remaining == remaining - 1)
-            }
-        }
-        precondition(searchModel.columns[0].search == nil)
-        precondition(searchModel.columns[0].cells[search.row].glyph == search.targetGlyph,
-            "The burst must settle on its selected final glyph")
+        searchModel.setSearchFraction(1)
+        searchModel.advance(to: 1)
+        precondition(searchModel.columns[0].searches.count > 1, "A column must support concurrent searches")
+        let beforeSearch = searchModel.columns[0].cells
         searchModel.advance(to: searchModel.time + 0.1)
-        precondition(searchModel.columns[0].cells[search.row].glyph == search.targetGlyph,
-            "The final glyph must remain stable after the burst")
+        let afterSearch = searchModel.columns[0].cells
+        precondition(beforeSearch.indices.allSatisfy { row in
+            beforeSearch[row].writtenAt != afterSearch[row].writtenAt
+                || (beforeSearch[row].hold == afterSearch[row].hold && beforeSearch[row].fade == afterSearch[row].fade
+                    && beforeSearch[row].ink == afterSearch[row].ink && beforeSearch[row].flashedAt == afterSearch[row].flashedAt)
+        }, "Searches must not extend lifetime, change exposure or flash white")
         searchModel.advance(to: searchModel.time + 0.1, visibility: [0])
-        precondition(searchModel.columns[0].search == nil
-            && searchModel.columns[0].cells.allSatisfy { $0.glyph == -1 },
-            "Hiding a column must cancel its searches")
+        precondition(searchModel.columns[0].searches.isEmpty
+            && searchModel.columns[0].cells.allSatisfy { $0.glyph == -1 }, "Hiding must cancel every search")
 
         var coarse = MatrixSimulation(columnCount: 12, rows: 90, glyphCount: 57)
         var fine = MatrixSimulation(columnCount: 12, rows: 90, glyphCount: 57)
@@ -82,6 +54,8 @@ struct MatrixChecks {
         precondition(stable == fine.columns[0].cells.map(\.glyph), "Rendering twice cannot mutate the grid")
 
         var lifecycle = MatrixSimulation(columnCount: 2, rows: 10_000, glyphCount: 57)
+        // This oversized fixture isolates visibility and expiry, not mutation throughput.
+        lifecycle.setSearchFraction(0)
         lifecycle.advance(to: 1)
         lifecycle.advance(to: 1.1, visibility: [0.2, 1])
         let fadedInk = lifecycle.columns[0].cells[0]

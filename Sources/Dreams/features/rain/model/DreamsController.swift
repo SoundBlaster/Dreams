@@ -136,6 +136,7 @@ final class DreamsController: NSObject {
         rainDensity = DreamsPreset.density
         rainFadeRows = DreamsPreset.fadeRows
         rainSpeed = DreamsPreset.speed
+        rainSearchFraction = DreamsPreset.searchFraction
         rainDecelerationEnabled = DreamsPreset.decelerationEnabled
         rainDeceleration = DreamsPreset.deceleration
         rainBrightnessSpread = DreamsPreset.brightnessSpread
@@ -260,6 +261,16 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainSpeed, forKey: "rainSpeed")
             screenManager.renderers.forEach { $0.rainSpeed = rainSpeed }
+        }
+    }
+
+    var rainSearchFraction: Double = {
+        let value = UserDefaults.standard.object(forKey: "rainSearchFraction") as? Double ?? DreamsPreset.searchFraction
+        return value.isFinite ? min(1, max(0, value)) : DreamsPreset.searchFraction
+    }() {
+        didSet {
+            UserDefaults.standard.set(rainSearchFraction, forKey: "rainSearchFraction")
+            screenManager.renderers.forEach { $0.rainSearchFraction = rainSearchFraction }
         }
     }
 
@@ -419,6 +430,7 @@ final class DreamsController: NSObject {
             "rain_density": rainDensity,
             "rain_fade_rows": rainFadeRows,
             "rain_speed": rainSpeed,
+            "rain_search_fraction": rainSearchFraction,
             "rain_deceleration_enabled": rainDecelerationEnabled,
             "rain_deceleration": dropDeceleration.acceleration,
             "rain_brightness_spread": rainBrightnessSpread,
@@ -486,6 +498,7 @@ final class DreamsController: NSObject {
         renderer.rainIdleIntensity = rainIdleIntensity
         renderer.rainGlow = rainGlow
         renderer.rainSpeed = rainSpeed
+        renderer.rainSearchFraction = rainSearchFraction
         renderer.rainDeceleration = dropDeceleration
         renderer.rainBrightnessSpread = rainBrightnessSpread
         renderer.rainFadeRows = rainFadeRows

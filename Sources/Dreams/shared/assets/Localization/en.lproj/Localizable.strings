@@ -147,3 +147,6 @@
 "rain.deceleration" = "a, glyph/s²";
 "rain.deceleration.value" = "%.1f";
 "rain.deceleration.tip" = "Negative acceleration at 1× speed; 0 keeps constant speed. Drops slow to 20% of their entry speed and continue falling. Changes apply to new drops.";
+
+"rain.search" = "Searching glyphs";
+"rain.search.tip" = "Share of visible glyphs simultaneously searching: 10% keeps at least one in ten in a rapid search burst. 0% disables search; 100% searches all live glyphs. Fading lifetimes are preserved.";

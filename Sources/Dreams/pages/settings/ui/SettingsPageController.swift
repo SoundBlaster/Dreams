@@ -25,6 +25,7 @@ final class SettingsPageController: NSObject {
     /// The settings controls by accessibility identifier, so a reset can bring them all up to date.
     var controlsByID: [String: NSControl] = [:]
     let speedLabel = NSTextField(labelWithString: "")
+    let searchFractionLabel = NSTextField(labelWithString: "")
     let decelerationLabel = NSTextField(labelWithString: "")
     let brightnessSpreadLabel = NSTextField(labelWithString: "")
     let controller: DreamsController
@@ -61,6 +62,7 @@ final class SettingsPageController: NSObject {
         (controlsByID["dreams.rain-columns"] as? NSSlider)?.isEnabled = controller.rainColumnCount != 0
         densityLabel.stringValue = "\(Int((controller.rainDensity * 100).rounded()))%"
         speedLabel.stringValue = String(format: "%.2f×", controller.rainSpeed)
+        searchFractionLabel.stringValue = "\(Int((controller.rainSearchFraction * 100).rounded()))%"
         decelerationLabel.stringValue = L("rain.deceleration.value", controller.rainDeceleration)
         (controlsByID["dreams.rain-deceleration"] as? NSSlider)?.isEnabled = controller.rainDecelerationEnabled
         fadeLabel.stringValue = L("rain.fade.value", Int(controller.rainFadeRows))
@@ -219,6 +221,7 @@ final class SettingsPageController: NSObject {
         (controlsByID["dreams.rain-columns-auto"] as? NSButton)?.state = controller.rainColumnCount == 0 ? .on : .off
         slider("dreams.rain-density", controller.rainDensity)
         slider("dreams.rain-speed", controller.rainSpeed)
+        slider("dreams.rain-search-fraction", controller.rainSearchFraction)
         slider("dreams.rain-deceleration", controller.rainDeceleration)
         (controlsByID["dreams.rain-deceleration-enabled"] as? NSButton)?.state = controller.rainDecelerationEnabled ? .on : .off
         slider("dreams.rain-fade", controller.rainFadeRows)
@@ -280,6 +283,11 @@ final class SettingsPageController: NSObject {
 
     @objc func changeDeceleration(_ sender: NSSlider) {
         controller.rainDeceleration = sender.doubleValue
+        refreshValueLabels()
+    }
+
+    @objc func changeSearchFraction(_ sender: NSSlider) {
+        controller.rainSearchFraction = sender.doubleValue
         refreshValueLabels()
     }
 
