@@ -1,0 +1,302 @@
+zsh scripts/build-app.sh release
+Built 28 film + 142 designed glyphs into /Users/egor/.codex/worktrees/screen-management/Dreams/research/glyphs/build: failed none, warnings none
+See /Users/egor/.codex/worktrees/screen-management/Dreams/research/glyphs/build/report.md and /Users/egor/.codex/worktrees/screen-management/Dreams/research/glyphs/build/proof.png
+Fetching https://github.com/mattt/eventsource.git from cache
+Fetching https://github.com/SoundBlaster/Screener.git from cache
+Fetching https://github.com/apple/swift-atomics.git from cache
+Fetching https://github.com/apple/swift-log.git from cache
+Fetching https://github.com/apple/swift-collections.git from cache
+Fetching https://github.com/apple/swift-nio.git from cache
+Fetching https://github.com/apple/swift-system.git from cache
+Fetching https://github.com/modelcontextprotocol/swift-sdk.git from cache
+Fetched https://github.com/SoundBlaster/Screener.git from cache (2.85s)
+Fetched https://github.com/modelcontextprotocol/swift-sdk.git from cache (2.92s)
+Fetched https://github.com/apple/swift-atomics.git from cache (2.93s)
+Fetched https://github.com/mattt/eventsource.git from cache (2.93s)
+Fetched https://github.com/apple/swift-nio.git from cache (2.94s)
+Fetched https://github.com/apple/swift-log.git from cache (2.99s)
+Computing version for https://github.com/SoundBlaster/Screener.git
+Fetched https://github.com/apple/swift-collections.git from cache (3.01s)
+Fetched https://github.com/apple/swift-system.git from cache (3.06s)
+Computed https://github.com/SoundBlaster/Screener.git at 0.1.0 (3.65s)
+Computing version for https://github.com/apple/swift-log.git
+Computed https://github.com/apple/swift-log.git at 1.16.1 (0.71s)
+Computing version for https://github.com/modelcontextprotocol/swift-sdk.git
+Computed https://github.com/modelcontextprotocol/swift-sdk.git at 0.12.1 (0.62s)
+Computing version for https://github.com/apple/swift-nio.git
+Computed https://github.com/apple/swift-nio.git at 2.104.0 (0.69s)
+Computing version for https://github.com/mattt/eventsource.git
+Computed https://github.com/mattt/eventsource.git at 1.5.1 (0.61s)
+Computing version for https://github.com/apple/swift-system.git
+Computed https://github.com/apple/swift-system.git at 1.8.1 (0.64s)
+Computing version for https://github.com/apple/swift-collections.git
+Computed https://github.com/apple/swift-collections.git at 1.7.2 (0.69s)
+Computing version for https://github.com/apple/swift-atomics.git
+Computed https://github.com/apple/swift-atomics.git at 1.3.1 (0.68s)
+Creating working copy for https://github.com/apple/swift-collections.git
+Working copy of https://github.com/apple/swift-collections.git resolved at 1.7.2
+Creating working copy for https://github.com/SoundBlaster/Screener.git
+Working copy of https://github.com/SoundBlaster/Screener.git resolved at 0.1.0
+Creating working copy for https://github.com/apple/swift-nio.git
+Working copy of https://github.com/apple/swift-nio.git resolved at 2.104.0
+Creating working copy for https://github.com/apple/swift-system.git
+Working copy of https://github.com/apple/swift-system.git resolved at 1.8.1
+Creating working copy for https://github.com/modelcontextprotocol/swift-sdk.git
+Working copy of https://github.com/modelcontextprotocol/swift-sdk.git resolved at 0.12.1
+Creating working copy for https://github.com/apple/swift-atomics.git
+Working copy of https://github.com/apple/swift-atomics.git resolved at 1.3.1
+Creating working copy for https://github.com/mattt/eventsource.git
+Working copy of https://github.com/mattt/eventsource.git resolved at 1.5.1
+Creating working copy for https://github.com/apple/swift-log.git
+Working copy of https://github.com/apple/swift-log.git resolved at 1.16.1
+Building for production...
+[Pre-planning 1 / 246]
+[Planning deferred tasks]
+[59 / 98]
+[64 / 101] CSystem
+[72 / 110]
+[86 / 129]
+[90 / 129]
+[107 / 179]
+[112 / 179]
+[124 / 179]
+[132 / 179]
+[136 / 179]
+[139 / 179]
+[143 / 179]
+[145 / 179] VirtualDisplayBridge
+[147 / 179]
+[148 / 179]
+[149 / 179] Logging
+[155 / 179] EventSource
+[161 / 179] SystemPackage
+[168 / 180] MCP
+[173 / 186]
+[174 / 186]
+[175 / 186] MCP
+[182 / 187] Dreams-product
+[196 / 221]
+[198 / 221]
+[202 / 221]
+[205 / 221]
+[209 / 221]
+[212 / 221]
+[213 / 221]
+[214 / 221]
+[215 / 221]
+[217 / 221] Dreams-product
+[219 / 221] Dreams-product
+[220 / 221] Dreams-product
+Build complete! (36.91 sec)
+/Users/egor/.codex/worktrees/screen-management/Dreams/dist/Dreams.app: replacing existing signature
+/Users/egor/.codex/worktrees/screen-management/Dreams/dist/Dreams.app
+swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
+.build/activity-checks
+PASS: calm rain, smooth flood on a message, hold, fall to calm, re-flood mid-fall, busy agent stays dense, idle slider
+swiftc -swift-version 6 Sources/Dreams/features/rain/model/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
+.build/matrix-checks
+PASS: typing, mutation, frame-rate independence, irreversible fade, hidden-column restart, expired-cell removal, draining packets, density occupancy, dynamic per-pass column occupancy, sequential/wide dissolve, brightness spread and live tuning
+swiftc -swift-version 6 -parse-as-library Sources/Dreams/shared/lib/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
+.build/hotkey-checks
+PASS: default, recording rules, display names, menu equivalent, persistence and fallbacks
+swift test -c release
+Building for production...
+[Provisioning 5 / 18]
+[Pre-planning 1 / 363]
+[Planning deferred tasks]
+[34 / 82] Logging
+[40 / 85] ScreenerCore
+[42 / 86] EventSource
+[46 / 87] ScreenerCore
+[53 / 88] Logging
+[58 / 90] ScreenerKit
+[63 / 98]
+[64 / 98]
+[65 / 98]
+[66 / 98] SystemPackage
+[72 / 103] MCP
+[74 / 104]
+[75 / 104] ScreenerKit
+[81 / 104] MCP
+[88 / 111] Dreams-product
+[89 / 112] Dreams
+[91 / 113] Dreams-product
+[94 / 113] Dreams
+[99 / 113] Dreams-product
+[100 / 113] Dreams-product
+[106 / 116] DreamsTests-product
+[109 / 122]
+[112 / 122]
+[113 / 122] DreamsTests-product
+[118 / 122] DreamsTests-product
+[120 / 122] DreamsTests-product
+Build complete! (32.69 sec)
+Test Suite 'All tests' started at 2026-10-13 23:53:03.403.
+Test Suite 'All tests' passed at 2026-10-13 23:53:03.404.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.002) seconds
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀙟  Suite TransparentFadeRenderingTests skipped.
+􀙟  Suite DisplaySettingsTraceTests skipped.
+􀙟  Suite OverlayExitTests skipped.
+􀟈  Suite DisplaySelectionTests started.
+􀟈  Suite RainTrailTests started.
+􀙟  Suite RainTrailRenderingTests skipped.
+􀙟  Test escapeButtonAndDisplayFocusLifecycle() skipped.
+􀟈  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() started.
+􀟈  Test allCoversBothAndExcludesAgent() started.
+􀟈  Suite SettingsPageTests started.
+􀟈  Test automaticPrefersInternalEvenWithExternalMain() started.
+􀙟  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) skipped.
+􀟈  Test stableChoicePersistsAndInvalidModeFallsBack() started.
+􀟈  Test selectedSubsetSurvivesDisconnectAndReconnect() started.
+􀙟  Test displaySettingsPersistAndExplainFallback() skipped.
+􀟈  Test closedLidUsesMainExternal() started.
+􀟈  Test noModeCanCoverAgentWorkspace(_:) started.
+􀙟  Test captureTrailMotion() skipped.
+􀟈  Test settingsWindowKeepsControlsAndValues() started.
+􀟈  Test eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􁁛  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() passed after 0.001 seconds.
+􁁛  Test selectedSubsetSurvivesDisconnectAndReconnect() passed after 0.001 seconds.
+􀟈  Test case passing 1 argument width → 1 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument density → 0.5 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test case passing 1 argument width → 3 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument mode → .automatic to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument mode → .all to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument width → 16 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument density → 1.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􁁛  Test automaticPrefersInternalEvenWithExternalMain() passed after 0.001 seconds.
+􀟈  Test case passing 1 argument density → 0.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􁁛  Test closedLidUsesMainExternal() passed after 0.001 seconds.
+􀟈  Test case passing 1 argument mode → .selected to noModeCanCoverAgentWorkspace(_:) started.
+􁁛  Test noModeCanCoverAgentWorkspace(_:) with 3 test cases passed after 0.001 seconds.
+􁁛  Test eventDurationIncludesTheWholeStretchedTrace(density:) with 3 test cases passed after 0.001 seconds.
+􀟈  Test remainingSelectedScreenWinsOverAutomaticFallback() started.
+􀟈  Test headOutrunsRearAndStretchesTrace(density:) started.
+􁁛  Test fadeWidthCountsRowsAtTheSlowerRear(width:) with 3 test cases passed after 0.001 seconds.
+􁁛  Test allCoversBothAndExcludesAgent() passed after 0.001 seconds.
+􀟈  Test case passing 1 argument density → 0.0 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument density → 0.25 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument density → 0.5 to headOutrunsRearAndStretchesTrace(density:) started.
+􁁛  Test remainingSelectedScreenWinsOverAutomaticFallback() passed after 0.001 seconds.
+􁁛  Test headOutrunsRearAndStretchesTrace(density:) with 3 test cases passed after 0.001 seconds.
+􁁛  Suite RainTrailTests passed after 0.001 seconds.
+􁁛  Test stableChoicePersistsAndInvalidModeFallsBack() passed after 0.004 seconds.
+􁁛  Suite DisplaySelectionTests passed after 0.004 seconds.
+􁁛  Test settingsWindowKeepsControlsAndValues() passed after 0.324 seconds.
+􀙟  Test recordedSettingsScenario() skipped.
+􁁛  Suite SettingsPageTests passed after 0.324 seconds.
+􁁛  Test run with 17 tests in 7 suites passed after 0.324 seconds.
+zsh scripts/test-settings.sh
+Building for production...
+[Provisioning 7 / 18]
+Build complete! (0.38 sec)
+Test Suite 'All tests' started at 2026-10-13 23:53:08.612.
+Test Suite 'All tests' passed at 2026-10-13 23:53:08.612.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DisplaySelectionTests started.
+􀙟  Suite RainTrailRenderingTests skipped.
+􀙟  Suite OverlayExitTests skipped.
+􀙟  Suite TransparentFadeRenderingTests skipped.
+􀟈  Suite SettingsPageTests started.
+􀙟  Suite DisplaySettingsTraceTests skipped.
+􀟈  Test allCoversBothAndExcludesAgent() started.
+􀟈  Test closedLidUsesMainExternal() started.
+􀟈  Suite RainTrailTests started.
+􀟈  Test selectedSubsetSurvivesDisconnectAndReconnect() started.
+􀟈  Test remainingSelectedScreenWinsOverAutomaticFallback() started.
+􀟈  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() started.
+􀟈  Test stableChoicePersistsAndInvalidModeFallsBack() started.
+􀟈  Test noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test settingsWindowKeepsControlsAndValues() started.
+􀙟  Test escapeButtonAndDisplayFocusLifecycle() skipped.
+􀙟  Test captureTrailMotion() skipped.
+􀙟  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) skipped.
+􀙟  Test displaySettingsPersistAndExplainFallback() skipped.
+􀟈  Test automaticPrefersInternalEvenWithExternalMain() started.
+􀟈  Test eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􁁛  Test allCoversBothAndExcludesAgent() passed after 0.001 seconds.
+􁁛  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() passed after 0.001 seconds.
+􁁛  Test selectedSubsetSurvivesDisconnectAndReconnect() passed after 0.001 seconds.
+􀟈  Test case passing 1 argument density → 0.5 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test case passing 1 argument width → 3 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument density → 0.0 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument density → 1.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test case passing 1 argument width → 1 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument mode → .selected to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument density → 0.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test case passing 1 argument mode → .automatic to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument width → 16 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument density → 0.25 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument density → 0.5 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument mode → .all to noModeCanCoverAgentWorkspace(_:) started.
+􁁛  Test automaticPrefersInternalEvenWithExternalMain() passed after 0.001 seconds.
+􁁛  Test closedLidUsesMainExternal() passed after 0.001 seconds.
+􁁛  Test remainingSelectedScreenWinsOverAutomaticFallback() passed after 0.001 seconds.
+􁁛  Test noModeCanCoverAgentWorkspace(_:) with 3 test cases passed after 0.001 seconds.
+􁁛  Test headOutrunsRearAndStretchesTrace(density:) with 3 test cases passed after 0.001 seconds.
+􁁛  Test eventDurationIncludesTheWholeStretchedTrace(density:) with 3 test cases passed after 0.001 seconds.
+􁁛  Test fadeWidthCountsRowsAtTheSlowerRear(width:) with 3 test cases passed after 0.001 seconds.
+􁁛  Suite RainTrailTests passed after 0.001 seconds.
+􁁛  Test stableChoicePersistsAndInvalidModeFallsBack() passed after 0.004 seconds.
+􁁛  Suite DisplaySelectionTests passed after 0.004 seconds.
+􁁛  Test settingsWindowKeepsControlsAndValues() passed after 0.204 seconds.
+􀙟  Test recordedSettingsScenario() skipped.
+􁁛  Suite SettingsPageTests passed after 0.204 seconds.
+􁁛  Test run with 17 tests in 7 suites passed after 0.205 seconds.
+python3 scripts/test-architecture.py
+PASS: configured FSD gate accepts downward dependencies and rejects upward and same-layer slice imports
+python3 scripts/test-localization.py
+PASS: 124 keys in en and ru, specifiers match, Swift keys exist, hook words follow DREAMS_LANGUAGE
+python3 scripts/test-hooks-install.py dist/Dreams.app/Contents/MacOS/Dreams
+PASS: install, key order, user hooks, idempotence, uninstall, dry run, refuses broken configs
+python3 scripts/test-uninstall.py
+PASS: dry run, hooks and app removed, user config intact, --purge removes settings/mailbox/backups, idempotent
+python3 scripts/test-plugins.py
+PASS: manifests, versions, six events, publisher-only MCP, script behavior, claude validate+install, codex marketplace add+install
+python3 scripts/smoke.py
+MCP handshake: 2025-06-18
+2026-10-13T23:53:26+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+LAB_READY pid=10576 {"action_pressure": 0.11704665773627025, "activity_level": 0.7174549322615967, "display_error": null, "display_mode": "automatic", "displays": [{"built_in": true, "excluded": false, "id": 1, "is_main": true, "name": "Built-in Retina Display", "quartz_bounds": {"height": 982, "width": 1512, "x": 0, "y": 0}, "uuid": "37D8832A-2D66-02CA-B9F7-8F30A301B230"}, {"built_in": false, "excluded": true, "id": 61, "is_main": false, "name": "Dreams Agent Workspace", "quartz_bounds": {"height": 982, "width": 1512, "x": 1512, "y": 0}, "uuid": "C9426D49-6CE1-4C12-861D-0B0AC8CE6C1C"}], "emergency_hotkey_registered": true, "expires_at": "2026-10-13T20:55:27Z", "frames_rendered": 0, "hidden_from_screenshots": true, "keyword_brightness": 2, "keyword_color_rgb": [0.8069633841514587, 0.9906476140022278, 0.8916751742362976], "keyword_sessions": [{"activity": "working", "color": "amber", "expires_at": "2026-10-13T20:54:55Z", "keywords": ["code"], "session_id": "claude:hook-demo"}, {"activity": "working", "color": "cyan", "expires_at": "2026-10-13T20:54:56Z", "keywords": ["Metal", "\u0432\u043e\u043b\u043d\u044b"], "session_id": "codex-demo"}], "last_stop_reason": null, "matrix_font": "restored", "prevents_idle_sleep": true, "private_virtual_display_api_available": true, "rain_brightness_spread": 1, "rain_color_rgb": [0.007985829375684261, 0.26015111804008484, 0.05497172847390175], "rain_columns": 81, "rain_density": 0.924609375, "rain_fade_rows": 7, "rain_glow": 0.57, "rain_idle_intensity": 1, "rain_requested": true, "rain_speed": 0.6513818359375, "rain_visible": true, "rain_window_number": 15504, "rain_windows": [{"display_id": 1, "display_uuid": "37D8832A-2D66-02CA-B9F7-8F30A301B230", "frames_rendered": 0, "window_number": 15504}], "run_time_seconds": 3600, "selected_display_ids": [], "stop_hotkey": "\u2303\u2325\u2318D", "transparent_background": false, "virtual_display_id": 61, "working_agents": 2, "workspace_clicks": 0, "workspace_window_display_id": 61, "workspace_window_number": 15502}
+PASS: MCP lifecycle, cross-process keywords, hook mapping, expiry, PNG, workspace, auto-stop.
+2026-10-13T23:53:33+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+python3 scripts/test-hook-pressure.py
+2026-10-13T23:53:34+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+PASS real hooks: burst increases activity, time decays pressure, Stop clears it
+Levels: 0.5199892928660994 0.8200000000000001 0.5607632425692071 0
+.venv/bin/python scripts/test-transparent.py
+2026-10-13T23:53:35+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+2026-10-13T23:53:35+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+PASS opaque Metal alpha: 255 255
+PASS transparent Metal alpha: 0 255
+.venv/bin/python scripts/test-columns.py
+2026-10-13T23:53:35+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+2026-10-13T23:53:36+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+2026-10-13T23:53:36+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+2026-10-13T23:53:36+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+2026-10-13T23:53:36+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+2026-10-13T23:53:37+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+PASS: setting 0, 110 columns, glyph width 11.0px / cell 13.7px
+PASS: setting 24, 24 columns, glyph width 47.4px / cell 63.0px
+PASS: setting 80, 80 columns, glyph width 14.1px / cell 18.9px
+PASS: setting 240, 240 columns, glyph width 5.0px / cell 6.3px
+PASS: setting 999, 240 columns, glyph width 5.0px / cell 6.3px
+PASS: setting 1, 24 columns, glyph width 47.4px / cell 63.0px

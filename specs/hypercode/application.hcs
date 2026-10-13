@@ -2,10 +2,10 @@ Dreams:
   map_kind: "coarse-capability-composition"
   evidence_level: "partial-source-recovery-see-coverage"
 DesktopApplication:
-  source: "Sources/Dreams/DreamsMain.swift"
+  source: "Sources/Dreams/app/entrypoint/DreamsMain.swift"
   detail_status: "overlay-recovered-other-UI-unexplored"
 RainOverlaySession:
-  source: "Sources/Dreams/DreamsController.swift"
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
   detail: "overlay-session.hc + overlay-session.hcs"
 AgentIntegrations:
   source: "plugins/"
@@ -18,3 +18,10 @@ GlyphEditor:
 FontBuild:
   source: "scripts/glyphs/pipeline.py"
   detail_status: "unexplored"
+SettingsPage:
+  source: "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
+  assembly: "app/providers/DreamsDelegate injects rain controller"
+  detail_status: "source-oriented-settings-contract-unexplored"
+TelevisionApplication:
+  source: "tvOS/Sources/app/entrypoint/DreamsTVApp.swift"
+  detail_status: "foreground-clock-application-contract-unexplored"

@@ -1,0 +1,155 @@
+{
+  "sourceRevision": "691d94b65eb8fd1687b09cef7ff4f6f5c2776c83",
+  "sourceState": "Clean rebased PR8 production/test baseline; current maps/contracts recorded by separate hashes. Historical evidence is unchanged.",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "previousPath": "Sources/Dreams/RainDisplaySelection.swift",
+      "sha256": "eefb3e82a7f9335f0e423dc06a3a01208a4f08e41fb1fa4eb5503a47053cca4d",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "previousPath": "Sources/Dreams/RainScreenManager.swift",
+      "sha256": "cf5ffa142476f620a6f24a21f29274d9d8f5680042a8b92ee300f71e84c910bd",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "previousPath": "Sources/Dreams/RainOverlayWindow.swift",
+      "sha256": "ab6bff00b84b369082d222c1475ab3f108f668aab88919a531aed5b1652575e1",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "previousPath": "Sources/Dreams/DreamsController.swift",
+      "sha256": "1ff0ebd23f14cbbd8069f24b8d7320f57f1760924daa27e2d7862550b74c3e31",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "previousPath": "Sources/Dreams/DreamsMain.swift",
+      "sha256": "160a18a86e0eda7b0340e295d39290628878d709ce64f6772faf64c0d3c51853",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/lib/StopHotkey.swift",
+      "previousPath": "Sources/Dreams/StopHotkey.swift",
+      "sha256": "414f99b40658b3929a6a5c7e2e86c949d7fc2d04e91251aee0ece9c0f07f8f5b",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/shared/lib/StopHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "previousPath": "Sources/Dreams/EmergencyHotkey.swift",
+      "sha256": "13de3684a25d153f71fd55424348a769226200524167290f865bad2d93b8ea1d",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DisplaySelectionTests.swift",
+      "previousPath": "Tests/DreamsTests/DisplaySelectionTests.swift",
+      "sha256": "1a44de3c91c36df85cdff16653809834c1d9273ff16218725bbe86c471026ef7",
+      "snapshot": "evidence/2026-10-13-fsd/source/Tests/DreamsTests/DisplaySelectionTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/OverlayExitTests.swift",
+      "previousPath": "Tests/DreamsTests/OverlayExitTests.swift",
+      "sha256": "7282e25241743efc26cf53178b15ef77980fce350b91dbb704252cb69499e138",
+      "snapshot": "evidence/2026-10-13-fsd/source/Tests/DreamsTests/OverlayExitTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-overlay-exit.py",
+      "previousPath": "scripts/test-overlay-exit.py",
+      "sha256": "97f86234067e957b5c0973cbc9e19bd9817233597285036e7abc3c9408f5c717",
+      "snapshot": "evidence/2026-10-13-fsd/source/scripts/test-overlay-exit.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-hotkey.swift",
+      "previousPath": "scripts/test-hotkey.swift",
+      "sha256": "da2ef4818a55cdad80a4f2dadcd89bacf82eea1e24fb54a9b8006c21bd7fb91c",
+      "snapshot": "evidence/2026-10-13-fsd/source/scripts/test-hotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Package.swift",
+      "previousPath": "Package.swift",
+      "sha256": "a9f445d9e1151011d7ee589f3d7c429f5c2b5c3b1300c14b88693a9e54638099",
+      "snapshot": "evidence/2026-10-13-fsd/source/Package.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Makefile",
+      "previousPath": "Makefile",
+      "sha256": "78908e122a73cb70fa99b04dad9ce0ad6ce4b3fd377f5ee10fc1817e2399f710",
+      "snapshot": "evidence/2026-10-13-fsd/source/Makefile",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "a81f11a2401cfdf953507897e28fd6e907ac94f03fd4676d3e0459ee4e8e571c",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "sha256": "d3c3ef0bb901f90c5c6f807f998b5de8c4c039aab354ccfdbec8f7f698605dc7",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "f66637f311f2c6d4ef998b097f79cb0a080d22ddb7858077d182a955526757c3",
+      "snapshot": "evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/SettingsPageTests.swift",
+      "sha256": "f2f5907c5e1739d22a3b995998ce3a58bc0183bdcf19a3a8f1e668971a8d60ef",
+      "snapshot": "evidence/2026-10-13-fsd/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/SettingsScenarioTests.swift",
+      "sha256": "17d148aa02dd42e8cce36e1dfe8da3a866177727a677d93636e7d9043a403407",
+      "snapshot": "evidence/2026-10-13-fsd/source/Tests/DreamsTests/SettingsScenarioTests.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "91b2c172f05de4eb648faf5fa0686038c9c81a8809fc03d22a56f235ce3422a5",
+      "snapshot": "evidence/2026-10-13-fsd/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "34aaf3d3567e4ac66cbdd8765f0d7e71d7ce4dcdca3e55b3d4c9b2681564874e",
+      "snapshot": "evidence/2026-10-13-fsd/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "7c362179371da54af072ad75ba7050cd8644ecb507f5e83fa7e44422b310e738",
+      "snapshot": "evidence/2026-10-13-fsd/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "0e2b6ddf23f0c851e1e1f6d357be5f4f4647aab24ea71731e83ec449515ac257",
+      "snapshot": "evidence/2026-10-13-fsd/maps/overlay-session.hcs"
+    }
+  ],
+  "visualObservation": {
+    "sessionID": "2B5D2BDA-FD2C-4BC6-A00A-6680E20EEF8C",
+    "recordID": "F623E651-85B2-4EA0-B7FC-2E492BEE642B",
+    "path": "validation/2026-10-13-fsd/settings.png",
+    "sha256": "d4f0a486cd8b7fcfa5f07053784abd0b2d64189af6238f057850d6b1f1b38951"
+  }
+}

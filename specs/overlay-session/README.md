@@ -58,3 +58,18 @@ configuration. [Initial validation](validation/2026-10-13/README.md) and the
 [P2 review correction](validation/2026-10-13-review-p2/README.md) check structure only.
 No live overlay, physical keyboard, capture or display-topology test was run
 in this documentation pass; existing test code is an expectation, not a new pass.
+
+## FSD integration refresh — 2026-10-13
+
+Current implementation: `691d94b65eb8fd1687b09cef7ff4f6f5c2776c83`. [Identities](evidence/2026-10-13-fsd/source-identity.json)
+map old paths to FSD paths and pin the extracted settings/app composition.
+[Fresh validation](validation/2026-10-13-fsd/README.md) is separate from the historical
+source-reading pass above. Existing display/session/input claims and IDs still apply.
+SettingsPageController now owns recording and cleanup; DreamsDelegate retains it
+and forwards termination. SettingsWindow wires Esc to the same rain controller.
+RainScreenManager, overlay panels, Carbon registration, display policy and renderer
+algorithms are byte-identical to main apart from paths; controller body is unchanged
+after moving DreamsPreset and DreamsError to their own files.
+The tvOS foreground app is represented only in coarse orientation and remains
+outside these macOS contracts. No physical-keyboard/Apple-TV claim follows from
+GUI or simulator passes. PRs #18–20 are independent and remain outside this merge.

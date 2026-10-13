@@ -122,3 +122,12 @@ Fresh local checks passed:
 This pass does not retest the physical Apple TV or the physical-keyboard global
 Carbon shortcut. The older shortcut uncertainty above remains open; simple Esc
 and the overlay exit button have separate passing native lifecycle checks.
+
+## Merge readiness refresh — 2026-10-13
+
+PR #8 rebased cleanly onto main `85e3aee`; production/test baseline `691d94b`.
+Full macOS test/lint, 13 settings checkpoints, display/exit wrappers, four GPU alpha cases,
+universal tvOS simulator build and 12 tvOS tests passed again.
+[Current source identities and validation](../specs/overlay-session/validation/2026-10-13-fsd/README.md)
+keep old runs historical and update FSD paths/cleanup ownership. Physical Apple TV and
+physical global-shortcut delivery remain outside this pass.

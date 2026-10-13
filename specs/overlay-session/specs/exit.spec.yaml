@@ -82,7 +82,7 @@ constraints:
 - id: callback_lifetime
   level: MUST
   statement: Keep the controller alive for the unretained Carbon handler context until registration is removed.
-    Delegate termination uninstalls the handler/hotkey and cleans up the controller; callbacks dispatch stop on
+    Delegate termination calls settings cleanup to uninstall the handler/hotkey and clean up the controller; callbacks dispatch stop on
     MainActor.
 effects:
   sideEffects:
@@ -96,7 +96,7 @@ effects:
 evidence:
 - id: source_1
   kind: source
-  path: evidence/2026-10-13/source/Sources/Dreams/RainOverlayWindow.swift
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift
   supports:
   - constraints.local_escape
   - constraints.button_visibility
@@ -104,7 +104,7 @@ evidence:
   - effects.control_timers
 - id: source_2
   kind: source
-  path: evidence/2026-10-13/source/Sources/Dreams/EmergencyHotkey.swift
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
   supports:
   - interfaces
   - constraints.registration_failure
@@ -112,13 +112,13 @@ evidence:
   - effects.input_registration
 - id: source_3
   kind: source
-  path: evidence/2026-10-13/source/Sources/Dreams/StopHotkey.swift
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/shared/lib/StopHotkey.swift
   supports:
   - interfaces
   - constraints.hotkey_recording
 - id: source_4
   kind: source
-  path: evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
   supports:
   - constraints.all_displays
   - constraints.local_escape
@@ -127,34 +127,46 @@ evidence:
   - effects.input_registration
 - id: source_5
   kind: source
-  path: evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
   supports:
   - constraints.local_escape
   - constraints.all_displays
   - constraints.transparent_escape
+- id: fsd_source_6
+  kind: source
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+  supports:
+  - constraints.callback_lifetime
+- id: fsd_source_7
+  kind: source
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+  supports:
+  - constraints.callback_lifetime
 provenance:
   sourceConfidence:
     intent: medium
     boundary: medium
     behavior: medium
   notes:
-  - Descriptive draft from merged main 1ce194748720e40e1eb9737e63bb37797c5840b1; full hashes, snapshots and exact
-    excerpts in evidence/2026-10-13/source-identity.json.
+  - Descriptive draft; historical recovery from main 1ce194748720e40e1eb9737e63bb37797c5840b1. Current FSD source
+    691d94b65eb8fd1687b09cef7ff4f6f5c2776c83 and relocation hashes are in evidence/2026-10-13-fsd/source-identity.json.
   - Normative language recovers scoped implementation behavior, not accepted new product requirements. See matrix.md
     for assembly duties, evidence level and owner decisions.
-  - No application, browser, display-topology, physical-key or capture tests were executed in this source/specification
-    pass. Test source is a declared expectation only.
+  - Historical structural results remain preserved. Fresh validation is recorded separately in validation/2026-10-13-fsd/README.md; physical-keyboard and actual-monitor checks are not inferred.
 implementationBindings:
 - id: exit_swift
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 1ce194748720e40e1eb9737e63bb37797c5840b1
+    revision: 691d94b65eb8fd1687b09cef7ff4f6f5c2776c83
   files:
     owned:
-    - evidence/2026-10-13/source/Sources/Dreams/RainOverlayWindow.swift
-    - evidence/2026-10-13/source/Sources/Dreams/EmergencyHotkey.swift
-    - evidence/2026-10-13/source/Sources/Dreams/StopHotkey.swift
-    - evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
-    - evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/shared/lib/StopHotkey.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsMCPServer.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     border: []

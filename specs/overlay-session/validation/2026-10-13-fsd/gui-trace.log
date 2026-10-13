@@ -1,0 +1,17 @@
+python3 scripts/test-gui-trace.py
+Building for production...
+[Using on-disk description]
+[1 / 10] Dreams_Dreams
+Build complete! (0.44 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite SettingsPageTests started.
+􀟈  Test settingsWindowKeepsControlsAndValues() started.
+􁁛  Test settingsWindowKeepsControlsAndValues() passed after 0.253 seconds.
+􀟈  Test recordedSettingsScenario() started.
+DREAMS_GUI_TRACE=/Users/egor/Library/Caches/Screener/Traces/2B5D2BDA-FD2C-4BC6-A00A-6680E20EEF8C.vtrace
+􁁛  Test recordedSettingsScenario() passed after 0.736 seconds.
+􁁛  Suite SettingsPageTests passed after 0.989 seconds.
+􁁛  Test run with 2 tests in 1 suite passed after 0.989 seconds.
+PASS: complete Screener settings trace, 13 frames: /Users/egor/Library/Caches/Screener/Traces/2B5D2BDA-FD2C-4BC6-A00A-6680E20EEF8C.vtrace

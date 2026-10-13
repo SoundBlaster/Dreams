@@ -27,7 +27,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | GlyphEditor.ProjectTransfer | JSON/SVG consumer | Folded into editor | loadProject/save/export | Browser receipt is not saved-file evidence |
 | GlyphEditor.CheckpointLibrary | Editor tab / local disk | dreams.glyph.checkpoints | Pinned Python/Node adapter | Review concurrency/crash limits |
 | GlyphEditor.EditorBuild | Developer | Folded into editor | build + pipeline.toml | No font adoption claim |
-| tvOS / clock | Apple TV user | Deferred, separate branch PR #8 | Not analyzed in this checkout | Recover after integration on its own baseline |
+| TelevisionApplication / clock | Apple TV user | Integrated PR #8; coarse orientation, contract unexplored | Current rebased source 691d94b; simulator tests separate | Recover clock/settings contract on its own baseline |
 
 Maps: [architecture index](hypercode/README.md). Contracts, claim origins,
 source bindings, scenarios and unresolved decisions:
@@ -75,3 +75,16 @@ this changes a descriptive draft, not an accepted product requirement or
 runtime code. Source bindings and HC profiles are unchanged.
 [Review validation](overlay-session/validation/2026-10-13-review-p2/README.md)
 is separate from the preserved initial baseline.
+
+## PR #8 FSD integration — 2026-10-13
+
+Rebased FSD/tvOS branch on main 85e3aee without textual conflicts. Current production
+source 691d94b65eb8fd1687b09cef7ff4f6f5c2776c83 relocates macOS code into app/pages/features/entities/shared.
+[Overlay bindings and fresh checks](overlay-session/validation/2026-10-13-fsd/README.md)
+refresh dreams.overlay.* source identities while preserving claim/role IDs and draft status.
+Settings recording/cleanup ownership moves to SettingsPageController retained by
+DreamsDelegate; its termination path still uninstalls Carbon registration and stops rain.
+Display/overlay/renderer behavior retains the same implementation bodies. New settings
+and tvOS leaves are coarse orientation only: their full consumer contracts remain backlog.
+Glyph editor contracts/implementation are untouched; their historical application-map
+snapshot remains preserved. PRs #18–20 are not included in this source baseline.

@@ -1,0 +1,671 @@
+xcodegen generate --spec tvOS/project.yml
+⚙️  Generating plists...
+⚙️  Generating project...
+⚙️  Writing project...
+Created project at /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
+		-destination 'platform=tvOS Simulator,id=B29EC156-5EF9-4A56-8147-1C98D4E228DB' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO test
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV -destination "platform=tvOS Simulator,id=B29EC156-5EF9-4A56-8147-1C98D4E228DB" -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO test
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (2 targets)
+    Target 'DreamsTVTests' in project 'DreamsTV'
+        ➜ Explicit dependency on target 'DreamsTV' in project 'DreamsTV'
+    Target 'DreamsTV' in project 'DreamsTV' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: cbec3d2b695bd409c1628f834e66367e
+Build description path: /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/XCBuildData/cbec3d2b695bd409c1628f834e66367e.xcbuilddata
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/CompilationCache.noindex
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/CompilationCache.noindex
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/PrecompiledHeaders
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/PrecompiledHeaders
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV-50135ddf9ada623df1a543094bed2825-VFS-appletvsimulator/all-product-headers.yaml
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV-50135ddf9ada623df1a543094bed2825-VFS-appletvsimulator/all-product-headers.yaml
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-appletvsimulator
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-appletvsimulator
+
+CreateBuildDirectory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/DreamsTV.xcodeproj
+    builtin-create-build-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.DependencyMetadataFileList (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/empty-DreamsTVTests.plist (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/empty-DreamsTVTests.plist
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.DependencyStaticMetadataFileList (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-own-target-headers.hmap (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.hmap (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_const_extract_protocols.json (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-OutputFileMap.json (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.LinkFileList (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.LinkFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftConstValuesFileList (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-project-headers.hmap (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-project-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftFileList (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-generated-files.hmap (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-generated-files.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-all-target-headers.hmap (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-all-non-framework-target-headers.hmap (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/empty-DreamsTV.plist (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/empty-DreamsTV.plist
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_const_extract_protocols.json (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftFileList (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftConstValuesFileList (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.LinkFileList (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.LinkFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-OutputFileMap.json (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.hmap (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.DependencyStaticMetadataFileList (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.DependencyMetadataFileList (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-project-headers.hmap (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-project-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-own-target-headers.hmap (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-generated-files.hmap (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-generated-files.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-all-target-headers.hmap (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-DebugDylibPath-normal-arm64.txt (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-all-non-framework-target-headers.hmap (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-DebugDylibInstallName-normal-arm64.txt (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    write-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /bin/mkdir -p /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest
+
+MkDir /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /bin/mkdir -p /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns
+
+MkDir /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /bin/mkdir -p /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app
+
+Ld /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/__preview.dylib normal (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-tvos18.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -install_name @rpath/DreamsTV.debug.dylib -Xlinker -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_dependency_info.dat -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/__preview.dylib
+
+ProcessInfoPlistFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/Info.plist /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/empty-DreamsTV.plist (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-infoPlistUtility /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/empty-DreamsTV.plist -producttype com.apple.product-type.application -genpkginfo /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PkgInfo -expandbuildsettings -format binary -platform appletvsimulator -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/Info.plist
+
+CpResource /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsMatrix.ttf /Users/egor/.codex/worktrees/screen-management/Dreams/Sources/Dreams/DreamsMatrix.ttf (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/egor/.codex/worktrees/screen-management/Dreams/Sources/Dreams/DreamsMatrix.ttf /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app
+
+CopyStringsFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/ru.lproj/Localizable.strings /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copyStrings --validate --outputencoding binary --outfilename Localizable.strings --outdir /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/ru.lproj -- /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
+/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'DreamsTV' from project 'DreamsTV')
+
+CopyStringsFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/en.lproj/Localizable.strings /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/shared/assets/en.lproj/Localizable.strings (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copyStrings --validate --outputencoding binary --outfilename Localizable.strings --outdir /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/en.lproj -- /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
+/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/shared/assets/en.lproj/Localizable.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriver DreamsTV normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DreamsTV -Onone @/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -target arm64-apple-tvos18.0-simulator -g -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache -output-file-map /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -sdk-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_const_extract_protocols.json -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-generated-files.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-own-target-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-all-target-headers.hmap -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-project-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/include -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources-normal/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-Swift.h -working-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_stdarg-9SW7UE7JUSSTVFGAG1CYIJPNQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/ptrauth-5CVWRHPI6W7GPFPWZF279QJEO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_float-1FUX0JPOQTE82W0GRTYKAYROK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/DeveloperToolsSupport-DT90QF6Q0S0UFKAIQJCCTJWDL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_stddef-4T98J0CBFZHQFFTC7KY66M797.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_AvailabilityInternal-4FVXVZBYK6FIO399RNDAG1W2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_SwiftConcurrencyShims-6BS2MGK2II1K90MUZAO23UQQZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/ptrcheck-CGB7D5LSPF91R0L84X54N1TZK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/SwiftShims-75N20TCTIYEK1XU1PQ82XOU1G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_stdbool-6O89G53YEMRX2VPXQ6L7C4KNI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_DarwinFoundation1-10K1VE34WBKMFPFPQ81E07TXP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_limits-8NFKR7GHKWNP1R2NRV54MBCMR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_DarwinFoundation2-72ZFOFBFXM420GUO73LDDSGND.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/sys_types-BWAXEAP4CX3HJOKYFHYBPZKL8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_stdint-3VRV6BJ1U0BAF3QSRABWAQEPN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/string_h-4EUGH6F3XEFBWJ9S6MY479X0W.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_tgmath-2RF2M2FUM0BLOBONZ0FB3CSID.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_intrinsics-5HHCTLYXUB2HUYFSPWF7Q94IW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_stdatomic-F3JRO6ZA2X984755V8UDKBYM9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_DarwinFoundation3-175YFVAUF9F89Y6JFI3PBR8WR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_Builtin_inttypes-1HDMIZNB6YIQ07EA1PU9TSAN7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Darwin-11EKD1CB9FPH9Q2LUOVE0TLR7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/simd-DHUXIB6PJ5F0QUYY79G2T3ALC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/ObjectiveC-5VSOP7WZJKL9KJ67P02V5ISX9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/MachO-4Q6TCM52F68TLXPKDA99MUTZC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/os_object-9ASYTEPKSNTZCUFU9ELAJFPCE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Spatial-DL2UIZNZ2QVRW1DKJA1NPEEJW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/os_workgroup-7EKJAJE8J3UQG6XCGAVGXUBUC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Dispatch-8WR8AXXBPGKY1TIO3ML0NZEY5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreFoundation-B5HJ9GHBHVGRPRUOQWAW6CS0Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/XPC-8AEM2NHHSJBSTK2YUU5AX4LL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/os-DFURT4U7I1HFE1RFN4AGSQIZR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreAudioTypes-60Z1QLJQ7LMGUPWU0W5XSW8ED.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Security-A39UHIOUEP9M7JUHE6TOJ7DNG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreGraphics-61WT9NKEDUEMC95HEJEE8TTHL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CFNetwork-EVNKDB9G2EPYLAZLTSSTA4NHP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreAudio-CVXFNI1VFOZJJRUM0WC3IDD5C.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Foundation-EPEVHJ0C2DP1B4KOJKCWZYRAW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreText-C4EIOR8M4UVYJW2EK91AZ6EUS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/ImageIO-785GW1FZK1MB8IR84KDTOBUVQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/OpenGLES-E57MKICLNQ982BWK37PKX5FA0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/UIUtilities-COXC6YQ2JFCNKJDGQO6BLXDS4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/IOSurface-49U6XOKW01NQ96Q1TFBNS5HR0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/UniformTypeIdentifiers-2F1Z49J7VTKF6ZIP49MDXK65R.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreTransferable-5QZ7EGSE25MUGM54BS53RKCNW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/UserNotifications-8E72TK2E7KOT7495NB51Y2BR8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Accessibility-ABNRRO172EH0AZAT0PYMDGZVE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/OSLog-DEEG05CPX38UKNABY90NA820X.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/DataDetection-CHXVFKGX1CNTHSYLKA8AHRNDG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/_LocationEssentials-909B8FNBWJVR6G6RNCNNCQRL1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreData-AYELI6MJ7P67HGNUYE0SH21RV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/ModelIO-8RSCFZC90RMY25H98SV0SV9S4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Symbols-3UJYGY3RIJGWCAOGRRVAATSUD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreLocation-AV2NWU4RRRLCK5QVQYVOTAFJ1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/Metal-9GBR2BY7PUA3EDJO2BYGBI8FP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreVideo-41LHT5Q9ONF1M15KHMN7WDQKV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreMedia-4IR9RFJWJOGYO6P8NNLFWJH88.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/QuartzCore-5J26XXJRV7WIMVFRYUQIHQF6L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/CoreImage-6NHXM3PBRRESYWJH5TSMS7VYU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/SwiftUICore-D2K196SYY8TC9F0G9KNZ6RNS6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/UIKit-BXC00OPCPZC0O86BOTK9V45YE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/SwiftUI-PINFYXKHWZTXSFEKRDSNTKG1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules/MetalKit-4A25BJELWJC9Q20R2OA6TNE3N.pcm
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ DreamsTV (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    
+
+SwiftCompile normal arm64 Compiling\ MatrixSimulation.swift /Users/egor/.codex/worktrees/screen-management/Dreams/Sources/Dreams/features/rain/model/MatrixSimulation.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/Sources/Dreams/features/rain/model/MatrixSimulation.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile MatrixSimulation.swift
+
+SwiftCompile normal arm64 Compiling\ RainSettings.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/model/RainSettings.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/model/RainSettings.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile RainSettings.swift
+
+SwiftCompile normal arm64 Compiling\ SettingsPage.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/pages/settings/ui/SettingsPage.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/pages/settings/ui/SettingsPage.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile SettingsPage.swift
+
+SwiftCompile normal arm64 Compiling\ MatrixSurface.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/ui/MatrixSurface.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/ui/MatrixSurface.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile MatrixSurface.swift
+
+SwiftCompile normal arm64 Compiling\ MatrixRenderer.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile MatrixRenderer.swift
+
+SwiftCompile normal arm64 Compiling\ FilmAtlas.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/lib/FilmAtlas.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/lib/FilmAtlas.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile FilmAtlas.swift
+
+SwiftCompile normal arm64 Compiling\ DreamsTVApp.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/app/entrypoint/DreamsTVApp.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/app/entrypoint/DreamsTVApp.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile DreamsTVApp.swift
+
+SwiftCompile normal arm64 Compiling\ ClockMask.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/lib/ClockMask.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/lib/ClockMask.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile ClockMask.swift
+
+SwiftCompile normal arm64 Compiling\ FilmGlyphs.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/model/FilmGlyphs.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/model/FilmGlyphs.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile FilmGlyphs.swift
+
+SwiftCompile normal arm64 Compiling\ AppRoot.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/app/entrypoint/AppRoot.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/app/entrypoint/AppRoot.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile AppRoot.swift
+
+SwiftCompile normal arm64 Compiling\ ClockPage.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/pages/clock/ui/ClockPage.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/pages/clock/ui/ClockPage.swift (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile ClockPage.swift
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for DreamsTV (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriver\ Compilation\ Requirements DreamsTV normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DreamsTV -Onone @/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -target arm64-apple-tvos18.0-simulator -g -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache -output-file-map /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -sdk-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_const_extract_protocols.json -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-generated-files.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-own-target-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-all-target-headers.hmap -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-project-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/include -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources-normal/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-Swift.h -working-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS -experimental-emit-module-separately -disable-cmo
+
+SwiftMergeGeneratedHeaders /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources/DreamsTV-Swift.h /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-Swift.h (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-swiftHeaderTool -arch arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-Swift.h -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources/DreamsTV-Swift.h
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/arm64-apple-tvos-simulator.swiftmodule /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftmodule (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftmodule /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/arm64-apple-tvos-simulator.swiftmodule
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/arm64-apple-tvos-simulator.swiftdoc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftdoc (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftdoc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/arm64-apple-tvos-simulator.swiftdoc
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/arm64-apple-tvos-simulator.abi.json /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.abi.json (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.abi.json /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/arm64-apple-tvos-simulator.abi.json
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/Project/arm64-apple-tvos-simulator.swiftsourceinfo /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftsourceinfo (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftsourceinfo /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.swiftmodule/Project/arm64-apple-tvos-simulator.swiftsourceinfo
+
+SwiftDriver DreamsTVTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DreamsTVTests -Onone @/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -target arm64-apple-tvos18.0-simulator -g -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/usr/lib -F /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache -output-file-map /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -sdk-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-generated-files.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-own-target-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-project-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/include -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-Swift.h -working-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-1311JRG0979IKQIVF5GHGLUWJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-6JUQT0AFRXLO5G455PLDLEQZL.pcm
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-35GF1LUYOJR9I.swiftmodule
+
+SwiftDriverJobDiscovery normal arm64 Compiling FilmGlyphs.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-6EG7IGQI6IVT.swiftmodule
+
+SwiftDriverJobDiscovery normal arm64 Compiling MatrixSimulation.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RainSettings.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ DreamsTVTests (in target 'DreamsTVTests' from project 'DreamsTV')
+
+SwiftCompile normal arm64 (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    
+
+SwiftCompile normal arm64 Compiling\ DreamsTVTests.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Tests/DreamsTVTests.swift (in target 'DreamsTVTests' from project 'DreamsTV')
+
+SwiftCompile normal arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Tests/DreamsTVTests.swift (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-SwiftPerFileCompile DreamsTVTests.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling MatrixRenderer.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for DreamsTVTests (in target 'DreamsTVTests' from project 'DreamsTV')
+
+SwiftDriver\ Compilation\ Requirements DreamsTVTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DreamsTVTests -Onone @/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -target arm64-apple-tvos18.0-simulator -g -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/usr/lib -F /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache -output-file-map /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -sdk-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-generated-files.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-own-target-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-project-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/include -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-Swift.h -working-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS -experimental-emit-module-separately -disable-cmo
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/arm64-apple-tvos-simulator.swiftdoc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftdoc (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftdoc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/arm64-apple-tvos-simulator.swiftdoc
+
+SwiftMergeGeneratedHeaders /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources/DreamsTVTests-Swift.h /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-Swift.h (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-swiftHeaderTool -arch arm64 /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-Swift.h -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources/DreamsTVTests-Swift.h
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/arm64-apple-tvos-simulator.swiftmodule /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftmodule (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftmodule /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/arm64-apple-tvos-simulator.swiftmodule
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/arm64-apple-tvos-simulator.abi.json /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.abi.json (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.abi.json /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/arm64-apple-tvos-simulator.abi.json
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/Project/arm64-apple-tvos-simulator.swiftsourceinfo /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftsourceinfo (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftsourceinfo /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTVTests.swiftmodule/Project/arm64-apple-tvos-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling ClockMask.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Compiling AppRoot.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ClockPage.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Compiling DreamsTVApp.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Compiling MatrixSurface.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Compiling FilmAtlas.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettingsPage.swift (in target 'DreamsTV' from project 'DreamsTV')
+
+SwiftDriver\ Compilation DreamsTV normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DreamsTV -Onone @/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -target arm64-apple-tvos18.0-simulator -g -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache -output-file-map /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -sdk-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_const_extract_protocols.json -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-generated-files.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-own-target-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-all-target-headers.hmap -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-project-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/include -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources-normal/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV-Swift.h -working-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV.debug.dylib normal (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-tvos18.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-appletvsimulator -L/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-appletvsimulator -F/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -filelist /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.LinkFileList -install_name @rpath/DreamsTV.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/appletvsimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-ExecutorLinkFileList-normal-arm64.txt (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    construct-stub-executor-link-file-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'DreamsTV' from project 'DreamsTV')
+
+Ld /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV normal (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-tvos18.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV-ExecutorLinkFileList-normal-arm64.txt /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV.debug.dylib -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV
+
+Copy /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/Rain.metal /Users/egor/.codex/worktrees/screen-management/Dreams/Sources/Dreams/Rain.metal (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -remove-static-executable /Users/egor/.codex/worktrees/screen-management/Dreams/Sources/Dreams/Rain.metal /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app
+
+CopySwiftLibs /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV.debug.dylib --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/Frameworks --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/SystemExtensions --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/Extensions --platform appletvsimulator --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v27.1.266.1.0oNV2h/Metal.xctoolchain --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v27.1.266.1.0oNV2h/Metal.xctoolchain --module-name DreamsTV --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk --xcode-version 27A9275 --platform-family tvOS --deployment-target 18.0 --bundle-identifier ru.egormerkushev.DreamsTV --output /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app --target-triple arm64-apple-tvos18.0-simulator --binary-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV --dependency-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV_dependency_info.dat --stringsdata-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftFileList --metadata-file-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.DependencyMetadataFileList --static-metadata-file-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/DreamsTV.DependencyStaticMetadataFileList --swift-const-vals-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTV.build/Objects-normal/arm64/DreamsTV.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-13 23:51:52.711 appintentsmetadataprocessor[8073:16205362] Starting appintentsmetadataprocessor export
+2026-10-13 23:51:52.713 appintentsmetadataprocessor[8073:16205362] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+ProcessInfoPlistFile /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/Info.plist /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/empty-DreamsTVTests.plist (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-infoPlistUtility /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/empty-DreamsTVTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -format binary -platform appletvsimulator -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/Info.plist
+
+SwiftDriverJobDiscovery normal arm64 Compiling DreamsTVTests.swift (in target 'DreamsTVTests' from project 'DreamsTV')
+
+SwiftDriver\ Compilation DreamsTVTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DreamsTVTests -Onone @/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -target arm64-apple-tvos18.0-simulator -g -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/usr/lib -F /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKStatCaches.noindex/appletvsimulator27.0-24J360-e829b21a6f8c9b70876ba0858053c04421f0701ac8d55f1e5a066df852c2cd87.sdkstatcache -output-file-map /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex -sdk-module-cache-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-generated-files.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-own-target-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests-project-headers.hmap -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/include -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources/arm64 -Xcc -I/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests-Swift.h -working-directory /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/DreamsTVTests normal (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-tvos18.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-appletvsimulator -L/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/usr/lib -F/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-appletvsimulator -F/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk/Developer/Library/Frameworks -filelist /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -bundle_loader /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV -Xlinker -object_path_lto -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/appletvsimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/DreamsTV.debug.dylib -o /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/DreamsTVTests
+
+CopySwiftLibs /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/DreamsTVTests --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/Frameworks --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/PlugIns --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/SystemExtensions --scan-folder /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/Extensions --platform appletvsimulator --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v27.1.266.1.0oNV2h/Metal.xctoolchain --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v27.1.266.1.0oNV2h/Metal.xctoolchain --module-name DreamsTVTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator27.0.sdk --xcode-version 27A9275 --platform-family tvOS --deployment-target 18.0 --bundle-identifier ru.egormerkushev.DreamsTVTests --output /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest --target-triple arm64-apple-tvos18.0-simulator --binary-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest/DreamsTVTests --dependency-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests_dependency_info.dat --stringsdata-file /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftFileList --metadata-file-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.DependencyMetadataFileList --static-metadata-file-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/DreamsTVTests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/DreamsTV.build/Debug-appletvsimulator/DreamsTVTests.build/Objects-normal/arm64/DreamsTVTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-13 23:51:52.985 appintentsmetadataprocessor[8077:16205379] Starting appintentsmetadataprocessor export
+2026-10-13 23:51:52.986 appintentsmetadataprocessor[8077:16205379] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+RegisterExecutionPolicyException /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-RegisterExecutionPolicyException /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest
+
+Touch /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest (in target 'DreamsTVTests' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /usr/bin/touch -c /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app/PlugIns/DreamsTVTests.xctest
+
+RegisterExecutionPolicyException /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-RegisterExecutionPolicyException /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app
+
+Validate /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    builtin-validationUtility /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app (in target 'DreamsTV' from project 'DreamsTV')
+    cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
+    /usr/bin/touch -c /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Products/Debug-appletvsimulator/DreamsTV.app
+
+PruneExplicitPrecompiledModules /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+Test Suite 'All tests' started at 2026-10-13 23:52:05.980.
+Test Suite 'DreamsTVTests.xctest' started at 2026-10-13 23:52:05.980.
+Test Suite 'DreamsTVTests' started at 2026-10-13 23:52:05.980.
+Test Case '-[DreamsTVTests.DreamsTVTests testBundledFontAndClockShaderLoadOnGPU]' started.
+2026-10-13 23:52:05.983338+0300 DreamsTV[8328:16207591] GSFont: file already registered - "file:///Users/egor/Library/Developer/CoreSimulator/Devices/B29EC156-5EF9-4A56-8147-1C98D4E228DB/data/Containers/Bundle/Application/54CB6B32-AFC3-45B6-88D2-FD1D57E4A9B0/DreamsTV.app/DreamsMatrix.ttf"
+Test Case '-[DreamsTVTests.DreamsTVTests testBundledFontAndClockShaderLoadOnGPU]' passed (1.018 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testClockAppearancePersistsAndSizeIsBounded]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testClockAppearancePersistsAndSizeIsBounded]' passed (0.005 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testClockMaskContainsOnlyDigitSilhouettes]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testClockMaskContainsOnlyDigitSilhouettes]' passed (0.053 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testClockMinuteDoesNotChangeWithinMinute]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testClockMinuteDoesNotChangeWithinMinute]' passed (0.001 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testClockSelectsWholeGlyphCellsAndLeavesOutsideDark]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testClockSelectsWholeGlyphCellsAndLeavesOutsideDark]' passed (0.002 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testDensityDefaultsBoundsAndPersistence]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testDensityDefaultsBoundsAndPersistence]' passed (0.004 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testEveryClockFontFitsAtMaximumSizeAndHasDistinctShape]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testEveryClockFontFitsAtMaximumSizeAndHasDistinctShape]' passed (0.020 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testFullDensityKeepsEveryCellOccupiedAfterWarmup]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testFullDensityKeepsEveryCellOccupiedAfterWarmup]' passed (1.152 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testInvalidSettingsAreNormalizedAndPersisted]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testInvalidSettingsAreNormalizedAndPersisted]' passed (0.004 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testLowDensityLeavesSpaceBetweenPackets]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testLowDensityLeavesSpaceBetweenPackets]' passed (0.008 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testRepertoireHasOnlyFilmGlyphsAndHorizontalMirrors]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testRepertoireHasOnlyFilmGlyphsAndHorizontalMirrors]' passed (0.000 seconds).
+Test Case '-[DreamsTVTests.DreamsTVTests testSettingsStringsAreBundledInBothLanguages]' started.
+Test Case '-[DreamsTVTests.DreamsTVTests testSettingsStringsAreBundledInBothLanguages]' passed (0.003 seconds).
+Test Suite 'DreamsTVTests' passed at 2026-10-13 23:52:08.255.
+	 Executed 12 tests, with 0 failures (0 unexpected) in 2.271 (2.275) seconds
+Test Suite 'DreamsTVTests.xctest' passed at 2026-10-13 23:52:08.255.
+	 Executed 12 tests, with 0 failures (0 unexpected) in 2.271 (2.275) seconds
+Test Suite 'All tests' passed at 2026-10-13 23:52:08.255.
+	 Executed 12 tests, with 0 failures (0 unexpected) in 2.271 (2.276) seconds
+2026-10-13 23:52:08.539 xcodebuild[7717:16203403] [MT] IDETestOperationsObserverDebug: 15.514 elapsed -- Testing started completed.
+2026-10-13 23:52:08.539 xcodebuild[7717:16203403] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-13 23:52:08.539 xcodebuild[7717:16203403] [MT] IDETestOperationsObserverDebug: 15.514 sec, +15.514 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/Logs/Test/Test-DreamsTV-2026.10.13_23-51-46-+0300.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

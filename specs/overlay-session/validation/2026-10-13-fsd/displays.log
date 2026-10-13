@@ -1,0 +1,21 @@
+python3 scripts/test-displays.py
+Building for production...
+[Provisioning 14 / 18]
+Build complete! (0.37 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DisplaySettingsTraceTests started.
+􀟈  Test displaySettingsPersistAndExplainFallback() started.
+DREAMS_DISPLAY_TRACE=/Users/egor/Library/Caches/Screener/Traces/4F257980-85E1-4D69-A2BF-D7F079933727.vtrace
+􁁛  Test displaySettingsPersistAndExplainFallback() passed after 0.422 seconds.
+􁁛  Suite DisplaySettingsTraceTests passed after 0.422 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.422 seconds.
+sandbox_extension_issue_file_to_process failed for /var/folders/n1/5qrr5k4142l48nzsh8x44t9r0000gn/T/dreams-display-runtime-c1wu2uv0/DreamsDisplayTest.app: 1 (Operation not permitted)
+2026-10-13T23:54:56+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+sandbox_extension_issue_file_to_process failed for /var/folders/n1/5qrr5k4142l48nzsh8x44t9r0000gn/T/dreams-display-runtime-c1wu2uv0/DreamsDisplayTest.app: 1 (Operation not permitted)
+2026-10-13T23:54:58+0300 notice dreams.mcp.stdio: [MCP] EOF received
+
+PASS: native settings actions and persistence; Screener trace: /Users/egor/Library/Caches/Screener/Traces/4F257980-85E1-4D69-A2BF-D7F079933727.vtrace
+PASS: real MCP process, two rendered displays, live hot-plug, retained windows/timer, subset, unplug fallback, workspace exclusion and global stop/expiry
