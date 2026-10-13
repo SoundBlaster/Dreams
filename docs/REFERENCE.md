@@ -310,3 +310,13 @@ The release build and the smoke test passed on the Mac named above. During an ea
 - [Codex: MCP configuration](https://developers.openai.com/codex/mcp/)
 
 The licenses of the adapted Screener code (MIT), Chromium (BSD), Matrix Digital Rain (MIT, font and repertoire) and the Swift dependencies are kept in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) and included in the app bundle. Dreams itself is MIT-licensed, see [LICENSE](../LICENSE).
+
+## Source-grounded overlay contracts
+
+The [overlay lifecycle and exit package](../specs/overlay-session/README.md)
+describes display targeting, opaque/transparent input, per-screen exit callbacks,
+global shortcut failure, timers and focus restoration as reviewable drafts.
+Its [claim matrix](../specs/overlay-session/matrix.md) records actual source
+limits and unresolved decisions; structural checks do not establish new runtime
+evidence. Other subsystem coverage is tracked in the
+[specification progress](../specs/specification-progress.md).

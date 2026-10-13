@@ -1,0 +1,157 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.overlay.exit
+  title: ExitInput
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Route local opaque-window exits and a fallible global shortcut to stop the complete owned rain session.
+scope:
+  boundedContext: macos_overlay_session
+  includes:
+  - Esc/cancel routing, per-display exit button, visibility policy, shortcut recording and Carbon registration.
+  excludes:
+  - A global plain-Esc handler, guaranteed shortcut registration/rollback, key delivery while another app owns focus,
+    screen lock or secrecy.
+provides:
+  capabilities:
+  - id: dreams.overlay.exit
+    role: primary
+    summary: Route local opaque-window exits and a fallible global shortcut to stop the complete owned rain session.
+requires:
+  capabilities:
+  - id: platform.apple.windowserver
+    summary: Current responder/key-window event delivery, pointer tracking and accessibility state.
+  - id: platform.apple.carbon_hotkeys
+    summary: OS hotkey registration/dispatch can fail or conflict.
+interfaces:
+  inbound:
+  - id: exit_entry
+    kind: library
+    summary: Existing internal MainActor boundary; no new public Swift API is asserted.
+    operations:
+    - name: local_exit
+      inputs:
+      - name: event
+        type: opaque panel Esc (keyCode 53), cancelOperation or exit button action
+      outputs:
+      - name: callback
+        type: onEscape/onExit routed by parent to session.stop
+    - name: register/change
+      inputs:
+      - name: shortcut
+        type: StopHotkey; default Ctrl+Option+Command+D
+      outputs:
+      - name: result
+        type: registration success Boolean; old registration restoration attempted on failure
+  outbound: []
+constraints:
+- id: local_escape
+  level: MUST
+  statement: Opaque overlay keyDown/cancelOperation invokes the local escape callback. Parent handleEscape stops
+    only when background is opaque. The settings window uses the same callback; another app receiving Esc is outside
+    this route.
+- id: all_displays
+  level: MUST
+  statement: Parent wires Escape and Exit-button callbacks to the session-level stop operation, so an exit from
+    one owned overlay closes all session overlays. Clicking the rain outside the Exit button only reveals controls/focuses
+    the window.
+- id: button_visibility
+  level: MUST
+  statement: Opaque content initially reveals the accessible dreams.exit-overlay button. Movement/entry/exit reveal
+    it and renew a four-second hide deadline. Hide only when the deadline elapsed, pointer is not over the button,
+    it is not first responder, VoiceOver is off and Full Keyboard Access is off.
+- id: transparent_escape
+  level: MUST
+  statement: Transparent content has no exit button and does not take keyboard/mouse input; parent ignores handleEscape
+    in this profile. Use the registered global hotkey, explicit Stop or agent stop to end the session.
+- id: hotkey_recording
+  level: MUST
+  statement: Interactive shortcut recording accepts only combinations including Control, Option or Command and rejects
+    Escape as a proposed shortcut. During recording, Escape cancels recording and the local monitor consumes that
+    event; it is not an unconditional rain-exit guarantee.
+- id: registration_failure
+  level: MUST
+  statement: Treat Carbon registration as fallible. Initial install reports failure. Shortcut change unregisters
+    the current registration, tries the new one and, on failure, attempts to register the previous one; do not promise
+    that rollback cannot fail.
+- id: callback_lifetime
+  level: MUST
+  statement: Keep the controller alive for the unretained Carbon handler context until registration is removed.
+    Delegate termination uninstalls the handler/hotkey and cleans up the controller; callbacks dispatch stop on
+    MainActor.
+effects:
+  sideEffects:
+  - id: input_registration
+    kind: state_mutation
+    summary: Registers/unregisters Carbon hotkeys and a temporary app-local recording monitor; does not register
+      global plain Escape.
+  - id: control_timers
+    kind: state_mutation
+    summary: Updates per-window tracking/accessibility/button state and four-second timers.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/RainOverlayWindow.swift
+  supports:
+  - constraints.local_escape
+  - constraints.button_visibility
+  - constraints.transparent_escape
+  - effects.control_timers
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/EmergencyHotkey.swift
+  supports:
+  - interfaces
+  - constraints.registration_failure
+  - constraints.callback_lifetime
+  - effects.input_registration
+- id: source_3
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/StopHotkey.swift
+  supports:
+  - interfaces
+  - constraints.hotkey_recording
+- id: source_4
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
+  supports:
+  - constraints.all_displays
+  - constraints.local_escape
+  - constraints.hotkey_recording
+  - constraints.callback_lifetime
+  - effects.input_registration
+- id: source_5
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
+  supports:
+  - constraints.local_escape
+  - constraints.all_displays
+  - constraints.transparent_escape
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from merged main 1ce194748720e40e1eb9737e63bb37797c5840b1; full hashes, snapshots and exact
+    excerpts in evidence/2026-10-13/source-identity.json.
+  - Normative language recovers scoped implementation behavior, not accepted new product requirements. See matrix.md
+    for assembly duties, evidence level and owner decisions.
+  - No application, browser, display-topology, physical-key or capture tests were executed in this source/specification
+    pass. Test source is a declared expectation only.
+implementationBindings:
+- id: exit_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 1ce194748720e40e1eb9737e63bb37797c5840b1
+  files:
+    owned:
+    - evidence/2026-10-13/source/Sources/Dreams/RainOverlayWindow.swift
+    - evidence/2026-10-13/source/Sources/Dreams/EmergencyHotkey.swift
+    - evidence/2026-10-13/source/Sources/Dreams/StopHotkey.swift
+    - evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
+    - evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
+    border: []

@@ -1,9 +1,11 @@
 # Architecture maps
 
 [Application orientation](application.hc) / [properties](application.hcs) show
-three coarse areas from the current checkout: desktop application, agent
-integrations and glyph toolchain. This is an orientation map, not complete
-contract coverage. Desktop and agent areas are opaque and still unexplored.
+three areas from the current checkout: desktop application, agent integrations
+and glyph toolchain. Desktop now has an [overlay detail](overlay-session.hc) /
+[profiles](overlay-session.hcs) with [draft contracts](../overlay-session/README.md).
+Other desktop UI and agent integrations remain unexplored. This is partial
+contract coverage, not a complete application specification.
 
 [Glyph editor](glyph-editor.hc) / [properties](glyph-editor.hcs) is the first
 recovered subsystem. Its four draft contracts are in the
@@ -19,6 +21,7 @@ PR #8 and is not imported from unrelated/untracked files into this baseline.
 
 Use `make specs-check` with the tools on PATH. If Hypercode is available only
 as a built checkout binary, provide `HYPERCODE=/absolute/path/to/hypercode`.
-The command checks both maps and both editor profiles. Tool identity, source
+The command checks application/editor/overlay maps, both editor profiles and
+the four overlay profiles (interactive/agent × opaque/transparent). Tool identity, source
 hashes and full diagnostics for the initial recovery are preserved in the
 [validation record](../glyph-editor/validation/2026-10-13/README.md).

@@ -1,0 +1,48 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.overlay_session
+  name: Dreams overlay and exit contracts
+  version: 0.1.0-draft.1
+  summary: Descriptive draft macOS overlay lifecycle, display targeting, input routing and all-display exit contracts.
+  license: MIT
+  authors:
+  - name: Dreams contributors (AI-assisted source recovery)
+specs:
+- path: specs/displays.spec.yaml
+- path: specs/presentation.spec.yaml
+- path: specs/exit.spec.yaml
+- path: specs/session.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.overlay.displays
+    - dreams.overlay.presentation
+    - dreams.overlay.exit
+    - dreams.overlay.session
+  requires:
+    capabilities:
+    - platform.apple.windowserver
+    - platform.apple.metal_renderer
+    - platform.apple.carbon_hotkeys
+    - platform.apple.power_assertions
+compatibility:
+  platforms:
+  - macos
+  languages:
+  - name: swift
+keywords:
+- overlay
+- safe-exit
+- multi-display
+- descriptive-draft
+foreignArtifacts:
+- format: hypercode
+  path: evidence/2026-10-13/maps/overlay-session.hc
+  role: documentation
+- format: hypercode-stylesheet
+  path: evidence/2026-10-13/maps/overlay-session.hcs
+  role: documentation
+- format: markdown
+  path: matrix.md
+  role: documentation

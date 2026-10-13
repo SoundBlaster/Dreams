@@ -1,0 +1,42 @@
+[
+  {
+    "profile": "interactive-opaque",
+    "duration": "interactive-setting-or-unbounded",
+    "input": "mouse-interactive-key-capable",
+    "resolver": {
+      "name": "hypercode-swift",
+      "version": "0.6.0-dev"
+    },
+    "result": "pass"
+  },
+  {
+    "profile": "interactive-transparent",
+    "duration": "interactive-unbounded",
+    "input": "mouse-pass-through-nonactivating-not-key-capable",
+    "resolver": {
+      "name": "hypercode-swift",
+      "version": "0.6.0-dev"
+    },
+    "result": "pass"
+  },
+  {
+    "profile": "agent-opaque",
+    "duration": "finite-1-to-3600-seconds-default-300",
+    "input": "mouse-interactive-key-capable",
+    "resolver": {
+      "name": "hypercode-swift",
+      "version": "0.6.0-dev"
+    },
+    "result": "pass"
+  },
+  {
+    "profile": "agent-transparent",
+    "duration": "finite-1-to-3600-seconds-default-300",
+    "input": "mouse-pass-through-nonactivating-not-key-capable",
+    "resolver": {
+      "name": "hypercode-swift",
+      "version": "0.6.0-dev"
+    },
+    "result": "pass"
+  }
+]

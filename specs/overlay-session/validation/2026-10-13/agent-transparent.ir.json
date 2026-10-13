@@ -1,0 +1,651 @@
+{
+  "version": "hypercode.ir/v2",
+  "context": {
+    "background": "transparent",
+    "entry": "agent"
+  },
+  "resolver": {
+    "name": "hypercode-swift",
+    "version": "0.6.0-dev"
+  },
+  "documentHash": "4c2a9214fe342fadf16cc8484351922d9d8d0efcca7a987e72bec5edf87396e6",
+  "nodes": [
+    {
+      "type": "RainOverlaySession",
+      "hash": "3c6c93e4dea98b58cf9030c8cbe59475122f32b637dc065da4e445688646b0f4",
+      "properties": {
+        "background": {
+          "value": "transparent",
+          "winner": {
+            "selector": "RainOverlaySession",
+            "specificity": [
+              0,
+              0,
+              1
+            ],
+            "order": 12,
+            "line": 41,
+            "file": "specs/hypercode/overlay-session.hcs",
+            "value": "transparent"
+          },
+          "losers": [
+            {
+              "selector": "RainOverlaySession",
+              "specificity": [
+                0,
+                0,
+                1
+              ],
+              "order": 0,
+              "line": 1,
+              "file": "specs/hypercode/overlay-session.hcs",
+              "value": "opaque"
+            }
+          ],
+          "contracts": []
+        },
+        "entry": {
+          "value": "agent",
+          "winner": {
+            "selector": "RainOverlaySession",
+            "specificity": [
+              0,
+              0,
+              1
+            ],
+            "order": 17,
+            "line": 52,
+            "file": "specs/hypercode/overlay-session.hcs",
+            "value": "agent"
+          },
+          "losers": [
+            {
+              "selector": "RainOverlaySession",
+              "specificity": [
+                0,
+                0,
+                1
+              ],
+              "order": 0,
+              "line": 1,
+              "file": "specs/hypercode/overlay-session.hcs",
+              "value": "interactive"
+            }
+          ],
+          "contracts": []
+        },
+        "implementation": {
+          "value": "begin + reconcileScreens + stop + resume",
+          "winner": {
+            "selector": "RainOverlaySession",
+            "specificity": [
+              0,
+              0,
+              1
+            ],
+            "order": 0,
+            "line": 1,
+            "file": "specs/hypercode/overlay-session.hcs",
+            "value": "begin + reconcileScreens + stop + resume"
+          },
+          "losers": [],
+          "contracts": []
+        },
+        "source": {
+          "value": "Sources/Dreams/DreamsController.swift",
+          "winner": {
+            "selector": "RainOverlaySession",
+            "specificity": [
+              0,
+              0,
+              1
+            ],
+            "order": 0,
+            "line": 1,
+            "file": "specs/hypercode/overlay-session.hcs",
+            "value": "Sources/Dreams/DreamsController.swift"
+          },
+          "losers": [],
+          "contracts": []
+        }
+      },
+      "children": [
+        {
+          "type": "DisplayTargets",
+          "hash": "4ba93dd16d629954a7ecee990bf67379f0c9cfe80b8019766340ed4da358de1f",
+          "properties": {
+            "implementation": {
+              "value": "targets + load + save",
+              "winner": {
+                "selector": "DisplayTargets",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 1,
+                "line": 6,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "targets + load + save"
+              },
+              "losers": [],
+              "contracts": []
+            },
+            "source": {
+              "value": "Sources/Dreams/RainDisplaySelection.swift",
+              "winner": {
+                "selector": "DisplayTargets",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 1,
+                "line": 6,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "Sources/Dreams/RainDisplaySelection.swift"
+              },
+              "losers": [],
+              "contracts": []
+            }
+          },
+          "children": []
+        },
+        {
+          "type": "Presentation",
+          "hash": "35d9fec18163c44a81b56c5500fbfee1ffb477072e1ccfbccef2269644e88c8c",
+          "properties": {
+            "implementation": {
+              "value": "reconcile + close",
+              "winner": {
+                "selector": "Presentation",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 2,
+                "line": 9,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "reconcile + close"
+              },
+              "losers": [],
+              "contracts": []
+            },
+            "source": {
+              "value": "Sources/Dreams/RainScreenManager.swift",
+              "winner": {
+                "selector": "Presentation",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 2,
+                "line": 9,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "Sources/Dreams/RainScreenManager.swift"
+              },
+              "losers": [],
+              "contracts": []
+            }
+          },
+          "children": [
+            {
+              "type": "OverlayWindows",
+              "hash": "568eebd2a77aad827e49ca5a354ffc48045e3e0eac2ab9a8e8bdfddfec0e9892",
+              "properties": {
+                "input": {
+                  "value": "mouse-pass-through-nonactivating-not-key-capable",
+                  "winner": {
+                    "selector": "OverlayWindows",
+                    "specificity": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "order": 13,
+                    "line": 43,
+                    "file": "specs/hypercode/overlay-session.hcs",
+                    "value": "mouse-pass-through-nonactivating-not-key-capable"
+                  },
+                  "losers": [
+                    {
+                      "selector": "OverlayWindows",
+                      "specificity": [
+                        0,
+                        0,
+                        1
+                      ],
+                      "order": 3,
+                      "line": 12,
+                      "file": "specs/hypercode/overlay-session.hcs",
+                      "value": "mouse-interactive-key-capable"
+                    }
+                  ],
+                  "contracts": []
+                },
+                "source": {
+                  "value": "Sources/Dreams/RainOverlayWindow.swift",
+                  "winner": {
+                    "selector": "OverlayWindows",
+                    "specificity": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "order": 3,
+                    "line": 12,
+                    "file": "specs/hypercode/overlay-session.hcs",
+                    "value": "Sources/Dreams/RainOverlayWindow.swift"
+                  },
+                  "losers": [],
+                  "contracts": []
+                }
+              },
+              "children": [
+                {
+                  "type": "InputRouting",
+                  "hash": "022eac5e8bd4cb25cb13096bc152cef328d73f32ab2705a3cc36feca008fe127",
+                  "properties": {
+                    "escape": {
+                      "value": "no-stop-working-app-retains-input",
+                      "winner": {
+                        "selector": "InputRouting",
+                        "specificity": [
+                          0,
+                          0,
+                          1
+                        ],
+                        "order": 14,
+                        "line": 45,
+                        "file": "specs/hypercode/overlay-session.hcs",
+                        "value": "no-stop-working-app-retains-input"
+                      },
+                      "losers": [
+                        {
+                          "selector": "InputRouting",
+                          "specificity": [
+                            0,
+                            0,
+                            1
+                          ],
+                          "order": 4,
+                          "line": 15,
+                          "file": "specs/hypercode/overlay-session.hcs",
+                          "value": "local-key-window-and-controller-guard"
+                        }
+                      ],
+                      "contracts": []
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "type": "ExitControls",
+                  "hash": "318e1e82ac69c9e633f145118932b274a92571161d3f963a60c2d9bf7387592b",
+                  "properties": {
+                    "availability": {
+                      "value": "absent",
+                      "winner": {
+                        "selector": "ExitControls",
+                        "specificity": [
+                          0,
+                          0,
+                          1
+                        ],
+                        "order": 15,
+                        "line": 47,
+                        "file": "specs/hypercode/overlay-session.hcs",
+                        "value": "absent"
+                      },
+                      "losers": [
+                        {
+                          "selector": "ExitControls",
+                          "specificity": [
+                            0,
+                            0,
+                            1
+                          ],
+                          "order": 5,
+                          "line": 17,
+                          "file": "specs/hypercode/overlay-session.hcs",
+                          "value": "opaque-only"
+                        }
+                      ],
+                      "contracts": []
+                    },
+                    "hide_delay_seconds": {
+                      "value": 4,
+                      "winner": {
+                        "selector": "ExitControls",
+                        "specificity": [
+                          0,
+                          0,
+                          1
+                        ],
+                        "order": 5,
+                        "line": 17,
+                        "file": "specs/hypercode/overlay-session.hcs",
+                        "value": 4
+                      },
+                      "losers": [],
+                      "contracts": []
+                    }
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "FocusReturn",
+              "hash": "c7ed459d9a2e56e0a8d7e07c6ca6d6121bcde04f4a62eea48f7e9d21c75103c4",
+              "properties": {
+                "implementation": {
+                  "value": "hasPresented + returnApplication + returnWindow",
+                  "winner": {
+                    "selector": "FocusReturn",
+                    "specificity": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "order": 6,
+                    "line": 20,
+                    "file": "specs/hypercode/overlay-session.hcs",
+                    "value": "hasPresented + returnApplication + returnWindow"
+                  },
+                  "losers": [],
+                  "contracts": []
+                },
+                "source": {
+                  "value": "Sources/Dreams/RainScreenManager.swift",
+                  "winner": {
+                    "selector": "FocusReturn",
+                    "specificity": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "order": 6,
+                    "line": 20,
+                    "file": "specs/hypercode/overlay-session.hcs",
+                    "value": "Sources/Dreams/RainScreenManager.swift"
+                  },
+                  "losers": [],
+                  "contracts": []
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "ExitInput",
+          "hash": "a3b811019b5cc903c84dc2342b9291068ed0d6f2136123c7b923716b4a0a68c8",
+          "properties": {
+            "implementation": {
+              "value": "controller callbacks + settings window + stop actions",
+              "winner": {
+                "selector": "ExitInput",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 7,
+                "line": 23,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "controller callbacks + settings window + stop actions"
+              },
+              "losers": [],
+              "contracts": []
+            },
+            "source": {
+              "value": "Sources/Dreams/DreamsMain.swift",
+              "winner": {
+                "selector": "ExitInput",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 7,
+                "line": 23,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "Sources/Dreams/DreamsMain.swift"
+              },
+              "losers": [],
+              "contracts": []
+            }
+          },
+          "children": [
+            {
+              "type": "GlobalHotkey",
+              "hash": "6ec5838ea9b41fda22b4b0459fb64714093fcc633dae69b60028c19296180527",
+              "properties": {
+                "implementation": {
+                  "value": "install + change + uninstall",
+                  "winner": {
+                    "selector": "GlobalHotkey",
+                    "specificity": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "order": 8,
+                    "line": 26,
+                    "file": "specs/hypercode/overlay-session.hcs",
+                    "value": "install + change + uninstall"
+                  },
+                  "losers": [],
+                  "contracts": []
+                },
+                "registration": {
+                  "value": "fallible-Carbon-registration",
+                  "winner": {
+                    "selector": "GlobalHotkey",
+                    "specificity": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "order": 8,
+                    "line": 26,
+                    "file": "specs/hypercode/overlay-session.hcs",
+                    "value": "fallible-Carbon-registration"
+                  },
+                  "losers": [],
+                  "contracts": []
+                },
+                "source": {
+                  "value": "Sources/Dreams/EmergencyHotkey.swift",
+                  "winner": {
+                    "selector": "GlobalHotkey",
+                    "specificity": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "order": 8,
+                    "line": 26,
+                    "file": "specs/hypercode/overlay-session.hcs",
+                    "value": "Sources/Dreams/EmergencyHotkey.swift"
+                  },
+                  "losers": [],
+                  "contracts": []
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "SessionLifetime",
+          "hash": "0f91009d69d597efaadf0f59ff75ca3edc0c63130cc1c6d865903fc3fa1a344d",
+          "properties": {
+            "duration": {
+              "value": "finite-1-to-3600-seconds-default-300",
+              "winner": {
+                "selector": "SessionLifetime",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 18,
+                "line": 54,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "finite-1-to-3600-seconds-default-300"
+              },
+              "losers": [
+                {
+                  "selector": "SessionLifetime",
+                  "specificity": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "order": 16,
+                  "line": 49,
+                  "file": "specs/hypercode/overlay-session.hcs",
+                  "value": "interactive-unbounded"
+                },
+                {
+                  "selector": "SessionLifetime",
+                  "specificity": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "order": 9,
+                  "line": 30,
+                  "file": "specs/hypercode/overlay-session.hcs",
+                  "value": "interactive-setting-or-unbounded"
+                }
+              ],
+              "contracts": []
+            },
+            "source": {
+              "value": "Sources/Dreams/DreamsController.swift",
+              "winner": {
+                "selector": "SessionLifetime",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 9,
+                "line": 30,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "Sources/Dreams/DreamsController.swift"
+              },
+              "losers": [],
+              "contracts": []
+            }
+          },
+          "children": []
+        },
+        {
+          "type": "CaptureVisibility",
+          "hash": "152d759bafa9a4745dcdab5521eb4b6bc34d2162f0572518f3976afc31fd12eb",
+          "properties": {
+            "guarantee": {
+              "value": "best-effort-not-pixel-proof",
+              "winner": {
+                "selector": "CaptureVisibility",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 10,
+                "line": 33,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "best-effort-not-pixel-proof"
+              },
+              "losers": [],
+              "contracts": []
+            },
+            "implementation": {
+              "value": "sharingType + checkScreenshotTool",
+              "winner": {
+                "selector": "CaptureVisibility",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 10,
+                "line": 33,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "sharingType + checkScreenshotTool"
+              },
+              "losers": [],
+              "contracts": []
+            },
+            "source": {
+              "value": "Sources/Dreams/DreamsController.swift",
+              "winner": {
+                "selector": "CaptureVisibility",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 10,
+                "line": 33,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "Sources/Dreams/DreamsController.swift"
+              },
+              "losers": [],
+              "contracts": []
+            }
+          },
+          "children": []
+        },
+        {
+          "type": "Renderer",
+          "hash": "cb08eb60f95a2da10c05745cc3db0c0f3e70305276ed29f80e474ecb7a20d3ba",
+          "properties": {
+            "detail_status": {
+              "value": "opaque-rendering-contract-unexplored",
+              "winner": {
+                "selector": "Renderer",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 11,
+                "line": 37,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "opaque-rendering-contract-unexplored"
+              },
+              "losers": [],
+              "contracts": []
+            },
+            "source": {
+              "value": "Sources/Dreams/RainRenderer.swift",
+              "winner": {
+                "selector": "Renderer",
+                "specificity": [
+                  0,
+                  0,
+                  1
+                ],
+                "order": 11,
+                "line": 37,
+                "file": "specs/hypercode/overlay-session.hcs",
+                "value": "Sources/Dreams/RainRenderer.swift"
+              },
+              "losers": [],
+              "contracts": []
+            }
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

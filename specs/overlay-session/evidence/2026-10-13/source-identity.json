@@ -1,0 +1,151 @@
+{
+  "sourceRevision": "1ce194748720e40e1eb9737e63bb37797c5840b1",
+  "sourceState": "Runtime inputs match clean merged-main sourceRevision; Makefile also includes this task's additive overlay specification checks. User glyph data remains untouched in the original checkout.",
+  "files": [
+    {
+      "path": "Sources/Dreams/RainDisplaySelection.swift",
+      "sha256": "eefb3e82a7f9335f0e423dc06a3a01208a4f08e41fb1fa4eb5503a47053cca4d",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/RainDisplaySelection.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/RainScreenManager.swift",
+      "sha256": "cf5ffa142476f620a6f24a21f29274d9d8f5680042a8b92ee300f71e84c910bd",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/RainOverlayWindow.swift",
+      "sha256": "ab6bff00b84b369082d222c1475ab3f108f668aab88919a531aed5b1652575e1",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/RainOverlayWindow.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/DreamsController.swift",
+      "sha256": "845669adc7188d503857e7cd93addc87c11f8c65c9e7e36b18974638fe93efe7",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMain.swift",
+      "sha256": "a7f40649734862b81660a36340981916653f8670c5cd4f1e5b0ea88a36273841",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift",
+      "gitStatus": "",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          45,
+          75
+        ],
+        [
+          130,
+          195
+        ],
+        [
+          230,
+          270
+        ],
+        [
+          480,
+          500
+        ],
+        [
+          590,
+          620
+        ],
+        [
+          695,
+          738
+        ],
+        [
+          840,
+          874
+        ]
+      ],
+      "snapshotSha256": "a8350a7882f1237f7a29edaf05e8f0eb7ccd4e8ced5b90a446d853fbe2590fa5"
+    },
+    {
+      "path": "Sources/Dreams/StopHotkey.swift",
+      "sha256": "414f99b40658b3929a6a5c7e2e86c949d7fc2d04e91251aee0ece9c0f07f8f5b",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/StopHotkey.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/EmergencyHotkey.swift",
+      "sha256": "13de3684a25d153f71fd55424348a769226200524167290f865bad2d93b8ea1d",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/EmergencyHotkey.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DisplaySelectionTests.swift",
+      "sha256": "1a44de3c91c36df85cdff16653809834c1d9273ff16218725bbe86c471026ef7",
+      "snapshot": "evidence/2026-10-13/source/Tests/DreamsTests/DisplaySelectionTests.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/OverlayExitTests.swift",
+      "sha256": "7282e25241743efc26cf53178b15ef77980fce350b91dbb704252cb69499e138",
+      "snapshot": "evidence/2026-10-13/source/Tests/DreamsTests/OverlayExitTests.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-overlay-exit.py",
+      "sha256": "97f86234067e957b5c0973cbc9e19bd9817233597285036e7abc3c9408f5c717",
+      "snapshot": "evidence/2026-10-13/source/scripts/test-overlay-exit.py",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-hotkey.swift",
+      "sha256": "da2ef4818a55cdad80a4f2dadcd89bacf82eea1e24fb54a9b8006c21bd7fb91c",
+      "snapshot": "evidence/2026-10-13/source/scripts/test-hotkey.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Package.swift",
+      "sha256": "845e44baed51ba7103aa2ae2b27545b87fecebb08ada6cc6348d15e44f6497c7",
+      "snapshot": "evidence/2026-10-13/source/Package.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Makefile",
+      "sha256": "fdda14add67481e10b6315b4182271b6b4c663239104ab172c6b1bffd81f4301",
+      "snapshot": "evidence/2026-10-13/source/Makefile",
+      "gitStatus": "M Makefile",
+      "snapshotKind": "full-file",
+      "note": "Only adds overlay specification checks to the existing specs-check target."
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "f1023e675c2c4b66e42f210895b27d0b760d24a1837346bc90e8b5836e000ca6",
+      "snapshot": "evidence/2026-10-13/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "81bec4555d2d12205e9acc5e1045d1a9903de32b4df336ee74350f5c01f9ac7a",
+      "snapshot": "evidence/2026-10-13/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "7c362179371da54af072ad75ba7050cd8644ecb507f5e83fa7e44422b310e738",
+      "snapshot": "evidence/2026-10-13/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "72baff0524bba8a7b19a3619702251532be8d6bf0e71cabeeb09b7e5542b95ea",
+      "snapshot": "evidence/2026-10-13/maps/overlay-session.hcs"
+    }
+  ]
+}

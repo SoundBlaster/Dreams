@@ -1,0 +1,103 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.overlay.displays
+  title: DisplayTargets
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Select eligible connected screens while retaining a stable saved display preference.
+scope:
+  boundedContext: macos_overlay_session
+  includes:
+  - Automatic/all/selected target selection, workspace exclusion and saved IDs.
+  excludes:
+  - Physical topology mutation, overlay focus, rendering, third-party virtual display ownership.
+provides:
+  capabilities:
+  - id: dreams.overlay.displays
+    role: primary
+    summary: Select eligible connected screens while retaining a stable saved display preference.
+requires:
+  capabilities: []
+interfaces:
+  inbound:
+  - id: displays_entry
+    kind: library
+    summary: Existing internal MainActor boundary; no new public Swift API is asserted.
+    operations:
+    - name: targets
+      inputs:
+      - name: inventory
+        type: RainDisplay list with stable id, builtIn, isMain, excluded; AppKit inventory supplied by parent
+      outputs:
+      - name: targets
+        type: eligible subset, fallback single screen or empty list
+    - name: load/save
+      inputs:
+      - name: defaults
+        type: supplied/default UserDefaults
+      outputs:
+      - name: preference
+        type: mode and stable selected ID set
+  outbound: []
+constraints:
+- id: exclude_workspace
+  level: MUST
+  statement: Filter excluded screens before applying every selection mode, including a saved selection containing
+    only an excluded workspace.
+- id: automatic_fallback
+  level: MUST
+  statement: Automatic selects the first eligible built-in screen, else eligible main screen, else first eligible
+    screen; with no eligible display return empty. Closed-lid fallback depends on the inventory supplied by AppKit.
+- id: selected_fallback
+  level: MUST
+  statement: Selected mode uses all matching eligible saved IDs while any exist; when none match, temporarily use
+    Automatic without erasing disconnected saved choices. All mode returns every eligible screen.
+- id: persistence
+  level: MUST
+  statement: Store mode and sorted selected ID strings under rainDisplayMode/rainDisplayIDs; invalid stored mode
+    falls back to automatic. Parent screen inventory derives stable IDs from CoreGraphics UUIDs, with numeric display-ID
+    fallback if no UUID is available.
+effects:
+  sideEffects:
+  - id: preferences
+    kind: state_mutation
+    summary: Reads/writes caller-supplied UserDefaults through load/save; targets itself does not mutate inventory
+      or preferences.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/RainDisplaySelection.swift
+  supports:
+  - interfaces
+  - constraints
+  - effects
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift
+  supports:
+  - constraints.persistence
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from merged main 1ce194748720e40e1eb9737e63bb37797c5840b1; full hashes, snapshots and exact
+    excerpts in evidence/2026-10-13/source-identity.json.
+  - Normative language recovers scoped implementation behavior, not accepted new product requirements. See matrix.md
+    for assembly duties, evidence level and owner decisions.
+  - No application, browser, display-topology, physical-key or capture tests were executed in this source/specification
+    pass. Test source is a declared expectation only.
+implementationBindings:
+- id: displays_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 1ce194748720e40e1eb9737e63bb37797c5840b1
+  files:
+    owned:
+    - evidence/2026-10-13/source/Sources/Dreams/RainDisplaySelection.swift
+    - evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift
+    border: []

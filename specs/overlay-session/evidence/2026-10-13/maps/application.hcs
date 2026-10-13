@@ -1,0 +1,20 @@
+Dreams:
+  map_kind: "coarse-capability-composition"
+  evidence_level: "partial-source-recovery-see-coverage"
+DesktopApplication:
+  source: "Sources/Dreams/DreamsMain.swift"
+  detail_status: "overlay-recovered-other-UI-unexplored"
+RainOverlaySession:
+  source: "Sources/Dreams/DreamsController.swift"
+  detail: "overlay-session.hc + overlay-session.hcs"
+AgentIntegrations:
+  source: "plugins/"
+  detail_status: "unexplored"
+GlyphToolchain:
+  source: "scripts/glyphs/"
+GlyphEditor:
+  source: "scripts/glyphs/stroke-editor.js"
+  detail: "glyph-editor.hc + glyph-editor.hcs"
+FontBuild:
+  source: "scripts/glyphs/pipeline.py"
+  detail_status: "unexplored"
