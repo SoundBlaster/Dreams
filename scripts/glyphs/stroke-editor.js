@@ -8,6 +8,8 @@ let history = [], future = [], rangeBefore = null, drag = null;
 let segmentInsertPreview = null, moveGlyphMode = false, layerSignature = '';
 let references = [], referenceSelected = -1, referenceDrag = null;
 const REFERENCE_STORAGE = STORAGE+'.references';
+const GUIDE_STORAGE=STORAGE+'.user-guides';
+let userGuides=[],guidePresets=[],userGuideSelected=-1,guideDrag=null;
 let checkpointParent = null, checkpointHead = null, checkpointBusy = false, checkpointAvailable = false;
 const currentGlyph = () => project.glyphs[selected];
 const currentStroke = () => currentGlyph().strokes[strokeIndex];
@@ -94,7 +96,7 @@ function renderControls() {
 }
 function paintMetricGuides(g,paths) {
   const enabled=el('metricGuides').checked;
-  el('stage').setAttribute('viewBox',enabled?'-49 -18 210 153':'0 0 109 109');
+  el('stage').setAttribute('viewBox',enabled?'-49 -18 210 153':el('showRulers').checked?'-8 -8 125 125':'0 0 109 109');
   el('metricsLegend').textContent=enabled?`Метрики экспорта · UPM ${fontMetrics.upm} · line height ${M.metricGuides(fontMetrics).lineHeight} · пунктирная рамка: bounding box контура. X-height — ориентир для латиницы.`:'';
   if(!enabled)return '';
   const m=M.metricGuides(fontMetrics),lines=[
@@ -119,14 +121,14 @@ function paint() {
   const join=segmentInsertPreview ? part[segmentInsertPreview==='before'?'start':'end'] : null;
   const insertionHint=join?`<circle cx="${join[0]}" cy="${join[1]}" r="3" fill="none" stroke="#b17f24" stroke-width=".65" pointer-events="none"/>`:'';
   const allPoints=s.segments.map((seg,i)=>`<circle cx="${seg.start[0]}" cy="${seg.start[1]}" r=".8" fill="#afc0b3" data-segment="${i}"/>`).join('');
-  el('stage').innerHTML=`<defs><pattern id="grid" width="10.9" height="10.9" patternUnits="userSpaceOnUse"><path d="M10.9 0H0V10.9" fill="none" stroke="#dae0d3" stroke-width=".16"/></pattern></defs><rect width="109" height="109" fill="url(#grid)"/><path d="M54.5 0V109M0 54.5H109" stroke="#b9caba" stroke-width=".25"/>${referenceMarkup()}<g id="geometry" transform="${M.transform(g)}"><g fill="#173b2e" fill-rule="nonzero">${ink}</g><g class="guides">${guides}${allPoints}${handles}</g>${insertionHint}</g>${referenceFrame()}${paintMetricGuides(g,paths)}`;
+  el('stage').innerHTML=`<defs><pattern id="grid" width="10.9" height="10.9" patternUnits="userSpaceOnUse"><path d="M10.9 0H0V10.9" fill="none" stroke="#dae0d3" stroke-width=".16"/></pattern></defs><rect width="109" height="109" fill="url(#grid)"/><path d="M54.5 0V109M0 54.5H109" stroke="#b9caba" stroke-width=".25"/>${referenceMarkup()}${userGuideMarkup(true)}<g id="geometry" transform="${M.transform(g)}"><g fill="#173b2e" fill-rule="nonzero">${ink}</g><g class="guides">${guides}${allPoints}${handles}</g>${insertionHint}</g>${referenceFrame()}${paintMetricGuides(g,paths)}${rulerMarkup()}${userGuideMarkup(false)}`;
   el('stage').classList.toggle('hide-handles',!el('handles').checked||moveGlyphMode);
   el('stage').classList.toggle('move-glyph',moveGlyphMode);
   el('sizes').innerHTML=[20,26,32,48].map(size=>`<div class="sample"><svg width="${size}" height="${size}" viewBox="0 0 109 109" aria-label="${size} пикселей"><g fill="#41d88a" transform="${M.transform(g)}">${ink}</g></svg><span>${size}px</span></div>`).join('');
   const points=Array.from({length:101},(_,i)=>`${10+i*2.4},${55-M.widthAt(s,i/100)/16*45}`).join(' ');
   el('widthGraph').innerHTML=`<path d="M10 10V55H250" fill="none" stroke="#c0cab8"/><polyline points="${points}" stroke="#277758" stroke-width="2" fill="none"/><circle cx="${10+s.peak*240}" cy="${55-s.width/16*45}" r="3" fill="#cb8731"/>`;
 }
-function render(){renderReferences();el('credit').textContent=project.attribution;renderAlphabet();renderControls();paint();}
+function render(){renderUserGuides();renderReferences();el('credit').textContent=project.attribution;renderAlphabet();renderControls();paint();}
 function blankStroke() {return {segments:[{kind:'line',start:[35,30],mid:[50,50],end:[65,70]}],width:7.5,peak:.5,startWidth:5,endWidth:5,startCap:'flat',endCap:'flat'};}
 function download(name,data,type) {
   const url=URL.createObjectURL(new Blob([data],{type}));
@@ -162,6 +164,7 @@ el('strokeJoin').onchange=()=>{const join=el('strokeJoin').value;edit(()=>{if(jo
 el('fitGlyph').onclick=()=>edit(()=>M.fitGlyph(currentGlyph(),fontMetrics));
 el('resetPlacement').onclick=()=>edit(()=>{delete currentGlyph().placement;});
 el('handles').onchange=paint;
+el('showRulers').onchange=()=>{paint();storeUserGuides();};
 for(const id of ['metricGuides','guideBaseline','guideCap','guideMeanline','guideLimits','guideBounds','guideCell'])el(id).onchange=()=>{paint();try{localStorage.setItem(STORAGE+'.'+id,String(el(id).checked));}catch{}};
 for(const [id,mode] of [['editPoints',false],['moveGlyph',true]])el(id).onclick=()=>{finishRange();moveGlyphMode=mode;renderControls();paint();};
 for(const [id,axis] of [['glyphX','x'],['glyphY','y']])el(id).onchange=()=>{
@@ -236,6 +239,70 @@ function validateReferences(data) {
 function storeReferences() {
   try{localStorage.setItem(REFERENCE_STORAGE,JSON.stringify({schema:'dreams.references/v1',images:references}));el('referenceStatus').textContent='Референсы сохранены в браузере. Для переносимой копии сохрани референсы JSON.';}
   catch{el('referenceStatus').textContent='Не хватает места в браузере. Сохрани референсы JSON, чтобы не потерять изображения.';}
+}
+function validateGuideState(value) {
+  const lines=items=>Array.isArray(items)&&items.length<=64&&items.every(g=>g&&['h','v'].includes(g.axis)&&typeof g.position==='number'&&Number.isFinite(g.position)&&g.position>=0&&g.position<=109);
+  if(!value||value.schema!=='dreams.guides/v1'||typeof value.visible!=='boolean'||!lines(value.lines)||!Array.isArray(value.presets)||value.presets.length>32||!value.presets.every(p=>p&&typeof p.name==='string'&&p.name.trim()&&p.name.length<=80&&lines(p.lines))||new Set(value.presets.map(p=>p.name)).size!==value.presets.length)throw new Error('Некорректные пресеты направляющих');
+  return value;
+}
+function storeUserGuides() {
+  try{localStorage.setItem(GUIDE_STORAGE,JSON.stringify({schema:'dreams.guides/v1',visible:el('showRulers').checked,lines:userGuides,presets:guidePresets}));}
+  catch{el('userGuideStatus').textContent='Браузер не сохранил направляющие: недостаточно места.';}
+}
+function loadUserGuides() {
+  try{const raw=localStorage.getItem(GUIDE_STORAGE);if(raw){const saved=validateGuideState(JSON.parse(raw));userGuides=saved.lines;guidePresets=saved.presets;el('showRulers').checked=saved.visible;userGuideSelected=userGuides.length?0:-1;}}
+  catch{el('userGuideStatus').textContent='Сохранённые направляющие не прочитаны. Старая копия не перезаписана.';}
+}
+function renderUserGuides() {
+  const list=el('userGuideList'),preset=el('guidePresetList'),previous=preset.value;list.replaceChildren();preset.replaceChildren();
+  userGuides.forEach((g,i)=>{const option=document.createElement('option');option.value=i;option.textContent=`${g.axis==='h'?'Горизонталь Y':'Вертикаль X'} · ${g.position.toFixed(1)}`;list.append(option);});list.value=userGuideSelected;
+  const selected=userGuides[userGuideSelected];el('userGuidePosition').value=selected?selected.position.toFixed(2):'';
+  for(const id of ['userGuidePosition','guideRemove','userGuideList'])el(id).disabled=!selected;
+  guidePresets.forEach((p,i)=>{const option=document.createElement('option');option.value=i;option.textContent=p.name;preset.append(option);});
+  preset.value=previous!==''&&guidePresets[Number(previous)]?previous:guidePresets.length?'0':'';
+  for(const id of ['guidePresetApply','guidePresetRemove','guidePresetList'])el(id).disabled=!guidePresets.length;
+  el('guideAddH').disabled=el('guideAddV').disabled=userGuides.length>=64;
+}
+function rulerMarkup() {
+  if(!el('showRulers').checked)return '';
+  const ticks=Array.from({length:22},(_,i)=>i*5).concat(109);
+  return `<g font-family="system-ui" font-size="2" fill="#63766b"><rect x="0" y="-6" width="109" height="6" fill="#e5e9df" data-ruler="x" style="cursor:crosshair"/><rect x="-6" y="0" width="6" height="109" fill="#e5e9df" data-ruler="y" style="cursor:crosshair"/><g pointer-events="none">${ticks.map(n=>`<path d="M${n} 0v-${n%10===0?2:1}M0 ${n}h-${n%10===0?2:1}" stroke="#89998c" stroke-width=".15"/>${n%10===0?`<text x="${n+.5}" y="-3">${n}</text><text x="-5.7" y="${n+2.5}">${n}</text>`:''}`).join('')}</g></g>`;
+}
+function userGuideMarkup(hits) {
+  if(!el('showRulers').checked)return '';
+  return userGuides.map((g,i)=>{
+    const p=g.position,d=g.axis==='h'?`M0 ${p}H109`:`M${p} 0V109`;
+    if(hits)return `<path d="${d}" fill="none" stroke="transparent" stroke-width="2" data-user-guide="${i}" style="cursor:${g.axis==='h'?'ns':'ew'}-resize"/>`;
+    const marker=g.axis==='h'?`-5,${p-1.5} 0,${p} -5,${p+1.5}`:`${p-1.5},-5 ${p},0 ${p+1.5},-5`;
+    return `<path d="${d}" fill="none" stroke="${i===userGuideSelected?'#b758a1':'#9676af'}" stroke-width=".22" stroke-dasharray="1 1" pointer-events="none"/><polygon points="${marker}" fill="${i===userGuideSelected?'#b758a1':'#9676af'}" data-user-guide="${i}" style="cursor:${g.axis==='h'?'ns':'ew'}-resize"/>`;
+  }).join('');
+}
+function addUserGuide(axis,position=54.5) {
+  if(userGuides.length>=64)return false;
+  userGuides.push({axis,position:Math.max(0,Math.min(109,position))});userGuideSelected=userGuides.length-1;el('showRulers').checked=true;return true;
+}
+for(const [id,axis] of [['guideAddH','h'],['guideAddV','v']])el(id).onclick=()=>{addUserGuide(axis);storeUserGuides();renderUserGuides();paint();};
+el('userGuideList').onchange=()=>{userGuideSelected=Number(el('userGuideList').value);renderUserGuides();paint();};
+el('userGuidePosition').onchange=()=>{
+  const input=el('userGuidePosition'),value=Number(input.value),g=userGuides[userGuideSelected];
+  if(!g||input.value===''||!Number.isFinite(value)||value<0||value>109){el('userGuideStatus').textContent='Координата должна лежать в 0–109.';renderUserGuides();return;}
+  g.position=value;storeUserGuides();renderUserGuides();paint();
+};
+el('guideRemove').onclick=()=>{if(userGuideSelected<0)return;userGuides.splice(userGuideSelected,1);userGuideSelected=Math.min(userGuideSelected,userGuides.length-1);storeUserGuides();renderUserGuides();paint();};
+el('guidePresetSave').onclick=()=>{
+  const name=el('guidePresetName').value.trim();
+  if(!name||name.length>80||guidePresets.length>=32||guidePresets.some(p=>p.name===name)){el('userGuideStatus').textContent='Укажи уникальное имя пресета (до 80 символов, до 32 пресетов).';return;}
+  guidePresets.push({name,lines:M.copy(userGuides)});storeUserGuides();renderUserGuides();el('guidePresetList').value=guidePresets.length-1;el('userGuideStatus').textContent=`Пресет «${name}» сохранён в браузере.`;
+};
+el('guidePresetApply').onclick=()=>{const p=guidePresets[Number(el('guidePresetList').value)];if(!p)return;userGuides=M.copy(p.lines);userGuideSelected=userGuides.length?0:-1;el('showRulers').checked=true;storeUserGuides();renderUserGuides();paint();};
+el('guidePresetRemove').onclick=()=>{const i=Number(el('guidePresetList').value);if(!guidePresets[i])return;guidePresets.splice(i,1);storeUserGuides();renderUserGuides();};
+function beginGuideDrag(event) {
+  const data=event.target.dataset;if(data.userGuide===undefined&&data.ruler===undefined)return false;
+  const before=M.copy(userGuides),selectedBefore=userGuideSelected;
+  if(data.ruler!==undefined){const p=referencePoint(event);if(!addUserGuide(data.ruler==='x'?'v':'h',p[data.ruler==='x'?0:1]))return true;}
+  else userGuideSelected=Number(data.userGuide);
+  if(!userGuides[userGuideSelected])return true;
+  guideDrag={pointer:event.pointerId,before,selectedBefore};el('stage').setPointerCapture(event.pointerId);event.preventDefault();renderUserGuides();paint();return true;
 }
 function loadReferences() {
   try{const saved=localStorage.getItem(REFERENCE_STORAGE);if(saved)references=validateReferences(JSON.parse(saved));}
@@ -393,6 +460,7 @@ el('checkpointRestore').onclick=()=>checkpointAction(async()=>{
 if(typeof fetch==='function')el('checkpointRefresh').onclick();
 el('stage').addEventListener('pointerdown',event=>{
   if(event.button!==undefined && event.button!==0)return;
+  if(beginGuideDrag(event))return;
   if(moveGlyphMode) {
     finishRange();drag={key:'glyph',before:snapshot(),pointer:event.pointerId,start:referencePoint(event),placement:{scale:1,x:0,y:0,...currentGlyph().placement}};
     el('stage').setPointerCapture(event.pointerId);event.preventDefault();return;
@@ -407,6 +475,7 @@ el('stage').addEventListener('pointerdown',event=>{
   finishRange();drag={key,before:snapshot(),pointer:event.pointerId,anchor:[...currentSegment()[key==='start'?'end':key==='end'?'start':'mid']]};el('stage').setPointerCapture(event.pointerId);event.preventDefault();
 });
 el('stage').addEventListener('pointermove',event=>{
+  if(guideDrag&&guideDrag.pointer===event.pointerId){const g=userGuides[userGuideSelected],p=referencePoint(event);g.position=Number(Math.max(0,Math.min(109,p[g.axis==='v'?0:1])).toFixed(2));renderUserGuides();paint();return;}
   if(moveReferenceDrag(event))return;
   if(!drag || event.pointerId!==drag.pointer)return;
   if(drag.key==='glyph') {
@@ -424,6 +493,7 @@ el('stage').addEventListener('pointermove',event=>{
   M.setPoint(currentStroke(),segmentIndex,drag.key,position);renderControls();paint();
 });
 function endDrag(event) {
+  if(guideDrag&&guideDrag.pointer===event.pointerId){if(event.type==='pointercancel'){userGuides=guideDrag.before;userGuideSelected=guideDrag.selectedBefore;}guideDrag=null;storeUserGuides();renderUserGuides();paint();return;}
   if(referenceDrag && event.pointerId===referenceDrag.pointer){referenceDrag=null;storeReferences();return;}
   if(!drag || event.pointerId!==drag.pointer)return;
   const before=drag.before, cancelled=event.type==='pointercancel'&&drag.key==='glyph';drag=null;
@@ -437,9 +507,9 @@ document.addEventListener('keydown',event=>{
     event.preventDefault();el(event.shiftKey?'redo':'undo').click();
   }
 });
-window.addEventListener('pagehide',()=>{finishRange();if(drag)store();if(referenceDrag)storeReferences();});
+window.addEventListener('pagehide',()=>{finishRange();if(drag)store();if(referenceDrag)storeReferences();if(guideDrag)storeUserGuides();});
 try {const saved=localStorage.getItem(STORAGE);if(saved){project=M.validate(JSON.parse(saved));checkpointParent=localStorage.getItem(STORAGE+'.parent') || null;selected=Math.min(4,project.glyphs.length-1);status('Восстановлены сохранённые правки');}}
 catch {status('Сохранённый проект не прочитан. Исходные знаки загружены; старая копия не перезаписана.',true);}
 el('credit').textContent=project.attribution;
 try{for(const id of ['metricGuides','guideBaseline','guideCap','guideMeanline','guideLimits','guideBounds','guideCell']){const saved=localStorage.getItem(STORAGE+'.'+id);if(saved!==null&&saved!==undefined)el(id).checked=saved==='true';}}catch{}
-loadReferences();M.validate(project);render();
+loadUserGuides();loadReferences();M.validate(project);render();

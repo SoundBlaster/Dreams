@@ -32,7 +32,9 @@ const metricProject=state();element('guideBaseline').checked=false;element('guid
 assert.ok(!element('stage').innerHTML.includes('Baseline 0'));
 element('guideBaseline').checked=true;element('guideBaseline').onchange();
 element('metricGuides').checked=false;element('metricGuides').onchange();
-assert.equal(element('stage').viewBox,'0 0 109 109');assert.deepEqual(state(),metricProject);
+assert.equal(element('stage').viewBox,'-8 -8 125 125');assert.deepEqual(state(),metricProject);
+element('showRulers').checked=false;element('showRulers').onchange();assert.equal(element('stage').viewBox,'0 0 109 109');
+element('showRulers').checked=true;element('showRulers').onchange();
 element('metricGuides').checked=true;element('metricGuides').onchange();
 
 // Visible hierarchy selects actual stroke/section, including non-first strokes.
@@ -58,6 +60,30 @@ assert.equal(state().glyphs[4].placement.x,0);assert.equal(state().glyphs[4].pla
 moveStage.events.pointercancel({type:'pointercancel',pointerId:13});assert.deepEqual(state(),beforeMove);
 element('editPoints').onclick();
 console.log('PASS: layer hierarchy selection and whole-glyph movement preserve strokes and support Undo');
+
+const guideProject=state(),guideSVG=M.svg(state().glyphs[4],seed.attribution);
+element('guideAddH').onclick();element('userGuidePosition').value='20';element('userGuidePosition').onchange();
+element('guideAddV').onclick();element('userGuidePosition').value='80';element('userGuidePosition').onchange();
+const guideState=()=>JSON.parse(vm.runInContext('JSON.stringify(userGuides)',sandbox));
+assert.deepEqual(guideState(),[{axis:'h',position:20},{axis:'v',position:80}]);
+element('guidePresetName').value='Test grid';element('guidePresetSave').onclick();
+element('userGuidePosition').value='50';element('userGuidePosition').onchange();
+element('guidePresetApply').onclick();assert.deepEqual(guideState(),[{axis:'h',position:20},{axis:'v',position:80}]);
+element('guidePresetSave').onclick();assert.equal(vm.runInContext('guidePresets.length',sandbox),1,'duplicate names are refused');
+element('userGuidePosition').value='NaN';element('userGuidePosition').onchange();assert.equal(guideState()[0].position,20);
+const guideStage=element('stage');guideStage.events.pointerdown({target:{dataset:{userGuide:'0'}},pointerId:20,preventDefault(){}});
+guideStage.events.pointermove({clientX:20,clientY:35,pointerId:20});guideStage.events.pointerup({pointerId:20});
+assert.equal(guideState()[0].position,35);
+assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1.user-guides')).lines[0].position,35);
+guideStage.events.pointerdown({target:{dataset:{ruler:'y'}},clientX:0,clientY:45,pointerId:21,preventDefault(){}});
+assert.equal(guideState().length,3);guideStage.events.pointercancel({type:'pointercancel',pointerId:21});assert.equal(guideState().length,2);
+element('alphabet').children[1].onclick();assert.equal(guideState()[0].position,35);element('alphabet').children[4].onclick();
+assert.deepEqual(state(),guideProject);assert.equal(M.svg(state().glyphs[4],seed.attribution),guideSVG);
+element('guidePresetList').value='';vm.runInContext('userGuides=[];guidePresets=[];loadUserGuides();renderUserGuides();',sandbox);assert.equal(guideState()[0].position,35);assert.equal(element('guidePresetList').value,'0');
+assert.throws(()=>vm.runInContext("validateGuideState({schema:'dreams.guides/v1',visible:true,lines:[{axis:'h',position:NaN}],presets:[]})",sandbox));
+element('guidePresetRemove').onclick();assert.equal(vm.runInContext('guidePresets.length',sandbox),0);
+element('guideRemove').onclick();element('guideRemove').onclick();assert.equal(guideState().length,0);
+console.log('PASS: rulers, editable guides, independent named presets, persistence, cancellation and glyph isolation');
 
 const beforeFit=state();element('fitGlyph').onclick();
 assert.ok(state().glyphs[4].placement);assert.equal(element('resetPlacement').disabled,false);
