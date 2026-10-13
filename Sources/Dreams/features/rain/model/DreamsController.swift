@@ -171,7 +171,7 @@ final class DreamsController: NSObject {
 
     private func checkScreenshotTool() {
         guard rainIsOn else { return }
-        checkScreenshotTool(active: Self.screenshotToolIsActive(), at: Date())
+        checkScreenshotTool(active: hideFromScreenshots && Self.screenshotToolIsActive(), at: Date())
     }
 
     /// Apply a capture-tool observation; explicit time keeps the restore grace period deterministic.
