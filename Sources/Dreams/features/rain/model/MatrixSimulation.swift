@@ -4,6 +4,49 @@ import Foundation
 struct MatrixSimulation {
     private static let tailIntervalScale = 1.6
 
+    /// Stable timestamp/index ordering, shared by the grid and each column's trials.
+    struct Schedule {
+        struct Entry {
+            let time: Double
+            let index: Int
+            func precedes(_ other: Entry) -> Bool {
+                time == other.time ? index < other.index : time < other.time
+            }
+        }
+        private var heap: [Entry] = []
+        var first: Entry? { heap.first }
+
+        mutating func insert(time: Double, index: Int) {
+            guard time.isFinite else { return }
+            heap.append(Entry(time: time, index: index))
+            var child = heap.count - 1
+            while child > 0 {
+                let parent = (child - 1) / 2
+                guard heap[child].precedes(heap[parent]) else { break }
+                heap.swapAt(child, parent)
+                child = parent
+            }
+        }
+
+        @discardableResult mutating func pop() -> Entry? {
+            guard let result = heap.first else { return nil }
+            let last = heap.removeLast()
+            guard !heap.isEmpty else { return result }
+            heap[0] = last
+            var parent = 0
+            while parent * 2 + 1 < heap.count {
+                let left = parent * 2 + 1, right = left + 1
+                let child = right < heap.count && heap[right].precedes(heap[left]) ? right : left
+                guard heap[child].precedes(heap[parent]) else { break }
+                heap.swapAt(child, parent)
+                parent = child
+            }
+            return result
+        }
+
+        mutating func removeAll() { heap.removeAll(keepingCapacity: true) }
+    }
+
     struct Deceleration: Equatable {
         static let defaultAcceleration = -12.0
         static let minimumAcceleration = -120.0
@@ -97,6 +140,7 @@ struct MatrixSimulation {
         var rank = 0.0
         var restUntil = 0.0
         var searches: [Int: Search] = [:]
+        var searchSchedule = Schedule()
         var nextExpiry = Double.infinity
         var generator: Generator
     }
@@ -114,7 +158,9 @@ struct MatrixSimulation {
     private struct Position: Hashable { let column: Int; let row: Int }
     private var available: [Position] = []
     private var availableIndex: [Position: Int] = [:]
-    var searchingSymbolCount: Int { columns.reduce(0) { $0 + $1.searches.count } }
+    private var events = Schedule()
+    private var scheduledTimes: [Double] = []
+    private(set) var searchingSymbolCount = 0
     var visibleSymbolCount: Int { available.count + searchingSymbolCount }
 
     mutating func setSearchFraction(_ value: Double) {
@@ -158,6 +204,8 @@ struct MatrixSimulation {
                 fade: fade, generator: Generator(state: seed &+ UInt64(index) &* 7919)))
         }
         for index in columns.indices { columns[index].nextMutation = .infinity }
+        scheduledTimes = Array(repeating: .infinity, count: columns.count)
+        for index in columns.indices { scheduleColumn(index) }
     }
 
     /// Starts a single new top-to-bottom packet in response to an observed event.
@@ -169,9 +217,12 @@ struct MatrixSimulation {
         columns[index].nextWrite = time
         for row in columns[index].searches.keys.sorted() {
             columns[index].searches.removeValue(forKey: row)
+            searchingSymbolCount -= 1
             addAvailable(Position(column: index, row: row))
         }
         columns[index].nextMutation = .infinity
+        columns[index].searchSchedule.removeAll()
+        scheduleColumn(index)
         // Bound the whole stretched trace, including its slow rear after the head
         // leaves the screen. Row zero will draw the packet's actual lifetime.
         let column = columns[index]
@@ -209,6 +260,8 @@ struct MatrixSimulation {
                 columns[index].nextWrite = .infinity
                 columns[index].nextMutation = .infinity
                 columns[index].nextExpiry = .infinity
+                columns[index].searchSchedule.removeAll()
+                scheduleColumn(index)
                 continue
             }
             var column = columns[index]
@@ -251,27 +304,39 @@ struct MatrixSimulation {
                 }
             }
             columns[index] = column
+            scheduleColumn(index)
         }
         maintainSearchShare(at: time, rate: rate)
         // One global timestamp order keeps pool selection independent of frame subdivision.
-        while let index = columns.indices.min(by: { nextEvent(in: $0) < nextEvent(in: $1) }),
-              nextEvent(in: index) <= target {
-            let eventTime = nextEvent(in: index)
+        while let pending = events.first, pending.time <= target {
+            events.pop()
+            let index = pending.index
+            guard scheduledTimes[index] == pending.time else { continue }
+            scheduledTimes[index] = .infinity
+            let eventTime = pending.time
+            var occupancyChanged = true
             if columns[index].nextWrite <= columns[index].nextMutation
                 && columns[index].nextWrite <= columns[index].nextExpiry {
                 writeNext(in: index, visibility: min(1, max(0, visibility?[index] ?? 1)), coverage: coverage)
             } else if columns[index].nextExpiry <= columns[index].nextMutation {
                 expireCells(in: index, at: eventTime)
             } else {
-                advanceSearch(in: index, at: eventTime, rate: rate)
+                occupancyChanged = advanceSearch(in: index, at: eventTime, rate: rate)
             }
-            maintainSearchShare(at: eventTime, rate: rate)
+            if occupancyChanged { maintainSearchShare(at: eventTime, rate: rate) }
         }
         time = target
     }
 
     private func nextEvent(in index: Int) -> Double {
         min(columns[index].nextWrite, columns[index].nextMutation, columns[index].nextExpiry)
+    }
+
+    private mutating func scheduleColumn(_ index: Int) {
+        let next = nextEvent(in: index)
+        guard scheduledTimes[index] != next else { return }
+        scheduledTimes[index] = next
+        events.insert(time: next, index: index)
     }
 
     private mutating func writeNext(in index: Int, visibility visible: Float, coverage: Double) {
@@ -348,6 +413,7 @@ struct MatrixSimulation {
             .map { $0.writtenAt + $0.hold + $0.fade }.min() ?? .infinity
         columns[index] = column
         if !column.cells[position.row].isGap { addAvailable(position) }
+        scheduleColumn(index)
     }
 
     private mutating func expireCells(in index: Int, at time: Double) {
@@ -360,6 +426,7 @@ struct MatrixSimulation {
         }
         columns[index].nextExpiry = columns[index].cells.filter { $0.glyph >= 0 }
             .map { $0.writtenAt + $0.hold + $0.fade }.min() ?? .infinity
+        scheduleColumn(index)
     }
 
     private mutating func addAvailable(_ position: Position) {
@@ -375,12 +442,20 @@ struct MatrixSimulation {
     }
 
     private mutating func refreshMutationTime(in index: Int) {
-        columns[index].nextMutation = columns[index].searches.values.map(\.nextTrial).min() ?? .infinity
+        // Overwritten/cancelled trials are lazily discarded without scanning every search.
+        while let pending = columns[index].searchSchedule.first,
+              columns[index].searches[pending.index]?.nextTrial != pending.time {
+            columns[index].searchSchedule.pop()
+        }
+        columns[index].nextMutation = columns[index].searchSchedule.first?.time ?? .infinity
+        scheduleColumn(index)
     }
 
     private mutating func removePosition(_ position: Position) {
         removeAvailable(position)
-        columns[position.column].searches.removeValue(forKey: position.row)
+        if columns[position.column].searches.removeValue(forKey: position.row) != nil {
+            searchingSymbolCount -= 1
+        }
         refreshMutationTime(in: position.column)
     }
 
@@ -391,6 +466,7 @@ struct MatrixSimulation {
             for index in columns.indices {
                 for row in columns[index].searches.keys.sorted() where active > target {
                     columns[index].searches.removeValue(forKey: row)
+                    searchingSymbolCount -= 1
                     addAvailable(Position(column: index, row: row))
                     active -= 1
                 }
@@ -410,21 +486,27 @@ struct MatrixSimulation {
             columns[position.column].searches[position.row] = Search(row: position.row, writtenAt: cell.writtenAt,
                 targetGlyph: targetGlyph, interval: interval, remaining: 3 + Int(searchGenerator.unit() * 5),
                 nextTrial: time + interval / rate)
+            columns[position.column].searchSchedule.insert(time: time + interval / rate, index: position.row)
             refreshMutationTime(in: position.column)
+            searchingSymbolCount += 1
             active += 1
         }
     }
 
-    private mutating func advanceSearch(in index: Int, at time: Double, rate: Double) {
-        guard var search = columns[index].searches.values.min(by: {
-            $0.nextTrial == $1.nextTrial ? $0.row < $1.row : $0.nextTrial < $1.nextTrial
-        }) else { columns[index].nextMutation = .infinity; return }
+    /// Only completion/cancellation changes occupancy; intermediate trials need no quota pass.
+    private mutating func advanceSearch(in index: Int, at time: Double, rate: Double) -> Bool {
+        guard let pending = columns[index].searchSchedule.pop(),
+              var search = columns[index].searches[pending.index] else {
+            refreshMutationTime(in: index)
+            return false
+        }
         let cell = columns[index].cells[search.row]
         guard cell.glyph >= 0, !cell.isGap, cell.writtenAt == search.writtenAt,
               time < cell.writtenAt + cell.hold + cell.fade else {
             columns[index].searches.removeValue(forKey: search.row)
+            searchingSymbolCount -= 1
             refreshMutationTime(in: index)
-            return
+            return true
         }
         let final = search.remaining == 1
         var replacement = search.targetGlyph
@@ -441,12 +523,15 @@ struct MatrixSimulation {
         if final {
             columns[index].cells[search.row].settledAt = time
             columns[index].searches.removeValue(forKey: search.row)
+            searchingSymbolCount -= 1
             addAvailable(Position(column: index, row: search.row))
         } else {
             search.nextTrial = time + search.interval / rate
             columns[index].searches[search.row] = search
+            columns[index].searchSchedule.insert(time: search.nextTrial, index: search.row)
         }
         refreshMutationTime(in: index)
+        return final
     }
 
     func opacity(column: Int, row: Int) -> Float {

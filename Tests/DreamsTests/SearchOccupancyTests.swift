@@ -12,6 +12,7 @@ struct SearchOccupancyTests {
                 count + column.cells.filter { $0.glyph >= 0 && !$0.isGap && $0.visibility > 0.002 }.count
             }
             #expect(rain.visibleSymbolCount == live)
+            #expect(rain.searchingSymbolCount == rain.columns.reduce(0) { $0 + $1.searches.count })
             #expect(rain.searchingSymbolCount == Int((Double(live) * fraction).rounded(.up)))
             for column in rain.columns {
                 for (row, search) in column.searches {
@@ -112,5 +113,25 @@ struct SearchOccupancyTests {
         rain.setSearchFraction(-1)
         rain.advance(to: rain.time)
         #expect(rain.searchingSymbolCount == 0)
+    }
+
+    @Test func pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() {
+        var rain = MatrixSimulation(columnCount: 8, rows: 160, glyphCount: 57, density: 1)
+        rain.advance(to: 5)
+        for fraction in [1.0, 0.01, 0.0, 0.5, 1.0] {
+            rain.setSearchFraction(fraction)
+            rain.advance(to: rain.time)
+            _ = rain.trigger(column: 0, at: rain.time)
+            rain.advance(to: rain.time + 0.37)
+            #expect(rain.searchingSymbolCount == rain.columns.reduce(0) { $0 + $1.searches.count })
+            #expect(rain.searchingSymbolCount == Int((Double(rain.visibleSymbolCount) * fraction).rounded(.up)))
+        }
+        rain.advance(to: rain.time + 0.1, visibility: Array(repeating: 0, count: 8))
+        #expect(rain.searchingSymbolCount == 0 && rain.visibleSymbolCount == 0)
+        rain.advance(to: rain.time + 1)
+        #expect(rain.searchingSymbolCount == rain.visibleSymbolCount)
+        #expect(rain.columns.allSatisfy { column in
+            column.searches.allSatisfy { row, search in column.cells[row].writtenAt == search.writtenAt }
+        })
     }
 }
