@@ -1,0 +1,23 @@
+{
+  "hypercode": {
+    "executable": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "sha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f",
+    "resolverVersion": {
+      "name": "hypercode-swift",
+      "version": "0.6.0-dev"
+    },
+    "buildRevision": "unknown"
+  },
+  "specpm": {
+    "executable": "/opt/homebrew/bin/specpm",
+    "version": "specpm 0.2.0",
+    "launcherSha256": "1c80370f940afd1be509c5bd53fb0c7c6d1bd558d8e6718fdf19b9179ae09142",
+    "schema": "/Users/egor/Development/GitHub/0AL/SpecPM/src/specpm/core.py",
+    "schemaSha256": "bba078a38f075c2dc5df78ed0f9b13ea7a7e30afb09967f54436e0d86126ce6e",
+    "sourceRevision": "1c3acad25805b4332428fb03857808575202ab07"
+  },
+  "fsd": {
+    "revision": "21731b9dd7d5008b832af5caca6d19f7a36fe54f",
+    "executableSha256": "8f8c3961995a70d6601c7be597b58e77b2ebe9b8c2356b4c94f48e449dc4dcce"
+  }
+}

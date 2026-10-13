@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BINARY = ROOT / "dist/Dreams.app/Contents/MacOS/Dreams"
-TABLES = ROOT / "Sources/Dreams/Localization"
+TABLES = ROOT / "Sources/Dreams/shared/assets/Localization"
 SPECIFIER = re.compile(r"%(?:\d+\$)?[@dfsl]+|%%")
 
 
@@ -37,13 +37,13 @@ check(not re.search("[Ѐ-ӿ]", "".join(english.values())), "en: Cyrillic text in
 
 # Every L("key") and HookWord used in Swift must exist (keys built at run time, like "hooks." + agent, are listed below).
 used = set()
-for source in (ROOT / "Sources/Dreams").glob("*.swift"):
+for source in (ROOT / "Sources/Dreams").rglob("*.swift"):
     used |= set(re.findall(r'\bL\("([^"]+)"\s*[,)]', source.read_text(encoding="utf8")))
 check(used <= english.keys(), f"keys used in Swift but missing: {sorted(used - english.keys())}")
 for dynamic in ("hooks.codex", "hooks.claude",
                 *[f"display.{kind}.{mode}" for kind in ("mode", "hint") for mode in ("automatic", "all", "selected")], *[f"status.stopped.{r}" for r in ("user", "escape", "hotkey", "reopen", "timer", "agent")]):
     check(dynamic in english, f"{dynamic} is missing")
-words = re.search(r"case (start.*)", (ROOT / "Sources/Dreams/Localization.swift").read_text(encoding="utf8"))
+words = re.search(r"case (start.*)", (ROOT / "Sources/Dreams/entities/agent-activity/model/HookWord.swift").read_text(encoding="utf8"))
 for word in [w.strip() for w in words.group(1).split(",")]:
     check("hook." + word in english, f"hook.{word} is missing")
 

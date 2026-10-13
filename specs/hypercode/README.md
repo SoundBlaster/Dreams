@@ -25,3 +25,8 @@ The command checks application/editor/overlay maps, both editor profiles and
 the four overlay profiles (interactive/agent × opaque/transparent). Tool identity, source
 hashes and full diagnostics for the initial recovery are preserved in the
 [validation record](../glyph-editor/validation/2026-10-13/README.md).
+
+PR #8 FSD integration refreshes current source paths and represents SettingsPage and
+TelevisionApplication as explicitly unexplored leaves. Existing overlay role/claim IDs
+remain stable; [new identities](../overlay-session/evidence/2026-10-13-fsd/source-identity.json)
+and [validation](../overlay-session/validation/2026-10-13-fsd/README.md) preserve older baselines.

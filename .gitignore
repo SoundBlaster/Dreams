@@ -7,3 +7,6 @@ research/glyphs/build/
 .build/
 __pycache__/
 *.pyc
+.fsd-ios-tooling/
+tvOS/.build/
+tvOS/DreamsTV.xcodeproj/

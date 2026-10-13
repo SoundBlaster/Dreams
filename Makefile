@@ -16,12 +16,16 @@ help:
 		'' \
 		'Develop:' \
 		'  make app              Build dist/Dreams.app (rebuilds the glyph font, ad-hoc signed)' \
+		'  make app-tv           Generate and build the Apple TV simulator app' \
+		'  make test-tv TV_DEVICE=<UDID>  Run Apple TV unit tests on an installed simulator' \
 		'  make run              Quit a running Dreams, rebuild and open the app' \
 		'  make icon             Rebuild assets/AppIcon.icns from assets/icon/source.png' \
 		'  make lint             SwiftLint (strict), ruff, shell syntax, documentation links' \
+		'  make lint-architecture Strict FSD structure and Swift symbol dependencies' \
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
 		'  make test-displays    Opt-in live display lifecycle and Screener settings trace' \
 		'  make test-exit        Opt-in Esc, exit button, focus and display unplug checks' \
+		'  make test-gui-trace   Record settings scenarios with Screener (local GUI session)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
 		'  make glyphs-verify    Check that a rebuild is byte-identical' \
@@ -59,19 +63,36 @@ run: app
 	@sleep 1
 	open $(APP)
 
-lint:
+lint: lint-architecture
 	swiftlint lint --strict --quiet
 	ruff check scripts
 	for script in scripts/*.sh; do zsh -n "$$script"; done
 	for script in $$(ls plugins/*/scripts/*.sh 2>/dev/null); do sh -n "$$script"; done
 	python3 scripts/check-docs.py
 
+.PHONY: lint lint-architecture test-settings test-gui-trace
+lint-architecture:
+	zsh scripts/lint-architecture.sh
+	zsh scripts/lint-architecture.sh --root tvOS/Sources
+
+.PHONY: app-tv test-tv
+app-tv:
+	xcodegen generate --spec tvOS/project.yml
+	xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
+		-destination 'generic/platform=tvOS Simulator' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO build
+
+test-tv:
+	@test -n "$(TV_DEVICE)" || { echo 'Usage: make test-tv TV_DEVICE=<simulator UDID>'; exit 1; }
+	xcodegen generate --spec tvOS/project.yml
+	xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
+		-destination 'platform=tvOS Simulator,id=$(TV_DEVICE)' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO test
+
 test-unit:
-	swiftc -swift-version 6 Sources/Dreams/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
+	swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
 	.build/activity-checks
-	swiftc -swift-version 6 Sources/Dreams/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
+	swiftc -swift-version 6 Sources/Dreams/features/rain/model/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
 	.build/matrix-checks
-	swiftc -swift-version 6 -parse-as-library Sources/Dreams/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
+	swiftc -swift-version 6 -parse-as-library Sources/Dreams/shared/lib/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
 	.build/hotkey-checks
 	swift test -c release
 
@@ -81,7 +102,14 @@ test-displays:
 test-exit:
 	python3 scripts/test-overlay-exit.py
 
-test: app test-unit
+test-settings:
+	zsh scripts/test-settings.sh
+
+test-gui-trace:
+	python3 scripts/test-gui-trace.py
+
+test: app test-unit test-settings
+	python3 scripts/test-architecture.py
 	python3 scripts/test-localization.py
 	python3 scripts/test-hooks-install.py $(APP)/Contents/MacOS/Dreams
 	python3 scripts/test-uninstall.py

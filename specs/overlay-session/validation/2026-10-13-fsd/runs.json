@@ -1,0 +1,121 @@
+[
+  {
+    "command": [
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "structure.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/check-docs.py"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "docs.log"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "whitespace.log"
+  },
+  {
+    "command": [
+      "make",
+      "test"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "mac-tests.log",
+    "environment": {
+      "glyphVenv": "temporary worktree symlink; removed afterward"
+    }
+  },
+  {
+    "command": [
+      "make",
+      "lint"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "lint.log",
+    "environment": {}
+  },
+  {
+    "command": [
+      "make",
+      "test-tv",
+      "TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "tvos-tests.log",
+    "environment": {}
+  },
+  {
+    "command": [
+      "make",
+      "app-tv"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "tvos-build.log",
+    "environment": {}
+  },
+  {
+    "command": [
+      "make",
+      "test-gui-trace"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "gui-trace.log",
+    "environment": {}
+  },
+  {
+    "command": [
+      "make",
+      "test-displays"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "displays.log",
+    "environment": {}
+  },
+  {
+    "command": [
+      "make",
+      "test-exit"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "exit.log",
+    "environment": {}
+  },
+  {
+    "command": [
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "TransparentFadeRenderingTests"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "exitCode": 0,
+    "log": "metal.log",
+    "environment": {
+      "DREAMS_TEST_METAL": "1",
+      "DREAMS_FEED_DIRECTORY": "temporary directory"
+    }
+  }
+]

@@ -27,7 +27,7 @@ dist/Dreams.app/Contents/MacOS/Dreams --lab
 
 ## Default look
 
-The defaults live in `DreamsPreset` (`Sources/Dreams/DreamsController.swift`) and apply until the user changes a setting: density 0%, fade width 3 glyphs, speed 0.43×, brightness spread 51%, glow 57% (0% on a transparent background), calm background 77%, word colour (0, 255, 100) at 200% brightness, restored film glyphs on. To see the default look on this Mac, erase the saved values: `defaults delete ru.egormerkushev.dreams`.
+The defaults live in `DreamsPreset` (`Sources/Dreams/features/rain/config/DreamsPreset.swift`) and apply until the user changes a setting: density 0%, fade width 3 glyphs, speed 0.43×, brightness spread 51%, glow 57% (0% on a transparent background), calm background 77%, word colour (0, 255, 100) at 200% brightness, restored film glyphs on. To see the default look on this Mac, erase the saved values: `defaults delete ru.egormerkushev.dreams`.
 
 ## MCP
 
@@ -95,7 +95,7 @@ Work intensity is estimated from the observed hook events, not from inference to
 Check the smooth transitions:
 
 ```sh
-swiftc -swift-version 6 Sources/Dreams/RainActivity.swift scripts/test-activity.swift -o /tmp/dreams-activity-checks
+swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o /tmp/dreams-activity-checks
 /tmp/dreams-activity-checks
 ```
 
@@ -109,7 +109,7 @@ This mode does not publish test events into the shared feed.
 
 ### Tool call lines
 
-Hook events start separate one-shot streams: PreToolUse → a call line with its arguments (`bash: brew install fontforge`, `read: Sources/Dreams/MatrixRain.swift`, `grep: func glyph\(`, `mcp: xcode.BuildProject Dreams`), UserPromptSubmit → TASK, PreCompact → CONTEXT if that hook is wired separately (the regular installer does not add it yet). `ToolCallLine` builds the line from `tool_name` and `tool_input`: paths are shown relative to `cwd`, a `cd <cwd> &&` prefix is dropped, and a long line is cut to 60 characters with an ellipsis (a path is cut from the start and keeps its end, a command is cut from the end and keeps its start). Values that look like secrets (`TOKEN=…`, `--password …`, `Authorization: Bearer …`, `user:pass@`, long opaque strings) are replaced with `***`, because everyone who can see the screen sees the rain. Each event label starts at the very top row, with its first character printed immediately by the new stream head; following characters are typed one by one downward. The labels are vertical, set in DreamsMatrix, with the word colour and brightness settings. Otherwise a stream behaves like ordinary rain: the same speed, tail and brightness spread, and its letters are churned through random rain glyphs (in the word colour) and return to their own character. PostToolUse does not duplicate a stream. The mailbox keeps at most 24 events per session; the renderer accepts at most 6 new events per update and does not replay events older than 8 seconds. An event stream still finishes printing and fades even at idle 0%.
+Hook events start separate one-shot streams: PreToolUse → a call line with its arguments (`bash: brew install fontforge`, `read: Sources/Dreams/features/rain/ui/MatrixRain.swift`, `grep: func glyph\(`, `mcp: xcode.BuildProject Dreams`), UserPromptSubmit → TASK, PreCompact → CONTEXT if that hook is wired separately (the regular installer does not add it yet). `ToolCallLine` builds the line from `tool_name` and `tool_input`: paths are shown relative to `cwd`, a `cd <cwd> &&` prefix is dropped, and a long line is cut to 60 characters with an ellipsis (a path is cut from the start and keeps its end, a command is cut from the end and keeps its start). Values that look like secrets (`TOKEN=…`, `--password …`, `Authorization: Bearer …`, `user:pass@`, long opaque strings) are replaced with `***`, because everyone who can see the screen sees the rain. Each event label starts at the very top row, with its first character printed immediately by the new stream head; following characters are typed one by one downward. The labels are vertical, set in DreamsMatrix, with the word colour and brightness settings. Otherwise a stream behaves like ordinary rain: the same speed, tail and brightness spread, and its letters are churned through random rain glyphs (in the word colour) and return to their own character. PostToolUse does not duplicate a stream. The mailbox keeps at most 24 events per session; the renderer accepts at most 6 new events per update and does not replay events older than 8 seconds. An event stream still finishes printing and fades even at idle 0%.
 
 The "Stream test · DEMO" item is in the debug menu (right-click in the control window, or the menu bar item → Debug). It starts Matrix if needed and creates four visual fixtures: `bash: brew install fontforge`, `mcp: xcode.BuildProject Dreams`, TASK, CONTEXT. The demo loops and plays an agent turn: the fixtures' message causes the same surge as a real one, the lines are printed, the rain decays to the background, and 2 s after it has calmed the next «turn» starts (about 19 s per loop; longer at a slow rain speed). The loop runs until the rain is stopped by Esc or the timeout. The CLI flag `--fixture-events` still sends a single wave. The `dreams:visual-fixtures` session is idle, does not raise the working-agent count and expires after 15 s. No external tools are called. The item can be repeated. For an already running Matrix the same can be triggered from the CLI:
 
@@ -213,9 +213,9 @@ scripts/uninstall.sh --purge             # also settings, the keyword mailbox, c
 
 ## Languages
 
-The app is localized in American English (the base language) and Russian; it follows the system language and falls back to English. The strings live in `Sources/Dreams/Localization/<language>.lproj/Localizable.strings`: window and menu text, error messages and the short words that hooks put into the rain (`task`, `done`, `code`, … / `задача`, `готово`, `код`, …). Tool call lines are never translated. To try another language without changing the system, launch with `DREAMS_LANGUAGE=ru` (or `en`) in the environment, e.g. `DREAMS_LANGUAGE=ru dist/Dreams.app/Contents/MacOS/Dreams`.
+The app is localized in American English (the base language) and Russian; it follows the system language and falls back to English. The strings live in `Sources/Dreams/shared/assets/Localization/<language>.lproj/Localizable.strings`: window and menu text, error messages and the short words that hooks put into the rain (`task`, `done`, `code`, … / `задача`, `готово`, `код`, …). Tool call lines are never translated. To try another language without changing the system, launch with `DREAMS_LANGUAGE=ru` (or `en`) in the environment, e.g. `DREAMS_LANGUAGE=ru dist/Dreams.app/Contents/MacOS/Dreams`.
 
-To add a language, copy `en.lproj` to `<code>.lproj`, translate the values, add the code to `Loc.languages` in `Sources/Dreams/Localization.swift` and to `CFBundleLocalizations` in `scripts/Info.plist.in`. `python3 scripts/test-localization.py` checks that every table has the same keys and format specifiers and that every key used in Swift exists.
+To add a language, copy `en.lproj` to `<code>.lproj`, translate the values, add the code to `Loc.languages` in `Sources/Dreams/shared/lib/Localization.swift` and to `CFBundleLocalizations` in `scripts/Info.plist.in`. `python3 scripts/test-localization.py` checks that every table has the same keys and format specifiers and that every key used in Swift exists.
 
 ## App icon
 
@@ -252,7 +252,7 @@ python3 scripts/smoke.py --interactive
 The printing model (no GUI):
 
 ```sh
-swiftc -swift-version 6 Sources/Dreams/MatrixSimulation.swift scripts/test-matrix.swift -o /tmp/dreams-matrix-checks
+swiftc -swift-version 6 Sources/Dreams/features/rain/model/MatrixSimulation.swift scripts/test-matrix.swift -o /tmp/dreams-matrix-checks
 /tmp/dreams-matrix-checks
 ```
 

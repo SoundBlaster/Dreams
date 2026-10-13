@@ -1,0 +1,30 @@
+python3 scripts/test-overlay-exit.py
+Building for production...
+[Computing dependencies]
+[1 / 2] VirtualDisplayBridge
+Build complete! (0.43 sec)
+DreamsTests.DisplaySelectionTests/allCoversBothAndExcludesAgent()
+DreamsTests.DisplaySelectionTests/automaticPrefersInternalEvenWithExternalMain()
+DreamsTests.DisplaySelectionTests/closedLidUsesMainExternal()
+DreamsTests.DisplaySelectionTests/noDisplayIsSafeAndMissingMainUsesFirstEligible()
+DreamsTests.DisplaySelectionTests/noModeCanCoverAgentWorkspace(_:)
+DreamsTests.DisplaySelectionTests/remainingSelectedScreenWinsOverAutomaticFallback()
+DreamsTests.DisplaySelectionTests/selectedSubsetSurvivesDisconnectAndReconnect()
+DreamsTests.DisplaySelectionTests/stableChoicePersistsAndInvalidModeFallsBack()
+DreamsTests.DisplaySettingsTraceTests/displaySettingsPersistAndExplainFallback()
+DreamsTests.OverlayExitTests/escapeButtonAndDisplayFocusLifecycle()
+DreamsTests.RainTrailRenderingTests/captureTrailMotion()
+DreamsTests.RainTrailTests/eventDurationIncludesTheWholeStretchedTrace(density:)
+DreamsTests.RainTrailTests/fadeWidthCountsRowsAtTheSlowerRear(width:)
+DreamsTests.RainTrailTests/headOutrunsRearAndStretchesTrace(density:)
+DreamsTests.SettingsPageTests/recordedSettingsScenario()
+DreamsTests.SettingsPageTests/settingsWindowKeepsControlsAndValues()
+DreamsTests.TransparentFadeRenderingTests/dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:)
+DREAMS_EXIT_TRACE=/Users/egor/Library/Caches/Screener/Traces/F805107A-B0ED-4629-8B54-042734CF1546.vtrace
+PASS: multi-display Esc/button exit, plain click, focus restore, active-display unplug and transparent input
+􀟈 Test run started.
+􀄵 Testing Library Version: 2084
+􀄵 Target Platform: arm64e-apple-macos14.0
+􀟈 Suite OverlayExitTests started.
+􀟈 Test escapeButtonAndDisplayFocusLifecycle() started.
+PASS: exit lifecycle and four Screener checkpoints; trace: /Users/egor/Library/Caches/Screener/Traces/F805107A-B0ED-4629-8B54-042734CF1546.vtrace
