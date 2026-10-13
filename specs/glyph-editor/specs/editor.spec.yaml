@@ -1,0 +1,153 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.glyph.editor
+  title: GlyphEditingWorkspace
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Compose editing, reusable strokes, visual comparison, project transfer and optional disk checkpoints.
+scope:
+  boundedContext: glyph_editor
+  includes:
+  - Browser editing session, stroke tree, Shift gestures, undo/redo, browser recovery, guides/references/tracing,
+    import/export and build assembly.
+  excludes:
+  - Installed font changes, movie fidelity acceptance, native macOS overlay/hook/MCP/tvOS behavior and multi-user
+    editing.
+provides:
+  capabilities:
+  - id: dreams.glyph.editor
+    role: primary
+    summary: Compose editing, reusable strokes, visual comparison, project transfer and optional disk checkpoints.
+requires:
+  capabilities:
+  - id: dreams.glyph.geometry
+    summary: Shared validator, coordinates, outlines and materialized export.
+  - id: dreams.glyph.components
+    summary: Frozen shared shapes and independent offsets.
+  - id: dreams.glyph.checkpoints
+    summary: Optional loopback disk snapshot persistence.
+  - id: platform.browser.editor_host
+    summary: DOM/SVG pointer transforms, localStorage, file input, Blob downloads and same-origin fetch.
+interfaces:
+  inbound:
+  - id: editor_input
+    kind: library
+    summary: Observed existing boundary, not a proposed new public API.
+    operations:
+    - name: browser_workspace
+      inputs:
+      - name: editorDocument
+        type: generated editor.html with seed, model, controls and font metrics
+      outputs:
+      - name: workingProject
+        type: editable project, local saved state or prepared file download
+    - name: build
+      inputs:
+      - name: libraryAndSources
+        type: directed stroke library, Python/fontTools environment, editor templates and pipeline.toml metrics
+      outputs:
+      - name: documents
+        type: editor.html and editor-seed.json
+  outbound: []
+constraints:
+- id: assembly
+  level: MUST
+  statement: Build one editor document embedding seed data, shared model, UI and configured font metrics. Keep rendering,
+    project validation and export on compatible model/coordinate mappings; the parent resolves components before
+    display, fit and export.
+- id: editing_history
+  level: MUST
+  statement: Validate transactional edits and restore the prior snapshot on failure. Maintain up to 40 undo snapshots;
+    coalesce range/drag edits. Browser-storage failure reports inability to save rather than proving durability.
+- id: gestures
+  level: MUST
+  statement: Transform pointer coordinates through SVG and instance offset before editing points. Shift endpoint
+    drag aligns with the opposite endpoint along the nearest displayed horizontal/vertical axis; Shift midpoint
+    drag constrains movement from its initial position. Shared endpoint joins remain connected.
+- id: visual_layers
+  level: MUST
+  statement: Keep imported images, user guides/presets and other-glyph tracing separate from project contours and
+    SVG export. Reference/guide browser storage is separate from glyph JSON/checkpoints and glyph Undo; trace does
+    not intercept pointer input.
+- id: transfer
+  level: MUST
+  statement: Validate incoming project JSON before replacement, limit text import to 2,000,000 characters and file
+    input to 2,000,000 bytes, and retain prior editable state on invalid import. Preparing Blob downloads is not
+    proof that a file was saved by the browser.
+- id: checkpoint_profiles
+  level: MUST
+  statement: When the local API is absent or fails, expose a checkpoint error while retaining editing and JSON export.
+    Restore a fetched validated snapshot through editable history without deleting disk history. A successful POST
+    receipt identifies the submitted snapshot, not necessarily a draft edited while the request was in flight.
+- id: font_boundary
+  level: MUST
+  statement: Treat JSON/checkpoints/SVG as editor artifacts. Updating the app font requires the separate glyph pipeline,
+    app build and installation workflow; no automatic font adoption is established.
+effects:
+  sideEffects:
+  - id: browser_state
+    kind: state_mutation
+    summary: Changes working project/history, DOM, localStorage and optional visual layer preferences.
+  - id: downloads
+    kind: filesystem_write
+    summary: Requests browser downloads; completion and destination remain browser/user-owned.
+  - id: checkpoint_http
+    kind: network_write
+    summary: Calls only the configured same-origin local checkpoint API from the editor; disk effects belong to
+      CheckpointLibrary.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/stroke-editor.js
+  supports:
+  - interfaces
+  - constraints.editing_history
+  - constraints.gestures
+  - constraints.visual_layers
+  - constraints.transfer
+  - constraints.checkpoint_profiles
+  - effects
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/stroke-editor.html
+  supports:
+  - interfaces
+  - constraints.visual_layers
+- id: source_3
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/stroke_editor.py
+  supports:
+  - interfaces
+  - constraints.assembly
+- id: source_font_pipeline
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/pipeline.py
+  supports:
+  - constraints.font_boundary
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from 96fef7ad121cf9ba278eabd878c5179fd754a0cd; source hashes and snapshots in evidence/2026-10-13/source-identity.json.
+  - Normative wording describes recovered behavior; acceptance and runtime conformance are not established. See
+    matrix.md for origins, source bindings, scenarios and unknowns.
+  - Current validation checks specification structure only. Test source is an expectation, not a fresh execution
+    result.
+  - The font-adoption limit is a conditional integration conclusion from the editor export and separate pipeline
+    entrypoint; its end-to-end behavior is not validated here.
+implementationBindings:
+- id: editor_implementation
+  language: javascript
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 96fef7ad121cf9ba278eabd878c5179fd754a0cd
+  files:
+    owned:
+    - evidence/2026-10-13/source/scripts/glyphs/stroke-editor.js
+    - evidence/2026-10-13/source/scripts/glyphs/stroke-editor.html
+    - evidence/2026-10-13/source/scripts/glyphs/stroke_editor.py
+    border: []

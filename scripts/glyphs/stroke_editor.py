@@ -2,6 +2,7 @@
 import argparse
 import json
 import math
+import tomllib
 from pathlib import Path
 
 from fontTools.pens.basePen import BasePen
@@ -80,6 +81,11 @@ def build(destination=OUTPUT):
     template = (here / 'stroke-editor.html').read_text()
     payload = json.dumps(project, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
     template = template.replace('__PROJECT_JSON__', payload)
+    config = tomllib.loads((here.parent.parent / 'research/glyphs/pipeline.toml').read_text())
+    metrics = {key: config['font'][key] for key in ('upm', 'advance', 'ascent', 'descent')}
+    metrics.update(capHeight=config['latin']['cap_height'], xHeight=config['latin']['x_height'],
+                   lineGap=config['font'].get('line_gap', 0))
+    template = template.replace('__FONT_METRICS__', json.dumps(metrics, ensure_ascii=True))
     template = template.replace('__MODEL_JS__', (here / 'stroke-editor-model.js').read_text())
     template = template.replace('__EDITOR_JS__', (here / 'stroke-editor.js').read_text())
     (destination / 'editor.html').write_text(template)

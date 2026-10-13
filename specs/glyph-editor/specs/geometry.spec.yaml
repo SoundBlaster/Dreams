@@ -1,0 +1,108 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.glyph.geometry
+  title: GlyphGeometry
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Validate editable stroke projects and materialize glyph contours in consistent coordinate spaces.
+scope:
+  boundedContext: glyph_editor
+  includes:
+  - Project validation, centerlines, pressure profiles, caps/joins, stroke instances, glyph transforms, fit and
+    SVG export.
+  excludes:
+  - Film-shape acceptance, font compilation/installation, browser gestures and filesystem persistence.
+provides:
+  capabilities:
+  - id: dreams.glyph.geometry
+    role: primary
+    summary: Validate editable stroke projects and materialize glyph contours in consistent coordinate spaces.
+requires:
+  capabilities: []
+interfaces:
+  inbound:
+  - id: geometry_input
+    kind: library
+    summary: Observed existing boundary, not a proposed new public API.
+    operations:
+    - name: validate
+      inputs:
+      - name: project
+        type: dreams.stroke-editor/v1
+        required: true
+      outputs:
+      - name: projectOrError
+        type: validated project or thrown Error
+    - name: svg
+      inputs:
+      - name: glyphAttributionProject
+        type: glyph, attribution, optional containing project for component resolution
+      outputs:
+      - name: svgText
+        type: self-contained SVG string
+  outbound: []
+constraints:
+- id: project_limits
+  level: MUST
+  statement: Accept 1–256 unique single-character glyphs, 1–24 strokes per glyph and 1–32 sections per ordinary
+    stroke; section coordinates are finite in 0…109. Reject broken adjacent joins beyond 1e-4, invalid profiles/caps/joins
+    and zero-length strokes.
+- id: component_integrity
+  level: MUST
+  statement: Validate up to 256 uniquely identified non-nested component shapes. A linked instance resolves an existing
+    component and may carry its own two-coordinate offset in −2000…2000; reject missing component references and
+    simultaneous reference/section bodies.
+- id: coordinates
+  level: MUST
+  statement: Use a canvas with X right and Y down. Resolve per-stroke offsets before glyph horizontal stretch/reflection
+    and uniform placement; map SVG through translate(96.5,74) scale(7,8) into the 956×1024 export cell.
+- id: export_content
+  level: MUST
+  statement: Materialize component shapes with their instance offsets in SVG; include attribution, exclude editor
+    reference images, rulers, guides and glyph tracing. SVG generation is not a font build.
+- id: fit
+  level: MUST
+  statement: Uniformly fit visible ink bounds to configured cap/body height and baseline, center horizontally at
+    canvas X=54.5, preserve underlying stroke coordinates and include thickness in scaling; reject a scale outside
+    0.05…20.
+- id: default_shape
+  level: MUST
+  statement: Absent join selects legacy construction; explicit miter/bevel/round are optional, with miter spike
+    bounded at four half-widths. Absent preserveWidth keeps previous horizontal-stretch behavior.
+effects:
+  sideEffects:
+  - id: mutable_inputs
+    kind: state_mutation
+    summary: setPoint, insertSegment and fitGlyph mutate supplied caller-owned data; validation/outlining/SVG do
+      not persist anything.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/stroke-editor-model.js
+  supports:
+  - interfaces
+  - constraints
+  - effects
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from 96fef7ad121cf9ba278eabd878c5179fd754a0cd; source hashes and snapshots in evidence/2026-10-13/source-identity.json.
+  - Normative wording describes recovered behavior; acceptance and runtime conformance are not established. See
+    matrix.md for origins, source bindings, scenarios and unknowns.
+  - Current validation checks specification structure only. Test source is an expectation, not a fresh execution
+    result.
+implementationBindings:
+- id: geometry_implementation
+  language: javascript
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 96fef7ad121cf9ba278eabd878c5179fd754a0cd
+  files:
+    owned:
+    - evidence/2026-10-13/source/scripts/glyphs/stroke-editor-model.js
+    border: []

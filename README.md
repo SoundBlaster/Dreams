@@ -114,6 +114,7 @@ Installed with Homebrew: remove the hooks first (`/Applications/Dreams.app/Conte
 
 - [Technical reference](docs/REFERENCE.md): how the rain works, every setting, hooks and MCP in detail, display notes, tests, releases.
 - [Glyph pipeline](research/glyphs/PIPELINE.md): restoring the film glyphs and drawing the Latin and Cyrillic sets, byte-reproducible.
+- [Architecture and specification progress](specs/specification-progress.md): source-grounded maps, draft contracts and maintenance coverage.
 - [Glyph catalogue](research/glyphs/README.md): the 28 film glyphs, their identifications and evidence.
 
 ## Develop

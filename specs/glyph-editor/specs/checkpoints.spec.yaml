@@ -1,0 +1,121 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.glyph.checkpoints
+  title: CheckpointLibrary
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Store immutable glyph project snapshots and append named local checkpoints with optimistic concurrency.
+scope:
+  boundedContext: glyph_editor
+  includes:
+  - Local Library API, content hashes, history index, checkpoint read/save and loopback HTTP adapter.
+  excludes:
+  - Git commit/push, remote collaboration, authenticated multi-user service, power-loss transactional durability
+    and font installation.
+provides:
+  capabilities:
+  - id: dreams.glyph.checkpoints
+    role: primary
+    summary: Store immutable glyph project snapshots and append named local checkpoints with optimistic concurrency.
+requires:
+  capabilities:
+  - id: dreams.glyph.geometry
+    summary: Node invokes the same JavaScript project validator.
+  - id: platform.node.execution
+    summary: Node executable and validation subprocess completion.
+  - id: platform.posix.filesystem
+    summary: Local writable directory, flock and atomic replacement semantics.
+interfaces:
+  inbound:
+  - id: checkpoints_input
+    kind: http
+    summary: Observed existing boundary, not a proposed new public API.
+    operations:
+    - name: POST /api/checkpoints
+      inputs:
+      - name: payload
+        type: project, label, expectedHead, optional parent; JSON ≤2,000,000 bytes
+      outputs:
+      - name: response
+        type: 201 checkpoint record; 409 stale head; 400 validation/IO error; 403 origin/host rejection
+    - name: GET /api/checkpoints[/id]
+      inputs:
+      - name: identifier
+        type: optional known checkpoint ID
+      outputs:
+      - name: response
+        type: history or hash-checked project, otherwise error
+  outbound: []
+constraints:
+- id: snapshot
+  level: MUST
+  statement: Validate finite canonical project JSON through Node before writing; enforce 2,000,000-byte cap and
+    1–120-character nonblank checkpoint label. Identical canonical bytes reuse SHA-256-addressed project files.
+- id: publish
+  level: MUST
+  statement: Hold an exclusive file lock for compare-and-append; reject expectedHead mismatch rather than overwriting
+    history. Store the project before atomically replacing the index; failed publication can leave an unreferenced
+    project file.
+- id: parent_restore
+  level: MUST
+  statement: Use the specified existing parent or current head, append rather than deleting history, and verify
+    the snapshot digest on read. Refuse unsupported history schema; browser restoration is a separate editable working-copy
+    action.
+- id: changed_glyphs
+  level: MUST
+  statement: Compare effective glyph forms, including shared components and instance offsets, with the selected
+    parent; list every affected character rather than only changed raw references.
+- id: local_adapter
+  level: MUST
+  statement: Bind HTTP to 127.0.0.1. Require exact loopback Host for requests and the server's own Origin for checkpoint
+    POST; accept only application/json POST to /api/checkpoints. These guards do not constitute a general authentication
+    guarantee.
+effects:
+  sideEffects:
+  - id: read_snapshot
+    kind: filesystem_read
+    summary: Reads history and content-addressed project files.
+  - id: write_snapshot
+    kind: filesystem_write
+    summary: Creates content files, lock file and atomically replaces history; does not run Git.
+  - id: node_validation
+    kind: process_spawn
+    summary: Runs Node validator with a 15-second subprocess timeout.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/stroke_library.py
+  supports:
+  - interfaces
+  - constraints
+  - effects
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/validate-stroke-project.cjs
+  supports:
+  - constraints.snapshot
+  - effects.node_validation
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from 96fef7ad121cf9ba278eabd878c5179fd754a0cd; source hashes and snapshots in evidence/2026-10-13/source-identity.json.
+  - Normative wording describes recovered behavior; acceptance and runtime conformance are not established. See
+    matrix.md for origins, source bindings, scenarios and unknowns.
+  - Current validation checks specification structure only. Test source is an expectation, not a fresh execution
+    result.
+implementationBindings:
+- id: checkpoints_implementation
+  language: python
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 96fef7ad121cf9ba278eabd878c5179fd754a0cd
+  files:
+    owned:
+    - evidence/2026-10-13/source/scripts/glyphs/stroke_library.py
+    - evidence/2026-10-13/source/scripts/glyphs/validate-stroke-project.cjs
+    border: []

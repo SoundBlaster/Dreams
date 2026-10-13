@@ -28,6 +28,8 @@ help:
 		'  make glyphs-selftest  Check that every glyph check catches its own defect' \
 		'  make katakana         Build the directed katakana stroke research catalogue' \
 		'  make katakana-check   Validate stroke data, pressure laws and SVG determinism' \
+		'  make glyph-editor     Start the local glyph editor with checkpoint storage' \
+		'  make specs-check      Validate specification structure (Hypercode + SpecPM)' \
 		'' \
 		'Release (version from VERSION):' \
 		'  make notary-profile KEY=<AuthKey.p8> KEY_ID=<id> ISSUER=<uuid>   One-time notarytool setup' \
@@ -101,12 +103,17 @@ glyphs-selftest:
 katakana:
 	$(PYTHON) scripts/glyphs/katakana.py build
 
+.PHONY: glyph-editor
+glyph-editor: katakana
+	python3 scripts/glyphs/stroke_library.py serve
+
 katakana-check: katakana
 	$(PYTHON) scripts/glyphs/katakana.py check
 	$(PYTHON) scripts/glyphs/test_stroke_model.py
 	node scripts/glyphs/test-katakana-catalog.mjs research/glyphs/build/katakana/catalog.html
 	node scripts/glyphs/test-stroke-editor.cjs research/glyphs/build/katakana/editor-seed.json
 	node scripts/glyphs/test-stroke-editor-ui.cjs research/glyphs/build/katakana/editor-seed.json
+	python3 scripts/glyphs/test_stroke_library.py
 
 notary-profile:
 	@test -n "$(KEY)" -a -n "$(KEY_ID)" -a -n "$(ISSUER)" || { \
@@ -159,3 +166,15 @@ uninstall-purge:
 
 clean:
 	rm -rf .build dist
+
+# Documentation structure only; no application build, UI launch or acceptance.
+HYPERCODE ?= hypercode
+SPECPM ?= specpm
+.PHONY: specs-check
+specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/application.hc
+	"$(HYPERCODE)" validate specs/hypercode/application.hc --hcs specs/hypercode/application.hcs
+	"$(HYPERCODE)" parse specs/hypercode/glyph-editor.hc
+	"$(HYPERCODE)" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs
+	"$(HYPERCODE)" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs --ctx mode=standalone
+	"$(SPECPM)" validate specs/glyph-editor --json
