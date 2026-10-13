@@ -71,6 +71,22 @@
       if (polygon.length >= 3) polygons.push(polygon);
       previous = current;
     }
+    // Shallow half-ellipses soften each terminal independently. Their depth is
+    // 35% of the local half-width, so the tip stays gently rounded, not bulbous.
+    for (const end of [false, true]) {
+      if (stroke[end ? 'endCap' : 'startCap'] !== 'round' || pts.length < 2) continue;
+      const p = end ? pts.at(-1) : pts[0], inside = end ? pts.at(-2) : pts[1];
+      const length = distance(p, inside), r = widthAt(stroke, end ? 1 : 0) / 2;
+      if (!length || !r) continue;
+      const tx = (p[0] - inside[0]) / length, ty = (p[1] - inside[1]) / length;
+      const cap = [];
+      for (let i = 0; i <= 16; i++) {
+        const angle = -Math.PI / 2 + Math.PI * i / 16;
+        const along = Math.cos(angle) * r * .35, across = Math.sin(angle) * r;
+        cap.push([p[0] + tx * along - ty * across, p[1] + ty * along + tx * across]);
+      }
+      polygons.push(hull(cap));
+    }
     // Consistently wound overlapping sweep cells: intersections add ink, never XOR.
     return polygons.map(p => 'M'+p.map(v=>v.map(number).join(' ')).join('L')+'Z').join('');
   }
@@ -107,7 +123,7 @@
       if (!Array.isArray(g.strokes) || !g.strokes.length || g.strokes.length>24) fail('Нужно от 1 до 24 штрихов');
       for (const st of g.strokes) {
         if (!finite(st.width,.5,16) || !finite(st.startWidth,0,st.width) || !finite(st.endWidth,0,st.width) || !finite(st.peak,.05,.95)) fail('Неверный профиль толщины');
-        if (!['sharp','flat'].includes(st.startCap) || !['sharp','flat'].includes(st.endCap)) fail('Неверное окончание');
+        if (!['sharp','flat','round'].includes(st.startCap) || !['sharp','flat','round'].includes(st.endCap)) fail('Неверное окончание');
         if (!Array.isArray(st.segments) || !st.segments.length || st.segments.length>32) fail('Нужно от 1 до 32 участков');
         for (let i=0;i<st.segments.length;i++) {
           const seg=st.segments[i];

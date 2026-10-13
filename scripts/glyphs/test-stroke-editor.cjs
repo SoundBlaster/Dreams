@@ -25,6 +25,32 @@ check('peak follows physical arc length, not section index',()=>{
   const p=M.samples(s).reduce((a,b)=>Math.abs(b[2]-.3)<Math.abs(a[2]-.3)?b:a);
   assert.ok(Math.abs(p[0]-27)<.5);
 });
+check('rounded terminals extend gently along the tangent with consistent winding',()=>{
+  const polygons = stroke => M.outline(stroke).match(/M[^Z]+Z/g).map(d=>
+    d.slice(1,-1).split('L').map(p=>p.split(' ').map(Number)));
+  const bounds = stroke => {
+    const points=polygons(stroke).flat();
+    return [Math.min(...points.map(p=>p[0])),Math.max(...points.map(p=>p[0]))];
+  };
+  assert.deepEqual(bounds(base),[10,80]);
+  assert.deepEqual(bounds({...base,startCap:'round'}),[9.3,80]);
+  assert.deepEqual(bounds({...base,endCap:'round'}),[10,81.05]);
+  const rounded={...base,startCap:'round',endCap:'round'};
+  assert.equal(M.widthAt(rounded,0),4);assert.equal(M.widthAt(rounded,1),6);
+  for(const p of polygons(rounded)) {
+    const area=p.reduce((sum,a,i)=>{const b=p[(i+1)%p.length];return sum+a[0]*b[1]-a[1]*b[0];},0);
+    assert.ok(area>0,'cap and sweep must add ink rather than cut a hole');
+  }
+  const vertical=M.copy(rounded);
+  vertical.segments=[{kind:'line',start:[20,10],mid:[20,45],end:[20,80]}];
+  const ys=polygons(vertical).flat().map(p=>p[1]);
+  assert.equal(Math.min(...ys),9.3);assert.equal(Math.max(...ys),81.05);
+  assert.equal(M.outline({...rounded,startWidth:0,endWidth:0}),M.outline({...base,startWidth:0,endWidth:0}));
+  const project=M.copy(seed);project.glyphs[0].strokes=[rounded];
+  assert.deepEqual(M.validate(JSON.parse(JSON.stringify(project))),project);
+  assert.ok(M.svg(project.glyphs[0],project.attribution).includes(M.outline(rounded)));
+  project.glyphs[0].strokes[0].endCap='unknown';assert.throws(()=>M.validate(project));
+});
 check('shared endpoints remain connected when either section moves',()=>{
   const s=M.copy(base);s.segments.push({kind:'line',start:[80,20],mid:[80,40],end:[80,60]});
   M.setPoint(s,0,'end',[70,30]);assert.deepEqual(s.segments[1].start,[70,30]);

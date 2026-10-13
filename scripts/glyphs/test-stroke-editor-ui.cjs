@@ -29,6 +29,14 @@ element('width').value='9';element('width').oninput();element('width').onchange(
 assert.equal(state().glyphs[4].strokes[0].width,9);
 element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].width,7.5);
 element('redo').onclick();assert.equal(state().glyphs[4].strokes[0].width,9);
+const originalCap=state().glyphs[4].strokes[0].endCap;
+element('endCap').value='round';element('endCap').onchange();
+assert.equal(state().glyphs[4].strokes[0].endCap,'round');
+assert.equal(element('endWidth').disabled,false);
+assert.equal(JSON.parse(storage.get('dreams.stroke-editor.v1')).glyphs[4].strokes[0].endCap,'round');
+element('undo').onclick();assert.equal(state().glyphs[4].strokes[0].endCap,originalCap);
+element('redo').onclick();assert.equal(state().glyphs[4].strokes[0].endCap,'round');
+element('undo').onclick();
 element('mirror').checked=true;element('mirror').onchange();
 const stage=element('stage');stage.events.pointerdown({target:{dataset:{key:'start'}},pointerId:7,preventDefault(){}});
 stage.events.pointermove({clientX:40,clientY:34,pointerId:7});stage.events.pointerup({pointerId:7});
