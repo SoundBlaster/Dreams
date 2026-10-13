@@ -1,0 +1,155 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.rain.drop_motion
+  title: DropMotion
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Let new rain heads enter at their existing speed and decelerate while their fixed glyph trails fade in order.
+scope:
+  boundedContext: rain_simulation
+  includes:
+  - Per-packet head timing, tail lifetime, event duration, saved macOS controls and renderer propagation.
+  excludes:
+  - Glyph geometry, shader glow/alpha, clock masks, capture status, display selection, hooks and tvOS adoption.
+provides:
+  capabilities:
+  - id: dreams.rain.drop_motion
+    role: primary
+    summary: Optional constant negative acceleration followed by a positive terminal speed.
+requires:
+  capabilities:
+  - id: platform.apple.windowserver
+    summary: Native macOS settings integration requires AppKit/WindowServer; the simulation core itself performs no OS I/O.
+  - id: platform.apple.metal_renderer
+    summary: Preview/live adoption needs the existing Metal renderer; analytic simulation tests do not require a GPU.
+interfaces:
+  inbound:
+  - id: tuning
+    kind: library
+    summary: Existing simulation/renderer boundary with an opt-in Deceleration value.
+    operations:
+    - name: init/setDeceleration
+      inputs:
+      - name: tuning
+        type: enabled Boolean and acceleration in glyph rows per simulation second squared
+      outputs:
+      - name: effect
+        type: captured by each new packet at row zero; existing packet motion and glyph lifetimes remain fixed
+    - name: trigger/advance
+      inputs:
+      - name: observation
+        type: event column/start time or monotonically increasing simulation timestamp
+      outputs:
+      - name: result
+        type: conservative event duration or deterministic fixed-cell writes and dissolutions
+  outbound: []
+constraints:
+- id: opt_in
+  level: MUST
+  statement: Default to disabled. Disabled tuning or zero acceleration uses the previous constant-speed schedule,
+    random sequence and glyph lifetimes; do not change the existing speed control or add a second entry-speed control.
+- id: kinematics
+  level: MUST
+  statement: At each packet start, retain the existing randomized column entry speed V. Apply the configured
+    negative acceleration until speed reaches 20 percent of V, then continue at that positive speed. Do not reverse
+    or permanently stop the head. A new pass enters at V again.
+- id: units_and_validation
+  level: MUST
+  statement: Acceleration is in glyph rows per simulation second squared, bounded to -120 through 0; default -12.
+    Nonfinite values fall back to -12 and positive values clamp to zero. The existing speed multiplier S scales
+    simulation time; at constant S, real-time entry speed is S times V and acceleration is S squared times a.
+- id: deterministic_timing
+  level: MUST
+  statement: Compute row arrival times analytically and process writes/mutations in timestamp order. Different
+    frame subdivisions at fixed tuning and full coverage must reach identical simulation state.
+- id: tail_lifecycle
+  level: MUST
+  statement: Glyph cells stay in place. Each captures its own hold/fade lifetime when written; the rear follows
+    the slower sequential dissolution schedule. Within one packet, fade starts and expiry times increase from
+    top to bottom. Expired ink remains absent until a new writing pass owns that cell. At full density/coverage
+    and unattenuated visibility, repeated active passes have no empty cells after a full-density pass fills them.
+- id: stable_packet
+  level: MUST
+  statement: Capture motion tuning at row zero. Changing the option or acceleration affects subsequent packets,
+    including new event packets, without retiming already written glyphs or jumping the current head.
+- id: bounded_event
+  level: MUST
+  statement: With tuning/density applied before trigger and kept through its initial advance, the returned
+    duration bounds the final glyph expiry including the slower rear. Do not remove an event stream when only
+    its head has left the screen.
+- id: parent_assembly
+  level: MUST
+  statement: Propagate saved enabled/acceleration values from controller to new and live renderers, and through
+    both preview and live draw paths into simulation before trigger/advance. Keep mutation/activity clock handling
+    and existing global speed scaling. Reset restores disabled and -12. The GUI exposes one option and one negative
+    acceleration control; terminal speed is fixed rather than separately adjustable.
+effects:
+  sideEffects:
+  - id: simulation_state
+    kind: state_mutation
+    summary: Updates per-column schedules, stationary cells and lifetimes; the core simulation performs no I/O.
+  - id: preferences
+    kind: state_mutation
+    summary: The macOS controller persists rainDecelerationEnabled and rainDeceleration; MCP reports them read-only.
+evidence:
+- id: simulation_source
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/MatrixSimulation.swift
+  supports:
+  - constraints.opt_in
+  - constraints.kinematics
+  - constraints.units_and_validation
+  - constraints.deterministic_timing
+  - constraints.tail_lifecycle
+  - constraints.stable_packet
+  - constraints.bounded_event
+- id: model_tests
+  kind: test
+  path: evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationTests.swift
+  supports:
+  - constraints
+- id: integration_source
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/MatrixRain.swift
+  supports:
+  - constraints.parent_assembly
+- id: controls_test
+  kind: test
+  path: evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+  supports:
+  - constraints.parent_assembly
+- id: validation_results
+  kind: test
+  path: validation/2026-10-13/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    boundary: medium
+    behavior: medium
+  notes:
+  - User requested opt-in braking and clarified that entry speed stays unchanged and only negative acceleration is adjustable.
+  - The 20-percent terminal speed is an explicit implementation assumption to prevent stalled rain; it is not a user-specified number.
+  - Descriptive draft; runtime checks and formal acceptance are separate. Source identities and run evidence are linked from README.md.
+implementationBindings:
+- id: motion_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 984a8a114dc24a38a79bc042b06c1f195be31d64
+  files:
+    owned:
+    - evidence/2026-10-13/source/Sources/Dreams/MatrixSimulation.swift
+    - evidence/2026-10-13/source/Sources/Dreams/RainRenderer.swift
+    - evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationTests.swift
+    - evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+    - evidence/2026-10-13/source/Tests/DreamsTests/RainTrailRenderingTests.swift
+    - evidence/2026-10-13/source/Sources/Dreams/MatrixRain.swift
+    - evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
+    - evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
+    - evidence/2026-10-13/source/Sources/Dreams/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-13/source/Sources/Dreams/Localization/ru.lproj/Localizable.strings
+    border: []

@@ -1,0 +1,162 @@
+{
+  "sourceRevision": "984a8a114dc24a38a79bc042b06c1f195be31d64",
+  "sourceState": "Runtime and test inputs are committed at sourceRevision; current map/documentation delta is identified by separate hashes.",
+  "files": [
+    {
+      "path": "Sources/Dreams/MatrixSimulation.swift",
+      "sha256": "ae7b7448c55f0a6be2f754d1244b66d68c59452da9f1a81151ab148194c2ebe1",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/MatrixSimulation.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/RainRenderer.swift",
+      "sha256": "cf58863500f4697882791f02e952b6fbf653ddf82336feefcca0aada950a0032",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "sha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5",
+      "snapshot": "evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "sha256": "afd3568a740eda0c82c744c43f27a5452857a48dcd92967b26ed03521f2d8459",
+      "snapshot": "evidence/2026-10-13/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "sha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1",
+      "snapshot": "evidence/2026-10-13/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/MatrixRain.swift",
+      "sha256": "3b84eb92ad33bcbd41a4b78db6373f1f8e66f3668e6567f917280e872c696c07",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/MatrixRain.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          117,
+          198
+        ]
+      ],
+      "snapshotSha256": "2791ce10608cb24e79cae88a986ef1513a58ecbf0aea5116b4476bf2d97a7e05"
+    },
+    {
+      "path": "Sources/Dreams/DreamsController.swift",
+      "sha256": "e89f686329da8c1d7086312190f2b4da289deae334af70b82223c82d7a8334aa",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          17,
+          19
+        ],
+        [
+          157,
+          181
+        ],
+        [
+          280,
+          311
+        ],
+        [
+          444,
+          446
+        ],
+        [
+          505,
+          518
+        ]
+      ],
+      "snapshotSha256": "e546947440c081be20fe6d09ca5cb8f1d88bd8ca117c14b438c1fde3985d364f"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMain.swift",
+      "sha256": "4c6cba2d9c49076dccc33f6719ef3da110756f265372c02a0feabdd31b986c9e",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          240,
+          241
+        ],
+        [
+          327,
+          364
+        ],
+        [
+          585,
+          598
+        ],
+        [
+          772,
+          795
+        ],
+        [
+          833,
+          841
+        ]
+      ],
+      "snapshotSha256": "2f5e63f61c69fb7edbdf189003e98637eed1d6dad312be53345a99a36d62538a"
+    },
+    {
+      "path": "Sources/Dreams/Localization/en.lproj/Localizable.strings",
+      "sha256": "4af2572483e0ae9993174945809fb6349259ab1fd0d453471d3f6952299297ee",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          145,
+          149
+        ]
+      ],
+      "snapshotSha256": "0103be14ca36256943dcfba2d495480914911eff75cc157741eb583f6c43b0f8"
+    },
+    {
+      "path": "Sources/Dreams/Localization/ru.lproj/Localizable.strings",
+      "sha256": "b0a6ce44e3de9a2d76f439efae6bbb7da6f84476b822ceee44338c24e2719063",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          145,
+          149
+        ]
+      ],
+      "snapshotSha256": "c745fad7a78972793c7e5339b38e61da039736fa9d48693ebe84435a93e03729"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/drop-motion.hc",
+      "sha256": "5dcd162608f73faa0781fe7a3d60379dca405af2f45d9db6a8d199c85c2e6704",
+      "snapshot": "evidence/2026-10-13/maps/drop-motion.hc"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hcs",
+      "sha256": "bdeef846ad9c69814954f14d2e014ac75c7ffc8c575e468b8cc7f0da1f867b34",
+      "snapshot": "evidence/2026-10-13/maps/drop-motion.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "48a3e53b9a7619034db7db0380973fc93e1de50339fc5483737dde56ac973628",
+      "snapshot": "evidence/2026-10-13/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "6ab7237b84492c420ce6979263162f827d4e99ddecc24057cc552c353b5ef758",
+      "snapshot": "evidence/2026-10-13/maps/overlay-session.hcs"
+    }
+  ],
+  "visualObservation": {
+    "sessionID": "FEB95C81-F1E5-432A-9845-25C712D34422",
+    "recordID": "DFC04DF4-2781-4ADA-BEB5-886BEB780701",
+    "path": "validation/2026-10-13/settings.png",
+    "sha256": "64e0c733198f00c9012ea28d2b368892e9cceb99982ef647aadeffa660e531b4",
+    "appSourceIdentity": "UI implementation hashes match this baseline; asynchronous capture harness differs from final synchronous test."
+  }
+}

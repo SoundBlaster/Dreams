@@ -1,0 +1,15 @@
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropDecelerationSettingsTests started.
+􀟈  Test controlsEnablePersistAndDisableDeceleration() started.
+􁁛  Test controlsEnablePersistAndDisableDeceleration() passed after 0.318 seconds.
+􁁛  Suite DropDecelerationSettingsTests passed after 0.318 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.318 seconds.
+Building for production...
+[Using on-disk description]
+[2 / 3] DreamsTests-product
+[3 / 4] DreamsTests-product
+[8 / 12] DreamsTests-product
+[10 / 12] DreamsTests-product
+Build complete! (4.68 sec)

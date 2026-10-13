@@ -1,0 +1,56 @@
+RainOverlaySession:
+  source: "Sources/Dreams/DreamsController.swift"
+  implementation: "begin + reconcileScreens + stop + resume"
+  background: "opaque"
+  entry: "interactive"
+DisplayTargets:
+  source: "Sources/Dreams/RainDisplaySelection.swift"
+  implementation: "targets + load + save"
+Presentation:
+  source: "Sources/Dreams/RainScreenManager.swift"
+  implementation: "reconcile + close"
+OverlayWindows:
+  source: "Sources/Dreams/RainOverlayWindow.swift"
+  input: "mouse-interactive-key-capable"
+InputRouting:
+  escape: "local-key-window-and-controller-guard"
+ExitControls:
+  availability: "opaque-only"
+  hide_delay_seconds: 4
+FocusReturn:
+  source: "Sources/Dreams/RainScreenManager.swift"
+  implementation: "hasPresented + returnApplication + returnWindow"
+ExitInput:
+  source: "Sources/Dreams/DreamsMain.swift"
+  implementation: "controller callbacks + settings window + stop actions"
+GlobalHotkey:
+  source: "Sources/Dreams/EmergencyHotkey.swift"
+  implementation: "install + change + uninstall"
+  registration: "fallible-Carbon-registration"
+SessionLifetime:
+  source: "Sources/Dreams/DreamsController.swift"
+  duration: "interactive-setting-or-unbounded"
+CaptureVisibility:
+  source: "Sources/Dreams/DreamsController.swift"
+  implementation: "sharingType + checkScreenshotTool"
+  guarantee: "best-effort-not-pixel-proof"
+Renderer:
+  source: "Sources/Dreams/RainRenderer.swift"
+  detail_status: "drop-motion-recovered-other-rendering-unexplored"
+  detail: "drop-motion.hc + drop-motion.hcs"
+@background[transparent]:
+  RainOverlaySession:
+    background: "transparent"
+  OverlayWindows:
+    input: "mouse-pass-through-nonactivating-not-key-capable"
+  InputRouting:
+    escape: "no-stop-working-app-retains-input"
+  ExitControls:
+    availability: "absent"
+  SessionLifetime:
+    duration: "interactive-unbounded"
+@entry[agent]:
+  RainOverlaySession:
+    entry: "agent"
+  SessionLifetime:
+    duration: "finite-1-to-3600-seconds-default-300"

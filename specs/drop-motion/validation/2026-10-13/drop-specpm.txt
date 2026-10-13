@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    "dreams.rain.drop_motion"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/motion.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams drop motion",
+    "package_id": "dreams.drop_motion",
+    "version": "0.1.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 2,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/motion.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/motion.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    }
+  ]
+}

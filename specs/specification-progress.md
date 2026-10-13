@@ -16,7 +16,8 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Presentation | User / windows and focus | dreams.overlay.presentation | reconcile/close, panel config | Verify focus/OS resource failures |
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
-| RainOverlaySession.Renderer | Presentation consumer | Opaque required capability; unexplored rendering contract | Constructor/configuration only | Recover actual renderer contract separately |
+| RainOverlaySession.Renderer | Presentation consumer | Partial: drop motion recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Pinned runtime f9aa0fd; model/UI/Metal checks | Review terminal-speed assumption; other renderer behavior unexplored |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -110,3 +111,21 @@ Glyph editor contracts/implementation are untouched; their historical applicatio
 snapshot remains preserved. PRs #18–20 are not included in this source baseline.
 
 Current capture-status FSD refresh: [2026-10-14 validation](overlay-session/validation/2026-10-14-capture-fsd/README.md). Suspended status is false without owned overlays.
+
+## Drop deceleration — 2026-10-13
+
+User-requested opt-in feature: unchanged entry speed, one negative-acceleration
+control. [Drop-motion contract](drop-motion/README.md) recovers head timing,
+stationary fading tail, event duration and controller/renderer assembly.
+Renderer.DropMotion is the new detail; other renderer and tvOS contracts remain
+unexplored. Existing display/exit/session lifecycle and glyph contracts keep
+stable IDs and still apply: the source changes add saved visual tuning and
+renderer propagation without altering their lifecycle/input ownership paths.
+Initial overlay snapshots remain historical; current motion source/map identities
+and runtime results are in the new package. PR #18 capture status is independent.
+
+Check coverage includes analytic kinematics, invalid tuning, legacy parity,
+frame subdivision, sequential fading, full density, event expiry and native UI
+persistence. Terminal speed 20%, range -120…0, default -12 and next-packet tuning
+are explicit implementation choices, not inferred user-specified values.
+Next boundary: renderer shader/atlas composition, when changes require it.

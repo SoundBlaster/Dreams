@@ -1,0 +1,6 @@
+// Sources/Dreams/Localization/ru.lproj/Localizable.strings: 145-149
+"rain.deceleration.enabled" = "Торможение капель";
+"rain.deceleration.enabled.tip" = "Новые капли влетают с текущей скоростью и замедляются. Уже летящие сохраняют своё движение.";
+"rain.deceleration" = "a, симв/с²";
+"rain.deceleration.value" = "%.1f";
+"rain.deceleration.tip" = "Отрицательное ускорение при скорости 1×; 0 — постоянная скорость. Капли замедляются до 20% от начальной скорости и продолжают стекать. Изменения применяются к новым каплям.";

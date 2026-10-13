@@ -60,6 +60,30 @@ Any other stdio MCP client, including Claude, uses the same executable and `--mc
 
 **One process controls the fullscreen overlay and the virtual display.** That is either the normal app or a single MCP client started with `--mcp`. Other sessions can run `--mcp --publisher`: they get only status, preview, publish_keywords and clear_keywords. Publishers exchange keywords through a shared local mailbox but cannot control someone else's fullscreen. On EOF the controlling MCP process removes its animation and virtual display; a publisher exiting does not remove its keywords before their TTL expires. `rain_visible` in `dreams_status` means rain is requested, owns overlay windows and is not temporarily suspended for the screenshot picker. `rain_suspended_for_capture` reports that temporary hiding, including its restore grace period. `rain_requested`, window ownership, expiry and the sleep assertion remain active during suspension; these flags do not prove actual pixel visibility or capture exclusion.
 
+## Optional drop deceleration
+
+Enable **Decelerate drops** to keep the current entry speed and slow each new
+head with a negative acceleration a. The slider spans -120…0 glyph rows/s² at
+speed 1×; default -12. Zero leaves constant speed. A fixed minimum of 20% of
+entry speed keeps drops falling. The option defaults off and saved values apply
+to new packets; existing heads and written glyph lifetimes keep their schedules.
+The existing speed slider scales the whole simulation clock (at constant S,
+real-time acceleration is S²a). Density and fade remain separate controls.
+
+MCP reports `rain_deceleration_enabled` and `rain_deceleration` read-only.
+The [drop-motion package](../specs/drop-motion/README.md) records the contract,
+source baseline and checks. An offline Metal comparison can be exported with:
+
+```sh
+DREAMS_FEED_DIRECTORY="$(mktemp -d)" DREAMS_CAPTURE_TRAILS_DIR="$PWD/artifacts/braking" \
+  DREAMS_CAPTURE_DECELERATION=-24 swift test -c release --filter RainTrailRenderingTests
+```
+
+Omit DREAMS_CAPTURE_DECELERATION for the same render with constant-speed heads.
+The native settings regression is opt-in (`DREAMS_TEST_DROP_SETTINGS=1`) with
+an isolated DREAMS_FEED_DIRECTORY. It restores changed preferences; visual
+inspection uses a separate Screener capture. Ordinary unit tests cover the motion model.
+
 ## Agent hooks (Codex and Claude Code)
 
 The settings window has an **Agent hooks** section: for Codex and Claude Code it shows whether the hooks are connected (*Connected*, *Not connected*, or *Needs an update* when the hooks point to another copy of the app or miss an event) and has a Connect / Disconnect / Update button. It does the same as the commands below, for that one agent. `Dreams --hooks-status` prints the state of both from the terminal.
