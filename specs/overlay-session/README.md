@@ -60,12 +60,26 @@ pin full files or exact excerpts with full-source hashes. [HC map](../hypercode/
 and [profiles](../hypercode/overlay-session.hcs) describe composition, not runtime
 configuration. [Initial validation](validation/2026-10-13/README.md) and the
 [P2 review correction](validation/2026-10-13-review-p2/README.md) check structure only.
-
-The [current source identities](evidence/2026-10-13-capture-status/source-identity.json)
+The [historical capture source identities](evidence/2026-10-13-capture-status/source-identity.json)
 pin the session correction at `bd5d783`.
 The [capture-status correction](validation/2026-10-13-capture-status/README.md)
 records fresh deterministic native-overlay tests and the current source baseline.
 The initial documentation pass did not run live tests. Physical screenshot-picker
 recognition, keyboard and display-topology behavior remain separately unverified.
 
-Current capture-status FSD refresh: [2026-10-14 validation](validation/2026-10-14-capture-fsd/README.md). The suspended flag is false without owned overlays, even if the internal capture latch survives display loss.
+## FSD integration refresh — 2026-10-13
+
+Current implementation: `691d94b65eb8fd1687b09cef7ff4f6f5c2776c83`. [Identities](evidence/2026-10-13-fsd/source-identity.json)
+map old paths to FSD paths and pin the extracted settings/app composition.
+[Fresh validation](validation/2026-10-13-fsd/README.md) is separate from the historical
+source-reading pass above. Existing display/session/input claims and IDs still apply.
+SettingsPageController now owns recording and cleanup; DreamsDelegate retains it
+and forwards termination. SettingsWindow wires Esc to the same rain controller.
+RainScreenManager, overlay panels, Carbon registration, display policy and renderer
+algorithms are byte-identical to main apart from paths; controller body is unchanged
+after moving DreamsPreset and DreamsError to their own files.
+The tvOS foreground app is represented only in coarse orientation and remains
+outside these macOS contracts. No physical-keyboard/Apple-TV claim follows from
+GUI or simulator passes. PRs #18–20 are independent and remain outside this merge.
+
+Current capture-status FSD refresh: [2026-10-14 validation](validation/2026-10-14-capture-fsd/README.md). Suspended status is false without owned overlays.

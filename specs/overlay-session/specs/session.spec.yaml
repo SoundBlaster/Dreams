@@ -72,9 +72,9 @@ constraints:
   level: MUST
   statement: Keep requested state separate from owned overlays and actual on-screen visibility. Disconnecting every
     eligible screen may leave a requested session with no windows; later screen notifications reconcile it. status
-    rain_visible means requested with nonempty overlay ownership and no capture suspension. Report capture
-    suspension separately as rain_suspended_for_capture, true only while requested overlays are owned; it does not stop the requested session. These status
-    flags do not prove pixel visibility, focus or capture exclusion.
+    rain_visible means requested with nonempty overlay ownership and no capture suspension. Report capture suspension
+    separately as rain_suspended_for_capture, true only while requested overlays are owned; it does not stop the
+    requested session. These status flags do not prove pixel visibility, focus or capture exclusion.
 - id: selection_changes
   level: MUST
   statement: On an explicit display-selection change, roll the selection back if reconciliation throws and persist
@@ -99,9 +99,9 @@ constraints:
   level: MUST
   statement: When hiding from capture is enabled, configure sharingType none and poll for windows owned by screencapture/screencaptureui
     every 0.1 seconds. Order overlays out while detected, and front after a greater-than-0.5-second clear grace
-    period. Preserve requested session, overlays, expiry and the current sleep assertion. While overlays remain owned during suspension and
-    the clear grace period, report rain_visible false and rain_suspended_for_capture true; restore those flags
-    only when the overlays are ordered front. Detection and capture omission remain best-effort.
+    period. Preserve requested session, overlays, expiry and the current sleep assertion. While overlays remain
+    owned during suspension and the clear grace period, report rain_visible false and rain_suspended_for_capture
+    true; restore those flags only when the overlays are ordered front. Detection and capture omission remain best-effort.
 - id: assembly
   level: MUST
   statement: Run controller, manager, overlay and exit callbacks on MainActor. Wire per-window exits to the same
@@ -121,3 +121,69 @@ effects:
 evidence:
 - id: source_1
   kind: source
+  path: evidence/2026-10-14-capture-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
+  supports:
+  - interfaces
+  - constraints
+  - effects
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
+  supports:
+  - constraints.requested_vs_presented
+  - constraints.selection_changes
+  - constraints.stop_cleanup
+  - constraints.assembly
+- id: source_3
+  kind: source
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+  supports:
+  - constraints.resume_and_reopen
+  - constraints.assembly
+- id: fsd_source_6
+  kind: source
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+  supports:
+  - constraints.assembly
+- id: fsd_source_7
+  kind: source
+  path: evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+  supports:
+  - constraints.assembly
+- id: capture_status_regression
+  kind: test
+  path: evidence/2026-10-14-capture-fsd/source/Tests/DreamsTests/CaptureVisibilityTests.swift
+  supports:
+  - constraints.requested_vs_presented
+  - constraints.capture_suspension
+  - constraints.stop_cleanup
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft; historical recovery from main 1ce194748720e40e1eb9737e63bb37797c5840b1. Current FSD source
+    691d94b65eb8fd1687b09cef7ff4f6f5c2776c83 and relocation hashes are in evidence/2026-10-13-fsd/source-identity.json.
+  - Normative language recovers scoped implementation behavior, not accepted new product requirements. See matrix.md
+    for assembly duties, evidence level and owner decisions.
+  - Historical structural results remain preserved. Fresh validation is recorded separately in validation/2026-10-13-fsd/README.md;
+    physical-keyboard and actual-monitor checks are not inferred.
+  - Current capture-status regression and source identities are in evidence/2026-10-14-capture-fsd/source-identity.json
+    and validation/2026-10-14-capture-fsd/README.md. Includes final overlay removal with requested session retained.
+    Earlier runtime passes remain historical.
+implementationBindings:
+- id: session_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 71dfb6fb4f225a5451ef8c421e535f66522ab36a
+  files:
+    owned:
+    - evidence/2026-10-14-capture-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsMCPServer.swift
+    - evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    border: []
