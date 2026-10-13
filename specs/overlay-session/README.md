@@ -67,3 +67,5 @@ The [capture-status correction](validation/2026-10-13-capture-status/README.md)
 records fresh deterministic native-overlay tests and the current source baseline.
 The initial documentation pass did not run live tests. Physical screenshot-picker
 recognition, keyboard and display-topology behavior remain separately unverified.
+
+Current capture-status FSD refresh: [2026-10-14 validation](validation/2026-10-14-capture-fsd/README.md). The suspended flag is false without owned overlays, even if the internal capture latch survives display loss.

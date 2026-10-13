@@ -96,3 +96,5 @@ Display/presentation/exit/glyph contracts and behavior remain applicable because
 only capture observation/time factoring and session status output changed;
 their original evidence remains historical. Physical picker detection and
 pixel visibility are not established by these deterministic observations.
+
+Current capture-status FSD refresh: [2026-10-14 validation](overlay-session/validation/2026-10-14-capture-fsd/README.md). The suspended flag is false without owned overlays, even if the internal capture latch survives display loss.

@@ -1,0 +1,12 @@
+zsh scripts/lint-architecture.sh
+FSD lint passed: 0 errors, 0 warnings
+zsh scripts/lint-architecture.sh --root tvOS/Sources
+FSD lint passed: 0 errors, 0 warnings
+swiftlint lint --strict --quiet
+warning: 'unused_import' should be listed in the 'analyzer_rules' configuration section for more clarity as it is only run by 'swiftlint analyze'.
+ruff check scripts
+All checks passed!
+for script in scripts/*.sh; do zsh -n "$script"; done
+for script in $(ls plugins/*/scripts/*.sh 2>/dev/null); do sh -n "$script"; done
+python3 scripts/check-docs.py
+PASS: relative links in 27 Markdown files

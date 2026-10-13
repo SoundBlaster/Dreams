@@ -73,7 +73,7 @@ constraints:
   statement: Keep requested state separate from owned overlays and actual on-screen visibility. Disconnecting every
     eligible screen may leave a requested session with no windows; later screen notifications reconcile it. status
     rain_visible means requested with nonempty overlay ownership and no capture suspension. Report capture
-    suspension separately as rain_suspended_for_capture; it does not stop the requested session. These status
+    suspension separately as rain_suspended_for_capture, true only while requested overlays are owned; it does not stop the requested session. These status
     flags do not prove pixel visibility, focus or capture exclusion.
 - id: selection_changes
   level: MUST
@@ -99,7 +99,7 @@ constraints:
   level: MUST
   statement: When hiding from capture is enabled, configure sharingType none and poll for windows owned by screencapture/screencaptureui
     every 0.1 seconds. Order overlays out while detected, and front after a greater-than-0.5-second clear grace
-    period. Preserve requested session, overlays, expiry and the current sleep assertion. During suspension and
+    period. Preserve requested session, overlays, expiry and the current sleep assertion. While overlays remain owned during suspension and
     the clear grace period, report rain_visible false and rain_suspended_for_capture true; restore those flags
     only when the overlays are ordered front. Detection and capture omission remain best-effort.
 - id: assembly
