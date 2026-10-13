@@ -1,0 +1,49 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.glyph_workspace
+  name: Dreams glyph workspace contracts
+  version: 0.1.0-draft.1
+  summary: Source-grounded descriptive drafts for the glyph editor; acceptance and runtime verification remain separate.
+  license: MIT
+  authors:
+  - name: Dreams contributors (AI-assisted source recovery)
+specs:
+- path: specs/geometry.spec.yaml
+- path: specs/components.spec.yaml
+- path: specs/checkpoints.spec.yaml
+- path: specs/editor.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.glyph.geometry
+    - dreams.glyph.components
+    - dreams.glyph.checkpoints
+    - dreams.glyph.editor
+  requires:
+    capabilities:
+    - platform.node.execution
+    - platform.posix.filesystem
+    - platform.browser.editor_host
+compatibility:
+  platforms:
+  - browser
+  - macos
+  languages:
+  - name: javascript
+  - name: python
+keywords:
+- glyph-editor
+- descriptive-draft
+- hypercode
+- specpm
+foreignArtifacts:
+- format: hypercode
+  path: evidence/2026-10-13/maps/glyph-editor.hc
+  role: documentation
+- format: hypercode-stylesheet
+  path: evidence/2026-10-13/maps/glyph-editor.hcs
+  role: documentation
+- format: markdown
+  path: matrix.md
+  role: documentation

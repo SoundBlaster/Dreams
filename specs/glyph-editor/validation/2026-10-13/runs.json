@@ -1,0 +1,107 @@
+[
+  {
+    "name": "application-parse",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "parse",
+      "specs/hypercode/application.hc"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "application-parse.txt",
+    "stderr": "application-parse.stderr.txt"
+  },
+  {
+    "name": "application-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/application.hc",
+      "--hcs",
+      "specs/hypercode/application.hcs"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "application-validate.txt",
+    "stderr": "application-validate.stderr.txt"
+  },
+  {
+    "name": "editor-parse",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "parse",
+      "specs/hypercode/glyph-editor.hc"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "editor-parse.txt",
+    "stderr": "editor-parse.stderr.txt"
+  },
+  {
+    "name": "editor-local-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/glyph-editor.hc",
+      "--hcs",
+      "specs/hypercode/glyph-editor.hcs"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "editor-local-validate.txt",
+    "stderr": "editor-local-validate.stderr.txt"
+  },
+  {
+    "name": "editor-standalone-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/glyph-editor.hc",
+      "--hcs",
+      "specs/hypercode/glyph-editor.hcs",
+      "--ctx",
+      "mode=standalone"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "editor-standalone-validate.txt",
+    "stderr": "editor-standalone-validate.stderr.txt"
+  },
+  {
+    "name": "specpm",
+    "command": [
+      "/opt/homebrew/bin/specpm",
+      "validate",
+      "specs/glyph-editor",
+      "--json"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "specpm.json",
+    "stderr": "specpm.stderr.txt"
+  },
+  {
+    "name": "markdown-links",
+    "command": [
+      "python3",
+      "scripts/check-docs.py"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "markdown-links.txt",
+    "stderr": "markdown-links.stderr.txt"
+  },
+  {
+    "name": "whitespace",
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "cwd": "/Users/egor/Development/GitHub/Dreams",
+    "exitCode": 0,
+    "stdout": "whitespace.txt",
+    "stderr": "whitespace.stderr.txt"
+  }
+]

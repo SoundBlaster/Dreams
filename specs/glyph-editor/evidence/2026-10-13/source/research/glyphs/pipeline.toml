@@ -1,0 +1,181 @@
+# Configuration of the glyph restoration pipeline.
+# Run from the Dreams root:  .venv/bin/python scripts/glyphs/pipeline.py build
+# All paths are relative to research/glyphs/.
+
+[font]
+family = "Dreams Matrix"
+style = "Regular"
+version = "0.3"
+# UPM, advance and the sum ascent+descent match Sources/Dreams/Matrix-Code.ttf.
+# The baseline is y = 0. The 1024 vertical cell is centred on the glyph body (0…780),
+# so the app, which centres a line by ascent/descent, draws glyphs where it did before.
+upm = 1024
+advance = 956
+ascent = 900
+descent = 124
+# The film glyph body = cap height: a sheet row is mapped to 0…780.
+body_bottom = 0
+body_top = 780
+# Fixed time in head: the same inputs give a byte-identical TTF.
+timestamp = "2026-10-10T00:00:00Z"
+# Every glyph is always available at a PUA code: pua_base + number (G01 → U+E001).
+pua_base = 0xE000
+
+[cmap]
+# Assign a standard Unicode value only at this confidence or higher
+# (identifications.json): confirmed_by_user > high > medium > low > unidentified.
+unicode_min_confidence = "high"
+
+[trace]
+threshold = 0.5      # ink threshold in the sheet (0 is black, 1 is white)
+upscale = 3          # upscale before binarisation: a smoother potrace contour
+min_area = 40        # components and holes smaller than this (sheet px) are treated as noise
+turdsize = 20        # potrace -t, in px of the upscaled raster
+alphamax = 1.0       # potrace -a: corner threshold
+opttolerance = 0.2   # potrace -O
+max_quadratic_error = 1.0   # cu2qu, font units
+
+[checks]
+min_iou_traced = 0.95     # agreement of the tracing with the sheet raster (gate)
+mirror_margin = 0.04      # warn if the mirrored shape is closer to the film frame
+override_warn_iou = 0.85  # warn if a manual edit strays far from the sheet raster
+
+# How the app draws a glyph (Sources/Dreams/MatrixRain.swift, glyph()): a font_size px font
+# is centred by ascent/descent in a cell×cell cell, and the shader takes the central window×window window.
+# A glyph that leaves the window is clipped on screen: for capitals, digits and rain glyphs this is a gate.
+[app]
+font_size = 26
+cell = 64
+window = 28
+
+# Reconstruction sheets. Every sheet is an immutable input (hash in inputs.lock.json).
+# Add a new GPT Image iteration as a new sheet, do not overwrite the old one.
+[[sheet]]
+id = "v5"
+path = "references/restored-v5.png"
+columns = 4
+rows = 5
+glyphs = ["G01", "G02", "G03", "G04",
+          "G05", "G06", "G07", "G08",
+          "G09", "G10", "G11", "G12",
+          "G13", "G14", "G15", "G16",
+          "G17", "G18", "G19", "G20"]
+
+# First expansion: source crops and editable SVG reconstruction, no baked-in glow.
+[[sheet]]
+id = "simple-forms-v1"
+path = "references/simple-forms-v1.png"
+columns = 4
+rows = 2
+# Local y coordinates of the full-height glyph body in every 256px cell.
+# Short signs retain their size and placement instead of being stretched.
+body_bounds = [30, 225]
+glyphs = ["G21", "G22", "G23", "G24", "G25", "G26", "G27", "G28"]
+
+# User correction: the apparent lower bar belonged to the next glyph.
+[[sheet]]
+id = "g22-v2"
+path = "references/g22-v2.png"
+columns = 1
+rows = 1
+body_bounds = [30, 225]
+glyphs = ["G22"]
+
+# --- Latin and digits: drawn by common rules, not taken from the film ---
+# The generator scripts/glyphs/latin.py builds glyphs from these numbers; the pipeline checks
+# that every glyph sits on its lines. Change the system here, not in individual SVGs.
+[latin]
+cap_height = 780        # = the body of the film glyphs
+x_height = 560          # 0.72 of the cap height
+ascender = 800          # ascenders of b d f h k l t slightly above the capitals: l ≠ I
+descender = -145        # shorter than usual: lowercase letters from commands fit entirely into the atlas window ([app])
+tail = -130             # tails of Cyrillic Д Ц Щ д ц щ: shorter than descenders, all one length
+overshoot = 12          # pointed and round terminals overshoot the line by this much
+stem = 118              # vertical of capitals and digits = the stroke of the film glyphs
+hair = 104              # horizontals are thinner than verticals (optical compensation); diagonals in between
+lowercase_ratio = 0.95  # lowercase 5 % lighter than capitals
+crossbar = 0.52         # middle crossbar of E F H R P B: fraction of cap height (slightly above the middle)
+lower_crossbar = 0.55   # crossbar of a e: fraction of x-height
+taper_tip = 30          # width of the tip of a tapered stroke
+soften = 13             # radius softening straight ends and corners
+line_tolerance = 24     # tolerance of the line check (2 × overshoot)
+widths = { cap = 530, wide = 600, lower = 480, lower_wide = 560, digit = 510 }
+
+# A set with standard codes only (no PUA), so it does not enter the rain's repertoire.
+# Its codes outrank the Unicode hypotheses of the film glyphs: in words, 5 must be a five.
+[[design]]
+id = "latin-v1"
+index = "latin/glyphs.toml"
+reference = "references/latin-specimen-v1.png"
+
+# Russian Cyrillic on the same rules. Forms shared with Latin are aliases (the same contour).
+[[design]]
+id = "cyrillic-v1"
+index = "cyrillic/glyphs.toml"
+proof = { sample = "ЖщдБя", texts = ["ПРОСНИСЬ НЕО", "МАТРИЦА ИМЕЕТ ТЕБЯ", "следуй за белым кроликом", "съешь же ещё этих булок"] }
+
+# Settings of individual glyphs (all fields are optional):
+#   sheet  = "v6"            — take the raster from another sheet
+#   dy     = 0               — vertical shift in font units (up > 0)
+#   expect = { components = 1, holes = 0 }
+#                            — expected topology; without it the topology of the raster is expected
+# The P0 invariants from IDENTIFICATIONS.md are fixed explicitly.
+
+[glyph.G01]
+expect = { components = 1, holes = 0 }   # mirrored 5, solid stroke
+
+[glyph.G02]
+expect = { components = 1, holes = 2 }   # closed slashed 0
+
+[glyph.G04]
+expect = { holes = 0 }                   # intersections are solid
+
+[glyph.G05]
+expect = { holes = 0 }
+
+[glyph.G08]
+dy = 130            # asterisk above the midline (preview_offset_y −0.13 of the cell), check against the film
+expect = { components = 1, holes = 0 }
+
+[glyph.G10]
+expect = { components = 3 }              # three separate components of ツ
+
+[glyph.G12]
+expect = { holes = 0 }
+
+[glyph.G14]
+expect = { holes = 0 }
+
+[glyph.G15]
+expect = { components = 2 }              # ハ: two separate parts
+
+[glyph.G17]
+expect = { components = 1 }              # one connected form
+
+[glyph.G19]
+expect = { components = 3 }              # three separate strokes of ミ
+
+[glyph.G21]
+expect = { components = 1, holes = 2 }    # 8: two real closed bowls
+
+[glyph.G22]
+sheet = "g22-v2"
+expect = { components = 1, holes = 1 }    # 4: triangular counter
+
+[glyph.G23]
+expect = { components = 2, holes = 0 }    # two separate dots
+
+[glyph.G24]
+expect = { components = 2, holes = 0 }    # two slightly slanted bars
+
+[glyph.G25]
+expect = { components = 1, holes = 0 }
+
+[glyph.G26]
+expect = { components = 1, holes = 0 }
+
+[glyph.G27]
+expect = { components = 1, holes = 0 }
+
+[glyph.G28]
+expect = { components = 1, holes = 0 }

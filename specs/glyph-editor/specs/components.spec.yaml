@@ -1,0 +1,112 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.glyph.components
+  title: SharedStrokeForms
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Reuse one explicitly editable stroke form across glyphs while retaining independent instance positions.
+scope:
+  boundedContext: glyph_editor
+  includes:
+  - Component creation, copying, independent/linked paste, freeze/unfreeze, instance translation and detachment.
+  excludes:
+  - Cross-tab or OS clipboard synchronization, automatic component discovery, style inference and immunity to whole-glyph
+    transforms.
+provides:
+  capabilities:
+  - id: dreams.glyph.components
+    role: primary
+    summary: Reuse one explicitly editable stroke form across glyphs while retaining independent instance positions.
+requires:
+  capabilities:
+  - id: dreams.glyph.geometry
+    summary: Validation, resolving component shapes, rendering and instance offsets.
+interfaces:
+  inbound:
+  - id: components_input
+    kind: library
+    summary: Observed existing boundary, not a proposed new public API.
+    operations:
+    - name: copy_and_paste
+      inputs:
+      - name: selection
+        type: selected stroke and current project
+      outputs:
+      - name: instance
+        type: independent stroke or reference to a shared form
+    - name: edit_component
+      inputs:
+      - name: explicitMode
+        type: explicit edit-component toggle
+      outputs:
+      - name: updatedShape
+        type: shared source form used by all references
+  outbound: []
+constraints:
+- id: frozen_form
+  level: MUST
+  statement: Keep linked form controls and point dragging frozen until Edit Component is explicitly enabled; independent
+    instance translation remains available. Reset shared edit permission on a different stroke/glyph selection,
+    layer selection, project load and Undo/Redo restoration; section selection within the same component may retain
+    permission.
+- id: shared_update
+  level: MUST
+  statement: While component edit mode is enabled, mutate the shared source form so all references use the changed
+    geometry; preserve each reference offset. Whole-glyph stretch/reflection/placement still affect displayed instances.
+- id: copy_semantics
+  level: MUST
+  statement: Keep copy buffer in the current tab. Ordinary paste copies the captured shape independently. Linked
+    paste reuses/creates a component; an unchanged independent source in the same project generation is also linked.
+    Do not promise arbitrary cross-project source identity.
+- id: detach
+  level: MUST
+  statement: Detach by copying the resolved current form and retaining the instance offset. Later master edits do
+    not change that detached shape.
+- id: history
+  level: MUST
+  statement: Include source forms and references in project snapshots, JSON and checkpoints. Undo of a shared edit
+    restores the shared form for all references in that project; deleting one instance does not delete others.
+effects:
+  sideEffects:
+  - id: project_edit
+    kind: state_mutation
+    summary: Mutates the editor-owned project and tab clipboard; parent editing session owns validation, history
+      and persistence.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/stroke-editor.js
+  supports:
+  - interfaces
+  - constraints
+  - effects
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13/source/scripts/glyphs/stroke-editor-model.js
+  supports:
+  - constraints.shared_update
+  - constraints.history
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from 96fef7ad121cf9ba278eabd878c5179fd754a0cd; source hashes and snapshots in evidence/2026-10-13/source-identity.json.
+  - Normative wording describes recovered behavior; acceptance and runtime conformance are not established. See
+    matrix.md for origins, source bindings, scenarios and unknowns.
+  - Current validation checks specification structure only. Test source is an expectation, not a fresh execution
+    result.
+implementationBindings:
+- id: components_implementation
+  language: javascript
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 96fef7ad121cf9ba278eabd878c5179fd754a0cd
+  files:
+    owned:
+    - evidence/2026-10-13/source/scripts/glyphs/stroke-editor.js
+    - evidence/2026-10-13/source/scripts/glyphs/stroke-editor-model.js
+    border: []

@@ -29,6 +29,7 @@ help:
 		'  make katakana         Build the directed katakana stroke research catalogue' \
 		'  make katakana-check   Validate stroke data, pressure laws and SVG determinism' \
 		'  make glyph-editor     Start the local glyph editor with checkpoint storage' \
+		'  make specs-check      Validate specification structure (Hypercode + SpecPM)' \
 		'' \
 		'Release (version from VERSION):' \
 		'  make notary-profile KEY=<AuthKey.p8> KEY_ID=<id> ISSUER=<uuid>   One-time notarytool setup' \
@@ -165,3 +166,15 @@ uninstall-purge:
 
 clean:
 	rm -rf .build dist
+
+# Documentation structure only; no application build, UI launch or acceptance.
+HYPERCODE ?= hypercode
+SPECPM ?= specpm
+.PHONY: specs-check
+specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/application.hc
+	"$(HYPERCODE)" validate specs/hypercode/application.hc --hcs specs/hypercode/application.hcs
+	"$(HYPERCODE)" parse specs/hypercode/glyph-editor.hc
+	"$(HYPERCODE)" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs
+	"$(HYPERCODE)" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs --ctx mode=standalone
+	"$(SPECPM)" validate specs/glyph-editor --json

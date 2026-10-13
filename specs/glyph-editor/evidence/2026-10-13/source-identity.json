@@ -1,0 +1,150 @@
+{
+  "sourceRevision": "96fef7ad121cf9ba278eabd878c5179fd754a0cd",
+  "sourceState": "Implementation inputs match sourceRevision. Makefile additionally contains this task's additive specification-check target/help; snapshot and hash capture that delta. Unrelated user checkpoint/manual-file changes are excluded.",
+  "capturedAt": "2026-10-13",
+  "files": [
+    {
+      "path": "scripts/glyphs/stroke-editor-model.js",
+      "sha256": "c07750eb9fede57e959a5fb661e540e19862516be2c14c4c8f247c9f94cf5495",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor-model.js",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/stroke-editor.js",
+      "sha256": "bc69430072fbe97ff447dc8f5e94093e3fe4fbfb43d1a3eac8409b14b4c85262",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor.js",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/stroke-editor.html",
+      "sha256": "902ecd501382ea2b2f1eea84d61887d830893512e54c54c7758b0bbbf2850eb2",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor.html",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/stroke_editor.py",
+      "sha256": "c5a47130e4bbbeb6cc7c0aeddcb0d9bb9599e835ca22c091b927ccbd04c8e330",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke_editor.py",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/stroke_library.py",
+      "sha256": "b776d5e31b796f4897a2b158377fec40d5d02a365bbd0d6c73f6c786f07d335a",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke_library.py",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/validate-stroke-project.cjs",
+      "sha256": "cce578b52be0c5aa9be763ceca2b72f7aa206bb22f140b7786a897fee7e1ed17",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/validate-stroke-project.cjs",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/test-stroke-editor.cjs",
+      "sha256": "cc5581219982df7ca5b7b8d2a6cb818d04aded324b9272d5d96fa631a62d70bd",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/test-stroke-editor.cjs",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/test-stroke-editor-ui.cjs",
+      "sha256": "c0f23fc489d0ee14ddd649b91f68c89718be7f4a2470a634e43dad8e2a02655e",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/test-stroke-editor-ui.cjs",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/glyphs/test_stroke_library.py",
+      "sha256": "9a51ca3c1f01c4048334a0555b0e100de1877058665008dadd9af24f6f607b73",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/test_stroke_library.py",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/glyphs/pipeline.toml",
+      "sha256": "4173ca1f3ade7cff5865e640240395fdce9496fb4a1e9492196f93fab4df321e",
+      "snapshot": "evidence/2026-10-13/source/research/glyphs/pipeline.toml",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Makefile",
+      "sha256": "01606bbc7a8bff9853b63ed15d51459ed339765addbead4e4fd5deecbf9809ba",
+      "snapshot": "evidence/2026-10-13/source/Makefile",
+      "gitStatus": "M Makefile",
+      "note": "Only adds specification validation/help; no glyph/application target behavior changed.",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Package.swift",
+      "sha256": "845e44baed51ba7103aa2ae2b27545b87fecebb08ada6cc6348d15e44f6497c7",
+      "snapshot": "evidence/2026-10-13/source/Package.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMain.swift",
+      "sha256": "a7f40649734862b81660a36340981916653f8670c5cd4f1e5b0ea88a36273841",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift",
+      "gitStatus": "",
+      "snapshotKind": "exact-line-excerpt",
+      "lineRange": [
+        1,
+        53
+      ],
+      "snapshotSha256": "9acc4dac975b55d85b92823b79b38c69cca70394c820a11d018e86257f381ce5"
+    },
+    {
+      "path": "Sources/Dreams/DreamsController.swift",
+      "sha256": "845669adc7188d503857e7cd93addc87c11f8c65c9e7e36b18974638fe93efe7",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift",
+      "gitStatus": "",
+      "snapshotKind": "exact-line-excerpt",
+      "lineRange": [
+        1,
+        35
+      ],
+      "snapshotSha256": "415ebc92d56b35b2d5e8693ea506dc99ced34c33d4834253e6dcf6904ab52f33"
+    },
+    {
+      "path": "scripts/glyphs/pipeline.py",
+      "sha256": "4407cea423ad769986a89e5564e69bb159a5e26fd4dbaa96ef16bcea1154decc",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/pipeline.py",
+      "gitStatus": "",
+      "snapshotKind": "exact-line-excerpt",
+      "lineRange": [
+        1,
+        38
+      ],
+      "snapshotSha256": "be1a40287f877d46d59eea761a01e14820466888a896c241c916c0bc3feba8d8"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "c4f953d52a26b3da5467e1eb608a4d374c60fc59926f7569382b10e3dcf7c74e",
+      "snapshot": "evidence/2026-10-13/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "6b78238a4e15dbf855d4f79718d198ff758f0fcf1105130d8f34e0c60fdd76a2",
+      "snapshot": "evidence/2026-10-13/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hc",
+      "sha256": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+      "snapshot": "evidence/2026-10-13/maps/glyph-editor.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hcs",
+      "sha256": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+      "snapshot": "evidence/2026-10-13/maps/glyph-editor.hcs"
+    }
+  ]
+}
