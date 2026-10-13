@@ -376,7 +376,7 @@ SwiftEmitModule normal arm64 Emitting\ module\ for\ DreamsTV (in target 'DreamsT
 
 SwiftCompile normal arm64 (in target 'DreamsTV' from project 'DreamsTV')
     cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
-    
+
 
 SwiftCompile normal arm64 Compiling\ MatrixSimulation.swift /Users/egor/.codex/worktrees/screen-management/Dreams/Sources/Dreams/features/rain/model/MatrixSimulation.swift (in target 'DreamsTV' from project 'DreamsTV')
 
@@ -492,7 +492,7 @@ SwiftEmitModule normal arm64 Emitting\ module\ for\ DreamsTVTests (in target 'Dr
 
 SwiftCompile normal arm64 (in target 'DreamsTVTests' from project 'DreamsTV')
     cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
-    
+
 
 SwiftCompile normal arm64 Compiling\ DreamsTVTests.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Tests/DreamsTVTests.swift (in target 'DreamsTVTests' from project 'DreamsTV')
 

@@ -240,7 +240,7 @@ SwiftEmitModule normal x86_64 Emitting\ module\ for\ DreamsTV (in target 'Dreams
 
 SwiftCompile normal x86_64 (in target 'DreamsTV' from project 'DreamsTV')
     cd /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS
-    
+
 
 SwiftCompile normal x86_64 Compiling\ RainSettings.swift /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/Sources/features/matrix/model/RainSettings.swift (in target 'DreamsTV' from project 'DreamsTV')
 
@@ -420,4 +420,3 @@ PruneExplicitPrecompiledModules /Users/egor/.codex/worktrees/screen-management/D
 PruneExplicitPrecompiledModules /Users/egor/.codex/worktrees/screen-management/Dreams/tvOS/.build/SDKExplicitPrecompiledModules
 
 ** BUILD SUCCEEDED **
-

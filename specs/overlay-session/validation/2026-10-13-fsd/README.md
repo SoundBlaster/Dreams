@@ -36,3 +36,6 @@ hotkey delivery are outside this pass; simulator/native target-action checks are
 separate runtime, structure and draft acceptance. Source relocation does not claim to
 fix O1–O7. Physical Apple TV/global keyboard shortcut and actual-monitor behavior are
 not retested; macOS success does not establish those profiles. PRs #18–20 remain separate.
+
+Stored xcodebuild logs have trailing whitespace normalized; full diagnostic text is
+preserved. Original raw local outputs remain in artifacts/pr8-refresh.
