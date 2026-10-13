@@ -1,0 +1,138 @@
+{
+  "recordedAt": "2026-10-13T14:34:17.331459+00:00",
+  "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+  "sourceRevision": "bd5d783e1a6051f663b94d78c26d0c683d3824ab",
+  "runs": [
+    {
+      "command": [
+        "rtk",
+        "proxy",
+        "swift",
+        "test",
+        "-c",
+        "release",
+        "--filter",
+        "CaptureVisibilityTests"
+      ],
+      "exitCode": 0,
+      "environment": {
+        "DREAMS_TEST_CAPTURE_STATUS": "1",
+        "DREAMS_FEED_DIRECTORY": "isolated temporary directory"
+      },
+      "stdoutAndStderr": "capture-status-test.log"
+    },
+    {
+      "name": "negative-control",
+      "command": [
+        "rtk",
+        "proxy",
+        "swift",
+        "test",
+        "-c",
+        "release",
+        "--filter",
+        "CaptureVisibilityTests"
+      ],
+      "environment": {
+        "DREAMS_TEST_CAPTURE_STATUS": "1",
+        "DREAMS_FEED_DIRECTORY": "isolated temporary directory"
+      },
+      "sourceDelta": "Only rain_visible temporarily restored to the old rainIsOn calculation; corrected file restored in finally",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "stdoutAndStderr": "old-calculation-negative-control.log"
+    },
+    {
+      "name": "unit-target",
+      "command": [
+        "rtk",
+        "proxy",
+        "make",
+        "test-unit"
+      ],
+      "exitCode": 0,
+      "stdout": "unit-target.txt",
+      "stderr": "unit-target.stderr.txt"
+    },
+    {
+      "name": "specs-check",
+      "command": [
+        "rtk",
+        "proxy",
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0,
+      "stdout": "specs-check.txt",
+      "stderr": "specs-check.stderr.txt"
+    },
+    {
+      "name": "overlay-specpm",
+      "command": [
+        "rtk",
+        "proxy",
+        "specpm",
+        "validate",
+        "specs/overlay-session",
+        "--json"
+      ],
+      "exitCode": 0,
+      "stdout": "overlay-specpm.txt",
+      "stderr": "overlay-specpm.stderr.txt"
+    },
+    {
+      "name": "swiftlint",
+      "command": [
+        "rtk",
+        "proxy",
+        "swiftlint",
+        "lint",
+        "--strict",
+        "--quiet"
+      ],
+      "exitCode": 0,
+      "stdout": "swiftlint.txt",
+      "stderr": "swiftlint.stderr.txt"
+    },
+    {
+      "name": "markdown-links",
+      "command": [
+        "rtk",
+        "proxy",
+        "python3",
+        "scripts/check-docs.py"
+      ],
+      "exitCode": 0,
+      "stdout": "markdown-links.txt",
+      "stderr": "markdown-links.stderr.txt"
+    },
+    {
+      "name": "staged-whitespace",
+      "command": [
+        "rtk",
+        "proxy",
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "staged-whitespace.txt",
+      "stderr": "staged-whitespace.stderr.txt"
+    }
+  ],
+  "inputSha256": {
+    "specs/overlay-session/specpm.yaml": "f261ca683bda8d2722d5df6647d142009fe9eb0f9fbd0790b353f9ba7519ea41",
+    "specs/overlay-session/README.md": "30a9a6fc60a6a9bdc3559a7b090f830e6c8e4438ff134e956d4b48dbe2f2dbf9",
+    "specs/overlay-session/matrix.md": "e0c11c74ea33f531027e20d4a790d84760a7ed51d3aa53fb0fd54076e83aa393",
+    "specs/specification-progress.md": "613cd01ca85896c7201993a69e18a821f94b0941c295848d617c1418bb8cdb9f",
+    "docs/REFERENCE.md": "304a6f7297943e79a68dfa6cd873fe0a6e8e4f189d241798eb02c879b14409b8",
+    "specs/overlay-session/specs/session.spec.yaml": "c53ad50ebe132ab361fe5025a81b995291f9780093a0e1e9ed62b1ed747db9d4",
+    "specs/overlay-session/specs/displays.spec.yaml": "90d411a71389e67992b44c546514fcc007983a05ff2846916ff1e3bd9ac8e655",
+    "specs/overlay-session/specs/presentation.spec.yaml": "88c1d822a94b01952b90f58c7e34c851c611e496263192dd91e299b82849bf01",
+    "specs/overlay-session/specs/exit.spec.yaml": "0064df6df624cb91b4f962d157440f88f1feb1ac52df37bfcd3af39af74f552a",
+    "specs/hypercode/overlay-session.hc": "7c362179371da54af072ad75ba7050cd8644ecb507f5e83fa7e44422b310e738",
+    "specs/hypercode/overlay-session.hcs": "6107891c6d033ba457213bcccc4eac8b982a772a280ca6f45bf879feed21f5f7"
+  }
+}

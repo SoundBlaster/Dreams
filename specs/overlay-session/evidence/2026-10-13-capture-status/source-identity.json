@@ -1,0 +1,77 @@
+{
+  "sourceRevision": "bd5d783e1a6051f663b94d78c26d0c683d3824ab",
+  "sourceState": "Implementation and regression test are committed at sourceRevision; map delta is identified independently below. Initial unchanged inputs retain their historical snapshots.",
+  "files": [
+    {
+      "path": "Sources/Dreams/DreamsController.swift",
+      "sha256": "0e7cc82433c39db6413cfdeec6a624dc0a28bce32cdac8007c893b1202295b6e",
+      "snapshot": "evidence/2026-10-13-capture-status/source/Sources/Dreams/DreamsController.swift",
+      "snapshotKind": "full-file",
+      "gitStatus": ""
+    },
+    {
+      "path": "Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "sha256": "8291b33306bd15ea970d5382e19783d9d9cddca6ca12f7c3c4707a394c8190d7",
+      "snapshot": "evidence/2026-10-13-capture-status/source/Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "snapshotKind": "full-file",
+      "gitStatus": ""
+    },
+    {
+      "path": "Sources/Dreams/RainScreenManager.swift",
+      "sha256": "cf5ffa142476f620a6f24a21f29274d9d8f5680042a8b92ee300f71e84c910bd",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift",
+      "gitStatus": "",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMain.swift",
+      "sha256": "a7f40649734862b81660a36340981916653f8670c5cd4f1e5b0ea88a36273841",
+      "snapshot": "evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift",
+      "gitStatus": "",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          45,
+          75
+        ],
+        [
+          130,
+          195
+        ],
+        [
+          230,
+          270
+        ],
+        [
+          480,
+          500
+        ],
+        [
+          590,
+          620
+        ],
+        [
+          695,
+          738
+        ],
+        [
+          840,
+          874
+        ]
+      ],
+      "snapshotSha256": "a8350a7882f1237f7a29edaf05e8f0eb7ccd4e8ced5b90a446d853fbe2590fa5"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "7c362179371da54af072ad75ba7050cd8644ecb507f5e83fa7e44422b310e738",
+      "snapshot": "evidence/2026-10-13-capture-status/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "6107891c6d033ba457213bcccc4eac8b982a772a280ca6f45bf879feed21f5f7",
+      "snapshot": "evidence/2026-10-13-capture-status/maps/overlay-session.hcs"
+    }
+  ]
+}
