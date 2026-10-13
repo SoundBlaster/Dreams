@@ -15,3 +15,5 @@ User intent is simultaneous minimum occupancy, explicitly replacing starts-per-s
 Zero population, one-cell rounding, partial fraction, saturation, reduced quota, hidden column,
 expired one-shot packet and frame subdivision are represented by model scenarios.
 Shader/atlas appearance and acquiring agent activity remain outside this boundary.
+
+Current search FSD/P2 source and checks: [2026-10-14 validation](validation/2026-10-14-search-fsd/README.md). Quota/count caching and timestamp queues preserve visible-state digests; prior evidence remains historical.

@@ -80,12 +80,12 @@ effects:
 evidence:
 - id: search_source
   kind: source
-  path: evidence/2026-10-13-search/source/Sources/Dreams/MatrixSimulation.swift
+  path: evidence/2026-10-14-search-fsd/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints
 - id: search_tests
   kind: test
-  path: evidence/2026-10-13-search/source/Tests/DreamsTests/SearchOccupancyTests.swift
+  path: evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/SearchOccupancyTests.swift
   supports:
   - constraints.simultaneous_share
   - constraints.tuning
@@ -93,17 +93,17 @@ evidence:
   - constraints.independent_motion
 - id: integration
   kind: source
-  path: evidence/2026-10-13-search/source/Sources/Dreams/MatrixRain.swift
+  path: evidence/2026-10-14-search-fsd/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: native_settings
   kind: test
-  path: evidence/2026-10-13-search/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+  path: evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
   supports:
   - constraints.parent_assembly
 - id: current_validation
   kind: test
-  path: validation/2026-10-13-search/README.md
+  path: validation/2026-10-14-search-fsd/README.md
   supports:
   - constraints
 provenance:
@@ -117,23 +117,30 @@ provenance:
   - Default 10 percent, rounding upward, 0–100 range and inclusion of fading/head cells are explicit implementation
     choices.
   - Descriptive draft; test execution and structural validity are distinct from formal acceptance.
+  - Current FSD/P2 scheduler baseline 98fe537f30ef5c2f31cd7c0b22ff4ba20e82175f; cached occupancy and timestamp queues
+    preserve burst outcomes. Historical evidence is not reused as a new run. See validation/2026-10-14-search-fsd/README.md.
 implementationBindings:
 - id: search_swift
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 3a4ad943d727fb657ac9e3ada28b6e586c0b26e1
+    revision: 98fe537f30ef5c2f31cd7c0b22ff4ba20e82175f
   files:
     owned:
-    - evidence/2026-10-13-search/source/Sources/Dreams/MatrixSimulation.swift
-    - evidence/2026-10-13-search/source/Sources/Dreams/RainRenderer.swift
-    - evidence/2026-10-13-search/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
-    - evidence/2026-10-13-search/source/Sources/Dreams/MatrixRain.swift
-    - evidence/2026-10-13-search/source/Sources/Dreams/DreamsController.swift
-    - evidence/2026-10-13-search/source/Sources/Dreams/DreamsMain.swift
-    - evidence/2026-10-13-search/source/Sources/Dreams/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-13-search/source/Sources/Dreams/Localization/ru.lproj/Localizable.strings
-    - evidence/2026-10-13-search/source/Tests/DreamsTests/SearchOccupancyTests.swift
-    - evidence/2026-10-13-search/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
-    - evidence/2026-10-13-search/source/scripts/test-matrix.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/DropDecelerationTests.swift
+    - evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+    - evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/RainTrailRenderingTests.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/SearchOccupancyTests.swift
+    - evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
+    - evidence/2026-10-14-search-fsd/source/scripts/test-matrix.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-14-search-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-search-fsd/source/Tests/DreamsTests/SettingsPageTests.swift
     border: []

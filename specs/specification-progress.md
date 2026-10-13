@@ -154,3 +154,5 @@ Renderer Population/Quota/BurstLifecycle/Tuning are folded into the search contr
 shader/atlas, agent event acquisition, tvOS and glyph editor adoption remain unexplored here.
 Native AppKit control/persistence, Screener SDK/MCP appearance and pure model tests are
 separate evidence; draft status and remaining parent integration assumptions are explicit.
+
+Current search FSD/P2 source and checks: [2026-10-14 validation](drop-motion/validation/2026-10-14-search-fsd/README.md). Quota/count caching and timestamp queues preserve visible-state digests; prior evidence remains historical.

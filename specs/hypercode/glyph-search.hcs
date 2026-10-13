@@ -1,5 +1,5 @@
 GlyphSearch:
-  source: "Sources/Dreams/MatrixSimulation.swift"
+  source: "Sources/Dreams/features/rain/model/MatrixSimulation.swift"
   fraction: 0.1
 Population:
   definition: "live-non-gap-unhidden-cells-including-fading-ink"
@@ -11,7 +11,7 @@ BurstLifecycle:
   timing: "global-timestamp-order"
   settlement: "ordinary-ink-no-flash"
 Tuning:
-  source: "Sources/Dreams/DreamsController.swift"
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
   implementation: "rainSearchFraction -> preview-and-live-renderers"
   persistence: "UserDefaults"
 @search[disabled]:

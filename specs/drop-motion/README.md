@@ -15,7 +15,7 @@ full coverage and unattenuated visibility keep active columns filled after
 initial fill; activity gating may still rest columns.
 
 Historical braking baseline: `984a8a114dc24a38a79bc042b06c1f195be31d64`.
-Current source/test baseline: `3a4ad943d727fb657ac9e3ada28b6e586c0b26e1`.
+Historical pre-FSD source/test baseline: `3a4ad943d727fb657ac9e3ada28b6e586c0b26e1`.
 [Draft contract](specs/motion.spec.yaml), [claim matrix](matrix.md),
 [historical identities](evidence/2026-10-13/source-identity.json) and
 [validation](validation/2026-10-13/README.md) identify implementation,
@@ -26,7 +26,7 @@ The change concerns macOS rain motion. Existing overlay/exit, glyph-editor
 contracts and tvOS behavior remain separately scoped. The screenshot-status
 fix in PR #18 is independent; this branch starts from main after PR #17.
 
-Current motion FSD source and checks: [2026-10-14 validation](validation/2026-10-14-motion-fsd/README.md). Historical snapshots remain unchanged.
+Motion-layer FSD baseline and checks: [2026-10-14 validation](validation/2026-10-14-motion-fsd/README.md). Historical snapshots remain unchanged.
 
 Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-motion-stack/README.md). Prior source/test records remain historical.
 
@@ -41,6 +41,8 @@ lifetimes unchanged because search has its own PRNG. This replaces the former op
 mutation policy: the earlier whole-state PRNG parity sample is historical, not a current claim.
 
 [Search contract](specs/search.spec.yaml), [claims](search-matrix.md),
-[current identities](evidence/2026-10-13-search/source-identity.json) and
-[current validation](validation/2026-10-13-search/README.md) cover both capabilities.
+[pre-FSD identities](evidence/2026-10-13-search/source-identity.json) and
+[pre-FSD validation](validation/2026-10-13-search/README.md) cover both capabilities.
 They share a package because the simulation, tuning ownership and consumers are shared.
+
+Current search FSD/P2 source and checks: [2026-10-14 validation](validation/2026-10-14-search-fsd/README.md). Quota/count caching and timestamp queues preserve visible-state digests; prior evidence remains historical.
