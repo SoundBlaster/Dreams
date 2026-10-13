@@ -1,0 +1,1 @@
+PASS: relative links in 22 Markdown files

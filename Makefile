@@ -178,3 +178,9 @@ specs-check:
 	"$(HYPERCODE)" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs
 	"$(HYPERCODE)" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs --ctx mode=standalone
 	"$(SPECPM)" validate specs/glyph-editor --json
+	"$(HYPERCODE)" parse specs/hypercode/overlay-session.hc
+	"$(HYPERCODE)" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs
+	"$(HYPERCODE)" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx background=transparent
+	"$(HYPERCODE)" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx entry=agent
+	"$(HYPERCODE)" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx background=transparent --ctx entry=agent
+	"$(SPECPM)" validate specs/overlay-session --json

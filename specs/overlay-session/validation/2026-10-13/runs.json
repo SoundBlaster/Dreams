@@ -1,0 +1,252 @@
+[
+  {
+    "name": "application-parse",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "parse",
+      "specs/hypercode/application.hc"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "application-parse.txt",
+    "stderr": "application-parse.stderr.txt"
+  },
+  {
+    "name": "application-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/application.hc",
+      "--hcs",
+      "specs/hypercode/application.hcs"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "application-validate.txt",
+    "stderr": "application-validate.stderr.txt"
+  },
+  {
+    "name": "overlay-parse",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "parse",
+      "specs/hypercode/overlay-session.hc"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "overlay-parse.txt",
+    "stderr": "overlay-parse.stderr.txt"
+  },
+  {
+    "name": "interactive-opaque-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "interactive-opaque-validate.txt",
+    "stderr": "interactive-opaque-validate.stderr.txt"
+  },
+  {
+    "name": "interactive-transparent-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs",
+      "--ctx",
+      "background=transparent"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "interactive-transparent-validate.txt",
+    "stderr": "interactive-transparent-validate.stderr.txt"
+  },
+  {
+    "name": "agent-opaque-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs",
+      "--ctx",
+      "entry=agent"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "agent-opaque-validate.txt",
+    "stderr": "agent-opaque-validate.stderr.txt"
+  },
+  {
+    "name": "agent-transparent-validate",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "validate",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs",
+      "--ctx",
+      "background=transparent",
+      "--ctx",
+      "entry=agent"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "agent-transparent-validate.txt",
+    "stderr": "agent-transparent-validate.stderr.txt"
+  },
+  {
+    "name": "specpm",
+    "command": [
+      "specpm",
+      "validate",
+      "specs/overlay-session",
+      "--json"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "specpm.json",
+    "stderr": "specpm.stderr.txt"
+  },
+  {
+    "name": "glyph-package-regression",
+    "command": [
+      "specpm",
+      "validate",
+      "specs/glyph-editor",
+      "--json"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "glyph-package-regression.json",
+    "stderr": "glyph-package-regression.stderr.txt"
+  },
+  {
+    "name": "interactive-opaque-resolve-profile",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "emit",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs",
+      "--format",
+      "json",
+      "--ir-version",
+      "2"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "interactive-opaque.ir.json",
+    "stderr": "interactive-opaque.ir.stderr.txt"
+  },
+  {
+    "name": "interactive-transparent-resolve-profile",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "emit",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs",
+      "--ctx",
+      "background=transparent",
+      "--format",
+      "json",
+      "--ir-version",
+      "2"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "interactive-transparent.ir.json",
+    "stderr": "interactive-transparent.ir.stderr.txt"
+  },
+  {
+    "name": "agent-opaque-resolve-profile",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "emit",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs",
+      "--ctx",
+      "entry=agent",
+      "--format",
+      "json",
+      "--ir-version",
+      "2"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "agent-opaque.ir.json",
+    "stderr": "agent-opaque.ir.stderr.txt"
+  },
+  {
+    "name": "agent-transparent-resolve-profile",
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "emit",
+      "specs/hypercode/overlay-session.hc",
+      "--hcs",
+      "specs/hypercode/overlay-session.hcs",
+      "--ctx",
+      "background=transparent",
+      "--ctx",
+      "entry=agent",
+      "--format",
+      "json",
+      "--ir-version",
+      "2"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "agent-transparent.ir.json",
+    "stderr": "agent-transparent.ir.stderr.txt"
+  },
+  {
+    "name": "make-specs-check",
+    "command": [
+      "rtk",
+      "proxy",
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "make-specs-check.txt",
+    "stderr": "make-specs-check.stderr.txt"
+  },
+  {
+    "name": "markdown-links",
+    "command": [
+      "rtk",
+      "proxy",
+      "python3",
+      "scripts/check-docs.py"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "markdown-links.txt",
+    "stderr": "markdown-links.stderr.txt"
+  },
+  {
+    "name": "staged-whitespace",
+    "command": [
+      "rtk",
+      "proxy",
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "stdout": "staged-whitespace.txt",
+    "stderr": "staged-whitespace.stderr.txt"
+  }
+]

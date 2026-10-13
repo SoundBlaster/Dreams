@@ -1,9 +1,12 @@
 Dreams:
   map_kind: "coarse-capability-composition"
-  evidence_level: "source-orientation-only"
+  evidence_level: "partial-source-recovery-see-coverage"
 DesktopApplication:
   source: "Sources/Dreams/DreamsMain.swift"
-  detail_status: "unexplored"
+  detail_status: "overlay-recovered-other-UI-unexplored"
+RainOverlaySession:
+  source: "Sources/Dreams/DreamsController.swift"
+  detail: "overlay-session.hc + overlay-session.hcs"
 AgentIntegrations:
   source: "plugins/"
   detail_status: "unexplored"

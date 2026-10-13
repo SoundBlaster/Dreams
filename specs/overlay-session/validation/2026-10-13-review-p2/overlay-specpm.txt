@@ -1,0 +1,105 @@
+{
+  "capabilities": [
+    "dreams.overlay.displays",
+    "dreams.overlay.exit",
+    "dreams.overlay.presentation",
+    "dreams.overlay.session"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/displays.spec.yaml",
+    "specs/exit.spec.yaml",
+    "specs/presentation.spec.yaml",
+    "specs/session.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams overlay and exit contracts",
+    "package_id": "dreams.overlay_session",
+    "version": "0.1.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 11,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.displays",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/exit.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/exit.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.carbon_hotkeys",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.displays",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.presentation",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.exit",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.power_assertions",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.overlay.presentation
+  title: OverlayPresentation
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Reconcile one owned overlay per eligible display and manage scoped focus/teardown behavior.
+scope:
+  boundedContext: macos_overlay_session
+  includes:
+  - Per-display windows and renderer initialization, additions/removal, frame updates, window input configuration,
+    focus return.
+  excludes:
+  - Renderer pixel algorithms, guaranteed focus restoration by macOS, global keyboard interception, capture exclusion
+    guarantees.
+provides:
+  capabilities:
+  - id: dreams.overlay.presentation
+    role: primary
+    summary: Reconcile one owned overlay per eligible display and manage scoped focus/teardown behavior.
+requires:
+  capabilities:
+  - id: dreams.overlay.displays
+    summary: Eligible targets and excluded workspace.
+  - id: platform.apple.windowserver
+    summary: AppKit/WindowServer screen inventory, panel ordering and focus operations.
+  - id: platform.apple.metal_renderer
+    summary: Fallible renderer creation and configuration for each target.
+interfaces:
+  inbound:
+  - id: presentation_entry
+    kind: library
+    summary: Existing internal MainActor boundary; no new public Swift API is asserted.
+    operations:
+    - name: reconcile
+      inputs:
+      - name: profile
+        type: restoredGlyphs, transparent, hiddenFromCapture, suspended, renderer configure callback and exit callbacks
+      outputs:
+      - name: ownedWindows
+        type: retained/replaced windows or thrown renderer initialization error
+    - name: close
+      inputs: []
+      outputs:
+      - name: closed
+        type: all manager-owned overlays removed; focus restoration attempted conditionally
+  outbound: []
+constraints:
+- id: prepare_before_remove
+  level: MUST
+  statement: Create/configure needed additions before removing working overlays. On addition failure close newly
+    prepared windows and propagate the error. Retain matching stable-ID/numeric-ID overlays and their simulations;
+    recreate when numeric ID changed.
+- id: frames_and_spaces
+  level: MUST
+  statement: Use each target screen frame in AppKit desktop points, updating retained window frames on reconciliation.
+    Windows use screen-saver level, join all Spaces/full-screen auxiliary behavior and do not become main windows.
+- id: opaque_input
+  level: MUST
+  statement: Opaque panels have black background, accept mouse input and can become key. Their content handles ordinary
+    clicks by taking local focus and revealing exit controls, not by stopping the rain.
+- id: transparent_input
+  level: MUST
+  statement: Transparent panels are nonactivating, clear, nonopaque, ignore mouse events, cannot become key, and
+    contain only the Metal view without Exit controls. Do not install a global plain-Esc interception through this
+    boundary.
+- id: focus_acquisition
+  level: MUST
+  statement: On initial unsuspended opaque presentation with targets, capture the previous app/window and activate
+    the overlay under the pointer, else the main target, else the first target. Later reconciliation only retakes
+    focus for a replaced/removed key overlay while Dreams was active; ordinary updates preserve work on uncovered
+    screens.
+- id: focus_return
+  level: MUST
+  statement: Close/pause every owned overlay and clear ownership on manager close. Attempt return to the saved visible
+    Dreams window or previous other application only if Dreams is active and an owned overlay is key at close; clear
+    saved focus state afterwards. Actual macOS activation success is external.
+- id: suspension
+  level: MUST
+  statement: Reconcile suspended targets without ordering them front; apply sharingType none/readOnly according
+    to configuration. This is window configuration, not evidence that every capture tool excludes their pixels.
+effects:
+  sideEffects:
+  - id: windows
+    kind: state_mutation
+    summary: Creates, orders, resizes and closes AppKit panels; configures MTKViews and can activate applications.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift
+  supports:
+  - interfaces
+  - constraints
+  - effects
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/RainOverlayWindow.swift
+  supports:
+  - constraints.frames_and_spaces
+  - constraints.opaque_input
+  - constraints.transparent_input
+  - constraints.focus_return
+  - effects
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from merged main 1ce194748720e40e1eb9737e63bb37797c5840b1; full hashes, snapshots and exact
+    excerpts in evidence/2026-10-13/source-identity.json.
+  - Normative language recovers scoped implementation behavior, not accepted new product requirements. See matrix.md
+    for assembly duties, evidence level and owner decisions.
+  - No application, browser, display-topology, physical-key or capture tests were executed in this source/specification
+    pass. Test source is a declared expectation only.
+implementationBindings:
+- id: presentation_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 1ce194748720e40e1eb9737e63bb37797c5840b1
+  files:
+    owned:
+    - evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift
+    - evidence/2026-10-13/source/Sources/Dreams/RainOverlayWindow.swift
+    border: []

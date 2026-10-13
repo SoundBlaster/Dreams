@@ -1,0 +1,84 @@
+{
+  "capabilities": [
+    "dreams.glyph.checkpoints",
+    "dreams.glyph.components",
+    "dreams.glyph.editor",
+    "dreams.glyph.geometry"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/checkpoints.spec.yaml",
+    "specs/components.spec.yaml",
+    "specs/editor.spec.yaml",
+    "specs/geometry.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams glyph workspace contracts",
+    "package_id": "dreams.glyph_workspace",
+    "version": "0.1.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 8,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/components.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.geometry",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.geometry",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.node.execution",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.posix.filesystem",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.geometry",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.components",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.checkpoints",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.browser.editor_host",
+      "severity": "warning"
+    }
+  ]
+}

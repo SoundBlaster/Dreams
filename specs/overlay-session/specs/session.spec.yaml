@@ -1,0 +1,163 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.overlay.session
+  title: RainOverlaySession
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Own a bounded or explicitly unbounded rain session, reconcile displays and release session resources
+    on exit.
+scope:
+  boundedContext: macos_overlay_session
+  includes:
+  - Start/stop/resume, lifetime and stop reasons, display-change handling, sleep assertions, capture-tool suspension
+    and parent assembly.
+  excludes:
+  - Full MCP protocol, hook labels, virtual workspace creation semantics, Metal pixel fidelity, capture privacy
+    guarantees and tvOS.
+provides:
+  capabilities:
+  - id: dreams.overlay.session
+    role: primary
+    summary: Own a bounded or explicitly unbounded rain session, reconcile displays and release session resources
+      on exit.
+requires:
+  capabilities:
+  - id: dreams.overlay.displays
+    summary: Display policy and persistent choices.
+  - id: dreams.overlay.presentation
+    summary: Window reconciliation, input profiles and close/focus behavior.
+  - id: dreams.overlay.exit
+    summary: Local exit callbacks and global stop shortcut.
+  - id: platform.apple.windowserver
+    summary: Screen-change notifications, screenshot-tool window enumeration and application lifecycle.
+  - id: platform.apple.power_assertions
+    summary: Fallible display-sleep assertion creation/release.
+  - id: platform.apple.metal_renderer
+    summary: Renderer creation/configuration and teardown through presentation.
+interfaces:
+  inbound:
+  - id: session_entry
+    kind: library
+    summary: Existing internal MainActor boundary; no new public Swift API is asserted.
+    operations:
+    - name: start/startWithRunTime
+      inputs:
+      - name: request
+        type: agent duration 1…3600 seconds/brightness 0.02…0.35, or interactive run-time preference
+      outputs:
+      - name: session
+        type: requested rain with target overlays, optional expiry task or preflight/init error
+    - name: stop/handleEscape/resume
+      inputs:
+      - name: reason
+        type: user, escape, hotkey, reopen, timer, agent or internal restart
+      outputs:
+      - name: state
+        type: stopped resources/status or a restarted session using remembered full duration/brightness
+  outbound: []
+constraints:
+- id: start_profiles
+  level: MUST
+  statement: Validate finite agent duration 1…3600 seconds (default 300) and brightness 0.02…0.35 (default 0.18).
+    Interactive opaque start uses run-time preference (300,1800,3600 or 0=unbounded, default 3600); interactive
+    transparent start is unbounded. Agent transparent start still honors its finite requested duration.
+- id: preflight_and_start
+  level: MUST
+  statement: Require at least one target before stopping an existing session for restart. Then remember requested
+    lifetime/brightness, set rainRequested, reconcile windows and arm capture watching/optional expiry. On renderer/reconcile
+    failure stop the new session and propagate the error.
+- id: requested_vs_presented
+  level: MUST
+  statement: Keep requested state separate from owned overlays and actual on-screen visibility. Disconnecting every
+    eligible screen may leave a requested session with no windows; later screen notifications reconcile it. status
+    rain_visible currently means requested with nonempty overlay ownership and is not a screenshot or suspension-aware
+    pixel visibility proof.
+- id: selection_changes
+  level: MUST
+  statement: On an explicit display-selection change, roll the selection back if reconciliation throws and persist
+    it after success. On OS screen notifications, record reconciliation errors while prepared-addition failures
+    leave prior windows retained. Always exclude the current agent workspace display from targets.
+- id: stop_cleanup
+  level: MUST
+  statement: For session stop, cancel expiry/demo tasks, invalidate capture watching, clear suspension/expiry/error/requested
+    state, close all owned windows (pausing their MTKViews) and release an active display-sleep assertion. Non-restart
+    stops record the reason only when a session had been requested; stop does not destroy a virtual workspace.
+- id: resume_and_reopen
+  level: MUST
+  statement: Resume restarts using the last full duration and brightness, not the former deadline remainder. Reopening
+    controls stops opaque rain before showing settings; transparent rain is retained. Switching transparency recreates
+    active windows and uses unbounded lifetime when entering transparent mode.
+- id: sleep_policy
+  level: MUST
+  statement: Request NoDisplaySleep only with owned active overlays and either opaque background or finite duration.
+    Record assertionActive only on OS success and release it when no longer needed; unbounded transparent sessions
+    do not hold this assertion. The assertion does not change lock or persistent sleep preferences.
+- id: capture_suspension
+  level: MUST
+  statement: When hiding from capture is enabled, configure sharingType none and poll for windows owned by screencapture/screencaptureui
+    every 0.1 seconds. Order overlays out while detected, and front after a greater-than-0.5-second clear grace
+    period. Preserve requested session, overlays and expiry; detection and capture omission remain best-effort.
+- id: assembly
+  level: MUST
+  statement: Run controller, manager, overlay and exit callbacks on MainActor. Wire per-window exits to the same
+    controller.stop so one exit stops every owned window; preserve callback/control lifetimes and consistent transparent/suspended/renderer
+    settings. Prepare UI is an explicit agent stop path, not merely capture hiding.
+effects:
+  sideEffects:
+  - id: session_state
+    kind: state_mutation
+    summary: Owns timers/tasks, requested/display/error state and stop reasons.
+  - id: platform_resources
+    kind: state_mutation
+    summary: Coordinates AppKit windows and IOKit sleep assertion resources.
+  - id: preferences
+    kind: state_mutation
+    summary: Persists explicit display/background/run-time selections through UserDefaults.
+evidence:
+- id: source_1
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
+  supports:
+  - interfaces
+  - constraints
+  - effects
+- id: source_2
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift
+  supports:
+  - constraints.requested_vs_presented
+  - constraints.selection_changes
+  - constraints.stop_cleanup
+  - constraints.assembly
+- id: source_3
+  kind: source
+  path: evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
+  supports:
+  - constraints.resume_and_reopen
+  - constraints.assembly
+provenance:
+  sourceConfidence:
+    intent: medium
+    boundary: medium
+    behavior: medium
+  notes:
+  - Descriptive draft from merged main 1ce194748720e40e1eb9737e63bb37797c5840b1; full hashes, snapshots and exact
+    excerpts in evidence/2026-10-13/source-identity.json.
+  - Normative language recovers scoped implementation behavior, not accepted new product requirements. See matrix.md
+    for assembly duties, evidence level and owner decisions.
+  - No application, browser, display-topology, physical-key or capture tests were executed in this source/specification
+    pass. Test source is a declared expectation only.
+implementationBindings:
+- id: session_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 1ce194748720e40e1eb9737e63bb37797c5840b1
+  files:
+    owned:
+    - evidence/2026-10-13/source/Sources/Dreams/DreamsController.swift
+    - evidence/2026-10-13/source/Sources/Dreams/RainScreenManager.swift
+    - evidence/2026-10-13/source/Sources/Dreams/DreamsMain.swift
+    border: []
