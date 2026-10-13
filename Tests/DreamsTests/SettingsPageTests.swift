@@ -19,6 +19,7 @@ struct SettingsPageTests {
         #expect(window.contentView?.subviews.first is NSScrollView)
         #expect(Set(page.controlsByID.keys) == Set([
             "dreams.run-time", "dreams.rain-columns-auto", "dreams.rain-columns", "dreams.rain-color",
+            "dreams.rain-deceleration", "dreams.rain-deceleration-enabled",
             "dreams.rain-density", "dreams.rain-speed", "dreams.rain-fade", "dreams.rain-brightness-spread",
             "dreams.rain-glow", "dreams.rain-idle", "dreams.transparent-background", "dreams.hide-from-screenshots",
             "dreams.keyword-color", "dreams.keyword-brightness", "dreams.restored-glyphs"

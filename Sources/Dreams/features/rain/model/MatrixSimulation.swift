@@ -4,6 +4,44 @@ import Foundation
 struct MatrixSimulation {
     private static let tailIntervalScale = 1.6
 
+    struct Deceleration: Equatable {
+        static let defaultAcceleration = -12.0
+        static let minimumAcceleration = -120.0
+        static let terminalSpeedRatio = 0.2
+        let enabled: Bool
+        let acceleration: Double
+
+        init(enabled: Bool = false, acceleration: Double = Self.defaultAcceleration) {
+            self.enabled = enabled
+            self.acceleration = acceleration.isFinite ? min(0, max(Self.minimumAcceleration, acceleration))
+                : Self.defaultAcceleration
+        }
+
+        func motion(interval: Double) -> Motion? {
+            guard enabled, acceleration < 0 else { return nil }
+            return Motion(initialSpeed: 1 / interval, acceleration: acceleration)
+        }
+    }
+
+    /// Analytic row-arrival times: constant negative acceleration, then a positive speed floor.
+    struct Motion {
+        let initialSpeed: Double
+        let acceleration: Double
+        var terminalSpeed: Double { initialSpeed * Deceleration.terminalSpeedRatio }
+        var brakingTime: Double { (initialSpeed - terminalSpeed) / -acceleration }
+        var brakingDistance: Double { (initialSpeed + terminalSpeed) * brakingTime / 2 }
+
+        func arrival(at distance: Double) -> Double {
+            guard distance > 0 else { return 0 }
+            if distance >= brakingDistance {
+                return brakingTime + (distance - brakingDistance) / terminalSpeed
+            }
+            // Stable quadratic root, including arbitrarily weak braking near zero acceleration.
+            let speed = sqrt(max(0, initialSpeed * initialSpeed + 2 * acceleration * distance))
+            return 2 * distance / (initialSpeed + speed)
+        }
+    }
+
     struct Symbol {
         var glyph = -1
         var writtenAt = -Double.infinity
@@ -42,6 +80,8 @@ struct MatrixSimulation {
         var nextWrite: Double
         var nextMutation: Double
         var interval: Double
+        var packetStartedAt = 0.0
+        var motion: Motion?
         // The writing head outruns the dissolving rear; glyphs themselves stay fixed.
         var tailInterval: Double { interval * MatrixSimulation.tailIntervalScale }
         var hold: Double
@@ -66,6 +106,11 @@ struct MatrixSimulation {
     private var random: UInt64
     private var density: Double
     private var fadeRows: Double
+    private var deceleration: Deceleration
+
+    mutating func setDeceleration(_ value: Deceleration) {
+        deceleration = value
+    }
 
     mutating func setDensity(_ value: Double) {
         guard value.isFinite else { return }
@@ -78,8 +123,9 @@ struct MatrixSimulation {
     }
 
     init(columnCount: Int, rows: Int, glyphCount: Int, seed: UInt64 = 0xD2EA_5EED,
-         density: Double = 0.8, fadeRows: Double = 1) {
+         density: Double = 0.8, fadeRows: Double = 1, deceleration: Deceleration = Deceleration()) {
         self.rows = rows
+        self.deceleration = deceleration
         self.glyphCount = glyphCount
         random = seed
         self.density = density.isFinite ? min(1, max(0, density)) : 0.8
@@ -111,8 +157,14 @@ struct MatrixSimulation {
         // Bound the whole stretched trace, including its slow rear after the head
         // leaves the screen. Row zero will draw the packet's actual lifetime.
         let column = columns[index]
-        let initialLifetime = max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density) * column.interval)
-        return Double(rows - 1) * column.tailInterval + initialLifetime + 0.2
+        let motion = deceleration.motion(interval: column.interval)
+        let passTime = motion?.arrival(at: Double(rows)) ?? Double(rows) * column.interval
+        let initialLifetime = motion == nil
+            ? max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density) * column.interval)
+            : max(column.tailInterval, passTime * (0.1 + 0.9 * density))
+        let headTime = motion?.arrival(at: Double(rows - 1)) ?? Double(rows - 1) * column.interval
+        let rearTime = motion == nil ? Double(rows - 1) * column.tailInterval : headTime * Self.tailIntervalScale
+        return rearTime + initialLifetime + 0.2
     }
 
     mutating func finishPulse(column index: Int) {
@@ -184,8 +236,17 @@ struct MatrixSimulation {
                     if row == 0 {
                         // Existing cells retain their lifetime when a new packet
                         // uses changed tuning, including overlapping passes.
-                        let lifetime = max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density)
-                            * (1 - column.generator.unit() * 0.15 * (1 - density)) * column.interval)
+                        column.packetStartedAt = eventTime
+                        column.motion = deceleration.motion(interval: column.interval)
+                        let variation = 1 - column.generator.unit() * 0.15 * (1 - density)
+                        let lifetime: Double
+                        if let motion = column.motion {
+                            lifetime = max(column.tailInterval, motion.arrival(at: Double(rows))
+                                * (0.1 + 0.9 * density) * variation)
+                        } else {
+                            lifetime = max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density)
+                                * variation * column.interval)
+                        }
                         column.fade = min(lifetime, fadeRows * column.tailInterval)
                         column.hold = lifetime - column.fade
                     }
@@ -197,9 +258,11 @@ struct MatrixSimulation {
                     }
                     let isGap = column.gapRemaining > 0
                     column.gapRemaining = max(0, column.gapRemaining - 1)
+                    let stretch = column.motion == nil ? Double(row) * (column.tailInterval - column.interval)
+                        : (eventTime - column.packetStartedAt) * (Self.tailIntervalScale - 1)
                     column.cells[row] = Symbol(glyph: glyph, writtenAt: eventTime,
                         changedAt: eventTime, ink: ink, warmth: warmth, isGap: isGap,
-                        hold: column.hold + Double(row) * (column.tailInterval - column.interval), fade: column.fade)
+                        hold: column.hold + stretch, fade: column.fade)
                     if column.search?.row == row {
                         // A new packet owns this cell now; discard the old search.
                         column.search = nil
@@ -212,7 +275,10 @@ struct MatrixSimulation {
                         column.nextRow = 0
                         // At full density, wrap immediately. Lower densities
                         // leave a gap between successive packets.
-                        let next = eventTime + column.interval
+                        let step = column.motion.map {
+                            $0.arrival(at: Double(rows)) - $0.arrival(at: Double(rows - 1))
+                        } ?? column.interval
+                        let next = eventTime + step
                             + (1 - density) * (column.cells[row].hold + column.cells[row].fade
                                 + 0.25 + column.generator.unit() * 1.25)
                         if column.oneShot {
@@ -230,7 +296,11 @@ struct MatrixSimulation {
                             column.nextWrite = next
                         }
                     } else {
-                        column.nextWrite = eventTime + column.interval
+                        if let motion = column.motion {
+                            column.nextWrite = column.packetStartedAt + motion.arrival(at: Double(column.nextRow))
+                        } else {
+                            column.nextWrite = eventTime + column.interval
+                        }
                     }
                 } else {
                     let eventTime = column.nextMutation

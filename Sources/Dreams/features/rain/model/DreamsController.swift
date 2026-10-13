@@ -136,6 +136,8 @@ final class DreamsController: NSObject {
         rainDensity = DreamsPreset.density
         rainFadeRows = DreamsPreset.fadeRows
         rainSpeed = DreamsPreset.speed
+        rainDecelerationEnabled = DreamsPreset.decelerationEnabled
+        rainDeceleration = DreamsPreset.deceleration
         rainBrightnessSpread = DreamsPreset.brightnessSpread
         rainIdleIntensity = DreamsPreset.idleIntensity
         let words = DreamsPreset.keywordColor
@@ -259,6 +261,29 @@ final class DreamsController: NSObject {
             UserDefaults.standard.set(rainSpeed, forKey: "rainSpeed")
             screenManager.renderers.forEach { $0.rainSpeed = rainSpeed }
         }
+    }
+
+    var rainDecelerationEnabled = UserDefaults.standard.object(forKey: "rainDecelerationEnabled") as? Bool
+        ?? DreamsPreset.decelerationEnabled {
+        didSet {
+            UserDefaults.standard.set(rainDecelerationEnabled, forKey: "rainDecelerationEnabled")
+            updateDeceleration()
+        }
+    }
+    var rainDeceleration: Double = {
+        let value = UserDefaults.standard.object(forKey: "rainDeceleration") as? Double ?? DreamsPreset.deceleration
+        return MatrixSimulation.Deceleration(acceleration: value).acceleration
+    }() {
+        didSet {
+            UserDefaults.standard.set(rainDeceleration, forKey: "rainDeceleration")
+            updateDeceleration()
+        }
+    }
+    private var dropDeceleration: MatrixSimulation.Deceleration {
+        .init(enabled: rainDecelerationEnabled, acceleration: rainDeceleration)
+    }
+    private func updateDeceleration() {
+        screenManager.renderers.forEach { $0.rainDeceleration = dropDeceleration }
     }
 
     var rainBrightnessSpread: Double = {
@@ -394,6 +419,8 @@ final class DreamsController: NSObject {
             "rain_density": rainDensity,
             "rain_fade_rows": rainFadeRows,
             "rain_speed": rainSpeed,
+            "rain_deceleration_enabled": rainDecelerationEnabled,
+            "rain_deceleration": dropDeceleration.acceleration,
             "rain_brightness_spread": rainBrightnessSpread,
             "rain_glow": rainGlow,
             "keyword_color_rgb": [keywordTint.x, keywordTint.y, keywordTint.z],
@@ -459,6 +486,7 @@ final class DreamsController: NSObject {
         renderer.rainIdleIntensity = rainIdleIntensity
         renderer.rainGlow = rainGlow
         renderer.rainSpeed = rainSpeed
+        renderer.rainDeceleration = dropDeceleration
         renderer.rainBrightnessSpread = rainBrightnessSpread
         renderer.rainFadeRows = rainFadeRows
         renderer.rainColumnCount = rainColumnCount

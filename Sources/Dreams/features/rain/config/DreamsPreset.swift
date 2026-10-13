@@ -4,6 +4,8 @@ enum DreamsPreset {
     static let density = 0.0
     static let fadeRows = 3.0
     static let speed = 0.43
+    static let decelerationEnabled = false
+    static let deceleration = MatrixSimulation.Deceleration.defaultAcceleration
     static let brightnessSpread = 0.51
     static let glow = 0.57
     static let transparentGlow = 0.0

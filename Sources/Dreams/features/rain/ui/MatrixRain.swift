@@ -117,6 +117,7 @@ final class MatrixRain {
     func draw(encoder: any MTLRenderCommandEncoder, resolution: SIMD2<Float>, brightness: Float,
               previewTime: Float? = nil, demoWorkingAgents: Int? = nil, columnCount: Int = 0, density: Double = 0.8,
               fadeRows: Double = 1, speed: Double = 1, brightnessSpread: Double = 1, glow: Double = 1, idleIntensity: Double = 0.2,
+              deceleration: MatrixSimulation.Deceleration = .init(),
               keywordTint: SIMD3<Float> = SIMD3(0.10, 0.65, 0.24), keywordBrightness: Double = 1,
               rainTint: SIMD3<Float> = SIMD3(0.008, 0.26, 0.055)) {
         let now = ProcessInfo.processInfo.systemUptime
@@ -178,6 +179,7 @@ final class MatrixRain {
         }
         simulation!.setDensity(density)
         simulation!.setFadeRows(fadeRows)
+        simulation!.setDeceleration(deceleration)
         for column in Array(pulseWords.keys) where pulseWords[column]!.ends <= simulationClock {
             simulation!.finishPulse(column: column)
             pulseWords.removeValue(forKey: column)
