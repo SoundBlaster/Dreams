@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.settings_catalog
   name: Dreams native settings catalog
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.3
   summary: Standalone system-control showcase and native form compositions.
   license: MIT
   authors:
@@ -14,6 +14,7 @@ index:
   provides:
     capabilities:
     - dreams.settings.catalog
+    - dreams.settings.ui
   requires:
     capabilities:
     - platform.apple.swiftui

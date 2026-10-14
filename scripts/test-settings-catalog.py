@@ -31,7 +31,9 @@ def main():
     assert len(targets["DreamsSettingsCatalog"]["dependencies"]) == 1
     assert "DreamsSettingsUI" in json.dumps(targets["DreamsSettingsCatalog"]["dependencies"])
     production = manifest(ROOT)
-    assert "DreamsSettingsUI" not in json.dumps(production), "Stage one must remain opt-in and standalone"
+    production_targets = {target["name"]: target for target in production["targets"]}
+    assert "DreamsSettingsUI" in json.dumps(production_targets["Dreams"]["dependencies"])
+    assert "DreamsSettingsCatalog" not in json.dumps(production), "Production links the library only"
     assert catalog["platforms"] == [{"options": [], "platformName": "macos", "version": "15.0"}]
     source = PACKAGE / "Sources/DreamsSettingsCatalog"
     english = strings(source / "shared/assets/Localization/en.lproj/Localizable.strings")

@@ -28,12 +28,23 @@ final class SettingsPageController: NSObject {
     let searchFractionLabel = NSTextField(labelWithString: "")
     let decelerationLabel = NSTextField(labelWithString: "")
     let brightnessSpreadLabel = NSTextField(labelWithString: "")
+    let nativeSettingsEnabled: Bool
+    var nativeWindow: DreamsControlsWindow?
+    var nativeModel: NativeSettingsModel?
+    var settingsObservers: [NSObjectProtocol] = []
     let controller: DreamsController
     var onHotkeyChange: (() -> Void)?
 
-    init(controller: DreamsController) {
+    init(controller: DreamsController, nativeSettingsEnabled: Bool = NativeSettingsFeature.isEnabled()) {
         self.controller = controller
+        self.nativeSettingsEnabled = nativeSettingsEnabled
         super.init()
+        for name in [DreamsController.settingsDidChange, DreamsController.displaysDidChange] {
+            let observer = NotificationCenter.default.addObserver(forName: name, object: controller, queue: .main) { [weak self] _ in
+                MainActor.assumeIsolated { self?.settingsChanged() }
+            }
+            settingsObservers.append(observer)
+        }
     }
     var controlsWindow: DreamsControlsWindow?
     var activityLabel: NSTextField?
@@ -54,6 +65,18 @@ final class SettingsPageController: NSObject {
         let close = menu.addItem(withTitle: L("menu.workspaceClose"), action: #selector(closeWorkspace), keyEquivalent: "")
         for item in [create, close] { item.target = self }
         return menu
+    }
+
+    @objc func settingsChanged() {
+        nativeModel?.refresh()
+        if controlsWindow != nil { syncControls() }
+    }
+
+    func ensureActivityUpdates() {
+        guard activityTimer == nil else { return }
+        activityTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            Task { @MainActor [weak self] in self?.refreshActivityLabel() }
+        }
     }
 
     func refreshValueLabels() {
@@ -80,7 +103,9 @@ final class SettingsPageController: NSObject {
                 ? L("activity.waiting")
                 : L("activity.waitingOff"))
             : L("activity.working", count, Int(KeywordMessage.workLevel(messages) * 100))
-        activityLabel?.stringValue = activity + "\n" + controller.animationStatus
+        let text = activity + "\n" + controller.animationStatus
+        activityLabel?.stringValue = text
+        nativeModel?.activity = text
     }
 
     func installShortcuts() {
@@ -128,11 +153,16 @@ final class SettingsPageController: NSObject {
 
     @objc func toggleHooks(_ sender: NSButton) {
         guard let source = sender.identifier?.rawValue else { return }
+        toggleHooks(source: source)
+    }
+
+    func toggleHooks(source: String) {
         let state = HooksInstaller.state(source: source)
         let connected = state == .connected || state == .duplicate
         do { _ = try HooksInstaller.run(uninstall: connected, dryRun: false, only: [source]) }
         catch { show(error: error) }
         refreshHooks()
+        nativeModel?.refresh()
     }
 
     static func runTimeTitle(_ seconds: Double) -> String {
@@ -330,6 +360,11 @@ final class SettingsPageController: NSObject {
     @objc func quit() { NSApplication.shared.terminate(nil) }
 
     func cleanUp() {
+        settingsObservers.forEach { NotificationCenter.default.removeObserver($0) }
+        settingsObservers.removeAll()
+        nativeWindow?.close()
+        nativeWindow = nil
+        nativeModel = nil
         activityTimer?.invalidate()
         if let focusObserver {
             NotificationCenter.default.removeObserver(focusObserver)

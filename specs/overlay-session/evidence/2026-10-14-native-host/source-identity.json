@@ -1,0 +1,93 @@
+{
+  "sourceRevision": "f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "a81f11a2401cfdf953507897e28fd6e907ac94f03fd4676d3e0459ee4e8e571c",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "sha256": "d3c3ef0bb901f90c5c6f807f998b5de8c4c039aab354ccfdbec8f7f698605dc7",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "sha256": "13de3684a25d153f71fd55424348a769226200524167290f865bad2d93b8ea1d",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "ec55dacade7b895112b61d7aff19af7b54afa75b3c0dc1613cee826eaaa6eaeb",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "sha256": "eefb3e82a7f9335f0e423dc06a3a01208a4f08e41fb1fa4eb5503a47053cca4d",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "sha256": "cf5ffa142476f620a6f24a21f29274d9d8f5680042a8b92ee300f71e84c910bd",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "sha256": "ab6bff00b84b369082d222c1475ab3f108f668aab88919a531aed5b1652575e1",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "896120353fcd48830aec0c28b5475a9e0d5b5aed37ecd1dcff855697177e9884",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "b8b3dd8e47ef7e8b574bb362840862f262125cd95efc6e1dc944d4dcdf768bd9",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/lib/StopHotkey.swift",
+      "sha256": "414f99b40658b3929a6a5c7e2e86c949d7fc2d04e91251aee0ece9c0f07f8f5b",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/shared/lib/StopHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "sha256": "6f8b7c7e8432359ef384a8e8408b00da7e4dabc5dc303efc11cd01b29872e065",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "4d9f5939b55e50e585e0824d6a76d3cb3e24b4f64af68824e90fc319c00e766b",
+      "snapshot": "evidence/2026-10-14-native-host/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "1b39d26279dd3542abd33f4173a3dfdb706c85ea1e4b00a873ed3ba4640e4b48",
+      "snapshot": "evidence/2026-10-14-native-host/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "ad01f97a801c5533c4558f5a7350a94006d15b1033330f461c868b5ebf516c3a",
+      "snapshot": "evidence/2026-10-14-native-host/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "b5da1498d3c2b7aa54325d362bdab55772128bae19d0dc34ba26faa021934578",
+      "snapshot": "evidence/2026-10-14-native-host/maps/overlay-session.hcs"
+    }
+  ]
+}

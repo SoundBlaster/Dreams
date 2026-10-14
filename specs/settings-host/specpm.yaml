@@ -1,0 +1,33 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.settings_host
+  name: Dreams native settings host
+  version: 0.1.0-draft.2
+  summary: Default-off SwiftUI settings presentation backed by the existing production controller.
+  license: MIT
+  authors:
+  - name: Dreams contributors
+specs:
+- path: specs/host.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.settings.host
+  requires:
+    capabilities:
+    - platform.apple.swiftui
+    - dreams.settings.ui
+compatibility:
+  platforms:
+  - macos
+  languages:
+  - name: swift
+keywords:
+- native-settings
+- feature-flag
+- descriptive-draft
+foreignArtifacts:
+- format: markdown
+  path: README.md
+  role: documentation

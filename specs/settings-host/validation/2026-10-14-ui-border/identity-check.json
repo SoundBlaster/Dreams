@@ -1,0 +1,26 @@
+{
+  "result": "pass",
+  "checkedSourceFiles": 22,
+  "checkedMaps": 4,
+  "mutationCases": [
+    {
+      "path": "Packages/DreamsSettingsUI/Package.swift",
+      "originalMatches": true,
+      "semanticMutation": {
+        "from": ".macOS(.v15)",
+        "to": ".macOS(.v26)"
+      },
+      "mutatedCopyRejected": true
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "originalMatches": true,
+      "semanticMutation": {
+        "from": "Slider(value: $value, in: range, step: step)",
+        "to": "Slider(value: $value, in: 0...1, step: step)"
+      },
+      "mutatedCopyRejected": true
+    }
+  ],
+  "runtimeSourcesChanged": false
+}

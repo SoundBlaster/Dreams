@@ -16,6 +16,10 @@ enum Loc {
         return Bundle(path: path)
     }
 
+    static func resource(_ key: String.LocalizationValue) -> LocalizedStringResource {
+        LocalizedStringResource(key, bundle: .atURL(bundle.bundleURL))
+    }
+
     static func string(_ key: String, in bundle: Bundle? = nil) -> String {
         (bundle ?? Self.bundle).localizedString(forKey: key, value: key, table: nil)
     }
@@ -25,3 +29,5 @@ func L(_ key: String, _ arguments: CVarArg...) -> String {
     let text = Loc.string(key)
     return arguments.isEmpty ? text : String(format: text, locale: Locale.current, arguments: arguments)
 }
+
+func settingsString(_ key: String.LocalizationValue) -> LocalizedStringResource { Loc.resource(key) }

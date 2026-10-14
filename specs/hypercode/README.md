@@ -45,3 +45,8 @@ The [settings catalog](settings-catalog.hc) / [properties](settings-catalog.hcs)
 describe a separately launched SwiftUI showcase with a [draft contract](../settings-catalog/README.md).
 It adds a sibling application role without changing DesktopApplication.SettingsPage.
 Production settings migration and embedded rendering remain explicit next-stage work.
+
+The [settings host](settings-host.hc) / [profiles](settings-host.hcs) describe
+`settings=legacy` and `settings=native` presentations with the same controller.
+[Draft contract](../settings-host/README.md) covers flag routing, bindings and
+window lifetime; embedded rain, glass and full input parity remain next-stage work.

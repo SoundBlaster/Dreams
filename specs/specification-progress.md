@@ -18,7 +18,8 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Partial: motion and search recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
 | RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 3a4ad94 search baseline; prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
-| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Source 0ddcc4f; build/resource checks separate from UI | Visual/keyboard acceptance, then flagged host |
+| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Native-host integration baseline; independent catalog fixtures | Interactive catalog acceptance |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Default-off native routing and shared owner; local tests + Screener 0.2.0 | Keyboard/VoiceOver, compositor acceptance; embedded preview next |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -177,3 +178,39 @@ there is no changed production implementation to repin. The application HC map a
 a sibling SettingsCatalog role. Desktop SettingsPage remains unchanged and its full
 consumer recovery stays backlog. Flagged settings adoption, shared live bindings,
 embedded Metal and whole-window glass are desired later stages, not current evidence.
+
+## Native settings host — 2026-10-14
+
+Current implementation source: `f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6`.
+
+The default-off `--native-settings` route adopts the UI library without the catalog
+executable. [Host contract and limits](settings-host/README.md) recover launch
+routing, native bindings, legacy access and lifecycle. `--legacy-settings` overrides
+the opt-in; no saved flag exists. Both windows share DreamsController and one timer.
+Screener SDK/test reader advances explicitly to 0.2.0; optional compositor capture
+stays test-only and requires existing authorization.
+
+Affected `dreams.overlay.session` lifecycle/cleanup/reopen and `dreams.rain.drop_motion`
+/ `dreams.rain.search_occupancy` tuning claims retain stable IDs. Controller changes
+announce existing completed preference/renderer effects; the settings page routes
+presentation and synchronizes controls. No motion/search/display/exit algorithm is
+changed. Current identities and fresh structural records replace affected current
+bindings; old physical/pixel/benchmark passes are not relabeled for this source.
+
+`dreams.settings.catalog/independent_host` now distinguishes a standalone catalog
+from library adoption, superseding the stage-one manifest observation. Catalog
+fixtures remain independent of production. Glyph contract/source/checkpoint data
+and tvOS are unchanged and retain their separate baselines. Native input and exact
+compositor appearance remain unobserved under the locked Mac. Embedded rain, glass
+and full shortcut parity are next-stage work, not current implementation coverage.
+
+### PR #22 UI-library border correction — 2026-10-14
+
+`dreams.settings.host/native_controls` now declares its local `dreams.settings.ui`
+prerequisite, with manifest/consumed-slider files in the binding border and
+[new current source identity](settings-host/evidence/2026-10-14-ui-border/source-identity.json).
+The catalog contract exposes that existing library interface as a secondary
+capability, without requiring its executable. The previous host identity and
+runtime passes remain preserved; app code and all other claim IDs are unchanged.
+[Fresh structural/docs/identity checks](settings-host/validation/2026-10-14-ui-border/README.md)
+do not imply a new application or compositor test run.

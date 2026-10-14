@@ -1,0 +1,86 @@
+Fetching https://github.com/apple/swift-nio.git from cache
+Fetching https://github.com/apple/swift-collections.git from cache
+Fetching https://github.com/apple/swift-atomics.git from cache
+Fetching https://github.com/modelcontextprotocol/swift-sdk.git from cache
+Fetching https://github.com/apple/swift-log.git from cache
+Fetching https://github.com/apple/swift-system.git from cache
+Fetching https://github.com/mattt/eventsource.git from cache
+Fetching https://github.com/swiftlang/swift-docc-plugin from cache
+Fetching https://github.com/swiftlang/swift-docc-symbolkit from cache
+Fetched https://github.com/modelcontextprotocol/swift-sdk.git from cache (0.97s)
+Fetched https://github.com/apple/swift-atomics.git from cache (0.97s)
+Fetched https://github.com/apple/swift-nio.git from cache (1.32s)
+Fetched https://github.com/swiftlang/swift-docc-plugin from cache (1.43s)
+Computing version for https://github.com/swiftlang/swift-docc-plugin
+Fetched https://github.com/mattt/eventsource.git from cache (1.43s)
+Fetched https://github.com/swiftlang/swift-docc-symbolkit from cache (1.44s)
+Fetched https://github.com/apple/swift-log.git from cache (1.48s)
+Fetched https://github.com/apple/swift-collections.git from cache (1.51s)
+Fetched https://github.com/apple/swift-system.git from cache (1.54s)
+Computed https://github.com/swiftlang/swift-docc-plugin at 1.5.0 (2.03s)
+Computing version for https://github.com/modelcontextprotocol/swift-sdk.git
+Computed https://github.com/modelcontextprotocol/swift-sdk.git at 0.12.1 (0.04s)
+Computed https://github.com/swiftlang/swift-docc-plugin at 1.5.0 (0.00s)
+Computed https://github.com/modelcontextprotocol/swift-sdk.git at 0.12.1 (0.00s)
+Computing version for https://github.com/swiftlang/swift-docc-symbolkit
+Computed https://github.com/swiftlang/swift-docc-symbolkit at 1.0.0 (0.51s)
+Computing version for https://github.com/apple/swift-nio.git
+Computed https://github.com/apple/swift-nio.git at 2.103.0 (0.04s)
+Computing version for https://github.com/mattt/eventsource.git
+Computed https://github.com/mattt/eventsource.git at 1.5.1 (0.04s)
+Computing version for https://github.com/apple/swift-log.git
+Computed https://github.com/apple/swift-log.git at 1.15.1 (0.04s)
+Computing version for https://github.com/apple/swift-system.git
+Computed https://github.com/apple/swift-system.git at 1.8.1 (0.04s)
+Computing version for https://github.com/apple/swift-collections.git
+Computed https://github.com/apple/swift-collections.git at 1.7.1 (0.04s)
+Computing version for https://github.com/apple/swift-atomics.git
+Computed https://github.com/apple/swift-atomics.git at 1.3.1 (0.03s)
+Creating working copy for https://github.com/modelcontextprotocol/swift-sdk.git
+Working copy of https://github.com/modelcontextprotocol/swift-sdk.git resolved at 0.12.1
+Creating working copy for https://github.com/swiftlang/swift-docc-symbolkit
+Working copy of https://github.com/swiftlang/swift-docc-symbolkit resolved at 1.0.0
+Creating working copy for https://github.com/apple/swift-atomics.git
+Working copy of https://github.com/apple/swift-atomics.git resolved at 1.3.1
+Creating working copy for https://github.com/apple/swift-collections.git
+Working copy of https://github.com/apple/swift-collections.git resolved at 1.7.1
+Creating working copy for https://github.com/apple/swift-log.git
+Working copy of https://github.com/apple/swift-log.git resolved at 1.15.1
+Creating working copy for https://github.com/apple/swift-system.git
+Working copy of https://github.com/apple/swift-system.git resolved at 1.8.1
+Creating working copy for https://github.com/swiftlang/swift-docc-plugin
+Working copy of https://github.com/swiftlang/swift-docc-plugin resolved at 1.5.0
+Creating working copy for https://github.com/apple/swift-nio.git
+Working copy of https://github.com/apple/swift-nio.git resolved at 2.103.0
+Creating working copy for https://github.com/mattt/eventsource.git
+Working copy of https://github.com/mattt/eventsource.git resolved at 1.5.1
+Building for production...
+[Pre-planning 1 / 244]
+[Planning deferred tasks]
+[54 / 104]
+[59 / 108] CSystem
+[68 / 117]
+[81 / 136]
+[86 / 136] EventSource
+[98 / 177]
+[99 / 177]
+[110 / 177]
+[115 / 177]
+[120 / 177]
+[126 / 177]
+[130 / 177]
+[132 / 177]
+[134 / 177] Logging
+[140 / 177] ScreenerCore
+[152 / 177] SystemPackage
+[159 / 178] MCP
+[165 / 184]
+[166 / 184] MCP
+[173 / 185] ScreenerMCP
+[181 / 194]
+[183 / 194] ScreenerMCP
+[190 / 195] screener-mcp-product
+[192 / 196] screener-mcp-product
+[194 / 196] screener-mcp-product
+[195 / 196] screener-mcp-product
+Build complete! (18.13 sec)

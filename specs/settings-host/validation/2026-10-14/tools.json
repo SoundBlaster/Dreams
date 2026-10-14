@@ -1,0 +1,38 @@
+{
+  "swift": {
+    "command": [
+      "swift",
+      "--version"
+    ],
+    "exitCode": 0,
+    "output": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\nswift-driver version: 1.168.6",
+    "binarySha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2"
+  },
+  "swiftlint": {
+    "command": [
+      "swiftlint",
+      "version"
+    ],
+    "exitCode": 0,
+    "output": "0.63.3",
+    "binarySha256": "562654acc999d75b7aae8c7420b78925b27339a7f5f909e806d8299a8c8b584d"
+  },
+  "specpm": {
+    "command": [
+      "specpm",
+      "--version"
+    ],
+    "exitCode": 0,
+    "output": "specpm 0.2.0",
+    "binarySha256": "1c80370f940afd1be509c5bd53fb0c7c6d1bd558d8e6718fdf19b9179ae09142"
+  },
+  "hypercode": {
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "--version"
+    ],
+    "exitCode": 1,
+    "output": "error: cannot read --version",
+    "binarySha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  }
+}

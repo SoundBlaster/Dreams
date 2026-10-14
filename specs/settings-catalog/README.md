@@ -22,3 +22,13 @@ off, preserve the legacy settings frontend and inject the production settings ow
 and renderer. Those are desired next-stage obligations, not implemented guarantees
 of this catalog. Existing overlay/display/exit/motion/search/glyph claim IDs remain
 applicable: their implementation and production package are unchanged in this work.
+
+## Production adoption — 2026-10-14
+
+The standalone catalog remains a separately built app with ephemeral fixtures.
+Production now links only the UI composition library and provides a default-off
+[settings host](../settings-host/README.md). This supersedes the historical
+first-stage observation that the production manifest had no package dependency;
+it does not give the catalog production state, lifecycle or renderer access.
+[Current source and checks](validation/2026-10-14-native-host/README.md) are separate
+from the preserved initial catalog evidence.

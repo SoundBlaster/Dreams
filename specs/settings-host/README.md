@@ -1,0 +1,72 @@
+# Native settings host (descriptive draft)
+
+The production app now has two settings presentations backed by the same
+`DreamsController`. The launch flag `--native-settings` opts into SwiftUI;
+absence preserves the existing AppKit window, and `--legacy-settings` wins
+if both flags appear. Nothing enables this feature through saved preferences.
+
+```sh
+make app
+open -n dist/Dreams.app --args --native-settings
+make test-native-settings-trace
+# Optional compositor stills: unlocked GUI and previously granted Screen Recording access.
+DREAMS_NATIVE_CAPTURE_BACKEND=screen-capture-kit make test-native-settings-trace
+```
+
+The native window uses NavigationSplitView, a selection List, grouped Form,
+Section, Slider, Toggle, Picker, ColorPicker, native buttons, error alerts
+and a reset confirmation. Seven sections cover general/run time, appearance,
+rain, background, agent words/hooks, displays and advanced actions. The host
+links only the `DreamsSettingsUI` library; the standalone catalog stays separate.
+
+Both windows use the existing persisted keys, controller operations, renderer
+propagation and activity timer. No settings snapshot is independently saved.
+Controller change notifications invalidate the native observation adapter and
+refresh legacy controls. Opening either window retains the existing
+`stopForReopen` behavior. Closing/reopening retains the native window's section
+selection; terminal cleanup removes observers and stops the timer.
+
+Manual columns are 24–240 (zero means automatic), density/search/spread/idle
+0–100%, speed 0.25–3×, sequential fade 1–16 rows, acceleration −120–0 rows/s²,
+glow 0–300%, and word brightness 0–200%. These are current production ranges,
+not new product limits. Native bindings reject nonfinite values and constrain
+scalar input to those ranges. Runtime presets and separate transparent/opaque
+color/glow profiles retain controller semantics. Failures expose the controller's
+actual state and an alert; the controller operations are not promised atomic.
+
+## Assembly and limits
+
+- The app retains SettingsPageController; it retains either/both windows and the
+  native model. The adapter references the same controller and weakly references
+  its settings owner. This UI package owns no renderer or saved state.
+- Display mode and selection go through existing display reconciliation; hook
+  buttons go through the existing installer and plugin-managed hooks stay disabled.
+- Shortcut recording remains in the legacy window, explicitly linked from the
+  native General and Advanced forms. No claim of full interaction parity yet.
+- Embedded Metal rain, whole-window Liquid Glass/open shapes and live preview
+  are **next stages**, not implemented here. This stage uses standard Settings-style
+  surfaces and does not start rain merely by changing a setting.
+- Screener records explicit model/form states through its 0.2.0 test SDK.
+  The optional test-only ScreenCaptureKit product captures the exact test window
+  and owner with existing authorization; failure never substitutes desktop or
+  hierarchy pixels for a requested compositor frame.
+  Hierarchy capture can omit/alter compositor materials and selection pixels.
+  Native keyboard, VoiceOver, screen pixels and macOS 15 runtime remain separate
+  acceptance work; the development Mac was locked during this pass.
+- tvOS, overlay input/display algorithms, glyph files and checkpoint data are not
+  changed. Existing overlay/rain contracts keep stable IDs with a new source baseline.
+
+[Contract](specs/host.spec.yaml), [map](../hypercode/settings-host.hc),
+[source and validation baseline](validation/2026-10-14/README.md).
+
+## Local UI dependency baseline
+
+The host requires `dreams.settings.ui`, provided by the
+[catalog/UI package contract](../settings-catalog/specs/catalog.spec.yaml).
+This means the library compositions, not the catalog executable. The binding
+border and [current source identity](evidence/2026-10-14-ui-border/source-identity.json)
+include the local SwiftPM manifest and the consumed SettingsSliderRow source.
+`Package.resolved` does not pin a local package. Changing either input invalidates
+the host's native-control baseline and requires renewed verification.
+The original source/validation records remain historical.
+[Review correction checks](validation/2026-10-14-ui-border/README.md).

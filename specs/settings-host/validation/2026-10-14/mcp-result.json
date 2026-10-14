@@ -1,0 +1,21 @@
+{
+  "serverInfo": {
+    "name": "screener-mcp",
+    "title": "Screener",
+    "version": "0.2.0"
+  },
+  "protocolVersion": "2024-11-05",
+  "tools": [
+    "screener.sessions",
+    "screener.timeline",
+    "screener.frame",
+    "screener.contact_sheet"
+  ],
+  "sessionID": "317389D0-6B2C-4ECB-BC83-12BB79DECC0E",
+  "keyframes": 11,
+  "recordID": "EF4190ED-C743-426C-8C44-5A502C597920",
+  "frameSha256": "0491b92af65421f86500296f0f165df61a21302839da4dbc08ed679b9636d921",
+  "serverBinarySha256": "c279e76887d640353fe05caaf3a82e7d6712e6aadf5e69fad7942642eba283ea",
+  "transport": "local stdio MCP; read-only",
+  "screenerRevision": "085252854d22dcc344d494d38496b402a92b308f"
+}

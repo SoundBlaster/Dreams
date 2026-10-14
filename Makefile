@@ -25,6 +25,7 @@ help:
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
 		'  make test-displays    Opt-in live display lifecycle and Screener settings trace' \
 		'  make test-exit        Opt-in Esc, exit button, focus and display unplug checks' \
+		'  make test-native-settings-trace Record native SwiftUI form states with Screener' \
 		'  make test-gui-trace   Record settings scenarios with Screener (local GUI session)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
@@ -114,6 +115,10 @@ test-exit:
 
 test-settings:
 	zsh scripts/test-settings.sh
+
+.PHONY: test-native-settings-trace
+test-native-settings-trace:
+	python3 scripts/test-native-settings-trace.py
 
 test-gui-trace:
 	python3 scripts/test-gui-trace.py
@@ -210,6 +215,10 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/settings-host.hc
+	"$(HYPERCODE)" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=legacy
+	"$(HYPERCODE)" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=native
+	"$(SPECPM)" validate specs/settings-host --json
 	"$(HYPERCODE)" parse specs/hypercode/settings-catalog.hc
 	"$(HYPERCODE)" validate specs/hypercode/settings-catalog.hc --hcs specs/hypercode/settings-catalog.hcs
 	"$(SPECPM)" validate specs/settings-catalog --json

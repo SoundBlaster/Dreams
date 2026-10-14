@@ -1,8 +1,10 @@
 # Dreams native settings catalog
 
 Stage one of the native settings migration: a standalone macOS SwiftUI application
-and a small composition library. The main Dreams app does not depend on this package.
-No production settings window, persistence, overlay lifecycle or tvOS code is changed.
+and a small composition library. The separately launched catalog remains independent of the production target.
+The production app now links only the small UI library and offers a SwiftUI settings
+host under the explicit, default-off `--native-settings` launch flag. See
+[host scope and limits](../../specs/settings-host/README.md).
 
 ## Build and open
 
@@ -53,8 +55,10 @@ Do not put the production controller or renderer into this UI package.
 
 1. Add a new settings host under a feature flag that defaults **off**. Keep the
    existing AppKit settings path. The catalog itself is already an opt-in separate app;
-   the production feature flag is deliberately not implemented in stage one.
-2. Bind the new host to the same production settings owner and operations.
+   this route is now available only with `--native-settings`; `--legacy-settings` wins
+   when both flags are supplied.
+2. The new host now binds to the same production controller. Shortcut recording
+   still opens the legacy window. Validate interactive parity before enabling it by default.
 3. Inject the existing Metal renderer into an embedded preview with independent
    lifecycle. Changes must affect the preview without starting fullscreen rain.
 4. Compare Settings-style surfaces with the proposed glass/rain composition, including

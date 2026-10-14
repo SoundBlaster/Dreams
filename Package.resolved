@@ -1,5 +1,5 @@
 {
-  "originHash" : "8c68e34482d4fa398f921d4bda005908033dec0486816891b3f1677ba056b36e",
+  "originHash" : "f4e6782a8d070fc8aff45e8fa4e63328f3927c004904e80526dd8ea800e5aed8",
   "pins" : [
     {
       "identity" : "eventsource",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SoundBlaster/Screener.git",
       "state" : {
-        "revision" : "fd6cc12f37c875ed57f62454318363cbf3de8705",
-        "version" : "0.1.0"
+        "revision" : "085252854d22dcc344d494d38496b402a92b308f",
+        "version" : "0.2.0"
       }
     },
     {

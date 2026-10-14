@@ -1,0 +1,8 @@
+{
+  "specs-check": {
+    "exitCode": 0,
+    "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+  },
+  "scope": "specification-only review correction; no application tests replayed",
+  "ci": "not monitored"
+}

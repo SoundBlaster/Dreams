@@ -1,0 +1,397 @@
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" parse specs/hypercode/settings-host.hc
+SettingsPage
+  LaunchRouting
+  NativePresentation
+    Navigation
+    Forms
+  SettingsBinding
+  LegacyAccess
+  WindowLifetime
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=legacy
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=native
+ok: no issues found
+"specpm" validate specs/settings-host --json
+{
+  "capabilities": [
+    "dreams.settings.host"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/host.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams native settings host",
+    "package_id": "dreams.settings_host",
+    "version": "0.1.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 1,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/host.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.swiftui",
+      "severity": "warning"
+    }
+  ]
+}
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" parse specs/hypercode/settings-catalog.hc
+SettingsCatalog
+  NativeComponents
+  FixtureForms
+  WindowNavigation
+  MaterialSamples
+  Packaging
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/settings-catalog.hc --hcs specs/hypercode/settings-catalog.hcs
+ok: no issues found
+"specpm" validate specs/settings-catalog --json
+{
+  "capabilities": [
+    "dreams.settings.catalog"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/catalog.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams native settings catalog",
+    "package_id": "dreams.settings_catalog",
+    "version": "0.1.0-draft.2"
+  },
+  "status": "warning_only",
+  "warning_count": 1,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/catalog.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.swiftui",
+      "severity": "warning"
+    }
+  ]
+}
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" parse specs/hypercode/application.hc
+Dreams
+  DesktopApplication
+    RainOverlaySession
+    SettingsPage
+  TelevisionApplication
+  SettingsCatalog
+  AgentIntegrations
+  GlyphToolchain
+    GlyphEditor
+    FontBuild
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/application.hc --hcs specs/hypercode/application.hcs
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" parse specs/hypercode/glyph-editor.hc
+GlyphEditor
+  EditingSession
+  Geometry
+  SharedStrokes
+  VisualGuides
+  ProjectTransfer
+  CheckpointLibrary
+  EditorBuild
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs --ctx mode=standalone
+ok: no issues found
+"specpm" validate specs/glyph-editor --json
+{
+  "capabilities": [
+    "dreams.glyph.checkpoints",
+    "dreams.glyph.components",
+    "dreams.glyph.editor",
+    "dreams.glyph.geometry"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/checkpoints.spec.yaml",
+    "specs/components.spec.yaml",
+    "specs/editor.spec.yaml",
+    "specs/geometry.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams glyph workspace contracts",
+    "package_id": "dreams.glyph_workspace",
+    "version": "0.1.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 8,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/components.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.geometry",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.geometry",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.node.execution",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.posix.filesystem",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.geometry",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.components",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.glyph.checkpoints",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.browser.editor_host",
+      "severity": "warning"
+    }
+  ]
+}
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" parse specs/hypercode/overlay-session.hc
+RainOverlaySession
+  DisplayTargets
+  Presentation
+    OverlayWindows
+      InputRouting
+      ExitControls
+    FocusReturn
+  ExitInput
+    GlobalHotkey
+  SessionLifetime
+  CaptureVisibility
+  Renderer
+    DropMotion
+    GlyphSearch
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx background=transparent
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx entry=agent
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx background=transparent --ctx entry=agent
+ok: no issues found
+"specpm" validate specs/overlay-session --json
+{
+  "capabilities": [
+    "dreams.overlay.displays",
+    "dreams.overlay.exit",
+    "dreams.overlay.presentation",
+    "dreams.overlay.session"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/displays.spec.yaml",
+    "specs/exit.spec.yaml",
+    "specs/presentation.spec.yaml",
+    "specs/session.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams overlay and exit contracts",
+    "package_id": "dreams.overlay_session",
+    "version": "0.1.0-draft.2"
+  },
+  "status": "warning_only",
+  "warning_count": 11,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.displays",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/exit.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/exit.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.carbon_hotkeys",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.displays",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.presentation",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.overlay.exit",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.power_assertions",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    }
+  ]
+}
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" parse specs/hypercode/drop-motion.hc
+DropMotion
+  HeadArrival
+  TailLifetime
+  EventLifetime
+  Tuning
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs --ctx motion=decelerating
+ok: no issues found
+"specpm" validate specs/drop-motion --json
+{
+  "capabilities": [
+    "dreams.rain.drop_motion",
+    "dreams.rain.search_occupancy"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/motion.spec.yaml",
+    "specs/search.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams rain motion and search",
+    "package_id": "dreams.drop_motion",
+    "version": "0.2.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 4,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/motion.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/motion.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/search.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.windowserver",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/search.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    }
+  ]
+}
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" parse specs/hypercode/glyph-search.hc
+GlyphSearch
+  Population
+  Quota
+  BurstLifecycle
+  Tuning
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=disabled
+ok: no issues found
+"/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=saturated
+ok: no issues found

@@ -68,14 +68,14 @@ effects:
 evidence:
 - id: source_1
   kind: source
-  path: evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift
+  path: evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift
   supports:
   - interfaces
   - constraints
   - effects
 - id: source_2
   kind: source
-  path: evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
+  path: evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
   supports:
   - constraints.persistence
 provenance:
@@ -94,9 +94,9 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 691d94b65eb8fd1687b09cef7ff4f6f5c2776c83
+    revision: f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6
   files:
     owned:
-    - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift
-    - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
+    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift
+    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
     border: []

@@ -21,11 +21,12 @@ FontBuild:
 SettingsPage:
   source: "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
   assembly: "app/providers/DreamsDelegate injects rain controller"
-  detail_status: "source-oriented-settings-contract-unexplored"
+  detail: "settings-host.hc + settings-host.hcs"
+  detail_status: "flagged-native-host-recovered; full-interactive-parity-unaccepted"
 TelevisionApplication:
   source: "tvOS/Sources/app/entrypoint/DreamsTVApp.swift"
   detail_status: "foreground-clock-application-contract-unexplored"
 SettingsCatalog:
   source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift"
   detail: "settings-catalog.hc + settings-catalog.hcs"
-  assembly: "standalone-app; production settings integration deferred"
+  assembly: "standalone-app; production links UI library only, not catalog executable"
