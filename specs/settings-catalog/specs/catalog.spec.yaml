@@ -1,0 +1,142 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.settings.catalog
+  title: NativeSettingsCatalog
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Let contributors inspect system controls and native settings compositions without altering Dreams preferences.
+scope:
+  boundedContext: native_settings_catalog
+  includes:
+  - Native control specimens, form fixtures, sidebar navigation, materials and typography.
+  - A small library of compositions and a separately built macOS app with EN/RU resources.
+  excludes:
+  - Production settings migration, production feature-flag routing, persistence and overlay control.
+  - Embedded Metal rendering, live agent feeds, whole-window glass, tvOS and glyph editing.
+provides:
+  capabilities:
+  - id: dreams.settings.catalog
+    role: primary
+    summary: Present a separately launched native SwiftUI component catalog using disposable state.
+requires:
+  capabilities:
+  - id: platform.apple.swiftui
+    summary: macOS 15+ supplies native controls and window behavior; Liquid Glass samples require macOS 26+.
+interfaces:
+  inbound:
+  - id: build_and_launch
+    kind: cli
+    summary: Explicitly build or launch the standalone catalog from the repository.
+    operations:
+    - name: make settings-catalog/settings-catalog-run
+      inputs:
+      - name: toolchain
+        type: Swift 6.2 and a macOS SDK capable of compiling guarded macOS 26 APIs
+      outputs:
+      - name: application
+        type: dist/DreamsSettingsCatalog.app with its own bundle identifier
+  - id: slider_composition
+    kind: library
+    summary: Construct a native form slider row with host-owned state and formatting.
+    operations:
+    - name: SettingsSliderRow.init
+      inputs:
+      - name: state_and_presentation
+        type: LocalizedStringResource title, Double Binding, valid ClosedRange, positive step, formatted readout and identifier
+      outputs:
+      - name: row
+        type: SwiftUI View composed of system Slider and LabeledContent
+  - id: preview_slot
+    kind: library
+    summary: Clip host-supplied content in an uncovered preview region.
+    operations:
+    - name: SettingsPreviewRegion.init
+      inputs:
+      - name: content
+        type: ViewBuilder content owned by the host
+      outputs:
+      - name: region
+        type: SwiftUI View without a renderer, timer or material of its own
+  outbound: []
+constraints:
+- id: native_controls
+  level: MUST
+  statement: Use system SwiftUI controls, Form, Section, List and NavigationSplitView; reusable rows compose these APIs rather than replacing their input behavior.
+- id: independent_host
+  level: MUST
+  statement: The catalog package has no dependency on the production Dreams target; the production manifest does not import or link the catalog package in stage one.
+- id: ephemeral_fixtures
+  level: MUST
+  statement: Store example control values in local State. Fixture actions and reset do not write Dreams preferences, install hooks, start overlays or alter system settings.
+- id: window_navigation
+  level: MUST
+  statement: Each catalog window owns its selected section, column visibility and catalog options. Navigation uses system sidebar selection and inspector behavior; page fixtures may reset when leaving a section.
+- id: platform_availability
+  level: MUST
+  statement: Support macOS 15 deployment. Guard glass button styles with macOS 26 availability; provide a textual fallback. Standard material specimens replace translucency when Reduce Transparency is enabled.
+- id: host_owned_binding
+  level: MUST
+  statement: Slider consumers provide valid range, step, Binding, formatting and identifier; the library does not validate business rules or persist values. Preserve the native accessible label and expose the supplied readout as its accessibility value.
+- id: localization_and_packaging
+  level: MUST
+  statement: Package all used catalog labels in matching English/Russian resources resolved through the catalog module bundle; use a separate app identifier and include the resource bundle in the app.
+- id: preview_limit
+  level: MUST
+  statement: The preview region only displays injected content. Stage one shows an explicit placeholder and establishes no live rendering, glass-over-Metal or performance guarantee.
+effects:
+  sideEffects:
+  - id: fixture_state
+    kind: state_mutation
+    summary: Mutates ephemeral example values and catalog presentation options.
+  - id: build_output
+    kind: filesystem_write
+    summary: Explicit build writes package build outputs and the catalog app in dist; production app resources are not rebuilt.
+evidence:
+- id: implementation
+  kind: source
+  path: evidence/2026-10-14/source/Packages/DreamsSettingsUI/Package.swift
+  supports:
+  - constraints
+- id: package_checks
+  kind: test
+  path: evidence/2026-10-14/source/scripts/test-settings-catalog.py
+  supports:
+  - constraints.independent_host
+  - constraints.localization_and_packaging
+- id: validation
+  kind: test
+  path: validation/2026-10-14/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    extraction: high
+  notes:
+  - Native controls and isolated first-stage catalog are explicit user requirements. Contracts remain descriptive drafts.
+  - A valid build and resource checks do not prove interactive keyboard, VoiceOver, layout or glass fidelity. Visual verification remains separate.
+  - The future settings feature flag defaults off by product intent, but no production routing or flag is implemented in this standalone stage.
+implementationBindings:
+- id: catalog_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 0ddcc4f62dba1a264bbacb567b058931a56e4bec
+  files:
+    owned:
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Package.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeControlsPage.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeFormPage.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeNavigationPage.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeTypographyPage.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/model/CatalogSection.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/ui/CatalogPage.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
+    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    border: []

@@ -1,0 +1,2 @@
+git diff --quiet b9bd2cf -- Sources/Dreams Package.swift tvOS scripts/glyphs research/glyphs
+exitCode: 0

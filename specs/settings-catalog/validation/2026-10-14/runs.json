@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "make",
+      "settings-catalog"
+    ],
+    "exitCode": 0,
+    "log": "build.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "python3",
+      "scripts/test-settings-catalog.py"
+    ],
+    "exitCode": 0,
+    "log": "artifact.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "exitCode": 0,
+    "log": "structure.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "make",
+      "lint"
+    ],
+    "exitCode": 0,
+    "log": "lint.log"
+  }
+]

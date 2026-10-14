@@ -2,6 +2,7 @@
 included:
   - Sources
   - tvOS/Sources
+  - Packages/DreamsSettingsUI/Sources
 disabled_rules:
   - identifier_name          # x, y, uv, rgb... are the natural names in the rendering and geometry code
   - trailing_comma

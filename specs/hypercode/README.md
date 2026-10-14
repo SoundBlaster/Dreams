@@ -40,3 +40,8 @@ The [glyph-search detail](glyph-search.hc) / [profiles](glyph-search.hcs) descri
 simultaneous live-cell occupancy; validate default, search=disabled and search=saturated.
 Its [draft capability](../drop-motion/specs/search.spec.yaml) shares the rain simulation
 package with motion. Neither map establishes shader/atlas or tvOS behavior.
+
+The [settings catalog](settings-catalog.hc) / [properties](settings-catalog.hcs)
+describe a separately launched SwiftUI showcase with a [draft contract](../settings-catalog/README.md).
+It adds a sibling application role without changing DesktopApplication.SettingsPage.
+Production settings migration and embedded rendering remain explicit next-stage work.

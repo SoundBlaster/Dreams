@@ -25,3 +25,7 @@ SettingsPage:
 TelevisionApplication:
   source: "tvOS/Sources/app/entrypoint/DreamsTVApp.swift"
   detail_status: "foreground-clock-application-contract-unexplored"
+SettingsCatalog:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift"
+  detail: "settings-catalog.hc + settings-catalog.hcs"
+  assembly: "standalone-app; production settings integration deferred"

@@ -33,6 +33,8 @@ help:
 		'  make katakana         Build the directed katakana stroke research catalogue' \
 		'  make katakana-check   Validate stroke data, pressure laws and SVG determinism' \
 		'  make glyph-editor     Start the local glyph editor with checkpoint storage' \
+		'  make settings-catalog Build the standalone native component catalog' \
+		'  make settings-catalog-run Build and open the standalone catalog' \
 		'  make specs-check      Validate specification structure (Hypercode + SpecPM)' \
 		'' \
 		'Release (version from VERSION):' \
@@ -58,6 +60,13 @@ icon:
 app:
 	zsh scripts/build-app.sh release
 
+.PHONY: settings-catalog settings-catalog-run
+settings-catalog:
+	zsh scripts/build-settings-catalog.sh release
+
+settings-catalog-run: settings-catalog
+	open dist/DreamsSettingsCatalog.app
+
 run: app
 	-pkill -x Dreams
 	@sleep 1
@@ -74,6 +83,7 @@ lint: lint-architecture
 lint-architecture:
 	zsh scripts/lint-architecture.sh
 	zsh scripts/lint-architecture.sh --root tvOS/Sources
+	zsh scripts/lint-architecture.sh --root Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog
 
 .PHONY: app-tv test-tv
 app-tv:
@@ -200,6 +210,9 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/settings-catalog.hc
+	"$(HYPERCODE)" validate specs/hypercode/settings-catalog.hc --hcs specs/hypercode/settings-catalog.hcs
+	"$(SPECPM)" validate specs/settings-catalog --json
 	"$(HYPERCODE)" parse specs/hypercode/application.hc
 	"$(HYPERCODE)" validate specs/hypercode/application.hc --hcs specs/hypercode/application.hcs
 	"$(HYPERCODE)" parse specs/hypercode/glyph-editor.hc
