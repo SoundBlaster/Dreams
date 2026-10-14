@@ -15,6 +15,12 @@ final class DreamsController: NSObject {
     private var rainIsOn: Bool { rainRequested && !screenManager.overlays.isEmpty }
     private var overlay: NSWindow? { screenManager.orderedOverlays.first?.window }
     private var renderer: RainRenderer? { screenManager.renderers.first }
+    static let settingsDidChange = Notification.Name("DreamsSettingsDidChange")
+
+    private func settingsChanged() {
+        NotificationCenter.default.post(name: Self.settingsDidChange, object: self)
+    }
+
     static let displaysDidChange = Notification.Name("DreamsDisplaysDidChange")
     private(set) var displayError: String?
 
@@ -97,19 +103,20 @@ final class DreamsController: NSObject {
         let value = UserDefaults.standard.object(forKey: "runTimeSeconds") as? Double ?? DreamsPreset.runTimeSeconds
         return DreamsPreset.runTimeChoices.contains(value) ? value : DreamsPreset.runTimeSeconds
     }() {
-        didSet { UserDefaults.standard.set(runTimeSeconds, forKey: "runTimeSeconds") }
+        didSet { UserDefaults.standard.set(runTimeSeconds, forKey: "runTimeSeconds"); settingsChanged() }
     }
     private var lastBrightness = 0.18
     var emergencyHotkeyRegistered = false
     /// The global stop shortcut; the delegate re-registers it when it changes.
     var stopHotkey = StopHotkey.load() {
-        didSet { stopHotkey.save() }
+        didSet { stopHotkey.save(); settingsChanged() }
     }
     private(set) var restoredGlyphs = UserDefaults.standard.object(forKey: "restoredGlyphs") as? Bool
         ?? DreamsPreset.restoredGlyphs
 
     func setTransparentBackground(_ enabled: Bool) throws {
         guard enabled != transparentBackground else { return }
+        defer { settingsChanged() }
         transparentBackground = enabled
         UserDefaults.standard.set(enabled, forKey: "transparentBackground")
         rainGlow = Self.storedGlow(transparent: enabled)
@@ -160,6 +167,7 @@ final class DreamsController: NSObject {
         hideFromScreenshots = enabled
         UserDefaults.standard.set(enabled, forKey: "hideFromScreenshots")
         screenManager.orderedOverlays.forEach { $0.window.sharingType = enabled ? .none : .readOnly }
+        settingsChanged()
     }
 
     /// The system screenshot tool picks the window under the cursor, and the full-screen overlay is
@@ -213,6 +221,7 @@ final class DreamsController: NSObject {
         for renderer in screenManager.renderers { try renderer.setRestoredGlyphs(enabled) }
         restoredGlyphs = enabled
         UserDefaults.standard.set(enabled, forKey: "restoredGlyphs")
+        settingsChanged()
     }
     /// Zero keeps the original automatic grid; otherwise use an exact horizontal count.
     var rainColumnCount: Int = {
@@ -222,6 +231,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainColumnCount, forKey: "rainColumnCount")
             screenManager.renderers.forEach { $0.rainColumnCount = rainColumnCount }
+            settingsChanged()
         }
     }
 
@@ -241,6 +251,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainDensity, forKey: "rainDensity")
             screenManager.renderers.forEach { $0.rainDensity = rainDensity }
+            settingsChanged()
         }
     }
 
@@ -251,6 +262,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainFadeRows, forKey: "rainFadeRows")
             screenManager.renderers.forEach { $0.rainFadeRows = rainFadeRows }
+            settingsChanged()
         }
     }
 
@@ -261,6 +273,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainSpeed, forKey: "rainSpeed")
             screenManager.renderers.forEach { $0.rainSpeed = rainSpeed }
+            settingsChanged()
         }
     }
 
@@ -271,6 +284,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainSearchFraction, forKey: "rainSearchFraction")
             screenManager.renderers.forEach { $0.rainSearchFraction = rainSearchFraction }
+            settingsChanged()
         }
     }
 
@@ -279,6 +293,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainDecelerationEnabled, forKey: "rainDecelerationEnabled")
             updateDeceleration()
+            settingsChanged()
         }
     }
     var rainDeceleration: Double = {
@@ -288,6 +303,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainDeceleration, forKey: "rainDeceleration")
             updateDeceleration()
+            settingsChanged()
         }
     }
     private var dropDeceleration: MatrixSimulation.Deceleration {
@@ -304,6 +320,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainBrightnessSpread, forKey: "rainBrightnessSpread")
             screenManager.renderers.forEach { $0.rainBrightnessSpread = rainBrightnessSpread }
+            settingsChanged()
         }
     }
 
@@ -319,6 +336,7 @@ final class DreamsController: NSObject {
             UserDefaults.standard.set(rainGlow, forKey:
                 transparentBackground ? "transparentRainGlow" : "rainGlow")
             screenManager.renderers.forEach { $0.rainGlow = rainGlow }
+            settingsChanged()
         }
     }
 
@@ -330,6 +348,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainIdleIntensity, forKey: "rainIdleIntensity")
             screenManager.renderers.forEach { $0.rainIdleIntensity = rainIdleIntensity }
+            settingsChanged()
         }
     }
 
@@ -345,6 +364,7 @@ final class DreamsController: NSObject {
             guard let rgb = keywordColor.usingColorSpace(.sRGB) else { return }
             UserDefaults.standard.set([rgb.redComponent, rgb.greenComponent, rgb.blueComponent], forKey: "keywordColor")
             screenManager.renderers.forEach { $0.keywordTint = keywordTint }
+            settingsChanged()
         }
     }
     var keywordBrightness: Double = {
@@ -355,6 +375,7 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(keywordBrightness, forKey: "keywordBrightness")
             screenManager.renderers.forEach { $0.keywordBrightness = keywordBrightness }
+            settingsChanged()
         }
     }
     /// Rain letter colour, stored per background like glow. The swatch shows the on-screen colour:
@@ -372,6 +393,7 @@ final class DreamsController: NSObject {
             UserDefaults.standard.set([rgb.redComponent, rgb.greenComponent, rgb.blueComponent],
                 forKey: transparentBackground ? "transparentRainColor" : "rainColor")
             screenManager.renderers.forEach { $0.rainTint = rainTint }
+            settingsChanged()
         }
     }
 

@@ -2,6 +2,11 @@ import AppKit
 
 extension SettingsPageController {
     @objc func showControls() {
+        if nativeSettingsEnabled { showNativeControls() }
+        else { showLegacyControls() }
+    }
+
+    @objc func showLegacyControls() {
         if controlsWindow == nil {
             let window = DreamsControlsWindow(contentRect: NSRect(x: 0, y: 0, width: 460, height: 600),
                 styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
@@ -246,9 +251,7 @@ extension SettingsPageController {
             window.center()
             controlsWindow = window
             refreshActivityLabel()
-            activityTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-                Task { @MainActor [weak self] in self?.refreshActivityLabel() }
-            }
+            ensureActivityUpdates()
         }
         controller.stopForReopen()
         NSApplication.shared.activate(ignoringOtherApps: true)
