@@ -48,3 +48,9 @@ They share a package because the simulation, tuning ownership and consumers are 
 Current search FSD/P2 source and checks: [2026-10-14 validation](validation/2026-10-14-search-fsd/README.md). Quota/count caching and timestamp queues preserve visible-state digests; prior evidence remains historical.
 
 Current integrated baseline: [2026-10-14 search-stack](validation/2026-10-14-search-stack/README.md). Prior source/test records remain historical.
+
+## Drop head appearance
+
+[Draft head contract](specs/head.spec.yaml) and [current regression/GPU validation](validation/2026-10-14-head/README.md)
+cover pale current heads in both macOS background profiles, dim trail ink, braking and packet gaps.
+Motion and search source bindings now point to the corrected runtime; prior passes remain historical.

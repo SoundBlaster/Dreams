@@ -1,0 +1,108 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.rain.head_visibility
+  title: DropHeadAppearance
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Keep the writing drop recognizably pale while its stationary trail keeps its own ink and alpha fade.
+scope:
+  boundedContext: rain_simulation
+  includes:
+  - Current-head exposure in macOS opaque and transparent renderers, flight-step lifetime and transient gap rendering.
+  excludes:
+  - Full shader fidelity, new glow effects, font geometry, physical-display compositing and tvOS colour adaptation.
+provides:
+  capabilities:
+  - id: dreams.rain.head_visibility
+    role: primary
+    summary: A pale current head independent of trail ink, search quota and glow.
+requires:
+  capabilities:
+  - id: dreams.rain.drop_motion
+    summary: Current row and captured analytic arrival timing identify the head and its next flight step.
+  - id: platform.apple.metal_renderer
+    summary: macOS frames use the existing atlas, blend pipelines and background profile.
+interfaces:
+  inbound:
+  - id: appearance
+    kind: library
+    summary: Internal simulation headIntensity consumed by the production MatrixRain draw path.
+    operations:
+    - name: headIntensity/draw
+      inputs:
+      - name: state
+        type: current head row, simulation time, captured motion, glyph ink and background profile
+      outputs:
+      - name: presentation
+        type: pale current head under existing global brightness and activity exposure; fixed ordinary trail
+  outbound: []
+constraints:
+- id: flight_visibility
+  level: MUST
+  statement: The current live head stays fully highlighted through its next analytic row-arrival step, including braking.
+    After the final flight step its highlight fades over 0.11 simulation seconds. A packet pause or infinite one-shot
+    nextWrite must not keep the last row permanently highlighted. Expired cells and previous head rows have no head highlight.
+- id: independent_ink
+  level: MUST
+  statement: macOS head highlighting does not use the stored random ink threshold, search fraction or glow.
+    Existing global brightness, activity exposure and glyph alpha still apply. A gap can render transiently as the
+    current head without filling that gap into the stationary trail or search population.
+- id: tail_and_search
+  level: MUST
+  statement: Keep trail RGB and opacity behaviour, captured hold/fade lifetimes and search scheduling unchanged.
+    Transparent fade uses glyph alpha; head rendering cannot revive expired ink. Finishing a search does not add a flash.
+effects:
+  sideEffects:
+  - id: frame
+    kind: state_mutation
+    summary: Emits current head glyph instances through the existing Metal frame; no new preference or OS window.
+evidence:
+- id: implementation
+  kind: source
+  path: evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  supports:
+  - constraints
+- id: model
+  kind: test
+  path: evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadTests.swift
+  supports:
+  - constraints.flight_visibility
+- id: pixels
+  kind: test
+  path: evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadRenderingTests.swift
+  supports:
+  - constraints.independent_ink
+- id: current_validation
+  kind: test
+  path: validation/2026-10-14-head/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    boundary: medium
+    behavior: medium
+  notes:
+  - User reported disappearing pale heads in 0.1.6, particularly over a transparent background.
+  - The old search-policy replacement removed standalone random mutation flashes; this correction preserves no-flash search settlement.
+  - Flight-step highlight and final 0.11-second fade are explicit implementation choices, not claims of film fidelity.
+  - Model and offscreen GPU results do not prove physical desktop compositor visibility or formal acceptance.
+
+implementationBindings:
+- id: head_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: d3b962a7402e56f82f775be76c6e3fb068efacbe
+  files:
+    owned:
+    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadTests.swift
+    - evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadRenderingTests.swift
+    - evidence/2026-10-14-head/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift
+    border:
+    - evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal
+    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

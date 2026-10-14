@@ -544,8 +544,15 @@ struct MatrixSimulation {
 
     func headIntensity(column: Int, row: Int) -> Float {
         let c = columns[column]
-        guard c.headRow == row else { return 0 }
-        return Float(max(0, 1 - (time - c.lastWrite) / 0.11))
+        guard c.headRow == row, c.cells[row].glyph >= 0 else { return 0 }
+        // The drop owns its current row until the next row arrival, even when
+        // braking makes that step longer than the former fixed 0.11s flash.
+        // Use the flight step, not nextWrite: a packet pause or one-shot end
+        // must not leave the bottom glyph permanently white.
+        let step = c.motion.map {
+            $0.arrival(at: Double(row + 1)) - $0.arrival(at: Double(row))
+        } ?? c.interval
+        return Float(max(0, min(1, 1 - (time - c.lastWrite - step) / 0.11)))
     }
 
     private mutating func unit() -> Double {

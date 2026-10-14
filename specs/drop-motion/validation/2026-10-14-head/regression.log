@@ -1,0 +1,209 @@
+Building for production...
+[Using on-disk description]
+[1 / 1]
+[3 / 8] Dreams
+[4 / 11]
+[6 / 11] Dreams-product
+[12 / 15] Dreams-product
+[14 / 18] Dreams-product
+[16 / 16] DreamsTests-product
+[18 / 20] DreamsTests-product
+Build complete! (10.30 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropHeadTests started.
+􀟈  Suite DropHeadRenderingTests started.
+􀟈  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() started.
+􀟈  Test aFinishedPacketDoesNotKeepItsLastHeadLitDuringThePause() started.
+􀟈  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments transparent → false, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􁁛  Test aFinishedPacketDoesNotKeepItsLastHeadLitDuringThePause() passed after 0.001 seconds.
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.76178706
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.7329837
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.6902213
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.61635864
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.42883694
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() recorded an issue at DropHeadTests.swift:15:13: Expectation failed: rain.headIntensity(column: 0, row: column.headRow) > 0.8
+􀄵  rain.headIntensity(column: 0, row: column.headRow) > 0.8 → false
+􀄵    rain.headIntensity(column: 0, row: column.headRow) → 0.0
+􀢄  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() failed after 0.001 seconds with 50 issues.
+􀢄  Suite DropHeadTests failed after 0.001 seconds with 50 issues.
+􀢄  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) recorded an issue with 2 arguments transparent → false, braking → false at DropHeadRenderingTests.swift:64:9: Expectation failed: whitePixels > 5
+􀄵  A live head must have pale ink even without glow or high random ink
+􀄵  whitePixels > 5 → false
+􀄵    whitePixels → 0
+􀟈  Test case passing 2 arguments transparent → false, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀢄  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) recorded an issue with 2 arguments transparent → false, braking → true at DropHeadRenderingTests.swift:64:9: Expectation failed: whitePixels > 5
+􀄵  A live head must have pale ink even without glow or high random ink
+􀄵  whitePixels > 5 → false
+􀄵    whitePixels → 0
+􀟈  Test case passing 2 arguments transparent → true, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀢄  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) recorded an issue with 2 arguments transparent → true, braking → false at DropHeadRenderingTests.swift:64:9: Expectation failed: whitePixels > 5
+􀄵  A live head must have pale ink even without glow or high random ink
+􀄵  whitePixels > 5 → false
+􀄵    whitePixels → 0
+􀟈  Test case passing 2 arguments transparent → true, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀢄  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) recorded an issue with 2 arguments transparent → true, braking → true at DropHeadRenderingTests.swift:64:9: Expectation failed: whitePixels > 5
+􀄵  A live head must have pale ink even without glow or high random ink
+􀄵  whitePixels > 5 → false
+􀄵    whitePixels → 0
+􀢄  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) with 4 test cases failed after 0.261 seconds with 4 issues.
+􀟈  Test aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to aTrailGapCannotHideTheDrop(transparent:) started.
+􀢄  Test aTrailGapCannotHideTheDrop(transparent:) recorded an issue with 1 argument transparent → false at DropHeadRenderingTests.swift:64:9: Expectation failed: whitePixels > 5
+􀄵  A live head must have pale ink even without glow or high random ink
+􀄵  whitePixels > 5 → false
+􀄵    whitePixels → 0
+􀟈  Test case passing 1 argument transparent → true to aTrailGapCannotHideTheDrop(transparent:) started.
+􀢄  Test aTrailGapCannotHideTheDrop(transparent:) recorded an issue with 1 argument transparent → true at DropHeadRenderingTests.swift:64:9: Expectation failed: whitePixels > 5
+􀄵  A live head must have pale ink even without glow or high random ink
+􀄵  whitePixels > 5 → false
+􀄵    whitePixels → 0
+􀢄  Test aTrailGapCannotHideTheDrop(transparent:) with 2 test cases failed after 0.100 seconds with 2 issues.
+􀢄  Suite DropHeadRenderingTests failed after 0.362 seconds with 6 issues.
+􀢄  Test run with 4 tests in 2 suites failed after 0.362 seconds with 56 issues.
+Note: Some test targets reported failures:
+  - DreamsTests (Swift Testing)

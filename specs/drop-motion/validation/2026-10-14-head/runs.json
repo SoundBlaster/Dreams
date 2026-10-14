@@ -1,0 +1,35 @@
+{
+  "sourceRevision": "d3b962a7402e56f82f775be76c6e3fb068efacbe",
+  "regression": {
+    "command": "swift test -c release --filter DropHead",
+    "source": "origin/main c1f8f36 model/renderer with current tests",
+    "exitCode": 1
+  },
+  "corrected": {
+    "command": "swift test -c release",
+    "environment": [
+      "DREAMS_TEST_METAL=1",
+      "DREAMS_FEED_DIRECTORY=isolated temporary directory"
+    ],
+    "exitCode": 0,
+    "tests": 42
+  },
+  "tvos": {
+    "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB",
+    "exitCode": 0,
+    "tests": 12
+  },
+  "structure": {
+    "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "exitCode": 0
+  },
+  "lint": {
+    "command": "make lint; python3 scripts/check-docs.py after documentation changes",
+    "exitCode": 0
+  },
+  "identities": {
+    "files": 21,
+    "maps": 14,
+    "exitCode": 0
+  }
+}
