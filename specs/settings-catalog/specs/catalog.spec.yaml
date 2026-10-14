@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.catalog
   title: NativeSettingsCatalog
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Let contributors inspect system controls and native settings compositions without altering Dreams preferences.
@@ -66,7 +66,7 @@ constraints:
   statement: Use system SwiftUI controls, Form, Section, List and NavigationSplitView; reusable rows compose these APIs rather than replacing their input behavior.
 - id: independent_host
   level: MUST
-  statement: The catalog package has no dependency on the production Dreams target; the production manifest does not import or link the catalog package in stage one.
+  statement: The catalog package has no dependency on the production Dreams target. The production target may link only the UI library; it does not depend on or launch the catalog executable.
 - id: ephemeral_fixtures
   level: MUST
   statement: Store example control values in local State. Fixture actions and reset do not write Dreams preferences, install hooks, start overlays or alter system settings.
@@ -96,18 +96,18 @@ effects:
 evidence:
 - id: implementation
   kind: source
-  path: evidence/2026-10-14/source/Packages/DreamsSettingsUI/Package.swift
+  path: evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift
   supports:
   - constraints
 - id: package_checks
   kind: test
-  path: evidence/2026-10-14/source/scripts/test-settings-catalog.py
+  path: evidence/2026-10-14-native-host/source/scripts/test-settings-catalog.py
   supports:
   - constraints.independent_host
   - constraints.localization_and_packaging
 - id: validation
   kind: test
-  path: validation/2026-10-14/README.md
+  path: validation/2026-10-14-native-host/README.md
   supports:
   - constraints
 provenance:
@@ -116,27 +116,37 @@ provenance:
   notes:
   - Native controls and isolated first-stage catalog are explicit user requirements. Contracts remain descriptive drafts.
   - A valid build and resource checks do not prove interactive keyboard, VoiceOver, layout or glass fidelity. Visual verification remains separate.
-  - The future settings feature flag defaults off by product intent, but no production routing or flag is implemented in this standalone stage.
+  - Production routing now exists in the separately specified settings-host boundary; the catalog executable remains standalone with disposable state.
 implementationBindings:
 - id: catalog_swift
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 0ddcc4f62dba1a264bbacb567b058931a56e4bec
+    revision: f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6
   files:
     owned:
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Package.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeControlsPage.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeFormPage.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeNavigationPage.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeTypographyPage.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/model/CatalogSection.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/ui/CatalogPage.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-14/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeControlsPage.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeFormPage.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeNavigationPage.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeTypographyPage.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/model/CatalogSection.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/ui/CatalogPage.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
+    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    border: []
+- id: production_adoption
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6
+  files:
+    owned:
+    - evidence/2026-10-14-native-host/source/Package.swift
+    - evidence/2026-10-14-native-host/source/Package.resolved
     border: []
