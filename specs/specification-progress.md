@@ -203,3 +203,14 @@ fixtures remain independent of production. Glyph contract/source/checkpoint data
 and tvOS are unchanged and retain their separate baselines. Native input and exact
 compositor appearance remain unobserved under the locked Mac. Embedded rain, glass
 and full shortcut parity are next-stage work, not current implementation coverage.
+
+### PR #22 UI-library border correction — 2026-10-14
+
+`dreams.settings.host/native_controls` now declares its local `dreams.settings.ui`
+prerequisite, with manifest/consumed-slider files in the binding border and
+[new current source identity](settings-host/evidence/2026-10-14-ui-border/source-identity.json).
+The catalog contract exposes that existing library interface as a secondary
+capability, without requiring its executable. The previous host identity and
+runtime passes remain preserved; app code and all other claim IDs are unchanged.
+[Fresh structural/docs/identity checks](settings-host/validation/2026-10-14-ui-border/README.md)
+do not imply a new application or compositor test run.

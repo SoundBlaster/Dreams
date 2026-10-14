@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.catalog
   title: NativeSettingsCatalog
-  version: 0.1.0-draft.2
+  version: 0.1.0-draft.3
   status: draft
 intent:
   summary: Let contributors inspect system controls and native settings compositions without altering Dreams preferences.
@@ -20,6 +20,9 @@ provides:
   - id: dreams.settings.catalog
     role: primary
     summary: Present a separately launched native SwiftUI component catalog using disposable state.
+  - id: dreams.settings.ui
+    role: secondary
+    summary: Supply native Slider/LabeledContent and uncovered preview compositions with caller-owned state and content.
 requires:
   capabilities:
   - id: platform.apple.swiftui

@@ -58,3 +58,15 @@ actual state and an alert; the controller operations are not promised atomic.
 
 [Contract](specs/host.spec.yaml), [map](../hypercode/settings-host.hc),
 [source and validation baseline](validation/2026-10-14/README.md).
+
+## Local UI dependency baseline
+
+The host requires `dreams.settings.ui`, provided by the
+[catalog/UI package contract](../settings-catalog/specs/catalog.spec.yaml).
+This means the library compositions, not the catalog executable. The binding
+border and [current source identity](evidence/2026-10-14-ui-border/source-identity.json)
+include the local SwiftPM manifest and the consumed SettingsSliderRow source.
+`Package.resolved` does not pin a local package. Changing either input invalidates
+the host's native-control baseline and requires renewed verification.
+The original source/validation records remain historical.
+[Review correction checks](validation/2026-10-14-ui-border/README.md).

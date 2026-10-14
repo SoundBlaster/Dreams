@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
@@ -22,6 +22,8 @@ provides:
     summary: Opt-in native settings window using production state and an explicit legacy fallback.
 requires:
   capabilities:
+  - id: dreams.settings.ui
+    summary: The local DreamsSettingsUI library supplies SettingsSliderRow with host-owned bindings, formatting and identifiers.
   - id: platform.apple.swiftui
     summary: macOS 15+ supplies the native navigation, forms and controls.
 interfaces:
@@ -103,9 +105,14 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-14/README.md
+  path: validation/2026-10-14-ui-border/README.md
   supports:
   - constraints
+- id: local_ui_dependency
+  kind: source
+  path: evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+  supports:
+  - constraints.native_controls
 provenance:
   sourceConfidence:
     extraction: high
@@ -137,4 +144,6 @@ implementationBindings:
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-14/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-14/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
-    border: []
+    border:
+    - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
+    - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
