@@ -131,3 +131,11 @@ are explicit implementation choices, not inferred user-specified values.
 Next boundary: renderer shader/atlas composition, when changes require it.
 
 Current motion FSD source and checks: [2026-10-14 validation](drop-motion/validation/2026-10-14-motion-fsd/README.md). Historical snapshots remain unchanged.
+
+## PR stack integration — motion-stack — 2026-10-14
+
+Source `23ac3667ab1e0597d9f18e45c69dcb3859c10f89` includes merged capture-status PR18 and the current drop layer.
+[Session integration](overlay-session/validation/2026-10-14-motion-stack/README.md) and
+[drop integration](drop-motion/validation/2026-10-14-motion-stack/README.md) refresh current source bindings.
+Affected session status/capture, motion timing/tuning and settings assembly claims keep
+their stable IDs and draft acceptance. Historical passes are not evidence for this revision.

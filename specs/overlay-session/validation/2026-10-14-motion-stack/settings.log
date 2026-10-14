@@ -1,0 +1,12 @@
+Building for production...
+[Using on-disk description]
+[1 / 1]
+Build complete! (0.51 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropDecelerationSettingsTests started.
+􀟈  Test controlsEnablePersistAndDisableDeceleration() started.
+􁁛  Test controlsEnablePersistAndDisableDeceleration() passed after 0.346 seconds.
+􁁛  Suite DropDecelerationSettingsTests passed after 0.346 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.346 seconds.

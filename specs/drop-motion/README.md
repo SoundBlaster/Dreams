@@ -26,3 +26,5 @@ contracts and tvOS behavior remain separately scoped. The screenshot-status
 fix in PR #18 is independent; this branch starts from main after PR #17.
 
 Current motion FSD source and checks: [2026-10-14 validation](validation/2026-10-14-motion-fsd/README.md). Historical snapshots remain unchanged.
+
+Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-motion-stack/README.md). Prior source/test records remain historical.

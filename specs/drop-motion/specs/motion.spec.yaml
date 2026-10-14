@@ -99,7 +99,7 @@ effects:
 evidence:
 - id: simulation_source
   kind: source
-  path: evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  path: evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints.opt_in
   - constraints.kinematics
@@ -110,17 +110,17 @@ evidence:
   - constraints.bounded_event
 - id: model_tests
   kind: test
-  path: evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationTests.swift
+  path: evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationTests.swift
   supports:
   - constraints
 - id: integration_source
   kind: source
-  path: evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: controls_test
   kind: test
-  path: evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+  path: evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
   supports:
   - constraints.parent_assembly
 - id: validation_results
@@ -145,20 +145,20 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 9cd68b861d4f201c8ff934e54af6d86f0a00839d
+    revision: 23ac3667ab1e0597d9f18e45c69dcb3859c10f89
   files:
     owned:
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationTests.swift
-    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
-    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
-    - evidence/2026-10-14-motion-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-14-motion-fsd/source/Tests/DreamsTests/SettingsPageTests.swift
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationTests.swift
+    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/RainTrailRenderingTests.swift
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/SettingsPageTests.swift
     border: []

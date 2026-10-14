@@ -21,3 +21,5 @@ scales the whole simulation clock, including mutation and dissolution, rather
 than affecting entry velocity alone. No drag physics, fluid dynamics or exact
 movie reconstruction is claimed. Dynamic activity/visibility follows existing
 policies; the deterministic path test holds those inputs constant.
+
+Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-motion-stack/README.md). Prior source/test records remain historical.
