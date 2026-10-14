@@ -1,5 +1,6 @@
 import AppKit
 import ScreenerKit
+import ScreenerScreenCaptureKit
 import SwiftUI
 import Testing
 @testable import Dreams
@@ -22,6 +23,8 @@ extension NativeSettingsTests {
             ?? caches.appending(path: "Screener/Traces")
         let trace = try await recorder.startSession(name: "Dreams-native-settings",
             appBundleID: "ru.egormerkushev.dreams.native-tests", tracesDirectory: traces)
+        let backend = ProcessInfo.processInfo.environment["DREAMS_NATIVE_CAPTURE_BACKEND"] ?? "hierarchy"
+        try #require(["hierarchy", "screen-capture-kit"].contains(backend), "Unknown native capture backend")
         let capture = ScreenerCaptureSession(screener: recorder)
         func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000, dark: Bool = false) async throws {
             window.appearance = NSAppearance(named: dark ? .darkAqua : .aqua)
@@ -31,9 +34,14 @@ extension NativeSettingsTests {
             content.layoutSubtreeIfNeeded()
             content.displayIfNeeded()
             try await recorder.mark(name, metadata: ["actions": "model mutations and initial section selection",
-                "backend": "AppKit hierarchy capture; system compositor and keyboard input unobserved",
+                "backend": backend, "inputCoverage": "programmatic states; keyboard input unobserved",
                 "width": String(Int(width)), "appearance": dark ? "dark" : "light"])
-            try await capture.capture(from: AppKitCaptureSource(view: content), reason: name)
+            if backend == "screen-capture-kit" {
+                let source = ScreenCaptureKitWindowSource(windowID: CGWindowID(window.windowNumber))
+                try await source.record(to: recorder, reason: name)
+            } else {
+                try await capture.capture(from: AppKitCaptureSource(view: content), reason: name)
+            }
         }
         do {
             for section in NativeSettingsSection.allCases {

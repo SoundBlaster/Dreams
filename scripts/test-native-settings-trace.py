@@ -29,7 +29,8 @@ def main():
     frames = [record for record in records if record["kind"] == "keyframe"]
     assert len(frames) == 11
     assert all((trace / record["blob"]).is_file() for record in frames)
-    print(f"PASS: complete Screener native settings trace, {len(frames)} hierarchy frames: {trace}")
+    backend = os.environ.get("DREAMS_NATIVE_CAPTURE_BACKEND", "hierarchy")
+    print(f"PASS: complete Screener native settings trace, {len(frames)} {backend} frames: {trace}")
 
 
 if __name__ == "__main__":
