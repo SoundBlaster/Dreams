@@ -1,0 +1,40 @@
+{
+  "reviewBase": "b3d86fec982da7848bd36e10a03e43037ce049f5",
+  "runtimeRevision": "d3b962a7402e56f82f775be76c6e3fb068efacbe",
+  "sourceAndMapHashesVerified": true,
+  "files": [
+    {
+      "path": "specs/specification-progress.md",
+      "sha256": "43ec3a5b9d969c5df04fadf2d0d36020087f95b3eae7069980441155e132cfec"
+    },
+    {
+      "path": "specs/drop-motion/evidence/2026-10-14-head/source-identity.json",
+      "sha256": "6d51bbb536f90821315cfca2c9d0e81e518b4db3cb1300ca5a0a978c3fa55c89"
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "scripts/check-docs.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0
+    }
+  ]
+}

@@ -17,7 +17,8 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance and search recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
-| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 3a4ad94 search baseline; prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current d3b962a [head baseline](drop-motion/validation/2026-10-14-head/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current d3b962a [head baseline](drop-motion/validation/2026-10-14-head/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Native-host integration baseline; independent catalog fixtures | Interactive catalog acceptance |
 | DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Default-off native routing and shared owner; local tests + Screener 0.2.0 | Keyboard/VoiceOver, compositor acceptance; embedded preview next |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
@@ -236,3 +237,12 @@ while TV retains its existing ink-based tint. Twelve Simulator tests pass; physi
 desktop compositor acceptance remain unobserved. Overlay session/display/exit, settings host,
 fonts and glyph checkpoints retain their unchanged source bindings and obligations. The
 overlay HC renderer-coverage property is refreshed; other rendering remains explicit backlog.
+
+### PR #24 coverage review correction — 2026-10-14
+
+The DropMotion coverage row now names current runtime `d3b962a` and links its head
+validation instead of the obsolete `3a4ad94` baseline. HeadAppearance has an explicit
+coverage row with physical compositor acceptance still outstanding.
+[Fresh documentation/structural verification](drop-motion/validation/2026-10-14-head-review/README.md)
+does not relabel the existing runtime tests as new review-commit evidence. Code, maps,
+claim IDs, source snapshots and draft acceptance remain unchanged.
