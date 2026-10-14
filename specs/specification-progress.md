@@ -214,3 +214,17 @@ capability, without requiring its executable. The previous host identity and
 runtime passes remain preserved; app code and all other claim IDs are unchanged.
 [Fresh structural/docs/identity checks](settings-host/validation/2026-10-14-ui-border/README.md)
 do not imply a new application or compositor test run.
+
+## Release 0.1.6 — 2026-10-14
+
+PRs #21 and #22 are merged in main. Production source files and local UI
+dependency hashes match the reviewed native-host baselines; release preparation
+changes only VERSION and the two plugin version fields. Existing overlay/rain,
+glyph and settings claim IDs/bindings remain applicable: no runtime algorithm,
+control or local UI source is changed by the release version bump.
+
+The release's ordinary launch uses the legacy settings route. The native host
+requires the explicit `--native-settings` argument; no stored feature flag or
+ordinary menu enables it. Interactive native/compositor acceptance remains
+pending and is not a claim of this release. Universal build/signing, notarization
+and published-asset validation are separate release evidence.
