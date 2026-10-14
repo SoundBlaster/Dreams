@@ -81,6 +81,10 @@ jobs:
           if grep -E "Sources/Dreams.*warning:" build.log; then echo "::error::Compiler warnings in Sources/Dreams"; exit 1; fi
       - name: Unit checks
         run: make test-unit
+      - name: Native settings component catalog
+        run: |
+          make settings-catalog
+          python3 scripts/test-settings-catalog.py
       - name: Settings page controls
         run: make test-settings
       - name: Strings, hooks, uninstall, plugins
