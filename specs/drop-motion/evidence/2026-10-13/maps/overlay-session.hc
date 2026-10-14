@@ -1,0 +1,13 @@
+RainOverlaySession
+  DisplayTargets
+  Presentation
+    OverlayWindows
+      InputRouting
+      ExitControls
+    FocusReturn
+  ExitInput
+    GlobalHotkey
+  SessionLifetime
+  CaptureVisibility
+  Renderer
+    DropMotion

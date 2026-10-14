@@ -141,3 +141,9 @@
 "display.none" = "No eligible display is available. Connect a display and try again.";
 "status.waitingDisplay" = "Waiting for a display; rain will resume when one connects.";
 "status.displayError" = "Could not update displays: %@";
+
+"rain.deceleration.enabled" = "Decelerate drops";
+"rain.deceleration.enabled.tip" = "New drops enter at the current speed, then slow down. Existing drops keep their motion.";
+"rain.deceleration" = "a, glyph/s²";
+"rain.deceleration.value" = "%.1f";
+"rain.deceleration.tip" = "Negative acceleration at 1× speed; 0 keeps constant speed. Drops slow to 20% of their entry speed and continue falling. Changes apply to new drops.";

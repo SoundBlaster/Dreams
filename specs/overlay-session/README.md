@@ -83,3 +83,5 @@ outside these macOS contracts. No physical-keyboard/Apple-TV claim follows from
 GUI or simulator passes. PRs #18–20 are independent and remain outside this merge.
 
 Current capture-status FSD refresh: [2026-10-14 validation](validation/2026-10-14-capture-fsd/README.md). Suspended status is false without owned overlays.
+
+Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-motion-stack/README.md). Prior source/test records remain historical.

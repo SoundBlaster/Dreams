@@ -1,0 +1,82 @@
+[
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "exitCode": 0,
+    "log": "structure.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "python3",
+      "scripts/check-docs.py"
+    ],
+    "exitCode": 0,
+    "log": "docs.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exitCode": 0,
+    "log": "whitespace.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "make",
+      "test-unit"
+    ],
+    "environment": {},
+    "feed": "isolated temporary directory",
+    "exitCode": 0,
+    "log": "unit.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "CaptureVisibilityTests"
+    ],
+    "environment": {
+      "DREAMS_TEST_CAPTURE_STATUS": "1"
+    },
+    "feed": "isolated temporary directory",
+    "exitCode": 0,
+    "log": "capture.log"
+  },
+  {
+    "command": [
+      "rtk",
+      "proxy",
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "DropDecelerationSettingsTests"
+    ],
+    "environment": {
+      "DREAMS_TEST_DROP_SETTINGS": "1"
+    },
+    "feed": "isolated temporary directory",
+    "exitCode": 0,
+    "log": "settings.log"
+  }
+]

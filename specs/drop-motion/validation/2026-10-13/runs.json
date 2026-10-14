@@ -1,0 +1,211 @@
+{
+  "sourceRevision": "984a8a114dc24a38a79bc042b06c1f195be31d64",
+  "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+  "recordedAt": "2026-10-13T15:33:41.453056+00:00",
+  "runs": [
+    {
+      "name": "app",
+      "command": [
+        "rtk",
+        "proxy",
+        "make",
+        "app"
+      ],
+      "exitCode": 0,
+      "stdoutAndStderr": "app.log",
+      "sourceRevision": "f9aa0fd5a3162b4069a4cf38c972d2776eb20144"
+    },
+    {
+      "name": "localization",
+      "command": [
+        "rtk",
+        "proxy",
+        "python3",
+        "scripts/test-localization.py"
+      ],
+      "exitCode": 0,
+      "stdoutAndStderr": "localization.log",
+      "sourceRevision": "f9aa0fd5a3162b4069a4cf38c972d2776eb20144"
+    },
+    {
+      "name": "native-ui",
+      "command": [
+        "rtk",
+        "proxy",
+        "swift",
+        "test",
+        "-c",
+        "release",
+        "--filter",
+        "DropDecelerationSettingsTests"
+      ],
+      "environment": {
+        "DREAMS_TEST_DROP_SETTINGS": "1",
+        "DREAMS_FEED_DIRECTORY": "isolated temporary directory"
+      },
+      "exitCode": 0,
+      "stdoutAndStderr": "native-ui.log",
+      "sourceRevision": "984a8a114dc24a38a79bc042b06c1f195be31d64"
+    },
+    {
+      "name": "legacy-parity",
+      "command": [
+        "rtk",
+        "proxy",
+        "swiftc",
+        "-O",
+        "-swift-version",
+        "6",
+        "-parse-as-library",
+        "MatrixSimulation.swift",
+        "legacy-parity-witness.swift",
+        "-o",
+        "witness"
+      ],
+      "variants": [
+        "85e3aee source",
+        "current committed source"
+      ],
+      "execution": [
+        "rtk",
+        "proxy",
+        "witness"
+      ],
+      "exitCode": 0,
+      "stdout": "legacy-parity.log",
+      "sourceRevision": "f9aa0fd5a3162b4069a4cf38c972d2776eb20144"
+    },
+    {
+      "name": "metal-constant",
+      "command": [
+        "rtk",
+        "proxy",
+        "swift",
+        "test",
+        "-c",
+        "release",
+        "--filter",
+        "RainTrailRenderingTests"
+      ],
+      "environment": {
+        "DREAMS_FEED_DIRECTORY": "isolated temporary directory",
+        "DREAMS_CAPTURE_TRAILS_DIR": "artifacts/drop-deceleration/constant"
+      },
+      "exitCode": 0,
+      "stdoutAndStderr": "render-constant.log",
+      "sourceRevision": "f9aa0fd5a3162b4069a4cf38c972d2776eb20144"
+    },
+    {
+      "name": "metal-braking",
+      "command": [
+        "rtk",
+        "proxy",
+        "swift",
+        "test",
+        "-c",
+        "release",
+        "--filter",
+        "RainTrailRenderingTests"
+      ],
+      "environment": {
+        "DREAMS_FEED_DIRECTORY": "isolated temporary directory",
+        "DREAMS_CAPTURE_TRAILS_DIR": "artifacts/drop-deceleration/braking",
+        "DREAMS_CAPTURE_DECELERATION": "-24"
+      },
+      "exitCode": 0,
+      "stdoutAndStderr": "render-braking.log",
+      "sourceRevision": "f9aa0fd5a3162b4069a4cf38c972d2776eb20144"
+    },
+    {
+      "name": "swiftlint",
+      "command": [
+        "rtk",
+        "proxy",
+        "swiftlint",
+        "lint",
+        "--strict",
+        "--quiet"
+      ],
+      "exitCode": 0,
+      "stdout": "swiftlint.txt",
+      "stderr": "swiftlint.stderr.txt"
+    },
+    {
+      "name": "unit",
+      "command": [
+        "rtk",
+        "proxy",
+        "make",
+        "test-unit"
+      ],
+      "exitCode": 0,
+      "stdout": "unit.txt",
+      "stderr": "unit.stderr.txt",
+      "sourceRevision": "984a8a114dc24a38a79bc042b06c1f195be31d64"
+    },
+    {
+      "name": "specs-check",
+      "command": [
+        "rtk",
+        "proxy",
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0,
+      "stdout": "specs-check.txt",
+      "stderr": "specs-check.stderr.txt",
+      "sourceRevision": "984a8a114dc24a38a79bc042b06c1f195be31d64"
+    },
+    {
+      "name": "drop-specpm",
+      "command": [
+        "rtk",
+        "proxy",
+        "specpm",
+        "validate",
+        "specs/drop-motion",
+        "--json"
+      ],
+      "exitCode": 0,
+      "stdout": "drop-specpm.txt",
+      "stderr": "drop-specpm.stderr.txt",
+      "sourceRevision": "984a8a114dc24a38a79bc042b06c1f195be31d64"
+    },
+    {
+      "name": "markdown-links",
+      "command": [
+        "rtk",
+        "proxy",
+        "python3",
+        "scripts/check-docs.py"
+      ],
+      "exitCode": 0,
+      "stdout": "markdown-links.txt",
+      "stderr": "markdown-links.stderr.txt"
+    },
+    {
+      "name": "staged-whitespace",
+      "command": [
+        "rtk",
+        "proxy",
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "staged-whitespace.txt",
+      "stderr": "staged-whitespace.stderr.txt"
+    }
+  ],
+  "inputSha256": {
+    "Makefile": "7605f7e4805edd6dc00bd0844a9b4e7189d427fc0a80cde1756609d5af351249",
+    "specs/drop-motion/specpm.yaml": "29f8d4bc84bf3c65aaa0689ac1efafb21e4f974bd169d5f4aa13d2758d91a39c",
+    "specs/drop-motion/README.md": "599e3310d9a2347a9272f8c9b549a346e8320e56babe25d642fc080636219d4b",
+    "specs/drop-motion/matrix.md": "addd04ed627cca05c49d7df0b65dba9c9c8f5c64814bd035f233405f94ddb925",
+    "specs/drop-motion/specs/motion.spec.yaml": "60175a040926f400513c0f51b4cef80c79778a208d14d23f3b7e3b057a6ef112",
+    "specs/specification-progress.md": "8d0b2a9a32c6018dab8076a9b6ff8d8d7233002957a9c090a250966b9b347159",
+    "docs/REFERENCE.md": "5cb775d318d23372782b6c7d37b1a6aef19408c5a37ff8e804ae96c4f6d98a73"
+  }
+}

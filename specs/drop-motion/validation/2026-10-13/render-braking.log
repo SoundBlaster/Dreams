@@ -1,0 +1,11 @@
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite RainTrailRenderingTests started.
+􀟈  Test captureTrailMotion() started.
+􁁛  Test captureTrailMotion() passed after 1.867 seconds.
+􁁛  Suite RainTrailRenderingTests passed after 1.867 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 1.868 seconds.
+Building for production...
+[Using on-disk description]
+Build complete! (0.33 sec)

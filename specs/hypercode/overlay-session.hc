@@ -10,3 +10,4 @@ RainOverlaySession
   SessionLifetime
   CaptureVisibility
   Renderer
+    DropMotion

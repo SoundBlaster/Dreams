@@ -68,6 +68,12 @@ extension SettingsPageController {
             automaticColumns.state = controller.rainColumnCount == 0 ? .on : .off
             automaticColumns.setAccessibilityIdentifier("dreams.rain-columns-auto")
             controlsByID["dreams.rain-columns-auto"] = automaticColumns
+            let deceleration = NSButton(checkboxWithTitle: L("rain.deceleration.enabled"), target: self,
+                                         action: #selector(changeDecelerationEnabled(_:)))
+            deceleration.state = controller.rainDecelerationEnabled ? .on : .off
+            deceleration.setAccessibilityIdentifier("dreams.rain-deceleration-enabled")
+            deceleration.toolTip = L("rain.deceleration.enabled.tip")
+            controlsByID["dreams.rain-deceleration-enabled"] = deceleration
             let rain = settingsGrid([
                 [Self.name(L("rain.grid")), automaticColumns, NSView()],
                 sliderRow(L("rain.columns"), value: Double(controller.rainColumnCount == 0
@@ -82,6 +88,11 @@ extension SettingsPageController {
                 sliderRow(L("rain.speed"), value: controller.rainSpeed, min: 0.25, max: 3,
                           action: #selector(changeSpeed(_:)), valueLabel: speedLabel,
                           identifier: "dreams.rain-speed", tip: L("rain.speed.tip")),
+                [NSView(), deceleration, NSView()],
+                sliderRow(L("rain.deceleration"), value: controller.rainDeceleration,
+                          min: MatrixSimulation.Deceleration.minimumAcceleration, max: 0,
+                          action: #selector(changeDeceleration(_:)), valueLabel: decelerationLabel,
+                          identifier: "dreams.rain-deceleration", tip: L("rain.deceleration.tip")),
                 sliderRow(L("rain.fade"), value: controller.rainFadeRows, min: 1, max: 16,
                           action: #selector(changeFade(_:)), valueLabel: fadeLabel, ticks: 16,
                           identifier: "dreams.rain-fade",

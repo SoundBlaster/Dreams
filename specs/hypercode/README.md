@@ -30,3 +30,8 @@ PR #8 FSD integration refreshes current source paths and represents SettingsPage
 TelevisionApplication as explicitly unexplored leaves. Existing overlay role/claim IDs
 remain stable; [new identities](../overlay-session/evidence/2026-10-13-fsd/source-identity.json)
 and [validation](../overlay-session/validation/2026-10-13-fsd/README.md) preserve older baselines.
+
+The [drop-motion detail](drop-motion.hc) and [profiles](drop-motion.hcs) recover
+optional head deceleration, captured tail lifetimes and event duration. Validate
+default and `motion=decelerating`; rendering outside that boundary stays unexplored.
+The [drop-motion package](../drop-motion/README.md) records units and runtime evidence.

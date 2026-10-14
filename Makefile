@@ -212,3 +212,7 @@ specs-check:
 	"$(HYPERCODE)" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx entry=agent
 	"$(HYPERCODE)" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx background=transparent --ctx entry=agent
 	"$(SPECPM)" validate specs/overlay-session --json
+	"$(HYPERCODE)" parse specs/hypercode/drop-motion.hc
+	"$(HYPERCODE)" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs
+	"$(HYPERCODE)" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs --ctx motion=decelerating
+	"$(SPECPM)" validate specs/drop-motion --json
