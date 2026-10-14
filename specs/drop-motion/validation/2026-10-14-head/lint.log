@@ -1,0 +1,3 @@
+make lint: exit 0; macOS, tvOS, catalog FSD checks 0 errors/0 warnings; SwiftLint strict, ruff, shell syntax and 48-document link check passed.
+SwiftLint advisory: unused_import belongs in analyzer_rules; unchanged configuration.
+Fresh after documentation updates: PASS: relative links in 48 Markdown files

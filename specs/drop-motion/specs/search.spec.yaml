@@ -1,4 +1,4 @@
-# Current integration: a22e44ace8f08fb10650d9b15a37c8183062fd0d; validation/2026-10-14-search-stack/README.md
+# Current runtime: d3b962a7402e56f82f775be76c6e3fb068efacbe; validation/2026-10-14-head/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
@@ -81,7 +81,7 @@ effects:
 evidence:
 - id: search_source
   kind: source
-  path: evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  path: evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints
 - id: search_tests
@@ -94,7 +94,7 @@ evidence:
   - constraints.independent_motion
 - id: integration
   kind: source
-  path: evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: native_settings
@@ -104,7 +104,7 @@ evidence:
   - constraints.parent_assembly
 - id: current_validation
   kind: test
-  path: validation/2026-10-14-search-stack/README.md
+  path: validation/2026-10-14-head/README.md
   supports:
   - constraints
 provenance:
@@ -125,15 +125,15 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6
+    revision: d3b962a7402e56f82f775be76c6e3fb068efacbe
   files:
     owned:
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
