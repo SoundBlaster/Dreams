@@ -1,0 +1,1 @@
+warning: 'unused_import' should be listed in the 'analyzer_rules' configuration section for more clarity as it is only run by 'swiftlint analyze'.

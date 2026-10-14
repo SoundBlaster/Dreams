@@ -34,6 +34,8 @@ CaptureVisibility:
   source: "Sources/Dreams/features/rain/model/DreamsController.swift"
   implementation: "sharingType + checkScreenshotTool"
   guarantee: "best-effort-not-pixel-proof"
+  status: "rain_visible=false-while-capture-suspended"
+  suspension_status: "rain_suspended_for_capture"
 Renderer:
   source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
   detail_status: "opaque-rendering-contract-unexplored"

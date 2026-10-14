@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.overlay_session
   name: Dreams overlay and exit contracts
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   summary: Descriptive draft macOS overlay lifecycle, display targeting, input routing and all-display exit contracts.
   license: MIT
   authors:
@@ -38,10 +38,10 @@ keywords:
 - descriptive-draft
 foreignArtifacts:
 - format: hypercode
-  path: evidence/2026-10-13/maps/overlay-session.hc
+  path: evidence/2026-10-13-capture-status/maps/overlay-session.hc
   role: documentation
 - format: hypercode-stylesheet
-  path: evidence/2026-10-13/maps/overlay-session.hcs
+  path: evidence/2026-10-13-capture-status/maps/overlay-session.hcs
   role: documentation
 - format: markdown
   path: matrix.md

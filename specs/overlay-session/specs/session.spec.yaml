@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.overlay.session
   title: RainOverlaySession
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Own a bounded or explicitly unbounded rain session, reconcile displays and release session resources
@@ -72,8 +72,9 @@ constraints:
   level: MUST
   statement: Keep requested state separate from owned overlays and actual on-screen visibility. Disconnecting every
     eligible screen may leave a requested session with no windows; later screen notifications reconcile it. status
-    rain_visible currently means requested with nonempty overlay ownership and is not a screenshot or suspension-aware
-    pixel visibility proof.
+    rain_visible means requested with nonempty overlay ownership and no capture suspension. Report capture suspension
+    separately as rain_suspended_for_capture, true only while requested overlays are owned; it does not stop the
+    requested session. These status flags do not prove pixel visibility, focus or capture exclusion.
 - id: selection_changes
   level: MUST
   statement: On an explicit display-selection change, roll the selection back if reconciliation throws and persist
@@ -98,7 +99,9 @@ constraints:
   level: MUST
   statement: When hiding from capture is enabled, configure sharingType none and poll for windows owned by screencapture/screencaptureui
     every 0.1 seconds. Order overlays out while detected, and front after a greater-than-0.5-second clear grace
-    period. Preserve requested session, overlays and expiry; detection and capture omission remain best-effort.
+    period. Preserve requested session, overlays, expiry and the current sleep assertion. While overlays remain
+    owned during suspension and the clear grace period, report rain_visible false and rain_suspended_for_capture
+    true; restore those flags only when the overlays are ordered front. Detection and capture omission remain best-effort.
 - id: assembly
   level: MUST
   statement: Run controller, manager, overlay and exit callbacks on MainActor. Wire per-window exits to the same
@@ -118,7 +121,7 @@ effects:
 evidence:
 - id: source_1
   kind: source
-  path: evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
+  path: evidence/2026-10-14-capture-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
   supports:
   - interfaces
   - constraints
@@ -147,6 +150,13 @@ evidence:
   path: evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
   supports:
   - constraints.assembly
+- id: capture_status_regression
+  kind: test
+  path: evidence/2026-10-14-capture-fsd/source/Tests/DreamsTests/CaptureVisibilityTests.swift
+  supports:
+  - constraints.requested_vs_presented
+  - constraints.capture_suspension
+  - constraints.stop_cleanup
 provenance:
   sourceConfidence:
     intent: medium
@@ -157,16 +167,20 @@ provenance:
     691d94b65eb8fd1687b09cef7ff4f6f5c2776c83 and relocation hashes are in evidence/2026-10-13-fsd/source-identity.json.
   - Normative language recovers scoped implementation behavior, not accepted new product requirements. See matrix.md
     for assembly duties, evidence level and owner decisions.
-  - Historical structural results remain preserved. Fresh validation is recorded separately in validation/2026-10-13-fsd/README.md; physical-keyboard and actual-monitor checks are not inferred.
+  - Historical structural results remain preserved. Fresh validation is recorded separately in validation/2026-10-13-fsd/README.md;
+    physical-keyboard and actual-monitor checks are not inferred.
+  - Current capture-status regression and source identities are in evidence/2026-10-14-capture-fsd/source-identity.json
+    and validation/2026-10-14-capture-fsd/README.md. Includes final overlay removal with requested session retained.
+    Earlier runtime passes remain historical.
 implementationBindings:
 - id: session_swift
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 691d94b65eb8fd1687b09cef7ff4f6f5c2776c83
+    revision: 71dfb6fb4f225a5451ef8c421e535f66522ab36a
   files:
     owned:
-    - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-capture-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-13-fsd/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
     - evidence/2026-10-13-fsd/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-13-fsd/source/Sources/Dreams/app/providers/DreamsDelegate.swift

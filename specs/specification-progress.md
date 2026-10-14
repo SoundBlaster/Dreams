@@ -15,7 +15,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.DisplayTargets | User / saved display selection | dreams.overlay.displays | targets/load/save | Physical clamshell/reconnect still unobserved |
 | RainOverlaySession.Presentation | User / windows and focus | dreams.overlay.presentation | reconcile/close, panel config | Verify focus/OS resource failures |
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
-| RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Status ≠ pixel visibility (O1) |
+| RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Opaque required capability; unexplored rendering contract | Constructor/configuration only | Recover actual renderer contract separately |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
@@ -76,6 +76,26 @@ runtime code. Source bindings and HC profiles are unchanged.
 [Review validation](overlay-session/validation/2026-10-13-review-p2/README.md)
 is separate from the preserved initial baseline.
 
+### Capture visibility correction — 2026-10-13
+
+User-authorized O1 fix: `dreams.overlay.session/requested_vs_presented` and
+`capture_suspension` now distinguish active ownership from temporary capture
+hiding. `rain_visible` is false while suspended; additive
+`rain_suspended_for_capture` exposes the reason. The production observation
+path and deterministic-time test path share the same transition implementation.
+Native-overlay regression covers both backgrounds, clear grace/reset, stable
+windows/expiry/sleep assertion, opt-in capture and stop while suspended. It
+fails with the original visibility calculation. The full unit target passes.
+
+Runtime/test baseline: `bd5d783e1a6051f663b94d78c26d0c683d3824ab`.
+[Current identities](overlay-session/evidence/2026-10-13-capture-status/source-identity.json)
+and [fresh validation](overlay-session/validation/2026-10-13-capture-status/README.md).
+Session draft/package advance to draft.2; stable role/claim IDs remain unchanged.
+Display/presentation/exit/glyph contracts and behavior remain applicable because
+only capture observation/time factoring and session status output changed;
+their original evidence remains historical. Physical picker detection and
+pixel visibility are not established by these deterministic observations.
+
 ## PR #8 FSD integration — 2026-10-13
 
 Rebased FSD/tvOS branch on main 85e3aee without textual conflicts. Current production
@@ -88,3 +108,5 @@ Display/overlay/renderer behavior retains the same implementation bodies. New se
 and tvOS leaves are coarse orientation only: their full consumer contracts remain backlog.
 Glyph editor contracts/implementation are untouched; their historical application-map
 snapshot remains preserved. PRs #18–20 are not included in this source baseline.
+
+Current capture-status FSD refresh: [2026-10-14 validation](overlay-session/validation/2026-10-14-capture-fsd/README.md). Suspended status is false without owned overlays.

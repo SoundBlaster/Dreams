@@ -1,0 +1,38 @@
+{
+  "sourceRevision": "71dfb6fb4f225a5451ef8c421e535f66522ab36a",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "f33b5f83adab3871ec089da5d107a2d875c230fc7690e63bc948c8ac275c6801",
+      "snapshot": "evidence/2026-10-14-capture-fsd/source/Sources/Dreams/features/rain/model/DreamsController.swift"
+    },
+    {
+      "path": "Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "sha256": "6f8b7c7e8432359ef384a8e8408b00da7e4dabc5dc303efc11cd01b29872e065",
+      "snapshot": "evidence/2026-10-14-capture-fsd/source/Tests/DreamsTests/CaptureVisibilityTests.swift"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "91b2c172f05de4eb648faf5fa0686038c9c81a8809fc03d22a56f235ce3422a5",
+      "snapshot": "evidence/2026-10-14-capture-fsd/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "34aaf3d3567e4ac66cbdd8765f0d7e71d7ce4dcdca3e55b3d4c9b2681564874e",
+      "snapshot": "evidence/2026-10-14-capture-fsd/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "7c362179371da54af072ad75ba7050cd8644ecb507f5e83fa7e44422b310e738",
+      "snapshot": "evidence/2026-10-14-capture-fsd/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "0400142e0fd848b68da0051d37d9622589cb09a71e84e1a2c0541b5ad8d9d252",
+      "snapshot": "evidence/2026-10-14-capture-fsd/maps/overlay-session.hcs"
+    }
+  ],
+  "inheritedBindings": "Other session bindings remain on the byte-identical FSD snapshots from main; capture source/test updated here."
+}

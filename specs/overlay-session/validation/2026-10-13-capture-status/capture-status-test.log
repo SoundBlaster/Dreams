@@ -1,0 +1,20 @@
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite CaptureVisibilityTests started.
+􀟈  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) started.
+􀟈  Test case passing 1 argument transparent → true to captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) started.
+􁁛  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) with 2 test cases passed after 0.176 seconds.
+􁁛  Suite CaptureVisibilityTests passed after 0.176 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.176 seconds.
+Building for production...
+[Using on-disk description]
+[1 / 1]
+[3 / 8] Dreams-product
+[5 / 10] Dreams-product
+[10 / 15] Dreams-product
+[11 / 15] Dreams-product
+[15 / 15] DreamsTests-product
+[17 / 19] DreamsTests-product
+Build complete! (9.14 sec)

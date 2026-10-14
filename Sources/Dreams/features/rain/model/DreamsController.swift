@@ -171,7 +171,13 @@ final class DreamsController: NSObject {
 
     private func checkScreenshotTool() {
         guard rainIsOn else { return }
-        let active = hideFromScreenshots && Self.screenshotToolIsActive()
+        checkScreenshotTool(active: hideFromScreenshots && Self.screenshotToolIsActive(), at: Date())
+    }
+
+    /// Apply a capture-tool observation; explicit time keeps the restore grace period deterministic.
+    func checkScreenshotTool(active screenshotToolActive: Bool, at now: Date) {
+        guard rainIsOn else { return }
+        let active = hideFromScreenshots && screenshotToolActive
         if active {
             captureClearSince = nil
             if !suspendedForCapture {
@@ -179,10 +185,10 @@ final class DreamsController: NSObject {
                 screenManager.orderedOverlays.forEach { $0.window.orderOut(nil) }
             }
         } else if suspendedForCapture {
-            let since = captureClearSince ?? Date()
+            let since = captureClearSince ?? now
             captureClearSince = since
             // A short grace period: the picker's windows go away a moment before the capture is saved.
-            if Date().timeIntervalSince(since) > 0.5 {
+            if now.timeIntervalSince(since) > 0.5 {
                 suspendedForCapture = false
                 captureClearSince = nil
                 screenManager.orderedOverlays.forEach { $0.window.orderFrontRegardless() }
@@ -371,7 +377,8 @@ final class DreamsController: NSObject {
                  "color": message.color, "activity": message.isWorking ? "working" : "idle",
                  "expires_at": ISO8601DateFormatter().string(from: message.expiresAt)] as [String: Any]
             },
-            "rain_visible": rainIsOn,
+            "rain_visible": rainIsOn && !suspendedForCapture,
+            "rain_suspended_for_capture": rainIsOn && suspendedForCapture,
             "rain_requested": rainRequested,
             "display_mode": displaySelection.mode.rawValue,
             "selected_display_ids": displaySelection.selectedIDs.sorted(),

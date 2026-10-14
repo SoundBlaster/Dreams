@@ -1,0 +1,57 @@
+RainOverlaySession:
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
+  implementation: "begin + reconcileScreens + stop + resume"
+  background: "opaque"
+  entry: "interactive"
+DisplayTargets:
+  source: "Sources/Dreams/features/rain/model/RainDisplaySelection.swift"
+  implementation: "targets + load + save"
+Presentation:
+  source: "Sources/Dreams/features/rain/model/RainScreenManager.swift"
+  implementation: "reconcile + close"
+OverlayWindows:
+  source: "Sources/Dreams/features/rain/ui/RainOverlayWindow.swift"
+  input: "mouse-interactive-key-capable"
+InputRouting:
+  escape: "local-key-window-and-controller-guard"
+ExitControls:
+  availability: "opaque-only"
+  hide_delay_seconds: 4
+FocusReturn:
+  source: "Sources/Dreams/features/rain/model/RainScreenManager.swift"
+  implementation: "hasPresented + returnApplication + returnWindow"
+ExitInput:
+  source: "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
+  implementation: "rain controller callbacks + SettingsPageController actions + DreamsDelegate lifecycle"
+GlobalHotkey:
+  source: "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift"
+  implementation: "install + change + uninstall"
+  registration: "fallible-Carbon-registration"
+SessionLifetime:
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
+  duration: "interactive-setting-or-unbounded"
+CaptureVisibility:
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
+  implementation: "sharingType + checkScreenshotTool"
+  guarantee: "best-effort-not-pixel-proof"
+  status: "rain_visible=false-while-capture-suspended"
+  suspension_status: "rain_suspended_for_capture"
+Renderer:
+  source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+  detail_status: "opaque-rendering-contract-unexplored"
+@background[transparent]:
+  RainOverlaySession:
+    background: "transparent"
+  OverlayWindows:
+    input: "mouse-pass-through-nonactivating-not-key-capable"
+  InputRouting:
+    escape: "no-stop-working-app-retains-input"
+  ExitControls:
+    availability: "absent"
+  SessionLifetime:
+    duration: "interactive-unbounded"
+@entry[agent]:
+  RainOverlaySession:
+    entry: "agent"
+  SessionLifetime:
+    duration: "finite-1-to-3600-seconds-default-300"

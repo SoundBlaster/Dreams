@@ -58,7 +58,7 @@ Any other stdio MCP client, including Claude, uses the same executable and `--mc
 
 `brightness` is a multiplier on the shader's linear RGB, not the system backlight. Output is SDR sRGB at a 30 fps target. `frames_rendered` counts submitted command buffers, not measured GPU completions. The visual settings are read-only through MCP (`dreams_status` reports them); they are changed in the window.
 
-**One process controls the fullscreen overlay and the virtual display.** That is either the normal app or a single MCP client started with `--mcp`. Other sessions can run `--mcp --publisher`: they get only status, preview, publish_keywords and clear_keywords. Publishers exchange keywords through a shared local mailbox but cannot control someone else's fullscreen. On EOF the controlling MCP process removes its animation and virtual display; a publisher exiting does not remove its keywords before their TTL expires. `rain_visible` in `dreams_status` tells whether the overlay is on screen.
+**One process controls the fullscreen overlay and the virtual display.** That is either the normal app or a single MCP client started with `--mcp`. Other sessions can run `--mcp --publisher`: they get only status, preview, publish_keywords and clear_keywords. Publishers exchange keywords through a shared local mailbox but cannot control someone else's fullscreen. On EOF the controlling MCP process removes its animation and virtual display; a publisher exiting does not remove its keywords before their TTL expires. `rain_visible` in `dreams_status` means rain is requested, owns overlay windows and is not temporarily suspended for the screenshot picker. `rain_suspended_for_capture` reports that temporary hiding, including its restore grace period. `rain_requested`, window ownership, expiry and the sleep assertion remain active during suspension; these flags do not prove actual pixel visibility or capture exclusion.
 
 ## Agent hooks (Codex and Claude Code)
 
@@ -275,6 +275,19 @@ DREAMS_TEST_METAL=1 DREAMS_FEED_DIRECTORY="$(mktemp -d)" \
 ```
 
 The GPU regression measures a fixed glyph at four stages: alpha must decrease with its lifetime, straight colour must remain stable, and expired ink must leave zero alpha. It covers rain and event text with both glyph sets, including switching glyph sets in transparent mode. Set `DREAMS_CAPTURE_ALPHA_DIR` to save the PNGs and crop coordinates. CI attempts this alongside the other Metal checks; hosted runners without a GPU may skip that best-effort step.
+
+Capture-status regression (logged-in graphical session and Metal):
+
+```sh
+DREAMS_TEST_CAPTURE_STATUS=1 DREAMS_FEED_DIRECTORY="$(mktemp -d)" \
+  swift test -c release --filter CaptureVisibilityTests
+```
+
+This opt-in test briefly creates native rain overlays for both backgrounds,
+uses deterministic capture observations/time, and checks status, window ownership,
+expiry, sleep assertion, the restore grace period and stop while suspended.
+It restores the settings it changes and uses an isolated feed. It does not test
+recognition of the real screenshot picker.
 
 Display selection and persistence are also checked by `swift test -c release` (included in `make test-unit`). The opt-in runtime scenario creates and removes an additional virtual display, exercises live selection and fallback, checks timer/window preservation, and verifies that the agent workspace stays uncovered. It records the actual settings view with Screener:
 

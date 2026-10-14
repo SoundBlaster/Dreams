@@ -1,7 +1,9 @@
 # Overlay lifecycle and exit
 
-This package recovers four **descriptive draft** contracts from merged main
-`1ce194748720e40e1eb9737e63bb37797c5840b1`:
+This package contains four **descriptive draft** contracts initially recovered
+from merged main `1ce194748720e40e1eb9737e63bb37797c5840b1`. The session/status
+contract has a later capture-visibility correction; unchanged contracts retain
+their initial bindings. Current source identities and validation are linked below:
 
 - [Display targets](specs/displays.spec.yaml): automatic/all/selected policy,
   saved IDs and excluded agent workspace.
@@ -41,10 +43,12 @@ already over Exit does not prevent hiding after four seconds (matrix O7).
 | --- | --- |
 | Stopped | No requested session/owned overlays; stop clears timers and releases any active sleep assertion |
 | Requested, no windows | No eligible target remains after topology change; saved display choices and requested session can remain |
-| Owned windows | Requested and nonempty manager ownership; this is the current meaning of status `rain_visible` |
-| Capture-suspended | Owned windows are temporarily ordered out; request, expiry and renderer ownership remain |
+| Owned windows | Requested and nonempty manager ownership; `rain_visible` is true only when capture suspension is also false |
+| Capture-suspended | `rain_suspended_for_capture` is true and `rain_visible` is false; windows are ordered out, while request, expiry, sleep assertion and renderer ownership remain |
 
-These observations do not establish pixel visibility. Screenshot exclusion is
+The capture suspension flag stays true through the greater-than-0.5-second clear
+grace period and resets on restoration or stop. These observations do not
+establish pixel visibility. Screenshot exclusion is
 best-effort window policy; capture tools may differ. `dreams_prepare_ui` calls
 session stop so opaque windows also release input ownership. A virtual agent
 workspace is excluded from rain targets and survives ordinary stop; workspace
@@ -56,8 +60,12 @@ pin full files or exact excerpts with full-source hashes. [HC map](../hypercode/
 and [profiles](../hypercode/overlay-session.hcs) describe composition, not runtime
 configuration. [Initial validation](validation/2026-10-13/README.md) and the
 [P2 review correction](validation/2026-10-13-review-p2/README.md) check structure only.
-No live overlay, physical keyboard, capture or display-topology test was run
-in this documentation pass; existing test code is an expectation, not a new pass.
+The [historical capture source identities](evidence/2026-10-13-capture-status/source-identity.json)
+pin the session correction at `bd5d783`.
+The [capture-status correction](validation/2026-10-13-capture-status/README.md)
+records fresh deterministic native-overlay tests and the current source baseline.
+The initial documentation pass did not run live tests. Physical screenshot-picker
+recognition, keyboard and display-topology behavior remain separately unverified.
 
 ## FSD integration refresh — 2026-10-13
 
@@ -73,3 +81,5 @@ after moving DreamsPreset and DreamsError to their own files.
 The tvOS foreground app is represented only in coarse orientation and remains
 outside these macOS contracts. No physical-keyboard/Apple-TV claim follows from
 GUI or simulator passes. PRs #18–20 are independent and remain outside this merge.
+
+Current capture-status FSD refresh: [2026-10-14 validation](validation/2026-10-14-capture-fsd/README.md). Suspended status is false without owned overlays.

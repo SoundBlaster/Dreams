@@ -1,0 +1,52 @@
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite CaptureVisibilityTests started.
+􀟈  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) started.
+􀢄  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) recorded an issue with 1 argument transparent → false at CaptureVisibilityTests.swift:36:13: Expectation failed: status["rain_visible"] as? Bool == visible
+􀄵  status["rain_visible"] as? Bool == visible → false
+􀄵    status["rain_visible"] as? Bool → true
+􀄵      some → true
+􀄵    visible → false
+􀢄  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) recorded an issue with 1 argument transparent → false at CaptureVisibilityTests.swift:36:13: Expectation failed: status["rain_visible"] as? Bool == visible
+􀄵  status["rain_visible"] as? Bool == visible → false
+􀄵    status["rain_visible"] as? Bool → true
+􀄵      some → true
+􀄵    visible → false
+􀢄  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) recorded an issue with 1 argument transparent → false at CaptureVisibilityTests.swift:36:13: Expectation failed: status["rain_visible"] as? Bool == visible
+􀄵  status["rain_visible"] as? Bool == visible → false
+􀄵    status["rain_visible"] as? Bool → true
+􀄵      some → true
+􀄵    visible → false
+􀟈  Test case passing 1 argument transparent → true to captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) started.
+􀢄  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) recorded an issue with 1 argument transparent → true at CaptureVisibilityTests.swift:36:13: Expectation failed: status["rain_visible"] as? Bool == visible
+􀄵  status["rain_visible"] as? Bool == visible → false
+􀄵    status["rain_visible"] as? Bool → true
+􀄵      some → true
+􀄵    visible → false
+􀢄  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) recorded an issue with 1 argument transparent → true at CaptureVisibilityTests.swift:36:13: Expectation failed: status["rain_visible"] as? Bool == visible
+􀄵  status["rain_visible"] as? Bool == visible → false
+􀄵    status["rain_visible"] as? Bool → true
+􀄵      some → true
+􀄵    visible → false
+􀢄  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) recorded an issue with 1 argument transparent → true at CaptureVisibilityTests.swift:36:13: Expectation failed: status["rain_visible"] as? Bool == visible
+􀄵  status["rain_visible"] as? Bool == visible → false
+􀄵    status["rain_visible"] as? Bool → true
+􀄵      some → true
+􀄵    visible → false
+􀢄  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) with 2 test cases failed after 0.180 seconds with 6 issues.
+􀢄  Suite CaptureVisibilityTests failed after 0.180 seconds with 6 issues.
+􀄵  /// Opt-in native overlays with Metal; the capture observations and clock are deterministic.
+􀢄  Test run with 1 test in 1 suite failed after 0.181 seconds with 6 issues.
+Note: Some test targets reported failures:
+  - DreamsTests (Swift Testing)
+Building for production...
+[Using on-disk description]
+[3 / 8] Dreams
+[5 / 10] Dreams
+[10 / 15] Dreams-product
+[11 / 15] Dreams-product
+[15 / 15] DreamsTests-product
+[17 / 19] DreamsTests-product
+Build complete! (8.89 sec)
