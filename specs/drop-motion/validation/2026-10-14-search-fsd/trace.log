@@ -1,0 +1,12 @@
+Building for production...
+[Using on-disk description]
+Build complete! (0.33 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite SearchSettingsTraceTests started.
+􀟈  Test captureSearchControl() started.
+DREAMS_SEARCH_TRACE=/Users/egor/Library/Caches/Screener/Traces/A0185E88-CF60-4C89-A220-80D293A700BD.vtrace
+􁁛  Test captureSearchControl() passed after 0.224 seconds.
+􁁛  Suite SearchSettingsTraceTests passed after 0.224 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.224 seconds.

@@ -117,7 +117,7 @@ final class MatrixRain {
     func draw(encoder: any MTLRenderCommandEncoder, resolution: SIMD2<Float>, brightness: Float,
               previewTime: Float? = nil, demoWorkingAgents: Int? = nil, columnCount: Int = 0, density: Double = 0.8,
               fadeRows: Double = 1, speed: Double = 1, brightnessSpread: Double = 1, glow: Double = 1, idleIntensity: Double = 0.2,
-              deceleration: MatrixSimulation.Deceleration = .init(),
+              deceleration: MatrixSimulation.Deceleration = .init(), searchFraction: Double = 0.1,
               keywordTint: SIMD3<Float> = SIMD3(0.10, 0.65, 0.24), keywordBrightness: Double = 1,
               rainTint: SIMD3<Float> = SIMD3(0.008, 0.26, 0.055)) {
         let now = ProcessInfo.processInfo.systemUptime
@@ -180,6 +180,7 @@ final class MatrixRain {
         simulation!.setDensity(density)
         simulation!.setFadeRows(fadeRows)
         simulation!.setDeceleration(deceleration)
+        simulation!.setSearchFraction(searchFraction)
         for column in Array(pulseWords.keys) where pulseWords[column]!.ends <= simulationClock {
             simulation!.finishPulse(column: column)
             pulseWords.removeValue(forKey: column)
@@ -250,7 +251,7 @@ final class MatrixRain {
                 // Keyword cells mutate like the rain around them: while the simulation searches
                 // a cell (or just swapped it), a rain glyph flickers there in the keyword colour,
                 // then the letter returns. Only the colour sets words apart.
-                let search = simulation!.columns[column].search
+                let search = simulation!.columns[column].searches[row]
                 let mutating = isKeyword && cell.glyph >= 0
                     && ((search?.row == row && search?.writtenAt == cell.writtenAt)
                         || (cell.changedAt > cell.writtenAt && simulationClock - cell.changedAt < 0.15))

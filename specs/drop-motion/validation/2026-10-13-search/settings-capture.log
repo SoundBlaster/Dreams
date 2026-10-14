@@ -1,0 +1,17 @@
+Building for production...
+[Constructing description]
+[Planning deferred tasks]
+[7 / 17] DreamsTests-product
+[9 / 18] DreamsTests-product
+[14 / 18] DreamsTests-product
+[16 / 18] DreamsTests-product
+Build complete! (5.30 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite SearchSettingsTraceTests started.
+􀟈  Test captureSearchControl() started.
+DREAMS_SEARCH_TRACE=/Users/egor/Library/Caches/Screener/Traces/7BF5F6D3-6F14-4D2E-93E5-6F0CF72A3613.vtrace
+􁁛  Test captureSearchControl() passed after 0.218 seconds.
+􁁛  Suite SearchSettingsTraceTests passed after 0.218 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.218 seconds.

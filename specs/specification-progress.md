@@ -16,8 +16,8 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Presentation | User / windows and focus | dreams.overlay.presentation | reconcile/close, panel config | Verify focus/OS resource failures |
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
-| RainOverlaySession.Renderer | Presentation consumer | Partial: drop motion recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
-| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Pinned runtime f9aa0fd; model/UI/Metal checks | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer | Presentation consumer | Partial: motion and search recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 3a4ad94 search baseline; prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -137,5 +137,30 @@ Current motion FSD source and checks: [2026-10-14 validation](drop-motion/valida
 Source `23ac3667ab1e0597d9f18e45c69dcb3859c10f89` includes merged capture-status PR18 and the current drop layer.
 [Session integration](overlay-session/validation/2026-10-14-motion-stack/README.md) and
 [drop integration](drop-motion/validation/2026-10-14-motion-stack/README.md) refresh current source bindings.
+Affected session status/capture, motion timing/tuning and settings assembly claims keep
+their stable IDs and draft acceptance. Historical passes are not evidence for this revision.
+
+## Search occupancy — 2026-10-13
+
+Renderer.GlyphSearch is recovered in the existing rain-simulation package as
+`dreams.rain.search_occupancy`; [contract/claims](drop-motion/search-matrix.md) and
+[current checks/identities](drop-motion/validation/2026-10-13-search/README.md) use source 3a4ad94.
+This implements the user's corrected goal: a minimum simultaneous share, not starts/second.
+Motion claim IDs remain stable; opt_in comparisons now hold the new mutation policy constant.
+The earlier legacy whole-state random-sequence sample is historical and not reused as proof.
+Display/exit/session and glyph editor contracts retain their IDs and obligations: changes
+only add visual tuning and simulation scheduling, without altering display/input ownership.
+Renderer Population/Quota/BurstLifecycle/Tuning are folded into the search contract;
+shader/atlas, agent event acquisition, tvOS and glyph editor adoption remain unexplored here.
+Native AppKit control/persistence, Screener SDK/MCP appearance and pure model tests are
+separate evidence; draft status and remaining parent integration assumptions are explicit.
+
+Current search FSD/P2 source and checks: [2026-10-14 validation](drop-motion/validation/2026-10-14-search-fsd/README.md). Quota/count caching and timestamp queues preserve visible-state digests; prior evidence remains historical.
+
+## PR stack integration — search-stack — 2026-10-14
+
+Source `a22e44ace8f08fb10650d9b15a37c8183062fd0d` includes merged capture-status PR18 and the current drop layer.
+[Session integration](overlay-session/validation/2026-10-14-search-stack/README.md) and
+[drop integration](drop-motion/validation/2026-10-14-search-stack/README.md) refresh current source bindings.
 Affected session status/capture, motion timing/tuning and settings assembly claims keep
 their stable IDs and draft acceptance. Historical passes are not evidence for this revision.

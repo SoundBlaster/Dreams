@@ -1,0 +1,20 @@
+zsh scripts/build-app.sh release
+Built 28 film + 142 designed glyphs into /Users/egor/.codex/worktrees/overlay-exit-specs/Dreams/research/glyphs/build: failed none, warnings none
+See /Users/egor/.codex/worktrees/overlay-exit-specs/Dreams/research/glyphs/build/report.md and /Users/egor/.codex/worktrees/overlay-exit-specs/Dreams/research/glyphs/build/proof.png
+Building for production...
+[Pre-planning 1 / 246]
+[Planning deferred tasks]
+[3 / 21]
+[6 / 19] SystemPackage
+[12 / 22] EventSource
+[16 / 23] Logging
+[21 / 25] SystemPackage
+[27 / 31] MCP
+[29 / 32] MCP
+[35 / 36] Dreams-product
+[36 / 37] Dreams-product
+[39 / 41] Dreams-product
+[40 / 41] Dreams-product
+Build complete! (21.80 sec)
+/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams/dist/Dreams.app: replacing existing signature
+/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams/dist/Dreams.app

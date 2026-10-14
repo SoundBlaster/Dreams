@@ -4,6 +4,49 @@ import Foundation
 struct MatrixSimulation {
     private static let tailIntervalScale = 1.6
 
+    /// Stable timestamp/index ordering, shared by the grid and each column's trials.
+    struct Schedule {
+        struct Entry {
+            let time: Double
+            let index: Int
+            func precedes(_ other: Entry) -> Bool {
+                time == other.time ? index < other.index : time < other.time
+            }
+        }
+        private var heap: [Entry] = []
+        var first: Entry? { heap.first }
+
+        mutating func insert(time: Double, index: Int) {
+            guard time.isFinite else { return }
+            heap.append(Entry(time: time, index: index))
+            var child = heap.count - 1
+            while child > 0 {
+                let parent = (child - 1) / 2
+                guard heap[child].precedes(heap[parent]) else { break }
+                heap.swapAt(child, parent)
+                child = parent
+            }
+        }
+
+        @discardableResult mutating func pop() -> Entry? {
+            guard let result = heap.first else { return nil }
+            let last = heap.removeLast()
+            guard !heap.isEmpty else { return result }
+            heap[0] = last
+            var parent = 0
+            while parent * 2 + 1 < heap.count {
+                let left = parent * 2 + 1, right = left + 1
+                let child = right < heap.count && heap[right].precedes(heap[left]) ? right : left
+                guard heap[child].precedes(heap[parent]) else { break }
+                heap.swapAt(child, parent)
+                parent = child
+            }
+            return result
+        }
+
+        mutating func removeAll() { heap.removeAll(keepingCapacity: true) }
+    }
+
     struct Deceleration: Equatable {
         static let defaultAcceleration = -12.0
         static let minimumAcceleration = -120.0
@@ -70,6 +113,7 @@ struct MatrixSimulation {
         let targetGlyph: Int
         let interval: Double
         var remaining: Int
+        var nextTrial: Double
     }
 
     struct Column {
@@ -95,7 +139,9 @@ struct MatrixSimulation {
         var resting = false
         var rank = 0.0
         var restUntil = 0.0
-        var search: Search?
+        var searches: [Int: Search] = [:]
+        var searchSchedule = Schedule()
+        var nextExpiry = Double.infinity
         var generator: Generator
     }
 
@@ -107,6 +153,20 @@ struct MatrixSimulation {
     private var density: Double
     private var fadeRows: Double
     private var deceleration: Deceleration
+    private var searchFraction = 0.1
+    private var searchGenerator = Generator(state: 0x5EA2_C4)
+    private struct Position: Hashable { let column: Int; let row: Int }
+    private var available: [Position] = []
+    private var availableIndex: [Position: Int] = [:]
+    private var events = Schedule()
+    private var scheduledTimes: [Double] = []
+    private(set) var searchingSymbolCount = 0
+    var visibleSymbolCount: Int { available.count + searchingSymbolCount }
+
+    mutating func setSearchFraction(_ value: Double) {
+        guard value.isFinite else { return }
+        searchFraction = min(1, max(0, value))
+    }
 
     mutating func setDeceleration(_ value: Deceleration) {
         deceleration = value
@@ -143,6 +203,9 @@ struct MatrixSimulation {
                 interval: interval, hold: lifetime - fade,
                 fade: fade, generator: Generator(state: seed &+ UInt64(index) &* 7919)))
         }
+        for index in columns.indices { columns[index].nextMutation = .infinity }
+        scheduledTimes = Array(repeating: .infinity, count: columns.count)
+        for index in columns.indices { scheduleColumn(index) }
     }
 
     /// Starts a single new top-to-bottom packet in response to an observed event.
@@ -152,8 +215,14 @@ struct MatrixSimulation {
         columns[index].nextRow = 0
         columns[index].gapRemaining = 0
         columns[index].nextWrite = time
-        columns[index].search = nil
-        columns[index].nextMutation = time + 0.2
+        for row in columns[index].searches.keys.sorted() {
+            columns[index].searches.removeValue(forKey: row)
+            searchingSymbolCount -= 1
+            addAvailable(Position(column: index, row: row))
+        }
+        columns[index].nextMutation = .infinity
+        columns[index].searchSchedule.removeAll()
+        scheduleColumn(index)
         // Bound the whole stretched trace, including its slow rear after the head
         // leaves the screen. Row zero will draw the packet's actual lifetime.
         let column = columns[index]
@@ -172,8 +241,8 @@ struct MatrixSimulation {
         columns[index].isEnabled = false
     }
 
-    /// `coverage` (0...1) is the share of columns that rain: which ones changes with every pass.
-    /// `visibility` hides or fades individual columns outright (a hidden column is cleared).
+    /// `searchFraction` is the simultaneous share of live, non-gap cells, including fading ink.
+    /// Coverage gates columns; hidden columns are cleared and cannot keep a search alive.
     mutating func advance(to target: Double, visibility: [Float]? = nil, coverage: Double = 1,
                           mutationRate: Double = 1) {
         let coverage = coverage.isFinite ? min(1, max(0, coverage)) : 1
@@ -181,24 +250,30 @@ struct MatrixSimulation {
         guard target >= time, target.isFinite else { return }
         precondition(visibility == nil || visibility!.count == columns.count)
         for index in columns.indices {
-            var column = columns[index]
             let visible = min(1, max(0, visibility?[index] ?? 1))
             if visible <= 0.002 {
                 // Hidden columns must not keep typing and reappear prefilled.
-                column.cells = Array(repeating: Symbol(), count: rows)
-                column.isEnabled = false
-                column.headRow = -1
-                column.search = nil
-                columns[index] = column
+                for row in columns[index].cells.indices { removePosition(Position(column: index, row: row)) }
+                columns[index].cells = Array(repeating: Symbol(), count: rows)
+                columns[index].isEnabled = false
+                columns[index].headRow = -1
+                columns[index].nextWrite = .infinity
+                columns[index].nextMutation = .infinity
+                columns[index].nextExpiry = .infinity
+                columns[index].searchSchedule.removeAll()
+                scheduleColumn(index)
                 continue
             }
+            var column = columns[index]
+            for row in column.cells.indices { column.cells[row].visibility = min(column.cells[row].visibility, visible) }
             if !column.isEnabled {
                 column.isEnabled = true
                 column.nextRow = 0
                 column.gapRemaining = 0
                 column.lastWrite = -.infinity
                 column.nextWrite = target + column.generator.unit() * 0.35
-                column.nextMutation = column.nextWrite + 0.15 + column.generator.unit() * 0.35
+                _ = column.generator.unit()
+                column.nextMutation = column.searches.values.map(\.nextTrial).min() ?? .infinity
                 column.gated = false
                 column.resting = false
             }
@@ -228,156 +303,235 @@ struct MatrixSimulation {
                     column.restUntil += Double(rows) * column.interval * (0.5 + column.generator.unit())
                 }
             }
-            // Process writing and single-cell mutation in timestamp order, independent of fps.
-            while min(column.nextWrite, column.nextMutation) <= target {
-                if column.nextWrite <= column.nextMutation {
-                    let eventTime = column.nextWrite
-                    let row = column.nextRow
-                    if row == 0 {
-                        // Existing cells retain their lifetime when a new packet
-                        // uses changed tuning, including overlapping passes.
-                        column.packetStartedAt = eventTime
-                        column.motion = deceleration.motion(interval: column.interval)
-                        let variation = 1 - column.generator.unit() * 0.15 * (1 - density)
-                        let lifetime: Double
-                        if let motion = column.motion {
-                            lifetime = max(column.tailInterval, motion.arrival(at: Double(rows))
-                                * (0.1 + 0.9 * density) * variation)
-                        } else {
-                            lifetime = max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density)
-                                * variation * column.interval)
-                        }
-                        column.fade = min(lifetime, fadeRows * column.tailInterval)
-                        column.hold = lifetime - column.fade
-                    }
-                    let ink = Float(0.14 + pow(column.generator.unit(), 1.3) * 0.7)
-                    let warmth = Float(Int(column.generator.unit() * 5)) / 4
-                    let glyph = Int(column.generator.unit() * Double(glyphCount))
-                    if column.gapRemaining == 0 && column.generator.unit() < 0.06 * (1 - density) {
-                        column.gapRemaining = 1 + Int(column.generator.unit() * 3)
-                    }
-                    let isGap = column.gapRemaining > 0
-                    column.gapRemaining = max(0, column.gapRemaining - 1)
-                    let stretch = column.motion == nil ? Double(row) * (column.tailInterval - column.interval)
-                        : (eventTime - column.packetStartedAt) * (Self.tailIntervalScale - 1)
-                    column.cells[row] = Symbol(glyph: glyph, writtenAt: eventTime,
-                        changedAt: eventTime, ink: ink, warmth: warmth, isGap: isGap,
-                        hold: column.hold + stretch, fade: column.fade)
-                    if column.search?.row == row {
-                        // A new packet owns this cell now; discard the old search.
-                        column.search = nil
-                        column.nextMutation = eventTime + (0.12 + column.generator.unit() * 0.5) / rate
-                    }
-                    column.headRow = row
-                    column.lastWrite = eventTime
-                    column.nextRow += 1
-                    if column.nextRow == rows {
-                        column.nextRow = 0
-                        // At full density, wrap immediately. Lower densities
-                        // leave a gap between successive packets.
-                        let step = column.motion.map {
-                            $0.arrival(at: Double(rows)) - $0.arrival(at: Double(rows - 1))
-                        } ?? column.interval
-                        let next = eventTime + step
-                            + (1 - density) * (column.cells[row].hold + column.cells[row].fade
-                                + 0.25 + column.generator.unit() * 1.25)
-                        if column.oneShot {
-                            column.nextWrite = .infinity
-                        } else if coverage < 1 {
-                            column.rank = column.generator.unit()
-                            if column.rank > coverage {
-                                column.resting = true
-                                column.restUntil = next + Double(rows) * column.interval * (0.5 + column.generator.unit())
-                                column.nextWrite = .infinity
-                            } else {
-                                column.nextWrite = next
-                            }
-                        } else {
-                            column.nextWrite = next
-                        }
-                    } else {
-                        if let motion = column.motion {
-                            column.nextWrite = column.packetStartedAt + motion.arrival(at: Double(column.nextRow))
-                        } else {
-                            column.nextWrite = eventTime + column.interval
-                        }
-                    }
-                } else {
-                    let eventTime = column.nextMutation
-                    if var search = column.search {
-                        let cell = column.cells[search.row]
-                        if cell.glyph >= 0 && !cell.isGap && cell.writtenAt == search.writtenAt
-                            && eventTime - cell.writtenAt < cell.hold {
-                            let final = search.remaining == 1
-                            var replacement = search.targetGlyph
-                            if !final {
-                                replacement = (cell.glyph + 1 + Int(column.generator.unit()
-                                    * Double(glyphCount - 1))) % glyphCount
-                                // Reserve the selected combination for the final step.
-                                if replacement == search.targetGlyph && glyphCount > 2 {
-                                    repeat { replacement = (replacement + 1) % glyphCount }
-                                    while replacement == cell.glyph || replacement == search.targetGlyph
-                                }
-                            }
-                            column.cells[search.row].glyph = replacement
-                            column.cells[search.row].changedAt = eventTime
-                            search.remaining -= 1
-                            if final {
-                                column.cells[search.row].settledAt = eventTime
-                                // Settling a search keeps its ordinary green ink.
-                                // Preserve the random sequence for the rest of the rain.
-                                _ = column.generator.unit()
-                                column.search = nil
-                            } else {
-                                column.search = search
-                                column.nextMutation = eventTime + search.interval / rate
-                                continue
-                            }
-                        } else {
-                            // Fading or overwritten ink cannot be kept alive by a search.
-                            column.search = nil
-                        }
-                        column.nextMutation = eventTime + (0.12 + column.generator.unit() * 0.5) / rate
-                        continue
-                    }
-                    let candidates = column.cells.indices.filter { row in
-                        let cell = column.cells[row]
-                        return cell.glyph >= 0 && !cell.isGap && row != column.headRow
-                            && eventTime - cell.writtenAt < cell.hold
-                            && eventTime - cell.settledAt >= 0.8
-                    }
-                    if !candidates.isEmpty {
-                        let row = candidates[Int(column.generator.unit() * Double(candidates.count))]
-                        let old = column.cells[row].glyph
-                        let replacement = (old + 1 + Int(column.generator.unit() * Double(glyphCount - 1))) % glyphCount
-                        column.cells[row].glyph = replacement
-                        column.cells[row].changedAt = eventTime
-                        if column.generator.unit() < 0.65 {
-                            let target = (replacement + 1 + Int(column.generator.unit()
-                                * Double(glyphCount - 1))) % glyphCount
-                            let interval = 0.035 + column.generator.unit() * 0.03
-                            column.search = Search(row: row, writtenAt: column.cells[row].writtenAt,
-                                targetGlyph: target, interval: interval,
-                                remaining: 3 + Int(column.generator.unit() * 5))
-                            column.nextMutation = eventTime + interval / rate
-                            continue
-                        }
-                        column.cells[row].settledAt = eventTime
-                        if column.generator.unit() < 0.2 { column.cells[row].flashedAt = eventTime }
-                    }
-                    column.nextMutation = eventTime + (0.12 + column.generator.unit() * 0.5) / rate
-                }
-            }
-            for row in column.cells.indices {
-                column.cells[row].visibility = min(column.cells[row].visibility, visible)
-                if target - column.cells[row].writtenAt >= column.cells[row].hold + column.cells[row].fade {
-                    // Only a future cursor write can replace expired ink.
-                    column.cells[row] = Symbol()
-                }
-            }
             columns[index] = column
+            scheduleColumn(index)
+        }
+        maintainSearchShare(at: time, rate: rate)
+        // One global timestamp order keeps pool selection independent of frame subdivision.
+        while let pending = events.first, pending.time <= target {
+            events.pop()
+            let index = pending.index
+            guard scheduledTimes[index] == pending.time else { continue }
+            scheduledTimes[index] = .infinity
+            let eventTime = pending.time
+            var occupancyChanged = true
+            if columns[index].nextWrite <= columns[index].nextMutation
+                && columns[index].nextWrite <= columns[index].nextExpiry {
+                writeNext(in: index, visibility: min(1, max(0, visibility?[index] ?? 1)), coverage: coverage)
+            } else if columns[index].nextExpiry <= columns[index].nextMutation {
+                expireCells(in: index, at: eventTime)
+            } else {
+                occupancyChanged = advanceSearch(in: index, at: eventTime, rate: rate)
+            }
+            if occupancyChanged { maintainSearchShare(at: eventTime, rate: rate) }
         }
         time = target
+    }
+
+    private func nextEvent(in index: Int) -> Double {
+        min(columns[index].nextWrite, columns[index].nextMutation, columns[index].nextExpiry)
+    }
+
+    private mutating func scheduleColumn(_ index: Int) {
+        let next = nextEvent(in: index)
+        guard scheduledTimes[index] != next else { return }
+        scheduledTimes[index] = next
+        events.insert(time: next, index: index)
+    }
+
+    private mutating func writeNext(in index: Int, visibility visible: Float, coverage: Double) {
+        let position = Position(column: index, row: columns[index].nextRow)
+        removePosition(position)
+        var column = columns[index]
+        let eventTime = column.nextWrite
+        let row = column.nextRow
+        if row == 0 {
+            // Existing cells retain their lifetime when a new packet
+            // uses changed tuning, including overlapping passes.
+            column.packetStartedAt = eventTime
+            column.motion = deceleration.motion(interval: column.interval)
+            let variation = 1 - column.generator.unit() * 0.15 * (1 - density)
+            let lifetime: Double
+            if let motion = column.motion {
+                lifetime = max(column.tailInterval, motion.arrival(at: Double(rows))
+                    * (0.1 + 0.9 * density) * variation)
+            } else {
+                lifetime = max(column.tailInterval, Double(rows) * (0.1 + 0.9 * density)
+                    * variation * column.interval)
+            }
+            column.fade = min(lifetime, fadeRows * column.tailInterval)
+            column.hold = lifetime - column.fade
+        }
+        let ink = Float(0.14 + pow(column.generator.unit(), 1.3) * 0.7)
+        let warmth = Float(Int(column.generator.unit() * 5)) / 4
+        let glyph = Int(column.generator.unit() * Double(glyphCount))
+        if column.gapRemaining == 0 && column.generator.unit() < 0.06 * (1 - density) {
+            column.gapRemaining = 1 + Int(column.generator.unit() * 3)
+        }
+        let isGap = column.gapRemaining > 0
+        column.gapRemaining = max(0, column.gapRemaining - 1)
+        let stretch = column.motion == nil ? Double(row) * (column.tailInterval - column.interval)
+            : (eventTime - column.packetStartedAt) * (Self.tailIntervalScale - 1)
+        column.cells[row] = Symbol(glyph: glyph, writtenAt: eventTime,
+            changedAt: eventTime, ink: ink, warmth: warmth, isGap: isGap,
+            hold: column.hold + stretch, fade: column.fade, visibility: visible)
+        column.headRow = row
+        column.lastWrite = eventTime
+        column.nextRow += 1
+        if column.nextRow == rows {
+            column.nextRow = 0
+            // At full density, wrap immediately. Lower densities
+            // leave a gap between successive packets.
+            let step = column.motion.map {
+                $0.arrival(at: Double(rows)) - $0.arrival(at: Double(rows - 1))
+            } ?? column.interval
+            let next = eventTime + step
+                + (1 - density) * (column.cells[row].hold + column.cells[row].fade
+                    + 0.25 + column.generator.unit() * 1.25)
+            if column.oneShot {
+                column.nextWrite = .infinity
+            } else if coverage < 1 {
+                column.rank = column.generator.unit()
+                if column.rank > coverage {
+                    column.resting = true
+                    column.restUntil = next + Double(rows) * column.interval * (0.5 + column.generator.unit())
+                    column.nextWrite = .infinity
+                } else {
+                    column.nextWrite = next
+                }
+            } else {
+                column.nextWrite = next
+            }
+        } else {
+            if let motion = column.motion {
+                column.nextWrite = column.packetStartedAt + motion.arrival(at: Double(column.nextRow))
+            } else {
+                column.nextWrite = eventTime + column.interval
+            }
+        }
+        column.nextExpiry = column.cells.filter { $0.glyph >= 0 }
+            .map { $0.writtenAt + $0.hold + $0.fade }.min() ?? .infinity
+        columns[index] = column
+        if !column.cells[position.row].isGap { addAvailable(position) }
+        scheduleColumn(index)
+    }
+
+    private mutating func expireCells(in index: Int, at time: Double) {
+        for row in columns[index].cells.indices {
+            let cell = columns[index].cells[row]
+            if cell.glyph >= 0 && time >= cell.writtenAt + cell.hold + cell.fade {
+                removePosition(Position(column: index, row: row))
+                columns[index].cells[row] = Symbol()
+            }
+        }
+        columns[index].nextExpiry = columns[index].cells.filter { $0.glyph >= 0 }
+            .map { $0.writtenAt + $0.hold + $0.fade }.min() ?? .infinity
+        scheduleColumn(index)
+    }
+
+    private mutating func addAvailable(_ position: Position) {
+        guard availableIndex[position] == nil else { return }
+        availableIndex[position] = available.count
+        available.append(position)
+    }
+
+    private mutating func removeAvailable(_ position: Position) {
+        guard let index = availableIndex.removeValue(forKey: position) else { return }
+        let last = available.removeLast()
+        if index < available.count { available[index] = last; availableIndex[last] = index }
+    }
+
+    private mutating func refreshMutationTime(in index: Int) {
+        // Overwritten/cancelled trials are lazily discarded without scanning every search.
+        while let pending = columns[index].searchSchedule.first,
+              columns[index].searches[pending.index]?.nextTrial != pending.time {
+            columns[index].searchSchedule.pop()
+        }
+        columns[index].nextMutation = columns[index].searchSchedule.first?.time ?? .infinity
+        scheduleColumn(index)
+    }
+
+    private mutating func removePosition(_ position: Position) {
+        removeAvailable(position)
+        if columns[position.column].searches.removeValue(forKey: position.row) != nil {
+            searchingSymbolCount -= 1
+        }
+        refreshMutationTime(in: position.column)
+    }
+
+    private mutating func maintainSearchShare(at time: Double, rate: Double) {
+        let target = Int(ceil(Double(visibleSymbolCount) * searchFraction))
+        var active = searchingSymbolCount
+        if active > target {
+            for index in columns.indices {
+                for row in columns[index].searches.keys.sorted() where active > target {
+                    columns[index].searches.removeValue(forKey: row)
+                    searchingSymbolCount -= 1
+                    addAvailable(Position(column: index, row: row))
+                    active -= 1
+                }
+                refreshMutationTime(in: index)
+            }
+        }
+        guard glyphCount > 1 else { return }
+        while active < target, !available.isEmpty {
+            let position = available[Int(searchGenerator.unit() * Double(available.count))]
+            removeAvailable(position)
+            let cell = columns[position.column].cells[position.row]
+            let replacement = (cell.glyph + 1 + Int(searchGenerator.unit() * Double(glyphCount - 1))) % glyphCount
+            let targetGlyph = (replacement + 1 + Int(searchGenerator.unit() * Double(glyphCount - 1))) % glyphCount
+            let interval = 0.035 + searchGenerator.unit() * 0.03
+            columns[position.column].cells[position.row].glyph = replacement
+            columns[position.column].cells[position.row].changedAt = time
+            columns[position.column].searches[position.row] = Search(row: position.row, writtenAt: cell.writtenAt,
+                targetGlyph: targetGlyph, interval: interval, remaining: 3 + Int(searchGenerator.unit() * 5),
+                nextTrial: time + interval / rate)
+            columns[position.column].searchSchedule.insert(time: time + interval / rate, index: position.row)
+            refreshMutationTime(in: position.column)
+            searchingSymbolCount += 1
+            active += 1
+        }
+    }
+
+    /// Only completion/cancellation changes occupancy; intermediate trials need no quota pass.
+    private mutating func advanceSearch(in index: Int, at time: Double, rate: Double) -> Bool {
+        guard let pending = columns[index].searchSchedule.pop(),
+              var search = columns[index].searches[pending.index] else {
+            refreshMutationTime(in: index)
+            return false
+        }
+        let cell = columns[index].cells[search.row]
+        guard cell.glyph >= 0, !cell.isGap, cell.writtenAt == search.writtenAt,
+              time < cell.writtenAt + cell.hold + cell.fade else {
+            columns[index].searches.removeValue(forKey: search.row)
+            searchingSymbolCount -= 1
+            refreshMutationTime(in: index)
+            return true
+        }
+        let final = search.remaining == 1
+        var replacement = search.targetGlyph
+        if !final {
+            replacement = (cell.glyph + 1 + Int(searchGenerator.unit() * Double(glyphCount - 1))) % glyphCount
+            if replacement == search.targetGlyph && glyphCount > 2 {
+                repeat { replacement = (replacement + 1) % glyphCount }
+                while replacement == cell.glyph || replacement == search.targetGlyph
+            }
+        }
+        columns[index].cells[search.row].glyph = replacement
+        columns[index].cells[search.row].changedAt = time
+        search.remaining -= 1
+        if final {
+            columns[index].cells[search.row].settledAt = time
+            columns[index].searches.removeValue(forKey: search.row)
+            searchingSymbolCount -= 1
+            addAvailable(Position(column: index, row: search.row))
+        } else {
+            search.nextTrial = time + search.interval / rate
+            columns[index].searches[search.row] = search
+            columns[index].searchSchedule.insert(time: search.nextTrial, index: search.row)
+        }
+        refreshMutationTime(in: index)
+        return final
     }
 
     func opacity(column: Int, row: Int) -> Float {

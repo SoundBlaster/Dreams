@@ -1,0 +1,204 @@
+{
+  "sourceRevision": "3a4ad943d727fb657ac9e3ada28b6e586c0b26e1",
+  "sourceState": "Implementation/tests committed; map and contract changes separately hashed. Earlier baselines preserved.",
+  "files": [
+    {
+      "path": "Sources/Dreams/MatrixSimulation.swift",
+      "sha256": "ee9f07fd08706713905b6c7321fc11ca63e9a69623f566a451ae0571f5c5eb40",
+      "snapshot": "evidence/2026-10-13-search/source/Sources/Dreams/MatrixSimulation.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "ee9f07fd08706713905b6c7321fc11ca63e9a69623f566a451ae0571f5c5eb40"
+    },
+    {
+      "path": "Sources/Dreams/RainRenderer.swift",
+      "sha256": "13bf1282764ebcc3437dcda34c584078daac66a03735f178c8039113d620137d",
+      "snapshot": "evidence/2026-10-13-search/source/Sources/Dreams/RainRenderer.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "13bf1282764ebcc3437dcda34c584078daac66a03735f178c8039113d620137d"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "sha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5",
+      "snapshot": "evidence/2026-10-13-search/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "sha256": "4c160c354217cf754bbf689240acfc1e11c5de6cf4670234136a6517de9c9e08",
+      "snapshot": "evidence/2026-10-13-search/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "4c160c354217cf754bbf689240acfc1e11c5de6cf4670234136a6517de9c9e08"
+    },
+    {
+      "path": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "sha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1",
+      "snapshot": "evidence/2026-10-13-search/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1"
+    },
+    {
+      "path": "Sources/Dreams/MatrixRain.swift",
+      "sha256": "a8352b6f8485efb15a47cd4fd1ab3195e7db16145e522eb1bc69316234597709",
+      "snapshot": "evidence/2026-10-13-search/source/Sources/Dreams/MatrixRain.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          117,
+          278
+        ]
+      ],
+      "snapshotSha256": "9043e01bc1d2f494c34d9e54565524de54ae2945af2b104a4300252afdad92d5"
+    },
+    {
+      "path": "Sources/Dreams/DreamsController.swift",
+      "sha256": "841121e9219c50a75b49fce7cba8099adfc872cf497290989ea8bcb8f6274984",
+      "snapshot": "evidence/2026-10-13-search/source/Sources/Dreams/DreamsController.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          10,
+          24
+        ],
+        [
+          157,
+          184
+        ],
+        [
+          280,
+          327
+        ],
+        [
+          450,
+          465
+        ],
+        [
+          515,
+          540
+        ]
+      ],
+      "snapshotSha256": "64a58582471bba0deb022fd30234c3d30eb6fe79f33b0a6b54a462c3b7551bd8"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMain.swift",
+      "sha256": "3cd8ed2122485c598fbd3b2fda1b7f14c52bc8efc423b00bba5ec19cbb1803b9",
+      "snapshot": "evidence/2026-10-13-search/source/Sources/Dreams/DreamsMain.swift",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          237,
+          246
+        ],
+        [
+          330,
+          372
+        ],
+        [
+          585,
+          610
+        ],
+        [
+          775,
+          806
+        ],
+        [
+          830,
+          857
+        ]
+      ],
+      "snapshotSha256": "308a4c2a0814c2f83d419a9dcef07519e8b154031eaac74cfd45260d4f9e46d8"
+    },
+    {
+      "path": "Sources/Dreams/Localization/en.lproj/Localizable.strings",
+      "sha256": "23b6771a3e07671afacb58d2111ae8b143c8fedf2bc1cc5bf0f08617a45949a2",
+      "snapshot": "evidence/2026-10-13-search/source/Sources/Dreams/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          145,
+          152
+        ]
+      ],
+      "snapshotSha256": "fa967e4b2e67b51d37ec5bf99319f35b6eebe82dca107762395542939cb1eedc"
+    },
+    {
+      "path": "Sources/Dreams/Localization/ru.lproj/Localizable.strings",
+      "sha256": "b694f711adff8f743a3760a7b0af44c9a805c3d406bc36f36d9140f8a704beda",
+      "snapshot": "evidence/2026-10-13-search/source/Sources/Dreams/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "exact-line-excerpts",
+      "lineRanges": [
+        [
+          145,
+          152
+        ]
+      ],
+      "snapshotSha256": "ce0ab1787d7a65c4cfc69f1536c70f5b7b054b2ab318f95d7046c1afa443df95"
+    },
+    {
+      "path": "Tests/DreamsTests/SearchOccupancyTests.swift",
+      "sha256": "345a76c52974712f4e63d9605f933842d6eed21cb9163e97271a398e99a45511",
+      "snapshot": "evidence/2026-10-13-search/source/Tests/DreamsTests/SearchOccupancyTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "345a76c52974712f4e63d9605f933842d6eed21cb9163e97271a398e99a45511"
+    },
+    {
+      "path": "Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "sha256": "cd39068a01d9e8950a90cb8b502700dbbe4a2f0c32c2d00cd0cff6482f43930a",
+      "snapshot": "evidence/2026-10-13-search/source/Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "cd39068a01d9e8950a90cb8b502700dbbe4a2f0c32c2d00cd0cff6482f43930a"
+    },
+    {
+      "path": "scripts/test-matrix.swift",
+      "sha256": "e023a0442f245b18d31100f1e735dcbe7aea044ddfc66c6f81ed7280736b2142",
+      "snapshot": "evidence/2026-10-13-search/source/scripts/test-matrix.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "e023a0442f245b18d31100f1e735dcbe7aea044ddfc66c6f81ed7280736b2142"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/drop-motion.hc",
+      "sha256": "5dcd162608f73faa0781fe7a3d60379dca405af2f45d9db6a8d199c85c2e6704",
+      "snapshot": "evidence/2026-10-13-search/maps/drop-motion.hc"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hcs",
+      "sha256": "bdeef846ad9c69814954f14d2e014ac75c7ffc8c575e468b8cc7f0da1f867b34",
+      "snapshot": "evidence/2026-10-13-search/maps/drop-motion.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "ad01f97a801c5533c4558f5a7350a94006d15b1033330f461c868b5ebf516c3a",
+      "snapshot": "evidence/2026-10-13-search/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "db16d71fe7bef7ac26d76d6bceb3347617bb58d1a22fff79fc2b258e3746ec4f",
+      "snapshot": "evidence/2026-10-13-search/maps/overlay-session.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hc",
+      "sha256": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+      "snapshot": "evidence/2026-10-13-search/maps/glyph-search.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hcs",
+      "sha256": "e950ae056e034bb78fe0c43b35617d3e80d0a3f1f1b8aeb665fd63e2d3ff14de",
+      "snapshot": "evidence/2026-10-13-search/maps/glyph-search.hcs"
+    }
+  ],
+  "capture": {
+    "sessionID": "7BF5F6D3-6F14-4D2E-93E5-6F0CF72A3613",
+    "recordID": "BDBD6D64-B2FE-45C3-B8CF-1DA4A3559DFB",
+    "path": "validation/2026-10-13-search/settings.png",
+    "sha256": "39108a1a4eea57fdb808b99a87d17a5f5da6af54e4a93531f3400a8a56a59c5a"
+  },
+  "buildMetadata": [
+    {
+      "path": "Makefile",
+      "sha256": "ae3b00b8a22a64a1ced0970c2b009940dc41fe7dc08c52ac4ae2897ccaef225d",
+      "revisionState": "documentation/check-target change following sourceRevision"
+    }
+  ]
+}

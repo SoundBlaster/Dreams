@@ -1,0 +1,106 @@
+[
+  {
+    "command": [
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "exitCode": 0,
+    "log": "structure.log"
+  },
+  {
+    "command": [
+      "make",
+      "lint"
+    ],
+    "exitCode": 0,
+    "log": "lint.log"
+  },
+  {
+    "command": [
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "DropDecelerationSettingsTests"
+    ],
+    "environment": {
+      "DREAMS_TEST_DROP_SETTINGS": "1",
+      "DREAMS_FEED_DIRECTORY": "temporary"
+    },
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "log": "native.log"
+  },
+  {
+    "command": [
+      "make",
+      "test-unit"
+    ],
+    "environment": {},
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "log": "unit.log"
+  },
+  {
+    "command": [
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "SearchSettingsTraceTests"
+    ],
+    "environment": {
+      "DREAMS_CAPTURE_SEARCH_SETTINGS": "1",
+      "DREAMS_FEED_DIRECTORY": "temporary"
+    },
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "log": "trace.log"
+  },
+  {
+    "command": [
+      "make",
+      "test-tv",
+      "TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB"
+    ],
+    "environment": {},
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "log": "tvos.log"
+  },
+  {
+    "command": [
+      "make",
+      "app"
+    ],
+    "environment": {
+      "venv": "temporary worktree link; removed after build"
+    },
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "log": "app.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/test-localization.py"
+    ],
+    "environment": {},
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "log": "localization.log"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/smoke.py"
+    ],
+    "environment": {},
+    "cwd": "/Users/egor/.codex/worktrees/overlay-exit-specs/Dreams",
+    "exitCode": 0,
+    "log": "smoke.log"
+  }
+]

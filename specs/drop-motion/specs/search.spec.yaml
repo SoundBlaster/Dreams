@@ -1,0 +1,147 @@
+# Current integration: a22e44ace8f08fb10650d9b15a37c8183062fd0d; validation/2026-10-14-search-stack/README.md
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.rain.search_occupancy
+  title: GlyphSearch
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Let users control the share of visible glyphs simultaneously trying combinations.
+scope:
+  boundedContext: rain_simulation
+  includes:
+  - Simultaneous live-cell quota, burst lifetime, saved macOS control and renderer adoption.
+  excludes:
+  - Motion law, glyph outlines, shader glow/alpha, clocks, agent activity acquisition and tvOS adoption.
+provides:
+  capabilities:
+  - id: dreams.rain.search_occupancy
+    role: primary
+    summary: Maintain a configurable simultaneous search share across all live glyph cells.
+requires:
+  capabilities:
+  - id: platform.apple.windowserver
+    summary: Native settings use AppKit; pure simulation tests do not require WindowServer.
+  - id: platform.apple.metal_renderer
+    summary: Preview/live renderer adoption requires the existing Metal renderer.
+interfaces:
+  inbound:
+  - id: search_tuning
+    kind: library
+    summary: Simulation tuning and deterministic advance.
+    operations:
+    - name: setSearchFraction/advance
+      inputs:
+      - name: fraction_and_time
+        type: Double fraction in 0...1; finite nondecreasing simulation time
+      outputs:
+      - name: search_state
+        type: Per-position bursts with ceil(N * fraction) active positions after advance when glyphCount >= 2
+  outbound: []
+constraints:
+- id: simultaneous_share
+  level: MUST
+  statement: At every completed advance with at least two available glyph designs, support ceil(N * fraction) simultaneous
+    search positions, where N is all live non-gap cells in unhidden columns, including fading cells and heads. An
+    empty screen has zero searches. Count cells across the whole grid, not columns or starts per second.
+- id: tuning
+  level: MUST
+  statement: Default fraction is 0.1; finite values clamp to 0 through 1, nonfinite model updates are ignored. Zero
+    cancels every search; one keeps every live cell searching. Changes apply on the next advance, including an advance
+    at the current timestamp.
+- id: burst
+  level: MUST
+  statement: Each chosen position rapidly changes designs through a finite burst, then settles to its selected target.
+    Refill the occupancy quota as bursts complete; at saturation a position may immediately enter another burst.
+    The existing mutation/activity rate affects trial cadence, not the configured simultaneous share.
+- id: ink_lifetime
+  level: MUST
+  statement: 'Search changes glyph identity and mutation timestamps only: retain writtenAt, hold/fade, ink, warmth
+    and flashedAt. Settling adds no brightness flash. Expiry, overwrite or hidden-column clearing removes that search;
+    no mutation can resurrect expired ink.'
+- id: independent_motion
+  level: MUST
+  statement: Changing the search fraction must not change the writing PRNG, packet timing, head motion or captured
+    cell lifetimes. For fixed tuning and full coverage, global timestamp scheduling must produce the same state
+    under fine and coarse frame subdivision.
+- id: parent_assembly
+  level: MUST
+  statement: The macOS controller persists rainSearchFraction, exposes it read-only in MCP status, and propagates
+    it to newly created and existing renderers. Both live and preview paths set the simulation fraction before triggers/advance.
+    Settings show a 0–100 percent slider, and preset reset restores 10 percent.
+effects:
+  sideEffects:
+  - id: search_state
+    kind: state_mutation
+    summary: Mutates glyph identities and search schedules; core has no external I/O.
+  - id: search_preference
+    kind: state_mutation
+    summary: Persists rainSearchFraction in macOS defaults.
+evidence:
+- id: search_source
+  kind: source
+  path: evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  supports:
+  - constraints
+- id: search_tests
+  kind: test
+  path: evidence/2026-10-14-search-stack/source/Tests/DreamsTests/SearchOccupancyTests.swift
+  supports:
+  - constraints.simultaneous_share
+  - constraints.tuning
+  - constraints.ink_lifetime
+  - constraints.independent_motion
+- id: integration
+  kind: source
+  path: evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  supports:
+  - constraints.parent_assembly
+- id: native_settings
+  kind: test
+  path: evidence/2026-10-14-search-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+  supports:
+  - constraints.parent_assembly
+- id: current_validation
+  kind: test
+  path: validation/2026-10-14-search-stack/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    boundary: medium
+    behavior: medium
+  notes:
+  - 'User explicitly corrected starts per second to a minimum simultaneous share: at least 10 percent in search
+    state.'
+  - Default 10 percent, rounding upward, 0–100 range and inclusion of fading/head cells are explicit implementation
+    choices.
+  - Descriptive draft; test execution and structural validity are distinct from formal acceptance.
+  - Current FSD/P2 scheduler baseline 98fe537f30ef5c2f31cd7c0b22ff4ba20e82175f; cached occupancy and timestamp queues
+    preserve burst outcomes. Historical evidence is not reused as a new run. See validation/2026-10-14-search-fsd/README.md.
+implementationBindings:
+- id: search_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: a22e44ace8f08fb10650d9b15a37c8183062fd0d
+  files:
+    owned:
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/DropDecelerationTests.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/RainTrailRenderingTests.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/SearchOccupancyTests.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
+    - evidence/2026-10-14-search-stack/source/scripts/test-matrix.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/SettingsPageTests.swift
+    border: []

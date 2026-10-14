@@ -1,0 +1,67 @@
+{
+  "sourceRevision": "a22e44ace8f08fb10650d9b15a37c8183062fd0d",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "a81f11a2401cfdf953507897e28fd6e907ac94f03fd4676d3e0459ee4e8e571c",
+      "snapshot": "evidence/2026-10-14-search-stack/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "a81f11a2401cfdf953507897e28fd6e907ac94f03fd4676d3e0459ee4e8e571c"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "sha256": "d3c3ef0bb901f90c5c6f807f998b5de8c4c039aab354ccfdbec8f7f698605dc7",
+      "snapshot": "evidence/2026-10-14-search-stack/source/Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "d3c3ef0bb901f90c5c6f807f998b5de8c4c039aab354ccfdbec8f7f698605dc7"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "de0e54b55814ca3e8e0d650902e65bcb28235405c42aa39f775923109e68066c",
+      "snapshot": "evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "de0e54b55814ca3e8e0d650902e65bcb28235405c42aa39f775923109e68066c"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "sha256": "cf5ffa142476f620a6f24a21f29274d9d8f5680042a8b92ee300f71e84c910bd",
+      "snapshot": "evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "cf5ffa142476f620a6f24a21f29274d9d8f5680042a8b92ee300f71e84c910bd"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "a95e0995a1abfc2db45c5bd2d85750a67187aa2bf2a240db5d441ffe002a120b",
+      "snapshot": "evidence/2026-10-14-search-stack/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "a95e0995a1abfc2db45c5bd2d85750a67187aa2bf2a240db5d441ffe002a120b"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "87d031c8b316481757d59883700afaa4d3a026cc618a5dc1ef88053bb3bb0b2e",
+      "snapshot": "evidence/2026-10-14-search-stack/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "87d031c8b316481757d59883700afaa4d3a026cc618a5dc1ef88053bb3bb0b2e"
+    },
+    {
+      "path": "Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "sha256": "6f8b7c7e8432359ef384a8e8408b00da7e4dabc5dc303efc11cd01b29872e065",
+      "snapshot": "evidence/2026-10-14-search-stack/source/Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "snapshotKind": "full-file",
+      "snapshotSha256": "6f8b7c7e8432359ef384a8e8408b00da7e4dabc5dc303efc11cd01b29872e065"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "ad01f97a801c5533c4558f5a7350a94006d15b1033330f461c868b5ebf516c3a",
+      "snapshot": "evidence/2026-10-14-search-stack/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "b5da1498d3c2b7aa54325d362bdab55772128bae19d0dc34ba26faa021934578",
+      "snapshot": "evidence/2026-10-14-search-stack/maps/overlay-session.hcs"
+    }
+  ],
+  "impact": "Integration after PR18 merge. Stable roles, claim IDs and acceptance state retained. Current snapshots supersede current bindings; older evidence stays historical."
+}

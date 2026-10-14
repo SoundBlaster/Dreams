@@ -1,0 +1,16 @@
+Building for production...
+[Using on-disk description]
+[1 / 1]
+[2 / 5] DreamsTests-product
+[4 / 6] DreamsTests-product
+[8 / 12] DreamsTests-product
+[10 / 12] DreamsTests-product
+Build complete! (6.72 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropDecelerationSettingsTests started.
+􀟈  Test controlsEnablePersistAndDisableDeceleration() started.
+􁁛  Test controlsEnablePersistAndDisableDeceleration() passed after 0.349 seconds.
+􁁛  Suite DropDecelerationSettingsTests passed after 0.349 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.349 seconds.

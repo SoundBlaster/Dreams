@@ -1,9 +1,10 @@
+# Current integration: a22e44ace8f08fb10650d9b15a37c8183062fd0d; validation/2026-10-14-search-stack/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
   id: dreams.rain.drop_motion
   title: DropMotion
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Let new rain heads enter at their existing speed and decelerate while their fixed glyph trails fade in
@@ -51,8 +52,10 @@ interfaces:
 constraints:
 - id: opt_in
   level: MUST
-  statement: Default to disabled. Disabled tuning or zero acceleration uses the previous constant-speed schedule,
-    random sequence and glyph lifetimes; do not change the existing speed control or add a second entry-speed control.
+  statement: Default braking to disabled. Disabled tuning and zero acceleration use the same constant-speed writing
+    schedule and glyph lifetimes under the selected search policy; do not change the existing speed control or add
+    a second entry-speed control. Search occupancy independently replaces the former opportunistic mutation policy,
+    so historical whole-state random-sequence parity is not a current guarantee.
 - id: kinematics
   level: MUST
   statement: At each packet start, retain the existing randomized column entry speed V. Apply the configured negative
@@ -99,7 +102,7 @@ effects:
 evidence:
 - id: simulation_source
   kind: source
-  path: evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  path: evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints.opt_in
   - constraints.kinematics
@@ -110,22 +113,22 @@ evidence:
   - constraints.bounded_event
 - id: model_tests
   kind: test
-  path: evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationTests.swift
+  path: evidence/2026-10-14-search-stack/source/Tests/DreamsTests/DropDecelerationTests.swift
   supports:
   - constraints
 - id: integration_source
   kind: source
-  path: evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: controls_test
   kind: test
-  path: evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+  path: evidence/2026-10-14-search-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
   supports:
   - constraints.parent_assembly
 - id: validation_results
   kind: test
-  path: validation/2026-10-14-motion-fsd/README.md
+  path: validation/2026-10-14-search-stack/README.md
   supports:
   - constraints
 provenance:
@@ -140,25 +143,32 @@ provenance:
     user-specified number.
   - Descriptive draft; runtime checks and formal acceptance are separate. Source identities and run evidence are
     linked from README.md.
+  - Search occupancy changes mutation selection and separates its PRNG from writing. The earlier legacy-parity witness
+    remains historical; the current opt_in claim compares disabled and zero braking at the same search policy.
+  - Current FSD/P2 scheduler baseline 98fe537f30ef5c2f31cd7c0b22ff4ba20e82175f; cached occupancy and timestamp queues
+    preserve burst outcomes. Historical evidence is not reused as a new run. See validation/2026-10-14-search-fsd/README.md.
 implementationBindings:
 - id: motion_swift
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 23ac3667ab1e0597d9f18e45c69dcb3859c10f89
+    revision: a22e44ace8f08fb10650d9b15a37c8183062fd0d
   files:
     owned:
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationTests.swift
-    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
-    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
-    - evidence/2026-10-14-motion-stack/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-14-motion-stack/source/Tests/DreamsTests/SettingsPageTests.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/DropDecelerationTests.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/RainTrailRenderingTests.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/SearchOccupancyTests.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
+    - evidence/2026-10-14-search-stack/source/scripts/test-matrix.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-14-search-stack/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-search-stack/source/Tests/DreamsTests/SettingsPageTests.swift
     border: []

@@ -35,3 +35,8 @@ The [drop-motion detail](drop-motion.hc) and [profiles](drop-motion.hcs) recover
 optional head deceleration, captured tail lifetimes and event duration. Validate
 default and `motion=decelerating`; rendering outside that boundary stays unexplored.
 The [drop-motion package](../drop-motion/README.md) records units and runtime evidence.
+
+The [glyph-search detail](glyph-search.hc) / [profiles](glyph-search.hcs) describe
+simultaneous live-cell occupancy; validate default, search=disabled and search=saturated.
+Its [draft capability](../drop-motion/specs/search.spec.yaml) shares the rain simulation
+package with motion. Neither map establishes shader/atlas or tvOS behavior.

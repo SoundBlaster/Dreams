@@ -12,7 +12,7 @@ struct DropDecelerationSettingsTests {
         _ = try #require(ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"])
         #expect(Bundle.main.bundleIdentifier != "ru.egormerkushev.dreams")
         let defaults = UserDefaults.standard
-        let keys = ["rainDecelerationEnabled", "rainDeceleration"]
+        let keys = ["rainDecelerationEnabled", "rainDeceleration", "rainSearchFraction"]
         let saved = keys.map { defaults.object(forKey: $0) }
         defer {
             for (key, value) in zip(keys, saved) {
@@ -22,6 +22,7 @@ struct DropDecelerationSettingsTests {
         }
         defaults.set(false, forKey: keys[0])
         defaults.set(-12.0, forKey: keys[1])
+        defaults.removeObject(forKey: keys[2])
         let delegate = DreamsDelegate()
         delegate.showsControls = true
         delegate.applicationDidFinishLaunching(Notification(name: NSApplication.didFinishLaunchingNotification))
@@ -38,6 +39,18 @@ struct DropDecelerationSettingsTests {
         let enabled = try #require(find("dreams.rain-deceleration-enabled", in: content) as? NSButton)
         let acceleration = try #require(find("dreams.rain-deceleration", in: content) as? NSSlider)
         #expect(enabled.state == .off && !acceleration.isEnabled)
+        let fraction = try #require(find("dreams.rain-search-fraction", in: content) as? NSSlider)
+        #expect(fraction.doubleValue == 0.1 && fraction.minValue == 0 && fraction.maxValue == 1)
+        for value in [0.0, 0.37, 1.0] {
+            fraction.doubleValue = value
+            try #require(NSApplication.shared.sendAction(try #require(fraction.action),
+                                                        to: fraction.target, from: fraction))
+            #expect(delegate.controller.rainSearchFraction == value)
+            #expect(defaults.double(forKey: keys[2]) == value)
+            let reloaded = DreamsController()
+            #expect(reloaded.rainSearchFraction == value)
+            reloaded.cleanUp()
+        }
         enabled.performClick(nil)
         #expect(delegate.controller.rainDecelerationEnabled && acceleration.isEnabled)
         acceleration.doubleValue = -24.5
