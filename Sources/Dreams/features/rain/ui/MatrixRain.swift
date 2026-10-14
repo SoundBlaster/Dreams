@@ -236,15 +236,16 @@ final class MatrixRain {
                 // Over windows, dissolve the coverage instead of leaving an opaque black stroke.
                 let inkOpacity: Float = transparentBackground ? 1 : opacity
                 let glyphAlpha = visibility * (transparentBackground ? opacity : 1)
+                // A drop's pale head is independent of its trail's random ink.
                 let head = simulation!.headIntensity(column: column, row: row)
-                    * (cell.ink > 0.45 ? 1 : 0.2)
                 let mutation = Float(max(0, 1 - (simulationClock - cell.flashedAt) / 0.28))
                 let white = max(head, mutation * 0.85)
                 let wordIndex = row - wordStart
                 // Keywords are typed by the same cursor, not faded over an existing column.
                 let isKeyword = selection != nil && wordIndex >= 0
                     && wordIndex < selection!.characters.count && cell.writtenAt >= (pulse?.began ?? Double(cycle * 16))
-                guard !cell.isGap || isKeyword else { continue }
+                // Packet gaps stay empty in the trail, but cannot hide the drop itself.
+                guard !cell.isGap || isKeyword || head > 0 else { continue }
                 let text: String
                 var rgb: SIMD3<Float>
                 if isKeyword && keywordBrightness <= 0.001 { continue }

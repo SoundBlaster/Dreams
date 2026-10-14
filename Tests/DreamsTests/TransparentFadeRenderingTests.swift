@@ -21,6 +21,8 @@ struct TransparentFadeRenderingTests {
         renderer.rainDensity = 0.5
         renderer.rainFadeRows = 16
         renderer.rainSpeed = 1
+        // Isolate alpha fading from the independently configurable glyph search.
+        renderer.rainSearchFraction = 0
         renderer.rainGlow = 0
         renderer.rainBrightnessSpread = 0
         renderer.rainTint = SIMD3(0.08, 0.35, 0.15)
@@ -30,6 +32,7 @@ struct TransparentFadeRenderingTests {
         // Pick a busy column at idle. A wide fade starts immediately, before any mutation.
         var simulation = MatrixSimulation(columnCount: 48, rows: 31, glyphCount: 57,
                                           density: 0.5, fadeRows: 16)
+        simulation.setSearchFraction(0)
         let coverage = RainActivity(idleIntensity: 1).coverage(at: 0, density: 0.5)
         if keyword { _ = simulation.trigger(column: 9, at: 0) }
         simulation.advance(to: 0, coverage: coverage)
