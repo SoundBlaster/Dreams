@@ -1,0 +1,32 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.settings_catalog
+  name: Dreams native settings catalog
+  version: 0.1.0-draft.1
+  summary: Standalone system-control showcase and native form compositions.
+  license: MIT
+  authors:
+  - name: Dreams contributors
+specs:
+- path: specs/catalog.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.settings.catalog
+  requires:
+    capabilities:
+    - platform.apple.swiftui
+compatibility:
+  platforms:
+  - macos
+  languages:
+  - name: swift
+keywords:
+- native-controls
+- settings-catalog
+- descriptive-draft
+foreignArtifacts:
+- format: markdown
+  path: README.md
+  role: documentation

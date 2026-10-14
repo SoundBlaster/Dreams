@@ -1,0 +1,41 @@
+{
+  "swift": {
+    "command": [
+      "swift",
+      "--version"
+    ],
+    "exitCode": 0,
+    "output": "swift-driver version: 1.168.6 Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0"
+  },
+  "specpm": {
+    "command": [
+      "specpm",
+      "--version"
+    ],
+    "exitCode": 0,
+    "output": "specpm 0.2.0"
+  },
+  "hypercode": {
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "--version"
+    ],
+    "exitCode": 1,
+    "output": "error: cannot read --version"
+  },
+  "macOS": {
+    "command": [
+      "sw_vers"
+    ],
+    "exitCode": 0,
+    "output": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428"
+  },
+  "xcode": {
+    "command": [
+      "xcodebuild",
+      "-version"
+    ],
+    "exitCode": 0,
+    "output": "Xcode 27.1\nBuild version 27A9275"
+  }
+}

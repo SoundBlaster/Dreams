@@ -18,6 +18,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Partial: motion and search recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
 | RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 3a4ad94 search baseline; prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Source 0ddcc4f; build/resource checks separate from UI | Visual/keyboard acceptance, then flagged host |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -164,3 +165,15 @@ Source `a22e44ace8f08fb10650d9b15a37c8183062fd0d` includes merged capture-status
 [drop integration](drop-motion/validation/2026-10-14-search-stack/README.md) refresh current source bindings.
 Affected session status/capture, motion timing/tuning and settings assembly claims keep
 their stable IDs and draft acceptance. Historical passes are not evidence for this revision.
+
+## Native settings catalog — 2026-10-14
+
+Source `0ddcc4f62dba1a264bbacb567b058931a56e4bec` adds the standalone catalog and UI composition package.
+[Catalog contract and limits](settings-catalog/README.md) and
+[fresh validation](settings-catalog/validation/2026-10-14/README.md) cover this first stage.
+Production Sources/Dreams, Package.swift, tvOS and glyph implementation are unchanged.
+Existing dreams.overlay.*, dreams.rain.* and dreams.glyph.* claim IDs still apply;
+there is no changed production implementation to repin. The application HC map adds
+a sibling SettingsCatalog role. Desktop SettingsPage remains unchanged and its full
+consumer recovery stays backlog. Flagged settings adoption, shared live bindings,
+embedded Metal and whole-window glass are desired later stages, not current evidence.

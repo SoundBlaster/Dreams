@@ -3,6 +3,7 @@ Dreams
     RainOverlaySession
     SettingsPage
   TelevisionApplication
+  SettingsCatalog
   AgentIntegrations
   GlyphToolchain
     GlyphEditor

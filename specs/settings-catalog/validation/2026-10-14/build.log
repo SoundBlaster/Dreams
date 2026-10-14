@@ -1,0 +1,16 @@
+zsh scripts/build-settings-catalog.sh release
+Building for production...
+[Planning deferred tasks]
+[1 / 6]
+[2 / 7] DreamsSettingsUI
+[3 / 11]
+[4 / 11]
+[5 / 11]
+[6 / 11] DreamsSettingsUI
+[10 / 13] DreamsSettingsCatalog-product
+[11 / 14] DreamsSettingsCatalog-product
+[16 / 17] DreamsSettingsCatalog-product
+[17 / 17] DreamsSettingsCatalog-product
+Build complete! (7.20 sec)
+/Users/egor/.codex/worktrees/screen-management/Dreams/dist/DreamsSettingsCatalog.app: replacing existing signature
+/Users/egor/.codex/worktrees/screen-management/Dreams/dist/DreamsSettingsCatalog.app

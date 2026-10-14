@@ -1,0 +1,13 @@
+{
+  "observedAtUTC": "2026-10-14T06:34:21.738030+00:00",
+  "sourceRevision": "0ddcc4f62dba1a264bbacb567b058931a56e4bec",
+  "launchCommand": [
+    "open",
+    "-n",
+    "dist/DreamsSettingsCatalog.app"
+  ],
+  "process": "39097 /Users/egor/.codex/worktrees/screen-management/Dreams/dist/DreamsSettingsCatalog.app/Contents/MacOS/DreamsSettingsCatalog",
+  "productionPreferenceFingerprint": "unchanged; actual settings not included",
+  "computerUseResult": "Mac locked; native UI observation blocked",
+  "visualAcceptance": "not observed"
+}

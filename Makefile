@@ -210,6 +210,9 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/settings-catalog.hc
+	"$(HYPERCODE)" validate specs/hypercode/settings-catalog.hc --hcs specs/hypercode/settings-catalog.hcs
+	"$(SPECPM)" validate specs/settings-catalog --json
 	"$(HYPERCODE)" parse specs/hypercode/application.hc
 	"$(HYPERCODE)" validate specs/hypercode/application.hc --hcs specs/hypercode/application.hcs
 	"$(HYPERCODE)" parse specs/hypercode/glyph-editor.hc
