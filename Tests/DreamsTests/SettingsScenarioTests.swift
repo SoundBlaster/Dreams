@@ -11,7 +11,7 @@ extension SettingsPageTests {
             "Run make test-gui-trace to use a disposable agent feed.")
         #expect(Bundle.main.bundleIdentifier != "ru.egormerkushev.dreams")
         let keys = ["transparentBackground", "rainColumnCount", "rainDensity", "rainSpeed", "rainFadeRows",
-                    "rainBrightnessSpread", "rainGlow", "transparentRainGlow", "rainIdleIntensity", "rainColor",
+                    "rainBrightnessSpread", "rainPulseStrength", "rainGlow", "transparentRainGlow", "rainIdleIntensity", "rainColor",
                     "transparentRainColor", "keywordColor", "keywordBrightness", "restoredGlyphs", "hideFromScreenshots",
                     "runTimeSeconds", "stopHotkeyKeyCode", "stopHotkeyModifiers", "stopHotkeyKey"]
         let defaults = UserDefaults.standard

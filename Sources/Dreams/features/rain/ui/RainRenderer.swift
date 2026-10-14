@@ -20,6 +20,7 @@ final class RainRenderer: NSObject {
     var rainSearchFraction = DreamsPreset.searchFraction
     var rainDeceleration = MatrixSimulation.Deceleration()
     var rainBrightnessSpread = DreamsPreset.brightnessSpread
+    var rainPulseStrength = DreamsPreset.pulseStrength
     var demoWorkingAgents: Int?
     var brightness: Float = 0.18
     private(set) var framesRendered = 0
@@ -78,7 +79,7 @@ final class RainRenderer: NSObject {
             brightness: brightness, previewTime: posedTime, demoWorkingAgents: demoWorkingAgents,
             columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows, speed: rainSpeed,
             brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
-            deceleration: rainDeceleration, searchFraction: rainSearchFraction,
+            deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)
         encoder.endEncoding()
         await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
@@ -119,7 +120,7 @@ extension RainRenderer: @MainActor MTKViewDelegate {
             resolution: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)),
             brightness: brightness, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
-            deceleration: rainDeceleration, searchFraction: rainSearchFraction,
+            deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)
         encoder.endEncoding()
         buffer.present(drawable)

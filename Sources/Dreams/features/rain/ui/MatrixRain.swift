@@ -118,6 +118,7 @@ final class MatrixRain {
               previewTime: Float? = nil, demoWorkingAgents: Int? = nil, columnCount: Int = 0, density: Double = 0.8,
               fadeRows: Double = 1, speed: Double = 1, brightnessSpread: Double = 1, glow: Double = 1, idleIntensity: Double = 0.2,
               deceleration: MatrixSimulation.Deceleration = .init(), searchFraction: Double = 0.1,
+              pulseStrength: Double = 0.3,
               keywordTint: SIMD3<Float> = SIMD3(0.10, 0.65, 0.24), keywordBrightness: Double = 1,
               rainTint: SIMD3<Float> = SIMD3(0.008, 0.26, 0.055)) {
         let now = ProcessInfo.processInfo.systemUptime
@@ -249,6 +250,7 @@ final class MatrixRain {
                 let text: String
                 var rgb: SIMD3<Float>
                 if isKeyword && keywordBrightness <= 0.001 { continue }
+                let pulsedInk = ink * GlyphPulse.gain(at: time, column: column, row: row, strength: pulseStrength)
                 // Keyword cells mutate like the rain around them: while the simulation searches
                 // a cell (or just swapped it), a rain glyph flickers there in the keyword colour,
                 // then the letter returns. Only the colour sets words apart.
@@ -260,11 +262,11 @@ final class MatrixRain {
                     text = mutating ? String(symbols[cell.glyph]) : String(selection.characters[wordIndex])
                     // Same ink as the rain (brightness spread included); colour and the
                     // word brightness setting are the only differences.
-                    rgb = keywordTint * ink * inkOpacity
+                    rgb = keywordTint * pulsedInk * inkOpacity
                 } else {
                     text = String(symbols[cell.glyph])
                     let tint = rainTint + SIMD3<Float>(0, 0, 0.02 * cell.warmth)
-                    rgb = tint * ink * inkOpacity
+                    rgb = tint * pulsedInk * inkOpacity
                 }
                 // Only the newly printed cell is pale; older signs keep their own ink level.
                 rgb = rgb * (1 - white) + SIMD3<Float>(0.86, 0.96, 0.88) * white
@@ -288,7 +290,7 @@ final class MatrixRain {
                     + SIMD3<Float>(0.52, 0.95, 0.65) * white
                 if glow > 0 { halos.append(Cell(rect: glowRect, uv: glowUV,
                     color: SIMD4(haloTint * exposure * wordExposure,
-                        (0.30 * ink * inkOpacity + 0.75 * white) * glyphAlpha * Float(min(3, glow))))) }
+                        (0.30 * pulsedInk * inkOpacity + 0.75 * white) * glyphAlpha * Float(min(3, glow))))) }
                 cells.append(Cell(rect: rect, uv: uv, color: SIMD4(rgb * exposure, glyphAlpha)))
             }
         }

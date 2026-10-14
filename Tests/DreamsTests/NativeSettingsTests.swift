@@ -8,7 +8,7 @@ import Testing
 @MainActor
 struct NativeSettingsTests {
     static let savedKeys = ["rainColumnCount", "rainDensity", "rainSpeed", "rainSearchFraction", "rainFadeRows",
-                            "rainDecelerationEnabled", "rainDeceleration", "rainBrightnessSpread", "rainGlow", "transparentRainGlow",
+                            "rainDecelerationEnabled", "rainDeceleration", "rainBrightnessSpread", "rainPulseStrength", "rainGlow", "transparentRainGlow",
                             "rainIdleIntensity", "rainColor", "transparentRainColor", "keywordColor", "keywordBrightness",
                             "transparentBackground", "restoredGlyphs", "hideFromScreenshots", "runTimeSeconds",
                             "rainDisplayMode", "rainDisplayIDs"]
@@ -43,6 +43,7 @@ struct NativeSettingsTests {
         let keys: [NativeRainParameter: String] = [
             .density: "rainDensity", .speed: "rainSpeed", .search: "rainSearchFraction", .deceleration: "rainDeceleration",
             .fade: "rainFadeRows", .spread: "rainBrightnessSpread", .glow: controller.transparentBackground ? "transparentRainGlow" : "rainGlow",
+            .pulse: "rainPulseStrength",
             .idle: "rainIdleIntensity", .keywordBrightness: "keywordBrightness"
         ]
         for parameter in NativeRainParameter.allCases {

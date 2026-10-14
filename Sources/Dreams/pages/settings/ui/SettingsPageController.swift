@@ -28,6 +28,7 @@ final class SettingsPageController: NSObject {
     let searchFractionLabel = NSTextField(labelWithString: "")
     let decelerationLabel = NSTextField(labelWithString: "")
     let brightnessSpreadLabel = NSTextField(labelWithString: "")
+    let pulseStrengthLabel = NSTextField(labelWithString: "")
     let nativeSettingsEnabled: Bool
     var nativeWindow: DreamsControlsWindow?
     var nativeModel: NativeSettingsModel?
@@ -90,6 +91,7 @@ final class SettingsPageController: NSObject {
         (controlsByID["dreams.rain-deceleration"] as? NSSlider)?.isEnabled = controller.rainDecelerationEnabled
         fadeLabel.stringValue = L("rain.fade.value", Int(controller.rainFadeRows))
         brightnessSpreadLabel.stringValue = "\(Int((controller.rainBrightnessSpread * 100).rounded()))%"
+        pulseStrengthLabel.stringValue = "\(Int((controller.rainPulseStrength * 100).rounded()))%"
         glowLabel.stringValue = "\(Int((controller.rainGlow * 100).rounded()))%"
         idleLabel.stringValue = "\(Int((controller.rainIdleIntensity * 100).rounded()))%"
         keywordBrightnessLabel.stringValue = "\(Int((controller.keywordBrightness * 100).rounded()))%"
@@ -256,6 +258,7 @@ final class SettingsPageController: NSObject {
         (controlsByID["dreams.rain-deceleration-enabled"] as? NSButton)?.state = controller.rainDecelerationEnabled ? .on : .off
         slider("dreams.rain-fade", controller.rainFadeRows)
         slider("dreams.rain-brightness-spread", controller.rainBrightnessSpread)
+        slider("dreams.rain-pulse-strength", controller.rainPulseStrength)
         slider("dreams.rain-glow", controller.rainGlow)
         slider("dreams.rain-idle", controller.rainIdleIntensity)
         slider("dreams.keyword-brightness", controller.keywordBrightness)
@@ -328,6 +331,11 @@ final class SettingsPageController: NSObject {
 
     @objc func changeBrightnessSpread(_ sender: NSSlider) {
         controller.rainBrightnessSpread = sender.doubleValue
+        refreshValueLabels()
+    }
+
+    @objc func changePulseStrength(_ sender: NSSlider) {
+        controller.rainPulseStrength = sender.doubleValue
         refreshValueLabels()
     }
 

@@ -25,6 +25,7 @@ struct TransparentFadeRenderingTests {
         renderer.rainSearchFraction = 0
         renderer.rainGlow = 0
         renderer.rainBrightnessSpread = 0
+        renderer.rainPulseStrength = 0
         renderer.rainTint = SIMD3(0.08, 0.35, 0.15)
         renderer.keywordTint = renderer.rainTint
         renderer.keywordBrightness = 1

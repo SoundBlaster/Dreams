@@ -54,6 +54,7 @@ struct NativeAppearanceForm: View {
                     .accessibilityIdentifier("dreams.rain-color")
                 NativeParameterRow(model: model, parameter: .glow)
                 NativeParameterRow(model: model, parameter: .spread)
+                NativeParameterRow(model: model, parameter: .pulse)
             }
             Section(settingsString("section.glyphs")) {
                 Toggle(settingsString("check.restored"), isOn: $model.restoredGlyphs)

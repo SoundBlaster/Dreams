@@ -357,3 +357,12 @@ Its [claim matrix](../specs/overlay-session/matrix.md) records actual source
 limits and unresolved decisions; structural checks do not establish new runtime
 evidence. Other subsystem coverage is tracked in the
 [specification progress](../specs/specification-progress.md).
+
+## Glyph brightness pulse
+
+The Pulse slider smoothly varies each stationary glyph's whole brightness with an independent
+phase and period (1.33–4 real seconds). Default strength is 30%; 0% disables the effect. At full
+strength the gain stays between 0.35 and 1.65. It affects ordinary ink, agent words and their glow
+without changing glyph identity, search scheduling, writing speed or lifetime. The current pale
+drop head retains its highlight. Both opaque and transparent modes use the same setting;
+transparent alpha fading remains independent. MCP status exposes `rain_pulse_strength` read-only.

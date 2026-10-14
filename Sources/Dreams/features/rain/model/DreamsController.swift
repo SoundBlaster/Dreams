@@ -147,6 +147,7 @@ final class DreamsController: NSObject {
         rainDecelerationEnabled = DreamsPreset.decelerationEnabled
         rainDeceleration = DreamsPreset.deceleration
         rainBrightnessSpread = DreamsPreset.brightnessSpread
+        rainPulseStrength = DreamsPreset.pulseStrength
         rainIdleIntensity = DreamsPreset.idleIntensity
         let words = DreamsPreset.keywordColor
         keywordColor = NSColor(srgbRed: words[0], green: words[1], blue: words[2], alpha: 1)
@@ -324,6 +325,17 @@ final class DreamsController: NSObject {
         }
     }
 
+    var rainPulseStrength: Double = {
+        let value = UserDefaults.standard.object(forKey: "rainPulseStrength") as? Double ?? DreamsPreset.pulseStrength
+        return value.isFinite ? min(1, max(0, value)) : DreamsPreset.pulseStrength
+    }() {
+        didSet {
+            UserDefaults.standard.set(rainPulseStrength, forKey: "rainPulseStrength")
+            screenManager.renderers.forEach { $0.rainPulseStrength = rainPulseStrength }
+            settingsChanged()
+        }
+    }
+
     /// Glow is stored per background: a transparent overlay defaults to none, to keep work legible.
     private static func storedGlow(transparent: Bool) -> Double {
         let stored = UserDefaults.standard.object(forKey: transparent ? "transparentRainGlow" : "rainGlow")
@@ -456,6 +468,7 @@ final class DreamsController: NSObject {
             "rain_deceleration_enabled": rainDecelerationEnabled,
             "rain_deceleration": dropDeceleration.acceleration,
             "rain_brightness_spread": rainBrightnessSpread,
+            "rain_pulse_strength": rainPulseStrength,
             "rain_glow": rainGlow,
             "keyword_color_rgb": [keywordTint.x, keywordTint.y, keywordTint.z],
             "rain_color_rgb": [rainTint.x, rainTint.y, rainTint.z],
@@ -523,6 +536,7 @@ final class DreamsController: NSObject {
         renderer.rainSearchFraction = rainSearchFraction
         renderer.rainDeceleration = dropDeceleration
         renderer.rainBrightnessSpread = rainBrightnessSpread
+        renderer.rainPulseStrength = rainPulseStrength
         renderer.rainFadeRows = rainFadeRows
         renderer.rainColumnCount = rainColumnCount
         renderer.rainDensity = rainDensity

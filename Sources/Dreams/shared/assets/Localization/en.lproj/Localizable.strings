@@ -163,3 +163,6 @@
 "native.backgroundProfiles" = "Transparent and opaque backgrounds keep separate rain color and glow settings.";
 "native.legacy" = "Open legacy settings…";
 "native.legacyHint" = "All previous controls remain available, including shortcut recording. Both windows use the same saved settings.";
+
+"rain.pulse" = "Glyph brightness pulse";
+"rain.pulse.tip" = "Independent smooth brightness pulses. 0% disables them; drop heads and alpha fading stay unchanged.";
