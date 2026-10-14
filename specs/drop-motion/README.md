@@ -46,3 +46,5 @@ mutation policy: the earlier whole-state PRNG parity sample is historical, not a
 They share a package because the simulation, tuning ownership and consumers are shared.
 
 Current search FSD/P2 source and checks: [2026-10-14 validation](validation/2026-10-14-search-fsd/README.md). Quota/count caching and timestamp queues preserve visible-state digests; prior evidence remains historical.
+
+Current integrated baseline: [2026-10-14 search-stack](validation/2026-10-14-search-stack/README.md). Prior source/test records remain historical.

@@ -1,0 +1,144 @@
+swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
+.build/activity-checks
+PASS: calm rain, smooth flood on a message, hold, fall to calm, re-flood mid-fall, busy agent stays dense, idle slider
+swiftc -swift-version 6 Sources/Dreams/features/rain/model/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
+.build/matrix-checks
+PASS: typing, mutation, frame-rate independence, irreversible fade, hidden-column restart, expired-cell removal, draining packets, density occupancy, dynamic per-pass column occupancy, sequential/wide dissolve, brightness spread and live tuning
+swiftc -swift-version 6 -parse-as-library Sources/Dreams/shared/lib/StopHotkey.swift scripts/test-hotkey.swift -o .build/hotkey-checks
+.build/hotkey-checks
+PASS: default, recording rules, display names, menu equivalent, persistence and fallbacks
+swift test -c release
+Building for production...
+[Constructing description]
+[Planning deferred tasks]
+[7 / 46]
+[10 / 39] SystemPackage
+[16 / 42] EventSource
+[20 / 43] Logging
+[25 / 45] SystemPackage
+[31 / 50] MCP
+[33 / 51] MCP
+[40 / 56] Dreams-product
+[42 / 58] Dreams
+[50 / 65] Dreams-product
+[51 / 65] Dreams-product
+[56 / 66] DreamsTests-product
+[58 / 67] DreamsTests-product
+[63 / 67] DreamsTests-product
+[65 / 67] DreamsTests-product
+Build complete! (30.91 sec)
+Test Suite 'All tests' started at 2026-10-14 08:12:05.188.
+Test Suite 'All tests' passed at 2026-10-14 08:12:05.189.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀙟  Suite DisplaySettingsTraceTests skipped.
+􀙟  Suite OverlayExitTests skipped.
+􀟈  Suite RainTrailTests started.
+􀟈  Suite SearchOccupancyTests started.
+􀟈  Suite SettingsPageTests started.
+􀙟  Suite RainTrailRenderingTests skipped.
+􀙟  Suite CaptureVisibilityTests skipped.
+􀙟  Suite DropDecelerationSettingsTests skipped.
+􀟈  Suite DisplaySelectionTests started.
+􀙟  Suite TransparentFadeRenderingTests skipped.
+􀟈  Test headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Suite DropDecelerationTests started.
+􀙟  Test displaySettingsPersistAndExplainFallback() skipped.
+􀙟  Suite SearchSettingsTraceTests skipped.
+􀙟  Test escapeButtonAndDisplayFocusLifecycle() skipped.
+􀟈  Test eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test invalidFractionsCannotExceedTheWholePopulation() started.
+􀟈  Test searchesDoNotChangeMotionBrightnessOrLifetime() started.
+􀟈  Test expiryAndHidingCancelSearchesWithoutResurrection() started.
+􀟈  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() started.
+􀙟  Test captureTrailMotion() skipped.
+􀟈  Test multipleConcurrentSearchesRemainFrameIndependent() started.
+􀟈  Test settingsWindowKeepsControlsAndValues() started.
+􀟈  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() started.
+􀙟  Test controlsEnablePersistAndDisableDeceleration() skipped.
+􀟈  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 1 argument density → 0.25 to headOutrunsRearAndStretchesTrace(density:) started.
+􀙟  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) skipped.
+􀟈  Test case passing 1 argument density → 0.0 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument density → 0.5 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument width → 3 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() started.
+􀟈  Test case passing 1 argument width → 16 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test automaticPrefersInternalEvenWithExternalMain() started.
+􀟈  Test case passing 1 argument width → 1 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument density → 0.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test closedLidUsesMainExternal() started.
+􀟈  Test noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument density → 0.5 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test selectedSubsetSurvivesDisconnectAndReconnect() started.
+􀟈  Test remainingSelectedScreenWinsOverAutomaticFallback() started.
+􀟈  Test case passing 1 argument density → 1.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test stableChoicePersistsAndInvalidModeFallsBack() started.
+􀙟  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) skipped.
+􀟈  Test disabledOrZeroAccelerationPreservesTheExistingRain() started.
+􀟈  Test timeStepsDoNotChangeTheDeceleratingPath() started.
+􀟈  Test headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test allCoversBothAndExcludesAgent() started.
+􀟈  Test negativeAccelerationMeetsTheSpeedFloorContinuously() started.
+􀟈  Test liveTuningOnlyChangesTheNextPacket() started.
+􀟈  Test malformedAccelerationCannotReverseOrStallDrops() started.
+􀟈  Test fullDensityRemainsFilledAcrossSlowPackets() started.
+􀙟  Test captureSearchControl() skipped.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 1 argument mode → .automatic to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument mode → .all to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument mode → .selected to noModeCanCoverAgentWorkspace(_:) started.
+􁁛  Test headOutrunsRearAndStretchesTrace(density:) with 3 test cases passed after 0.002 seconds.
+􁁛  Test fadeWidthCountsRowsAtTheSlowerRear(width:) with 3 test cases passed after 0.004 seconds.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􁁛  Test invalidFractionsCannotExceedTheWholePopulation() passed after 0.007 seconds.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􁁛  Test eventDurationIncludesTheWholeStretchedTrace(density:) with 3 test cases passed after 0.008 seconds.
+􁁛  Test expiryAndHidingCancelSearchesWithoutResurrection() passed after 0.008 seconds.
+􁁛  Test automaticPrefersInternalEvenWithExternalMain() passed after 0.008 seconds.
+􁁛  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() passed after 0.008 seconds.
+􁁛  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() passed after 0.008 seconds.
+􁁛  Test closedLidUsesMainExternal() passed after 0.008 seconds.
+􁁛  Test selectedSubsetSurvivesDisconnectAndReconnect() passed after 0.007 seconds.
+􁁛  Test noModeCanCoverAgentWorkspace(_:) with 3 test cases passed after 0.008 seconds.
+􁁛  Test remainingSelectedScreenWinsOverAutomaticFallback() passed after 0.007 seconds.
+􁁛  Test allCoversBothAndExcludesAgent() passed after 0.007 seconds.
+􁁛  Test negativeAccelerationMeetsTheSpeedFloorContinuously() passed after 0.007 seconds.
+􁁛  Test timeStepsDoNotChangeTheDeceleratingPath() passed after 0.007 seconds.
+􁁛  Test liveTuningOnlyChangesTheNextPacket() passed after 0.007 seconds.
+􁁛  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() passed after 0.008 seconds.
+􁁛  Test malformedAccelerationCannotReverseOrStallDrops() passed after 0.007 seconds.
+􁁛  Test fullDensityRemainsFilledAcrossSlowPackets() passed after 0.007 seconds.
+􁁛  Suite RainTrailTests passed after 0.008 seconds.
+􁁛  Test multipleConcurrentSearchesRemainFrameIndependent() passed after 0.009 seconds.
+􁁛  Test headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) with 9 test cases passed after 0.008 seconds.
+􁁛  Test stableChoicePersistsAndInvalidModeFallsBack() passed after 0.010 seconds.
+􁁛  Suite DisplaySelectionTests passed after 0.011 seconds.
+􁁛  Test disabledOrZeroAccelerationPreservesTheExistingRain() passed after 0.033 seconds.
+􁁛  Suite DropDecelerationTests passed after 0.034 seconds.
+􁁛  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) with 10 test cases passed after 0.036 seconds.
+􁁛  Test searchesDoNotChangeMotionBrightnessOrLifetime() passed after 0.042 seconds.
+􁁛  Suite SearchOccupancyTests passed after 0.042 seconds.
+􁁛  Test settingsWindowKeepsControlsAndValues() passed after 0.195 seconds.
+􀙟  Test recordedSettingsScenario() skipped.
+􁁛  Suite SettingsPageTests passed after 0.195 seconds.
+􁁛  Test run with 34 tests in 12 suites passed after 0.196 seconds.

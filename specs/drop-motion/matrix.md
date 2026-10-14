@@ -27,3 +27,5 @@ Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-mot
 Current search-policy source and validation are linked in [search claims](search-matrix.md).
 The original PRNG parity result identifies its old baseline only. Motion claim IDs stay stable;
 opt_in now explicitly scopes parity to the same selected mutation policy.
+
+Current integrated baseline: [2026-10-14 search-stack](validation/2026-10-14-search-stack/README.md). Prior source/test records remain historical.

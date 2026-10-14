@@ -78,3 +78,5 @@ On that earlier FSD-only baseline, O1–O7 remained explicit limitations; the ca
 Current capture-status FSD refresh: [2026-10-14 validation](validation/2026-10-14-capture-fsd/README.md). Suspended status is false without owned overlays.
 
 Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-motion-stack/README.md). Prior source/test records remain historical.
+
+Current integrated baseline: [2026-10-14 search-stack](validation/2026-10-14-search-stack/README.md). Prior source/test records remain historical.

@@ -1,0 +1,32 @@
+{
+  "swift": {
+    "command": [
+      "rtk",
+      "proxy",
+      "swift",
+      "--version"
+    ],
+    "exitCode": 0,
+    "output": "swift-driver version: 1.168.6 Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0"
+  },
+  "specpm": {
+    "command": [
+      "rtk",
+      "proxy",
+      "specpm",
+      "--version"
+    ],
+    "exitCode": 0,
+    "output": "specpm 0.2.0"
+  },
+  "hypercode": {
+    "command": [
+      "rtk",
+      "proxy",
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "--version"
+    ],
+    "exitCode": 1,
+    "output": "error: cannot read --version"
+  }
+}

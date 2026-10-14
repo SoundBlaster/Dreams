@@ -156,3 +156,11 @@ Native AppKit control/persistence, Screener SDK/MCP appearance and pure model te
 separate evidence; draft status and remaining parent integration assumptions are explicit.
 
 Current search FSD/P2 source and checks: [2026-10-14 validation](drop-motion/validation/2026-10-14-search-fsd/README.md). Quota/count caching and timestamp queues preserve visible-state digests; prior evidence remains historical.
+
+## PR stack integration — search-stack — 2026-10-14
+
+Source `a22e44ace8f08fb10650d9b15a37c8183062fd0d` includes merged capture-status PR18 and the current drop layer.
+[Session integration](overlay-session/validation/2026-10-14-search-stack/README.md) and
+[drop integration](drop-motion/validation/2026-10-14-search-stack/README.md) refresh current source bindings.
+Affected session status/capture, motion timing/tuning and settings assembly claims keep
+their stable IDs and draft acceptance. Historical passes are not evidence for this revision.
