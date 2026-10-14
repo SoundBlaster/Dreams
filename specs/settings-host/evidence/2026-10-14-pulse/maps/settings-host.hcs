@@ -1,0 +1,30 @@
+SettingsPage:
+  owner: "SettingsPageController retained by DreamsDelegate; one shared DreamsController"
+  capability: "dreams.settings.host"
+LaunchRouting:
+  source: "Sources/Dreams/shared/config/NativeSettingsFeature.swift"
+  default: "legacy unless --native-settings; --legacy-settings always wins"
+NativePresentation:
+  source: "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift"
+  minimum: "macOS 15; standard settings surfaces, no live Metal preview"
+Navigation:
+  implementation: "NavigationSplitView + List selection; window-owned State"
+Forms:
+  requires: "dreams.settings.ui from local DreamsSettingsUI; border hashes include manifest and SettingsSliderRow"
+  source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift"
+  implementation: "system Form/Section/controls; app owns production units"
+SettingsBinding:
+  source: "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift"
+  changes: "controller notifications; existing persistence/renderer effects"
+LegacyAccess:
+  source: "Sources/Dreams/pages/settings/ui/SettingsWindow.swift"
+  limitation: "shortcut recording remains legacy; both windows share settings"
+WindowLifetime:
+  source: "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift"
+  cleanup: "SettingsPageController.cleanUp; one timer and retained observer tokens"
+@settings[legacy]:
+  NativePresentation:
+    active: false
+@settings[native]:
+  NativePresentation:
+    active: true

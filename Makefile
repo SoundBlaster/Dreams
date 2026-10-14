@@ -215,6 +215,10 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/glyph-pulse.hc
+	"$(HYPERCODE)" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs
+	"$(HYPERCODE)" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs --ctx pulse=off
+	"$(HYPERCODE)" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs --ctx background=transparent
 	"$(HYPERCODE)" parse specs/hypercode/settings-host.hc
 	"$(HYPERCODE)" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=legacy
 	"$(HYPERCODE)" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=native

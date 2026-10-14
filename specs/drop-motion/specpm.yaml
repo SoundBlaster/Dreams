@@ -2,10 +2,10 @@ apiVersion: specpm.dev/v0.1
 kind: SpecPackage
 metadata:
   id: dreams.drop_motion
-  name: Dreams rain motion and search
-  version: 0.3.0-draft.1
-  summary: Stationary fading rain with optional deceleration and simultaneous glyph
-    search occupancy.
+  name: Dreams rain motion and appearance
+  version: 0.4.0-draft.1
+  summary: Stationary fading rain with optional deceleration, simultaneous search,
+    pale heads and independent brightness pulses.
   license: MIT
   authors:
   - name: Dreams contributors (AI-assisted implementation and recovery)
@@ -13,12 +13,14 @@ specs:
 - path: specs/motion.spec.yaml
 - path: specs/search.spec.yaml
 - path: specs/head.spec.yaml
+- path: specs/pulse.spec.yaml
 index:
   provides:
     capabilities:
     - dreams.rain.drop_motion
     - dreams.rain.search_occupancy
     - dreams.rain.head_visibility
+    - dreams.rain.glyph_pulse
   requires:
     capabilities:
     - platform.apple.windowserver

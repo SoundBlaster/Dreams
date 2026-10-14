@@ -1,0 +1,128 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.rain.glyph_pulse
+  title: GlyphBrightnessPulse
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Give macOS rain glyphs smooth independent brightness pulses without changing their search or dissolution lifecycle.
+scope:
+  boundedContext: rain_simulation
+  includes:
+  - Whole-glyph real-time exposure, ordinary ink/word/halo adoption, saved strength, native and legacy controls.
+  excludes:
+  - Glyph shapes, per-pixel phosphor grain, new head flashes, physical compositor acceptance and tvOS adoption.
+provides:
+  capabilities:
+  - id: dreams.rain.glyph_pulse
+    role: primary
+    summary: Independent continuous whole-glyph exposure under one saved strength setting.
+requires:
+  capabilities:
+  - id: platform.apple.metal_renderer
+    summary: Production live and preview paths use the existing macOS Metal renderer.
+interfaces:
+  inbound:
+  - id: tuning_and_frame
+    kind: library
+    summary: Saved controller strength and deterministic exposure helper consumed by MatrixRain.
+    operations:
+    - name: rainPulseStrength/GlyphPulse.gain
+      inputs:
+      - name: frame
+        type: real seconds, integer column/row and strength in 0...1
+      outputs:
+      - name: gain
+        type: finite positive Float multiplying ordinary ink before pale-head composition
+  outbound: []
+constraints:
+- id: independent_phase
+  level: MUST
+  statement: Each grid position has a stable independent phase and period between approximately 1.33 and 4 real seconds.
+    Its smooth pulse uses real frame time, not the rain speed multiplier, glyph identity, typing or search PRNG.
+    Sampling a timestamp does not mutate simulation state or depend on previous frame subdivision.
+- id: bounds_and_off
+  level: MUST
+  statement: Default strength is 0.3. Saved nonfinite values fall back to that preset; finite saved values clamp to 0...1.
+    Native updates reject nonfinite values and clamp the range. Helper invalid time/strength yields identity gain;
+    finite strengths clamp to 0...1. Zero strength returns exactly 1. Full-strength gain is bounded to 0.35...1.65.
+- id: lifetime_and_head
+  level: MUST
+  statement: Pulse changes ordinary rain and keyword RGB exposure and their existing halo intensity. Keep core alpha,
+    glyph identity, hold/fade, search quota and motion unchanged. Existing expiry/gap guards prevent revival; expired
+    ink remains absent. Apply exposure before pale-head mixing so the current head keeps its established highlight.
+- id: assembly
+  level: MUST
+  statement: Persist rainPulseStrength through the shared macOS controller, update live/new renderers and pass it
+    through both preview and live draws. Legacy and opted-in native settings share a 0...100 percent strength control.
+    Reset restores the preset. MCP reports rain_pulse_strength read-only. Changing strength does not open an overlay,
+    enable the native host, modify fonts or change the existing transparent glow default.
+effects:
+  sideEffects:
+  - id: preference
+    kind: state_mutation
+    summary: Explicit strength edits persist a macOS preference and refresh existing settings/renderers.
+  - id: exposure
+    kind: state_mutation
+    summary: Emits adjusted glyph/halo instance colours; the phase helper itself performs no I/O or state mutation.
+evidence:
+- id: helper
+  kind: source
+  path: evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
+  supports:
+  - constraints.independent_phase
+  - constraints.bounds_and_off
+- id: model_tests
+  kind: test
+  path: evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift
+  supports:
+  - constraints.independent_phase
+  - constraints.bounds_and_off
+- id: pixel_tests
+  kind: test
+  path: evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift
+  supports:
+  - constraints.lifetime_and_head
+- id: controls_test
+  kind: test
+  path: evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
+  supports:
+  - constraints.assembly
+- id: validation
+  kind: test
+  path: validation/2026-10-14-pulse/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    boundary: medium
+    behavior: medium
+  notes:
+  - User requested brightness pulsation; smooth independent breathing was the working interpretation pending optional style feedback.
+  - Default 30 percent, real-time periods and the nonzero exposure floor are implementation choices, not claims of film fidelity.
+  - Offscreen macOS GPU checks, control assertions, structural validation and physical compositor acceptance are distinct evidence levels.
+  - tvOS continues to use its prior renderer and receives no pulse option in this scope.
+
+implementationBindings:
+- id: pulse_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 74b57fa2a4ea8e6934024dd57706c39d42e331c0
+  files:
+    owned:
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift
+    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift
+    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
+    border:
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift

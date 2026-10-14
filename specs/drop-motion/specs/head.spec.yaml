@@ -61,7 +61,7 @@ effects:
 evidence:
 - id: implementation
   kind: source
-  path: evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints
 - id: model
@@ -76,7 +76,7 @@ evidence:
   - constraints.independent_ink
 - id: current_validation
   kind: test
-  path: validation/2026-10-14-head/README.md
+  path: validation/2026-10-14-pulse/README.md
   supports:
   - constraints
 provenance:
@@ -95,14 +95,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: d3b962a7402e56f82f775be76c6e3fb068efacbe
+    revision: 74b57fa2a4ea8e6934024dd57706c39d42e331c0
   files:
     owned:
     - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadTests.swift
     - evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadRenderingTests.swift
-    - evidence/2026-10-14-head/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift
+    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift
     border:
     - evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

@@ -1,0 +1,168 @@
+/* Dreams UI text, American English (the base language). */
+
+"status.stopped" = "Animation stopped. Press “Start Matrix”.";
+"status.rendering" = "Rendering: %d frames · %d s left.";
+"activity.waiting" = "Waiting for agents. Background rain.";
+"activity.waitingOff" = "Waiting for agents. Idle rain is off.";
+"activity.working" = "Agents working: %d · activity %d%%.";
+
+"button.startMatrix" = "Start Matrix";
+"button.stop" = "Stop";
+"button.reset" = "Reset to Defaults";
+"button.reset.tip" = "Return all settings to their default values.";
+"button.cancel" = "Cancel";
+"reset.confirm.title" = "Reset all settings?";
+"reset.confirm.text" = "Colors, density, speed, glow, the calm background and the other settings return to their default values.";
+"reset.confirm.action" = "Reset";
+"button.quit" = "Quit Dreams";
+
+"section.rain" = "Rain";
+"section.between" = "Between agent messages";
+"section.words" = "Agent words";
+"section.glyphs" = "Glyphs";
+
+"label.color" = "Color";
+"rain.color.accessibility" = "Rain color";
+"rain.color.tip" = "Color of the rain letters. Stored separately for the black and the transparent background.";
+"rain.density" = "Density";
+"rain.density.tip" = "Sparse ← → dense: initial trace length and pauses between passes. Traces stretch as they descend. Applies to new streams.";
+"rain.speed" = "Speed";
+"rain.speed.tip" = "0.25× is slow; 1× is normal; 3× is fast.";
+"rain.fade" = "Fade";
+"rain.fade.tip" = "How many letters fade at once: 1 fades them one by one from the top; 16 is a soft tail.";
+"rain.fade.value" = "%d glyphs";
+"rain.spread" = "Brightness spread";
+"rain.spread.tip" = "0% makes all letters equally bright; 100% mixes dark and bright ones.";
+"rain.glow" = "Glow";
+"rain.glow.tip" = "0% is no halo; 100% is a soft light; 300% is bright. Stored separately for the transparent background.";
+"rain.idle" = "Calm background";
+"rain.idle.tip" = "The level the rain settles to after the surge caused by an agent message. 0% is a black screen.";
+"check.transparent" = "Transparent background — rain over windows";
+
+"words.color.accessibility" = "Agent words color";
+"words.brightness" = "Brightness";
+"words.brightness.tip" = "0% hides the words; 100% is normal; 200% is brighter.";
+"check.restored" = "Restored glyphs from the film";
+
+"check.hideFromScreenshots" = "Hide the rain from screenshots and recordings";
+"check.hideFromScreenshots.tip" = "On: the system screenshot tool can capture the windows under the rain. Off: the rain is captured too, e.g. for a demo video.";
+
+"section.agents" = "Agent hooks";
+"hooks.codex" = "Codex";
+"hooks.claude" = "Claude Code";
+"hooks.state.connected" = "Connected";
+"hooks.state.notConnected" = "Not connected";
+"hooks.state.outdated" = "Needs an update";
+"button.connect" = "Connect";
+"button.disconnect" = "Disconnect";
+"button.update" = "Update";
+"hooks.note" = "Hooks make the rain follow your agents. Codex asks you to review new hooks in /hooks; Claude Code reads them in a new session.";
+"hooks.path.tip" = "The hooks start this copy of Dreams: %@";
+
+"runtime.5m" = "5 minutes";
+"runtime.30m" = "30 minutes";
+"runtime.1h" = "1 hour";
+"runtime.unlimited" = "Until stopped";
+"runtime.accessibility" = "Run time";
+"hint.runtime" = "Runs for %1$@, full screen. Esc exits while the rain has focus. Move the pointer for the Exit button. Backup shortcut: %2$@.";
+"hint.runtime.unlimited" = "Runs until stopped, full screen. Esc exits while the rain has focus. Move the pointer for the Exit button. Backup shortcut: %@.";
+"overlay.exit" = "Exit · Esc";
+"overlay.exit.label" = "Exit screen animation";
+"overlay.exit.tip" = "Stop the animation on all selected displays.";
+"status.stopped.timer" = "Stopped: the run time ended. Press “Start Matrix”.";
+"status.stopped.user" = "Stopped. Press “Start Matrix”.";
+"status.stopped.escape" = "Stopped with Esc. Press “Start Matrix”.";
+"status.stopped.hotkey" = "Stopped with the stop shortcut. Press “Start Matrix”.";
+"status.stopped.reopen" = "Stopped: Dreams was opened again (Dock icon or launch). Press “Start Matrix”.";
+"status.stopped.agent" = "Stopped by an agent (MCP). Press “Start Matrix”.";
+"status.rendering.unlimited" = "Rendering: %d frames · until stopped.";
+"menu.startMatrix" = "Start Matrix Rain";
+
+"hint.runtime.transparent" = "Over your windows: runs until you stop it (the Stop button or %@). The run time applies to the black background.";
+"runtime.tip" = "How long the rain runs after Start on the black background. Over windows (transparent) it runs until you stop it.";
+
+"hotkey.label" = "Stop shortcut";
+"hotkey.recording" = "Press a shortcut…";
+"hotkey.reset" = "Default";
+"hotkey.taken" = "%@ is taken by another app; the old shortcut stays.";
+"hotkey.tip" = "Click, then press a combination with ⌃, ⌥ or ⌘. Esc cancels.";
+
+"hooks.state.plugin" = "Connected via plugin";
+"hooks.state.duplicate" = "Connected twice";
+"button.removeDuplicate" = "Remove hooks";
+"button.plugin" = "Plugin";
+
+"debug.menu" = "Debug";
+"debug.fixtures" = "Stream test · DEMO";
+"debug.fixtures.tip" = "Starts Matrix and loops an agent turn: surge, call lines, decay.";
+
+"menu.openControls" = "Open Dreams Controls";
+"menu.stop" = "Stop Animation";
+"menu.workspaceCreate" = "Create Experimental Agent Workspace";
+"menu.workspaceClose" = "Close Agent Workspace";
+"menu.quit" = "Quit Dreams";
+
+"error.wordFontMissing" = "The DreamsMatrix word font was not found. Rebuild the app.";
+"error.wordFontLetters" = "DreamsMatrix lacks the capital Latin or Cyrillic letters.";
+"error.restoredFontMissing" = "The restored DreamsMatrix font was not found. Rebuild the app.";
+"error.restoredFontGlyphs" = "The restored font lacks the Dreams glyph set.";
+
+"hook.start" = "start";
+"hook.task" = "task";
+"hook.done" = "done";
+"hook.context" = "context";
+"hook.search" = "search";
+"hook.code" = "code";
+"hook.study" = "reading";
+"hook.check" = "tests";
+"hook.terminal" = "terminal";
+"hook.interface" = "interface";
+"hook.delegate" = "delegating";
+"hook.work" = "work";
+
+"rain.grid" = "Grid";
+"rain.columns.auto" = "Automatic";
+"rain.columns" = "Columns";
+"rain.columns.tip" = "24–240 columns. Fewer columns make larger glyphs. Automatic preserves the original display grid.";
+
+// Display management.
+"section.displays" = "Displays";
+"display.mode.automatic" = "Automatic";
+"display.mode.all" = "All displays";
+"display.mode.selected" = "Selected displays";
+"display.builtIn" = "Built-in";
+"display.main" = "Main";
+"display.agentWorkspace" = "Agent workspace (excluded)";
+"display.hint.automatic" = "Uses the built-in display when available; with the lid closed, uses the main external display.";
+"display.hint.all" = "Covers every connected display except the Dreams agent workspace. Changes apply immediately.";
+"display.hint.selected" = "Choose one or more displays. Your selection is remembered when displays reconnect.";
+"display.fallback" = "No selected display is available, so Automatic is used.";
+"display.disconnected" = "Disconnected selections: %ld.";
+"display.none" = "No eligible display is available. Connect a display and try again.";
+"status.waitingDisplay" = "Waiting for a display; rain will resume when one connects.";
+"status.displayError" = "Could not update displays: %@";
+
+"rain.deceleration.enabled" = "Decelerate drops";
+"rain.deceleration.enabled.tip" = "New drops enter at the current speed, then slow down. Existing drops keep their motion.";
+"rain.deceleration" = "a, glyph/s²";
+"rain.deceleration.value" = "%.1f";
+"rain.deceleration.tip" = "Negative acceleration at 1× speed; 0 keeps constant speed. Drops slow to 20% of their entry speed and continue falling. Changes apply to new drops.";
+
+"rain.search" = "Searching glyphs";
+"rain.search.tip" = "Share of visible glyphs simultaneously searching: 10% keeps at least one in ten in a rapid search burst. 0% disables search; 100% searches all live glyphs. Fading lifetimes are preserved.";
+"native.section.general" = "General";
+"native.section.appearance" = "Appearance";
+"native.section.background" = "Background";
+"native.section.advanced" = "Advanced";
+"native.selectSection" = "Select a settings section";
+"native.error" = "Could not apply setting";
+"button.ok" = "OK";
+"native.escapeHint" = "Esc stops rain in the active opaque overlay or settings window. The global shortcut is %@.";
+"native.hotkeyLegacy" = "Edit shortcut in legacy settings…";
+"native.motion" = "Motion";
+"native.backgroundProfiles" = "Transparent and opaque backgrounds keep separate rain color and glow settings.";
+"native.legacy" = "Open legacy settings…";
+"native.legacyHint" = "All previous controls remain available, including shortcut recording. Both windows use the same saved settings.";
+
+"rain.pulse" = "Glyph brightness pulse";
+"rain.pulse.tip" = "Independent smooth brightness pulses. 0% disables them; drop heads and alpha fading stay unchanged.";

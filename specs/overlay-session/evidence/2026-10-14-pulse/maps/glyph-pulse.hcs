@@ -1,0 +1,24 @@
+GlyphPulse:
+  source: "Sources/Dreams/features/rain/model/GlyphPulse.swift"
+  capability: "dreams.rain.glyph_pulse"
+  profile: "macOS"
+Phase:
+  implementation: "position-seeded phase and period"
+  clock: "real-time-independent-of-rain-speed"
+Exposure:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  implementation: "ordinary ink and halo intensity before pale head mixing"
+  alpha: "unchanged"
+  head: "existing-pale-highlight-preserved"
+Tuning:
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
+  implementation: "rainPulseStrength -> live/new RainRenderer -> MatrixRain"
+  default_strength: 0.3
+@pulse[off]:
+  Tuning:
+    strength: 0
+  Exposure:
+    gain: 1
+@background[transparent]:
+  Exposure:
+    fading: "existing-glyph-alpha"

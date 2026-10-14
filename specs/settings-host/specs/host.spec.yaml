@@ -97,7 +97,7 @@ evidence:
   - constraints
 - id: tests
   kind: test
-  path: evidence/2026-10-14/source/Tests/DreamsTests/NativeSettingsTests.swift
+  path: evidence/2026-10-14-pulse/source/Tests/DreamsTests/NativeSettingsTests.swift
   supports:
   - constraints.default_off
   - constraints.one_settings_owner
@@ -105,7 +105,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-14-ui-border/README.md
+  path: validation/2026-10-14-pulse/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -124,25 +124,25 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6
+    revision: 74b57fa2a4ea8e6934024dd57706c39d42e331c0
   files:
     owned:
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
-    - evidence/2026-10-14/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
     - evidence/2026-10-14/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-14/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-14/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
-    - evidence/2026-10-14/source/Tests/DreamsTests/NativeSettingsTests.swift
+    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-14/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     border:
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift

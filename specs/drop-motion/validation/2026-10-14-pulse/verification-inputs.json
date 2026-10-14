@@ -1,0 +1,10 @@
+{
+  "runtimeRevision": "74b57fa2a4ea8e6934024dd57706c39d42e331c0",
+  "workingTreeVerificationInputs": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "d7eb5577069b4190818efdca635efd240e871a58176d53bc2d01b3f69d4c69fd"
+    }
+  ],
+  "note": "Workflow unchanged; optional broader GPU selection was tested locally but cannot be pushed with the current OAuth workflow scope."
+}
