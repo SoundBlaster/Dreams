@@ -260,3 +260,13 @@ coverage row with physical compositor acceptance still outstanding.
 [Fresh documentation/structural verification](drop-motion/validation/2026-10-14-head-review/README.md)
 does not relabel the existing runtime tests as new review-commit evidence. Code, maps,
 claim IDs, source snapshots and draft acceptance remain unchanged.
+
+## Release 0.1.7 preparation — 2026-10-14
+
+The staged release combines PR #24 runtime `d3b962a`, coverage correction `fb93d69`
+and the merged 0.1.6 version baseline. Preparation changes only VERSION/plugin
+metadata and this progress record; all current head/motion/search source and map
+hashes match their pinned evidence. Stable claim IDs and draft acceptance remain.
+Release publication follows the fix merge. Default launch retains legacy settings;
+the native host still requires explicit `--native-settings`. Signed universal build,
+Apple notarization and published-asset verification are separate release evidence.
