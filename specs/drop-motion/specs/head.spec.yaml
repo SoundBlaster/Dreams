@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.rain.head_visibility
   title: DropHeadAppearance
-  version: 0.1.0-draft.1
+  version: 0.1.1-draft.1
   status: draft
 intent:
   summary: Keep the writing drop recognizably pale while its stationary trail keeps its own ink and alpha fade.
@@ -28,9 +28,9 @@ interfaces:
   inbound:
   - id: appearance
     kind: library
-    summary: Internal simulation headIntensity consumed by the production MatrixRain draw path.
+    summary: Internal simulation headIntensity and headGlyph consumed by the production MatrixRain draw path.
     operations:
-    - name: headIntensity/draw
+    - name: headIntensity/headGlyph/draw
       inputs:
       - name: state
         type: current head row, simulation time, captured motion, glyph ink and background profile
@@ -49,6 +49,14 @@ constraints:
   statement: macOS head highlighting does not use the stored random ink threshold, search fraction or glow.
     Existing global brightness, activity exposure and glyph alpha still apply. A gap can render transiently as the
     current head without filling that gap into the stationary trail or search population.
+- id: head_trials
+  level: MUST
+  statement: While a live macOS head advances, its displayed code glyph changes every 0.035 simulation seconds,
+    independently of the stationary search fraction, including zero. The sequence is deterministic from head
+    arrival and column identity, and never consumes either simulation random generator, rewrites stationary
+    glyphs or changes their ink, timestamps, alpha or quota. At the final row arrival the trial phase stops;
+    the remaining pale fade uses that last phase. Expired cells cannot be revived. Keyword heads use code
+    trials until they leave the head, then their existing word/search presentation applies.
 - id: tail_and_search
   level: MUST
   statement: Keep trail RGB and opacity behaviour, captured hold/fade lifetimes and search scheduling unchanged.
@@ -61,22 +69,24 @@ effects:
 evidence:
 - id: implementation
   kind: source
-  path: evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints
 - id: model
   kind: test
-  path: evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadTests.swift
+  path: evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift
   supports:
   - constraints.flight_visibility
+  - constraints.head_trials
 - id: pixels
   kind: test
-  path: evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadRenderingTests.swift
+  path: evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift
   supports:
   - constraints.independent_ink
+  - constraints.head_trials
 - id: current_validation
   kind: test
-  path: validation/2026-10-14-pulse/README.md
+  path: validation/2026-10-14-head-cycle/README.md
   supports:
   - constraints
 provenance:
@@ -88,6 +98,9 @@ provenance:
   - User reported disappearing pale heads in 0.1.6, particularly over a transparent background.
   - The old search-policy replacement removed standalone random mutation flashes; this correction preserves no-flash search settlement.
   - Flight-step highlight and final 0.11-second fade are explicit implementation choices, not claims of film fidelity.
+  - Historical 93f5069 source excludes the current head from opportunistic trail search and uses stored glyphs in rendering.
+  - Continuous head trials are a new explicit presentation rule, not a claimed restoration of a previously implemented loop.
+  - The 0.035-second cadence and deterministic repertoire traversal are implementation choices scaled by global rain speed.
   - Model and offscreen GPU results do not prove physical desktop compositor visibility or formal acceptance.
 
 implementationBindings:
@@ -95,13 +108,13 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 74b57fa2a4ea8e6934024dd57706c39d42e331c0
+    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
   files:
     owned:
-    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadTests.swift
-    - evidence/2026-10-14-head/source/Tests/DreamsTests/DropHeadRenderingTests.swift
+    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift
+    - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift
     border:
     - evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal

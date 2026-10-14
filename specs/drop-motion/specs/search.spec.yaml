@@ -1,4 +1,4 @@
-# Current runtime: 74b57fa2a4ea8e6934024dd57706c39d42e331c0; validation/2026-10-14-pulse/README.md
+# Current runtime: 74b57fa2a4ea8e6934024dd57706c39d42e331c0; validation/2026-10-14-head-cycle/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
@@ -81,7 +81,7 @@ effects:
 evidence:
 - id: search_source
   kind: source
-  path: evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  path: evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints
 - id: search_tests
@@ -94,7 +94,7 @@ evidence:
   - constraints.independent_motion
 - id: integration
   kind: source
-  path: evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: native_settings
@@ -104,7 +104,7 @@ evidence:
   - constraints.parent_assembly
 - id: current_validation
   kind: test
-  path: validation/2026-10-14-pulse/README.md
+  path: validation/2026-10-14-head-cycle/README.md
   supports:
   - constraints
 provenance:
@@ -125,15 +125,15 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 74b57fa2a4ea8e6934024dd57706c39d42e331c0
+    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
   files:
     owned:
-    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings

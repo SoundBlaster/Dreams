@@ -56,3 +56,5 @@ cover pale current heads in both macOS background profiles, dim trail ink, braki
 Motion and search source bindings now point to the corrected runtime; prior passes remain historical.
 
 Current glyph-pulse integration and separate execution/structural evidence: [2026-10-14 pulse](validation/2026-10-14-pulse/README.md). Earlier baselines remain historical.
+
+Continuous head trials and current integrated identities: [2026-10-14 head-cycle](validation/2026-10-14-head-cycle/README.md). Earlier pulse/head records remain historical.

@@ -1,0 +1,40 @@
+[
+  {
+    "label": "prior-renderer-with-new-regression",
+    "command": [
+      "swift",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "DropHeadRenderingTests/theHeadChangesShapeBetweenRowArrivals"
+    ],
+    "exitCode": 1,
+    "expected": "nonzero; outline assertion fails in both background cases",
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "environment": {
+      "DREAMS_TEST_METAL": "1",
+      "DREAMS_FEED_DIRECTORY": "/tmp/dreams-head-cycle-feed"
+    },
+    "sourceRevision": "ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7",
+    "rendererRevision": "b055d8a22638eb4fb12945a2d0bcfbbb30d80079",
+    "rendererSha256": "db2c4aa1e0093fcce45b9e4f25696edd2520525334eb85297f8b05df2be5c017",
+    "mixedFixture": "New model and tests, exact prior renderer; expected outline failures on both backgrounds."
+  },
+  {
+    "label": "corrected-unit-and-metal",
+    "command": [
+      "swift",
+      "test",
+      "-c",
+      "release"
+    ],
+    "exitCode": 0,
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "environment": {
+      "DREAMS_TEST_METAL": "1",
+      "DREAMS_FEED_DIRECTORY": "/tmp/dreams-head-cycle-feed"
+    },
+    "sourceRevision": "ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7"
+  }
+]

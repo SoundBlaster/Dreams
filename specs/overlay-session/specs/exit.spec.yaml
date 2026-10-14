@@ -158,7 +158,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 74b57fa2a4ea8e6934024dd57706c39d42e331c0
+    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift

@@ -1,0 +1,27 @@
+Building for production...
+[Computing dependencies]
+[2 / 5] DreamsTests-product
+[5 / 8] DreamsTests-product
+[9 / 13] DreamsTests-product
+[11 / 13] DreamsTests-product
+Build complete! (9.04 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropHeadRenderingTests started.
+􀟈  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments transparent → false, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments transparent → false, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments transparent → true, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments transparent → true, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􁁛  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) with 4 test cases passed after 0.310 seconds.
+􀟈  Test aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 1 argument transparent → true to aTrailGapCannotHideTheDrop(transparent:) started.
+􁁛  Test aTrailGapCannotHideTheDrop(transparent:) with 2 test cases passed after 0.103 seconds.
+􀟈  Test theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀟈  Test case passing 1 argument transparent → true to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􁁛  Test theHeadChangesShapeBetweenRowArrivals(transparent:) with 2 test cases passed after 0.164 seconds.
+􁁛  Suite DropHeadRenderingTests passed after 0.578 seconds.
+􁁛  Test run with 3 tests in 1 suite passed after 0.578 seconds.
