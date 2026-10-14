@@ -254,17 +254,18 @@ final class MatrixRain {
                 // Keyword cells mutate like the rain around them: while the simulation searches
                 // a cell (or just swapped it), a rain glyph flickers there in the keyword colour,
                 // then the letter returns. Only the colour sets words apart.
+                let displayGlyph = simulation!.headGlyph(column: column, row: row)
                 let search = simulation!.columns[column].searches[row]
                 let mutating = isKeyword && cell.glyph >= 0
-                    && ((search?.row == row && search?.writtenAt == cell.writtenAt)
+                    && (head > 0 || (search?.row == row && search?.writtenAt == cell.writtenAt)
                         || (cell.changedAt > cell.writtenAt && simulationClock - cell.changedAt < 0.15))
                 if isKeyword, let selection {
-                    text = mutating ? String(symbols[cell.glyph]) : String(selection.characters[wordIndex])
+                    text = mutating ? String(symbols[displayGlyph]) : String(selection.characters[wordIndex])
                     // Same ink as the rain (brightness spread included); colour and the
                     // word brightness setting are the only differences.
                     rgb = keywordTint * pulsedInk * inkOpacity
                 } else {
-                    text = String(symbols[cell.glyph])
+                    text = String(symbols[displayGlyph])
                     let tint = rainTint + SIMD3<Float>(0, 0, 0.02 * cell.warmth)
                     rgb = tint * pulsedInk * inkOpacity
                 }
