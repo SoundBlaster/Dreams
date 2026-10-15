@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.catalog
   title: NativeSettingsCatalog
-  version: 0.1.0-draft.3
+  version: 0.1.0-draft.4
   status: draft
 intent:
   summary: Let contributors inspect system controls and native settings compositions without altering Dreams preferences.
@@ -22,7 +22,7 @@ provides:
     summary: Present a separately launched native SwiftUI component catalog using disposable state.
   - id: dreams.settings.ui
     role: secondary
-    summary: Supply native Slider/LabeledContent and uncovered preview compositions with caller-owned state and content.
+    summary: Supply native Slider/LabeledContent, system material panels and uncovered preview compositions with caller-owned state and content.
 requires:
   capabilities:
   - id: platform.apple.swiftui
@@ -62,6 +62,17 @@ interfaces:
       outputs:
       - name: region
         type: SwiftUI View without a renderer, timer or material of its own
+  - id: material_panel
+    kind: library
+    summary: Place caller-owned content on a system material surface with accessibility fallbacks.
+    operations:
+    - name: SettingsMaterialPanel.init
+      inputs:
+      - name: content
+        type: ViewBuilder content owned by the host; system accessibility environment
+      outputs:
+      - name: panel
+        type: Rounded SwiftUI regular material surface or opaque semantic background; no renderer, timer or persistence
   outbound: []
 constraints:
 - id: native_controls
@@ -78,7 +89,7 @@ constraints:
   statement: Each catalog window owns its selected section, column visibility and catalog options. Navigation uses system sidebar selection and inspector behavior; page fixtures may reset when leaving a section.
 - id: platform_availability
   level: MUST
-  statement: Support macOS 15 deployment. Guard glass button styles with macOS 26 availability; provide a textual fallback. Standard material specimens replace translucency when Reduce Transparency is enabled.
+  statement: Support macOS 15 deployment. Guard glass button styles with macOS 26 availability; provide a textual fallback. The shared SettingsMaterialPanel replaces translucency with an opaque semantic background when Reduce Transparency or increased contrast is enabled.
 - id: host_owned_binding
   level: MUST
   statement: Slider consumers provide valid range, step, Binding, formatting and identifier; the library does not validate business rules or persist values. Preserve the native accessible label and expose the supplied readout as its accessibility value.
@@ -110,7 +121,7 @@ evidence:
   - constraints.localization_and_packaging
 - id: validation
   kind: test
-  path: validation/2026-10-14-native-host/README.md
+  path: validation/2026-10-15-materials/README.md
   supports:
   - constraints
 provenance:
@@ -125,14 +136,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6
+    revision: 3910ebf93779f8da807bf361f89873092db03b7d
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeControlsPage.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeFormPage.swift
-    - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift
+    - evidence/2026-10-15-materials/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeNavigationPage.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeTypographyPage.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/model/CatalogSection.swift
@@ -142,12 +153,13 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-15-materials/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     border: []
 - id: production_adoption
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f0b7f0f3dab4d1c22dce4f9cc7273984d24e33b6
+    revision: 3910ebf93779f8da807bf361f89873092db03b7d
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Package.swift

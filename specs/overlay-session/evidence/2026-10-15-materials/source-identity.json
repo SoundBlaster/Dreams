@@ -1,0 +1,164 @@
+{
+  "sourceRevision": "3910ebf93779f8da807bf361f89873092db03b7d",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "a81f11a2401cfdf953507897e28fd6e907ac94f03fd4676d3e0459ee4e8e571c",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "sha256": "d3c3ef0bb901f90c5c6f807f998b5de8c4c039aab354ccfdbec8f7f698605dc7",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "sha256": "13de3684a25d153f71fd55424348a769226200524167290f865bad2d93b8ea1d",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "5c1311e915cb8b229180c3a6cd10fc41594a5f7f3915c15a8d69d2ca200b2429",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "sha256": "eefb3e82a7f9335f0e423dc06a3a01208a4f08e41fb1fa4eb5503a47053cca4d",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "sha256": "cf5ffa142476f620a6f24a21f29274d9d8f5680042a8b92ee300f71e84c910bd",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "sha256": "ab6bff00b84b369082d222c1475ab3f108f668aab88919a531aed5b1652575e1",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "dfa12caf77253b6cc890f76c5689033382150291a1a3ef8bb97753a5c71d4435",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/lib/StopHotkey.swift",
+      "sha256": "414f99b40658b3929a6a5c7e2e86c949d7fc2d04e91251aee0ece9c0f07f8f5b",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/shared/lib/StopHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "sha256": "6f8b7c7e8432359ef384a8e8408b00da7e4dabc5dc303efc11cd01b29872e065",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/CaptureVisibilityTests.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/glyph-pulse.hc",
+      "sha256": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-pulse.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hc",
+      "sha256": "719e9dc7b9d64e83b35c0045cbbc24d8e6980cfa99c233558adefbfcc3fa3fcf",
+      "snapshot": "evidence/2026-10-15-preview/maps/settings-host.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-catalog.hc",
+      "sha256": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+      "snapshot": "evidence/2026-10-14-pulse/maps/settings-catalog.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "4d9f5939b55e50e585e0824d6a76d3cb3e24b4f64af68824e90fc319c00e766b",
+      "snapshot": "evidence/2026-10-14-pulse/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hc",
+      "sha256": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-search.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "45b1f549dcb9231c3b2d40a3ef061ec8b7974326c60955e4b6707a3ccf52da01",
+      "snapshot": "evidence/2026-10-14-pulse/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hc",
+      "sha256": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-editor.hc"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hc",
+      "sha256": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+      "snapshot": "evidence/2026-10-14-pulse/maps/drop-motion.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-catalog.hcs",
+      "sha256": "7b59d72eda61351d57e1419604299368a9e65940f8b0cf326d50cec01d1725d7",
+      "snapshot": "evidence/2026-10-15-materials/maps/settings-catalog.hcs"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hcs",
+      "sha256": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586",
+      "snapshot": "evidence/2026-10-14-head-cycle/maps/drop-motion.hcs"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "1b39d26279dd3542abd33f4173a3dfdb706c85ea1e4b00a873ed3ba4640e4b48",
+      "snapshot": "evidence/2026-10-14-pulse/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "1b0df7c472602324a85af13d70cb8f11fa7bc67815ed8dbf7f16f01470ef58a1",
+      "snapshot": "evidence/2026-10-14-pulse/maps/overlay-session.hcs"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "5d200e343778161cddfa05b32f67679817aa883da8bd41f71c3d582b1bada2f1",
+      "snapshot": "evidence/2026-10-15-materials/maps/settings-host.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hcs",
+      "sha256": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-editor.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-pulse.hcs",
+      "sha256": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-pulse.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hcs",
+      "sha256": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-search.hcs"
+    }
+  ],
+  "dirtySources": [
+    {
+      "path": "specs/hypercode/settings-catalog.hcs",
+      "sha256": "7b59d72eda61351d57e1419604299368a9e65940f8b0cf326d50cec01d1725d7"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "5d200e343778161cddfa05b32f67679817aa883da8bd41f71c3d582b1bada2f1"
+    }
+  ],
+  "scopeNote": "One continuous native settings backdrop and shared system material panel. Runtime algorithms and fullscreen overlay remain unchanged; prior evidence remains historical."
+}

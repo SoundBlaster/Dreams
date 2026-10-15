@@ -1,0 +1,21 @@
+Building for production...
+[Computing dependencies]
+[Pre-planning 1 / 423]
+[Planning deferred tasks]
+[1 / 1]
+[4 / 7] DreamsTests-product
+[6 / 9]
+[7 / 9] DreamsTests-product
+[10 / 14] DreamsTests-product
+[12 / 14] DreamsTests-product
+Build complete! (11.73 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test recordNativeFormsWithScreener() started.
+DREAMS_NATIVE_SETTINGS_TRACE=/Users/egor/Library/Caches/Screener/Traces/076096DD-AB87-411F-84E5-19458B774966.vtrace
+􁁛  Test recordNativeFormsWithScreener() passed after 9.575 seconds.
+􁁛  Suite NativeSettingsTests passed after 9.575 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 9.575 seconds.
+PASS: complete Screener native settings trace, 13 screen-capture-kit frames: /Users/egor/Library/Caches/Screener/Traces/076096DD-AB87-411F-84E5-19458B774966.vtrace

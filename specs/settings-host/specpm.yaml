@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.settings_host
   name: Dreams native settings host
-  version: 0.1.0-draft.3
+  version: 0.1.0-draft.4
   summary: Default-off SwiftUI settings presentation backed by the existing production controller.
   license: MIT
   authors:

@@ -17,11 +17,11 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance, search and pulse recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
-| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 4973f25 [scale integration](drop-motion/validation/2026-10-15-scale/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
-| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 4973f25 [scale integration](drop-motion/validation/2026-10-15-scale/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
-| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 4973f25 [scale integration](drop-motion/validation/2026-10-15-scale/README.md) | Physical desktop compositor acceptance remains unobserved |
-| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Native-host integration baseline; independent catalog fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 4973f25 [100% preview integration](settings-host/validation/2026-10-15-scale/README.md); shared owner and default-off routing | Keyboard/VoiceOver; whole-window glass next |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 3910ebf [material integration](drop-motion/validation/2026-10-15-materials/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 3910ebf [material integration](drop-motion/validation/2026-10-15-materials/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 3910ebf [material integration](drop-motion/validation/2026-10-15-materials/README.md) | Physical desktop compositor acceptance remains unobserved |
+| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current 3910ebf [shared material panel](settings-catalog/validation/2026-10-15-materials/README.md); independent fixtures | Interactive catalog acceptance |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 3910ebf [rain/material integration](settings-host/validation/2026-10-15-materials/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -347,3 +347,21 @@ SettingsPage.NativePresentation.LivePreview; other stable host/rain/overlay IDs 
 cases (auto/manual × 1x/2x), actual-app CUA observation and fresh structural/identity checks. Historical SCK
 artifacts stay historical; no new capture acceptance is claimed. Display/backing changes refresh previews,
 but physical monitor-move behavior remains unobserved. TV, glyph/checkpoints and blur implementation are untouched.
+
+## Native rain and material composition — 2026-10-15
+
+Runtime `3910ebf93779f8da807bf361f89873092db03b7d` retains one Metal surface across adaptive
+layout changes, behind grouped forms and a clear preview region. A shared system material
+panel is now a catalog/UI-library primitive. macOS 26 uses system navigation background
+extension and a glass playback button; macOS 15 keeps the standard material/button fallback.
+The 100% display-scale, playback/lifetime and default-off constraints remain.
+The user chose this next stage and observed the shown result; formal spec acceptance remains draft.
+
+[Host checks](settings-host/validation/2026-10-15-materials/README.md) distinguish 57 local tests,
+13 Screener SDK/SCK frames inspected through MCP, actual-app CUA interaction, and structure.
+Known toolbar blur is deliberately deferred; slider/capture artifacts are recorded.
+Reduce Transparency and physical macOS 15 accessibility acceptance remain unobserved.
+[Catalog](settings-catalog/validation/2026-10-15-materials/README.md),
+[rain](drop-motion/validation/2026-10-15-materials/README.md) and
+[overlay](overlay-session/validation/2026-10-15-materials/README.md) identities are refreshed.
+All earlier evidence is historical; no TV, glyph/font, hook or fullscreen algorithm changes.

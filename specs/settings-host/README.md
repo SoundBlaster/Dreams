@@ -44,10 +44,12 @@ actual state and an alert; the controller operations are not promised atomic.
 - Shortcut recording remains in the legacy window, explicitly linked from the
   native General and Advanced forms. No claim of full interaction parity yet.
 - Live Metal rain uses a separate window-local renderer and clock with the shared
-  controller tuning. Preview is beside the form in wide layouts and above it in narrow
-  layouts. The panel shows a 100% crop of the hosting display-sized scene, using
+  controller tuning. One Metal surface sits behind forms and an open region beside them in wide layouts
+  or above them in narrow layouts. The backdrop shows a 100% crop of the hosting display-sized scene, using
   backing pixels for Retina: glyphs/grid spacing match fullscreen and resizing
-  reveals a different area without shrinking all columns. Whole-window Liquid Glass/open shapes remain a later stage.
+  reveals a different area without shrinking all columns. System material panels cover the forms; macOS 26 extends the backdrop under native navigation.
+  The shared panel becomes opaque with Reduce Transparency or increased contrast.
+  The window does not expose the desktop through its background.
 - Preview pauses/releases GPU ownership when hidden, minimized, closed or fully
   occluded. Local Pause/Play never starts the fullscreen overlay. Reduce Motion
   initially pauses; explicit Play is allowed. The posed clock starts at six seconds
@@ -71,7 +73,8 @@ The host requires `dreams.settings.ui`, provided by the
 [catalog/UI package contract](../settings-catalog/specs/catalog.spec.yaml).
 This means the library compositions, not the catalog executable. The binding
 border and [current source identity](evidence/2026-10-14-ui-border/source-identity.json)
-include the local SwiftPM manifest and the consumed SettingsSliderRow and SettingsPreviewRegion sources.
+include the local SwiftPM manifest and consumed compositions. The current material stage
+adds SettingsMaterialPanel to the border; SettingsPreviewRegion remains a catalog primitive.
 `Package.resolved` does not pin a local package. Changing either input invalidates
 the host's native-control baseline and requires renewed verification.
 The original source/validation records remain historical.
@@ -82,3 +85,5 @@ Current glyph-pulse integration and separate execution/structural evidence: [202
 Current embedded preview implementation and validation: [2026-10-15 preview](validation/2026-10-15-preview/README.md). Earlier records remain historical.
 
 Current 100% display-scale correction: [2026-10-15 scale](validation/2026-10-15-scale/README.md).
+
+Current rain/material composition: [2026-10-15 materials](validation/2026-10-15-materials/README.md).

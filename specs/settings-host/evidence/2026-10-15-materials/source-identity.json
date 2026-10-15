@@ -1,0 +1,293 @@
+{
+  "sourceRevision": "3910ebf93779f8da807bf361f89873092db03b7d",
+  "files": [
+    {
+      "path": "Makefile",
+      "sha256": "3ede379bb7212ada4a0f3c9e9a4e9dcdd6b1831c50500e2813865170f9b7fed2",
+      "snapshot": "evidence/2026-10-14-pulse/source/Makefile",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Package.resolved",
+      "sha256": "3bfb803b8d5e2d2bc976d79e2faf1afc6c731a98f51079705b667d931bdb69f5",
+      "snapshot": "evidence/2026-10-14/source/Package.resolved",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Package.swift",
+      "sha256": "976e7543a0ce2a163df40c8493acb7cc4a8aaf2a28844ccb0f0789f4053c6786",
+      "snapshot": "evidence/2026-10-14/source/Package.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Package.swift",
+      "sha256": "960abf7f65e32ae18963de0d9d56dec32e9f264a39d11b691cc7ee94b8b02118",
+      "snapshot": "evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "sha256": "06a069b9a32c40cfa39caa88a849b470a23490f1ef0f716f32cbec9feb3f0daf",
+      "snapshot": "evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "5c1311e915cb8b229180c3a6cd10fc41594a5f7f3915c15a8d69d2ca200b2429",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "sha256": "f61145a09d277269c1901861e11f67967cc7f2fc9dd8f9cd0fa6287b01a59cf3",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "sha256": "189a643841c0dab0378b420c240c881dc7108086d9df29bd71ce21f5bb7e7570",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "sha256": "e949be6fc31ccd7d08963452bbb511bc95b23cc4fb5bb5343e4550becda9570e",
+      "snapshot": "evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "917a2cde664dc29735e368dd990b5585375f01804666a761f308144101ccff87",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "sha256": "dae3f50351c59ef7659e421ab4ba36120b4cc3acccb3d6f3d5c1cfd7489add7c",
+      "snapshot": "evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "sha256": "0283a48c2fa5478756f40cd17beeddeaa22b28d4b56315524b10ce4808464d9d",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "dfa12caf77253b6cc890f76c5689033382150291a1a3ef8bb97753a5c71d4435",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "b13b10c65df816efd26ed7bffd0357551a6b6d05a8b358712d2f083d04de3d7f",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "f424392a7a7a8c0b902f969916245010d6d69b0abd79da8c53d910b6b4de2a44",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "sha256": "aafd642d351e4c4e041ec89cc25bb0828264f4d908e897d81fed0e1c082dc65e",
+      "snapshot": "evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/lib/Localization.swift",
+      "sha256": "c7b973f8a6fd74adbdead9d836017c5429004891929fe721804015d746aade99",
+      "snapshot": "evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "sha256": "5c0652f29e8fa3eb376d7c43541a5d42460e1bbf452d7eec145cb56b5f21c88a",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "sha256": "4ed54c52aa615d6934dd2e0ec095a1b407a0613a6fd1f49a81553dd601c1fde7",
+      "snapshot": "evidence/2026-10-15-materials/source/Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-native-settings-trace.py",
+      "sha256": "7dd3afa5d7baaf5dc786dfa0402fd62839e75864d0eb724558086240035ba272",
+      "snapshot": "evidence/2026-10-15-materials/source/scripts/test-native-settings-trace.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-settings-catalog.py",
+      "sha256": "cd874e52ee6399c59f774ae4b69a217579b93d61fb6855d5dca0106d40dcedc4",
+      "snapshot": "evidence/2026-10-14/source/scripts/test-settings-catalog.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "34d453f652e428f77837fc55708f8c723ef8729e82e72525c0cca738e67c5390",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "sha256": "773a7c44ecb0545244c6c6fec313cbd88f3862cbab7141db49aa33f7a5cd7706",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshotKind": "full-file",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "sha256": "9f3d03a306a997432e554fb5f20b76c768991243dc38f748b968bc5e72373f9f"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "snapshotKind": "full-file",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "sha256": "dc494b61ab6c90e0918b00bdbbc6c439f7ae6c6690514e3a89fab1e1f0b59f9c"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "snapshotKind": "full-file",
+      "snapshot": "evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "sha256": "3d34a7a01be6631409a36f4dc5e2dfba3972ffa748fc093efd443e7ae32e3593"
+    },
+    {
+      "path": "Tests/DreamsTests/NativePreviewTests.swift",
+      "snapshotKind": "full-file",
+      "snapshot": "evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift",
+      "sha256": "1eb78c33b95d9e3d88a054c67604781646236fdf5825287e08e6c0784a08ef10"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "snapshotKind": "full-file",
+      "snapshot": "evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "sha256": "0a5ba82d809d6763e0b9c5ffe132f1b01539f377da71af3f0cbb8d740672a6fc"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "fe98b1a12a64e8b08d137e66009276f3315456551d68b2876bd3062725c788ae"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "sha256": "50e037539bd7cd189bf31f6693e04829d0f79e543902937c246ea066f577fe70",
+      "snapshot": "evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "sha256": "8f2c2b036dfa1b939bf2616b21b32d1165525c577dc8f3a35b938dd7f3f0a3d1",
+      "snapshot": "evidence/2026-10-15-materials/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift"
+    },
+    {
+      "path": "scripts/test-native-settings-trace.py",
+      "sha256": "7dd3afa5d7baaf5dc786dfa0402fd62839e75864d0eb724558086240035ba272",
+      "snapshot": "evidence/2026-10-15-materials/source/scripts/test-native-settings-trace.py"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/glyph-pulse.hc",
+      "sha256": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-pulse.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hc",
+      "sha256": "719e9dc7b9d64e83b35c0045cbbc24d8e6980cfa99c233558adefbfcc3fa3fcf",
+      "snapshot": "evidence/2026-10-15-preview/maps/settings-host.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-catalog.hc",
+      "sha256": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+      "snapshot": "evidence/2026-10-14-pulse/maps/settings-catalog.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "4d9f5939b55e50e585e0824d6a76d3cb3e24b4f64af68824e90fc319c00e766b",
+      "snapshot": "evidence/2026-10-14-pulse/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hc",
+      "sha256": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-search.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "45b1f549dcb9231c3b2d40a3ef061ec8b7974326c60955e4b6707a3ccf52da01",
+      "snapshot": "evidence/2026-10-14-pulse/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hc",
+      "sha256": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-editor.hc"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hc",
+      "sha256": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+      "snapshot": "evidence/2026-10-14-pulse/maps/drop-motion.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-catalog.hcs",
+      "sha256": "7b59d72eda61351d57e1419604299368a9e65940f8b0cf326d50cec01d1725d7",
+      "snapshot": "evidence/2026-10-15-materials/maps/settings-catalog.hcs"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hcs",
+      "sha256": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586",
+      "snapshot": "evidence/2026-10-14-head-cycle/maps/drop-motion.hcs"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "1b39d26279dd3542abd33f4173a3dfdb706c85ea1e4b00a873ed3ba4640e4b48",
+      "snapshot": "evidence/2026-10-14-pulse/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "1b0df7c472602324a85af13d70cb8f11fa7bc67815ed8dbf7f16f01470ef58a1",
+      "snapshot": "evidence/2026-10-14-pulse/maps/overlay-session.hcs"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "5d200e343778161cddfa05b32f67679817aa883da8bd41f71c3d582b1bada2f1",
+      "snapshot": "evidence/2026-10-15-materials/maps/settings-host.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hcs",
+      "sha256": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-editor.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-pulse.hcs",
+      "sha256": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-pulse.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hcs",
+      "sha256": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-search.hcs"
+    }
+  ],
+  "dirtySources": [
+    {
+      "path": "specs/hypercode/settings-catalog.hcs",
+      "sha256": "7b59d72eda61351d57e1419604299368a9e65940f8b0cf326d50cec01d1725d7"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "5d200e343778161cddfa05b32f67679817aa883da8bd41f71c3d582b1bada2f1"
+    }
+  ],
+  "scopeNote": "One continuous native settings backdrop and shared system material panel. Runtime algorithms and fullscreen overlay remain unchanged; prior evidence remains historical."
+}
