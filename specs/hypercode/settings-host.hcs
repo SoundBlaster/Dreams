@@ -24,9 +24,15 @@ LivePreview:
 SettingsBinding:
   source: "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift"
   changes: "controller notifications; existing persistence/renderer effects"
+ShortcutRecording:
+  source: "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift + SettingsPageController"
+  ownership: "one window-scoped recorder shared by native and legacy; registration stays in settings owner"
+  input: "Control/Option/Command required; Escape cancels and consumes; unrelated window keys pass through"
+  cancellation: "second activation, native navigation, window close/key loss, app deactivate/hide, cleanup"
+  failure: "keep saved value and display registration error; Carbon rollback remains fallible"
 LegacyAccess:
   source: "Sources/Dreams/pages/settings/ui/SettingsWindow.swift"
-  limitation: "shortcut recording remains legacy; both windows share settings"
+  access: "Advanced opens legacy; both windows share settings and shortcut recorder"
 WindowLifetime:
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift"
   cleanup: "SettingsPageController.cleanUp; one timer and retained observer tokens"

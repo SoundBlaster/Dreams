@@ -1,0 +1,30 @@
+Building for production...
+[Computing dependencies]
+[1 / 28] VirtualDisplayBridge
+[5 / 22] Logging
+[8 / 25] DreamsSettingsUI
+[10 / 26] DreamsSettingsUI
+[14 / 27] EventSource
+[19 / 29] Logging
+[25 / 32] SystemPackage
+[32 / 37] MCP
+[33 / 38] MCP
+[41 / 44] Dreams-product
+[44 / 47] Dreams-product
+[53 / 57] Dreams-product
+[54 / 57] Dreams-product
+[56 / 57] DreamsTests-product
+[57 / 58] DreamsTests-product
+[64 / 68] DreamsTests-product
+[66 / 68] DreamsTests-product
+Build complete! (40.71 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test recordNativeFormsWithScreener() started.
+DREAMS_NATIVE_SETTINGS_TRACE=/Users/egor/Library/Caches/Screener/Traces/E29CB4A3-05FD-49B3-948E-A12E2E5B823C.vtrace
+􁁛  Test recordNativeFormsWithScreener() passed after 4.918 seconds.
+􁁛  Suite NativeSettingsTests passed after 4.918 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 4.919 seconds.
+PASS: complete Screener native settings trace, 15 hierarchy frames: /Users/egor/Library/Caches/Screener/Traces/E29CB4A3-05FD-49B3-948E-A12E2E5B823C.vtrace

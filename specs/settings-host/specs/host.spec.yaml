@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.4
+  version: 0.1.0-draft.5
   status: draft
 intent:
   summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
@@ -14,7 +14,7 @@ scope:
   - Existing rain, display and hook operations invoked through their current owners.
   - Window-local Metal backdrop using production renderer and shared tuning, system material forms and an uncovered rain region.
   excludes:
-  - Full shortcut-recording migration, desktop-through-window transparency and default-on rollout.
+  - Desktop-through-window transparency and default-on rollout.
   - Overlay algorithms, hook installation semantics, renderer internals, tvOS and glyph editing.
 provides:
   capabilities:
@@ -51,7 +51,7 @@ interfaces:
       - name: owner
         type: Retained MainActor SettingsPageController and its DreamsController
       - name: edits
-        type: Scalar/color/boolean bindings, display choices, start/stop/reset or hook action
+        type: Scalar/color/boolean bindings, display choices, start/stop/reset, shortcut recording or hook action
       outputs:
       - name: actual_state
         type: Controller values and notification-driven UI refresh; existing persistent keys and renderer propagation
@@ -74,13 +74,16 @@ constraints:
   statement: Background changes retain separate color/glow profiles, displays use existing reconciliation and hook actions use the existing installer. Present errors against the actual controller state; do not promise rollback or atomic reset beyond that controller.
 - id: explicit_legacy_access
   level: MUST
-  statement: General and Advanced provide access to the legacy window for shortcut recording and all previous controls. Both presentations use the same settings owner.
+  statement: Advanced provides access to the legacy window and all previous controls. General records and resets the stop shortcut directly. Both presentations use the same settings owner.
 - id: lifetime
   level: MUST
   statement: Reuse the native window and preserve its navigation state when reopening. Both settings presentations share one activity timer; terminal cleanup invalidates it and removes retained notification observers.
 - id: overlay_exit
   level: MUST
-  statement: Opening either settings window retains stopForReopen. The native NSWindow forwards its existing Escape path to the controller; stop shortcut registration remains owned by SettingsPageController.
+  statement: Opening either settings window retains stopForReopen. Outside shortcut recording the native NSWindow forwards its existing Escape path to the controller; stop shortcut registration remains owned by SettingsPageController.
+- id: shortcut_recording
+  level: MUST
+  statement: Both settings presentations share one temporary window-scoped recorder. Accept a combination only with Control, Option or Command; invalid plain/Shift-only keys keep recording with guidance. Consume Escape to cancel without invoking the window exit path. Cancel on a second activation, native section change, recording-window close/key loss, application deactivation/hide or terminal cleanup. Unrelated-window keys pass through. Successful registration updates the existing preference/menu/UI; failed registration retains the saved value and displays the error in both presentations. Carbon rollback remains fallible under dreams.overlay.exit.
 - id: preview_limit
   level: MUST
   statement: This host embeds a separate live rain backdrop under system settings surfaces with an uncovered viewing region. Preview playback and setting edits do not themselves launch a fullscreen overlay.
@@ -110,12 +113,12 @@ effects:
 evidence:
 - id: source
   kind: source
-  path: evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+  path: evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
   supports:
   - constraints
 - id: tests
   kind: test
-  path: evidence/2026-10-14-pulse/source/Tests/DreamsTests/NativeSettingsTests.swift
+  path: evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
   supports:
   - constraints.default_off
   - constraints.one_settings_owner
@@ -123,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-15-materials/README.md
+  path: validation/2026-10-15-shortcut/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -139,6 +142,12 @@ evidence:
   - constraints.preview_scale
   - constraints.preview_lifetime
   - constraints.preview_playback
+- id: shortcut_tests
+  kind: test
+  path: evidence/2026-10-15-shortcut/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
+  supports:
+  - constraints.shortcut_recording
+  - constraints.overlay_exit
 provenance:
   sourceConfidence:
     extraction: high
@@ -150,33 +159,38 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 3910ebf93779f8da807bf361f89873092db03b7d
+    revision: 7ab5412d7cb0947208498f0a328b63f3134070e7
   files:
     owned:
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
+    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
+    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/SettingsScenarioTests.swift
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
-    - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
-    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/NativeSettingsTests.swift
-    - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
+    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
-    - evidence/2026-10-15-materials/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-15-shortcut/source/scripts/test-native-settings-trace.py
     border:
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
     - evidence/2026-10-15-materials/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

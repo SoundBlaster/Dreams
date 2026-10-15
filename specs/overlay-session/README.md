@@ -89,3 +89,5 @@ Current integrated baseline: [2026-10-14 motion-stack](validation/2026-10-14-mot
 Current integrated baseline: [2026-10-14 search-stack](validation/2026-10-14-search-stack/README.md). Prior source/test records remain historical.
 
 Current glyph-pulse integration and separate execution/structural evidence: [2026-10-14 pulse](validation/2026-10-14-pulse/README.md). Earlier baselines remain historical.
+
+Current native shortcut integration: [2026-10-15 shortcut](validation/2026-10-15-shortcut/README.md). Earlier evidence remains historical.

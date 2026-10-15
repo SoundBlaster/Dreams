@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.overlay.exit
   title: ExitInput
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Route local opaque-window exits and a fallible global shortcut to stop the complete owned rain session.
@@ -72,8 +72,11 @@ constraints:
 - id: hotkey_recording
   level: MUST
   statement: Interactive shortcut recording accepts only combinations including Control, Option or Command and rejects
-    Escape as a proposed shortcut. During recording, Escape cancels recording and the local monitor consumes that
-    event; it is not an unconditional rain-exit guarantee.
+    Escape as a proposed shortcut. Native and legacy settings share one temporary recorder scoped to its initiating window;
+    unrelated-window keys pass through. During recording, Escape cancels and is consumed before the window exit route.
+    Second activation, native section change, window close/key loss, app deactivation/hide and cleanup cancel capture.
+    Successful registration updates existing preferences and UI; failure leaves the saved value and shows an error.
+    This is not an unconditional rain-exit or Carbon rollback guarantee.
 - id: registration_failure
   level: MUST
   statement: Treat Carbon registration as fallible. Initial install reports failure. Shortcut change unregisters
@@ -112,13 +115,13 @@ evidence:
   - effects.input_registration
 - id: source_3
   kind: source
-  path: evidence/2026-10-14-native-host/source/Sources/Dreams/shared/lib/StopHotkey.swift
+  path: evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
   supports:
   - interfaces
   - constraints.hotkey_recording
 - id: source_4
   kind: source
-  path: evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+  path: evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
   supports:
   - constraints.all_displays
   - constraints.local_escape
@@ -142,6 +145,18 @@ evidence:
   path: evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
   supports:
   - constraints.callback_lifetime
+- id: recording_source
+  kind: source
+  path: evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
+  supports:
+  - constraints.hotkey_recording
+  - effects.input_registration
+- id: recording_tests
+  kind: test
+  path: evidence/2026-10-15-shortcut/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
+  supports:
+  - constraints.hotkey_recording
+  - constraints.registration_failure
 provenance:
   sourceConfidence:
     intent: medium
@@ -158,13 +173,15 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 3910ebf93779f8da807bf361f89873092db03b7d
+    revision: 7ab5412d7cb0947208498f0a328b63f3134070e7
   files:
     owned:
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
+    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/shared/lib/StopHotkey.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
+    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsDelegate.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift
