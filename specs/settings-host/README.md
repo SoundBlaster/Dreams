@@ -70,3 +70,5 @@ include the local SwiftPM manifest and the consumed SettingsSliderRow source.
 the host's native-control baseline and requires renewed verification.
 The original source/validation records remain historical.
 [Review correction checks](validation/2026-10-14-ui-border/README.md).
+
+Current glyph-pulse integration and separate execution/structural evidence: [2026-10-14 pulse](validation/2026-10-14-pulse/README.md). Earlier baselines remain historical.

@@ -1,0 +1,25 @@
+{
+  "revision": "93f5069",
+  "files": [
+    {
+      "path": "Sources/Dreams/MatrixSimulation.swift",
+      "sha256": "e319748c73130e126e299b127772726eace07d8fc89ec22d07646de8e7b4e8de",
+      "excerpts": [
+        {
+          "line": 216,
+          "text": "return cell.glyph >= 0 && !cell.isGap && row != column.headRow"
+        }
+      ]
+    },
+    {
+      "path": "Sources/Dreams/MatrixRain.swift",
+      "sha256": "34acfa0588a2a5faed0f1109880e0c34ce1384c21a0fbfdde8120b04d4117f71",
+      "excerpts": [
+        {
+          "line": 252,
+          "text": "text = String(symbols[cell.glyph])"
+        }
+      ]
+    }
+  ]
+}

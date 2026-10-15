@@ -1,0 +1,33 @@
+Building for production...
+[Computing dependencies]
+[Pre-planning 1 / 423]
+[Planning deferred tasks]
+[1 / 1]
+[4 / 11] Dreams-product
+[6 / 15]
+[8 / 15] Dreams-product
+[15 / 18] Dreams-product
+[17 / 21] Dreams-product
+[20 / 23] DreamsTests-product
+[22 / 25] DreamsTests-product
+[26 / 30] DreamsTests-product
+[28 / 30] DreamsTests-product
+Build complete! (19.69 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropHeadTests started.
+􀟈  Test aFinishedPacketDoesNotKeepItsLastHeadLitDuringThePause() started.
+􀟈  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() started.
+􀟈  Test headTrialsAreDeterministicAndIndependentOfTheSearchQuota() started.
+􀟈  Test aSingleGlyphRepertoireAndExpiredHeadDoNotStartTrials() started.
+􀟈  Test theBottomHeadStopsCyclingAfterItsFlightStep() started.
+􀟈  Test theSameHeadCyclesWithZeroTrailSearch() started.
+􁁛  Test theBottomHeadStopsCyclingAfterItsFlightStep() passed after 0.001 seconds.
+􁁛  Test aFinishedPacketDoesNotKeepItsLastHeadLitDuringThePause() passed after 0.001 seconds.
+􁁛  Test theSameHeadCyclesWithZeroTrailSearch() passed after 0.001 seconds.
+􁁛  Test aSingleGlyphRepertoireAndExpiredHeadDoNotStartTrials() passed after 0.001 seconds.
+􁁛  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() passed after 0.001 seconds.
+􁁛  Test headTrialsAreDeterministicAndIndependentOfTheSearchQuota() passed after 0.001 seconds.
+􁁛  Suite DropHeadTests passed after 0.001 seconds.
+􁁛  Test run with 6 tests in 1 suite passed after 0.001 seconds.

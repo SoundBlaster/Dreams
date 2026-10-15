@@ -555,6 +555,34 @@ struct MatrixSimulation {
         return Float(max(0, min(1, 1 - (time - c.lastWrite - step) / 0.11)))
     }
 
+    /// Fast head-only trials are a presentation: they never rewrite stationary ink
+    /// or consume the quota/random generator used by searches in the trail.
+    func headGlyph(column: Int, row: Int) -> Int {
+        let c = columns[column]
+        let stored = c.cells[row].glyph
+        guard glyphCount > 1, headIntensity(column: column, row: row) > 0 else { return stored }
+        let step = c.motion.map {
+            $0.arrival(at: Double(row + 1)) - $0.arrival(at: Double(row))
+        } ?? c.interval
+        // Clamp at the final arrival: a bottom head fades without continuing trials.
+        let tick = Int(max(0, min(step, time - c.lastWrite)) / 0.035)
+        var seed = c.lastWrite.bitPattern ^ UInt64(truncatingIfNeeded: column) &* 0x9E3779B97F4A7C15
+        seed = (seed ^ (seed >> 30)) &* 0xBF58476D1CE4E5B9
+        seed = (seed ^ (seed >> 27)) &* 0x94D049BB133111EB
+        seed ^= seed >> 31
+        let base = Int(seed % UInt64(glyphCount))
+        var stride = 1 + Int((seed >> 32) % UInt64(glyphCount - 1))
+        // A coprime stride visits the whole repertoire without identical neighbours.
+        while greatestCommonDivisor(stride, glyphCount) != 1 { stride = stride % (glyphCount - 1) + 1 }
+        return (base + (tick % glyphCount) * stride) % glyphCount
+    }
+
+    private func greatestCommonDivisor(_ left: Int, _ right: Int) -> Int {
+        var a = left, b = right
+        while b != 0 { (a, b) = (b, a % b) }
+        return a
+    }
+
     private mutating func unit() -> Double {
         random &+= 0x9E3779B97F4A7C15
         var value = random

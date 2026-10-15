@@ -53,3 +53,5 @@ window lifetime; embedded rain, glass and full input parity remain next-stage wo
 
 The drop-motion detail now includes HeadAppearance, with [current head validation](../drop-motion/validation/2026-10-14-head/README.md).
 Other shader/atlas rendering and physical desktop compositing remain unexplored.
+
+[Glyph pulse](glyph-pulse.hc) / [profiles](glyph-pulse.hcs) recover macOS whole-glyph exposure, independent real-time phases and shared strength tuning. Validate default, `pulse=off` and `background=transparent`; tvOS adoption remains excluded.

@@ -1,0 +1,39 @@
+{
+  "swift": {
+    "command": [
+      "swift",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\n",
+    "stderr": "swift-driver version: 1.168.6 "
+  },
+  "xcode": {
+    "command": [
+      "xcodebuild",
+      "-version"
+    ],
+    "exitCode": 0,
+    "stdout": "Xcode 27.1\nBuild version 27A9275\n",
+    "stderr": ""
+  },
+  "specpm": {
+    "command": [
+      "specpm",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "specpm 0.2.0\n",
+    "stderr": ""
+  },
+  "hypercode": {
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "version",
+      "--json"
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "version:1:1: error[HC1001]: unexpected character '0'\n"
+  }
+}

@@ -1,0 +1,29 @@
+GlyphEditor:
+  source: "scripts/glyphs/stroke-editor.js"
+  source_scope: "browser-editor-at-pinned-baseline"
+  runtime: "browser"
+  checkpoint_profile: "local-server"
+EditingSession:
+  source: "scripts/glyphs/stroke-editor.js"
+  implementation: "edit + restore + endDrag + renderControls"
+Geometry:
+  source: "scripts/glyphs/stroke-editor-model.js"
+  implementation: "validate + outline + metricGuides + svg"
+SharedStrokes:
+  source: "scripts/glyphs/stroke-editor.js"
+  implementation: "createComponent + editShape + copy/paste/detach handlers"
+VisualGuides:
+  source: "scripts/glyphs/stroke-editor.js"
+  implementation: "references + userGuides + traceMarkup"
+ProjectTransfer:
+  source: "scripts/glyphs/stroke-editor.js"
+  implementation: "loadProject + save + export"
+CheckpointLibrary:
+  source: "scripts/glyphs/stroke_library.py"
+  implementation: "Library + serve"
+EditorBuild:
+  source: "scripts/glyphs/stroke_editor.py"
+  implementation: "build"
+@mode[standalone]:
+  GlyphEditor:
+    checkpoint_profile: "unavailable-when-API-is-absent"

@@ -16,6 +16,60 @@ struct DropHeadRenderingTests {
         try await checkHead(transparent: transparent, braking: false, gap: true)
     }
 
+    @Test(arguments: [false, true])
+    func theHeadChangesShapeBetweenRowArrivals(transparent: Bool) async throws {
+        _ = try #require(ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"])
+        var rain = MatrixSimulation(columnCount: 48, rows: 31, glyphCount: 57, density: 1,
+                                    deceleration: .init(enabled: true, acceleration: -120))
+        rain.setSearchFraction(0)
+        var selected: Int?
+        for frame in 0...600 {
+            rain.advance(to: Double(frame) / 120)
+            selected = rain.columns.indices.first { index in
+                let c = rain.columns[index]
+                return c.headRow >= 10 && c.headRow < 29 && !c.cells[c.headRow].isGap
+                    && c.nextWrite - c.lastWrite > 0.085
+            }
+            if selected != nil { break }
+        }
+        let column = try #require(selected)
+        let head = rain.columns[column]
+        let renderer = try RainRenderer(view: MTKView(), restoredGlyphs: true,
+                                        transparentBackground: transparent)
+        renderer.rainIdleIntensity = 1
+        renderer.rainColumnCount = 48
+        renderer.rainDensity = 1
+        renderer.rainGlow = 0
+        renderer.rainSpeed = 1
+        renderer.rainSearchFraction = 0
+        renderer.rainDeceleration = .init(enabled: true, acceleration: -120)
+        renderer.brightness = 0.18
+        _ = try await renderer.previewPNG(posedTime: 0)
+        var shapes: [Set<Int>] = []
+        for (frame, offset) in [0.005, 0.04, 0.075].enumerated() {
+            let png = try await renderer.previewPNG(posedTime: Float(head.lastWrite + offset))
+            let image = try #require(NSBitmapImageRep(data: png))
+            var shape = Set<Int>()
+            for y in Int(Double(head.headRow) * 982 / 31)..<Int(Double(head.headRow + 1) * 982 / 31) {
+                for x in Int(Double(column) * 1512 / 48)..<Int(Double(column + 1) * 1512 / 48) {
+                    let c = try #require(image.colorAt(x: x, y: y)?.usingColorSpace(.sRGB))
+                    if c.alphaComponent > 0.5 && c.redComponent > 0.4
+                        && c.redComponent / max(0.001, c.greenComponent) > 0.9 { shape.insert(y * 1512 + x) }
+                }
+            }
+            #expect(shape.count > 5, "Every trial keeps a visible pale head")
+            shapes.append(shape)
+            if let path = ProcessInfo.processInfo.environment["DREAMS_CAPTURE_HEAD_DIR"] {
+                let url = URL(fileURLWithPath: path)
+                try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
+                try png.write(to: url.appendingPathComponent("cycle-\(transparent ? "transparent" : "opaque")-\(frame).png"))
+            }
+        }
+        #expect(shapes.dropFirst().contains { shape in
+            Double(shape.symmetricDifference(shapes[0]).count) > Double(min(shape.count, shapes[0].count)) * 0.4
+        }, "The head must change its outline on the same row, beyond texture noise")
+    }
+
     private func checkHead(transparent: Bool, braking: Bool, gap: Bool) async throws {
         _ = try #require(ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"])
         let density = gap ? 0.0 : 1.0

@@ -1,0 +1,42 @@
+{
+  "sourceRevision": "74b57fa2a4ea8e6934024dd57706c39d42e331c0",
+  "unit": {
+    "command": "swift test -c release",
+    "environment": [
+      "DREAMS_TEST_METAL=1",
+      "DREAMS_FEED_DIRECTORY=isolated fixture"
+    ],
+    "exitCode": 0,
+    "tests": 47
+  },
+  "checks": [
+    {
+      "command": [
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "make",
+        "lint"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "ciMetalSelection": {
+    "command": "swift test -c release --skip-build --filter TransparentFadeRenderingTests|DropHeadRenderingTests|GlyphPulseRenderingTests",
+    "exitCode": 0,
+    "note": "Broader head/pulse selection exercised locally; hosted workflow remains unchanged and CI status is not watched."
+  }
+}

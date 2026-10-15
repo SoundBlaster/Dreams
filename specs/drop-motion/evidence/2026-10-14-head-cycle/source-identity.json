@@ -1,0 +1,256 @@
+{
+  "sourceRevision": "ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "34d453f652e428f77837fc55708f8c723ef8729e82e72525c0cca738e67c5390",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "2a97f486290548c401557e8ef0f10ebbbfc15e4540ecbc21c6b63dc783e896e5",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "612613113421b7fd12c16b2c97534dc73a8ea6cc92d6f0e87b337bf45eb5c664",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "814595f3ca25d9bfbc95a480bd0179ddfb45e27f49d8ad6ddfe75a079ff74c73",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "dfa12caf77253b6cc890f76c5689033382150291a1a3ef8bb97753a5c71d4435",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "d51f3f4edd6327bfd843c6bba39ed7986a15a455484d8e1586b7068414c9f691",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "b9895aac004dccd3eacbf5bc2f84716f284ad1564c1f6f70e12f5451137d0dc8",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "sha256": "4c160c354217cf754bbf689240acfc1e11c5de6cf4670234136a6517de9c9e08",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "sha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "sha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/SearchOccupancyTests.swift",
+      "sha256": "4b5ecc7fc2faf834cbbb5f0776b75cd85c933a8bd5ee12b4c41c722c46983236",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "sha256": "cd39068a01d9e8950a90cb8b502700dbbe4a2f0c32c2d00cd0cff6482f43930a",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/SettingsPageTests.swift",
+      "sha256": "00fe041ff8be755737351f24d80ab24efb4c476f42203dcfb616b646152b3e1b",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-matrix.swift",
+      "sha256": "e023a0442f245b18d31100f1e735dcbe7aea044ddfc66c6f81ed7280736b2142",
+      "snapshot": "evidence/2026-10-14-native-host/source/scripts/test-matrix.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/Rain.metal",
+      "sha256": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+      "snapshot": "evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DropHeadTests.swift",
+      "sha256": "aa0c541d8fc8b7fff88f7a5c5af8bbfb07e62fa4d1bcd1020c124327cd8b3064",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DropHeadRenderingTests.swift",
+      "sha256": "7283ebff8d99232971551169e85baa794b07e54f80d7614c1965dfcea748ae73",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "sha256": "ad1ad9532bb2c87adced76883f6a4d33592ec59e1f2418207f86c3f872673338",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "0bdb426c89cd603d45859acea4f34cb6ed7e77a7afeb12b9dd9ef90b1922908f",
+      "snapshot": "evidence/2026-10-14-head/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "sha256": "ae2dd82640aed8358f53f98a38965a579765639a47f02ba42c4b33620f6b1fd5",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/GlyphPulseTests.swift",
+      "sha256": "125e11ba384a208c57c844e855af15a6a7cd0632b4d0747ca8713b7a9f0f12ac",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/GlyphPulseRenderingTests.swift",
+      "sha256": "92c0f62494bf2d86c97a951a550ac361d32024d20956fd16095114f73969bfc5",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "sha256": "773a7c44ecb0545244c6c6fec313cbd88f3862cbab7141db49aa33f7a5cd7706",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "sha256": "f61145a09d277269c1901861e11f67967cc7f2fc9dd8f9cd0fa6287b01a59cf3",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "917a2cde664dc29735e368dd990b5585375f01804666a761f308144101ccff87",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/glyph-pulse.hc",
+      "sha256": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-pulse.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hc",
+      "sha256": "797b441636a9d55f63fb0575d1c1f26747c5714f4f619344d784209353ce7e7c",
+      "snapshot": "evidence/2026-10-14-pulse/maps/settings-host.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-catalog.hc",
+      "sha256": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+      "snapshot": "evidence/2026-10-14-pulse/maps/settings-catalog.hc"
+    },
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "4d9f5939b55e50e585e0824d6a76d3cb3e24b4f64af68824e90fc319c00e766b",
+      "snapshot": "evidence/2026-10-14-pulse/maps/application.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hc",
+      "sha256": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-search.hc"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "45b1f549dcb9231c3b2d40a3ef061ec8b7974326c60955e4b6707a3ccf52da01",
+      "snapshot": "evidence/2026-10-14-pulse/maps/overlay-session.hc"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hc",
+      "sha256": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-editor.hc"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hc",
+      "sha256": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+      "snapshot": "evidence/2026-10-14-pulse/maps/drop-motion.hc"
+    },
+    {
+      "path": "specs/hypercode/settings-catalog.hcs",
+      "sha256": "49b144bb3c282d9b8fb49676e9d82f651912dd8fb5b7279b84fbd0c60a5c2b7a",
+      "snapshot": "evidence/2026-10-14-pulse/maps/settings-catalog.hcs"
+    },
+    {
+      "path": "specs/hypercode/drop-motion.hcs",
+      "sha256": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586",
+      "snapshot": "evidence/2026-10-14-head-cycle/maps/drop-motion.hcs"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "1b39d26279dd3542abd33f4173a3dfdb706c85ea1e4b00a873ed3ba4640e4b48",
+      "snapshot": "evidence/2026-10-14-pulse/maps/application.hcs"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "1b0df7c472602324a85af13d70cb8f11fa7bc67815ed8dbf7f16f01470ef58a1",
+      "snapshot": "evidence/2026-10-14-pulse/maps/overlay-session.hcs"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "54b603d06446915606cd6abf367891fa9b36cb68efd640806b27cfd0f8c570df",
+      "snapshot": "evidence/2026-10-14-pulse/maps/settings-host.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-editor.hcs",
+      "sha256": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-editor.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-pulse.hcs",
+      "sha256": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-pulse.hcs"
+    },
+    {
+      "path": "specs/hypercode/glyph-search.hcs",
+      "sha256": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9",
+      "snapshot": "evidence/2026-10-14-pulse/maps/glyph-search.hcs"
+    }
+  ],
+  "dirtySources": [
+    {
+      "path": "specs/hypercode/drop-motion.hcs",
+      "sha256": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586"
+    }
+  ],
+  "scopeNote": "macOS continuous head presentation; stationary motion/search/pulse/settings/overlay claims retain their stable identities. Changed map bytes are identified separately from the runtime commit."
+}

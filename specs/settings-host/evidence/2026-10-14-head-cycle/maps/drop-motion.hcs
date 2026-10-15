@@ -1,0 +1,31 @@
+DropMotion:
+  source: "Sources/Dreams/features/rain/model/MatrixSimulation.swift"
+  enabled: false
+  acceleration: -12
+  acceleration_units: "glyph-rows-per-simulation-second-squared"
+HeadArrival:
+  implementation: "Deceleration.motion + Motion.arrival + advance"
+  law: "legacy-constant-speed"
+TailLifetime:
+  implementation: "per-cell hold/fade + elapsed-flight stretch"
+  glyph_positions: "fixed"
+HeadAppearance:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  implementation: "headIntensity + headGlyph + pale tint + glyph alpha"
+  capability: "dreams.rain.head_visibility"
+  trial_interval: 0.035
+  trial_units: "simulation-seconds"
+  trail_search_quota: "independent"
+  scope: "macOS opaque and transparent; tvOS colour adaptation remains separate"
+EventLifetime:
+  implementation: "trigger conservative duration"
+Tuning:
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
+  implementation: "saved tuning -> RainRenderer -> MatrixRain -> simulation"
+  effective: "next-packet-at-row-zero"
+@motion[decelerating]:
+  DropMotion:
+    enabled: true
+  HeadArrival:
+    law: "constant-negative-acceleration-then-terminal-speed"
+    terminal_speed_ratio: 0.2

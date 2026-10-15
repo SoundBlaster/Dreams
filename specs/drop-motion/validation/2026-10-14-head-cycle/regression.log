@@ -1,0 +1,37 @@
+Building for production...
+[Computing dependencies]
+[1 / 1]
+[4 / 9] Dreams-product
+[6 / 13]
+[8 / 13] Dreams
+[13 / 16] Dreams-product
+[15 / 19] Dreams-product
+[18 / 18] DreamsTests-product
+[20 / 22] DreamsTests-product
+Build complete! (11.58 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite DropHeadRenderingTests started.
+􀟈  Test theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀢄  Test theHeadChangesShapeBetweenRowArrivals(transparent:) recorded an issue with 1 argument transparent → false at DropHeadRenderingTests.swift:68:9: Expectation failed: shapes.dropFirst().contains { shape in
+            Double(shape.symmetricDifference(shapes[0]).count) > Double(min(shape.count, shapes[0].count)) * 0.4
+        }
+􀄵  The head must change its outline on the same row, beyond texture noise
+􀄵  shapes.dropFirst().contains { shape in
+               Double(shape.symmetricDifference(shapes[0]).count) > Double(min(shape.count, shapes[0].count)) * 0.4
+           } → <not evaluated>
+􀟈  Test case passing 1 argument transparent → true to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀢄  Test theHeadChangesShapeBetweenRowArrivals(transparent:) recorded an issue with 1 argument transparent → true at DropHeadRenderingTests.swift:68:9: Expectation failed: shapes.dropFirst().contains { shape in
+            Double(shape.symmetricDifference(shapes[0]).count) > Double(min(shape.count, shapes[0].count)) * 0.4
+        }
+􀄵  The head must change its outline on the same row, beyond texture noise
+􀄵  shapes.dropFirst().contains { shape in
+               Double(shape.symmetricDifference(shapes[0]).count) > Double(min(shape.count, shapes[0].count)) * 0.4
+           } → <not evaluated>
+􀢄  Test theHeadChangesShapeBetweenRowArrivals(transparent:) with 2 test cases failed after 0.234 seconds with 2 issues.
+􀢄  Suite DropHeadRenderingTests failed after 0.234 seconds with 2 issues.
+􀢄  Test run with 1 test in 1 suite failed after 0.234 seconds with 2 issues.
+Note: Some test targets reported failures:
+  - DreamsTests (Swift Testing)

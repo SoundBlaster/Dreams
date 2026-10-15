@@ -22,6 +22,7 @@ struct SettingsPageTests {
             "dreams.rain-search-fraction", "dreams.rain-deceleration", "dreams.rain-deceleration-enabled",
             "dreams.rain-density", "dreams.rain-speed", "dreams.rain-fade", "dreams.rain-brightness-spread",
             "dreams.rain-glow", "dreams.rain-idle", "dreams.transparent-background", "dreams.hide-from-screenshots",
+            "dreams.rain-pulse-strength",
             "dreams.keyword-color", "dreams.keyword-brightness", "dreams.restored-glyphs"
         ]))
         for control in page.controlsByID.values {

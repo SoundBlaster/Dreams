@@ -2,7 +2,7 @@ import Foundation
 
 /// The host owns production units and ranges; DreamsSettingsUI only composes controls.
 enum NativeRainParameter: CaseIterable {
-    case density, speed, search, deceleration, fade, spread, glow, idle, keywordBrightness
+    case density, speed, search, deceleration, fade, spread, pulse, glow, idle, keywordBrightness
 
     @MainActor var keyPath: ReferenceWritableKeyPath<DreamsController, Double> {
         switch self {
@@ -12,6 +12,7 @@ enum NativeRainParameter: CaseIterable {
         case .deceleration: \.rainDeceleration
         case .fade: \.rainFadeRows
         case .spread: \.rainBrightnessSpread
+        case .pulse: \.rainPulseStrength
         case .glow: \.rainGlow
         case .idle: \.rainIdleIntensity
         case .keywordBrightness: \.keywordBrightness
@@ -25,6 +26,7 @@ enum NativeRainParameter: CaseIterable {
         case .deceleration: settingsString("rain.deceleration")
         case .fade: settingsString("rain.fade")
         case .spread: settingsString("rain.spread")
+        case .pulse: settingsString("rain.pulse")
         case .glow: settingsString("rain.glow")
         case .idle: settingsString("rain.idle")
         case .keywordBrightness: settingsString("words.brightness")
@@ -49,6 +51,7 @@ enum NativeRainParameter: CaseIterable {
         case .deceleration: "dreams.rain-deceleration"
         case .fade: "dreams.rain-fade"
         case .spread: "dreams.rain-brightness-spread"
+        case .pulse: "dreams.rain-pulse-strength"
         case .glow: "dreams.rain-glow"
         case .idle: "dreams.rain-idle"
         case .keywordBrightness: "dreams.keyword-brightness"

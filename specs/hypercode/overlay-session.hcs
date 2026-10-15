@@ -38,8 +38,8 @@ CaptureVisibility:
   suspension_status: "rain_suspended_for_capture"
 Renderer:
   source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
-  detail_status: "drop-motion-head-appearance-and-glyph-search-recovered-other-rendering-unexplored"
-  detail: "drop-motion.hc + drop-motion.hcs + glyph-search.hc + glyph-search.hcs"
+  detail_status: "motion-head-search-pulse-recovered-other-rendering-unexplored"
+  detail: "drop-motion.hc + glyph-search.hc + glyph-pulse.hc and their hcs profiles"
 @background[transparent]:
   RainOverlaySession:
     background: "transparent"

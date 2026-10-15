@@ -1,4 +1,4 @@
-# Current runtime: d3b962a7402e56f82f775be76c6e3fb068efacbe; validation/2026-10-14-head/README.md
+# Current runtime: 74b57fa2a4ea8e6934024dd57706c39d42e331c0; validation/2026-10-14-head-cycle/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
@@ -102,7 +102,7 @@ effects:
 evidence:
 - id: simulation_source
   kind: source
-  path: evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  path: evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints.opt_in
   - constraints.kinematics
@@ -118,7 +118,7 @@ evidence:
   - constraints
 - id: integration_source
   kind: source
-  path: evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: controls_test
@@ -128,7 +128,7 @@ evidence:
   - constraints.parent_assembly
 - id: validation_results
   kind: test
-  path: validation/2026-10-14-head/README.md
+  path: validation/2026-10-14-head-cycle/README.md
   supports:
   - constraints
 provenance:
@@ -152,23 +152,23 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: d3b962a7402e56f82f775be76c6e3fb068efacbe
+    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
   files:
     owned:
-    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-14-head/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
     - evidence/2026-10-14-native-host/source/scripts/test-matrix.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
-    - evidence/2026-10-14-native-host/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SettingsPageTests.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/SettingsPageTests.swift
     border: []

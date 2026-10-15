@@ -1,0 +1,20 @@
+SettingsCatalog:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift"
+  boundary: "standalone-fixture-application"
+  contract: "dreams.settings.catalog"
+NativeComponents:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/"
+  implementation: "SwiftUI Slider + LabeledContent; generic preview content slot"
+FixtureForms:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/"
+  state: "window-local-State-not-production-preferences"
+WindowNavigation:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/ui/CatalogPage.swift"
+  implementation: "NavigationSplitView + List selection + system toolbar"
+MaterialSamples:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift"
+  availability: "standard-macOS15; Liquid-Glass-buttons-macOS26"
+Packaging:
+  source: "scripts/build-settings-catalog.sh"
+  identity: "ru.egormerkushev.dreams.settings-catalog"
+  runtime_dependency: "no-import-or-link-to-production-Dreams"

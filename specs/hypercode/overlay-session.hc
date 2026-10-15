@@ -12,3 +12,4 @@ RainOverlaySession
   Renderer
     DropMotion
     GlyphSearch
+    GlyphPulse

@@ -16,11 +16,12 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Presentation | User / windows and focus | dreams.overlay.presentation | reconcile/close, panel config | Verify focus/OS resource failures |
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
-| RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance and search recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
-| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current d3b962a [head baseline](drop-motion/validation/2026-10-14-head/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
-| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current d3b962a [head baseline](drop-motion/validation/2026-10-14-head/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance, search and pulse recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current ab6290c [head-cycle baseline](drop-motion/validation/2026-10-14-head-cycle/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current ab6290c [head-cycle baseline](drop-motion/validation/2026-10-14-head-cycle/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current ab6290c [head-cycle baseline](drop-motion/validation/2026-10-14-head-cycle/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Native-host integration baseline; independent catalog fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Default-off native routing and shared owner; local tests + Screener 0.2.0 | Keyboard/VoiceOver, compositor acceptance; embedded preview next |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current ab6290c [head-cycle integration](settings-host/validation/2026-10-14-head-cycle/README.md); shared owner and default-off routing | Keyboard/VoiceOver, compositor acceptance; embedded preview next |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -270,3 +271,39 @@ hashes match their pinned evidence. Stable claim IDs and draft acceptance remain
 Release publication follows the fix merge. Default launch retains legacy settings;
 the native host still requires explicit `--native-settings`. Signed universal build,
 Apple notarization and published-asset verification are separate release evidence.
+
+## Glyph brightness pulse — 2026-10-14
+
+Runtime `74b57fa` adds the macOS `dreams.rain.glyph_pulse` draft boundary and HC detail.
+Independent whole-glyph exposure follows real time, affects ordinary ink/words/halo, and
+retains pale heads, core alpha, search quota, motion and expiry guards. The saved strength
+slider is available in legacy settings and the explicitly opted-in native host; default
+30 percent, 0 disables. Periods 1.33–4 seconds and gain floor 0.35 at full strength are
+implementation choices rather than film-fidelity claims.
+
+[Current rain identities and validation](drop-motion/validation/2026-10-14-pulse/README.md),
+[overlay assembly](overlay-session/validation/2026-10-14-pulse/README.md) and
+[settings host](settings-host/validation/2026-10-14-pulse/README.md) repin changed sources/maps.
+Stable motion/search/head, overlay display/presentation/exit and native ownership/range/flag
+claim IDs retain their meanings; old results remain on their original baselines.
+Forty-seven local Swift/GPU tests pass on this runtime, including zero/invalid tuning,
+asynchronous phases, native/legacy persistence, on/off alpha comparison and pale-head regressions.
+The pure exposure helper sample takes approximately 0.86ms per maximum-grid frame locally;
+this is not a full rendering FPS guarantee. No tvOS source, glyph/font/checkpoint, hook
+authority or native launch flag changes occur. Physical compositor acceptance remains unobserved.
+
+## Continuous drop head trials — 2026-10-14
+
+Runtime `ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7` adds head-only displayed glyph trials at 0.035 simulation seconds.
+The early `93f5069` version used only new-row glyph writes for heads and excluded them from trail search;
+this is a new explicit presentation rule, not evidence that a continuous loop was deleted.
+The trials remain visible at zero trail search and during braking, without mutating stored ink or quota.
+The HeadAppearance role and existing visibility claims stay stable; head_trials is folded into that draft.
+
+[Current source/map identities and checks](drop-motion/validation/2026-10-14-head-cycle/README.md)
+record 52 passing local tests and a negative outline regression on the exact prior renderer bytes.
+Motion/search/pulse, native setting ownership/ranges/flag and overlay lifetime/display/exit claims retain
+their meanings; [overlay](overlay-session/validation/2026-10-14-head-cycle/README.md) and
+[settings](settings-host/validation/2026-10-14-head-cycle/README.md) record the unchanged assembly.
+All older source/test evidence remains historical. Both background profiles are covered offscreen;
+physical compositor/TV acceptance remains unobserved. No font/checkpoint or new preference is added.

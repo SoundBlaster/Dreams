@@ -1,0 +1,20 @@
+[
+  {
+    "package": "drop-motion",
+    "sources": 27,
+    "maps": 16,
+    "exitCode": 0
+  },
+  {
+    "package": "overlay-session",
+    "sources": 11,
+    "maps": 16,
+    "exitCode": 0
+  },
+  {
+    "package": "settings-host",
+    "sources": 24,
+    "maps": 16,
+    "exitCode": 0
+  }
+]
