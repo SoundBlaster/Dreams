@@ -126,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-15-shortcut-retry/README.md
+  path: validation/2026-10-16-parity/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 96bda65c685ca4759e93e7fde95056b97fc237f9
+    revision: c7da63dbc30ced3712ea9e5d357be6737791128a
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -170,7 +170,7 @@ implementationBindings:
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
+    - evidence/2026-10-16-parity/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-15-shortcut-compact/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
@@ -181,13 +181,13 @@ implementationBindings:
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
-    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-16-parity/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
-    - evidence/2026-10-15-shortcut/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-16-parity/source/scripts/test-native-settings-trace.py
     border:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift

@@ -21,7 +21,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current 3910ebf [shared material panel](settings-catalog/validation/2026-10-15-materials/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 96bda65 [shortcut retry fix](settings-host/validation/2026-10-15-shortcut-retry/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current c7da63d [native parity pass](settings-host/validation/2026-10-16-parity/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -406,3 +406,16 @@ other runtime behavior and HC maps remain unchanged. Earlier results stay histor
 [Current host checks](settings-host/validation/2026-10-15-shortcut-retry/checks.md),
 [overlay baseline](overlay-session/validation/2026-10-15-shortcut-retry/README.md),
 [rain integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md). Draft acceptance is unchanged.
+
+## Native localization/layout parity — 2026-10-16
+
+Source `c7da63dbc30ced3712ea9e5d357be6737791128a` corrects hook button AX containment
+and narrow English status truncation. Screener now captures all seven sections at both
+widths with language metadata. Host native_controls/operation_semantics/one_settings_owner/
+default_off/material_composition retain their requirements; unchanged HC roles and source
+paths need no cosmetic map edits. Only settings-host identities are refreshed.
+[Current validation](settings-host/validation/2026-10-16-parity/README.md) separates 44
+hierarchy frames, actual wide EN/RU app observations, local lint/localization and structure.
+Tab/VoiceOver and actual-app narrow interaction remain open. Catalog documentation is
+corrected without changing its runtime baseline. Other subsystem evidence stays historical;
+formal acceptance stays draft, new settings stay opt-in, and toolbar blur is deferred.
