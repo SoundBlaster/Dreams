@@ -38,4 +38,3 @@ The unchanged trace make target runs through a temporary PATH wrapper inserting 
 same SwiftPM options; the target's scenario and assertions are preserved.
 Tools: Apple Swift 6.4, Screener 0.2.0, SpecPM 0.2.0, SwiftLint 0.63.3.
 No fullscreen/display topology, VoiceOver, physical TV or macOS 15 acceptance is claimed.
-
