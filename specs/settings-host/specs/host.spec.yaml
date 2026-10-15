@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.2
+  version: 0.1.0-draft.3
   status: draft
 intent:
   summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
@@ -12,8 +12,9 @@ scope:
   includes:
   - Launch routing, native sidebar/forms, shared controller bindings, error presentation and cleanup.
   - Existing rain, display and hook operations invoked through their current owners.
+  - Window-local Metal preview using production renderer and shared tuning.
   excludes:
-  - Embedded Metal preview, whole-window glass, full shortcut-recording migration and default-on rollout.
+  - Whole-window glass, full shortcut-recording migration and default-on rollout.
   - Overlay algorithms, hook installation semantics, renderer internals, tvOS and glyph editing.
 provides:
   capabilities:
@@ -23,7 +24,9 @@ provides:
 requires:
   capabilities:
   - id: dreams.settings.ui
-    summary: The local DreamsSettingsUI library supplies SettingsSliderRow with host-owned bindings, formatting and identifiers.
+    summary: The local DreamsSettingsUI library supplies SettingsSliderRow and SettingsPreviewRegion with host-owned bindings, formatting and identifiers.
+  - id: platform.apple.metal_renderer
+    summary: The production RainRenderer supplies the same glyph and rain pipeline to a separate MTKView session.
   - id: platform.apple.swiftui
     summary: macOS 15+ supplies the native navigation, forms and controls.
 interfaces:
@@ -80,7 +83,16 @@ constraints:
   statement: Opening either settings window retains stopForReopen. The native NSWindow forwards its existing Escape path to the controller; stop shortcut registration remains owned by SettingsPageController.
 - id: preview_limit
   level: MUST
-  statement: This host implements standard settings surfaces, without embedded rain or whole-window glass. Changing settings does not itself launch a fullscreen overlay.
+  statement: This host embeds a separate live rain preview in standard settings surfaces; whole-window glass remains deferred. Preview playback and setting edits do not themselves launch a fullscreen overlay.
+- id: independent_preview
+  level: MUST
+  statement: Preview owns a separate renderer and clock, uses controller tuning and recreates its renderer for background or glyph-set changes. It does not own preferences or the fullscreen overlay; narrow layouts place it above the form and wide layouts beside it.
+- id: preview_lifetime
+  level: MUST
+  statement: Only the currently bound visible surface may render. Hide, minimize, close and full occlusion pause and release the preview renderer; stale surface callbacks must not stop its replacement. Reopening uses current settings.
+- id: preview_playback
+  level: MUST
+  statement: Preview has a local pause/play control and native failure/Retry state. Reduce Motion initially pauses animation and enabling it pauses playback; disabling it never auto-resumes, while explicit Play is allowed.
 effects:
   sideEffects:
   - id: saved_settings
@@ -92,7 +104,7 @@ effects:
 evidence:
 - id: source
   kind: source
-  path: evidence/2026-10-14/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+  path: evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
   supports:
   - constraints
 - id: tests
@@ -105,7 +117,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-14-pulse/README.md
+  path: validation/2026-10-15-preview/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -113,6 +125,13 @@ evidence:
   path: evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
   supports:
   - constraints.native_controls
+- id: preview_tests
+  kind: test
+  path: evidence/2026-10-15-preview/source/Tests/DreamsTests/NativePreviewTests.swift
+  supports:
+  - constraints.independent_preview
+  - constraints.preview_lifetime
+  - constraints.preview_playback
 provenance:
   sourceConfidence:
     extraction: high
@@ -124,26 +143,32 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
+    revision: 1c8ba19844fffad464ac7dd7dfce8aba7dac0bb7
   files:
     owned:
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
-    - evidence/2026-10-14/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-15-preview/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-15-preview/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/NativeSettingsTests.swift
-    - evidence/2026-10-14/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-15-preview/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
+    - evidence/2026-10-15-preview/source/Tests/DreamsTests/NativePreviewTests.swift
     border:
+    - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift

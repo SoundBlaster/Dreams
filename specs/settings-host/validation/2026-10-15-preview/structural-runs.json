@@ -1,0 +1,19 @@
+[
+  {
+    "command": [
+      "make",
+      "lint"
+    ],
+    "exitCode": 0,
+    "log": "lint.log"
+  },
+  {
+    "command": [
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "exitCode": 0,
+    "log": "structure.log"
+  }
+]

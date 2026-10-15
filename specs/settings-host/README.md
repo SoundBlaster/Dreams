@@ -43,9 +43,13 @@ actual state and an alert; the controller operations are not promised atomic.
   buttons go through the existing installer and plugin-managed hooks stay disabled.
 - Shortcut recording remains in the legacy window, explicitly linked from the
   native General and Advanced forms. No claim of full interaction parity yet.
-- Embedded Metal rain, whole-window Liquid Glass/open shapes and live preview
-  are **next stages**, not implemented here. This stage uses standard Settings-style
-  surfaces and does not start rain merely by changing a setting.
+- Live Metal rain uses a separate window-local renderer and clock with the shared
+  controller tuning. Preview is beside the form in wide layouts and above it in narrow
+  layouts. Whole-window Liquid Glass/open shapes remain a later stage.
+- Preview pauses/releases GPU ownership when hidden, minimized, closed or fully
+  occluded. Local Pause/Play never starts the fullscreen overlay. Reduce Motion
+  initially pauses; explicit Play is allowed. The posed clock starts at six seconds
+  for a populated still and freezes while paused. Failure shows a native Retry action.
 - Screener records explicit model/form states through its 0.2.0 test SDK.
   The optional test-only ScreenCaptureKit product captures the exact test window
   and owner with existing authorization; failure never substitutes desktop or
@@ -65,10 +69,12 @@ The host requires `dreams.settings.ui`, provided by the
 [catalog/UI package contract](../settings-catalog/specs/catalog.spec.yaml).
 This means the library compositions, not the catalog executable. The binding
 border and [current source identity](evidence/2026-10-14-ui-border/source-identity.json)
-include the local SwiftPM manifest and the consumed SettingsSliderRow source.
+include the local SwiftPM manifest and the consumed SettingsSliderRow and SettingsPreviewRegion sources.
 `Package.resolved` does not pin a local package. Changing either input invalidates
 the host's native-control baseline and requires renewed verification.
 The original source/validation records remain historical.
 [Review correction checks](validation/2026-10-14-ui-border/README.md).
 
 Current glyph-pulse integration and separate execution/structural evidence: [2026-10-14 pulse](validation/2026-10-14-pulse/README.md). Earlier baselines remain historical.
+
+Current embedded preview implementation and validation: [2026-10-15 preview](validation/2026-10-15-preview/README.md). Earlier records remain historical.

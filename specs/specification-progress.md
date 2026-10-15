@@ -17,11 +17,11 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance, search and pulse recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
-| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current ab6290c [head-cycle baseline](drop-motion/validation/2026-10-14-head-cycle/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
-| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current ab6290c [head-cycle baseline](drop-motion/validation/2026-10-14-head-cycle/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
-| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current ab6290c [head-cycle baseline](drop-motion/validation/2026-10-14-head-cycle/README.md) | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 1c8ba19 [preview integration](drop-motion/validation/2026-10-15-preview/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 1c8ba19 [preview integration](drop-motion/validation/2026-10-15-preview/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 1c8ba19 [preview integration](drop-motion/validation/2026-10-15-preview/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Native-host integration baseline; independent catalog fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current ab6290c [head-cycle integration](settings-host/validation/2026-10-14-head-cycle/README.md); shared owner and default-off routing | Keyboard/VoiceOver, compositor acceptance; embedded preview next |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 1c8ba19 [live-preview integration](settings-host/validation/2026-10-15-preview/README.md); shared owner and default-off routing | Keyboard/VoiceOver; whole-window glass next |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -320,3 +320,20 @@ does not establish new physical TV, topology or complete compositor acceptance. 
 settings host remains an explicit --native-settings opt-in; default launch uses legacy settings.
 
 [Preserved 0.1.8 release-preparation commands, tools, identities and diagnostics](release/validation/2026-10-15-0.1.8/README.md) distinguish metadata checks from runtime, CI and signed publication evidence.
+
+## Window-local native live preview — 2026-10-15
+
+Runtime `1c8ba19844fffad464ac7dd7dfce8aba7dac0bb7` from main 6efbbeb; the isolated codex/native-live-preview checkout preserves user glyph work.
+SettingsPage.NativePresentation.LivePreview now shares production tuning through a separate renderer/clock,
+with local playback, Reduce Motion handling, visibility/resource cleanup, Retry and adaptive layout.
+The ordinary launch stays legacy and the explicit native flag remains default-off. No full-window glass yet.
+
+[Host checks/limits](settings-host/validation/2026-10-15-preview/README.md), [rain integration](drop-motion/validation/2026-10-15-preview/README.md)
+and [overlay integration](overlay-session/validation/2026-10-15-preview/README.md) pin the current sources/maps. Stable role/claim
+IDs remain; preview constraints extend the existing descriptive host draft. The consumed UI package border now
+includes SettingsPreviewRegion; catalog implementation/source and its independent-fixture obligations are unchanged.
+
+55 local tests pass; 11 exact-window SCK frames have rendered Metal content. CUA verifies the actual app in light/dark,
+Pause/Play, columns and minimize/restore. SwiftPM/SCK images retain toolbar/slider artifacts absent in the actual app;
+they are not a clean visual acceptance baseline. MacOS 15, complete accessibility/input parity, physical TV/fullscreen
+compositor and display topology remain unobserved. Historical evidence is not relabeled for this source.
