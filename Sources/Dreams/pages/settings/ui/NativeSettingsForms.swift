@@ -37,7 +37,20 @@ struct NativeGeneralForm: View {
             Section(settingsString("hotkey.label")) {
                 LabeledContent { Text(model.stopShortcut).monospaced() } label: { Text(settingsString("hotkey.label")) }
                 Text(L("native.escapeHint", model.stopShortcut)).foregroundStyle(.secondary)
-                Button(settingsString("native.hotkeyLegacy")) { model.showLegacy() }
+                HStack {
+                    Button(settingsString(model.isRecordingShortcut ? "button.cancel" : "hotkey.change")) { model.recordShortcut() }
+                        .accessibilityIdentifier("dreams.stop-hotkey")
+                    Button(settingsString("hotkey.reset")) { model.resetShortcut() }
+                        .accessibilityIdentifier("dreams.stop-hotkey-default")
+                }
+                if model.isRecordingShortcut {
+                    Text(settingsString("hotkey.recording")).fontWeight(.medium)
+                        .accessibilityIdentifier("dreams.stop-hotkey-recording")
+                }
+                if let message = model.shortcutMessage {
+                    Text(message).foregroundStyle(.secondary).accessibilityIdentifier("dreams.stop-hotkey-message")
+                }
+                Text(settingsString("hotkey.tip")).foregroundStyle(.secondary)
             }
         }
         .formStyle(.grouped)

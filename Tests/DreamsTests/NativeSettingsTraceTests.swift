@@ -33,7 +33,7 @@ extension NativeSettingsTests {
         model[parameter: .idle] = 1
         model.preview.isPlaying = true
         func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000,
-                        dark: Bool = false, increasedContrast: Bool = false) async throws {
+                        dark: Bool = false, increasedContrast: Bool = false, recording: Bool = false, shortcutError: Bool = false) async throws {
             window.appearance = NSAppearance(named: increasedContrast
                 ? (dark ? .accessibilityHighContrastDarkAqua : .accessibilityHighContrastAqua)
                 : (dark ? .darkAqua : .aqua))
@@ -41,6 +41,8 @@ extension NativeSettingsTests {
             window.contentView = NSHostingView(rootView: NativeSettingsPage(model: model, initialSection: section)
                 .environment(\.colorScheme, dark ? .dark : .light))
             window.setContentSize(NSSize(width: width, height: 720))
+            if recording { model.recordShortcut() }
+            if shortcutError { page.shortcutRecorder.message = L("hotkey.taken", "⌃⌥⌘F17") }
             let content = try #require(window.contentView)
             content.layoutSubtreeIfNeeded()
             content.displayIfNeeded()
@@ -64,6 +66,10 @@ extension NativeSettingsTests {
             for section in NativeSettingsSection.allCases {
                 try await checkpoint(section, name: "section." + section.rawValue)
             }
+            try await checkpoint(.general, name: "shortcut.recording", recording: true)
+            model.cancelShortcutRecording()
+            try await checkpoint(.general, name: "shortcut.error.narrow", width: 560, shortcutError: true)
+            model.cancelShortcutRecording()
             model.automaticColumns = false
             model.columns = 80
             model[parameter: .density] = 0.6
