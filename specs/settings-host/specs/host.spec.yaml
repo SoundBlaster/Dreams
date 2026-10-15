@@ -87,6 +87,9 @@ constraints:
 - id: independent_preview
   level: MUST
   statement: Preview owns a separate renderer and clock, uses controller tuning and recreates its renderer for background or glyph-set changes. It does not own preferences or the fullscreen overlay; narrow layouts place it above the form and wide layouts beside it.
+- id: preview_scale
+  level: MUST
+  statement: Preview preserves the glyph size and grid spacing of a fullscreen renderer on the hosting display, using screen dimensions converted to the current view backing pixels. Its drawable crops the screen-sized viewport at the top-left; resizing changes the visible portion instead of fitting all columns. Display/backing changes refresh even paused previews.
 - id: preview_lifetime
   level: MUST
   statement: Only the currently bound visible surface may render. Hide, minimize, close and full occlusion pause and release the preview renderer; stale surface callbacks must not stop its replacement. Reopening uses current settings.
@@ -117,7 +120,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-15-preview/README.md
+  path: validation/2026-10-15-scale/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -127,9 +130,10 @@ evidence:
   - constraints.native_controls
 - id: preview_tests
   kind: test
-  path: evidence/2026-10-15-preview/source/Tests/DreamsTests/NativePreviewTests.swift
+  path: evidence/2026-10-15-scale/source/Tests/DreamsTests/NativePreviewTests.swift
   supports:
   - constraints.independent_preview
+  - constraints.preview_scale
   - constraints.preview_lifetime
   - constraints.preview_playback
 provenance:
@@ -143,7 +147,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 1c8ba19844fffad464ac7dd7dfce8aba7dac0bb7
+    revision: 4973f2576232fab2c33398e6c49ce461cd5ad95d
   files:
     owned:
     - evidence/2026-10-14/source/Package.resolved
@@ -157,18 +161,18 @@ implementationBindings:
     - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-15-preview/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-15-preview/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
+    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
+    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
-    - evidence/2026-10-15-preview/source/Tests/DreamsTests/NativePreviewTests.swift
+    - evidence/2026-10-15-scale/source/Tests/DreamsTests/NativePreviewTests.swift
     border:
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift

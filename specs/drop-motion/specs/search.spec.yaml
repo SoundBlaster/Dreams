@@ -1,4 +1,4 @@
-# Current runtime: 1c8ba19844fffad464ac7dd7dfce8aba7dac0bb7; validation/2026-10-15-preview/README.md
+# Current runtime: 4973f2576232fab2c33398e6c49ce461cd5ad95d; validation/2026-10-15-scale/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
@@ -104,7 +104,7 @@ evidence:
   - constraints.parent_assembly
 - id: current_validation
   kind: test
-  path: validation/2026-10-15-preview/README.md
+  path: validation/2026-10-15-scale/README.md
   supports:
   - constraints
 provenance:
@@ -125,19 +125,19 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 1c8ba19844fffad464ac7dd7dfce8aba7dac0bb7
+    revision: 4973f2576232fab2c33398e6c49ce461cd5ad95d
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-15-preview/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-15-scale/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
     - evidence/2026-10-14-native-host/source/scripts/test-matrix.swift

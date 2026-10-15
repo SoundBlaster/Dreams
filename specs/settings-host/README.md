@@ -45,7 +45,9 @@ actual state and an alert; the controller operations are not promised atomic.
   native General and Advanced forms. No claim of full interaction parity yet.
 - Live Metal rain uses a separate window-local renderer and clock with the shared
   controller tuning. Preview is beside the form in wide layouts and above it in narrow
-  layouts. Whole-window Liquid Glass/open shapes remain a later stage.
+  layouts. The panel shows a 100% crop of the hosting display-sized scene, using
+  backing pixels for Retina: glyphs/grid spacing match fullscreen and resizing
+  reveals a different area without shrinking all columns. Whole-window Liquid Glass/open shapes remain a later stage.
 - Preview pauses/releases GPU ownership when hidden, minimized, closed or fully
   occluded. Local Pause/Play never starts the fullscreen overlay. Reduce Motion
   initially pauses; explicit Play is allowed. The posed clock starts at six seconds
@@ -78,3 +80,5 @@ The original source/validation records remain historical.
 Current glyph-pulse integration and separate execution/structural evidence: [2026-10-14 pulse](validation/2026-10-14-pulse/README.md). Earlier baselines remain historical.
 
 Current embedded preview implementation and validation: [2026-10-15 preview](validation/2026-10-15-preview/README.md). Earlier records remain historical.
+
+Current 100% display-scale correction: [2026-10-15 scale](validation/2026-10-15-scale/README.md).

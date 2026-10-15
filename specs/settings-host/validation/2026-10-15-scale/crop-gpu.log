@@ -1,0 +1,25 @@
+Building for production...
+[Computing dependencies]
+[1 / 1]
+[3 / 7] Dreams
+[4 / 10]
+[6 / 10] Dreams-product
+[17 / 19] Dreams-product
+[19 / 22] Dreams-product
+[23 / 33] DreamsTests-product
+[25 / 34] DreamsTests-product
+[29 / 33] DreamsTests-product
+[31 / 33] DreamsTests-product
+Build complete! (21.42 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 0, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 0, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􁁛  Test previewIsAPixelExactScreenCrop(columns:scale:) with 4 test cases passed after 0.729 seconds.
+􁁛  Suite NativeSettingsTests passed after 0.729 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.730 seconds.

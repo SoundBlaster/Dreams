@@ -17,11 +17,11 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance, search and pulse recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
-| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 1c8ba19 [preview integration](drop-motion/validation/2026-10-15-preview/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
-| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 1c8ba19 [preview integration](drop-motion/validation/2026-10-15-preview/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
-| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 1c8ba19 [preview integration](drop-motion/validation/2026-10-15-preview/README.md) | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 4973f25 [scale integration](drop-motion/validation/2026-10-15-scale/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 4973f25 [scale integration](drop-motion/validation/2026-10-15-scale/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 4973f25 [scale integration](drop-motion/validation/2026-10-15-scale/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Native-host integration baseline; independent catalog fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 1c8ba19 [live-preview integration](settings-host/validation/2026-10-15-preview/README.md); shared owner and default-off routing | Keyboard/VoiceOver; whole-window glass next |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 4973f25 [100% preview integration](settings-host/validation/2026-10-15-scale/README.md); shared owner and default-off routing | Keyboard/VoiceOver; whole-window glass next |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -337,3 +337,13 @@ includes SettingsPreviewRegion; catalog implementation/source and its independen
 Pause/Play, columns and minimize/restore. SwiftPM/SCK images retain toolbar/slider artifacts absent in the actual app;
 they are not a clean visual acceptance baseline. MacOS 15, complete accessibility/input parity, physical TV/fullscreen
 compositor and display topology remain unobserved. Historical evidence is not relabeled for this source.
+
+## 100% preview scale — 2026-10-15
+
+Runtime `4973f2576232fab2c33398e6c49ce461cd5ad95d` replaces fit-to-panel with a hosting-display-sized viewport cropped by the preview drawable.
+The user requires 100% glyph/grid size and explicitly defers the blur overlap. preview_scale is folded into
+SettingsPage.NativePresentation.LivePreview; other stable host/rain/overlay IDs keep their requirements.
+[Current baseline](settings-host/validation/2026-10-15-scale/README.md) records 56 passing tests, four byte-exact GPU crop
+cases (auto/manual × 1x/2x), actual-app CUA observation and fresh structural/identity checks. Historical SCK
+artifacts stay historical; no new capture acceptance is claimed. Display/backing changes refresh previews,
+but physical monitor-move behavior remains unobserved. TV, glyph/checkpoints and blur implementation are untouched.
