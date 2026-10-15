@@ -60,3 +60,5 @@ Current glyph-pulse integration and separate execution/structural evidence: [202
 Continuous head trials and current integrated identities: [2026-10-14 head-cycle](validation/2026-10-14-head-cycle/README.md). Earlier pulse/head records remain historical.
 
 Current native shortcut integration: [2026-10-15 shortcut](validation/2026-10-15-shortcut/README.md). Earlier evidence remains historical.
+
+Current compact shortcut layout: [2026-10-15-shortcut-compact](validation/2026-10-15-shortcut-compact/README.md). Behavior and stable claim IDs remain unchanged.
