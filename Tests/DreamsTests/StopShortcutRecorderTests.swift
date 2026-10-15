@@ -131,4 +131,46 @@ extension NativeSettingsTests {
         #expect(StopHotkey.load() == occupied)
         #expect(model.stopShortcut == occupied.display && model.shortcutMessage == nil)
     }
+
+    @Test func retryAfterStartupConflictRestoresCarbonEventHandler() throws {
+        _ = NSApplication.shared
+        let restore = Self.preserveDefaults()
+        defer { restore() }
+        let controller = DreamsController()
+        let page = SettingsPageController(controller: controller)
+        let blocker = EmergencyHotkey()
+        let window = shortcutWindow()
+        defer { page.cleanUp(); blocker.uninstall(); window.close() }
+        let shortcut = StopHotkey(keyCode: UInt32(kVK_F18), modifiers: UInt32(controlKey | optionKey | cmdKey | shiftKey), key: "F18")
+        controller.stopHotkey = shortcut
+        try #require(blocker.change(to: shortcut))
+        page.installShortcuts()
+        #expect(!controller.emergencyHotkeyRegistered)
+        #expect(try dispatchStopHotkeyEvent() != noErr)
+
+        blocker.uninstall()
+        // Exercise the unchanged-shortcut retry through the shared recording path.
+        page.toggleShortcutRecording(in: window)
+        #expect(page.shortcutRecorder.handle(try key(kVK_F18, in: window,
+            flags: [.control, .option, .command, .shift], text: "\u{f715}")) == nil)
+        #expect(!page.shortcutRecorder.isRecording)
+        #expect(controller.emergencyHotkeyRegistered)
+        #expect(controller.stopHotkey == shortcut && StopHotkey.load() == shortcut)
+        #expect(page.shortcutRecorder.message == nil)
+        #expect(try dispatchStopHotkeyEvent() == noErr)
+        page.emergencyHotkey.uninstall()
+        #expect(try dispatchStopHotkeyEvent() != noErr)
+    }
+
+    private func dispatchStopHotkeyEvent() throws -> OSStatus {
+        var event: EventRef?
+        try #require(CreateEvent(nil, OSType(kEventClassKeyboard), UInt32(kEventHotKeyPressed),
+                                 0, UInt32(kEventAttributeNone), &event) == noErr)
+        let created = try #require(event)
+        defer { ReleaseEvent(created) }
+        var identifier = EventHotKeyID(signature: 0x44524D53, id: 1)
+        try #require(SetEventParameter(created, EventParamName(kEventParamDirectObject),
+            EventParamType(typeEventHotKeyID), MemoryLayout<EventHotKeyID>.size, &identifier) == noErr)
+        return SendEventToEventTarget(created, GetApplicationEventTarget())
+    }
 }

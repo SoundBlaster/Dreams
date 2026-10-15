@@ -208,7 +208,11 @@ final class SettingsPageController: NSObject {
     }
 
     func applyStopHotkey(_ hotkey: StopHotkey) {
-        if emergencyHotkey.change(to: hotkey) {
+        // Failed startup installation removes the Carbon handler as well as the key.
+        let registered = controller.emergencyHotkeyRegistered
+            ? emergencyHotkey.change(to: hotkey)
+            : emergencyHotkey.install(controller: controller, hotkey: hotkey)
+        if registered {
             controller.stopHotkey = hotkey
             controller.emergencyHotkeyRegistered = true
             shortcutRecorder.message = nil
