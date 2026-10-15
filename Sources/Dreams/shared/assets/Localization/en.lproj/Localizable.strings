@@ -172,4 +172,4 @@
 "native.preview.play" = "Play preview";
 "native.preview.unavailable" = "Preview unavailable";
 "native.preview.retry" = "Retry";
-"native.preview.help" = "Changes appear here immediately. Start Matrix opens the full-screen rain.";
+"native.preview.help" = "100% scale on this display. The preview shows a portion of the rain. Settings apply immediately.";

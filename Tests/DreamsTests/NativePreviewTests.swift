@@ -4,6 +4,47 @@ import Testing
 @testable import Dreams
 
 extension NativeSettingsTests {
+    @Test(.enabled(if: ProcessInfo.processInfo.environment["DREAMS_TEST_METAL"] == "1"),
+          arguments: [0, 80], [1, 2])
+    func previewIsAPixelExactScreenCrop(columns: Int, scale: Int) async throws {
+        _ = try #require(ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"])
+        let screen = SIMD2(800 * scale, 600 * scale)
+        let crop = SIMD2(320 * scale, 200 * scale)
+        func renderer() throws -> RainRenderer {
+            let renderer = try RainRenderer(view: MTKView())
+            renderer.rainColumnCount = columns
+            renderer.rainDensity = 1
+            renderer.rainIdleIntensity = 1
+            renderer.rainSearchFraction = 0
+            renderer.rainGlow = 0
+            return renderer
+        }
+        let full = try await renderer().previewPNG(posedTime: 6, pixelSize: screen)
+        let preview = try await renderer().previewPNG(posedTime: 6, pixelSize: crop,
+            referenceSize: CGSize(width: screen.x, height: screen.y))
+        let large = try #require(NSBitmapImageRep(data: full))
+        let small = try #require(NSBitmapImageRep(data: preview))
+        try #require(large.bitsPerPixel == small.bitsPerPixel && !large.isPlanar && !small.isPlanar)
+        let fullBytes = try #require(large.bitmapData)
+        let cropBytes = try #require(small.bitmapData)
+        let rowBytes = crop.x * small.bitsPerPixel / 8
+        var differentRows = 0
+        var visible = false
+        for row in 0..<crop.y {
+            let expected = UnsafeBufferPointer(start: fullBytes + row * large.bytesPerRow, count: rowBytes)
+            let actual = UnsafeBufferPointer(start: cropBytes + row * small.bytesPerRow, count: rowBytes)
+            if !expected.elementsEqual(actual) { differentRows += 1 }
+            if !visible {
+                for x in 0..<crop.x where (small.colorAt(x: x, y: row)?.greenComponent ?? 0) > 0.05 {
+                    visible = true
+                    break
+                }
+            }
+        }
+        #expect(visible, "The comparison must include visible glyphs")
+        #expect(differentRows == 0, "Preview must crop the screen-sized viewport without shrinking glyphs")
+    }
+
     @Test func previewIsLazyAndDoesNotRequestAnOverlay() throws {
         _ = NSApplication.shared
         let controller = DreamsController()

@@ -97,6 +97,9 @@ final class RainPreviewSession: NSObject, MTKViewDelegate {
         let now = ProcessInfo.processInfo.systemUptime
         if isPlaying, let lastDraw { time += max(0, now - lastDraw) }
         lastDraw = isPlaying ? now : nil
-        renderer.draw(in: view, posedTime: Float(time))
+        let referenceSize = (view.window?.screen ?? NSScreen.main).map {
+            view.convertToBacking(NSRect(origin: .zero, size: $0.frame.size)).size
+        }
+        renderer.draw(in: view, posedTime: Float(time), referenceSize: referenceSize)
     }
 }

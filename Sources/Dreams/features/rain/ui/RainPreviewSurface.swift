@@ -49,6 +49,9 @@ final class RainPreviewView: MTKView {
                     $0.refreshVisibility()
                 }
             }
+            for name in [NSWindow.didChangeScreenNotification, NSWindow.didChangeBackingPropertiesNotification] {
+                observe(name, object: window) { $0.session?.refresh() }
+            }
         }
         for name in [NSApplication.didHideNotification, NSApplication.didUnhideNotification] {
             observe(name, object: NSApp) { $0.refreshVisibility() }
