@@ -110,7 +110,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 0eb39ff4826f71f7739100671f8faf889e718a88
+    revision: 96bda65c685ca4759e93e7fde95056b97fc237f9
   files:
     owned:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
@@ -118,7 +118,7 @@ implementationBindings:
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift

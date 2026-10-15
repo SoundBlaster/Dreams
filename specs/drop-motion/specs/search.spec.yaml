@@ -125,7 +125,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 7ab5412d7cb0947208498f0a328b63f3134070e7
+    revision: 96bda65c685ca4759e93e7fde95056b97fc237f9
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
@@ -135,7 +135,7 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift

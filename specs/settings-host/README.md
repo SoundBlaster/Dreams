@@ -94,3 +94,5 @@ Current rain/material composition: [2026-10-15 materials](validation/2026-10-15-
 Current native shortcut integration: [2026-10-15 shortcut](validation/2026-10-15-shortcut/README.md). Earlier evidence remains historical.
 
 Current compact shortcut layout: [2026-10-15-shortcut-compact](validation/2026-10-15-shortcut-compact/README.md). Behavior and stable claim IDs remain unchanged.
+
+Current startup-conflict retry fix: [2026-10-15-shortcut-retry](validation/2026-10-15-shortcut-retry/README.md). Historical evidence remains on its original baseline.

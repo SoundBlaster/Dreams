@@ -1,0 +1,20 @@
+Building for production...
+[Computing dependencies]
+[1 / 1]
+[2 / 7] DreamsTests-product
+[4 / 8] DreamsTests-product
+[8 / 9] DreamsTests-product
+[10 / 10] DreamsTests-product
+Build complete! (12.38 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test retryAfterStartupConflictRestoresCarbonEventHandler() started.
+􀢄  Test retryAfterStartupConflictRestoresCarbonEventHandler() recorded an issue at StopShortcutRecorderTests.swift:160:9: Expectation failed: try dispatchStopHotkeyEvent() == noErr
+􀄵  try dispatchStopHotkeyEvent() == noErr → <not evaluated>
+􀢄  Test retryAfterStartupConflictRestoresCarbonEventHandler() failed after 0.105 seconds with 1 issue.
+􀢄  Suite NativeSettingsTests failed after 0.105 seconds with 1 issue.
+􀢄  Test run with 1 test in 1 suite failed after 0.106 seconds with 1 issue.
+Note: Some test targets reported failures:
+  - DreamsTests (Swift Testing)

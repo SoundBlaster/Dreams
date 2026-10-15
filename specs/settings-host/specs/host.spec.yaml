@@ -83,7 +83,7 @@ constraints:
   statement: Opening either settings window retains stopForReopen. Outside shortcut recording the native NSWindow forwards its existing Escape path to the controller; stop shortcut registration remains owned by SettingsPageController.
 - id: shortcut_recording
   level: MUST
-  statement: Both settings presentations share one temporary window-scoped recorder. Accept a combination only with Control, Option or Command; invalid plain/Shift-only keys keep recording with guidance. Consume Escape to cancel without invoking the window exit path. Cancel on a second activation, native section change, recording-window close/key loss, application deactivation/hide or terminal cleanup. Unrelated-window keys pass through. Successful registration updates the existing preference/menu/UI; failed registration retains the saved value and displays the error in both presentations. Carbon rollback remains fallible under dreams.overlay.exit.
+  statement: Both settings presentations share one temporary window-scoped recorder. Accept a combination only with Control, Option or Command; invalid plain/Shift-only keys keep recording with guidance. Consume Escape to cancel without invoking the window exit path. Cancel on a second activation, native section change, recording-window close/key loss, application deactivation/hide or terminal cleanup. Unrelated-window keys pass through. Retrying after a failed startup install restores both the Carbon handler and key registration. Successful registration updates the existing preference/menu/UI; failed registration retains the saved value and displays the error in both presentations. Carbon rollback remains fallible under dreams.overlay.exit.
 - id: preview_limit
   level: MUST
   statement: This host embeds a separate live rain backdrop under system settings surfaces with an uncovered viewing region. Preview playback and setting edits do not themselves launch a fullscreen overlay.
@@ -126,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-15-shortcut-compact/README.md
+  path: validation/2026-10-15-shortcut-retry/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -144,7 +144,7 @@ evidence:
   - constraints.preview_playback
 - id: shortcut_tests
   kind: test
-  path: evidence/2026-10-15-shortcut/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
+  path: evidence/2026-10-15-shortcut-retry/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
   supports:
   - constraints.shortcut_recording
   - constraints.overlay_exit
@@ -159,11 +159,11 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 0eb39ff4826f71f7739100671f8faf889e718a88
+    revision: 96bda65c685ca4759e93e7fde95056b97fc237f9
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
-    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
+    - evidence/2026-10-15-shortcut-retry/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
     - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/SettingsScenarioTests.swift
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
@@ -174,7 +174,7 @@ implementationBindings:
     - evidence/2026-10-15-shortcut-compact/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
