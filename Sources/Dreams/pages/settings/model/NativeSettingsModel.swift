@@ -7,6 +7,7 @@ import SwiftUI
 @Observable
 final class NativeSettingsModel {
     @ObservationIgnored let controller: DreamsController
+    @ObservationIgnored let preview: RainPreviewSession
     @ObservationIgnored private weak var owner: SettingsPageController?
     private var revision = 0
     var activity = ""
@@ -15,9 +16,13 @@ final class NativeSettingsModel {
     init(owner: SettingsPageController) {
         self.owner = owner
         controller = owner.controller
+        preview = RainPreviewSession(controller: owner.controller)
     }
 
-    func refresh() { revision &+= 1 }
+    func refresh() {
+        revision &+= 1
+        preview.refresh()
+    }
 
     private func read<Value>(_ keyPath: KeyPath<DreamsController, Value>) -> Value {
         _ = revision

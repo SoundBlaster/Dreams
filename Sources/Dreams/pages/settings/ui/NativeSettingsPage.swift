@@ -19,7 +19,19 @@ struct NativeSettingsPage: View {
             .navigationTitle("Dreams")
             .navigationSplitViewColumnWidth(min: 170, ideal: 220, max: 300)
         } detail: {
-            NativeSettingsDetail(section: selection, model: model)
+            GeometryReader { geometry in
+                if geometry.size.width >= 700 {
+                    HStack(spacing: 0) {
+                        NativeSettingsDetail(section: selection, model: model)
+                        NativePreviewPane(session: model.preview).frame(width: 320)
+                    }
+                } else {
+                    VStack(spacing: 0) {
+                        NativePreviewPane(session: model.preview).frame(height: 240)
+                        NativeSettingsDetail(section: selection, model: model)
+                    }
+                }
+            }
         }
         .frame(minWidth: 560, minHeight: 420)
     }

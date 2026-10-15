@@ -28,6 +28,7 @@ extension SettingsPageController {
         refreshActivityLabel()
         NSApplication.shared.activate(ignoringOtherApps: true)
         nativeWindow?.makeKeyAndOrderFront(nil)
+        nativeModel?.preview.refresh()
     }
 
     @objc private func nativeWindowFocused() {

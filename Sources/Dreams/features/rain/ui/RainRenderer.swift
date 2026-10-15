@@ -111,14 +111,16 @@ final class RainRenderer: NSObject {
 extension RainRenderer: @MainActor MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
 
-    func draw(in view: MTKView) {
+    func draw(in view: MTKView) { draw(in: view, posedTime: nil) }
+
+    func draw(in view: MTKView, posedTime: Float?) {
         guard let drawable = view.currentDrawable,
               let descriptor = view.currentRenderPassDescriptor,
               let buffer = queue.makeCommandBuffer(),
               let encoder = buffer.makeRenderCommandEncoder(descriptor: descriptor) else { return }
         keywords.draw(encoder: encoder,
             resolution: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)),
-            brightness: brightness, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
+            brightness: brightness, previewTime: posedTime, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)

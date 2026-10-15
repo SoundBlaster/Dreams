@@ -166,3 +166,10 @@
 
 "rain.pulse" = "Glyph brightness pulse";
 "rain.pulse.tip" = "Independent smooth brightness pulses. 0% disables them; drop heads and alpha fading stay unchanged.";
+
+"native.preview.title" = "Live Preview";
+"native.preview.pause" = "Pause preview";
+"native.preview.play" = "Play preview";
+"native.preview.unavailable" = "Preview unavailable";
+"native.preview.retry" = "Retry";
+"native.preview.help" = "Changes appear here immediately. Start Matrix opens the full-screen rain.";
