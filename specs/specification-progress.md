@@ -318,3 +318,5 @@ metadata checks and release artifact verification are separate from historical r
 The owner observed the local macOS animation before authorizing this release. That observation
 does not establish new physical TV, topology or complete compositor acceptance. The native
 settings host remains an explicit --native-settings opt-in; default launch uses legacy settings.
+
+[Preserved 0.1.8 release-preparation commands, tools, identities and diagnostics](release/validation/2026-10-15-0.1.8/README.md) distinguish metadata checks from runtime, CI and signed publication evidence.

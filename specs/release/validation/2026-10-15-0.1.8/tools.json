@@ -1,0 +1,42 @@
+{
+  "python": {
+    "command": [
+      "python3",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "Python 3.9.6\n",
+    "stderr": ""
+  },
+  "git": {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "git version 2.54.0 (Apple Git-157)\n",
+    "stderr": ""
+  },
+  "swift": {
+    "command": [
+      "swift",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0\n",
+    "stderr": "swift-driver version: 1.168.6 "
+  },
+  "specpm": {
+    "command": [
+      "specpm",
+      "--version"
+    ],
+    "exitCode": 0,
+    "stdout": "specpm 0.2.0\n",
+    "stderr": ""
+  },
+  "hypercode": {
+    "path": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "sha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  }
+}
