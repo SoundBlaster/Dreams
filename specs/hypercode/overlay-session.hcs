@@ -23,6 +23,7 @@ FocusReturn:
 ExitInput:
   source: "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
   implementation: "rain controller callbacks + SettingsPageController actions + DreamsDelegate lifecycle"
+  recording: "shared native/legacy StopShortcutRecorder; temporary window-scoped monitor with focus/navigation cancellation"
 GlobalHotkey:
   source: "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift"
   implementation: "install + change + uninstall"

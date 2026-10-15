@@ -1,0 +1,77 @@
+[
+  {
+    "name": "section.general",
+    "recordID": "BFC0B983-2F72-4487-8F1F-4EA391DFCF3B",
+    "sha256": "07d4fa59f682063436d6c07b769d9610b5ca6def7399525d04b4cad7095326b9"
+  },
+  {
+    "name": "section.appearance",
+    "recordID": "992E4B27-BD41-48A0-9409-356C9D15F5A1",
+    "sha256": "6ffc86e6c672bf4969d98ffaf729dd0e1189890f9ec96d9ab396e134d1c50702"
+  },
+  {
+    "name": "section.rain",
+    "recordID": "1B6422AF-3682-476A-AECB-AA6C0F43659C",
+    "sha256": "53d08f28953ca391a25dcc59ad9df92db126e9ba5c7de9aa7cb332859f07d4b9"
+  },
+  {
+    "name": "section.background",
+    "recordID": "614A6175-F100-463B-A242-6543F1146803",
+    "sha256": "d833eaad18e70bb127ed95e67654f4c8eb1d7467d4fe305bcd2be6c7a0c3b7e5"
+  },
+  {
+    "name": "section.words",
+    "recordID": "5CC7F8A7-B750-40BC-9C08-721237BCC3F1",
+    "sha256": "846a0fa103238cb5d5d8e1b6dd763f6c46cc6ec435b23236954ee2159e90656d"
+  },
+  {
+    "name": "section.displays",
+    "recordID": "CF552976-B006-4896-9948-C454B1287377",
+    "sha256": "05f03059146fe153bc733f849066449e894ec8373a1a9fa1f31c0bef4b427658"
+  },
+  {
+    "name": "section.advanced",
+    "recordID": "6ED085C9-0355-402D-AC63-63CCAA0C45C2",
+    "sha256": "033944b4709b39503120cfd438b71826b68ad46a59d9e66efab0b0619499d246"
+  },
+  {
+    "name": "shortcut.recording",
+    "recordID": "5701AAD3-9C80-454F-B16A-A8BD240FC4CC",
+    "sha256": "541a1d7db985d29b79689d892a4f1f37c89750dfa4a323ce6fb94d242afb729b"
+  },
+  {
+    "name": "shortcut.error.narrow",
+    "recordID": "DC306608-EF69-4EA2-AD4E-1D25741B35F2",
+    "sha256": "f5192be9ed769ecbfb9fa5058b8e83f7e1a6ffdf266a8a3777546b98385c8ae2"
+  },
+  {
+    "name": "rain.edited.dark",
+    "recordID": "992D5E65-EBBA-4F9E-8F4D-B4BC388C5D33",
+    "sha256": "398135ede66474fdec260c9f4e82100b48e29d7d993d22a00fa9da505bf507e3"
+  },
+  {
+    "name": "rain.narrow",
+    "recordID": "9343434C-D7BC-46EF-A4A7-F05738E010FA",
+    "sha256": "6f841995fabbcadd0d737cf3af056182ce63ef5fe54928d3b46c26bf9f819ee5"
+  },
+  {
+    "name": "rain.paused.dark",
+    "recordID": "EB8AC8F1-B9AB-4C39-8519-0B26F44972D0",
+    "sha256": "1aadad7bae4f07a79d27b7ae21621ea6b5c5991ac53c8f5f9402813b9c72a44f"
+  },
+  {
+    "name": "rain.increased-contrast.dark",
+    "recordID": "40D1CFB3-0F1D-436A-85FE-F77B10FFF23E",
+    "sha256": "1aadad7bae4f07a79d27b7ae21621ea6b5c5991ac53c8f5f9402813b9c72a44f"
+  },
+  {
+    "name": "background.transparent",
+    "recordID": "1AEB894C-5332-4A32-AA04-8C87BA4760D2",
+    "sha256": "1b12a3865239fdc43a7b608845b2c0b73d1c8e0e68f03c888912d503891a4c99"
+  },
+  {
+    "name": "appearance.transparent.dark",
+    "recordID": "23C5D3FC-057E-4FA2-A1DC-2D948F6C54A3",
+    "sha256": "7858d8dd5c62081310e278904654e07f0a205677157d09fa7409e84af185ce5f"
+  }
+]

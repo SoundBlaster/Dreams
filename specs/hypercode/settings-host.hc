@@ -5,5 +5,6 @@ SettingsPage
     Forms
     LivePreview
   SettingsBinding
+  ShortcutRecording
   LegacyAccess
   WindowLifetime

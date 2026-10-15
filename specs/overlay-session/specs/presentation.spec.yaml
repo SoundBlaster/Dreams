@@ -119,7 +119,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 3910ebf93779f8da807bf361f89873092db03b7d
+    revision: 7ab5412d7cb0947208498f0a328b63f3134070e7
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift

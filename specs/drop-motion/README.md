@@ -58,3 +58,9 @@ Motion and search source bindings now point to the corrected runtime; prior pass
 Current glyph-pulse integration and separate execution/structural evidence: [2026-10-14 pulse](validation/2026-10-14-pulse/README.md). Earlier baselines remain historical.
 
 Continuous head trials and current integrated identities: [2026-10-14 head-cycle](validation/2026-10-14-head-cycle/README.md). Earlier pulse/head records remain historical.
+
+Current native shortcut integration: [2026-10-15 shortcut](validation/2026-10-15-shortcut/README.md). Earlier evidence remains historical.
+
+Current compact shortcut layout: [2026-10-15-shortcut-compact](validation/2026-10-15-shortcut-compact/README.md). Behavior and stable claim IDs remain unchanged.
+
+Current startup-conflict retry fix: [2026-10-15-shortcut-retry](validation/2026-10-15-shortcut-retry/README.md). Historical evidence remains on its original baseline.

@@ -40,6 +40,7 @@ struct NativeSettingsPage: View {
             }
         }
         .frame(minWidth: 560, minHeight: 420)
+        .onChange(of: selection) { _, _ in model.cancelShortcutRecording() }
     }
 
     private var settingsPanel: some View {

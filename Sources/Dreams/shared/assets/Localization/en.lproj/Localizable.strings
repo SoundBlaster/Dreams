@@ -173,3 +173,6 @@
 "native.preview.unavailable" = "Preview unavailable";
 "native.preview.retry" = "Retry";
 "native.preview.help" = "100% scale on this display. The preview shows a portion of the rain. Settings apply immediately.";
+
+"hotkey.change" = "Change shortcut…";
+"hotkey.invalid" = "Include Control, Option or Command with a key. Esc cancels recording.";

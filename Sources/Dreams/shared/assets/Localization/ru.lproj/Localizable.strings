@@ -173,3 +173,6 @@
 "native.preview.unavailable" = "Предпросмотр недоступен";
 "native.preview.retry" = "Повторить";
 "native.preview.help" = "Масштаб 100% для этого экрана. В окне виден фрагмент дождя. Настройки применяются сразу.";
+
+"hotkey.change" = "Изменить сочетание…";
+"hotkey.invalid" = "Добавьте Control, Option или Command к клавише. Esc отменяет запись.";

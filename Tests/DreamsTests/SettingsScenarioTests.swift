@@ -136,10 +136,10 @@ extension SettingsPageTests {
 
             let hotkey = try #require(page.hotkeyButton)
             hotkey.performClick(nil)
-            #expect(page.hotkeyMonitor != nil)
+            #expect(page.shortcutRecorder.isRecording)
             try await checkpoint("08.Hotkey.recording")
             hotkey.performClick(nil)
-            #expect(page.hotkeyMonitor == nil)
+            #expect(!page.shortcutRecorder.isRecording)
             #expect(hotkey.title == controller.stopHotkey.display)
             try await checkpoint("09.Hotkey.cancelled")
 

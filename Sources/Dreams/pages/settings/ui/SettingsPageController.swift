@@ -1,5 +1,4 @@
 import AppKit
-import Carbon.HIToolbox
 
 @MainActor
 final class DreamsSettingsDocumentView: NSView {
@@ -17,7 +16,11 @@ final class SettingsPageController: NSObject {
     var runTimeHint: NSTextField?
     var hotkeyButton: NSButton?
     var hotkeyNote: NSTextField?
-    var hotkeyMonitor: Any?
+    lazy var shortcutRecorder: StopShortcutRecorder = {
+        let recorder = StopShortcutRecorder()
+        recorder.onChange = { [weak self] in self?.refreshRunTimeHint() }
+        return recorder
+    }()
     var hookStatusLabels: [String: NSTextField] = [:]
     var hookButtons: [String: NSButton] = [:]
     var glowSlider: NSSlider?
@@ -183,47 +186,41 @@ final class SettingsPageController: NSObject {
         runTimeHint?.stringValue = controller.transparentBackground ? L("hint.runtime.transparent", hotkey)
             : seconds > 0 ? L("hint.runtime", Self.runTimeTitle(seconds).lowercased(), hotkey)
             : L("hint.runtime.unlimited", hotkey)
-        hotkeyButton?.title = controller.stopHotkey.display
+        hotkeyButton?.title = shortcutRecorder.isRecording ? L("hotkey.recording") : controller.stopHotkey.display
+        hotkeyNote?.stringValue = shortcutRecorder.message ?? ""
     }
 
-    /// Records the next ⌃/⌥/⌘ key combination as the stop shortcut; Esc or a second click cancels.
-    @objc func recordHotkey(_ sender: NSButton) {
-        if let monitor = hotkeyMonitor { NSEvent.removeMonitor(monitor); hotkeyMonitor = nil; refreshRunTimeHint(); return }
-        sender.title = L("hotkey.recording")
-        hotkeyNote?.stringValue = ""
-        hotkeyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
-            guard let self else { return event }
-            if Int(event.keyCode) == kVK_Escape {
-                self.finishRecording(with: nil)
-            } else if let hotkey = StopHotkey(event: event) {
-                self.finishRecording(with: hotkey)
-            } else {
-                NSSound.beep()  // not usable: needs ⌃, ⌥ or ⌘
-            }
-            return nil
+    /// Both settings windows use the same recorder and registration owner.
+    @objc func recordHotkey(_ sender: NSButton) { toggleShortcutRecording(in: sender.window) }
+
+    func toggleShortcutRecording(in window: NSWindow?) {
+        if shortcutRecorder.isRecording { shortcutRecorder.cancel(); return }
+        guard let window else { return }
+        shortcutRecorder.start(in: window) { [weak self] hotkey in
+            guard let self else { return }
+            if hotkey != controller.stopHotkey || !controller.emergencyHotkeyRegistered { applyStopHotkey(hotkey) }
         }
-    }
-
-    func finishRecording(with hotkey: StopHotkey?) {
-        if let monitor = hotkeyMonitor { NSEvent.removeMonitor(monitor); hotkeyMonitor = nil }
-        if let hotkey, hotkey != controller.stopHotkey { applyStopHotkey(hotkey) }
-        refreshRunTimeHint()
     }
 
     @objc func resetHotkey() {
-        if let monitor = hotkeyMonitor { NSEvent.removeMonitor(monitor); hotkeyMonitor = nil }
+        shortcutRecorder.cancel()
         applyStopHotkey(.standard)
-        refreshRunTimeHint()
     }
 
     func applyStopHotkey(_ hotkey: StopHotkey) {
-        if emergencyHotkey.change(to: hotkey) {
+        // Failed startup installation removes the Carbon handler as well as the key.
+        let registered = controller.emergencyHotkeyRegistered
+            ? emergencyHotkey.change(to: hotkey)
+            : emergencyHotkey.install(controller: controller, hotkey: hotkey)
+        if registered {
             controller.stopHotkey = hotkey
             controller.emergencyHotkeyRegistered = true
-            hotkeyNote?.stringValue = ""
+            shortcutRecorder.message = nil
         } else {
-            hotkeyNote?.stringValue = L("hotkey.taken", hotkey.display)
+            shortcutRecorder.message = L("hotkey.taken", hotkey.display)
         }
+        refreshRunTimeHint()
+        nativeModel?.refresh()
         onHotkeyChange?()
     }
 
@@ -378,7 +375,7 @@ final class SettingsPageController: NSObject {
             NotificationCenter.default.removeObserver(focusObserver)
             self.focusObserver = nil
         }
-        if let hotkeyMonitor { NSEvent.removeMonitor(hotkeyMonitor); self.hotkeyMonitor = nil }
+        shortcutRecorder.cancel()
         emergencyHotkey.uninstall()
         controller.cleanUp()
     }

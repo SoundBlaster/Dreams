@@ -14,14 +14,14 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | DesktopApplication.RainOverlaySession | Interactive/agent × opaque/transparent | dreams.overlay.session | Pinned source; structural checks linked below | Review O1–O6 |
 | RainOverlaySession.DisplayTargets | User / saved display selection | dreams.overlay.displays | targets/load/save | Physical clamshell/reconnect still unobserved |
 | RainOverlaySession.Presentation | User / windows and focus | dreams.overlay.presentation | reconcile/close, panel config | Verify focus/OS resource failures |
-| RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | Callbacks, recording, Carbon adapter | Review rollback/status O2 |
+| RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | [Current retry fix](overlay-session/validation/2026-10-15-shortcut-retry/README.md) | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
 | RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance, search and pulse recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
-| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 3910ebf [material integration](drop-motion/validation/2026-10-15-materials/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
-| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 3910ebf [material integration](drop-motion/validation/2026-10-15-materials/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
-| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 3910ebf [material integration](drop-motion/validation/2026-10-15-materials/README.md) | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
+| RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
+| RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current 3910ebf [shared material panel](settings-catalog/validation/2026-10-15-materials/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 3910ebf [rain/material integration](settings-host/validation/2026-10-15-materials/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 96bda65 [shortcut retry fix](settings-host/validation/2026-10-15-shortcut-retry/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -365,3 +365,44 @@ Reduce Transparency and physical macOS 15 accessibility acceptance remain unobse
 [rain](drop-motion/validation/2026-10-15-materials/README.md) and
 [overlay](overlay-session/validation/2026-10-15-materials/README.md) identities are refreshed.
 All earlier evidence is historical; no TV, glyph/font, hook or fullscreen algorithm changes.
+
+## Native stop-shortcut recording — 2026-10-15
+
+Runtime `7ab5412d7cb0947208498f0a328b63f3134070e7` follows merged PR #28. General gains native Change/Cancel/Default actions;
+Advanced retains legacy access. Shared ShortcutRecording is a small new HC child of SettingsPage,
+with window scope and navigation/focus/lifecycle cancellation. Stable host `explicit_legacy_access`
+and `overlay_exit` claims describe the authorized migration; `shortcut_recording` folds its details
+into the existing host contract. Overlay `hotkey_recording` and source identities are refreshed.
+Carbon rollback O2 remains unresolved. Other overlay/rain claims keep their meanings, with source
+snapshots repinned for the shared settings consumer; no renderer, TV or glyph behavior changes.
+
+[Host validation](settings-host/validation/2026-10-15-shortcut/README.md) separates 63 passing Swift/Metal tests,
+actual app CUA keyboard checks, 15 Screener hierarchy frames and structural checks. It preserves
+an intermittent earlier crop failure and unsuccessful SCK trials without relabeling them as passes.
+[Overlay assembly](overlay-session/validation/2026-10-15-shortcut/README.md) and
+[rain tuning consumer](drop-motion/validation/2026-10-15-shortcut/README.md) remain descriptive drafts.
+The unchanged catalog/UI package keeps its prior material baseline. New settings remain default-off.
+
+## Compact native shortcut layout — 2026-10-15
+
+Runtime `0eb39ff4826f71f7739100671f8faf889e718a88` changes only General's presentation. Native shortcut value/actions
+share one adaptive row with caption-sized guidance; recording/errors replace ordinary help.
+Host native_controls/shortcut_recording/overlay_exit/one_settings_owner/default_off/material_composition
+and rain glyph_pulse settings assembly claims remain applicable: callbacks, recorder,
+registration, storage, preview and NativeAppearanceForm are unchanged. HC source bindings
+continue to point to the same file and roles; no new boundary or cosmetic map edit is needed.
+[Current host baseline](settings-host/validation/2026-10-15-shortcut-compact/README.md) and
+[rain source identity](drop-motion/evidence/2026-10-15-shortcut-compact/source-identity.json) supersede the
+corresponding shared-file hashes. Overlay/catalog/glyph/TV sources retain their prior identities.
+Old runtime results are not reused as checks for this source. Draft acceptance remains unchanged.
+
+## Startup shortcut retry P2 — 2026-10-15
+
+Runtime `96bda65c685ca4759e93e7fde95056b97fc237f9` restores Carbon installation on a settings retry after startup conflict.
+The regression fails on prior code at event dispatch and all 16 settings tests pass after the fix.
+Stable host shortcut_recording/overlay_exit and overlay registration_failure/callback_lifetime
+claims clarify full retry installation. SettingsPageController's rain consumers are repinned;
+other runtime behavior and HC maps remain unchanged. Earlier results stay historical.
+[Current host checks](settings-host/validation/2026-10-15-shortcut-retry/checks.md),
+[overlay baseline](overlay-session/validation/2026-10-15-shortcut-retry/README.md),
+[rain integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md). Draft acceptance is unchanged.

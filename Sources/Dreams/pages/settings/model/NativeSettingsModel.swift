@@ -80,6 +80,12 @@ final class NativeSettingsModel {
         get { Color(nsColor: read(\.keywordColor)) }
         set { controller.keywordColor = NSColor(newValue) }
     }
+    var isRecordingShortcut: Bool { owner?.shortcutRecorder.isRecording ?? false }
+    var shortcutMessage: String? { owner?.shortcutRecorder.message }
+    func recordShortcut() { owner?.toggleShortcutRecording(in: owner?.nativeWindow) }
+    func cancelShortcutRecording() { owner?.shortcutRecorder.cancel() }
+    func resetShortcut() { owner?.resetHotkey() }
+
     var stopShortcut: String { read(\.stopHotkey).display }
     var displays: [RainDisplay] { read(\.displays) }
     var displayMode: RainDisplaySelection.Mode {

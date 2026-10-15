@@ -11,7 +11,7 @@ struct NativeSettingsTests {
                             "rainDecelerationEnabled", "rainDeceleration", "rainBrightnessSpread", "rainPulseStrength", "rainGlow", "transparentRainGlow",
                             "rainIdleIntensity", "rainColor", "transparentRainColor", "keywordColor", "keywordBrightness",
                             "transparentBackground", "restoredGlyphs", "hideFromScreenshots", "runTimeSeconds",
-                            "rainDisplayMode", "rainDisplayIDs"]
+                            "rainDisplayMode", "rainDisplayIDs", "stopHotkeyKeyCode", "stopHotkeyModifiers", "stopHotkeyKey"]
 
     static func preserveDefaults() -> () -> Void {
         let defaults = UserDefaults.standard

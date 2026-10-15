@@ -1,0 +1,44 @@
+SettingsPage:
+  owner: "SettingsPageController retained by DreamsDelegate; one shared DreamsController"
+  capability: "dreams.settings.host"
+LaunchRouting:
+  source: "Sources/Dreams/shared/config/NativeSettingsFeature.swift"
+  default: "legacy unless --native-settings; --legacy-settings always wins"
+NativePresentation:
+  source: "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift"
+  minimum: "macOS 15; system material settings surfaces over one window-local live Metal backdrop"
+Navigation:
+  implementation: "NavigationSplitView + List selection; window-owned State"
+Forms:
+  requires: "dreams.settings.ui from local DreamsSettingsUI; border hashes include manifest, SettingsSliderRow and SettingsMaterialPanel"
+  source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift"
+  implementation: "system Form/Section/controls; app owns production units"
+LivePreview:
+  source: "Sources/Dreams/features/rain/ui/RainPreviewSession.swift + RainPreviewSurface.swift; pages/settings/ui/NativePreviewPane.swift + NativeRainBackdrop.swift"
+  renderer: "separate production RainRenderer; shared controller tuning; preview-local posed clock starts at six seconds"
+  scale: "100% of hosting display in backing pixels; screen-sized viewport clipped at preview top-left; resize changes visible crop only"
+  composition: "one surface behind forms and open region; system background extension on macOS26; opaque material fallback for reduced transparency/increased contrast"
+  lifetime: "visible window only; release on hide/minimize/close/full occlusion; identity guards reject stale surfaces"
+  playback: "local pause/play; Reduce Motion initially pauses and never auto-resumes; explicit Play allowed"
+  failure: "native error and Retry; never starts an overlay"
+SettingsBinding:
+  source: "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift"
+  changes: "controller notifications; existing persistence/renderer effects"
+ShortcutRecording:
+  source: "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift + SettingsPageController"
+  ownership: "one window-scoped recorder shared by native and legacy; registration stays in settings owner"
+  input: "Control/Option/Command required; Escape cancels and consumes; unrelated window keys pass through"
+  cancellation: "second activation, native navigation, window close/key loss, app deactivate/hide, cleanup"
+  failure: "keep saved value and display registration error; Carbon rollback remains fallible"
+LegacyAccess:
+  source: "Sources/Dreams/pages/settings/ui/SettingsWindow.swift"
+  access: "Advanced opens legacy; both windows share settings and shortcut recorder"
+WindowLifetime:
+  source: "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift"
+  cleanup: "SettingsPageController.cleanUp; one timer and retained observer tokens"
+@settings[legacy]:
+  NativePresentation:
+    active: false
+@settings[native]:
+  NativePresentation:
+    active: true

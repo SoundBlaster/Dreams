@@ -41,8 +41,11 @@ actual state and an alert; the controller operations are not promised atomic.
   its settings owner. This UI package owns no renderer or saved state.
 - Display mode and selection go through existing display reconciliation; hook
   buttons go through the existing installer and plugin-managed hooks stay disabled.
-- Shortcut recording remains in the legacy window, explicitly linked from the
-  native General and Advanced forms. No claim of full interaction parity yet.
+- General records the stop shortcut directly, with Cancel/Esc and Reset. Advanced
+  retains explicit legacy access. Both windows share a temporary window-scoped
+  recorder; changing section, closing/defocusing its window or deactivating/hiding
+  the app cancels capture. Conflicts retain the saved setting and show an error;
+  Carbon registration/rollback remains fallible. No new saved key or permission is added.
 - Live Metal rain uses a separate window-local renderer and clock with the shared
   controller tuning. One Metal surface sits behind forms and an open region beside them in wide layouts
   or above them in narrow layouts. The backdrop shows a 100% crop of the hosting display-sized scene, using
@@ -87,3 +90,9 @@ Current embedded preview implementation and validation: [2026-10-15 preview](val
 Current 100% display-scale correction: [2026-10-15 scale](validation/2026-10-15-scale/README.md).
 
 Current rain/material composition: [2026-10-15 materials](validation/2026-10-15-materials/README.md).
+
+Current native shortcut integration: [2026-10-15 shortcut](validation/2026-10-15-shortcut/README.md). Earlier evidence remains historical.
+
+Current compact shortcut layout: [2026-10-15-shortcut-compact](validation/2026-10-15-shortcut-compact/README.md). Behavior and stable claim IDs remain unchanged.
+
+Current startup-conflict retry fix: [2026-10-15-shortcut-retry](validation/2026-10-15-shortcut-retry/README.md). Historical evidence remains on its original baseline.
