@@ -28,15 +28,13 @@ struct NativeMaterialsPage: View {
 }
 
 struct MaterialSpecimen: View {
-    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
     var body: some View {
         ZStack {
             LinearGradient(colors: [.green.opacity(0.5), .blue.opacity(0.3)], startPoint: .leading, endPoint: .trailing)
-            Text(catalogString("materials.standardCaption"))
-                .padding()
-                .background(reduceTransparency ? AnyShapeStyle(.background) : AnyShapeStyle(.regularMaterial),
-                            in: RoundedRectangle(cornerRadius: 12))
-                .padding()
+            SettingsMaterialPanel {
+                Text(catalogString("materials.standardCaption")).padding()
+            }
+            .padding()
         }
         .frame(minHeight: 120)
         .clipShape(.rect(cornerRadius: 12))

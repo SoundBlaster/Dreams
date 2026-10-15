@@ -55,9 +55,10 @@ final class RainRenderer: NSObject {
     }
 
     /// Renders our shader into a texture, without capturing any screen content.
-    func previewPNG(posedTime: Float? = nil) async throws -> Data {
-        let width = 1512
-        let height = 982
+    func previewPNG(posedTime: Float? = nil, pixelSize: SIMD2<Int> = SIMD2(1512, 982),
+                    referenceSize: CGSize? = nil) async throws -> Data {
+        let width = pixelSize.x
+        let height = pixelSize.y
         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
             pixelFormat: colorPixelFormat, width: width, height: height, mipmapped: false)
         textureDescriptor.storageMode = .shared
@@ -75,7 +76,9 @@ final class RainRenderer: NSObject {
         guard let encoder = buffer.makeRenderCommandEncoder(descriptor: descriptor) else {
             throw DreamsError.unavailable("Unable to render preview.")
         }
-        keywords.draw(encoder: encoder, resolution: SIMD2(Float(width), Float(height)),
+        let size = referenceSize ?? CGSize(width: width, height: height)
+        encoder.setViewport(MTLViewport(originX: 0, originY: 0, width: size.width, height: size.height, znear: 0, zfar: 1))
+        keywords.draw(encoder: encoder, resolution: SIMD2(Float(size.width), Float(size.height)),
             brightness: brightness, previewTime: posedTime, demoWorkingAgents: demoWorkingAgents,
             columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows, speed: rainSpeed,
             brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
@@ -111,14 +114,19 @@ final class RainRenderer: NSObject {
 extension RainRenderer: @MainActor MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
 
-    func draw(in view: MTKView) {
+    func draw(in view: MTKView) { draw(in: view, posedTime: nil) }
+
+    func draw(in view: MTKView, posedTime: Float?, referenceSize: CGSize? = nil) {
         guard let drawable = view.currentDrawable,
               let descriptor = view.currentRenderPassDescriptor,
               let buffer = queue.makeCommandBuffer(),
               let encoder = buffer.makeRenderCommandEncoder(descriptor: descriptor) else { return }
+        // A screen-sized viewport is clipped by the preview drawable, preserving physical glyph size.
+        let size = referenceSize ?? view.drawableSize
+        encoder.setViewport(MTLViewport(originX: 0, originY: 0, width: size.width, height: size.height, znear: 0, zfar: 1))
         keywords.draw(encoder: encoder,
-            resolution: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)),
-            brightness: brightness, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
+            resolution: SIMD2(Float(size.width), Float(size.height)),
+            brightness: brightness, previewTime: posedTime, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)

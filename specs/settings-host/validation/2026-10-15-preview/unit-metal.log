@@ -1,0 +1,193 @@
+Building for production...
+[Computing dependencies]
+[1 / 1]
+[2 / 3] DreamsTests-product
+[3 / 5]
+[4 / 5] DreamsTests-product
+[9 / 13] DreamsTests-product
+[11 / 13] DreamsTests-product
+Build complete! (11.32 sec)
+Test Suite 'All tests' started at 2026-10-15 14:17:03.250.
+Test Suite 'All tests' passed at 2026-10-15 14:17:03.251.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.002) seconds
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite GlyphPulseTests started.
+􀙟  Suite CaptureVisibilityTests skipped.
+􀙟  Suite DropDecelerationSettingsTests skipped.
+􀟈  Suite DropHeadTests started.
+􀟈  Suite DropDecelerationTests started.
+􀟈  Suite TransparentFadeRenderingTests started.
+􀟈  Suite RainTrailTests started.
+􀟈  Suite GlyphPulseSettingsTests started.
+􀟈  Suite DropHeadRenderingTests started.
+􀙟  Suite OverlayExitTests skipped.
+􀟈  Suite SearchOccupancyTests started.
+􀟈  Suite SettingsPageTests started.
+􀙟  Suite SearchSettingsTraceTests skipped.
+􀟈  Suite DisplaySelectionTests started.
+􀙟  Suite RainTrailRenderingTests skipped.
+􀟈  Test independentSmoothPhasesHaveABoundedNonzeroFloor() started.
+􀟈  Suite GlyphPulseRenderingTests started.
+􀟈  Suite NativeSettingsTests started.
+􀙟  Test controlsEnablePersistAndDisableDeceleration() skipped.
+􀙟  Suite DisplaySettingsTraceTests skipped.
+􀟈  Test strengthScalesTheEnvelopeWithoutChangingItsPhase() started.
+􀟈  Test theSameHeadCyclesWithZeroTrailSearch() started.
+􀟈  Test aSingleGlyphRepertoireAndExpiredHeadDoNotStartTrials() started.
+􀟈  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() started.
+􀟈  Test headTrialsAreDeterministicAndIndependentOfTheSearchQuota() started.
+􀙟  Test captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:) skipped.
+􀟈  Test disabledAndInvalidInputsKeepExistingExposure() started.
+􀟈  Test theBottomHeadStopsCyclingAfterItsFlightStep() started.
+􀟈  Test aFinishedPacketDoesNotKeepItsLastHeadLitDuringThePause() started.
+􀟈  Test legacyPulseSliderPersistsAndSynchronizesWithNativeBindings() started.
+􀟈  Test fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test fullDensityRemainsFilledAcrossSlowPackets() started.
+􀟈  Test headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test malformedAccelerationCannotReverseOrStallDrops() started.
+􀟈  Test headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test liveTuningOnlyChangesTheNextPacket() started.
+􀟈  Test invalidFractionsCannotExceedTheWholePopulation() started.
+􀟈  Test disabledOrZeroAccelerationPreservesTheExistingRain() started.
+􀙟  Test escapeButtonAndDisplayFocusLifecycle() skipped.
+􀟈  Test timeStepsDoNotChangeTheDeceleratingPath() started.
+􀟈  Test negativeAccelerationMeetsTheSpeedFloorContinuously() started.
+􀟈  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() started.
+􀟈  Test expiryAndHidingCancelSearchesWithoutResurrection() started.
+􀟈  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀙟  Test captureSearchControl() skipped.
+􀟈  Test settingsWindowKeepsControlsAndValues() started.
+􀟈  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test multipleConcurrentSearchesRemainFrameIndependent() started.
+􀟈  Test remainingSelectedScreenWinsOverAutomaticFallback() started.
+􀟈  Test selectedSubsetSurvivesDisconnectAndReconnect() started.
+􀟈  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() started.
+􀟈  Test searchesDoNotChangeMotionBrightnessOrLifetime() started.
+􀟈  Test stableChoicePersistsAndInvalidModeFallsBack() started.
+􀟈  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() started.
+􀟈  Test closedLidUsesMainExternal() started.
+􀟈  Test allCoversBothAndExcludesAgent() started.
+􀟈  Test noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􀙟  Test captureTrailMotion() skipped.
+􀙟  Test displaySettingsPersistAndExplainFallback() skipped.
+􀟈  Test case passing 1 argument width → 3 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument width → 1 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument density → 0.0 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test automaticPrefersInternalEvenWithExternalMain() started.
+􀟈  Test case passing 2 arguments restored → true, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 1 argument density → 0.5 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test case passing 1 argument width → 16 to fadeWidthCountsRowsAtTheSlowerRear(width:) started.
+􀟈  Test case passing 1 argument density → 1.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test case passing 1 argument density → 0.25 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument density → 0.5 to headOutrunsRearAndStretchesTrace(density:) started.
+􀟈  Test case passing 1 argument density → 0.0 to eventDurationIncludesTheWholeStretchedTrace(density:) started.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􁁛  Test independentSmoothPhasesHaveABoundedNonzeroFloor() passed after 0.001 seconds.
+􀟈  Test previewIsLazyAndDoesNotRequestAnOverlay() started.
+􁁛  Test disabledAndInvalidInputsKeepExistingExposure() passed after 0.001 seconds.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments transparent → false, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􁁛  Test strengthScalesTheEnvelopeWithoutChangingItsPhase() passed after 0.001 seconds.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􁁛  Test aFinishedPacketDoesNotKeepItsLastHeadLitDuringThePause() passed after 0.004 seconds.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 1 argument mode → .all to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 1 argument mode → .selected to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 1 argument mode → .automatic to noModeCanCoverAgentWorkspace(_:) started.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􁁛  Test aSingleGlyphRepertoireAndExpiredHeadDoNotStartTrials() passed after 0.005 seconds.
+􀟈  Test case passing 1 argument transparent → false to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􁁛  Test theSameHeadCyclesWithZeroTrailSearch() passed after 0.005 seconds.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􁁛  Test headOutrunsRearAndStretchesTrace(density:) with 3 test cases passed after 0.006 seconds.
+􁁛  Test fadeWidthCountsRowsAtTheSlowerRear(width:) with 3 test cases passed after 0.006 seconds.
+􁁛  Test theBottomHeadStopsCyclingAfterItsFlightStep() passed after 0.006 seconds.
+􁁛  Test invalidFractionsCannotExceedTheWholePopulation() passed after 0.006 seconds.
+􁁛  Test brakingDoesNotLeaveTheCurrentHeadDarkBetweenWrites() passed after 0.007 seconds.
+􁁛  Test liveTuningOnlyChangesTheNextPacket() passed after 0.006 seconds.
+􁁛  Test negativeAccelerationMeetsTheSpeedFloorContinuously() passed after 0.006 seconds.
+􁁛  Test expiryAndHidingCancelSearchesWithoutResurrection() passed after 0.006 seconds.
+􁁛  Test malformedAccelerationCannotReverseOrStallDrops() passed after 0.006 seconds.
+􁁛  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() passed after 0.006 seconds.
+􁁛  Test fullDensityRemainsFilledAcrossSlowPackets() passed after 0.007 seconds.
+􁁛  Test remainingSelectedScreenWinsOverAutomaticFallback() passed after 0.006 seconds.
+􁁛  Test eventDurationIncludesTheWholeStretchedTrace(density:) with 3 test cases passed after 0.007 seconds.
+􁁛  Test headTrialsAreDeterministicAndIndependentOfTheSearchQuota() passed after 0.007 seconds.
+􁁛  Test selectedSubsetSurvivesDisconnectAndReconnect() passed after 0.006 seconds.
+􁁛  Test closedLidUsesMainExternal() passed after 0.006 seconds.
+􁁛  Test noDisplayIsSafeAndMissingMainUsesFirstEligible() passed after 0.006 seconds.
+􁁛  Test timeStepsDoNotChangeTheDeceleratingPath() passed after 0.007 seconds.
+􁁛  Test allCoversBothAndExcludesAgent() passed after 0.006 seconds.
+􁁛  Test noModeCanCoverAgentWorkspace(_:) with 3 test cases passed after 0.006 seconds.
+􁁛  Test automaticPrefersInternalEvenWithExternalMain() passed after 0.006 seconds.
+􁁛  Suite GlyphPulseTests passed after 0.007 seconds.
+􁁛  Suite DropHeadTests passed after 0.007 seconds.
+􁁛  Suite RainTrailTests passed after 0.007 seconds.
+􁁛  Test headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) with 9 test cases passed after 0.007 seconds.
+􁁛  Test multipleConcurrentSearchesRemainFrameIndependent() passed after 0.009 seconds.
+􁁛  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() passed after 0.011 seconds.
+􁁛  Test stableChoicePersistsAndInvalidModeFallsBack() passed after 0.013 seconds.
+􁁛  Suite DisplaySelectionTests passed after 0.013 seconds.
+􁁛  Test disabledOrZeroAccelerationPreservesTheExistingRain() passed after 0.035 seconds.
+􁁛  Suite DropDecelerationTests passed after 0.035 seconds.
+􁁛  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) with 10 test cases passed after 0.038 seconds.
+􁁛  Test searchesDoNotChangeMotionBrightnessOrLifetime() passed after 0.044 seconds.
+􁁛  Suite SearchOccupancyTests passed after 0.044 seconds.
+􁁛  Test legacyPulseSliderPersistsAndSynchronizesWithNativeBindings() passed after 0.592 seconds.
+􁁛  Suite GlyphPulseSettingsTests passed after 0.593 seconds.
+􁁛  Test settingsWindowKeepsControlsAndValues() passed after 0.598 seconds.
+􀙟  Test recordedSettingsScenario() skipped.
+􁁛  Suite SettingsPageTests passed after 0.599 seconds.
+􀟈  Test case passing 2 arguments transparent → false, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􁁛  Test previewIsLazyAndDoesNotRequestAnOverlay() passed after 0.673 seconds.
+􀟈  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() started.
+􀟈  Test case passing 2 arguments restored → true, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 2 arguments transparent → true, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􁁛  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() passed after 0.532 seconds.
+􀟈  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() started.
+􀟈  Test case passing 2 arguments transparent → true, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 1 argument transparent → true to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􁁛  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() passed after 0.195 seconds.
+􀟈  Test launchFlagDefaultsOffAndExplicitLegacyWins() started.
+􀟈  Test case passing 2 arguments restored → false, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􁁛  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) with 4 test cases passed after 1.517 seconds.
+􀟈  Test aTrailGapCannotHideTheDrop(transparent:) started.
+􁁛  Test launchFlagDefaultsOffAndExplicitLegacyWins() passed after 0.115 seconds.
+􀟈  Test case passing 1 argument transparent → false to aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test nativeBindingsUseTheProductionOwnerAndRejectInvalidValues() started.
+􁁛  Test nativeBindingsUseTheProductionOwnerAndRejectInvalidValues() passed after 0.215 seconds.
+􀟈  Test bothWindowsSharePreferencesAndOneActivityTimer() started.
+􀟈  Test case passing 1 argument transparent → true to aTrailGapCannotHideTheDrop(transparent:) started.
+􁁛  Test bothWindowsSharePreferencesAndOneActivityTimer() passed after 0.364 seconds.
+􀙟  Test recordNativeFormsWithScreener() skipped.
+􁁛  Suite NativeSettingsTests passed after 2.097 seconds.
+􀟈  Test case passing 2 arguments restored → false, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􁁛  Test aTrailGapCannotHideTheDrop(transparent:) with 2 test cases passed after 0.624 seconds.
+􀟈  Test theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􁁛  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) with 2 test cases passed after 2.159 seconds.
+􁁛  Suite GlyphPulseRenderingTests passed after 2.160 seconds.
+􀟈  Test case passing 1 argument transparent → true to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􁁛  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) with 4 test cases passed after 2.432 seconds.
+􁁛  Suite TransparentFadeRenderingTests passed after 2.433 seconds.
+􁁛  Test theHeadChangesShapeBetweenRowArrivals(transparent:) with 2 test cases passed after 0.377 seconds.
+􁁛  Suite DropHeadRenderingTests passed after 2.519 seconds.
+􁁛  Test run with 55 tests in 18 suites passed after 2.520 seconds.

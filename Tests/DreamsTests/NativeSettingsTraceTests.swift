@@ -9,6 +9,10 @@ extension NativeSettingsTests {
     @Test(.enabled(if: ProcessInfo.processInfo.environment["DREAMS_RECORD_NATIVE_SETTINGS"] == "1"))
     func recordNativeFormsWithScreener() async throws {
         _ = NSApplication.shared
+        let policy = NSApp.activationPolicy()
+        let appearance = NSApp.appearance
+        NSApp.setActivationPolicy(.regular)
+        defer { NSApp.setActivationPolicy(policy); NSApp.appearance = appearance }
         #expect(Bundle.main.bundleIdentifier != "ru.egormerkushev.dreams")
         let restore = Self.preserveDefaults()
         defer { restore() }
@@ -26,16 +30,29 @@ extension NativeSettingsTests {
         let backend = ProcessInfo.processInfo.environment["DREAMS_NATIVE_CAPTURE_BACKEND"] ?? "hierarchy"
         try #require(["hierarchy", "screen-capture-kit"].contains(backend), "Unknown native capture backend")
         let capture = ScreenerCaptureSession(screener: recorder)
-        func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000, dark: Bool = false) async throws {
-            window.appearance = NSAppearance(named: dark ? .darkAqua : .aqua)
-            window.contentView = NSHostingView(rootView: NativeSettingsPage(model: model, initialSection: section))
+        model[parameter: .idle] = 1
+        model.preview.isPlaying = true
+        func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000,
+                        dark: Bool = false, increasedContrast: Bool = false) async throws {
+            window.appearance = NSAppearance(named: increasedContrast
+                ? (dark ? .accessibilityHighContrastDarkAqua : .accessibilityHighContrastAqua)
+                : (dark ? .darkAqua : .aqua))
+            NSApp.appearance = window.appearance
+            window.contentView = NSHostingView(rootView: NativeSettingsPage(model: model, initialSection: section)
+                .environment(\.colorScheme, dark ? .dark : .light))
             window.setContentSize(NSSize(width: width, height: 720))
             let content = try #require(window.contentView)
             content.layoutSubtreeIfNeeded()
             content.displayIfNeeded()
+            if backend == "screen-capture-kit" {
+                try await Self.pumpPreviewEvents(milliseconds: 150)
+                #expect(model.preview.renderer != nil)
+                #expect((model.preview.renderer?.framesRendered ?? 0) > 0)
+            }
             try await recorder.mark(name, metadata: ["actions": "model mutations and initial section selection",
-                "backend": backend, "inputCoverage": "programmatic states; keyboard input unobserved",
-                "width": String(Int(width)), "appearance": dark ? "dark" : "light"])
+                "backend": backend, "previewFrames": String(model.preview.renderer?.framesRendered ?? 0), "inputCoverage": "programmatic states; keyboard input unobserved",
+                "width": String(Int(width)), "appearance": dark ? "dark" : "light",
+                "increasedContrast": String(increasedContrast)])
             if backend == "screen-capture-kit" {
                 let source = ScreenCaptureKitWindowSource(windowID: CGWindowID(window.windowNumber))
                 try await source.record(to: recorder, reason: name)
@@ -56,6 +73,10 @@ extension NativeSettingsTests {
             model[parameter: .search] = 0.37
             try await checkpoint(.rain, name: "rain.edited.dark", dark: true)
             try await checkpoint(.rain, name: "rain.narrow", width: 560)
+            model.preview.isPlaying = false
+            try await checkpoint(.rain, name: "rain.paused.dark", dark: true)
+            try await checkpoint(.rain, name: "rain.increased-contrast.dark", dark: true, increasedContrast: true)
+            model.preview.isPlaying = true
             model.transparent = true
             model[parameter: .glow] = 0.12
             try await checkpoint(.background, name: "background.transparent")

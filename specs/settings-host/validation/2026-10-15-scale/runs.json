@@ -1,0 +1,101 @@
+{
+  "runs": [
+    {
+      "command": [
+        "make",
+        "lint"
+      ],
+      "exitCode": 0,
+      "log": "lint.log"
+    },
+    {
+      "command": [
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0,
+      "log": "structure.log"
+    },
+    {
+      "command": [
+        "swift",
+        "test",
+        "-c",
+        "release"
+      ],
+      "environment": {
+        "DREAMS_TEST_METAL": "1",
+        "DREAMS_FEED_DIRECTORY": "/tmp/dreams-native-scale-feed"
+      },
+      "exitCode": 0,
+      "log": "unit-metal.log"
+    },
+    {
+      "command": [
+        "swift",
+        "test",
+        "-c",
+        "release",
+        "--filter",
+        "previewIsAPixelExactScreenCrop"
+      ],
+      "environment": {
+        "DREAMS_TEST_METAL": "1",
+        "DREAMS_FEED_DIRECTORY": "/tmp/dreams-native-scale-feed"
+      },
+      "exitCode": 0,
+      "log": "crop-gpu.log"
+    }
+  ],
+  "tools": {
+    "swift": {
+      "command": [
+        "swift",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+      "stderr": "swift-driver version: 1.168.6"
+    },
+    "swiftlint": {
+      "command": [
+        "swiftlint",
+        "version"
+      ],
+      "exitCode": 0,
+      "stdout": "0.63.3",
+      "stderr": ""
+    },
+    "specpm": {
+      "command": [
+        "specpm",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "specpm 0.2.0",
+      "stderr": ""
+    },
+    "platform": {
+      "command": [
+        "sw_vers"
+      ],
+      "exitCode": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A428",
+      "stderr": ""
+    },
+    "rtk": {
+      "command": [
+        "rtk",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "rtk 0.37.2",
+      "stderr": ""
+    },
+    "hypercode": {
+      "path": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "sha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+    }
+  }
+}

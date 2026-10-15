@@ -1,4 +1,4 @@
-# Current runtime: 74b57fa2a4ea8e6934024dd57706c39d42e331c0; validation/2026-10-14-pulse/README.md
+# Current runtime: 4973f2576232fab2c33398e6c49ce461cd5ad95d; validation/2026-10-14-pulse/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
@@ -122,7 +122,7 @@ effects:
 evidence:
 - id: source_1
   kind: source
-  path: evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
+  path: evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
   supports:
   - interfaces
   - constraints
@@ -178,10 +178,10 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
+    revision: 3910ebf93779f8da807bf361f89873092db03b7d
   files:
     owned:
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsDelegate.swift

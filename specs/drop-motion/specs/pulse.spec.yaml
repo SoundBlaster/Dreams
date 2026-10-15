@@ -91,7 +91,7 @@ evidence:
   - constraints.assembly
 - id: validation
   kind: test
-  path: validation/2026-10-14-head-cycle/README.md
+  path: validation/2026-10-15-materials/README.md
   supports:
   - constraints
 provenance:
@@ -110,13 +110,13 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
+    revision: 3910ebf93779f8da807bf361f89873092db03b7d
   files:
     owned:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift

@@ -49,7 +49,9 @@ Production settings migration and embedded rendering remain explicit next-stage 
 The [settings host](settings-host.hc) / [profiles](settings-host.hcs) describe
 `settings=legacy` and `settings=native` presentations with the same controller.
 [Draft contract](../settings-host/README.md) covers flag routing, bindings and
-window lifetime; embedded rain, glass and full input parity remain next-stage work.
+window lifetime and a window-local embedded Metal backdrop beneath system material
+forms and an uncovered region. Full input parity remains next-stage work. Preview has a separate renderer/clock
+and uses shared production tuning; see the dated host validation baseline.
 
 The drop-motion detail now includes HeadAppearance, with [current head validation](../drop-motion/validation/2026-10-14-head/README.md).
 Other shader/atlas rendering and physical desktop compositing remain unexplored.

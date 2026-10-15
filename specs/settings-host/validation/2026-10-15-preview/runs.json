@@ -1,0 +1,34 @@
+{
+  "runtime": "1c8ba19844fffad464ac7dd7dfce8aba7dac0bb7",
+  "recordedAt": "2026-10-15T11:19:00.442594+00:00",
+  "runs": [
+    {
+      "name": "unit-metal",
+      "command": [
+        "swift",
+        "test",
+        "-c",
+        "release"
+      ],
+      "environment": {
+        "DREAMS_TEST_METAL": "1",
+        "DREAMS_FEED_DIRECTORY": "/tmp/dreams-native-preview-feed"
+      },
+      "exitCode": 0,
+      "log": "unit-metal.log"
+    },
+    {
+      "name": "trace",
+      "command": [
+        "make",
+        "test-native-settings-trace"
+      ],
+      "environment": {
+        "DREAMS_TEST_METAL": "1",
+        "DREAMS_NATIVE_CAPTURE_BACKEND": "screen-capture-kit"
+      },
+      "exitCode": 0,
+      "log": "trace.log"
+    }
+  ]
+}

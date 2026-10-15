@@ -526,7 +526,7 @@ final class DreamsController: NSObject {
         if !transparentBackground { stop(reason: .reopen) }
     }
 
-    private func configureRenderer(_ renderer: RainRenderer) {
+    func configureRenderer(_ renderer: RainRenderer) {
         renderer.keywordTint = keywordTint
         renderer.rainTint = rainTint
         renderer.keywordBrightness = keywordBrightness

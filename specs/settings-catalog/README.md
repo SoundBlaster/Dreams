@@ -4,8 +4,9 @@ Standalone first-stage consumer boundary: `dreams.settings.catalog`.
 The [package](../../Packages/DreamsSettingsUI/README.md) documents launch and library usage.
 [Contract](specs/catalog.spec.yaml), [map](../hypercode/settings-catalog.hc) and
 [properties](../hypercode/settings-catalog.hcs) describe the separate showcase app.
-[Source identity](evidence/2026-10-14/source-identity.json) and
-[validation](validation/2026-10-14/README.md) identify current evidence.
+[Current source identity](evidence/2026-10-15-materials/source-identity.json) and
+[validation](validation/2026-10-15-materials/README.md) identify the shared material panel.
+Original catalog validation remains historical.
 
 | Consumer concern | Claim | Source responsibility | Evidence / limit |
 | --- | --- | --- | --- |
@@ -32,3 +33,10 @@ first-stage observation that the production manifest had no package dependency;
 it does not give the catalog production state, lifecycle or renderer access.
 [Current source and checks](validation/2026-10-14-native-host/README.md) are separate
 from the preserved initial catalog evidence.
+
+## Shared material panel — 2026-10-15
+
+SettingsMaterialPanel is used by both the static material specimen and the opted-in
+production host. It uses system regular material, with an opaque semantic background
+for Reduce Transparency or increased contrast. It introduces no state owner, renderer
+or preferences into the package. See [fresh checks](validation/2026-10-15-materials/README.md).

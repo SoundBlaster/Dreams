@@ -1,0 +1,160 @@
+{
+  "sessionID": "7BEBFF93-90EC-48C6-BEE9-A732BB4610DE",
+  "capture": "ScreenCaptureKit.window",
+  "frames": [
+    {
+      "id": "318B0F47-8EAE-488C-95BE-89C466DD74E2",
+      "name": "section.general",
+      "sha256": "3d5aa652daebdfa063f96333c2eb1ea2865a1184a7dd789286e76e06ae74dc7e",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "496AC0B0-D198-4DFA-8754-48E7F5335658",
+      "name": "section.appearance",
+      "sha256": "b91e36977837a77f2c051dc59faaaccebdb7b4715c0e1af9d532066bb4b82ec4",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "823D73C1-7B27-4D41-B727-3645C1690DC1",
+      "name": "section.rain",
+      "sha256": "1e8a341e71a8de8a982772d84159b7e7d6588c9d416dfec44fa55c4fbb51d480",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "667A349F-F379-445F-B7B4-DBBEC37A73F1",
+      "name": "section.background",
+      "sha256": "ebc607dde0871cbf0e778c6bcbb8f46d8bd5c5cf2147f402557b10ebafcb330d",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "BC037E7C-606A-4B4B-AD43-B5C72345847F",
+      "name": "section.words",
+      "sha256": "3168d01616c610674a3e9d68bb4c47558f20f3f028a3dd0d5fd66ad013a0d5fe",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "B3A74AB0-1152-4A17-818F-5431364BB789",
+      "name": "section.displays",
+      "sha256": "69e9c8faeceff68f2c0231d0a3d6afd62243b4f4ce8c4ca3c3d9ca75c16e0a7b",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "B34983D3-74E3-4258-88D8-08CA505F1A7A",
+      "name": "section.advanced",
+      "sha256": "08ef913542a1d32a323e79c9781e7fc74f016be173e89e4d22fd6790fa82256f",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "C9D0CA92-ABC0-415D-BCA5-D803664CEC2A",
+      "name": "rain.edited.dark",
+      "sha256": "c7ffae1579f61894d0663b0a4df8a1247f2bb1c0abe254d63a1cfae708abd1d4",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "B6149ED9-943E-4C26-B7A0-722916F8D947",
+      "name": "rain.narrow",
+      "sha256": "f328547bbe05dda49c21058c5dc63df964ce450da4560eb4117f3e46ec8faac2",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "1120",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "D0AB6CFB-516C-49C3-8A69-FA49AAD903B4",
+      "name": "background.transparent",
+      "sha256": "9a42817ed39bfc58d5053fe114f76af330ac3f8deaa4e8995bc45b91f15c4297",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    },
+    {
+      "id": "D07C08C1-5FBE-417D-BA00-64E883868B6C",
+      "name": "appearance.transparent.dark",
+      "sha256": "cd6a6746aad43d4af433d813a7b3642e261cf026e531c02495fd9f378d9278b5",
+      "metadata": {
+        "capture.backend": "ScreenCaptureKit.window",
+        "capture.processID": "64387",
+        "capture.windowID": "1973",
+        "encoding": "png",
+        "pixelHeight": "1544",
+        "pixelWidth": "2000",
+        "scale": "2.0"
+      }
+    }
+  ]
+}

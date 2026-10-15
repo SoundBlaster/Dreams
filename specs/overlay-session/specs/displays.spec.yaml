@@ -94,7 +94,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
+    revision: 3910ebf93779f8da807bf361f89873092db03b7d
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift

@@ -166,3 +166,10 @@
 
 "rain.pulse" = "Glyph brightness pulse";
 "rain.pulse.tip" = "Independent smooth brightness pulses. 0% disables them; drop heads and alpha fading stay unchanged.";
+
+"native.preview.title" = "Live Preview";
+"native.preview.pause" = "Pause preview";
+"native.preview.play" = "Play preview";
+"native.preview.unavailable" = "Preview unavailable";
+"native.preview.retry" = "Retry";
+"native.preview.help" = "100% scale on this display. The preview shows a portion of the rain. Settings apply immediately.";

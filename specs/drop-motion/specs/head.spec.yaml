@@ -86,7 +86,7 @@ evidence:
   - constraints.head_trials
 - id: current_validation
   kind: test
-  path: validation/2026-10-14-head-cycle/README.md
+  path: validation/2026-10-15-materials/README.md
   supports:
   - constraints
 provenance:
@@ -108,7 +108,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: ab6290c47f24c43a7ce7e6fdd71272ae6abb34c7
+    revision: 3910ebf93779f8da807bf361f89873092db03b7d
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
@@ -118,4 +118,4 @@ implementationBindings:
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift
     border:
     - evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
