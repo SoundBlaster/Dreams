@@ -28,6 +28,7 @@ extension NativeSettingsTests {
         let trace = try await recorder.startSession(name: "Dreams-native-settings",
             appBundleID: "ru.egormerkushev.dreams.native-tests", tracesDirectory: traces)
         let backend = ProcessInfo.processInfo.environment["DREAMS_NATIVE_CAPTURE_BACKEND"] ?? "hierarchy"
+        let language = ProcessInfo.processInfo.environment["DREAMS_LANGUAGE"] ?? "system"
         try #require(["hierarchy", "screen-capture-kit"].contains(backend), "Unknown native capture backend")
         let capture = ScreenerCaptureSession(screener: recorder)
         model[parameter: .idle] = 1
@@ -53,7 +54,7 @@ extension NativeSettingsTests {
             }
             try await recorder.mark(name, metadata: ["actions": "model mutations and initial section selection",
                 "backend": backend, "previewFrames": String(model.preview.renderer?.framesRendered ?? 0), "inputCoverage": "programmatic states; keyboard input unobserved",
-                "width": String(Int(width)), "appearance": dark ? "dark" : "light",
+                "width": String(Int(width)), "language": language, "appearance": dark ? "dark" : "light",
                 "increasedContrast": String(increasedContrast)])
             if backend == "screen-capture-kit" {
                 let source = ScreenCaptureKitWindowSource(windowID: CGWindowID(window.windowNumber))
@@ -65,6 +66,7 @@ extension NativeSettingsTests {
         do {
             for section in NativeSettingsSection.allCases {
                 try await checkpoint(section, name: "section." + section.rawValue)
+                try await checkpoint(section, name: "section." + section.rawValue + ".narrow", width: 560)
             }
             try await checkpoint(.general, name: "shortcut.recording", recording: true)
             model.cancelShortcutRecording()

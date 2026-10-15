@@ -58,8 +58,10 @@ Do not put the production controller or renderer into this UI package.
    existing AppKit settings path. The catalog itself is already an opt-in separate app;
    this route is now available only with `--native-settings`; `--legacy-settings` wins
    when both flags are supplied.
-2. The new host now binds to the same production controller. Shortcut recording
-   still opens the legacy window. Validate interactive parity before enabling it by default.
+2. The new host now binds to the same production controller. General records and
+   resets the stop shortcut directly; Advanced retains access to the legacy window.
+   Both presentations share the recorder and Carbon registration owner. Validate
+   interactive parity before enabling the native host by default.
 3. The host now injects one independent production renderer behind the settings detail,
    preserving 100% hosting-display scale with a clipped viewport.
 4. The opt-in host now places grouped forms over the shared material panel, leaving
