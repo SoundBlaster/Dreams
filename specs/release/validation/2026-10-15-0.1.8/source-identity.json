@@ -1,0 +1,44 @@
+{
+  "sourceRevision": "732a9bde704d48c620dcc1c650cb2e87d18cd671",
+  "releaseVersion": "0.1.8",
+  "files": [
+    {
+      "path": "VERSION",
+      "sha256": "76f81f64ece28d0bcfe39dd35f6d14f3c87fe000b77aee11561e18d1919f607e"
+    },
+    {
+      "path": "plugins/dreams-claude/.claude-plugin/plugin.json",
+      "sha256": "56805094711d41c3ae8f708e367d29374625c07b1218f7d80095608351a49720"
+    },
+    {
+      "path": "plugins/dreams-codex/plugin.json",
+      "sha256": "412552ac7aa1dda2f054f3e6e6880d63c496e7f987bcb2850c6b3a75629f99fe"
+    }
+  ],
+  "unchangedCurrentContracts": [
+    {
+      "package": "drop-motion",
+      "identity": "specs/drop-motion/evidence/2026-10-14-head-cycle/source-identity.json",
+      "identitySha256": "1b9b20c877d8b3cb64867b2b221913e313f6b0d43c2889991a65d69fd5e6e555",
+      "sourcesChecked": 27,
+      "mapsChecked": 16,
+      "exitCode": 0
+    },
+    {
+      "package": "overlay-session",
+      "identity": "specs/overlay-session/evidence/2026-10-14-head-cycle/source-identity.json",
+      "identitySha256": "3005c64ce41f16325b08e3d3bf8fbc6436138a75c1e5acbadf32266713cc4309",
+      "sourcesChecked": 11,
+      "mapsChecked": 16,
+      "exitCode": 0
+    },
+    {
+      "package": "settings-host",
+      "identity": "specs/settings-host/evidence/2026-10-14-head-cycle/source-identity.json",
+      "identitySha256": "903911e46d2145e8307052cad513c55874625cce9a5e03c912948e06d7260722",
+      "sourcesChecked": 24,
+      "mapsChecked": 16,
+      "exitCode": 0
+    }
+  ]
+}

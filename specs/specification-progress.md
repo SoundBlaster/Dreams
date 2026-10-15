@@ -307,3 +307,16 @@ their meanings; [overlay](overlay-session/validation/2026-10-14-head-cycle/READM
 [settings](settings-host/validation/2026-10-14-head-cycle/README.md) record the unchanged assembly.
 All older source/test evidence remains historical. Both background profiles are covered offscreen;
 physical compositor/TV acceptance remains unobserved. No font/checkpoint or new preference is added.
+
+## Release 0.1.8 preparation — 2026-10-15
+
+PR #26 combines the pulse and continuous-head runtime baselines; both pinned commits remain
+reachable in main through the merge commit. Release preparation changes only VERSION, the
+two plugin version fields and this progress record. Current implementation/map hashes match
+the 2026-10-14-head-cycle identities. Stable claim IDs and draft acceptance remain unchanged;
+metadata checks and release artifact verification are separate from historical runtime tests.
+The owner observed the local macOS animation before authorizing this release. That observation
+does not establish new physical TV, topology or complete compositor acceptance. The native
+settings host remains an explicit --native-settings opt-in; default launch uses legacy settings.
+
+[Preserved 0.1.8 release-preparation commands, tools, identities and diagnostics](release/validation/2026-10-15-0.1.8/README.md) distinguish metadata checks from runtime, CI and signed publication evidence.

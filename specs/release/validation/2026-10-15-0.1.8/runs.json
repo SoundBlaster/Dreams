@@ -1,0 +1,57 @@
+[
+  {
+    "name": "plugins",
+    "command": [
+      "python3",
+      "scripts/test-plugins.py"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "sourceRevision": "732a9bde704d48c620dcc1c650cb2e87d18cd671",
+    "exitCode": 0,
+    "log": "plugins.log"
+  },
+  {
+    "name": "docs",
+    "command": [
+      "python3",
+      "scripts/check-docs.py"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "sourceRevision": "732a9bde704d48c620dcc1c650cb2e87d18cd671",
+    "exitCode": 0,
+    "log": "docs.log"
+  },
+  {
+    "name": "structure",
+    "command": [
+      "make",
+      "specs-check",
+      "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "sourceRevision": "732a9bde704d48c620dcc1c650cb2e87d18cd671",
+    "exitCode": 0,
+    "log": "structure.log"
+  },
+  {
+    "name": "documentation-repair",
+    "command": [
+      "python3",
+      "scripts/check-docs.py"
+    ],
+    "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+    "sourceRevision": "732a9bde704d48c620dcc1c650cb2e87d18cd671",
+    "dirtyDocumentation": [
+      {
+        "path": "specs/specification-progress.md",
+        "sha256": "a4106840bfbe1379771178962d30f98db4d340e078a8b36cdbf97881df88c430"
+      },
+      {
+        "path": "specs/release/validation/2026-10-15-0.1.8/README.md",
+        "sha256": "2c82836ace4bb6b2946fba278e33aa025cddf45ea43129629a7ad09c22ddbaa8"
+      }
+    ],
+    "exitCode": 0,
+    "log": "repair-docs.log"
+  }
+]

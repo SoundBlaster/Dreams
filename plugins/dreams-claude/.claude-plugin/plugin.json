@@ -1,6 +1,6 @@
 {
   "name": "dreams",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Matrix digital rain that follows your coding agents: every message floods the screen, every tool call runs down it as a line. Needs the Dreams app.",
   "author": {
     "name": "Egor Merkushev"
