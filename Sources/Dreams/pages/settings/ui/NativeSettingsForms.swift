@@ -35,25 +35,61 @@ struct NativeGeneralForm: View {
                 .disabled(model.transparent).accessibilityIdentifier("dreams.run-time")
             }
             Section(settingsString("hotkey.label")) {
-                LabeledContent { Text(model.stopShortcut).monospaced() } label: { Text(settingsString("hotkey.label")) }
-                Text(L("native.escapeHint", model.stopShortcut)).foregroundStyle(.secondary)
-                HStack {
-                    Button(settingsString(model.isRecordingShortcut ? "button.cancel" : "hotkey.change")) { model.recordShortcut() }
-                        .accessibilityIdentifier("dreams.stop-hotkey")
-                    Button(settingsString("hotkey.reset")) { model.resetShortcut() }
-                        .accessibilityIdentifier("dreams.stop-hotkey-default")
-                }
-                if model.isRecordingShortcut {
-                    Text(settingsString("hotkey.recording")).fontWeight(.medium)
-                        .accessibilityIdentifier("dreams.stop-hotkey-recording")
-                }
-                if let message = model.shortcutMessage {
-                    Text(message).foregroundStyle(.secondary).accessibilityIdentifier("dreams.stop-hotkey-message")
-                }
-                Text(settingsString("hotkey.tip")).foregroundStyle(.secondary)
+                NativeShortcutRow(model: model)
             }
         }
         .formStyle(.grouped)
+    }
+}
+
+private struct NativeShortcutRow: View {
+    @Bindable var model: NativeSettingsModel
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ViewThatFits(in: .horizontal) {
+                HStack {
+                    shortcutValue
+                    Spacer(minLength: 12)
+                    actions
+                }
+                VStack(alignment: .leading) {
+                    shortcutValue
+                    actions
+                }
+            }
+            Text(L("native.escapeHint", model.stopShortcut))
+                .font(.caption).foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+            Group {
+                if let message = model.shortcutMessage {
+                    Text(message).accessibilityIdentifier("dreams.stop-hotkey-message")
+                } else if model.isRecordingShortcut {
+                    Text(settingsString("hotkey.recording"))
+                        .accessibilityIdentifier("dreams.stop-hotkey-recording")
+                } else {
+                    Text(settingsString("hotkey.tip"))
+                }
+            }
+            .font(.caption).foregroundStyle(.secondary)
+            .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    private var shortcutValue: some View {
+        Text(model.stopShortcut).monospaced().fixedSize()
+            .accessibilityLabel(settingsString("hotkey.label"))
+            .accessibilityValue(model.stopShortcut)
+    }
+
+    private var actions: some View {
+        HStack {
+            Button(settingsString(model.isRecordingShortcut ? "button.cancel" : "hotkey.change")) { model.recordShortcut() }
+                .accessibilityIdentifier("dreams.stop-hotkey")
+            Button(settingsString("hotkey.reset")) { model.resetShortcut() }
+                .accessibilityIdentifier("dreams.stop-hotkey-default")
+        }
+        .fixedSize()
     }
 }
 
