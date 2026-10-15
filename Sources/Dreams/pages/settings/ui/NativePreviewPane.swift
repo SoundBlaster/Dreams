@@ -6,36 +6,50 @@ struct NativePreviewPane: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text(settingsString("native.preview.title")).font(.headline)
-                Spacer()
-                Button {
-                    session.isPlaying.toggle()
-                } label: {
-                    Label(session.isPlaying ? settingsString("native.preview.pause") : settingsString("native.preview.play"),
-                          systemImage: session.isPlaying ? "pause.fill" : "play.fill")
+            SettingsMaterialPanel {
+                HStack {
+                    Text(settingsString("native.preview.title")).font(.headline)
+                    Spacer()
+                    playbackButton
                 }
-                .labelStyle(.iconOnly)
-                .disabled(session.errorMessage != nil)
-                .accessibilityIdentifier("dreams.native.preview-playback")
+                .padding(12)
             }
-            SettingsPreviewRegion {
-                ZStack {
-                    RainPreviewSurface(session: session)
-                    if let error = session.errorMessage {
-                        VStack {
-                            Label(settingsString("native.preview.unavailable"), systemImage: "exclamationmark.triangle")
-                            Text(error).font(.caption).foregroundStyle(.secondary)
-                            Button(settingsString("native.preview.retry")) { session.refresh() }
-                        }
-                        .padding()
+            Spacer(minLength: 0)
+            if let error = session.errorMessage {
+                SettingsMaterialPanel {
+                    VStack {
+                        Label(settingsString("native.preview.unavailable"), systemImage: "exclamationmark.triangle")
+                        Text(error).font(.caption).foregroundStyle(.secondary)
+                        Button(settingsString("native.preview.retry")) { session.refresh() }
                     }
+                    .padding()
                 }
-                .background(.background.secondary)
+                Spacer(minLength: 0)
             }
-            Text(settingsString("native.preview.help"))
-                .font(.caption).foregroundStyle(.secondary)
+            SettingsMaterialPanel {
+                Text(settingsString("native.preview.help"))
+                    .font(.caption).foregroundStyle(.secondary).padding(12)
+            }
         }
-        .padding()
+    }
+
+    @ViewBuilder private var playbackButton: some View {
+        if #available(macOS 26.0, *) {
+            playbackAction.buttonStyle(.glass)
+        } else {
+            playbackAction.buttonStyle(.bordered)
+        }
+    }
+
+    private var playbackAction: some View {
+        Button {
+            session.isPlaying.toggle()
+        } label: {
+            Label(session.isPlaying ? settingsString("native.preview.pause") : settingsString("native.preview.play"),
+                  systemImage: session.isPlaying ? "pause.fill" : "play.fill")
+        }
+        .labelStyle(.iconOnly)
+        .disabled(session.errorMessage != nil)
+        .accessibilityIdentifier("dreams.native.preview-playback")
     }
 }

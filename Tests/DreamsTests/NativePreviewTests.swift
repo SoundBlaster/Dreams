@@ -1,9 +1,36 @@
 import AppKit
 import MetalKit
+import SwiftUI
 import Testing
 @testable import Dreams
 
 extension NativeSettingsTests {
+    @Test func backdropKeepsOneSurfaceAcrossAdaptiveLayout() async throws {
+        _ = NSApplication.shared
+        let page = SettingsPageController(controller: DreamsController(), nativeSettingsEnabled: true)
+        let model = NativeSettingsModel(owner: page)
+        let host = NSHostingView(rootView: NativeSettingsPage(model: model))
+        let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 1000, height: 720),
+                              styleMask: [.titled, .resizable], backing: .buffered, defer: false)
+        window.contentView = host
+        defer { window.contentView = nil; page.cleanUp() }
+        func surfaces(in view: NSView) -> [RainPreviewView] {
+            (view as? RainPreviewView).map { [$0] } ?? view.subviews.flatMap { surfaces(in: $0) }
+        }
+        host.layoutSubtreeIfNeeded()
+        let initial = try #require(surfaces(in: host).first)
+        for width in [560, 1100, 560] {
+            window.setContentSize(NSSize(width: width, height: 720))
+            host.layoutSubtreeIfNeeded()
+            await Task.yield()
+            host.layoutSubtreeIfNeeded()
+            let current = surfaces(in: host)
+            #expect(current.count == 1, "The form and opening must share one Metal surface")
+            #expect(current.first === initial, "Changing layout must not replace the playback surface")
+            #expect(initial.frame.width > 0 && initial.frame.height > 0)
+        }
+    }
+
     @Test(.enabled(if: ProcessInfo.processInfo.environment["DREAMS_TEST_METAL"] == "1"),
           arguments: [0, 80], [1, 2])
     func previewIsAPixelExactScreenCrop(columns: Int, scale: Int) async throws {

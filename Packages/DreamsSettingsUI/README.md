@@ -32,9 +32,9 @@ Packages/DreamsSettingsUI --target DreamsSettingsUI` also builds the library ind
   columns and braking exercise dependent disabled controls. Reset resets this page only.
 - **Navigation:** the real NavigationSplitView sidebar, DisclosureGroup, system
   inspector and ContentUnavailableView. Selection and options belong to each window.
-- **Materials:** standard material with Reduce Transparency fallback, native
+- **Materials:** shared `SettingsMaterialPanel` with Reduce Transparency / Increase Contrast fallback, native
   `.glass`/`.glassProminent` buttons when macOS 26+ is available, and an uncovered
-  content slot. There is no simulated rain or whole-window glass effect.
+  content slot. Catalog fixtures stay static and independent of the production rain.
 - **Typography:** system text styles, semantic foreground styles, wrapping and
   monospaced numeric readouts.
 
@@ -49,6 +49,7 @@ English and Russian resources belong to the catalog target's `Bundle.module`.
 Binding, range, step, formatted readout and accessibility identifier. The host owns
 units, input validation and persistence. `SettingsPreviewRegion` clips an injected
 content view; it adds no material, rendering engine, timers or capture behavior.
+`SettingsMaterialPanel` composes a system regular material and rounded clipping, using an opaque semantic background for Reduce Transparency or increased contrast. Both catalog and production host use this same surface. It does not own controls, clocks, preferences or a rendering engine.
 Do not put the production controller or renderer into this UI package.
 
 ## Next stages
@@ -59,10 +60,12 @@ Do not put the production controller or renderer into this UI package.
    when both flags are supplied.
 2. The new host now binds to the same production controller. Shortcut recording
    still opens the legacy window. Validate interactive parity before enabling it by default.
-3. Inject the existing Metal renderer into an embedded preview with independent
-   lifecycle. Changes must affect the preview without starting fullscreen rain.
-4. Compare Settings-style surfaces with the proposed glass/rain composition, including
-   open regions, legibility, light/dark appearance and accessibility settings.
+3. The host now injects one independent production renderer behind the settings detail,
+   preserving 100% hosting-display scale with a clipped viewport.
+4. The opt-in host now places grouped forms over the shared material panel, leaving
+   a clear rain region beside/above them. macOS 26 uses system background extension
+   under navigation and a glass playback button; macOS 15 retains standard materials.
+   Continue evaluating legibility and accessibility before rollout.
 5. Validate parity and performance before separately deciding to enable the new host.
 
 The HTML kit and the NavigationSplitView sample informed composition; their custom

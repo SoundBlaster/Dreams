@@ -32,8 +32,11 @@ extension NativeSettingsTests {
         let capture = ScreenerCaptureSession(screener: recorder)
         model[parameter: .idle] = 1
         model.preview.isPlaying = true
-        func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000, dark: Bool = false) async throws {
-            window.appearance = NSAppearance(named: dark ? .darkAqua : .aqua)
+        func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000,
+                        dark: Bool = false, increasedContrast: Bool = false) async throws {
+            window.appearance = NSAppearance(named: increasedContrast
+                ? (dark ? .accessibilityHighContrastDarkAqua : .accessibilityHighContrastAqua)
+                : (dark ? .darkAqua : .aqua))
             NSApp.appearance = window.appearance
             window.contentView = NSHostingView(rootView: NativeSettingsPage(model: model, initialSection: section)
                 .environment(\.colorScheme, dark ? .dark : .light))
@@ -48,7 +51,8 @@ extension NativeSettingsTests {
             }
             try await recorder.mark(name, metadata: ["actions": "model mutations and initial section selection",
                 "backend": backend, "previewFrames": String(model.preview.renderer?.framesRendered ?? 0), "inputCoverage": "programmatic states; keyboard input unobserved",
-                "width": String(Int(width)), "appearance": dark ? "dark" : "light"])
+                "width": String(Int(width)), "appearance": dark ? "dark" : "light",
+                "increasedContrast": String(increasedContrast)])
             if backend == "screen-capture-kit" {
                 let source = ScreenCaptureKitWindowSource(windowID: CGWindowID(window.windowNumber))
                 try await source.record(to: recorder, reason: name)
@@ -69,6 +73,10 @@ extension NativeSettingsTests {
             model[parameter: .search] = 0.37
             try await checkpoint(.rain, name: "rain.edited.dark", dark: true)
             try await checkpoint(.rain, name: "rain.narrow", width: 560)
+            model.preview.isPlaying = false
+            try await checkpoint(.rain, name: "rain.paused.dark", dark: true)
+            try await checkpoint(.rain, name: "rain.increased-contrast.dark", dark: true, increasedContrast: true)
+            model.preview.isPlaying = true
             model.transparent = true
             model[parameter: .glow] = 0.12
             try await checkpoint(.background, name: "background.transparent")

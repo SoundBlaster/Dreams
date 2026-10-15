@@ -1,3 +1,4 @@
+import DreamsSettingsUI
 import SwiftUI
 
 struct NativeSettingsPage: View {
@@ -19,21 +20,33 @@ struct NativeSettingsPage: View {
             .navigationTitle("Dreams")
             .navigationSplitViewColumnWidth(min: 170, ideal: 220, max: 300)
         } detail: {
-            GeometryReader { geometry in
-                if geometry.size.width >= 700 {
-                    HStack(spacing: 0) {
-                        NativeSettingsDetail(section: selection, model: model)
-                        NativePreviewPane(session: model.preview).frame(width: 320)
-                    }
-                } else {
-                    VStack(spacing: 0) {
-                        NativePreviewPane(session: model.preview).frame(height: 240)
-                        NativeSettingsDetail(section: selection, model: model)
+            ZStack {
+                NativeRainBackdrop(session: model.preview)
+                GeometryReader { geometry in
+                    if geometry.size.width >= 700 {
+                        HStack(spacing: 16) {
+                            settingsPanel
+                            NativePreviewPane(session: model.preview).frame(width: 280)
+                        }
+                        .padding(16)
+                    } else {
+                        VStack(spacing: 16) {
+                            NativePreviewPane(session: model.preview).frame(height: 180)
+                            settingsPanel
+                        }
+                        .padding(16)
                     }
                 }
             }
         }
         .frame(minWidth: 560, minHeight: 420)
+    }
+
+    private var settingsPanel: some View {
+        SettingsMaterialPanel {
+            NativeSettingsDetail(section: selection, model: model)
+                .scrollContentBackground(.hidden)
+        }
     }
 }
 

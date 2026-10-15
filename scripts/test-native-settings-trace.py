@@ -27,7 +27,7 @@ def main():
     assert records[0]["kind"] == "sessionStarted" and records[-1]["kind"] == "sessionEnded"
     assert not any(record.get("name") == "Scenario.failed" for record in records)
     frames = [record for record in records if record["kind"] == "keyframe"]
-    assert len(frames) == 11
+    assert len(frames) == 13
     assert all((trace / record["blob"]).is_file() for record in frames)
     backend = os.environ.get("DREAMS_NATIVE_CAPTURE_BACKEND", "hierarchy")
     print(f"PASS: complete Screener native settings trace, {len(frames)} {backend} frames: {trace}")
