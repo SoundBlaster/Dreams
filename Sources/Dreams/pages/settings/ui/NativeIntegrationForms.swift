@@ -29,11 +29,15 @@ private struct NativeHookRow: View {
         let state = model.hookState(source)
         LabeledContent(L("hooks." + source)) {
             HStack {
-                Text(L("hooks.state." + state.rawValue)).foregroundStyle(.secondary)
+                Text(L("hooks.state." + state.rawValue))
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
                 Button(actionTitle(state)) { model.toggleHooks(source) }
                     .disabled(state == .plugin).accessibilityIdentifier("dreams.hooks-" + source)
             }
+            .accessibilityElement(children: .contain)
         }
+        .accessibilityElement(children: .contain)
     }
     private func actionTitle(_ state: HooksInstaller.State) -> String {
         L(state == .connected ? "button.disconnect" : state == .outdated ? "button.update"
