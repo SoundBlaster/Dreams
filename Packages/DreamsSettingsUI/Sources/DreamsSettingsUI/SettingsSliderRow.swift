@@ -8,6 +8,7 @@ public struct SettingsSliderRow: View {
     private let step: Double
     private let readout: String
     private let identifier: String
+    @ScaledMetric(relativeTo: .body) private var readoutWidth = 80.0
 
     public init(_ title: LocalizedStringResource, value: Binding<Double>, in range: ClosedRange<Double>,
                 step: Double = 1, readout: String, identifier: String) {
@@ -20,20 +21,25 @@ public struct SettingsSliderRow: View {
     }
 
     public var body: some View {
-        LabeledContent {
-            HStack {
-                Slider(value: $value, in: range, step: step) { Text(title) }
-                    .labelsHidden()
-                    .accessibilityIdentifier(identifier)
-                    .accessibilityValue(readout)
-                Text(verbatim: readout)
-                    .monospacedDigit()
-                    .foregroundStyle(.secondary)
-                    .fixedSize()
-                    .accessibilityHidden(true)
-            }
-        } label: {
+        // Equal flexible columns keep labels and slider tracks aligned across Form
+        // sections. Reserve a shared, text-scaled column so changing values do not
+        // resize the tracks. Long localized titles wrap within their column.
+        HStack {
             Text(title)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            Slider(value: $value, in: range, step: step) { Text(title) }
+                .labelsHidden()
+                .accessibilityIdentifier(identifier)
+                .accessibilityValue(readout)
+                .frame(minWidth: 0, maxWidth: .infinity)
+            Text(verbatim: readout)
+                .monospacedDigit()
+                .foregroundStyle(.secondary)
+                .fixedSize()
+                .frame(width: readoutWidth, alignment: .trailing)
+                .accessibilityHidden(true)
         }
+        .accessibilityElement(children: .contain)
     }
 }
