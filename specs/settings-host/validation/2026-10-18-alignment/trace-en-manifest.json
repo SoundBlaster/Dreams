@@ -1,0 +1,115 @@
+{
+  "trace": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/alignment-traces/95E69E7B-C125-4C33-80E0-1E19AA9ABB05.vtrace",
+  "frames": [
+    {
+      "name": "section.general",
+      "blob": "frames/76E54ADC-FE18-4A52-A712-C6C6AF621C2F.png",
+      "sha256": "07d4fa59f682063436d6c07b769d9610b5ca6def7399525d04b4cad7095326b9"
+    },
+    {
+      "name": "section.general.narrow",
+      "blob": "frames/E9FE3F76-9521-43A2-9B4F-DB697CD3D383.png",
+      "sha256": "2bb4a27cc192f595c3c7ba62997dee5a7f6aec56434800c45c8ad6732e84cdc6"
+    },
+    {
+      "name": "section.appearance",
+      "blob": "frames/B7B39A6D-E7A6-4DCB-80D0-0BAB198AE2E1.png",
+      "sha256": "54140c87df8bbd72982fb7b271c9e15485286dfd0024477d8bc54129d5fa74b8"
+    },
+    {
+      "name": "section.appearance.narrow",
+      "blob": "frames/769845F7-32BC-472B-A8EF-6F7B3DF08B2E.png",
+      "sha256": "915df5d2e7766b28e17eeb682a8b64130f93f7a0c6a61b05acfeef27dc9f8930"
+    },
+    {
+      "name": "section.rain",
+      "blob": "frames/7782DB75-5F28-4873-8056-BB298B92FD43.png",
+      "sha256": "53ea9d3ef16cb125b1ea794a7e15746fe6ba8061980e74e0eff1638d6ff9c40c"
+    },
+    {
+      "name": "section.rain.narrow",
+      "blob": "frames/B9E64A75-D187-4781-9B81-18982E188D84.png",
+      "sha256": "acd0d06f4d223ffcc156c87911962cef2882003b769ebf794c90bf0a53dbe406"
+    },
+    {
+      "name": "section.background",
+      "blob": "frames/CD00C73F-531A-490E-A47C-EAB49B5B7755.png",
+      "sha256": "723d7946d60e64e186d37aa78b620634b0356eeaf510d0cc9705a05ba029d436"
+    },
+    {
+      "name": "section.background.narrow",
+      "blob": "frames/D33DBE08-F2CC-4502-8371-28C228BB80BC.png",
+      "sha256": "5d9bdb5c14309638a76c856adfc4cd0eb32eacdf1e32a4ea27e098772efb8eb0"
+    },
+    {
+      "name": "section.words",
+      "blob": "frames/E24DE7C4-F0F9-44EB-8CF8-F1A64FA27223.png",
+      "sha256": "0d6b34dc31d62206b9fdf8ff69d6465bcf3d543e24328882026d6690f3d8ee46"
+    },
+    {
+      "name": "section.words.narrow",
+      "blob": "frames/E3F300BB-4032-4857-BBE7-B9651176B744.png",
+      "sha256": "f488b27f8abfb85492094b520e183d6632a225519a986a899a5ccce7c2df3d7f"
+    },
+    {
+      "name": "section.displays",
+      "blob": "frames/57C2C7C9-2425-4638-A971-261DD36F9458.png",
+      "sha256": "05f03059146fe153bc733f849066449e894ec8373a1a9fa1f31c0bef4b427658"
+    },
+    {
+      "name": "section.displays.narrow",
+      "blob": "frames/6BF878DC-00BB-4471-A7F6-C1650C276306.png",
+      "sha256": "4a500572b5bea7851971a9ed465172a636157f85cd6a483fe0982a98eb9fa00c"
+    },
+    {
+      "name": "section.advanced",
+      "blob": "frames/B292E6CF-F013-46C4-8B5B-23411471D98A.png",
+      "sha256": "033944b4709b39503120cfd438b71826b68ad46a59d9e66efab0b0619499d246"
+    },
+    {
+      "name": "section.advanced.narrow",
+      "blob": "frames/756F6887-13C6-45B7-9290-F4EE532B5A06.png",
+      "sha256": "32eeda4dc9d33f07ee0aecdb1e12eb41e568598d24e828fa14378bdf002fc73c"
+    },
+    {
+      "name": "shortcut.recording",
+      "blob": "frames/2D240CF5-7D27-450D-BD54-C64D9EFF584A.png",
+      "sha256": "541a1d7db985d29b79689d892a4f1f37c89750dfa4a323ce6fb94d242afb729b"
+    },
+    {
+      "name": "shortcut.error.narrow",
+      "blob": "frames/5C811670-3CA4-4CD1-8F23-C98CD98E62F4.png",
+      "sha256": "f5192be9ed769ecbfb9fa5058b8e83f7e1a6ffdf266a8a3777546b98385c8ae2"
+    },
+    {
+      "name": "rain.edited.dark",
+      "blob": "frames/823BD871-25D2-428A-AF2F-DAE48F3DA065.png",
+      "sha256": "c4c14753c9b1bd2dcfe5c809a15f1d584604f2d707ad8f202112f0e73d8df009"
+    },
+    {
+      "name": "rain.narrow",
+      "blob": "frames/E72D7241-B633-47E4-8933-C0E998DC289D.png",
+      "sha256": "1b740f1f3ff22e0497be9867fad7c77439f8063cd26686582143d8edcf7a05bf"
+    },
+    {
+      "name": "rain.paused.dark",
+      "blob": "frames/867F8E47-3E5E-458F-A7A8-9199DAA7016A.png",
+      "sha256": "abc382e035b5aa88419ec5f5361c7848b5f600c036cae4612b7ab14d3f0bc53e"
+    },
+    {
+      "name": "rain.increased-contrast.dark",
+      "blob": "frames/30AA1B42-BF4D-4993-A35F-2A031121E5D7.png",
+      "sha256": "abc382e035b5aa88419ec5f5361c7848b5f600c036cae4612b7ab14d3f0bc53e"
+    },
+    {
+      "name": "background.transparent",
+      "blob": "frames/5FDE7A58-184E-4E89-8873-358CAB3BD9CE.png",
+      "sha256": "e0fb4947da63f3549164e9bde37f113c5cc791a6f915b79a1e599402edf0b3a4"
+    },
+    {
+      "name": "appearance.transparent.dark",
+      "blob": "frames/03F17BA7-BA83-42E1-A157-F708103FF649.png",
+      "sha256": "f4dc0567fef1e5ae20124757561cc0a7eacc390971576244579e8cf517b84a6e"
+    }
+  ]
+}
