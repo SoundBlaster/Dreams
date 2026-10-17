@@ -43,7 +43,7 @@ The catalog contract remains descriptive draft.5; acceptance remains separate.
   [EN Rain](en-section.rain.narrow.png), [RU Appearance](ru-section.appearance.narrow.png).
   Existing black preview/selection/slider artifacts in hierarchy capture remain
   capture limitations; no Metal/glass fidelity claim is derived from these frames.
-- Actual isolated EN app: Appearance and Rain tracks share visual endpoints (approximately
+- [Actual isolated EN/RU apps](actual-app.md): Appearance and Rain tracks share visual endpoints (approximately
   x846–1138 screenshot pixels), readouts align at approximately x1316, and the long
   Glyph brightness pulse label is readable. Slider AX labels/IDs/values are retained.
   Glow Increment 57% → 58% and Decrement → 57% work in isolated preferences.
@@ -64,3 +64,5 @@ actual-app narrow interaction remain unverified. No full GPU suite, CI result,
 release or default enablement is claimed. Toolbar blur remains deferred.
 
 Every source snapshot was additionally compared byte-for-byte with the pinned Git runtime revision: pass.
+
+Both isolated test processes were stopped by exact executable path after the UI pass. Production apps were untouched.
