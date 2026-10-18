@@ -1,0 +1,16 @@
+Building for production...
+[Starting]
+[4 / 24] SystemPackage
+[6 / 24] SystemPackage
+[12 / 27] DreamsSettingsUI
+[14 / 28] DreamsSettingsUI
+[18 / 29] EventSource
+[22 / 30] Logging
+[27 / 32] SystemPackage
+[33 / 37] MCP
+[35 / 38] MCP
+[41 / 44] Dreams-product
+[42 / 45] Dreams-product
+[44 / 45] Dreams-product
+[45 / 45] Dreams-product
+Build complete! (24.16 sec)

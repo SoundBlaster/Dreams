@@ -160,6 +160,7 @@
 "native.escapeHint" = "Esc stops rain in the active opaque overlay or settings window. The global shortcut is %@.";
 "native.hotkeyLegacy" = "Edit shortcut in legacy settings…";
 "native.motion" = "Motion";
+"native.rain.description" = "Adjust the layout and movement of the falling glyphs.";
 "native.backgroundProfiles" = "Transparent and opaque backgrounds keep separate rain color and glow settings.";
 "native.legacy" = "Open legacy settings…";
 "native.legacyHint" = "All previous controls remain available, including shortcut recording. Both windows use the same saved settings.";

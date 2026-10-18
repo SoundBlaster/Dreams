@@ -5,8 +5,8 @@ cd "$dreams_root"
 dreams_configuration="${1:-release}"
 .venv/bin/python scripts/glyphs/pipeline.py build
 cp research/glyphs/build/DreamsMatrix.ttf Sources/Dreams/DreamsMatrix.ttf
-swift build -c "$dreams_configuration"
-dreams_bin="$(swift build -c "$dreams_configuration" --show-bin-path)"
+zsh "$dreams_root/scripts/swift-macos.sh" build -c "$dreams_configuration" --product Dreams
+dreams_bin="$(zsh "$dreams_root/scripts/swift-macos.sh" build -c "$dreams_configuration" --show-bin-path)"
 dreams_app="$dreams_root/dist/Dreams.app"
 mkdir -p "$dreams_app/Contents/MacOS" "$dreams_app/Contents/Resources"
 cp "$dreams_bin/Dreams" "$dreams_app/Contents/MacOS/Dreams"

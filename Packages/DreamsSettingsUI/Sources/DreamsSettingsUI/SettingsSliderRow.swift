@@ -49,11 +49,32 @@ public struct SettingsSliderRow: View {
     }
 
     private var slider: some View {
-        Slider(value: $value, in: range, step: step) { Text(title) }
-            .labelsHidden()
-            .accessibilityIdentifier(identifier)
-            .accessibilityValue(readout)
-            .frame(minWidth: 120, maxWidth: .infinity)
+        Group {
+            if (range.upperBound - range.lowerBound) / step > 20 {
+                Slider(value: steppedValue, in: range) { Text(title) }
+                    .accessibilityAdjustableAction { direction in
+                        switch direction {
+                        case .increment: steppedValue.wrappedValue = value + step
+                        case .decrement: steppedValue.wrappedValue = value - step
+                        @unknown default: break
+                        }
+                    }
+            } else {
+                Slider(value: $value, in: range, step: step) { Text(title) }
+            }
+        }
+        .labelsHidden()
+        .accessibilityIdentifier(identifier)
+        .accessibilityValue(readout)
+        .frame(minWidth: 120, maxWidth: .infinity)
+    }
+
+    /// Keep value precision independent of the system's densely stepped track drawing.
+    private var steppedValue: Binding<Double> {
+        Binding(get: { value }, set: { next in
+            let steps = ((next - range.lowerBound) / step).rounded()
+            value = min(range.upperBound, max(range.lowerBound, range.lowerBound + steps * step))
+        })
     }
 
     private var readoutColumn: some View {

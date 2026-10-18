@@ -15,6 +15,7 @@ struct NativeSettingsPage: View {
         NavigationSplitView(columnVisibility: $visibility) {
             List(NativeSettingsSection.allCases, selection: $selection) { section in
                 NavigationLink(value: section) { Label(section.title, systemImage: section.symbol) }
+                    .listItemTint(model.rainColor)
             }
             .listStyle(.sidebar)
             .navigationTitle("Dreams")
@@ -26,12 +27,14 @@ struct NativeSettingsPage: View {
                     if geometry.size.width >= 700 {
                         HStack(spacing: 16) {
                             settingsPanel
-                            NativePreviewPane(session: model.preview).frame(width: 280)
+                                .frame(width: min(480, geometry.size.width - 48 - 240))
+                            NativePreviewPane(session: model.preview, outlined: selection == .rain)
+                                .frame(minWidth: 240, maxWidth: .infinity)
                         }
                         .padding(16)
                     } else {
                         VStack(spacing: 16) {
-                            NativePreviewPane(session: model.preview).frame(height: 180)
+                            NativePreviewPane(session: model.preview, outlined: selection == .rain).frame(height: 180)
                             settingsPanel
                         }
                         .padding(16)
@@ -39,6 +42,7 @@ struct NativeSettingsPage: View {
                 }
             }
         }
+        .tint(model.rainColor)
         .frame(minWidth: 560, minHeight: 420)
         .onChange(of: selection) { _, _ in model.cancelShortcutRecording() }
     }

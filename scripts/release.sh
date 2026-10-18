@@ -29,8 +29,8 @@ fi
 [[ -f Sources/Dreams/DreamsMatrix.ttf ]] || { print -u2 "Sources/Dreams/DreamsMatrix.ttf is missing"; exit 1; }
 
 print "== Build (arm64 + x86_64)"
-swift build -c release --arch arm64 --arch x86_64
-bin="$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)"
+zsh "$dreams_root/scripts/swift-macos.sh" build -c release --arch arm64 --arch x86_64 --product Dreams
+bin="$(zsh "$dreams_root/scripts/swift-macos.sh" build -c release --arch arm64 --arch x86_64 --show-bin-path)"
 
 print "== Assemble"
 mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"

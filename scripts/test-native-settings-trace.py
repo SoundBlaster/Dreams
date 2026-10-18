@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     with tempfile.TemporaryDirectory(prefix="dreams-native-feed-") as feed:
         result = subprocess.run(
-            ["swift", "test", "-c", "release", "--filter", "recordNativeFormsWithScreener"], cwd=ROOT,
+            ["zsh", "scripts/swift-macos.sh", "test", "-c", "release", "--filter", "recordNativeFormsWithScreener"], cwd=ROOT,
             env=dict(os.environ, DREAMS_RECORD_NATIVE_SETTINGS="1", DREAMS_FEED_DIRECTORY=feed),
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=300,
         )
@@ -27,12 +27,14 @@ def main():
     assert records[0]["kind"] == "sessionStarted" and records[-1]["kind"] == "sessionEnded"
     assert not any(record.get("name") == "Scenario.failed" for record in records)
     frames = [record for record in records if record["kind"] == "keyframe"]
-    assert len(frames) == 24
+    assert len(frames) == 29
     names = {frame["name"] for frame in frames}
     for section in ("general", "appearance", "rain", "background", "words", "displays", "advanced"):
         assert f"section.{section}" in names, f"Missing wide {section} checkpoint"
         assert f"section.{section}.narrow" in names, f"Missing narrow {section} checkpoint"
     assert {"appearance.large-text.narrow", "rain.large-text.narrow"} <= names
+    assert {"rain.edited.light", "rain.minimum.light", "rain.minimum.dark"} <= names
+    assert {"rain.expanded.light", "rain.expanded.dark"} <= names
     assert all((trace / record["blob"]).is_file() for record in frames)
     backend = os.environ.get("DREAMS_NATIVE_CAPTURE_BACKEND", "hierarchy")
     print(f"PASS: complete Screener native settings trace, {len(frames)} {backend} frames: {trace}")

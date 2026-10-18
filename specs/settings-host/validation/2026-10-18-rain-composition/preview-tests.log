@@ -1,0 +1,17 @@
+Building for production...
+[Computing dependencies]
+[1 / 6] SystemPackage
+Build complete! (0.43 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() started.
+􁁛  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() passed after 0.428 seconds.
+􀙟  Test previewIsAPixelExactScreenCrop(columns:scale:) skipped.
+􀟈  Test previewIsLazyAndDoesNotRequestAnOverlay() started.
+􁁛  Test previewIsLazyAndDoesNotRequestAnOverlay() passed after 0.021 seconds.
+􀙟  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() skipped.
+􀙟  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() skipped.
+􁁛  Suite NativeSettingsTests passed after 0.449 seconds.
+􁁛  Test run with 5 tests in 1 suite passed after 0.449 seconds.

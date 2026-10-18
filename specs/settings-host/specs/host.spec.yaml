@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.5
+  version: 0.1.0-draft.10
   status: draft
 intent:
   summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
@@ -62,7 +62,7 @@ constraints:
   statement: Absence of --native-settings selects the legacy window. --legacy-settings wins when both launch flags are present; there is no saved enablement key.
 - id: native_controls
   level: MUST
-  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable.
+  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable. App build/release and native trace helpers use the active compiler SDK and matching linked SDK metadata, preserving the package deployment target.
 - id: one_settings_owner
   level: MUST
   statement: Native bindings use the existing DreamsController values and operations without independently persisting a second model. Controller settings/display notifications refresh the native adapter and an existing legacy window.
@@ -89,13 +89,13 @@ constraints:
   statement: This host embeds a separate live rain backdrop under system settings surfaces with an uncovered viewing region. Preview playback and setting edits do not themselves launch a fullscreen overlay.
 - id: independent_preview
   level: MUST
-  statement: Preview owns a separate renderer and clock, uses controller tuning and recreates its renderer for background or glyph-set changes. It does not own preferences or the fullscreen overlay. One Metal surface spans the detail behind the forms; the uncovered region sits above the form in narrow layouts and beside it in wide layouts. Changing layout must retain that surface.
+  statement: Preview owns a separate renderer and clock, uses controller tuning and recreates its renderer for background or glyph-set changes. It does not own preferences or the fullscreen overlay. One Metal surface spans the detail behind the forms; the uncovered region sits above the form in narrow layouts and beside it at detail widths of at least 700 points. In wide layouts forms are capped at 480 points, the preview reserves at least 240 points and receives additional width, with 16-point spacing and outer insets. Changing layout must retain that surface.
 - id: preview_scale
   level: MUST
   statement: Preview preserves the glyph size and grid spacing of a fullscreen renderer on the hosting display, using screen dimensions converted to the current view backing pixels. Its drawable crops the screen-sized viewport at the top-left; resizing changes the visible portion instead of fitting all columns. Display/backing changes refresh even paused previews.
 - id: material_composition
   level: MUST
-  statement: Forms remain native grouped forms over a shared system regular material panel. Reduce Transparency or increased contrast substitutes an opaque semantic background. macOS 26 may extend the backdrop beneath native navigation with the system background extension and uses a glass playback button; macOS 15 uses the standard material and bordered button. The clear region exposes the same backdrop, not another renderer or a scaled duplicate.
+  statement: Forms remain native grouped forms and follow the system color scheme. Rain is the composition pilot, with a scrollable localized title/description, three native groups and an outlined open preview region. All sections use the shared regular material panel clipped to 16-point rounded corners. The active rain color supplies the window control tint and native sidebar label tint, updating with color edits and transparent/opaque profile changes. Native selection rendering remains platform-owned; no independent accent preference or custom selection drawing is added. Reduce Transparency or increased contrast substitutes an opaque semantic background. macOS 26 may extend the backdrop beneath native navigation with the system background extension and uses a glass playback button; macOS 15 uses the standard material and bordered button. The clear region exposes the same backdrop, not another renderer or a scaled duplicate.
 - id: preview_lifetime
   level: MUST
   statement: Only the currently bound visible surface may render. Hide, minimize, close and full occlusion pause and release the preview renderer; stale surface callbacks must not stop its replacement. Reopening uses current settings.
@@ -126,12 +126,12 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-18-alignment-review/README.md
+  path: validation/2026-10-18-rain-tint/README.md
   supports:
   - constraints
 - id: local_ui_dependency
   kind: source
-  path: evidence/2026-10-18-alignment-review/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+  path: evidence/2026-10-18-native-sliders/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
   supports:
   - constraints.native_controls
 - id: preview_tests
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: d4b2d40745d31e1d862bb374c2b8e876efe7c13d
+    revision: b4a16c45ab07a57adf5fd9723cb777c5668943de
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -171,23 +171,26 @@ implementationBindings:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-16-parity/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
-    - evidence/2026-10-15-shortcut-compact/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
+    - evidence/2026-10-18-rain-composition/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-18-rain-tint/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-18-rain-composition/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-18-rain-composition/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
-    - evidence/2026-10-18-alignment-review/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-18-preview-growth/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
-    - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
+    - evidence/2026-10-18-rain-composition/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
-    - evidence/2026-10-18-alignment-review/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-18-native-sliders/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-18-native-sliders/source/scripts/swift-macos.sh
+    - evidence/2026-10-18-native-sliders/source/scripts/build-app.sh
+    - evidence/2026-10-18-native-sliders/source/scripts/release.sh
     border:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
@@ -195,4 +198,4 @@ implementationBindings:
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
-    - evidence/2026-10-18-alignment-review/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-18-native-sliders/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
