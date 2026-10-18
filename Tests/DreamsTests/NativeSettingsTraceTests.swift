@@ -87,6 +87,8 @@ extension NativeSettingsTests {
             model[parameter: .search] = 0.37
             try await checkpoint(.rain, name: "rain.edited.dark", dark: true)
             try await checkpoint(.rain, name: "rain.edited.light")
+            try await checkpoint(.rain, name: "rain.expanded.light", width: 1440)
+            try await checkpoint(.rain, name: "rain.expanded.dark", width: 1440, dark: true)
             try await checkpoint(.rain, name: "rain.minimum.light", width: 560, height: 450)
             try await checkpoint(.rain, name: "rain.minimum.dark", width: 560, height: 450, dark: true)
             try await checkpoint(.rain, name: "rain.narrow", width: 560)

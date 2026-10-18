@@ -28,7 +28,9 @@ struct NativeSettingsPage: View {
                     if geometry.size.width >= 700 {
                         HStack(spacing: 16) {
                             settingsPanel
-                            NativePreviewPane(session: model.preview, outlined: selection == .rain).frame(width: 280)
+                                .frame(width: min(480, geometry.size.width - 48 - 240))
+                            NativePreviewPane(session: model.preview, outlined: selection == .rain)
+                                .frame(minWidth: 240, maxWidth: .infinity)
                         }
                         .padding(16)
                     } else {
