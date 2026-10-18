@@ -51,8 +51,8 @@ actual state and an alert; the controller operations are not promised atomic.
   or above them in narrow layouts. The backdrop shows a 100% crop of the hosting display-sized scene, using
   backing pixels for Retina: glyphs/grid spacing match fullscreen and resizing
   reveals a different area without shrinking all columns. System materials cover the forms; macOS 26 extends the backdrop under native navigation.
-  Rain pilots a rectangular foundation with a scrollable title/description and three native grouped sections,
-  plus an outlined open preview region. Other sections retain the shared rounded panel.
+  Rain pilots a scrollable title/description and three native grouped sections,
+  plus an outlined open preview region. All sections use the shared panel with 16-point rounded corners.
   Both forms and preview surfaces follow system appearance and become opaque with Reduce Transparency or increased contrast.
   The window does not expose the desktop through its background.
 - Preview pauses/releases GPU ownership when hidden, minimized, closed or fully
@@ -108,3 +108,5 @@ Adaptive slider P2 correction: [2026-10-18 review](validation/2026-10-18-alignme
 Rain composition pilot: [2026-10-18 composition](validation/2026-10-18-rain-composition/README.md).
 
 Additional width grows the preview, not forms: [2026-10-18 allocation](validation/2026-10-18-preview-growth/README.md).
+
+Shared rounded panel correction: [2026-10-18 corners](validation/2026-10-18-panel-corners/README.md).

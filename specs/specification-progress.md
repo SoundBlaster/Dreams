@@ -21,7 +21,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current d4b2d40 [adaptive slider columns](settings-catalog/validation/2026-10-18-alignment-review/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current cab0e76 [preview width allocation](settings-host/validation/2026-10-18-preview-growth/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 25e7aaa [rounded material panels](settings-host/validation/2026-10-18-panel-corners/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -472,3 +472,12 @@ renderer, preferences or other domain algorithms change. Stable HC roles and
 claim IDs remain. [Fresh baseline](settings-host/validation/2026-10-18-preview-growth/README.md)
 separates 58 hierarchy frames and actual native Zoom before/after observations
 from structural/hash checks and owner acceptance. Previous evidence stays historical.
+
+## Rounded Rain panel — 2026-10-18
+
+Runtime `25e7aaa0bd9e32418294c4fa54720e06fcc39ac4` reuses SettingsMaterialPanel instead of Rain's rectangular
+background branch. Material and clipping both use existing16pt rounded corners;
+preview growth and 480pt form cap remain. Draft.8 updates material_composition and
+the existing HC Forms composition. Catalog/library and renderer sources are unchanged.
+[Fresh baseline](settings-host/validation/2026-10-18-panel-corners/README.md) separates build, visual
+observation, lint and structure from prior historical58frame/Zoom evidence and acceptance.
