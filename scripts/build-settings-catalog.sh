@@ -3,8 +3,8 @@ set -euo pipefail
 dreams_root="${0:A:h:h}"
 dreams_catalog_package="$dreams_root/Packages/DreamsSettingsUI"
 dreams_catalog_configuration="${1:-release}"
-swift build --package-path "$dreams_catalog_package" -c "$dreams_catalog_configuration" --product DreamsSettingsCatalog -Xswiftc -warnings-as-errors
-dreams_catalog_bin="$(swift build --package-path "$dreams_catalog_package" -c "$dreams_catalog_configuration" --show-bin-path)"
+zsh "$dreams_root/scripts/swift-macos.sh" build --package-path "$dreams_catalog_package" -c "$dreams_catalog_configuration" --product DreamsSettingsCatalog -Xswiftc -warnings-as-errors
+dreams_catalog_bin="$(zsh "$dreams_root/scripts/swift-macos.sh" build --package-path "$dreams_catalog_package" -c "$dreams_catalog_configuration" --show-bin-path)"
 dreams_catalog_app="$dreams_root/dist/DreamsSettingsCatalog.app"
 mkdir -p "$dreams_catalog_app/Contents/MacOS" "$dreams_catalog_app/Contents/Resources"
 cp "$dreams_catalog_bin/DreamsSettingsCatalog" "$dreams_catalog_app/Contents/MacOS/"

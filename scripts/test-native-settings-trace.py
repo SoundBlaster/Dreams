@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     with tempfile.TemporaryDirectory(prefix="dreams-native-feed-") as feed:
         result = subprocess.run(
-            ["swift", "test", "-c", "release", "--filter", "recordNativeFormsWithScreener"], cwd=ROOT,
+            ["zsh", "scripts/swift-macos.sh", "test", "-c", "release", "--filter", "recordNativeFormsWithScreener"], cwd=ROOT,
             env=dict(os.environ, DREAMS_RECORD_NATIVE_SETTINGS="1", DREAMS_FEED_DIRECTORY=feed),
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=300,
         )
