@@ -27,11 +27,12 @@ def main():
     assert records[0]["kind"] == "sessionStarted" and records[-1]["kind"] == "sessionEnded"
     assert not any(record.get("name") == "Scenario.failed" for record in records)
     frames = [record for record in records if record["kind"] == "keyframe"]
-    assert len(frames) == 22
+    assert len(frames) == 24
     names = {frame["name"] for frame in frames}
     for section in ("general", "appearance", "rain", "background", "words", "displays", "advanced"):
         assert f"section.{section}" in names, f"Missing wide {section} checkpoint"
         assert f"section.{section}.narrow" in names, f"Missing narrow {section} checkpoint"
+    assert {"appearance.large-text.narrow", "rain.large-text.narrow"} <= names
     assert all((trace / record["blob"]).is_file() for record in frames)
     backend = os.environ.get("DREAMS_NATIVE_CAPTURE_BACKEND", "hierarchy")
     print(f"PASS: complete Screener native settings trace, {len(frames)} {backend} frames: {trace}")

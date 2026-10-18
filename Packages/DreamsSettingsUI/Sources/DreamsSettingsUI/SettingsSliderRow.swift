@@ -21,25 +21,49 @@ public struct SettingsSliderRow: View {
     }
 
     public var body: some View {
-        // Equal flexible columns keep labels and slider tracks aligned across Form
-        // sections. Reserve a shared, text-scaled column so changing values do not
-        // resize the tracks. Long localized titles wrap within their column.
-        HStack {
-            Text(title)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            Slider(value: $value, in: range, step: step) { Text(title) }
-                .labelsHidden()
-                .accessibilityIdentifier(identifier)
-                .accessibilityValue(readout)
-                .frame(minWidth: 0, maxWidth: .infinity)
-            Text(verbatim: readout)
-                .monospacedDigit()
-                .foregroundStyle(.secondary)
-                .fixedSize()
-                .frame(width: readoutWidth, alignment: .trailing)
-                .accessibilityHidden(true)
+        ViewThatFits(in: .horizontal) {
+            HStack {
+                label.frame(minWidth: 80, maxWidth: .infinity, alignment: .leading)
+                slider
+                readoutColumn
+            }
+            VStack(alignment: .leading) {
+                label
+                ViewThatFits(in: .horizontal) {
+                    HStack {
+                        slider
+                        readoutColumn
+                    }
+                    VStack(alignment: .trailing) {
+                        readoutText.fixedSize(horizontal: false, vertical: true)
+                        slider
+                    }
+                }
+            }
         }
         .accessibilityElement(children: .contain)
+    }
+
+    private var label: some View {
+        Text(title).fixedSize(horizontal: false, vertical: true)
+    }
+
+    private var slider: some View {
+        Slider(value: $value, in: range, step: step) { Text(title) }
+            .labelsHidden()
+            .accessibilityIdentifier(identifier)
+            .accessibilityValue(readout)
+            .frame(minWidth: 120, maxWidth: .infinity)
+    }
+
+    private var readoutColumn: some View {
+        readoutText.fixedSize().frame(minWidth: readoutWidth, alignment: .trailing)
+    }
+
+    private var readoutText: some View {
+        Text(verbatim: readout)
+            .monospacedDigit()
+            .foregroundStyle(.secondary)
+            .accessibilityHidden(true)
     }
 }

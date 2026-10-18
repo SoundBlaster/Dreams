@@ -34,13 +34,16 @@ extension NativeSettingsTests {
         model[parameter: .idle] = 1
         model.preview.isPlaying = true
         func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000,
-                        dark: Bool = false, increasedContrast: Bool = false, recording: Bool = false, shortcutError: Bool = false) async throws {
+                        dark: Bool = false, increasedContrast: Bool = false, recording: Bool = false, shortcutError: Bool = false,
+                        largeText: Bool = false) async throws {
             window.appearance = NSAppearance(named: increasedContrast
                 ? (dark ? .accessibilityHighContrastDarkAqua : .accessibilityHighContrastAqua)
                 : (dark ? .darkAqua : .aqua))
             NSApp.appearance = window.appearance
             window.contentView = NSHostingView(rootView: NativeSettingsPage(model: model, initialSection: section)
-                .environment(\.colorScheme, dark ? .dark : .light))
+                .environment(\.colorScheme, dark ? .dark : .light)
+                .environment(\.dynamicTypeSize, largeText ? .accessibility5 : .large)
+                .font(largeText ? .system(size: 32) : .body))
             window.setContentSize(NSSize(width: width, height: 720))
             if recording { model.recordShortcut() }
             if shortcutError { page.shortcutRecorder.message = L("hotkey.taken", "⌃⌥⌘F17") }
@@ -55,7 +58,7 @@ extension NativeSettingsTests {
             try await recorder.mark(name, metadata: ["actions": "model mutations and initial section selection",
                 "backend": backend, "previewFrames": String(model.preview.renderer?.framesRendered ?? 0), "inputCoverage": "programmatic states; keyboard input unobserved",
                 "width": String(Int(width)), "language": language, "appearance": dark ? "dark" : "light",
-                "increasedContrast": String(increasedContrast)])
+                "increasedContrast": String(increasedContrast), "largeText": String(largeText)])
             if backend == "screen-capture-kit" {
                 let source = ScreenCaptureKitWindowSource(windowID: CGWindowID(window.windowNumber))
                 try await source.record(to: recorder, reason: name)
@@ -68,6 +71,8 @@ extension NativeSettingsTests {
                 try await checkpoint(section, name: "section." + section.rawValue)
                 try await checkpoint(section, name: "section." + section.rawValue + ".narrow", width: 560)
             }
+            try await checkpoint(.appearance, name: "appearance.large-text.narrow", width: 560, largeText: true)
+            try await checkpoint(.rain, name: "rain.large-text.narrow", width: 560, largeText: true)
             try await checkpoint(.general, name: "shortcut.recording", recording: true)
             model.cancelShortcutRecording()
             try await checkpoint(.general, name: "shortcut.error.narrow", width: 560, shortcutError: true)
