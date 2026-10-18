@@ -18,7 +18,14 @@ struct NativeSettingsPage: View {
                     .listItemTint(model.rainColor)
             }
             .listStyle(.sidebar)
-            .navigationTitle("Dreams")
+            .safeAreaInset(edge: .top) {
+                HStack {
+                    Color.clear.frame(height: 28).gesture(WindowDragGesture())
+                    sidebarButton
+                }
+                .padding(.horizontal, 12)
+                .padding(.top, 28)
+            }
             .navigationSplitViewColumnWidth(min: 170, ideal: 220, max: 300)
         } detail: {
             ZStack {
@@ -40,8 +47,16 @@ struct NativeSettingsPage: View {
                         .padding(16)
                     }
                 }
+                .padding(.top, visibility == .detailOnly ? 32 : 0)
+            }
+            .ignoresSafeArea(.container, edges: .top)
+            .overlay(alignment: .topLeading) {
+                if visibility == .detailOnly {
+                    sidebarButton.padding(.leading, 100).padding(.top, 8)
+                }
             }
         }
+        .toolbarVisibility(.hidden, for: .windowToolbar)
         .tint(model.rainColor)
         .frame(minWidth: 560, minHeight: 420)
         .onChange(of: selection) { _, _ in model.cancelShortcutRecording() }
@@ -49,9 +64,28 @@ struct NativeSettingsPage: View {
 
     private var settingsPanel: some View {
         SettingsMaterialPanel {
-            NativeSettingsDetail(section: selection, model: model)
-                .scrollContentBackground(.hidden)
+            VStack(alignment: .leading, spacing: 0) {
+                if let selection, selection != .rain {
+                    Text(selection.title).font(.title2.bold())
+                        .padding(.horizontal, 24).padding(.top, 20)
+                }
+                NativeSettingsDetail(section: selection, model: model)
+                    .scrollContentBackground(.hidden)
+            }
         }
+    }
+
+    private var sidebarButton: some View {
+        Button {
+            visibility = visibility == .detailOnly ? .all : .detailOnly
+        } label: {
+            Label(settingsString("native.toggleSidebar"), systemImage: "sidebar.leading")
+        }
+        .labelStyle(.iconOnly)
+        .buttonStyle(.borderless)
+        .keyboardShortcut("s", modifiers: [.control, .command])
+        .help(settingsString("native.toggleSidebar"))
+        .accessibilityIdentifier("dreams.native.toggle-sidebar")
     }
 }
 
@@ -72,7 +106,6 @@ private struct NativeSettingsDetail: View {
             case .none: ContentUnavailableView(settingsString("native.selectSection"), systemImage: "sidebar.leading")
             }
         }
-        .navigationTitle(section?.title ?? settingsString("menu.openControls"))
         .alert(settingsString("native.error"), isPresented: $model.hasError) {
             Button(settingsString("button.ok"), role: .cancel) {}
         } message: { Text(model.errorMessage ?? "") }

@@ -6,8 +6,13 @@ extension SettingsPageController {
         if nativeWindow == nil {
             let model = NativeSettingsModel(owner: self)
             let window = DreamsControlsWindow(contentRect: NSRect(x: 0, y: 0, width: 1000, height: 720),
-                styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
+                styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+                backing: .buffered, defer: false)
             window.title = "Dreams"
+            window.titleVisibility = .hidden
+            window.titlebarAppearsTransparent = true
+            window.titlebarSeparatorStyle = .none
+            window.isMovableByWindowBackground = true
             window.identifier = NSUserInterfaceItemIdentifier("dreams.native-settings")
             window.isReleasedWhenClosed = false
             window.minSize = NSSize(width: 560, height: 450)
