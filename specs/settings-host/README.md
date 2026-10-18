@@ -112,3 +112,5 @@ Additional width grows the preview, not forms: [2026-10-18 allocation](validatio
 Shared rounded panel correction: [2026-10-18 corners](validation/2026-10-18-panel-corners/README.md).
 
 Dense tick cleanup and native SDK appearance: [2026-10-18 SDK/sliders](validation/2026-10-18-native-sliders/README.md).
+
+Active rain-color tint: [2026-10-18-rain-tint](validation/2026-10-18-rain-tint/README.md).

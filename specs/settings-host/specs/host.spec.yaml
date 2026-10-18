@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.9
+  version: 0.1.0-draft.10
   status: draft
 intent:
   summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
@@ -95,7 +95,7 @@ constraints:
   statement: Preview preserves the glyph size and grid spacing of a fullscreen renderer on the hosting display, using screen dimensions converted to the current view backing pixels. Its drawable crops the screen-sized viewport at the top-left; resizing changes the visible portion instead of fitting all columns. Display/backing changes refresh even paused previews.
 - id: material_composition
   level: MUST
-  statement: Forms remain native grouped forms and follow the system color scheme. Rain is the composition pilot, with a scrollable localized title/description, three native groups and an outlined open preview region. All sections use the shared regular material panel clipped to 16-point rounded corners. Shared controls use green system tint without drawing custom sidebar selection. Reduce Transparency or increased contrast substitutes an opaque semantic background. macOS 26 may extend the backdrop beneath native navigation with the system background extension and uses a glass playback button; macOS 15 uses the standard material and bordered button. The clear region exposes the same backdrop, not another renderer or a scaled duplicate.
+  statement: Forms remain native grouped forms and follow the system color scheme. Rain is the composition pilot, with a scrollable localized title/description, three native groups and an outlined open preview region. All sections use the shared regular material panel clipped to 16-point rounded corners. The active rain color supplies the window control tint and native sidebar label tint, updating with color edits and transparent/opaque profile changes. Native selection rendering remains platform-owned; no independent accent preference or custom selection drawing is added. Reduce Transparency or increased contrast substitutes an opaque semantic background. macOS 26 may extend the backdrop beneath native navigation with the system background extension and uses a glass playback button; macOS 15 uses the standard material and bordered button. The clear region exposes the same backdrop, not another renderer or a scaled duplicate.
 - id: preview_lifetime
   level: MUST
   statement: Only the currently bound visible surface may render. Hide, minimize, close and full occlusion pause and release the preview renderer; stale surface callbacks must not stop its replacement. Reopening uses current settings.
@@ -126,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-18-native-sliders/README.md
+  path: validation/2026-10-18-rain-tint/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 6c464040ddac981596bebb931450f5ab48e1840d
+    revision: b4a16c45ab07a57adf5fd9723cb777c5668943de
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -172,7 +172,7 @@ implementationBindings:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-16-parity/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-18-rain-composition/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
-    - evidence/2026-10-18-panel-corners/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
+    - evidence/2026-10-18-rain-tint/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift

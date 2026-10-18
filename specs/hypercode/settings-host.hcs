@@ -20,7 +20,7 @@ LivePreview:
   source: "Sources/Dreams/features/rain/ui/RainPreviewSession.swift + RainPreviewSurface.swift; pages/settings/ui/NativePreviewPane.swift + NativeRainBackdrop.swift"
   renderer: "separate production RainRenderer; shared controller tuning; preview-local posed clock starts at six seconds"
   scale: "100% of hosting display in backing pixels; screen-sized viewport clipped at preview top-left; resize changes visible crop only"
-  composition: "one surface behind forms and open region; Rain outlines its open region; follows system theme with green control tint; system background extension on macOS26; opaque material fallback for reduced transparency/increased contrast"
+  composition: "one surface behind forms and open region; Rain outlines its open region; follows system theme with active rain-color control tint and native sidebar list-item tint; system background extension on macOS26; opaque material fallback for reduced transparency/increased contrast"
   lifetime: "visible window only; release on hide/minimize/close/full occlusion; identity guards reject stale surfaces"
   playback: "local pause/play; Reduce Motion initially pauses and never auto-resumes; explicit Play allowed"
   failure: "native error and Retry; never starts an overlay"
