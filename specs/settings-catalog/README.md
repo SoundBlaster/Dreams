@@ -4,8 +4,8 @@ Standalone first-stage consumer boundary: `dreams.settings.catalog`.
 The [package](../../Packages/DreamsSettingsUI/README.md) documents launch and library usage.
 [Contract](specs/catalog.spec.yaml), [map](../hypercode/settings-catalog.hc) and
 [properties](../hypercode/settings-catalog.hcs) describe the separate showcase app.
-[Current source identity](evidence/2026-10-18-alignment/source-identity.json) and
-[validation](validation/2026-10-18-alignment/README.md) identify the shared slider column layout.
+[Current source identity](evidence/2026-10-18-alignment-review/source-identity.json) and
+[validation](validation/2026-10-18-alignment-review/README.md) identify the shared slider column layout.
 Original catalog validation remains historical.
 
 | Consumer concern | Claim | Source responsibility | Evidence / limit |
@@ -42,3 +42,5 @@ for Reduce Transparency or increased contrast. It introduces no state owner, ren
 or preferences into the package. See [fresh checks](validation/2026-10-15-materials/README.md).
 
 Shared slider column layout: [2026-10-18](validation/2026-10-18-alignment/README.md).
+
+Adaptive slider P2 correction: [2026-10-18 review](validation/2026-10-18-alignment-review/README.md).

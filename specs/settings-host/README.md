@@ -100,3 +100,5 @@ Current startup-conflict retry fix: [2026-10-15-shortcut-retry](validation/2026-
 Current native parity pass: [2026-10-16](validation/2026-10-16-parity/README.md), including hook accessibility and narrow status fixes.
 
 Shared slider column layout: [2026-10-18](validation/2026-10-18-alignment/README.md).
+
+Adaptive slider P2 correction: [2026-10-18 review](validation/2026-10-18-alignment-review/README.md).

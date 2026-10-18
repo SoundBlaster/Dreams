@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.catalog
   title: NativeSettingsCatalog
-  version: 0.1.0-draft.5
+  version: 0.1.0-draft.6
   status: draft
 intent:
   summary: Let contributors inspect system controls and native settings compositions without altering Dreams preferences.
@@ -92,7 +92,7 @@ constraints:
   statement: Support macOS 15 deployment. Guard glass button styles with macOS 26 availability; provide a textual fallback. The shared SettingsMaterialPanel replaces translucency with an opaque semantic background when Reduce Transparency or increased contrast is enabled.
 - id: host_owned_binding
   level: MUST
-  statement: Slider consumers provide valid range, step, Binding, formatting and identifier; the library does not validate business rules or persist values. Preserve the native accessible label and expose the supplied readout as its accessibility value. At equal available width and text scale, rows share equal flexible label/track columns and a common text-scaled readout column. Long labels wrap; readout changes do not move the track endpoints.
+  statement: Slider consumers provide valid range, step, Binding, formatting and identifier; the library does not validate business rules or persist values. Preserve the native accessible label and expose the supplied readout as its accessibility value. When horizontal content fits, rows share flexible label/track columns and a common text-scaled readout allocation. If space is insufficient, stack the label and then the readout instead of shrinking the slider below 120 points. Long labels and stacked readouts wrap.
 - id: localization_and_packaging
   level: MUST
   statement: Package all used catalog labels in matching English/Russian resources resolved through the catalog module bundle; use a separate app identifier and include the resource bundle in the app.
@@ -121,7 +121,7 @@ evidence:
   - constraints.localization_and_packaging
 - id: validation
   kind: test
-  path: validation/2026-10-18-alignment/README.md
+  path: validation/2026-10-18-alignment-review/README.md
   supports:
   - constraints
 provenance:
@@ -136,7 +136,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 07e7d5723ce03a34524443c40342354a6adce65e
+    revision: d4b2d40745d31e1d862bb374c2b8e876efe7c13d
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift
@@ -152,14 +152,14 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-18-alignment/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-18-alignment-review/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
     - evidence/2026-10-15-materials/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     border: []
 - id: production_adoption
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 07e7d5723ce03a34524443c40342354a6adce65e
+    revision: d4b2d40745d31e1d862bb374c2b8e876efe7c13d
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Package.swift

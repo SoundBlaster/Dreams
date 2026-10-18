@@ -4,7 +4,7 @@ SettingsCatalog:
   contract: "dreams.settings.catalog"
 NativeComponents:
   source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/"
-  implementation: "SwiftUI Slider + shared HStack columns (wrapping label, track, text-scaled readout); generic preview content slot; shared SettingsMaterialPanel with opaque accessibility fallback"
+  implementation: "SwiftUI Slider + adaptive ViewThatFits/HStack columns (wrapping label, minimum-width track, text-scaled readout); generic preview content slot; shared SettingsMaterialPanel with opaque accessibility fallback"
 FixtureForms:
   source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/"
   state: "window-local-State-not-production-preferences"
