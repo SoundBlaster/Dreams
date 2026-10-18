@@ -5,8 +5,6 @@ struct NativeSettingsPage: View {
     let model: NativeSettingsModel
     @State private var selection: NativeSettingsSection?
     @State private var visibility: NavigationSplitViewVisibility = .all
-    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
-    @Environment(\.colorSchemeContrast) private var contrast
 
     init(model: NativeSettingsModel, initialSection: NativeSettingsSection = .general) {
         self.model = model
@@ -48,17 +46,10 @@ struct NativeSettingsPage: View {
         .onChange(of: selection) { _, _ in model.cancelShortcutRecording() }
     }
 
-    @ViewBuilder private var settingsPanel: some View {
-        if selection == .rain {
+    private var settingsPanel: some View {
+        SettingsMaterialPanel {
             NativeSettingsDetail(section: selection, model: model)
                 .scrollContentBackground(.hidden)
-                .background(reduceTransparency || contrast == .increased
-                    ? AnyShapeStyle(.background) : AnyShapeStyle(.regularMaterial))
-        } else {
-            SettingsMaterialPanel {
-                NativeSettingsDetail(section: selection, model: model)
-                    .scrollContentBackground(.hidden)
-            }
         }
     }
 }
