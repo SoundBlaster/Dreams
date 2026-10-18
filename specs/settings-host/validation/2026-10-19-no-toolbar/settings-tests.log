@@ -1,0 +1,54 @@
+Building for production...
+[Computing dependencies]
+[1 / 33]
+[5 / 25] Logging
+[13 / 29] DreamsSettingsUI
+[17 / 30] EventSource
+[21 / 31] Logging
+[26 / 33] SystemPackage
+[32 / 38] MCP
+[34 / 39] MCP
+[42 / 48] Dreams
+[45 / 50] Dreams
+[49 / 51] Dreams-product
+[51 / 56] Dreams-product
+[52 / 56] Dreams-product
+[55 / 59] DreamsTests-product
+[57 / 60] DreamsTests-product
+[60 / 64] DreamsTests-product
+[62 / 64] DreamsTests-product
+Build complete! (43.12 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() started.
+􁁛  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() passed after 5.617 seconds.
+􀙟  Test previewIsAPixelExactScreenCrop(columns:scale:) skipped.
+􀟈  Test previewIsLazyAndDoesNotRequestAnOverlay() started.
+􁁛  Test previewIsLazyAndDoesNotRequestAnOverlay() passed after 0.025 seconds.
+􀙟  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() skipped.
+􀙟  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() skipped.
+􀟈  Test launchFlagDefaultsOffAndExplicitLegacyWins() started.
+􁁛  Test launchFlagDefaultsOffAndExplicitLegacyWins() passed after 0.001 seconds.
+􀟈  Test nativeBindingsUseTheProductionOwnerAndRejectInvalidValues() started.
+􁁛  Test nativeBindingsUseTheProductionOwnerAndRejectInvalidValues() passed after 0.014 seconds.
+􀟈  Test bothWindowsSharePreferencesAndOneActivityTimer() started.
+􁁛  Test bothWindowsSharePreferencesAndOneActivityTimer() passed after 0.310 seconds.
+􀙟  Test recordNativeFormsWithScreener() skipped.
+􀟈  Test extendedFunctionKeysHaveReadableNames() started.
+􁁛  Test extendedFunctionKeysHaveReadableNames() passed after 0.021 seconds.
+􀟈  Test recordingConsumesOnlyItsWindowAndEscapeCancelsWithoutCommit() started.
+􁁛  Test recordingConsumesOnlyItsWindowAndEscapeCancelsWithoutCommit() passed after 0.073 seconds.
+􀟈  Test recordingCommitsOnceAndRemovesLifecycleObservers() started.
+􁁛  Test recordingCommitsOnceAndRemovesLifecycleObservers() passed after 0.017 seconds.
+􀟈  Test recordingCancelsOnCloseFocusLossAndAppDeactivation() started.
+􁁛  Test recordingCancelsOnCloseFocusLossAndAppDeactivation() passed after 0.029 seconds.
+􀟈  Test nativeAndLegacyRecordingShareOwnerAndCleanup() started.
+􁁛  Test nativeAndLegacyRecordingShareOwnerAndCleanup() passed after 0.014 seconds.
+􀟈  Test occupiedShortcutKeepsSavedValueAndShowsNativeError() started.
+􁁛  Test occupiedShortcutKeepsSavedValueAndShowsNativeError() passed after 0.013 seconds.
+􀟈  Test retryAfterStartupConflictRestoresCarbonEventHandler() started.
+􁁛  Test retryAfterStartupConflictRestoresCarbonEventHandler() passed after 0.042 seconds.
+􁁛  Suite NativeSettingsTests passed after 6.180 seconds.
+􁁛  Test run with 16 tests in 1 suite passed after 6.180 seconds.

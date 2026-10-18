@@ -1,0 +1,15 @@
+The following is a diff from the previous accessibility tree for Window: "Dreams" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 60
++		60 container
++			61 button Description: Toggle sidebar, ID: dreams.native.toggle-sidebar
++			62 scroll area
++				63 list Sidebar
++					64 row (selectable) General
++					65 row (selectable) Appearance
++					66 row (selected) Rain
++					67 row (selectable) Background
++					68 row (selectable) Agent words
++					69 row (selectable) Displays
++					70 row (selectable) Advanced
+~		13 splitter (disabled, settable, float) 220
+The focused UI element is 0 standard window Dreams, ID: dreams.native-settings, Secondary Actions: Raise

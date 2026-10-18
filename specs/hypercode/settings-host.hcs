@@ -7,9 +7,10 @@ LaunchRouting:
 NativePresentation:
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift"
   minimum: "macOS 15; system material settings surfaces over one window-local live Metal backdrop"
-  sdk: "scripts/swift-macos.sh retains package minimum while linking active SDK metadata for automatic native appearance; SDK27 actual toolbar overpaint remains open"
+  window: "titled full-size-content window; hidden title and transparent titlebar; standard window controls; native background/WindowDragGesture movement"
+  sdk: "scripts/swift-macos.sh retains package minimum while linking active SDK metadata for automatic native appearance; toolbar visibility uses the native windowToolbar placement; prior SDK27 toolbar overpaint is absent in the new normal SDK27 capture; old evidence remains historical"
 Navigation:
-  implementation: "NavigationSplitView + List selection; window-owned State"
+  implementation: "NavigationSplitView + List selection; window-owned State; no window toolbar/title or automatic toolbar sidebar item; in-panel headings; localized native sidebar button and Control-Command-S; hidden sidebar has detail-side recovery button"
 Forms:
   requires: "dreams.settings.ui from local DreamsSettingsUI; border hashes include manifest, SettingsSliderRow and SettingsMaterialPanel"
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift"
