@@ -119,13 +119,21 @@ struct NativeRainForm: View {
 
     var body: some View {
         Form {
-            Section(settingsString("rain.grid")) {
+            Section {
                 Toggle(settingsString("rain.columns.auto"), isOn: $model.automaticColumns)
                     .accessibilityIdentifier("dreams.rain-columns-auto")
                 SettingsSliderRow(settingsString("rain.columns"), value: $model.columns, in: 24...240, step: 1,
                                   readout: Int(model.columns).formatted(), identifier: "dreams.rain-columns")
                     .disabled(model.automaticColumns)
                 NativeParameterRow(model: model, parameter: .density)
+            } header: {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(settingsString("section.rain")).font(.title2.bold()).foregroundStyle(.primary)
+                    Text(settingsString("native.rain.description"))
+                        .font(.subheadline).foregroundStyle(.secondary)
+                    Text(settingsString("rain.grid")).padding(.top, 12)
+                }
+                .textCase(nil)
             }
             Section(settingsString("native.motion")) {
                 NativeParameterRow(model: model, parameter: .speed)
@@ -134,9 +142,12 @@ struct NativeRainForm: View {
                     .accessibilityIdentifier("dreams.rain-deceleration-enabled")
                 NativeParameterRow(model: model, parameter: .deceleration).disabled(!model.decelerationEnabled)
             }
-            Section(settingsString("rain.search")) {
+            Section {
                 NativeParameterRow(model: model, parameter: .search)
-                Text(settingsString("rain.search.tip")).foregroundStyle(.secondary)
+            } header: {
+                Text(settingsString("rain.search"))
+            } footer: {
+                Text(settingsString("rain.search.tip"))
             }
         }
         .formStyle(.grouped)

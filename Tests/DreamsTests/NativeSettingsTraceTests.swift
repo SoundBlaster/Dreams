@@ -33,7 +33,7 @@ extension NativeSettingsTests {
         let capture = ScreenerCaptureSession(screener: recorder)
         model[parameter: .idle] = 1
         model.preview.isPlaying = true
-        func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000,
+        func checkpoint(_ section: NativeSettingsSection, name: String, width: CGFloat = 1000, height: CGFloat = 720,
                         dark: Bool = false, increasedContrast: Bool = false, recording: Bool = false, shortcutError: Bool = false,
                         largeText: Bool = false) async throws {
             window.appearance = NSAppearance(named: increasedContrast
@@ -44,7 +44,7 @@ extension NativeSettingsTests {
                 .environment(\.colorScheme, dark ? .dark : .light)
                 .environment(\.dynamicTypeSize, largeText ? .accessibility5 : .large)
                 .font(largeText ? .system(size: 32) : .body))
-            window.setContentSize(NSSize(width: width, height: 720))
+            window.setContentSize(NSSize(width: width, height: height))
             if recording { model.recordShortcut() }
             if shortcutError { page.shortcutRecorder.message = L("hotkey.taken", "⌃⌥⌘F17") }
             let content = try #require(window.contentView)
@@ -57,7 +57,7 @@ extension NativeSettingsTests {
             }
             try await recorder.mark(name, metadata: ["actions": "model mutations and initial section selection",
                 "backend": backend, "previewFrames": String(model.preview.renderer?.framesRendered ?? 0), "inputCoverage": "programmatic states; keyboard input unobserved",
-                "width": String(Int(width)), "language": language, "appearance": dark ? "dark" : "light",
+                "width": String(Int(width)), "height": String(Int(height)), "language": language, "appearance": dark ? "dark" : "light",
                 "increasedContrast": String(increasedContrast), "largeText": String(largeText)])
             if backend == "screen-capture-kit" {
                 let source = ScreenCaptureKitWindowSource(windowID: CGWindowID(window.windowNumber))
@@ -85,6 +85,9 @@ extension NativeSettingsTests {
             model[parameter: .deceleration] = -24
             model[parameter: .search] = 0.37
             try await checkpoint(.rain, name: "rain.edited.dark", dark: true)
+            try await checkpoint(.rain, name: "rain.edited.light")
+            try await checkpoint(.rain, name: "rain.minimum.light", width: 560, height: 450)
+            try await checkpoint(.rain, name: "rain.minimum.dark", width: 560, height: 450, dark: true)
             try await checkpoint(.rain, name: "rain.narrow", width: 560)
             model.preview.isPlaying = false
             try await checkpoint(.rain, name: "rain.paused.dark", dark: true)

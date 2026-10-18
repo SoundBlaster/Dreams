@@ -5,6 +5,8 @@ struct NativeSettingsPage: View {
     let model: NativeSettingsModel
     @State private var selection: NativeSettingsSection?
     @State private var visibility: NavigationSplitViewVisibility = .all
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+    @Environment(\.colorSchemeContrast) private var contrast
 
     init(model: NativeSettingsModel, initialSection: NativeSettingsSection = .general) {
         self.model = model
@@ -26,12 +28,12 @@ struct NativeSettingsPage: View {
                     if geometry.size.width >= 700 {
                         HStack(spacing: 16) {
                             settingsPanel
-                            NativePreviewPane(session: model.preview).frame(width: 280)
+                            NativePreviewPane(session: model.preview, outlined: selection == .rain).frame(width: 280)
                         }
                         .padding(16)
                     } else {
                         VStack(spacing: 16) {
-                            NativePreviewPane(session: model.preview).frame(height: 180)
+                            NativePreviewPane(session: model.preview, outlined: selection == .rain).frame(height: 180)
                             settingsPanel
                         }
                         .padding(16)
@@ -39,14 +41,22 @@ struct NativeSettingsPage: View {
                 }
             }
         }
+        .tint(.green)
         .frame(minWidth: 560, minHeight: 420)
         .onChange(of: selection) { _, _ in model.cancelShortcutRecording() }
     }
 
-    private var settingsPanel: some View {
-        SettingsMaterialPanel {
+    @ViewBuilder private var settingsPanel: some View {
+        if selection == .rain {
             NativeSettingsDetail(section: selection, model: model)
                 .scrollContentBackground(.hidden)
+                .background(reduceTransparency || contrast == .increased
+                    ? AnyShapeStyle(.background) : AnyShapeStyle(.regularMaterial))
+        } else {
+            SettingsMaterialPanel {
+                NativeSettingsDetail(section: selection, model: model)
+                    .scrollContentBackground(.hidden)
+            }
         }
     }
 }
