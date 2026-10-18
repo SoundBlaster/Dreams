@@ -20,8 +20,8 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
-| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current 3910ebf [shared material panel](settings-catalog/validation/2026-10-15-materials/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current c7da63d [native parity pass](settings-host/validation/2026-10-16-parity/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
+| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current d4b2d40 [adaptive slider columns](settings-catalog/validation/2026-10-18-alignment-review/README.md); independent fixtures | Interactive catalog acceptance |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current d4b2d40 [adaptive slider correction](settings-host/validation/2026-10-18-alignment-review/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -419,3 +419,30 @@ hierarchy frames, actual wide EN/RU app observations, local lint/localization an
 Tab/VoiceOver and actual-app narrow interaction remain open. Catalog documentation is
 corrected without changing its runtime baseline. Other subsystem evidence stays historical;
 formal acceptance stays draft, new settings stay opt-in, and toolbar blur is deferred.
+
+## Shared slider columns — 2026-10-18
+
+Source `07e7d5723ce03a34524443c40342354a6adce65e` replaces per-row LabeledContent
+allocation with shared HStack column proportions and text-scaled readout width.
+SettingsCatalog.NativeComponents and SettingsPage.NativePresentation.Forms remain the
+responsible roles. Catalog host_owned_binding/native_controls/platform_availability
+and parent host native_controls/one_settings_owner/default_off/material_composition
+retain their meanings; catalog draft.5 folds the requested alignment into the existing
+row contract. The catalog HCS composition string is corrected, preserving stable IDs.
+Host/catalog current source/map hashes are refreshed; other subsystem evidence remains
+historical. [Fresh checks](settings-host/validation/2026-10-18-alignment/README.md)
+separate 44 Screener layout frames, app/catalog product builds, lint and structure from
+physical input/compositor acceptance. Native settings stay opt-in; toolbar blur is deferred.
+
+## PR #31 P2 adaptive slider correction — 2026-10-18
+
+Runtime `d4b2d40745d31e1d862bb374c2b8e876efe7c13d` prevents readout space from collapsing
+tracks: ViewThatFits stacks label/readout as needed and every Slider retains a 120-point
+minimum. Catalog host_owned_binding/native_controls/platform_availability and parent host
+native_controls/one_settings_owner/default_off/material_composition remain applicable.
+Draft.6 folds the adaptive exception into the existing row contract; stable HC roles and
+claim IDs remain, with composition text and current host/catalog identities refreshed.
+[Fresh validation](settings-host/validation/2026-10-18-alignment-review/README.md) records
+48 named Screener frames including explicit large-font narrow states, catalog build,
+lint and structure. The failed in-process AX probe is not red/green regression evidence.
+Prior live-app passes remain historical; physical accessibility and CI acceptance are separate.

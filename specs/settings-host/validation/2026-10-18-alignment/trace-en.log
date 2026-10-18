@@ -1,0 +1,31 @@
+python3 scripts/test-native-settings-trace.py
+Building for production...
+[Computing dependencies]
+[1 / 33]
+[5 / 25] SystemPackage
+[13 / 29] DreamsSettingsUI
+[17 / 30] EventSource
+[21 / 31] Logging
+[26 / 33] SystemPackage
+[32 / 38] MCP
+[34 / 39] MCP
+[42 / 48] Dreams
+[45 / 50] Dreams
+[49 / 51] Dreams-product
+[51 / 56] Dreams-product
+[52 / 56] Dreams-product
+[55 / 59] DreamsTests-product
+[57 / 60] DreamsTests-product
+[60 / 64] DreamsTests-product
+[62 / 64] DreamsTests-product
+Build complete! (37.95 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test recordNativeFormsWithScreener() started.
+DREAMS_NATIVE_SETTINGS_TRACE=/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/alignment-traces/95E69E7B-C125-4C33-80E0-1E19AA9ABB05.vtrace
+􁁛  Test recordNativeFormsWithScreener() passed after 6.032 seconds.
+􁁛  Suite NativeSettingsTests passed after 6.032 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 6.032 seconds.
+PASS: complete Screener native settings trace, 22 hierarchy frames: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/alignment-traces/95E69E7B-C125-4C33-80E0-1E19AA9ABB05.vtrace

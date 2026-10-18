@@ -126,12 +126,12 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-16-parity/README.md
+  path: validation/2026-10-18-alignment-review/README.md
   supports:
   - constraints
 - id: local_ui_dependency
   kind: source
-  path: evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+  path: evidence/2026-10-18-alignment-review/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
   supports:
   - constraints.native_controls
 - id: preview_tests
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: c7da63dbc30ced3712ea9e5d357be6737791128a
+    revision: d4b2d40745d31e1d862bb374c2b8e876efe7c13d
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -181,13 +181,13 @@ implementationBindings:
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
-    - evidence/2026-10-16-parity/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-18-alignment-review/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
-    - evidence/2026-10-16-parity/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-18-alignment-review/source/scripts/test-native-settings-trace.py
     border:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
@@ -195,4 +195,4 @@ implementationBindings:
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
-    - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-18-alignment-review/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift

@@ -45,9 +45,13 @@ English and Russian resources belong to the catalog target's `Bundle.module`.
 
 ## Library boundary
 
-`SettingsSliderRow` composes a system Slider and LabeledContent with a caller-owned
+`SettingsSliderRow` composes a system Slider and three aligned HStack columns with a caller-owned
 Binding, range, step, formatted readout and accessibility identifier. The host owns
-units, input validation and persistence. `SettingsPreviewRegion` clips an injected
+units, input validation and persistence. When space permits, label and track columns share the available space;
+readouts use a shared 80-point column scaled with the body text. ViewThatFits moves
+the label above the controls in narrow rows, then stacks the readout above the slider
+if larger text needs more room. Tracks retain a 120-point minimum. Long labels wrap,
+and value changes do not move track endpoints within one layout. `SettingsPreviewRegion` clips an injected
 content view; it adds no material, rendering engine, timers or capture behavior.
 `SettingsMaterialPanel` composes a system regular material and rounded clipping, using an opaque semantic background for Reduce Transparency or increased contrast. Both catalog and production host use this same surface. It does not own controls, clocks, preferences or a rendering engine.
 Do not put the production controller or renderer into this UI package.

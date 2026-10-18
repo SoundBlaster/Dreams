@@ -8,6 +8,7 @@ public struct SettingsSliderRow: View {
     private let step: Double
     private let readout: String
     private let identifier: String
+    @ScaledMetric(relativeTo: .body) private var readoutWidth = 80.0
 
     public init(_ title: LocalizedStringResource, value: Binding<Double>, in range: ClosedRange<Double>,
                 step: Double = 1, readout: String, identifier: String) {
@@ -20,20 +21,49 @@ public struct SettingsSliderRow: View {
     }
 
     public var body: some View {
-        LabeledContent {
+        ViewThatFits(in: .horizontal) {
             HStack {
-                Slider(value: $value, in: range, step: step) { Text(title) }
-                    .labelsHidden()
-                    .accessibilityIdentifier(identifier)
-                    .accessibilityValue(readout)
-                Text(verbatim: readout)
-                    .monospacedDigit()
-                    .foregroundStyle(.secondary)
-                    .fixedSize()
-                    .accessibilityHidden(true)
+                label.frame(minWidth: 80, maxWidth: .infinity, alignment: .leading)
+                slider
+                readoutColumn
             }
-        } label: {
-            Text(title)
+            VStack(alignment: .leading) {
+                label
+                ViewThatFits(in: .horizontal) {
+                    HStack {
+                        slider
+                        readoutColumn
+                    }
+                    VStack(alignment: .trailing) {
+                        readoutText.fixedSize(horizontal: false, vertical: true)
+                        slider
+                    }
+                }
+            }
         }
+        .accessibilityElement(children: .contain)
+    }
+
+    private var label: some View {
+        Text(title).fixedSize(horizontal: false, vertical: true)
+    }
+
+    private var slider: some View {
+        Slider(value: $value, in: range, step: step) { Text(title) }
+            .labelsHidden()
+            .accessibilityIdentifier(identifier)
+            .accessibilityValue(readout)
+            .frame(minWidth: 120, maxWidth: .infinity)
+    }
+
+    private var readoutColumn: some View {
+        readoutText.fixedSize().frame(minWidth: readoutWidth, alignment: .trailing)
+    }
+
+    private var readoutText: some View {
+        Text(verbatim: readout)
+            .monospacedDigit()
+            .foregroundStyle(.secondary)
+            .accessibilityHidden(true)
     }
 }
