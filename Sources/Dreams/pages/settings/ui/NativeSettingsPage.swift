@@ -18,6 +18,7 @@ struct NativeSettingsPage: View {
                     .listItemTint(model.rainColor)
             }
             .listStyle(.sidebar)
+            .toolbar(removing: .sidebarToggle)
             .safeAreaInset(edge: .top) {
                 HStack {
                     Color.clear.frame(height: 28).gesture(WindowDragGesture())
