@@ -15,6 +15,7 @@ struct NativeSettingsPage: View {
         NavigationSplitView(columnVisibility: $visibility) {
             List(NativeSettingsSection.allCases, selection: $selection) { section in
                 NavigationLink(value: section) { Label(section.title, systemImage: section.symbol) }
+                    .listItemTint(model.rainColor)
             }
             .listStyle(.sidebar)
             .navigationTitle("Dreams")
@@ -41,7 +42,7 @@ struct NativeSettingsPage: View {
                 }
             }
         }
-        .tint(.green)
+        .tint(model.rainColor)
         .frame(minWidth: 560, minHeight: 420)
         .onChange(of: selection) { _, _ in model.cancelShortcutRecording() }
     }
