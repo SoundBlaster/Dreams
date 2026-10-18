@@ -56,6 +56,7 @@ struct NativeSettingsPage: View {
                 }
             }
         }
+        .toolbar(removing: .sidebarToggle)
         .toolbarVisibility(.hidden, for: .windowToolbar)
         .tint(model.rainColor)
         .frame(minWidth: 560, minHeight: 420)
