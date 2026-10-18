@@ -1,0 +1,8 @@
+Negative probe: a temporary xcrun shim supplies an old SDK15 vtool result; all other xcrun operations delegate to real tool.
+Building for production...
+[Using on-disk description]
+[1 / 2] Dreams-product
+Build complete! (0.51 sec)
+Unexpected macOS build metadata: min=15.0 SDK=15.0
+
+PASS: helper rejected SDK15 metadata with exit1 while expected active SDK27; no source, SDK or product bytes were patched by the shim.

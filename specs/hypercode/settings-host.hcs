@@ -7,6 +7,7 @@ LaunchRouting:
 NativePresentation:
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift"
   minimum: "macOS 15; system material settings surfaces over one window-local live Metal backdrop"
+  sdk: "scripts/swift-macos.sh retains package minimum while linking active SDK metadata for automatic native appearance; SDK27 actual toolbar overpaint remains open"
 Navigation:
   implementation: "NavigationSplitView + List selection; window-owned State"
 Forms:

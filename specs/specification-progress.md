@@ -20,8 +20,8 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
-| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current d4b2d40 [adaptive slider columns](settings-catalog/validation/2026-10-18-alignment-review/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 25e7aaa [rounded material panels](settings-host/validation/2026-10-18-panel-corners/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
+| SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current 6c46404 [native slider/SDK policy](settings-catalog/validation/2026-10-18-native-sliders/README.md); independent fixtures | Interactive catalog acceptance |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 6c46404 [native sliders/SDK](settings-host/validation/2026-10-18-native-sliders/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -481,3 +481,20 @@ preview growth and 480pt form cap remain. Draft.8 updates material_composition a
 the existing HC Forms composition. Catalog/library and renderer sources are unchanged.
 [Fresh baseline](settings-host/validation/2026-10-18-panel-corners/README.md) separates build, visual
 observation, lint and structure from prior historical58frame/Zoom evidence and acceptance.
+
+## Native slider appearance and SDK correction — 2026-10-18
+
+Runtime `6c464040ddac981596bebb931450f5ab48e1840d` hides dense slider ticks while retaining step-grid writes and
+one-step accessibility adjustments. Catalog draft.7 and host draft.9 refresh shared
+control/provider and active-SDK packaging obligations. HC identities remain stable;
+provider NativeComponents/Packaging and parent NativePresentation properties reflect
+the new source, with separate source/map hashes. App/catalog/release/native-trace
+helpers use active SDK metadata and preserve manifest deployment minimum (15.0).
+Fresh app/catalog products verifySDK27;16settings tests pass.
+[Current evidence](settings-host/validation/2026-10-18-native-sliders/README.md) separates real step/drag
+observations and SDK15→27 A/B from structure and acceptance. SDK27 produces native
+Liquid Glass **and actual toolbar overpaint**. Earlier fixture-only classification
+was too broad; compatibility SDK15 actual observations remain valid only for that
+profile. The owner deferred the band; Navigation/Forms safe-area interaction is open,
+visual acceptance and default-on/release readiness are not established. Full keyboard/
+VoiceOver, narrow compositor and physical macOS15 runtime remain unproven.

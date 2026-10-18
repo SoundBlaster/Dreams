@@ -1,0 +1,90 @@
+import SwiftUI
+
+/// A form composition around the system Slider. The consumer owns state, units and validation.
+public struct SettingsSliderRow: View {
+    private let title: LocalizedStringResource
+    @Binding private var value: Double
+    private let range: ClosedRange<Double>
+    private let step: Double
+    private let readout: String
+    private let identifier: String
+    @ScaledMetric(relativeTo: .body) private var readoutWidth = 80.0
+
+    public init(_ title: LocalizedStringResource, value: Binding<Double>, in range: ClosedRange<Double>,
+                step: Double = 1, readout: String, identifier: String) {
+        self.title = title
+        _value = value
+        self.range = range
+        self.step = step
+        self.readout = readout
+        self.identifier = identifier
+    }
+
+    public var body: some View {
+        ViewThatFits(in: .horizontal) {
+            HStack {
+                label.frame(minWidth: 80, maxWidth: .infinity, alignment: .leading)
+                slider
+                readoutColumn
+            }
+            VStack(alignment: .leading) {
+                label
+                ViewThatFits(in: .horizontal) {
+                    HStack {
+                        slider
+                        readoutColumn
+                    }
+                    VStack(alignment: .trailing) {
+                        readoutText.fixedSize(horizontal: false, vertical: true)
+                        slider
+                    }
+                }
+            }
+        }
+        .accessibilityElement(children: .contain)
+    }
+
+    private var label: some View {
+        Text(title).fixedSize(horizontal: false, vertical: true)
+    }
+
+    private var slider: some View {
+        Group {
+            if (range.upperBound - range.lowerBound) / step > 20 {
+                Slider(value: steppedValue, in: range) { Text(title) }
+                    .accessibilityAdjustableAction { direction in
+                        switch direction {
+                        case .increment: steppedValue.wrappedValue = value + step
+                        case .decrement: steppedValue.wrappedValue = value - step
+                        @unknown default: break
+                        }
+                    }
+            } else {
+                Slider(value: $value, in: range, step: step) { Text(title) }
+            }
+        }
+        .labelsHidden()
+        .accessibilityIdentifier(identifier)
+        .accessibilityValue(readout)
+        .frame(minWidth: 120, maxWidth: .infinity)
+    }
+
+    /// Keep value precision independent of the system's densely stepped track drawing.
+    private var steppedValue: Binding<Double> {
+        Binding(get: { value }, set: { next in
+            let steps = ((next - range.lowerBound) / step).rounded()
+            value = min(range.upperBound, max(range.lowerBound, range.lowerBound + steps * step))
+        })
+    }
+
+    private var readoutColumn: some View {
+        readoutText.fixedSize().frame(minWidth: readoutWidth, alignment: .trailing)
+    }
+
+    private var readoutText: some View {
+        Text(verbatim: readout)
+            .monospacedDigit()
+            .foregroundStyle(.secondary)
+            .accessibilityHidden(true)
+    }
+}

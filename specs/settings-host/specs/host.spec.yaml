@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.8
+  version: 0.1.0-draft.9
   status: draft
 intent:
   summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
@@ -62,7 +62,7 @@ constraints:
   statement: Absence of --native-settings selects the legacy window. --legacy-settings wins when both launch flags are present; there is no saved enablement key.
 - id: native_controls
   level: MUST
-  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable.
+  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable. App build/release and native trace helpers use the active compiler SDK and matching linked SDK metadata, preserving the package deployment target.
 - id: one_settings_owner
   level: MUST
   statement: Native bindings use the existing DreamsController values and operations without independently persisting a second model. Controller settings/display notifications refresh the native adapter and an existing legacy window.
@@ -126,12 +126,12 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-18-panel-corners/README.md
+  path: validation/2026-10-18-native-sliders/README.md
   supports:
   - constraints
 - id: local_ui_dependency
   kind: source
-  path: evidence/2026-10-18-alignment-review/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+  path: evidence/2026-10-18-native-sliders/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
   supports:
   - constraints.native_controls
 - id: preview_tests
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 25e7aaa0bd9e32418294c4fa54720e06fcc39ac4
+    revision: 6c464040ddac981596bebb931450f5ab48e1840d
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -187,7 +187,10 @@ implementationBindings:
     - evidence/2026-10-18-rain-composition/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
-    - evidence/2026-10-18-preview-growth/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-18-native-sliders/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-18-native-sliders/source/scripts/swift-macos.sh
+    - evidence/2026-10-18-native-sliders/source/scripts/build-app.sh
+    - evidence/2026-10-18-native-sliders/source/scripts/release.sh
     border:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
@@ -195,4 +198,4 @@ implementationBindings:
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
-    - evidence/2026-10-18-alignment-review/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-18-native-sliders/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift

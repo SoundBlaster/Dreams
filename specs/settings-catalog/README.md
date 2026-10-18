@@ -44,3 +44,5 @@ or preferences into the package. See [fresh checks](validation/2026-10-15-materi
 Shared slider column layout: [2026-10-18](validation/2026-10-18-alignment/README.md).
 
 Adaptive slider P2 correction: [2026-10-18 review](validation/2026-10-18-alignment-review/README.md).
+
+Dense tick cleanup and native SDK appearance: [2026-10-18 SDK/sliders](validation/2026-10-18-native-sliders/README.md).

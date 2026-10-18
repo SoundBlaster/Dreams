@@ -1,0 +1,32 @@
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/smooth-sliders-app/Dreams Smooth QA.app/Contents/MacOS/Dreams:
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 15.0
+      sdk 15.0
+   ntools 1
+     tool LD
+  version 27037.1
+
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/swiftpm/out/Products/Release/Dreams:
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 15.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+
+/Volumes/TB5/Developer/Builds/GitHub/DreamsSettingsUI-2974814faa88bdee/swiftpm/out/Products/Release/DreamsSettingsCatalog:
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 15.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1

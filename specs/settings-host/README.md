@@ -110,3 +110,5 @@ Rain composition pilot: [2026-10-18 composition](validation/2026-10-18-rain-comp
 Additional width grows the preview, not forms: [2026-10-18 allocation](validation/2026-10-18-preview-growth/README.md).
 
 Shared rounded panel correction: [2026-10-18 corners](validation/2026-10-18-panel-corners/README.md).
+
+Dense tick cleanup and native SDK appearance: [2026-10-18 SDK/sliders](validation/2026-10-18-native-sliders/README.md).

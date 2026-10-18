@@ -1,0 +1,3 @@
+PASS: 57 current files/maps match declared SHA256 and snapshot bytes.
+Runtime 6c464040ddac981596bebb931450f5ab48e1840d
+Changed map bytes separately pinned.
