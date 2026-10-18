@@ -4,7 +4,7 @@ SettingsCatalog:
   contract: "dreams.settings.catalog"
 NativeComponents:
   source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/"
-  implementation: "SwiftUI Slider + adaptive ViewThatFits/HStack columns (wrapping label, minimum-width track, text-scaled readout); generic preview content slot; shared SettingsMaterialPanel with opaque accessibility fallback"
+  implementation: "SwiftUI Slider + adaptive ViewThatFits/HStack columns (wrapping label, minimum-width track, text-scaled readout); generic preview content slot; shared SettingsMaterialPanel using regular Liquid Glass on macOS26+, regular material on macOS15 and opaque accessibility fallback"
   ticks: "more than 20 step intervals: native continuous track with step-grid binding and one-step accessibility adjustments; sparse native stepped scales retained"
 FixtureForms:
   source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/"

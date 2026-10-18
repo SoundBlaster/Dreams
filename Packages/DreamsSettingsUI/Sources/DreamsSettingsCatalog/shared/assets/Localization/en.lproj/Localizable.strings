@@ -47,8 +47,8 @@
 "materials.preview" = "Embedded Preview Slot";
 "materials.previewCaption" = "This region adds no material of its own. Live rain and a whole-window glass experiment belong to the next stage.";
 "materials.previewDescription" = "A future host can put the real Metal renderer here.";
-"materials.standard" = "Standard Material";
-"materials.standardCaption" = "Regular material over sample content";
+"materials.standard" = "Settings Panel";
+"materials.standardCaption" = "Liquid Glass on macOS 26; regular material on earlier versions";
 "materials.system" = "System materials and button styles adapt to appearance and accessibility settings.";
 "materials.unavailable" = "Liquid Glass needs macOS 26 or later. Standard controls remain available.";
 "navigation.disclosure" = "Additional Options";

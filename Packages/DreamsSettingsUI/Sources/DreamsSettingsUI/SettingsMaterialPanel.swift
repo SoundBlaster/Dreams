@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// A system material surface for content over a live backdrop.
+/// A system glass surface for controls over a live backdrop.
 /// Accessibility preferences replace translucency with an opaque system background.
 public struct SettingsMaterialPanel<Content: View>: View {
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
@@ -13,9 +13,15 @@ public struct SettingsMaterialPanel<Content: View>: View {
 
     public var body: some View {
         content
-            .background(reduceTransparency || contrast == .increased
-                ? AnyShapeStyle(.background) : AnyShapeStyle(.regularMaterial),
-                in: RoundedRectangle(cornerRadius: 16))
+            .background {
+                if reduceTransparency || contrast == .increased {
+                    RoundedRectangle(cornerRadius: 16).fill(.background)
+                } else if #available(macOS 26.0, *) {
+                    Color.clear.glassEffect(.regular, in: .rect(cornerRadius: 16))
+                } else {
+                    RoundedRectangle(cornerRadius: 16).fill(.regularMaterial)
+                }
+            }
             .clipShape(.rect(cornerRadius: 16))
     }
 }

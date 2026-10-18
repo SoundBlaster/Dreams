@@ -1,0 +1,16 @@
+Building for production...
+[Using on-disk description]
+[4 / 27]
+[8 / 26] Logging
+[14 / 29] DreamsSettingsUI
+[16 / 30] DreamsSettingsUI
+[21 / 32] EventSource
+[25 / 33] Logging
+[30 / 35] SystemPackage
+[36 / 40] MCP
+[38 / 41] MCP
+[44 / 47] Dreams-product
+[45 / 48] Dreams-product
+[47 / 48] Dreams-product
+[48 / 48] Dreams-product
+Build complete! (26.75 sec)

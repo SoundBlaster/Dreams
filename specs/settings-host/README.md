@@ -114,3 +114,5 @@ Shared rounded panel correction: [2026-10-18 corners](validation/2026-10-18-pane
 Dense tick cleanup and native SDK appearance: [2026-10-18 SDK/sliders](validation/2026-10-18-native-sliders/README.md).
 
 Active rain-color tint: [2026-10-18-rain-tint](validation/2026-10-18-rain-tint/README.md).
+
+Native Liquid Glass panels: [2026-10-19-liquid-glass](validation/2026-10-19-liquid-glass/README.md).

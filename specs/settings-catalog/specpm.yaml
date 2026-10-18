@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.settings_catalog
   name: Dreams native settings catalog
-  version: 0.1.0-draft.7
+  version: 0.1.0-draft.8
   summary: Standalone system-control showcase and native form compositions.
   license: MIT
   authors:

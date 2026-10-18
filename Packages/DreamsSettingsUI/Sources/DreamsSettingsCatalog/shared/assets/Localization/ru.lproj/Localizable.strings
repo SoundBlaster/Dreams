@@ -47,8 +47,8 @@
 "materials.preview" = "Область встроенного превью";
 "materials.previewCaption" = "Эта область не добавляет свой материал. Живой дождь и эксперимент со стеклом всего окна относятся к следующему этапу.";
 "materials.previewDescription" = "Позже сюда можно встроить настоящий Metal-рендер.";
-"materials.standard" = "Обычный материал";
-"materials.standardCaption" = "Материал Regular над тестовым фоном";
+"materials.standard" = "Панель настроек";
+"materials.standardCaption" = "Liquid Glass в macOS 26; обычный материал в предыдущих версиях";
 "materials.system" = "Системные материалы и стили кнопок учитывают оформление и настройки доступности.";
 "materials.unavailable" = "Для Liquid Glass нужна macOS 26 или новее. Обычные контролы доступны.";
 "navigation.disclosure" = "Дополнительные параметры";
