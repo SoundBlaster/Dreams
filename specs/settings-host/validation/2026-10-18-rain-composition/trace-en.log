@@ -1,0 +1,19 @@
+python3 scripts/test-native-settings-trace.py
+Building for production...
+[Computing dependencies]
+[1 / 2] VirtualDisplayBridge
+[2 / 6] DreamsTests-product
+[4 / 7] DreamsTests-product
+[7 / 11] DreamsTests-product
+[9 / 11] DreamsTests-product
+Build complete! (13.96 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test recordNativeFormsWithScreener() started.
+DREAMS_NATIVE_SETTINGS_TRACE=/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/rain-composition-traces/EB120B45-6FCA-4F1A-BCEE-FED002DC5006.vtrace
+􁁛  Test recordNativeFormsWithScreener() passed after 15.850 seconds.
+􁁛  Suite NativeSettingsTests passed after 15.850 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 15.850 seconds.
+PASS: complete Screener native settings trace, 27 hierarchy frames: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/rain-composition-traces/EB120B45-6FCA-4F1A-BCEE-FED002DC5006.vtrace

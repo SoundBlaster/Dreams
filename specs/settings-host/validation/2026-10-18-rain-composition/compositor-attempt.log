@@ -1,0 +1,19 @@
+python3 scripts/test-native-settings-trace.py
+Building for production...
+[Computing dependencies]
+[1 / 2] VirtualDisplayBridge
+Build complete! (0.47 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test recordNativeFormsWithScreener() started.
+Traceback (most recent call last):
+  File "/Users/egor/.codex/worktrees/screen-management/Dreams/scripts/test-native-settings-trace.py", line 43, in <module>
+    main()
+    ~~~~^^
+  File "/Users/egor/.codex/worktrees/screen-management/Dreams/scripts/test-native-settings-trace.py", line 24, in main
+    assert len(paths) == 1, "Recorded scenario did not complete"
+           ^^^^^^^^^^^^^^^
+AssertionError: Recorded scenario did not complete
+make: *** [test-native-settings-trace] Error 1

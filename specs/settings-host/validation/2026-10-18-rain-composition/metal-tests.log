@@ -1,0 +1,14 @@
+Building for production...
+[Computing dependencies]
+[1 / 6] SystemPackage
+Build complete! (0.43 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() started.
+􁁛  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() passed after 0.393 seconds.
+􀟈  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() started.
+􁁛  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() passed after 0.051 seconds.
+􁁛  Suite NativeSettingsTests passed after 0.445 seconds.
+􁁛  Test run with 2 tests in 1 suite passed after 0.445 seconds.

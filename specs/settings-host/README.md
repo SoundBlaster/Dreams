@@ -50,8 +50,10 @@ actual state and an alert; the controller operations are not promised atomic.
   controller tuning. One Metal surface sits behind forms and an open region beside them in wide layouts
   or above them in narrow layouts. The backdrop shows a 100% crop of the hosting display-sized scene, using
   backing pixels for Retina: glyphs/grid spacing match fullscreen and resizing
-  reveals a different area without shrinking all columns. System material panels cover the forms; macOS 26 extends the backdrop under native navigation.
-  The shared panel becomes opaque with Reduce Transparency or increased contrast.
+  reveals a different area without shrinking all columns. System materials cover the forms; macOS 26 extends the backdrop under native navigation.
+  Rain pilots a rectangular foundation with a scrollable title/description and three native grouped sections,
+  plus an outlined open preview region. Other sections retain the shared rounded panel.
+  Both forms and preview surfaces follow system appearance and become opaque with Reduce Transparency or increased contrast.
   The window does not expose the desktop through its background.
 - Preview pauses/releases GPU ownership when hidden, minimized, closed or fully
   occluded. Local Pause/Play never starts the fullscreen overlay. Reduce Motion
@@ -102,3 +104,5 @@ Current native parity pass: [2026-10-16](validation/2026-10-16-parity/README.md)
 Shared slider column layout: [2026-10-18](validation/2026-10-18-alignment/README.md).
 
 Adaptive slider P2 correction: [2026-10-18 review](validation/2026-10-18-alignment-review/README.md).
+
+Rain composition pilot: [2026-10-18 composition](validation/2026-10-18-rain-composition/README.md).

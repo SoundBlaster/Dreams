@@ -21,7 +21,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current d4b2d40 [adaptive slider columns](settings-catalog/validation/2026-10-18-alignment-review/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current d4b2d40 [adaptive slider correction](settings-host/validation/2026-10-18-alignment-review/README.md); shared owner and default-off routing | Keyboard/VoiceOver; accessibility device acceptance |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current e86996b [Rain composition pilot](settings-host/validation/2026-10-18-rain-composition/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -446,3 +446,19 @@ claim IDs remain, with composition text and current host/catalog identities refr
 48 named Screener frames including explicit large-font narrow states, catalog build,
 lint and structure. The failed in-process AX probe is not red/green regression evidence.
 Prior live-app passes remain historical; physical accessibility and CI acceptance are separate.
+
+## Rain composition pilot — 2026-10-18
+
+Runtime `a250900ae2db17ce8d6086210860754feb1ff036` and exact window-frame fixture
+update `e86996b8da2e91c3b16083286e60bbd7cf984ab6` preserve SettingsPage.NativePresentation
+roles while revising host material_composition in draft.6. Rain has a scrollable
+localized heading, three native groups, a rectangular system foundation and an
+outlined open preview; other sections retain their shared rounded panels. System
+appearance, shared bindings, 100% viewport, one renderer and default-off routing remain.
+Catalog source and stable host_owned_binding/native_controls/platform_availability
+claims are unchanged; its prior runtime baseline remains current, not reaccepted.
+[New source/map identity and validation](settings-host/validation/2026-10-18-rain-composition/README.md)
+separate 54 hierarchy frames, actual wide EN-light/dark and RU-light/dark and restored accessibility
+settings, unit/Metal lifecycle checks and structure from owner acceptance. SCK capture
+did not complete; narrow compositor, macOS 15 physical runtime
+and keyboard/VoiceOver remain unproven. Prior validation stays historical.
