@@ -14,7 +14,7 @@ Forms:
   requires: "dreams.settings.ui from local DreamsSettingsUI; border hashes include manifest, SettingsSliderRow and SettingsMaterialPanel"
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift"
   implementation: "system Form/Section/controls; app owns production units"
-  composition: "Rain pilot: scrollable title/description and three native groups; all sections use shared system material panel clipped to 16pt rounded corners"
+  composition: "Rain pilot: scrollable title/description and three native groups; all sections use shared native regular Liquid Glass panel on macOS26+, regular material on macOS15 and opaque accessibility fallback, clipped to 16pt rounded corners"
   layout: "detail width >=700pt: form capped at 480pt, open preview min240pt receives remaining width; 16pt spacing and outer insets; narrower layouts put preview above form"
 LivePreview:
   source: "Sources/Dreams/features/rain/ui/RainPreviewSession.swift + RainPreviewSurface.swift; pages/settings/ui/NativePreviewPane.swift + NativeRainBackdrop.swift"
