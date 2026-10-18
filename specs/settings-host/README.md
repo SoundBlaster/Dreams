@@ -106,3 +106,5 @@ Shared slider column layout: [2026-10-18](validation/2026-10-18-alignment/README
 Adaptive slider P2 correction: [2026-10-18 review](validation/2026-10-18-alignment-review/README.md).
 
 Rain composition pilot: [2026-10-18 composition](validation/2026-10-18-rain-composition/README.md).
+
+Additional width grows the preview, not forms: [2026-10-18 allocation](validation/2026-10-18-preview-growth/README.md).

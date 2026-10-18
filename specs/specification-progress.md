@@ -21,7 +21,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current d4b2d40 [adaptive slider columns](settings-catalog/validation/2026-10-18-alignment-review/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current e86996b [Rain composition pilot](settings-host/validation/2026-10-18-rain-composition/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current cab0e76 [preview width allocation](settings-host/validation/2026-10-18-preview-growth/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -462,3 +462,13 @@ separate 54 hierarchy frames, actual wide EN-light/dark and RU-light/dark and re
 settings, unit/Metal lifecycle checks and structure from owner acceptance. SCK capture
 did not complete; narrow compositor, macOS 15 physical runtime
 and keyboard/VoiceOver remain unproven. Prior validation stays historical.
+
+## Preview width allocation — 2026-10-18
+
+Runtime `cab0e76da217f889450df8f372e08e094e973e03` caps wide native forms at 480pt and gives additional width to the
+open preview (minimum240pt). Narrow vertical layout and the single 100% renderer
+remain unchanged. Host independent_preview is clarified in draft.7; no library,
+renderer, preferences or other domain algorithms change. Stable HC roles and
+claim IDs remain. [Fresh baseline](settings-host/validation/2026-10-18-preview-growth/README.md)
+separates 58 hierarchy frames and actual native Zoom before/after observations
+from structural/hash checks and owner acceptance. Previous evidence stays historical.

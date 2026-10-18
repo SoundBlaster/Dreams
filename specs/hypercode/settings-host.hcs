@@ -14,6 +14,7 @@ Forms:
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift"
   implementation: "system Form/Section/controls; app owns production units"
   composition: "Rain pilot: scrollable title/description and three native groups on a rectangular system material foundation; other sections retain shared rounded panel"
+  layout: "detail width >=700pt: form capped at 480pt, open preview min240pt receives remaining width; 16pt spacing and outer insets; narrower layouts put preview above form"
 LivePreview:
   source: "Sources/Dreams/features/rain/ui/RainPreviewSession.swift + RainPreviewSurface.swift; pages/settings/ui/NativePreviewPane.swift + NativeRainBackdrop.swift"
   renderer: "separate production RainRenderer; shared controller tuning; preview-local posed clock starts at six seconds"
