@@ -1,0 +1,49 @@
+Window: "Dreams", App: Dreams Parity Fix2 QA.
+0 standard window Dreams, ID: dreams.native-settings, Secondary Actions: Raise
+	1 split group
+		2 container
+			3 text Value: Dreams, Agentic Screensaver, ID: dreams.native.sidebar-brand
+			4 scroll area
+				5 list Sidebar
+					6 row (selectable) General
+					7 row (selectable) Appearance
+					8 row (selected) Rain
+					9 row (selectable) Background
+					10 row (selectable) Agent words
+					11 row (selectable) Displays
+					12 row (selectable) Advanced
+		13 splitter (disabled, settable, float) 220
+		14 container
+			15 scroll area
+				16 heading Rain
+				17 text Adjust the layout and movement of the falling glyphs. Grid
+				18 container
+					19 switch Automatic, Value: on, ID: dreams.rain-columns-auto
+					20 text Columns
+					21 24–240 columns. fewer columns make larger glyphs. automatic preserves the original display grid. (disabled, settable, float) Description: Columns, Value: 110, ID: dreams.rain-columns
+					22 text Density
+					23 sparse ← → dense: initial trace length and pauses between passes. traces stretch as they descend. applies to new streams. (settable, float) Description: Density, Value: 0.6, Details: 60%, ID: dreams.rain-density
+				24 heading Motion
+				25 container
+					26 text Speed
+					27 0.25× is slow; 1× is normal; 3× is fast. (settable, float) Description: Speed, Value: 0.43, Details: 0.43×, ID: dreams.rain-speed
+					28 text Fade
+					29 how many letters fade at once: 1 fades them one by one from the top; 16 is a soft tail. (settable, float) Description: Fade, Value: 3, Details: 3 glyphs, ID: dreams.rain-fade
+					30 switch Decelerate drops, Help: New drops enter at the current speed, then slow down. Existing drops keep their motion., Value: off, ID: dreams.rain-deceleration-enabled
+					31 text a, glyph/s²
+					32 negative acceleration at 1× speed; 0 keeps constant speed. drops slow to 20% of their entry speed and continue falling. changes apply to new drops. (disabled, settable, float) Description: a, glyph/s², Value: -12, Details: -12.0, ID: dreams.rain-deceleration
+				33 heading Searching glyphs
+				34 container
+					35 text Searching glyphs
+					36 share of visible glyphs simultaneously searching: 10% keeps at least one in ten in a rapid search burst. 0% disables search; 100% searches all live glyphs. fading lifetimes are preserved. (settable, float) Description: Searching glyphs, Value: 0.1, Details: 10%, ID: dreams.rain-search-fraction
+				37 text Share of visible glyphs simultaneously searching: 10% keeps at least one in ten in a rapid search burst. 0% disables search; 100% searches all live glyphs. Fading lifetimes are preserved.
+			38 button Description: Pause preview, ID: dreams.native.preview-playback
+			39 text 100% scale on this display. The preview shows a portion of the rain. Settings apply immediately.
+			40 image Description: Live Preview, ID: dreams.native.preview
+	41 close button
+	42 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	43 minimize button
+44 menu bar
+	45 Dreams Parity Fix2 QA
+
+The focused UI element is 0 standard window Dreams, ID: dreams.native-settings, Secondary Actions: Raise

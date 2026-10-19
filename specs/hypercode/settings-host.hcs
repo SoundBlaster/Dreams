@@ -13,8 +13,8 @@ Navigation:
   implementation: "NavigationSplitView + List selection; native body Label with large monochrome SF Symbol in24pt icon slot, row insets6pt vertical/12pt horizontal and Label content minheight32pt; window-owned section selection; no window toolbar/title or automatic toolbar sidebar item; in-panel headings; balanced layout with constant all-column visibility; no hide/show button, app shortcut or collapsed-detail recovery layout; sidebar header shows current app icon, Dreams and Agentic Screensaver with combined text accessibility and native dragging"
 Forms:
   requires: "dreams.settings.ui from local DreamsSettingsUI; border hashes include manifest, SettingsSliderRow and SettingsMaterialPanel"
-  source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift"
-  implementation: "system Form/Section/controls; app owns production units"
+  source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift + DisplaySettingsView.swift + SettingsPageController.swift"
+  implementation: "system Form/Section/controls; app owns production units; existing localized help on parameters and controls; shared context-sensitive duration/exit explanation; shared display role suffixes; Start uses Return default action"
   composition: "Rain pilot: scrollable title/description and three native groups; all sections use shared native regular Liquid Glass panel on macOS26+, regular material on macOS15 and opaque accessibility fallback, clipped to 16pt rounded corners"
   layout: "detail width >=700pt: form capped at 480pt, open preview min240pt receives remaining width; 16pt spacing and outer insets; narrower layouts put preview above form"
 LivePreview:
@@ -27,7 +27,7 @@ LivePreview:
   failure: "native error and Retry; never starts an overlay"
 SettingsBinding:
   source: "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift"
-  changes: "controller notifications; existing persistence/renderer effects"
+  changes: "controller notifications; existing persistence/renderer effects; after any reset outcome, attempt current-shortcut registration and legacy sync, then refresh actual state; production reset command remains controller-owned; injectable reset command permits deterministic failure-path verification"
 ShortcutRecording:
   source: "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift + SettingsPageController"
   ownership: "one window-scoped recorder shared by native and legacy; registration stays in settings owner"

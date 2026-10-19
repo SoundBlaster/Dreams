@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.catalog
   title: NativeSettingsCatalog
-  version: 0.1.0-draft.9
+  version: 0.1.0-draft.10
   status: draft
 intent:
   summary: Let contributors inspect system controls and native settings compositions without altering Dreams preferences.
@@ -47,7 +47,7 @@ interfaces:
     - name: SettingsSliderRow.init
       inputs:
       - name: state_and_presentation
-        type: LocalizedStringResource title, Double Binding, valid ClosedRange, positive step, formatted readout, identifier and optional systemImage (default nil)
+        type: LocalizedStringResource title, Double Binding, valid ClosedRange, positive step, formatted readout, identifier and optional systemImage and localized help (both default nil)
       outputs:
       - name: row
         type: SwiftUI View composed of system Slider and HStack columns
@@ -92,7 +92,7 @@ constraints:
   statement: Support macOS 15 deployment. Build helpers use the active compiler SDK and explicitly matching linked SDK metadata without raising the package deployment target; verify executable Mach-O minos and SDK values. Guard glass button styles with macOS 26 availability; provide a textual fallback. The shared SettingsMaterialPanel uses native regular glassEffect on macOS 26+ and regular material on macOS 15. It replaces translucency with an opaque semantic background when Reduce Transparency or increased contrast is enabled.
 - id: host_owned_binding
   level: MUST
-  statement: SettingsRowLabel composes a secondary monochrome SF Symbol in a 24-point slot, hidden from accessibility, with a wrapping localized or verbatim title. SettingsSliderRow optionally uses that label without changing its native Slider accessibility title/value. Slider consumers provide valid range, step, Binding, formatting and identifier; the library does not validate business rules or persist values. Preserve the native accessible label and expose the supplied readout as its accessibility value. When horizontal content fits, rows share flexible label/track columns and a common text-scaled readout allocation. If space is insufficient, stack the label and then the readout instead of shrinking the slider below 120 points. Long labels and stacked readouts wrap. For more than 20 step intervals use a native continuous Slider with writes rounded to the caller step grid relative to the lower bound and clamped to its range; accessibility Increase/Decrease uses one caller step. For at most 20 intervals retain the native stepped Slider and its sparse ticks. Native keyboard behavior is not replaced.
+  statement: SettingsRowLabel composes a secondary monochrome SF Symbol in a 24-point slot, hidden from accessibility, with a wrapping localized or verbatim title. SettingsSliderRow optionally uses that label without changing its native Slider accessibility title/value. Caller-supplied localized help attaches directly to each system Slider in either track branch; omitting help adds no tooltip. Slider consumers provide valid range, step, Binding, formatting and identifier; the library does not validate business rules or persist values. Preserve the native accessible label and expose the supplied readout as its accessibility value. When horizontal content fits, rows share flexible label/track columns and a common text-scaled readout allocation. If space is insufficient, stack the label and then the readout instead of shrinking the slider below 120 points. Long labels and stacked readouts wrap. For more than 20 step intervals use a native continuous Slider with writes rounded to the caller step grid relative to the lower bound and clamped to its range; accessibility Increase/Decrease uses one caller step. For at most 20 intervals retain the native stepped Slider and its sparse ticks. Native keyboard behavior is not replaced.
 - id: localization_and_packaging
   level: MUST
   statement: Package all used catalog labels in matching English/Russian resources resolved through the catalog module bundle; use a separate app identifier and include the resource bundle in the app.
@@ -121,7 +121,7 @@ evidence:
   - constraints.localization_and_packaging
 - id: validation
   kind: test
-  path: validation/2026-10-19-content-icons/README.md
+  path: validation/2026-10-19-parity-fixes/README.md
   supports:
   - constraints
 provenance:
@@ -136,7 +136,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: db0d2793d624965337ac5f607fb5234a75f97517
+    revision: 73417b92aaf89c85b9f1bc7106b1d0fd1ec25691
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift
@@ -152,7 +152,7 @@ implementationBindings:
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-19-parity-fixes/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     - evidence/2026-10-18-native-sliders/source/scripts/swift-macos.sh
     - evidence/2026-10-18-native-sliders/source/scripts/build-settings-catalog.sh
@@ -162,7 +162,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: db0d2793d624965337ac5f607fb5234a75f97517
+    revision: 73417b92aaf89c85b9f1bc7106b1d0fd1ec25691
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Package.swift

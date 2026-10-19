@@ -586,3 +586,15 @@ SettingsSliderRow symbol presentation. Stable Forms/NativeComponents roles and
 claim identities remain; icon slots are decorative and state/control semantics
 unchanged. Both consumers repinned to [current source and validation](settings-host/validation/2026-10-19-content-icons/README.md).
 Full VoiceOver/macOS15 acceptance remains separate.
+
+## 2026-10-19 — Native settings parity corrections
+
+Host draft.19 updates native_controls/operation_semantics for reset error completion,
+existing help, shared runtime/display text and Return default action. Stable
+Forms/SettingsBinding roles and parent obligations retained; shared provider unchanged.
+[Baseline](settings-host/validation/2026-10-19-parity-fixes/README.md) separates Carbon regression
+verification, structural checks and actual UI; no default-on rollout implied.
+
+Actual AX inspection found row-level help did not reach Slider. Catalog draft.10
+adds optional direct native Slider help; host draft.19 consumer baseline refreshed.
+Provider state/range/step ownership and role IDs retained.
