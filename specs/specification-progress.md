@@ -21,7 +21,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current bc7294f [glass panels](settings-catalog/validation/2026-10-19-liquid-glass/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current bc7294f [glass panels](settings-host/validation/2026-10-19-liquid-glass/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current d93aca4 [sidebar rows/preview alignment](settings-host/validation/2026-10-19-sidebar-rows/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -516,3 +516,45 @@ repinned at bc7294f; stable roles/claim IDs retained.
 [Current evidence](settings-host/validation/2026-10-19-liquid-glass/README.md) separates native UI
 observations, source-reviewed fallbacks and structural checks. Toolbar blur is
 known/deferred; visual acceptance and rollout remain owner decisions.
+
+## 2026-10-19 — Toolbar-free native settings
+
+Host draft.12 native_controls describes system toolbar hiding, retained standard
+window controls, in-panel headings and native sidebar recovery/dragging. Stable
+Navigation/NativePresentation/Forms roles retained; library provider unchanged.
+[Current baseline](settings-host/validation/2026-10-19-no-toolbar/README.md) separates source,
+actual window observations and structure. Historical toolbar-band evidence remains
+valid for its old source; no default-on rollout or full accessibility acceptance.
+
+## 2026-10-19 — Sidebar identity header
+
+Host draft.13 native_controls folds the64pt app icon, Dreams title and Agentic
+Screensaver subtitle into Navigation presentation. Existing roles/claim IDs and
+provider remain stable. [Current evidence](settings-host/validation/2026-10-19-sidebar-brand/README.md)
+pins source and separately records local/visual checks; old16-test passes remain
+historical and do not assert new screenshot or accessibility acceptance.
+
+## 2026-10-19 — Fixed sidebar product requirement
+
+Owner replaced hide/show with an always-visible sidebar. Host draft.14
+native_controls and Navigation properties updated; stable role/claim IDs retained.
+Branding, native selection and shared provider unchanged.
+[Current baseline](settings-host/validation/2026-10-19-fixed-sidebar/README.md) distinguishes new
+UI evidence from historical hide/show passes; narrow/drag/full a11y remain open.
+
+## 2026-10-19 — Sidebar top inset
+
+Removed redundant44pt brand padding; system safe area remains. draft.14
+native_controls/material_composition and unchanged Navigation/Forms maps still
+apply; implementation binding/source identity refreshed without cosmetic claims.
+[Current evidence](settings-host/validation/2026-10-19-sidebar-inset/README.md) preserves old
+spacing observations and separates current build/structure from visual acceptance.
+
+## 2026-10-19 — Native sidebar row refinement
+
+Host draft.15 material_composition describes primary inactive icons and active
+rain tint on the selected icon. Rain-only12pt padding removed to prevent preview
+header/footer displacement; the outline remains layout-neutral. Native List/Label rows receive uniform icon slots,
+body text and more generous native insets/minimum height. Stable roles/claim IDs
+retained; provider/renderer unchanged. [Baseline](settings-host/validation/2026-10-19-sidebar-rows/README.md)
+separates current source, native UI observation and structural validity.

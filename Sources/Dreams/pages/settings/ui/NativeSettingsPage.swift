@@ -1,10 +1,10 @@
+import AppKit
 import DreamsSettingsUI
 import SwiftUI
 
 struct NativeSettingsPage: View {
     let model: NativeSettingsModel
     @State private var selection: NativeSettingsSection?
-    @State private var visibility: NavigationSplitViewVisibility = .all
 
     init(model: NativeSettingsModel, initialSection: NativeSettingsSection = .general) {
         self.model = model
@@ -12,13 +12,28 @@ struct NativeSettingsPage: View {
     }
 
     var body: some View {
-        NavigationSplitView(columnVisibility: $visibility) {
+        NavigationSplitView(columnVisibility: .constant(.all)) {
             List(NativeSettingsSection.allCases, selection: $selection) { section in
-                NavigationLink(value: section) { Label(section.title, systemImage: section.symbol) }
-                    .listItemTint(model.rainColor)
+                NavigationLink(value: section) {
+                    Label {
+                        Text(section.title).font(.body)
+                    } icon: {
+                        Image(systemName: section.symbol)
+                            .imageScale(.large)
+                            .symbolRenderingMode(.monochrome)
+                            .frame(width: 24)
+                    }
+                    .frame(minHeight: 32)
+                }
+                .listItemTint(.fixed(section == selection ? model.rainColor : .primary))
+                .listRowInsets(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
             }
             .listStyle(.sidebar)
-            .navigationTitle("Dreams")
+            .toolbar(removing: .sidebarToggle)
+            .safeAreaInset(edge: .top) {
+                NativeSidebarBrand()
+                    .padding(.horizontal, 12)
+            }
             .navigationSplitViewColumnWidth(min: 170, ideal: 220, max: 300)
         } detail: {
             ZStack {
@@ -41,7 +56,11 @@ struct NativeSettingsPage: View {
                     }
                 }
             }
+            .ignoresSafeArea(.container, edges: .top)
         }
+        .navigationSplitViewStyle(.balanced)
+        .toolbar(removing: .sidebarToggle)
+        .toolbarVisibility(.hidden, for: .windowToolbar)
         .tint(model.rainColor)
         .frame(minWidth: 560, minHeight: 420)
         .onChange(of: selection) { _, _ in model.cancelShortcutRecording() }
@@ -49,9 +68,36 @@ struct NativeSettingsPage: View {
 
     private var settingsPanel: some View {
         SettingsMaterialPanel {
-            NativeSettingsDetail(section: selection, model: model)
-                .scrollContentBackground(.hidden)
+            VStack(alignment: .leading, spacing: 0) {
+                if let selection, selection != .rain {
+                    Text(selection.title).font(.title2.bold())
+                        .padding(.horizontal, 24).padding(.top, 20)
+                }
+                NativeSettingsDetail(section: selection, model: model)
+                    .scrollContentBackground(.hidden)
+            }
         }
+    }
+
+}
+
+private struct NativeSidebarBrand: View {
+    var body: some View {
+        VStack(spacing: 6) {
+            Image(nsImage: NSApplication.shared.applicationIconImage)
+                .resizable().scaledToFit().frame(width: 64, height: 64)
+                .accessibilityHidden(true)
+            Text(verbatim: "Dreams").font(.headline)
+            Text(settingsString("native.brand.subtitle"))
+                .font(.caption).foregroundStyle(.secondary)
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.bottom, 16)
+        .contentShape(Rectangle())
+        .gesture(WindowDragGesture())
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("dreams.native.sidebar-brand")
     }
 }
 
@@ -72,7 +118,6 @@ private struct NativeSettingsDetail: View {
             case .none: ContentUnavailableView(settingsString("native.selectSection"), systemImage: "sidebar.leading")
             }
         }
-        .navigationTitle(section?.title ?? settingsString("menu.openControls"))
         .alert(settingsString("native.error"), isPresented: $model.hasError) {
             Button(settingsString("button.ok"), role: .cancel) {}
         } message: { Text(model.errorMessage ?? "") }

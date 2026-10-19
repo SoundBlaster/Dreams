@@ -177,3 +177,6 @@
 
 "hotkey.change" = "Изменить сочетание…";
 "hotkey.invalid" = "Добавьте Control, Option или Command к клавише. Esc отменяет запись.";
+
+
+"native.brand.subtitle" = "Agentic Screensaver";

@@ -116,3 +116,13 @@ Dense tick cleanup and native SDK appearance: [2026-10-18 SDK/sliders](validatio
 Active rain-color tint: [2026-10-18-rain-tint](validation/2026-10-18-rain-tint/README.md).
 
 Native Liquid Glass panels: [2026-10-19-liquid-glass](validation/2026-10-19-liquid-glass/README.md).
+
+Toolbar-free window: [2026-10-19-no-toolbar](validation/2026-10-19-no-toolbar/README.md).
+
+Sidebar identity header: [2026-10-19-sidebar-brand](validation/2026-10-19-sidebar-brand/README.md).
+
+Permanently visible sidebar: [2026-10-19-fixed-sidebar](validation/2026-10-19-fixed-sidebar/README.md).
+
+Sidebar top spacing: [2026-10-19-sidebar-inset](validation/2026-10-19-sidebar-inset/README.md).
+
+Sidebar row refinement: [2026-10-19-sidebar-rows](validation/2026-10-19-sidebar-rows/README.md).

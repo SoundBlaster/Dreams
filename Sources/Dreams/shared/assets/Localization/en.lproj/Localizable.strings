@@ -177,3 +177,6 @@
 
 "hotkey.change" = "Change shortcut…";
 "hotkey.invalid" = "Include Control, Option or Command with a key. Esc cancels recording.";
+
+
+"native.brand.subtitle" = "Agentic Screensaver";

@@ -32,7 +32,6 @@ struct NativePreviewPane: View {
                     .font(.caption).foregroundStyle(.secondary).padding(12)
             }
         }
-        .padding(outlined ? 12 : 0)
         .overlay {
             if outlined {
                 RoundedRectangle(cornerRadius: 16).strokeBorder(.separator)
