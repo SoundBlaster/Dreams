@@ -578,3 +578,11 @@ remain; one renderer, full-width help and playback lifetime unchanged.
 Host draft.17 removes the enclosing outline from material_composition/LivePreview;
 native glass button/help edges remain. Stable renderer/playback and parent obligations
 retained. [Current evidence](settings-host/validation/2026-10-19-no-preview-outline/README.md) preserves earlier baselines.
+
+## 2026-10-19 — Native setting icons
+
+Host draft.18 and catalog draft.9 bind shared SettingsRowLabel and optional
+SettingsSliderRow symbol presentation. Stable Forms/NativeComponents roles and
+claim identities remain; icon slots are decorative and state/control semantics
+unchanged. Both consumers repinned to [current source and validation](settings-host/validation/2026-10-19-content-icons/README.md).
+Full VoiceOver/macOS15 acceptance remains separate.

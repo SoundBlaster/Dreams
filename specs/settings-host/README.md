@@ -52,7 +52,7 @@ actual state and an alert; the controller operations are not promised atomic.
   backing pixels for Retina: glyphs/grid spacing match fullscreen and resizing
   reveals a different area without shrinking all columns. System materials cover the forms; macOS 26 extends the backdrop under native navigation.
   Rain pilots a scrollable title/description and three native grouped sections,
-  plus an outlined open preview region. All sections use the shared panel with 16-point rounded corners.
+  plus an open preview region without an enclosing outline. All sections use the shared panel with 16-point rounded corners.
   Both forms and preview surfaces follow system appearance and become opaque with Reduce Transparency or increased contrast.
   The window does not expose the desktop through its background.
 - Preview pauses/releases GPU ownership when hidden, minimized, closed or fully
@@ -132,3 +132,5 @@ Preview help width refinement: [2026-10-19-preview-help-width](validation/2026-1
 Prominent playback refinement: [2026-10-19-playback-button](validation/2026-10-19-playback-button/README.md).
 
 Unframed preview: [2026-10-19-no-preview-outline](validation/2026-10-19-no-preview-outline/README.md).
+
+Content setting icons: [2026-10-19-content-icons](validation/2026-10-19-content-icons/README.md).

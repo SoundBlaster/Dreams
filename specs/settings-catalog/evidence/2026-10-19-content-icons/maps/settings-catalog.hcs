@@ -1,0 +1,22 @@
+SettingsCatalog:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift"
+  boundary: "standalone-fixture-application"
+  contract: "dreams.settings.catalog"
+NativeComponents:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/"
+  implementation: "shared SettingsRowLabel uses a decorative monochrome SF Symbol in24pt slot, hidden from accessibility, with localized/verbatim wrapping text; optional systemImage in SwiftUI Slider + adaptive ViewThatFits/HStack columns (wrapping label, minimum-width track, text-scaled readout); generic preview content slot; shared SettingsMaterialPanel using regular Liquid Glass on macOS26+, regular material on macOS15 and opaque accessibility fallback"
+  ticks: "more than 20 step intervals: native continuous track with step-grid binding and one-step accessibility adjustments; sparse native stepped scales retained"
+FixtureForms:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/"
+  state: "window-local-State-not-production-preferences"
+WindowNavigation:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/ui/CatalogPage.swift"
+  implementation: "NavigationSplitView + List selection + system toolbar"
+MaterialSamples:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift"
+  availability: "standard-macOS15; Liquid-Glass-buttons-macOS26"
+Packaging:
+  source: "scripts/build-settings-catalog.sh"
+  identity: "ru.egormerkushev.dreams.settings-catalog"
+  runtime_dependency: "no-import-or-link-to-production-Dreams"
+  sdk: "scripts/swift-macos.sh compiles and links with active macOS SDK; package deployment target preserved and executable Mach-O metadata verified"

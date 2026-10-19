@@ -1,0 +1,341 @@
+[
+  {
+    "name": "app.badge",
+    "result": [
+      {
+        "availability": {
+          "hierarchical": {
+            "macOS": "12.0"
+          },
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "multicolor": {
+            "macOS": "12.0"
+          },
+          "palette": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+10044F",
+        "name": "app.badge"
+      }
+    ]
+  },
+  {
+    "name": "arrow.down",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+100129",
+        "name": "arrow.down"
+      }
+    ]
+  },
+  {
+    "name": "bolt",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "multicolor": {
+            "macOS": "14.0"
+          }
+        },
+        "codepoint": "U+1002E5",
+        "name": "bolt"
+      }
+    ]
+  },
+  {
+    "name": "camera",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+10031E",
+        "name": "camera"
+      }
+    ]
+  },
+  {
+    "name": "character",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+10014F",
+        "name": "character"
+      }
+    ]
+  },
+  {
+    "name": "circle.lefthalf.filled",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+100002",
+        "name": "circle.lefthalf.filled"
+      }
+    ]
+  },
+  {
+    "name": "clock",
+    "result": [
+      {
+        "availability": {
+          "hierarchical": {
+            "macOS": "12.0"
+          },
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "multicolor": {
+            "macOS": "12.0"
+          },
+          "palette": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+10042B",
+        "name": "clock"
+      }
+    ]
+  },
+  {
+    "name": "desktopcomputer",
+    "result": [
+      {
+        "availability": {
+          "hierarchical": {
+            "macOS": "12.0"
+          },
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "palette": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+100657",
+        "name": "desktopcomputer"
+      }
+    ]
+  },
+  {
+    "name": "display",
+    "result": [
+      {
+        "availability": {
+          "hierarchical": {
+            "macOS": "12.0"
+          },
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "palette": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+1008B9",
+        "name": "display"
+      }
+    ]
+  },
+  {
+    "name": "drop",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+100811",
+        "name": "drop"
+      }
+    ]
+  },
+  {
+    "name": "keyboard",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+1001F3",
+        "name": "keyboard"
+      }
+    ]
+  },
+  {
+    "name": "line.3.horizontal.decrease",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+100713",
+        "name": "line.3.horizontal.decrease"
+      }
+    ]
+  },
+  {
+    "name": "magnifyingglass",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+1002AB",
+        "name": "magnifyingglass"
+      }
+    ]
+  },
+  {
+    "name": "moon",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+1001B9",
+        "name": "moon"
+      }
+    ]
+  },
+  {
+    "name": "paintpalette",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "multicolor": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+100765",
+        "name": "paintpalette"
+      }
+    ]
+  },
+  {
+    "name": "rectangle.split.3x1",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+1003DF",
+        "name": "rectangle.split.3x1"
+      }
+    ]
+  },
+  {
+    "name": "sparkles",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "multicolor": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+1001BF",
+        "name": "sparkles"
+      }
+    ]
+  },
+  {
+    "name": "square.grid.3x3",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+1009B2",
+        "name": "square.grid.3x3"
+      }
+    ]
+  },
+  {
+    "name": "square.on.square",
+    "result": [
+      {
+        "availability": {
+          "hierarchical": {
+            "macOS": "12.0"
+          },
+          "monochrome": {
+            "macOS": "11.0"
+          },
+          "palette": {
+            "macOS": "12.0"
+          }
+        },
+        "codepoint": "U+100405",
+        "name": "square.on.square"
+      }
+    ]
+  },
+  {
+    "name": "sun.max",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+1001AD",
+        "name": "sun.max"
+      }
+    ]
+  },
+  {
+    "name": "waveform.path",
+    "result": [
+      {
+        "availability": {
+          "monochrome": {
+            "macOS": "11.0"
+          }
+        },
+        "codepoint": "U+100443",
+        "name": "waveform.path"
+      }
+    ]
+  }
+]
