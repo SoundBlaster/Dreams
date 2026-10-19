@@ -43,6 +43,7 @@ private struct NativeHookRow: View {
             SettingsRowLabel(verbatim: L("hooks." + source), systemImage: "app.badge")
         }
         .accessibilityElement(children: .contain)
+        .help(Bundle.main.executablePath.map { L("hooks.path.tip", $0) } ?? "")
     }
     private func actionTitle(_ state: HooksInstaller.State) -> String {
         L(state == .connected ? "button.disconnect" : state == .outdated ? "button.update"
@@ -92,11 +93,13 @@ struct NativeAdvancedForm: View {
             Section(settingsString("debug.menu")) {
                 Button(settingsString("debug.fixtures")) { model.showFixtures() }
                     .accessibilityIdentifier("dreams.event-fixtures")
+                    .help(settingsString("debug.fixtures.tip"))
                 Text(settingsString("debug.fixtures.tip")).foregroundStyle(.secondary)
             }
             Section {
                 Button(settingsString("button.reset"), role: .destructive) { confirmingReset = true }
                     .accessibilityIdentifier("dreams.reset-defaults")
+                    .help(settingsString("button.reset.tip"))
                 Text(settingsString("button.reset.tip")).foregroundStyle(.secondary)
             }
         }
