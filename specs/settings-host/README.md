@@ -126,3 +126,5 @@ Permanently visible sidebar: [2026-10-19-fixed-sidebar](validation/2026-10-19-fi
 Sidebar top spacing: [2026-10-19-sidebar-inset](validation/2026-10-19-sidebar-inset/README.md).
 
 Sidebar row refinement: [2026-10-19-sidebar-rows](validation/2026-10-19-sidebar-rows/README.md).
+
+Preview help width refinement: [2026-10-19-preview-help-width](validation/2026-10-19-preview-help-width/README.md).

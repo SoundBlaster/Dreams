@@ -126,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-19-sidebar-rows/README.md
+  path: validation/2026-10-19-preview-help-width/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: d93aca41f28560a6e5de943f830de80b89cdcbc5
+    revision: 84298eb2c4415403c0b7e9d860900953b488d567
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -184,7 +184,7 @@ implementationBindings:
     - evidence/2026-10-18-preview-growth/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
-    - evidence/2026-10-19-sidebar-rows/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
+    - evidence/2026-10-19-preview-help-width/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
     - evidence/2026-10-18-native-sliders/source/scripts/test-native-settings-trace.py

@@ -1,0 +1,67 @@
+$ /Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode parse specs/hypercode/settings-host.hc
+SettingsPage
+  LaunchRouting
+  NativePresentation
+    Navigation
+    Forms
+    LivePreview
+  SettingsBinding
+  ShortcutRecording
+  LegacyAccess
+  WindowLifetime
+
+exit=0
+$ /Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=legacy
+ok: no issues found
+
+exit=0
+$ /Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=native
+ok: no issues found
+
+exit=0
+$ specpm validate specs/settings-host --json
+{
+  "capabilities": [
+    "dreams.settings.host"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/host.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams native settings host",
+    "package_id": "dreams.settings_host",
+    "version": "0.1.0-draft.15"
+  },
+  "status": "warning_only",
+  "warning_count": 3,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/host.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: dreams.settings.ui",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/host.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/host.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.swiftui",
+      "severity": "warning"
+    }
+  ]
+}
+
+exit=0

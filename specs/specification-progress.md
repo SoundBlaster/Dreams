@@ -558,3 +558,10 @@ header/footer displacement; the outline remains layout-neutral. Native List/Labe
 body text and more generous native insets/minimum height. Stable roles/claim IDs
 retained; provider/renderer unchanged. [Baseline](settings-host/validation/2026-10-19-sidebar-rows/README.md)
 separates current source, native UI observation and structural validity.
+
+## 2026-10-19 — Full-width preview help
+
+The compact preview help panel now accepts all offered width with leading text
+alignment. Existing LivePreview/material_composition and preview_scale obligations
+remain valid; no map/contract semantics or provider change. [New source baseline](settings-host/validation/2026-10-19-preview-help-width/README.md)
+repins implementation and preserves prior visual evidence on its historical source.
