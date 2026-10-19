@@ -5,7 +5,6 @@ import SwiftUI
 struct NativeSettingsPage: View {
     let model: NativeSettingsModel
     @State private var selection: NativeSettingsSection?
-    @State private var visibility: NavigationSplitViewVisibility = .all
 
     init(model: NativeSettingsModel, initialSection: NativeSettingsSection = .general) {
         self.model = model
@@ -13,7 +12,7 @@ struct NativeSettingsPage: View {
     }
 
     var body: some View {
-        NavigationSplitView(columnVisibility: $visibility) {
+        NavigationSplitView(columnVisibility: .constant(.all)) {
             List(NativeSettingsSection.allCases, selection: $selection) { section in
                 NavigationLink(value: section) { Label(section.title, systemImage: section.symbol) }
                     .listItemTint(model.rainColor)
@@ -21,15 +20,9 @@ struct NativeSettingsPage: View {
             .listStyle(.sidebar)
             .toolbar(removing: .sidebarToggle)
             .safeAreaInset(edge: .top) {
-                VStack(spacing: 12) {
-                    HStack {
-                        Color.clear.frame(height: 28).gesture(WindowDragGesture())
-                        sidebarButton
-                    }
-                    NativeSidebarBrand()
-                }
-                .padding(.horizontal, 12)
-                .padding(.top, 28)
+                NativeSidebarBrand()
+                    .padding(.horizontal, 12)
+                    .padding(.top, 44)
             }
             .navigationSplitViewColumnWidth(min: 170, ideal: 220, max: 300)
         } detail: {
@@ -52,15 +45,10 @@ struct NativeSettingsPage: View {
                         .padding(16)
                     }
                 }
-                .padding(.top, visibility == .detailOnly ? 32 : 0)
             }
             .ignoresSafeArea(.container, edges: .top)
-            .overlay(alignment: .topLeading) {
-                if visibility == .detailOnly {
-                    sidebarButton.padding(.leading, 100).padding(.top, 8)
-                }
-            }
         }
+        .navigationSplitViewStyle(.balanced)
         .toolbar(removing: .sidebarToggle)
         .toolbarVisibility(.hidden, for: .windowToolbar)
         .tint(model.rainColor)
@@ -81,18 +69,6 @@ struct NativeSettingsPage: View {
         }
     }
 
-    private var sidebarButton: some View {
-        Button {
-            visibility = visibility == .detailOnly ? .all : .detailOnly
-        } label: {
-            Label(settingsString("native.toggleSidebar"), systemImage: "sidebar.leading")
-        }
-        .labelStyle(.iconOnly)
-        .buttonStyle(.borderless)
-        .keyboardShortcut("s", modifiers: [.control, .command])
-        .help(settingsString("native.toggleSidebar"))
-        .accessibilityIdentifier("dreams.native.toggle-sidebar")
-    }
 }
 
 private struct NativeSidebarBrand: View {
