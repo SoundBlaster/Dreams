@@ -30,6 +30,7 @@ struct NativePreviewPane: View {
             SettingsMaterialPanel {
                 Text(settingsString("native.preview.help"))
                     .font(.caption).foregroundStyle(.secondary).padding(12)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .overlay {
