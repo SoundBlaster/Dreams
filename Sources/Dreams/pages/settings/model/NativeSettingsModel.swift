@@ -9,14 +9,16 @@ final class NativeSettingsModel {
     @ObservationIgnored let controller: DreamsController
     @ObservationIgnored let preview: RainPreviewSession
     @ObservationIgnored private weak var owner: SettingsPageController?
+    @ObservationIgnored private let resetToDefaults: () throws -> Void
     private var revision = 0
     var activity = ""
     var errorMessage: String?
 
-    init(owner: SettingsPageController) {
+    init(owner: SettingsPageController, resetToDefaults: (() throws -> Void)? = nil) {
         self.owner = owner
         controller = owner.controller
         preview = RainPreviewSession(controller: owner.controller)
+        self.resetToDefaults = resetToDefaults ?? { [controller = owner.controller] in try controller.resetToDefaults() }
     }
 
     func refresh() {
@@ -141,9 +143,11 @@ final class NativeSettingsModel {
     func showFixtures() { perform { try controller.showEventFixtures() } }
     func reset() {
         perform {
-            try controller.resetToDefaults()
-            owner?.applyStopHotkey(controller.stopHotkey)
-            owner?.syncControls()
+            defer {
+                owner?.applyStopHotkey(controller.stopHotkey)
+                owner?.syncControls()
+            }
+            try resetToDefaults()
         }
     }
     private func perform(_ operation: () throws -> Void) {
