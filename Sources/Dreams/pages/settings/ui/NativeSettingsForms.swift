@@ -9,8 +9,7 @@ struct NativeParameterRow: View {
     var body: some View {
         SettingsSliderRow(parameter.title, value: $model[parameter: parameter], in: parameter.range,
                           step: parameter.step, readout: parameter.readout(model[parameter: parameter], locale: locale),
-                          identifier: parameter.identifier, systemImage: parameter.symbol)
-            .help(parameter.help)
+                          identifier: parameter.identifier, systemImage: parameter.symbol, help: parameter.help)
     }
 }
 
@@ -140,9 +139,9 @@ struct NativeRainForm: View {
                 }
                     .accessibilityIdentifier("dreams.rain-columns-auto")
                 SettingsSliderRow(settingsString("rain.columns"), value: $model.columns, in: 24...240, step: 1,
-                                  readout: Int(model.columns).formatted(), identifier: "dreams.rain-columns", systemImage: "rectangle.split.3x1")
+                                  readout: Int(model.columns).formatted(), identifier: "dreams.rain-columns",
+                                  systemImage: "rectangle.split.3x1", help: settingsString("rain.columns.tip"))
                     .disabled(model.automaticColumns)
-                    .help(settingsString("rain.columns.tip"))
                 NativeParameterRow(model: model, parameter: .density)
             } header: {
                 VStack(alignment: .leading, spacing: 8) {
