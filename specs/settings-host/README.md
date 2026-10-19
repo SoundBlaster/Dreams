@@ -128,3 +128,5 @@ Sidebar top spacing: [2026-10-19-sidebar-inset](validation/2026-10-19-sidebar-in
 Sidebar row refinement: [2026-10-19-sidebar-rows](validation/2026-10-19-sidebar-rows/README.md).
 
 Preview help width refinement: [2026-10-19-preview-help-width](validation/2026-10-19-preview-help-width/README.md).
+
+Prominent playback refinement: [2026-10-19-playback-button](validation/2026-10-19-playback-button/README.md).

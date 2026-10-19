@@ -565,3 +565,10 @@ The compact preview help panel now accepts all offered width with leading text
 alignment. Existing LivePreview/material_composition and preview_scale obligations
 remain valid; no map/contract semantics or provider change. [New source baseline](settings-host/validation/2026-10-19-preview-help-width/README.md)
 repins implementation and preserves prior visual evidence on its historical source.
+
+## 2026-10-19 — Prominent preview playback
+
+Host draft.16 folds heading removal and large fixed-content prominent glass playback
+into material_composition/LivePreview. Root rain tint and native accessibility labels
+remain; one renderer, full-width help and playback lifetime unchanged.
+[Current baseline](settings-host/validation/2026-10-19-playback-button/README.md) separates source, structure and actual UI.
