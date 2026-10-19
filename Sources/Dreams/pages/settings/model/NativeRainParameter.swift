@@ -32,6 +32,20 @@ enum NativeRainParameter: CaseIterable {
         case .keywordBrightness: settingsString("words.brightness")
         }
     }
+    var help: LocalizedStringResource {
+        switch self {
+        case .density: settingsString("rain.density.tip")
+        case .speed: settingsString("rain.speed.tip")
+        case .search: settingsString("rain.search.tip")
+        case .deceleration: settingsString("rain.deceleration.tip")
+        case .fade: settingsString("rain.fade.tip")
+        case .spread: settingsString("rain.spread.tip")
+        case .pulse: settingsString("rain.pulse.tip")
+        case .glow: settingsString("rain.glow.tip")
+        case .idle: settingsString("rain.idle.tip")
+        case .keywordBrightness: settingsString("words.brightness.tip")
+        }
+    }
     var symbol: String {
         switch self {
         case .density: "drop"

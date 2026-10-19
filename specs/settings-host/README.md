@@ -134,3 +134,5 @@ Prominent playback refinement: [2026-10-19-playback-button](validation/2026-10-1
 Unframed preview: [2026-10-19-no-preview-outline](validation/2026-10-19-no-preview-outline/README.md).
 
 Content setting icons: [2026-10-19-content-icons](validation/2026-10-19-content-icons/README.md).
+
+Parity corrections: [2026-10-19-parity-fixes](validation/2026-10-19-parity-fixes/README.md).

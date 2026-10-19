@@ -50,3 +50,5 @@ Dense tick cleanup and native SDK appearance: [2026-10-18 SDK/sliders](validatio
 Native Liquid Glass panels: [2026-10-19-liquid-glass](validation/2026-10-19-liquid-glass/README.md).
 
 Content setting icons: [2026-10-19-content-icons](validation/2026-10-19-content-icons/README.md).
+
+Direct Slider help: [2026-10-19-parity-fixes](validation/2026-10-19-parity-fixes/README.md).

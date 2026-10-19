@@ -1,0 +1,14 @@
+Building for production...
+[11 / 42] VirtualDisplayBridge
+[19 / 45] VirtualDisplayBridge
+[21 / 46] DreamsSettingsUI
+[23 / 42] EventSource
+[25 / 38] Logging
+[27 / 34] SystemPackage
+[31 / 38] MCP
+[33 / 39] MCP
+[36 / 39] Dreams-product
+[38 / 41] Dreams-product
+[40 / 41] Dreams-product
+[41 / 41] Dreams-product
+Build complete! (20.78 sec)

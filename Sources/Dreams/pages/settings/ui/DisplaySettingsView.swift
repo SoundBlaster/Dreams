@@ -52,10 +52,7 @@ final class DisplaySettingsView: NSStackView {
         let displays = controller.displays
         let targets = Set(selection.targets(in: displays).map(\.id))
         for display in displays {
-            var title = display.name
-            if display.builtIn { title += " · " + L("display.builtIn") }
-            if display.isMain { title += " · " + L("display.main") }
-            if display.excluded { title += " · " + L("display.agentWorkspace") }
+            let title = display.settingsTitle
             let button = NSButton(checkboxWithTitle: title, target: self, action: #selector(toggleDisplay(_:)))
             button.identifier = NSUserInterfaceItemIdentifier(display.id)
             button.setAccessibilityIdentifier("dreams.display-" + display.id)
@@ -101,5 +98,16 @@ final class DisplaySettingsView: NSStackView {
     private func apply(_ selection: RainDisplaySelection) {
         do { try controller.setDisplaySelection(selection) }
         catch { refresh(); NSAlert(error: error).runModal() }
+    }
+}
+
+extension RainDisplay {
+    /// Both settings presentations identify display roles with the same localized suffixes.
+    var settingsTitle: String {
+        var parts = [name]
+        if builtIn { parts.append(L("display.builtIn")) }
+        if isMain { parts.append(L("display.main")) }
+        if excluded { parts.append(L("display.agentWorkspace")) }
+        return parts.joined(separator: " · ")
     }
 }

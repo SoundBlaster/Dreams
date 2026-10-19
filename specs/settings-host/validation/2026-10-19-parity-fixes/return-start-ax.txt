@@ -1,0 +1,7 @@
+Window: "Dreams Rain · Built-in Retina Display", App: Dreams Parity Fix QA.
+0 window Dreams Rain · Built-in Retina Display, Secondary Actions: Raise
+	1 button Exit · Esc, Description: Exit screen animation, Help: Stop the animation on all selected displays., ID: dreams.exit-overlay
+2 menu bar
+	3 Dreams Parity Fix QA
+
+The focused UI element is 0 window Dreams Rain · Built-in Retina Display, Secondary Actions: Raise
