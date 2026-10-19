@@ -48,3 +48,5 @@ Adaptive slider P2 correction: [2026-10-18 review](validation/2026-10-18-alignme
 Dense tick cleanup and native SDK appearance: [2026-10-18 SDK/sliders](validation/2026-10-18-native-sliders/README.md).
 
 Native Liquid Glass panels: [2026-10-19-liquid-glass](validation/2026-10-19-liquid-glass/README.md).
+
+Content setting icons: [2026-10-19-content-icons](validation/2026-10-19-content-icons/README.md).

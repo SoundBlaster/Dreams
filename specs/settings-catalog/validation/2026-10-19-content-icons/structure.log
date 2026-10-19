@@ -1,0 +1,46 @@
+$ /Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode parse specs/hypercode/settings-catalog.hc
+SettingsCatalog
+  NativeComponents
+  FixtureForms
+  WindowNavigation
+  MaterialSamples
+  Packaging
+
+exit=0
+$ /Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode validate specs/hypercode/settings-catalog.hc --hcs specs/hypercode/settings-catalog.hcs
+ok: no issues found
+
+exit=0
+$ specpm validate /Users/egor/.codex/worktrees/screen-management/Dreams/specs/settings-catalog --json
+{
+  "capabilities": [
+    "dreams.settings.catalog",
+    "dreams.settings.ui"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/catalog.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams native settings catalog",
+    "package_id": "dreams.settings_catalog",
+    "version": "0.1.0-draft.9"
+  },
+  "status": "warning_only",
+  "warning_count": 1,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/catalog.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.swiftui",
+      "severity": "warning"
+    }
+  ]
+}
+
+exit=0

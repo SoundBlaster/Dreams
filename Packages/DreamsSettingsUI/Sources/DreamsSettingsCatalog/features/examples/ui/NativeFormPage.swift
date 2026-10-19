@@ -18,25 +18,26 @@ struct NativeFormPage: View {
                     .foregroundStyle(.secondary)
             }
             Section {
-                Toggle(isOn: $automatic) { Text(catalogString("rain.automaticColumns")) }
+                Toggle(isOn: $automatic) { SettingsRowLabel(catalogString("rain.automaticColumns"), systemImage: "square.grid.3x3") }
                 SettingsSliderRow(catalogString("rain.columns"), value: $columns, in: 24...240,
-                                  readout: Int(columns).formatted(), identifier: "catalog.form.columns")
+                                  readout: Int(columns).formatted(), identifier: "catalog.form.columns", systemImage: "rectangle.split.3x1")
                     .disabled(automatic)
                 SettingsSliderRow(catalogString("rain.density"), value: $density, in: 0...1, step: 0.01,
-                                  readout: density.formatted(.percent.precision(.fractionLength(0))), identifier: "catalog.form.density")
+                                  readout: density.formatted(.percent.precision(.fractionLength(0))), identifier: "catalog.form.density", systemImage: "drop")
             } header: { Text(catalogString("rain.layout")) }
             Section {
                 SettingsSliderRow(catalogString("rain.speed"), value: $speed, in: 0.1...3, step: 0.01,
-                                  readout: speed.formatted(.number.precision(.fractionLength(2))) + "×", identifier: "catalog.form.speed")
-                Toggle(isOn: $braking) { Text(catalogString("rain.braking")) }
+                                  readout: speed.formatted(.number.precision(.fractionLength(2))) + "×", identifier: "catalog.form.speed", systemImage: "bolt")
+                Toggle(isOn: $braking) { SettingsRowLabel(catalogString("rain.braking"), systemImage: "arrow.down") }
                 SettingsSliderRow(catalogString("rain.acceleration"), value: $acceleration, in: -120...0,
-                                  readout: acceleration.formatted() + " rows/s²", identifier: "catalog.form.acceleration")
+                                  readout: acceleration.formatted() + " rows/s²", identifier: "catalog.form.acceleration", systemImage: "arrow.down")
                     .disabled(!braking)
                 SettingsSliderRow(catalogString("rain.search"), value: $search, in: 0...1, step: 0.01,
-                                  readout: search.formatted(.percent.precision(.fractionLength(0))), identifier: "catalog.form.search")
+                                  readout: search.formatted(.percent.precision(.fractionLength(0))),
+                                  identifier: "catalog.form.search", systemImage: "magnifyingglass")
             } header: { Text(catalogString("rain.motion")) }
             Section {
-                Toggle(isOn: $transparent) { Text(catalogString("rain.transparent")) }
+                Toggle(isOn: $transparent) { SettingsRowLabel(catalogString("rain.transparent"), systemImage: "square.on.square") }
             } header: { Text(catalogString("rain.background")) }
             Section {
                 Button {

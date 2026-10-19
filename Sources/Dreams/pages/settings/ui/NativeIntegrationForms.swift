@@ -1,3 +1,4 @@
+import DreamsSettingsUI
 import SwiftUI
 
 struct NativeWordsForm: View {
@@ -6,7 +7,9 @@ struct NativeWordsForm: View {
     var body: some View {
         Form {
             Section(settingsString("section.words")) {
-                ColorPicker(settingsString("words.color.accessibility"), selection: $model.keywordColor, supportsOpacity: false)
+                ColorPicker(selection: $model.keywordColor, supportsOpacity: false) {
+                    SettingsRowLabel(settingsString("words.color.accessibility"), systemImage: "paintpalette")
+                }
                     .accessibilityIdentifier("dreams.keyword-color")
                 NativeParameterRow(model: model, parameter: .keywordBrightness)
             }
@@ -27,7 +30,7 @@ private struct NativeHookRow: View {
 
     var body: some View {
         let state = model.hookState(source)
-        LabeledContent(L("hooks." + source)) {
+        LabeledContent {
             HStack {
                 Text(L("hooks.state." + state.rawValue))
                     .foregroundStyle(.secondary)
@@ -36,6 +39,8 @@ private struct NativeHookRow: View {
                     .disabled(state == .plugin).accessibilityIdentifier("dreams.hooks-" + source)
             }
             .accessibilityElement(children: .contain)
+        } label: {
+            SettingsRowLabel(verbatim: L("hooks." + source), systemImage: "app.badge")
         }
         .accessibilityElement(children: .contain)
     }
@@ -51,14 +56,18 @@ struct NativeDisplaysForm: View {
     var body: some View {
         Form {
             Section(settingsString("section.displays")) {
-                Picker(settingsString("section.displays"), selection: $model.displayMode) {
+                Picker(selection: $model.displayMode) {
                     ForEach(RainDisplaySelection.Mode.allCases, id: \.self) { mode in
                         Text(L("display.mode." + mode.rawValue)).tag(mode)
                     }
+                } label: {
+                    SettingsRowLabel(settingsString("section.displays"), systemImage: "display")
                 }
                 .accessibilityIdentifier("dreams.display-mode")
                 ForEach(model.displays, id: \.id) { display in
-                    Toggle(display.name, isOn: $model[display: display.id])
+                    Toggle(isOn: $model[display: display.id]) {
+                        SettingsRowLabel(verbatim: display.name, systemImage: "desktopcomputer")
+                    }
                         .disabled(model.displayMode != .selected || display.excluded)
                         .accessibilityIdentifier("dreams.display-" + display.id)
                 }

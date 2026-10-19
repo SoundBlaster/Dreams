@@ -558,3 +558,31 @@ header/footer displacement; the outline remains layout-neutral. Native List/Labe
 body text and more generous native insets/minimum height. Stable roles/claim IDs
 retained; provider/renderer unchanged. [Baseline](settings-host/validation/2026-10-19-sidebar-rows/README.md)
 separates current source, native UI observation and structural validity.
+
+## 2026-10-19 — Full-width preview help
+
+The compact preview help panel now accepts all offered width with leading text
+alignment. Existing LivePreview/material_composition and preview_scale obligations
+remain valid; no map/contract semantics or provider change. [New source baseline](settings-host/validation/2026-10-19-preview-help-width/README.md)
+repins implementation and preserves prior visual evidence on its historical source.
+
+## 2026-10-19 — Prominent preview playback
+
+Host draft.16 folds heading removal and large fixed-content prominent glass playback
+into material_composition/LivePreview. Root rain tint and native accessibility labels
+remain; one renderer, full-width help and playback lifetime unchanged.
+[Current baseline](settings-host/validation/2026-10-19-playback-button/README.md) separates source, structure and actual UI.
+
+## 2026-10-19 — Unframed preview
+
+Host draft.17 removes the enclosing outline from material_composition/LivePreview;
+native glass button/help edges remain. Stable renderer/playback and parent obligations
+retained. [Current evidence](settings-host/validation/2026-10-19-no-preview-outline/README.md) preserves earlier baselines.
+
+## 2026-10-19 — Native setting icons
+
+Host draft.18 and catalog draft.9 bind shared SettingsRowLabel and optional
+SettingsSliderRow symbol presentation. Stable Forms/NativeComponents roles and
+claim identities remain; icon slots are decorative and state/control semantics
+unchanged. Both consumers repinned to [current source and validation](settings-host/validation/2026-10-19-content-icons/README.md).
+Full VoiceOver/macOS15 acceptance remains separate.
