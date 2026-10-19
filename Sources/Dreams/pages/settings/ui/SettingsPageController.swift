@@ -183,11 +183,15 @@ final class SettingsPageController: NSObject {
         let seconds = controller.runTimeSeconds
         (controlsByID["dreams.run-time"] as? NSPopUpButton)?.isEnabled = !controller.transparentBackground
         let hotkey = controller.stopHotkey.display
-        runTimeHint?.stringValue = controller.transparentBackground ? L("hint.runtime.transparent", hotkey)
-            : seconds > 0 ? L("hint.runtime", Self.runTimeTitle(seconds).lowercased(), hotkey)
-            : L("hint.runtime.unlimited", hotkey)
+        runTimeHint?.stringValue = Self.runTimeHint(seconds: seconds, transparent: controller.transparentBackground, hotkey: hotkey)
         hotkeyButton?.title = shortcutRecorder.isRecording ? L("hotkey.recording") : controller.stopHotkey.display
         hotkeyNote?.stringValue = shortcutRecorder.message ?? ""
+    }
+
+    static func runTimeHint(seconds: Double, transparent: Bool, hotkey: String) -> String {
+        transparent ? L("hint.runtime.transparent", hotkey)
+            : seconds > 0 ? L("hint.runtime", Self.runTimeTitle(seconds).lowercased(), hotkey)
+            : L("hint.runtime.unlimited", hotkey)
     }
 
     /// Both settings windows use the same recorder and registration owner.

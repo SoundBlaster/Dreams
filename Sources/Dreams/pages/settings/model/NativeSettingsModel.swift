@@ -74,6 +74,9 @@ final class NativeSettingsModel {
             controller.runTimeSeconds = newValue
         }
     }
+    var runTimeHint: String {
+        SettingsPageController.runTimeHint(seconds: runTime, transparent: transparent, hotkey: stopShortcut)
+    }
     var rainColor: Color {
         get { Color(nsColor: read(\.rainColor)) }
         set { controller.rainColor = NSColor(newValue) }

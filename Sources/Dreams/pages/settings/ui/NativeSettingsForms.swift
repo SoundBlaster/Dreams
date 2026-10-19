@@ -37,6 +37,10 @@ struct NativeGeneralForm: View {
                 }
                 .disabled(model.transparent).accessibilityIdentifier("dreams.run-time")
                 .help(settingsString("runtime.tip"))
+                Text(model.runTimeHint)
+                    .font(.caption).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .accessibilityIdentifier("dreams.run-time-hint")
             }
             Section(settingsString("hotkey.label")) {
                 NativeShortcutRow(model: model)

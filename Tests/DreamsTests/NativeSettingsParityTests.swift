@@ -4,6 +4,25 @@ import Testing
 @testable import Dreams
 
 extension NativeSettingsTests {
+    @Test(arguments: [0.0, 300, 1800, 3600], [false, true])
+    func runtimeHintMatchesBackgroundDurationAndShortcut(seconds: Double, transparent: Bool) throws {
+        _ = NSApplication.shared
+        let restore = Self.preserveDefaults()
+        defer { restore() }
+        let controller = DreamsController()
+        let page = SettingsPageController(controller: controller)
+        defer { page.cleanUp() }
+        let model = NativeSettingsModel(owner: page)
+        model.runTime = seconds
+        model.transparent = transparent
+        let shortcut = StopHotkey(keyCode: UInt32(kVK_F17), modifiers: UInt32(controlKey | optionKey | cmdKey | shiftKey), key: "F17")
+        controller.stopHotkey = shortcut
+        let expected = transparent ? L("hint.runtime.transparent", shortcut.display)
+            : seconds > 0 ? L("hint.runtime", SettingsPageController.runTimeTitle(seconds).lowercased(), shortcut.display)
+            : L("hint.runtime.unlimited", shortcut.display)
+        #expect(model.runTimeHint == expected)
+    }
+
     @Test func failedResetReconcilesThePartiallyChangedStopShortcut() throws {
         _ = NSApplication.shared
         let restore = Self.preserveDefaults()
