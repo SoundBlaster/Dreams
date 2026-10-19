@@ -43,13 +43,13 @@ struct NativeSettingsPage: View {
                         HStack(spacing: 16) {
                             settingsPanel
                                 .frame(width: min(480, geometry.size.width - 48 - 240))
-                            NativePreviewPane(session: model.preview, outlined: selection == .rain)
+                            NativePreviewPane(session: model.preview)
                                 .frame(minWidth: 240, maxWidth: .infinity)
                         }
                         .padding(16)
                     } else {
                         VStack(spacing: 16) {
-                            NativePreviewPane(session: model.preview, outlined: selection == .rain).frame(height: 180)
+                            NativePreviewPane(session: model.preview).frame(height: 180)
                             settingsPanel
                         }
                         .padding(16)

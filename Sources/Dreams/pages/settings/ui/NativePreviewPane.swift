@@ -3,7 +3,6 @@ import SwiftUI
 
 struct NativePreviewPane: View {
     @Bindable var session: RainPreviewSession
-    var outlined = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,12 +24,6 @@ struct NativePreviewPane: View {
                 Text(settingsString("native.preview.help"))
                     .font(.caption).foregroundStyle(.secondary).padding(12)
                     .frame(maxWidth: .infinity, alignment: .leading)
-            }
-        }
-        .overlay {
-            if outlined {
-                RoundedRectangle(cornerRadius: 16).strokeBorder(.separator)
-                    .allowsHitTesting(false)
             }
         }
     }
