@@ -32,6 +32,20 @@ enum NativeRainParameter: CaseIterable {
         case .keywordBrightness: settingsString("words.brightness")
         }
     }
+    var symbol: String {
+        switch self {
+        case .density: "drop"
+        case .speed: "bolt"
+        case .search: "magnifyingglass"
+        case .deceleration: "arrow.down"
+        case .fade: "line.3.horizontal.decrease"
+        case .spread: "circle.lefthalf.filled"
+        case .pulse: "waveform.path"
+        case .glow: "sparkles"
+        case .idle: "moon"
+        case .keywordBrightness: "sun.max"
+        }
+    }
     var range: ClosedRange<Double> {
         switch self {
         case .speed: 0.25...3

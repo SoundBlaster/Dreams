@@ -8,16 +8,18 @@ public struct SettingsSliderRow: View {
     private let step: Double
     private let readout: String
     private let identifier: String
+    private let systemImage: String?
     @ScaledMetric(relativeTo: .body) private var readoutWidth = 80.0
 
     public init(_ title: LocalizedStringResource, value: Binding<Double>, in range: ClosedRange<Double>,
-                step: Double = 1, readout: String, identifier: String) {
+                step: Double = 1, readout: String, identifier: String, systemImage: String? = nil) {
         self.title = title
         _value = value
         self.range = range
         self.step = step
         self.readout = readout
         self.identifier = identifier
+        self.systemImage = systemImage
     }
 
     public var body: some View {
@@ -44,8 +46,12 @@ public struct SettingsSliderRow: View {
         .accessibilityElement(children: .contain)
     }
 
-    private var label: some View {
-        Text(title).fixedSize(horizontal: false, vertical: true)
+    @ViewBuilder private var label: some View {
+        if let systemImage {
+            SettingsRowLabel(title, systemImage: systemImage)
+        } else {
+            Text(title).fixedSize(horizontal: false, vertical: true)
+        }
     }
 
     private var slider: some View {

@@ -9,7 +9,7 @@ struct NativeParameterRow: View {
     var body: some View {
         SettingsSliderRow(parameter.title, value: $model[parameter: parameter], in: parameter.range,
                           step: parameter.step, readout: parameter.readout(model[parameter: parameter], locale: locale),
-                          identifier: parameter.identifier)
+                          identifier: parameter.identifier, systemImage: parameter.symbol)
     }
 }
 
@@ -27,10 +27,12 @@ struct NativeGeneralForm: View {
                     Button(settingsString("button.stop")) { model.stop() }
                         .accessibilityIdentifier("dreams.stop")
                 }
-                Picker(settingsString("runtime.accessibility"), selection: $model.runTime) {
+                Picker(selection: $model.runTime) {
                     ForEach(DreamsPreset.runTimeChoices, id: \.self) { seconds in
                         Text(SettingsPageController.runTimeTitle(seconds)).tag(seconds)
                     }
+                } label: {
+                    SettingsRowLabel(settingsString("runtime.accessibility"), systemImage: "clock")
                 }
                 .disabled(model.transparent).accessibilityIdentifier("dreams.run-time")
             }
@@ -77,7 +79,7 @@ private struct NativeShortcutRow: View {
     }
 
     private var shortcutValue: some View {
-        Text(model.stopShortcut).monospaced().fixedSize()
+        SettingsRowLabel(verbatim: model.stopShortcut, systemImage: "keyboard").monospaced().fixedSize()
             .accessibilityLabel(settingsString("hotkey.label"))
             .accessibilityValue(model.stopShortcut)
     }
@@ -99,14 +101,18 @@ struct NativeAppearanceForm: View {
     var body: some View {
         Form {
             Section(settingsString("label.color")) {
-                ColorPicker(settingsString("rain.color.accessibility"), selection: $model.rainColor, supportsOpacity: false)
+                ColorPicker(selection: $model.rainColor, supportsOpacity: false) {
+                    SettingsRowLabel(settingsString("rain.color.accessibility"), systemImage: "paintpalette")
+                }
                     .accessibilityIdentifier("dreams.rain-color")
                 NativeParameterRow(model: model, parameter: .glow)
                 NativeParameterRow(model: model, parameter: .spread)
                 NativeParameterRow(model: model, parameter: .pulse)
             }
             Section(settingsString("section.glyphs")) {
-                Toggle(settingsString("check.restored"), isOn: $model.restoredGlyphs)
+                Toggle(isOn: $model.restoredGlyphs) {
+                    SettingsRowLabel(settingsString("check.restored"), systemImage: "character")
+                }
                     .accessibilityIdentifier("dreams.restored-glyphs")
             }
         }
@@ -120,10 +126,12 @@ struct NativeRainForm: View {
     var body: some View {
         Form {
             Section {
-                Toggle(settingsString("rain.columns.auto"), isOn: $model.automaticColumns)
+                Toggle(isOn: $model.automaticColumns) {
+                    SettingsRowLabel(settingsString("rain.columns.auto"), systemImage: "square.grid.3x3")
+                }
                     .accessibilityIdentifier("dreams.rain-columns-auto")
                 SettingsSliderRow(settingsString("rain.columns"), value: $model.columns, in: 24...240, step: 1,
-                                  readout: Int(model.columns).formatted(), identifier: "dreams.rain-columns")
+                                  readout: Int(model.columns).formatted(), identifier: "dreams.rain-columns", systemImage: "rectangle.split.3x1")
                     .disabled(model.automaticColumns)
                 NativeParameterRow(model: model, parameter: .density)
             } header: {
@@ -138,7 +146,9 @@ struct NativeRainForm: View {
             Section(settingsString("native.motion")) {
                 NativeParameterRow(model: model, parameter: .speed)
                 NativeParameterRow(model: model, parameter: .fade)
-                Toggle(settingsString("rain.deceleration.enabled"), isOn: $model.decelerationEnabled)
+                Toggle(isOn: $model.decelerationEnabled) {
+                    SettingsRowLabel(settingsString("rain.deceleration.enabled"), systemImage: "arrow.down")
+                }
                     .accessibilityIdentifier("dreams.rain-deceleration-enabled")
                 NativeParameterRow(model: model, parameter: .deceleration).disabled(!model.decelerationEnabled)
             }
@@ -160,7 +170,9 @@ struct NativeBackgroundForm: View {
     var body: some View {
         Form {
             Section {
-                Toggle(settingsString("check.transparent"), isOn: $model.transparent)
+                Toggle(isOn: $model.transparent) {
+                    SettingsRowLabel(settingsString("check.transparent"), systemImage: "square.on.square")
+                }
                     .accessibilityIdentifier("dreams.transparent-background")
                 Text(settingsString("native.backgroundProfiles")).foregroundStyle(.secondary)
             }
@@ -169,7 +181,9 @@ struct NativeBackgroundForm: View {
                 Text(settingsString("rain.idle.tip")).foregroundStyle(.secondary)
             }
             Section {
-                Toggle(settingsString("check.hideFromScreenshots"), isOn: $model.hideFromScreenshots)
+                Toggle(isOn: $model.hideFromScreenshots) {
+                    SettingsRowLabel(settingsString("check.hideFromScreenshots"), systemImage: "camera")
+                }
                     .accessibilityIdentifier("dreams.hide-from-screenshots")
                 Text(settingsString("check.hideFromScreenshots.tip")).foregroundStyle(.secondary)
             }
