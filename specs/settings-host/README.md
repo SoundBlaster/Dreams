@@ -130,3 +130,5 @@ Sidebar row refinement: [2026-10-19-sidebar-rows](validation/2026-10-19-sidebar-
 Preview help width refinement: [2026-10-19-preview-help-width](validation/2026-10-19-preview-help-width/README.md).
 
 Prominent playback refinement: [2026-10-19-playback-button](validation/2026-10-19-playback-button/README.md).
+
+Unframed preview: [2026-10-19-no-preview-outline](validation/2026-10-19-no-preview-outline/README.md).

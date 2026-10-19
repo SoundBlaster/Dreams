@@ -572,3 +572,9 @@ Host draft.16 folds heading removal and large fixed-content prominent glass play
 into material_composition/LivePreview. Root rain tint and native accessibility labels
 remain; one renderer, full-width help and playback lifetime unchanged.
 [Current baseline](settings-host/validation/2026-10-19-playback-button/README.md) separates source, structure and actual UI.
+
+## 2026-10-19 — Unframed preview
+
+Host draft.17 removes the enclosing outline from material_composition/LivePreview;
+native glass button/help edges remain. Stable renderer/playback and parent obligations
+retained. [Current evidence](settings-host/validation/2026-10-19-no-preview-outline/README.md) preserves earlier baselines.
