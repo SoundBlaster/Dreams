@@ -36,3 +36,12 @@ a temporary QA-only harness; original window source and normal product were
 restored byte-for-byte. All57 current/source-map and snapshot hashes match.
 Production preferences and system theme were preserved. This does not establish
 macOS15 runtime, full accessibility or default-on acceptance.
+
+## Review evidence repair
+
+Preserved the historical [QA harness build log](build.log) and
+[Appearance AX](appearance-700-ax.txt)/[Rain AX](rain-700-ax.txt) cited in the
+original UI report. Their bytes match the retained QA artifacts. The log is for
+the temporary sizing harness, distinct from the separately observed normal build.
+Restoration is an operator observation; the retained compiler log does not prove it.
+No application, map, contract or runtime-source identity changed.
