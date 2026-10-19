@@ -25,6 +25,7 @@ struct NativeGeneralForm: View {
                 HStack {
                     Button(settingsString("button.startMatrix")) { model.start() }
                         .buttonStyle(.borderedProminent).accessibilityIdentifier("dreams.start-matrix")
+                        .keyboardShortcut(.defaultAction)
                     Button(settingsString("button.stop")) { model.stop() }
                         .accessibilityIdentifier("dreams.stop")
                 }
