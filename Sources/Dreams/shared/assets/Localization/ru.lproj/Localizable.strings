@@ -179,3 +179,5 @@
 "hotkey.invalid" = "Добавьте Control, Option или Command к клавише. Esc отменяет запись.";
 
 "native.toggleSidebar" = "Показать или скрыть боковую панель";
+
+"native.brand.subtitle" = "Agentic Screensaver";

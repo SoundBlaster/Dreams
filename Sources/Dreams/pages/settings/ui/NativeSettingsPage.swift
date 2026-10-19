@@ -1,3 +1,4 @@
+import AppKit
 import DreamsSettingsUI
 import SwiftUI
 
@@ -20,9 +21,12 @@ struct NativeSettingsPage: View {
             .listStyle(.sidebar)
             .toolbar(removing: .sidebarToggle)
             .safeAreaInset(edge: .top) {
-                HStack {
-                    Color.clear.frame(height: 28).gesture(WindowDragGesture())
-                    sidebarButton
+                VStack(spacing: 12) {
+                    HStack {
+                        Color.clear.frame(height: 28).gesture(WindowDragGesture())
+                        sidebarButton
+                    }
+                    NativeSidebarBrand()
                 }
                 .padding(.horizontal, 12)
                 .padding(.top, 28)
@@ -88,6 +92,26 @@ struct NativeSettingsPage: View {
         .keyboardShortcut("s", modifiers: [.control, .command])
         .help(settingsString("native.toggleSidebar"))
         .accessibilityIdentifier("dreams.native.toggle-sidebar")
+    }
+}
+
+private struct NativeSidebarBrand: View {
+    var body: some View {
+        VStack(spacing: 6) {
+            Image(nsImage: NSApplication.shared.applicationIconImage)
+                .resizable().scaledToFit().frame(width: 64, height: 64)
+                .accessibilityHidden(true)
+            Text(verbatim: "Dreams").font(.headline)
+            Text(settingsString("native.brand.subtitle"))
+                .font(.caption).foregroundStyle(.secondary)
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.bottom, 16)
+        .contentShape(Rectangle())
+        .gesture(WindowDragGesture())
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("dreams.native.sidebar-brand")
     }
 }
 
