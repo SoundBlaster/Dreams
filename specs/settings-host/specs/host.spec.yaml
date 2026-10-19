@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.13
+  version: 0.1.0-draft.14
   status: draft
 intent:
   summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
@@ -62,7 +62,7 @@ constraints:
   statement: Absence of --native-settings selects the legacy window. --legacy-settings wins when both launch flags are present; there is no saved enablement key.
 - id: native_controls
   level: MUST
-  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable. The native host hides the window toolbar and title with system APIs while retaining titled-window controls, a full-size content view and native window dragging. Section titles live inside settings panels. The sidebar has a noninteractive identity header with the current application icon, Dreams title and Agentic Screensaver subtitle above the native section list. Its text uses semantic styles and a combined accessibility element; its background supports native window dragging. A localized sidebar button and Control-Command-S switch NavigationSplitView visibility; a detail-side button remains available when the sidebar is hidden. App build/release and native trace helpers use the active compiler SDK and matching linked SDK metadata, preserving the package deployment target.
+  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable. The native host hides the window toolbar and title with system APIs while retaining titled-window controls, a full-size content view and native window dragging. Section titles live inside settings panels. The sidebar has a noninteractive identity header with the current application icon, Dreams title and Agentic Screensaver subtitle above the native section list. Its text uses semantic styles and a combined accessibility element; its background supports native window dragging. The sidebar remains visible in a balanced NavigationSplitView with constant all-column visibility. There is no hide/show button, app-owned hide shortcut or collapsed-detail recovery layout. App build/release and native trace helpers use the active compiler SDK and matching linked SDK metadata, preserving the package deployment target.
 - id: one_settings_owner
   level: MUST
   statement: Native bindings use the existing DreamsController values and operations without independently persisting a second model. Controller settings/display notifications refresh the native adapter and an existing legacy window.
@@ -126,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-19-sidebar-brand/README.md
+  path: validation/2026-10-19-fixed-sidebar/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 3ab3b050c76cb13b0a21fa62ee8f8715e63aedf2
+    revision: 2691c3aca14488ff6fcedf78676dd11a3af01641
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -172,12 +172,12 @@ implementationBindings:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-16-parity/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-18-rain-composition/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
-    - evidence/2026-10-19-sidebar-brand/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
+    - evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-19-sidebar-brand/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-19-sidebar-brand/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift

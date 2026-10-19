@@ -120,3 +120,5 @@ Native Liquid Glass panels: [2026-10-19-liquid-glass](validation/2026-10-19-liqu
 Toolbar-free window: [2026-10-19-no-toolbar](validation/2026-10-19-no-toolbar/README.md).
 
 Sidebar identity header: [2026-10-19-sidebar-brand](validation/2026-10-19-sidebar-brand/README.md).
+
+Permanently visible sidebar: [2026-10-19-fixed-sidebar](validation/2026-10-19-fixed-sidebar/README.md).
