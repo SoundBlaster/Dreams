@@ -33,7 +33,8 @@ struct NativeFormPage: View {
                                   readout: acceleration.formatted() + " rows/s²", identifier: "catalog.form.acceleration", systemImage: "arrow.down")
                     .disabled(!braking)
                 SettingsSliderRow(catalogString("rain.search"), value: $search, in: 0...1, step: 0.01,
-                                  readout: search.formatted(.percent.precision(.fractionLength(0))), identifier: "catalog.form.search", systemImage: "magnifyingglass")
+                                  readout: search.formatted(.percent.precision(.fractionLength(0))),
+                                  identifier: "catalog.form.search", systemImage: "magnifyingglass")
             } header: { Text(catalogString("rain.motion")) }
             Section {
                 Toggle(isOn: $transparent) { SettingsRowLabel(catalogString("rain.transparent"), systemImage: "square.on.square") }
