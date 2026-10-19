@@ -126,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-19-fixed-sidebar/README.md
+  path: validation/2026-10-19-sidebar-inset/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 2691c3aca14488ff6fcedf78676dd11a3af01641
+    revision: a43e644e031f57ac77dad8ea84eb2489bdacd8bf
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -172,7 +172,7 @@ implementationBindings:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-16-parity/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-18-rain-composition/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
-    - evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
+    - evidence/2026-10-19-sidebar-inset/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift

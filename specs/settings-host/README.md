@@ -122,3 +122,5 @@ Toolbar-free window: [2026-10-19-no-toolbar](validation/2026-10-19-no-toolbar/RE
 Sidebar identity header: [2026-10-19-sidebar-brand](validation/2026-10-19-sidebar-brand/README.md).
 
 Permanently visible sidebar: [2026-10-19-fixed-sidebar](validation/2026-10-19-fixed-sidebar/README.md).
+
+Sidebar top spacing: [2026-10-19-sidebar-inset](validation/2026-10-19-sidebar-inset/README.md).
