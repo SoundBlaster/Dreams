@@ -4,6 +4,15 @@ import Testing
 @testable import Dreams
 
 extension NativeSettingsTests {
+    @Test func displayTitlesIdentifyBuiltInMainAndExcludedDisplays() {
+        let ordinary = RainDisplay(id: "external", name: "External", builtIn: false, isMain: false, excluded: false)
+        let internalMain = RainDisplay(id: "internal", name: "Retina", builtIn: true, isMain: true, excluded: false)
+        let workspace = RainDisplay(id: "workspace", name: "Agent", builtIn: false, isMain: false, excluded: true)
+        #expect(ordinary.settingsTitle == "External")
+        #expect(internalMain.settingsTitle == "Retina · " + L("display.builtIn") + " · " + L("display.main"))
+        #expect(workspace.settingsTitle == "Agent · " + L("display.agentWorkspace"))
+    }
+
     @Test(arguments: [0.0, 300, 1800, 3600], [false, true])
     func runtimeHintMatchesBackgroundDurationAndShortcut(seconds: Double, transparent: Bool) throws {
         _ = NSApplication.shared

@@ -67,10 +67,11 @@ struct NativeDisplaysForm: View {
                 .accessibilityIdentifier("dreams.display-mode")
                 ForEach(model.displays, id: \.id) { display in
                     Toggle(isOn: $model[display: display.id]) {
-                        SettingsRowLabel(verbatim: display.name, systemImage: "desktopcomputer")
+                        SettingsRowLabel(verbatim: display.settingsTitle, systemImage: "desktopcomputer")
                     }
                         .disabled(model.displayMode != .selected || display.excluded)
                         .accessibilityIdentifier("dreams.display-" + display.id)
+                        .help(display.settingsTitle)
                 }
                 Text(model.displayHint).foregroundStyle(.secondary).accessibilityIdentifier("dreams.display-hint")
             }
