@@ -10,7 +10,7 @@ NativePresentation:
   window: "titled full-size-content window; hidden title and transparent titlebar; standard window controls; native background/WindowDragGesture movement"
   sdk: "scripts/swift-macos.sh retains package minimum while linking active SDK metadata for automatic native appearance; toolbar visibility uses the native windowToolbar placement; prior SDK27 toolbar overpaint is absent in the new normal SDK27 capture; old evidence remains historical"
 Navigation:
-  implementation: "NavigationSplitView + List selection; window-owned State; no window toolbar/title or automatic toolbar sidebar item; in-panel headings; localized native sidebar button and Control-Command-S; hidden sidebar has detail-side recovery button"
+  implementation: "NavigationSplitView + List selection; window-owned State; no window toolbar/title or automatic toolbar sidebar item; in-panel headings; localized native sidebar button and Control-Command-S; hidden sidebar has detail-side recovery button; sidebar header shows current app icon, Dreams and Agentic Screensaver with combined text accessibility and native dragging"
 Forms:
   requires: "dreams.settings.ui from local DreamsSettingsUI; border hashes include manifest, SettingsSliderRow and SettingsMaterialPanel"
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift + NativeIntegrationForms.swift"

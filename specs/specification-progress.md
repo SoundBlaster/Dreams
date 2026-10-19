@@ -21,7 +21,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current bc7294f [glass panels](settings-catalog/validation/2026-10-19-liquid-glass/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 848a64d [toolbar-free window](settings-host/validation/2026-10-19-no-toolbar/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current 3ab3b05 [sidebar identity](settings-host/validation/2026-10-19-sidebar-brand/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -525,3 +525,11 @@ Navigation/NativePresentation/Forms roles retained; library provider unchanged.
 [Current baseline](settings-host/validation/2026-10-19-no-toolbar/README.md) separates source,
 actual window observations and structure. Historical toolbar-band evidence remains
 valid for its old source; no default-on rollout or full accessibility acceptance.
+
+## 2026-10-19 — Sidebar identity header
+
+Host draft.13 native_controls folds the64pt app icon, Dreams title and Agentic
+Screensaver subtitle into Navigation presentation. Existing roles/claim IDs and
+provider remain stable. [Current evidence](settings-host/validation/2026-10-19-sidebar-brand/README.md)
+pins source and separately records local/visual checks; old16-test passes remain
+historical and do not assert new screenshot or accessibility acceptance.

@@ -1,0 +1,29 @@
+The following is a diff from the previous accessibility tree for Window: "Dreams" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 16, 18-29
+~					7 row (selectable) General
+~					9 row (selected) Rain
++			37 scroll area
++				38 heading Rain
++				39 text Adjust the layout and movement of the falling glyphs. Grid
++				40 container
++					41 switch Automatic, Value: on, ID: dreams.rain-columns-auto
++					42 text Columns
++					43 slider (disabled, settable, float) Description: Columns, Value: 110, ID: dreams.rain-columns
++					44 text Density
++					45 slider (settable, float) Description: Density, Value: 0.6, Details: 60%, ID: dreams.rain-density
++				46 heading Motion
++				47 container
++					48 text Speed
++					49 slider (settable, float) Description: Speed, Value: 0.43, Details: 0.43×, ID: dreams.rain-speed
++					50 text Fade
++					51 slider (settable, float) Description: Fade, Value: 3, Details: 3 glyphs, ID: dreams.rain-fade
++					52 switch Decelerate drops, Value: off, ID: dreams.rain-deceleration-enabled
++					53 text a, glyph/s²
++					54 slider (disabled, settable, float) Description: a, glyph/s², Value: -12, Details: -12.0, ID: dreams.rain-deceleration
++				55 heading Searching glyphs
++				56 container
++					57 text Searching glyphs
++					58 slider (settable, float) Description: Searching glyphs, Value: 0.1, Details: 10%, ID: dreams.rain-search-fraction
++				59 text Share of visible glyphs simultaneously searching: 10% keeps at least one in ten in a rapid search burst. 0% disables search; 100% searches all live glyphs. Fading lifetimes are preserved.
++			60 text Live Preview
+The focused UI element is 0 standard window Dreams, ID: dreams.native-settings, Secondary Actions: Raise
