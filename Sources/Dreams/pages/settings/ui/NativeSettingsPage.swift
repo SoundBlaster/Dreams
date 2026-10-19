@@ -22,7 +22,6 @@ struct NativeSettingsPage: View {
             .safeAreaInset(edge: .top) {
                 NativeSidebarBrand()
                     .padding(.horizontal, 12)
-                    .padding(.top, 44)
             }
             .navigationSplitViewColumnWidth(min: 170, ideal: 220, max: 300)
         } detail: {
