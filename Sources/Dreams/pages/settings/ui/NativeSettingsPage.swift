@@ -14,10 +14,21 @@ struct NativeSettingsPage: View {
     var body: some View {
         NavigationSplitView(columnVisibility: .constant(.all)) {
             List(NativeSettingsSection.allCases, selection: $selection) { section in
-                NavigationLink(value: section) { Label(section.title, systemImage: section.symbol) }
-                    .listItemTint(model.rainColor)
+                NavigationLink(value: section) {
+                    Label {
+                        Text(section.title).font(.body)
+                    } icon: {
+                        Image(systemName: section.symbol)
+                            .imageScale(.large)
+                            .symbolRenderingMode(.monochrome)
+                            .frame(width: 24)
+                    }
+                }
+                .listItemTint(section == selection ? ListItemTint.fixed(model.rainColor) : .monochrome)
+                .listRowInsets(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
             }
             .listStyle(.sidebar)
+            .environment(\.defaultMinListRowHeight, 44)
             .toolbar(removing: .sidebarToggle)
             .safeAreaInset(edge: .top) {
                 NativeSidebarBrand()
