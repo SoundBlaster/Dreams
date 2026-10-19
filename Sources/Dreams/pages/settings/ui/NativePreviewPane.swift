@@ -7,14 +7,8 @@ struct NativePreviewPane: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            SettingsMaterialPanel {
-                HStack {
-                    Text(settingsString("native.preview.title")).font(.headline)
-                    Spacer()
-                    playbackButton
-                }
-                .padding(12)
-            }
+            playbackButton
+                .frame(maxWidth: .infinity, alignment: .trailing)
             Spacer(minLength: 0)
             if let error = session.errorMessage {
                 SettingsMaterialPanel {
@@ -43,9 +37,9 @@ struct NativePreviewPane: View {
 
     @ViewBuilder private var playbackButton: some View {
         if #available(macOS 26.0, *) {
-            playbackAction.buttonStyle(.glass)
+            playbackAction.buttonStyle(.glassProminent)
         } else {
-            playbackAction.buttonStyle(.bordered)
+            playbackAction.buttonStyle(.borderedProminent)
         }
     }
 
@@ -55,8 +49,10 @@ struct NativePreviewPane: View {
         } label: {
             Label(session.isPlaying ? settingsString("native.preview.pause") : settingsString("native.preview.play"),
                   systemImage: session.isPlaying ? "pause.fill" : "play.fill")
+                .labelStyle(.iconOnly)
+                .frame(width: 64, height: 28)
         }
-        .labelStyle(.iconOnly)
+        .controlSize(.large)
         .disabled(session.errorMessage != nil)
         .accessibilityIdentifier("dreams.native.preview-playback")
     }
