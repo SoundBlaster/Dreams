@@ -23,12 +23,12 @@ struct NativeSettingsPage: View {
                             .symbolRenderingMode(.monochrome)
                             .frame(width: 24)
                     }
+                    .frame(minHeight: 32)
                 }
-                .listItemTint(section == selection ? ListItemTint.fixed(model.rainColor) : .monochrome)
+                .listItemTint(.fixed(section == selection ? model.rainColor : .primary))
                 .listRowInsets(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
             }
             .listStyle(.sidebar)
-            .environment(\.defaultMinListRowHeight, 44)
             .toolbar(removing: .sidebarToggle)
             .safeAreaInset(edge: .top) {
                 NativeSidebarBrand()
