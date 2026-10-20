@@ -1,0 +1,76 @@
+{
+  "controls" : [
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "slider",
+      "AXValue" : 0.42999999999999999,
+      "id" : "dreams.probe.native-plain",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "string tooltip",
+      "AXValue" : 0.42999999999999999,
+      "id" : "dreams.probe.string",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "text tooltip",
+      "AXValue" : 0.42999999999999999,
+      "id" : "dreams.probe.text",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "spoken hint",
+      "AXValue" : 0.42999999999999999,
+      "id" : "dreams.probe.hint",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "Row help",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "row tooltip",
+      "AXValue" : 0.42999999999999999,
+      "AXValueDescription" : "0.43×",
+      "id" : "dreams.probe.row",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "No help",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "",
+      "AXValue" : 0.42999999999999999,
+      "AXValueDescription" : "0.43×",
+      "id" : "dreams.probe.plain",
+      "role" : "AXSlider"
+    }
+  ],
+  "pid" : 6799,
+  "visited" : 110
+}

@@ -598,3 +598,12 @@ verification, structural checks and actual UI; no default-on rollout implied.
 Actual AX inspection found row-level help did not reach Slider. Catalog draft.10
 adds optional direct native Slider help; host draft.19 consumer baseline refreshed.
 Provider state/range/step ownership and role IDs retained.
+
+## 2026-10-20 — native accessibility audit
+
+Runtime `b839251fbe0835976af104000f2320a03367006f` fixes empty optional Slider help. Catalog draft.11 and host
+draft.20 preserve stable roles/claims and unchanged maps. New source identities
+replace the changed provider snapshot; historical observations remain preserved.
+[Audit](settings-host/validation/2026-10-20-accessibility/README.md) distinguishes rawAX/action
+results and bare SwiftUI comparison from unverified VoiceOver speech/hover behavior.
+Other profiles remain outside this audit.

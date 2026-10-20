@@ -1,0 +1,15 @@
+The following is a diff from the previous accessibility tree for Window: "VoiceOver Utility" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 68
+~			63 tab Cursor, Value: 0
+~			64 tab Panels and Menus, Value: 1
+~			66 checkbox Show caption panel, Help: Display spoken text in a caption panel., Value: 1
+~			67 text Show Braille Panel:
++			68 pop up button Automatic
+~			69 text Font Size for Panels and Menus:
+~			70 slider (settable, float) Help: Set the font size for VoiceOver panels and menus., Value: 3, Details: 22 point font
++				71 value indicator (settable, float) 3
++			72 text Small Large
+Selected:
+	22 row (selected)
+
+Note: Pay special attention to the content selected by the user. If the user asks a question or refers to the content they are looking at on-screen, they might be referring to the selected content (but they might be referring to something else that's visible, too).

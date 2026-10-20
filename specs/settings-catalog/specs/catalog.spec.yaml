@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.catalog
   title: NativeSettingsCatalog
-  version: 0.1.0-draft.10
+  version: 0.1.0-draft.11
   status: draft
 intent:
   summary: Let contributors inspect system controls and native settings compositions without altering Dreams preferences.
@@ -121,7 +121,7 @@ evidence:
   - constraints.localization_and_packaging
 - id: validation
   kind: test
-  path: validation/2026-10-19-parity-fixes/README.md
+  path: validation/2026-10-20-accessibility/README.md
   supports:
   - constraints
 provenance:
@@ -136,7 +136,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 73417b92aaf89c85b9f1bc7106b1d0fd1ec25691
+    revision: b839251fbe0835976af104000f2320a03367006f
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift
@@ -152,7 +152,7 @@ implementationBindings:
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-19-parity-fixes/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
+    - evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     - evidence/2026-10-18-native-sliders/source/scripts/swift-macos.sh
     - evidence/2026-10-18-native-sliders/source/scripts/build-settings-catalog.sh
@@ -162,7 +162,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 73417b92aaf89c85b9f1bc7106b1d0fd1ec25691
+    revision: b839251fbe0835976af104000f2320a03367006f
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Package.swift

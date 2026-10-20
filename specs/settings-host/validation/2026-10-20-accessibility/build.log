@@ -1,0 +1,16 @@
+Building for production...
+[Using on-disk description]
+[6 / 40]
+[11 / 42] VirtualDisplayBridge
+[18 / 45] DreamsSettingsUI
+[20 / 46] VirtualDisplayBridge
+[21 / 46] DreamsSettingsUI
+[27 / 40] Logging
+[29 / 36] SystemPackage
+[33 / 40] MCP
+[35 / 41] MCP
+[38 / 41] Dreams-product
+[40 / 43] Dreams-product
+[42 / 43] Dreams-product
+[43 / 43] Dreams-product
+Build complete! (23.75 sec)

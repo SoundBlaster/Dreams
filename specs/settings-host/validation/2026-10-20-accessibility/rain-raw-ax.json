@@ -1,0 +1,158 @@
+{
+  "controls" : [
+    {
+      "actions" : [
+        "AXRaise"
+      ],
+      "AXRoleDescription" : "standard window",
+      "AXSubrole" : "AXStandardWindow",
+      "AXTitle" : "Dreams",
+      "id" : "dreams.native-settings",
+      "role" : "AXWindow"
+    },
+    {
+      "actions" : [
+
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "text",
+      "AXValue" : "Dreams, Agentic Screensaver",
+      "id" : "dreams.native.sidebar-brand",
+      "role" : "AXStaticText"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "switch",
+      "AXSubrole" : "AXSwitch",
+      "AXValue" : 1,
+      "id" : "dreams.rain-columns-auto",
+      "role" : "AXCheckBox"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "Columns",
+      "AXEnabled" : false,
+      "AXRoleDescription" : "24–240 columns. fewer columns make larger glyphs. automatic preserves the original display grid.",
+      "AXValue" : 110,
+      "AXValueDescription" : "110",
+      "id" : "dreams.rain-columns",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "Density",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "sparse ← → dense: initial trace length and pauses between passes. traces stretch as they descend. applies to new streams.",
+      "AXValue" : 0.59999999999999998,
+      "AXValueDescription" : "60%",
+      "id" : "dreams.rain-density",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "Speed",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "0.25× is slow; 1× is normal; 3× is fast.",
+      "AXValue" : 0.42999999999999999,
+      "AXValueDescription" : "0.43×",
+      "id" : "dreams.rain-speed",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "Fade",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "how many letters fade at once: 1 fades them one by one from the top; 16 is a soft tail.",
+      "AXValue" : 3,
+      "AXValueDescription" : "3 glyphs",
+      "id" : "dreams.rain-fade",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXEnabled" : true,
+      "AXHelp" : "New drops enter at the current speed, then slow down. Existing drops keep their motion.",
+      "AXRoleDescription" : "switch",
+      "AXSubrole" : "AXSwitch",
+      "AXValue" : 0,
+      "id" : "dreams.rain-deceleration-enabled",
+      "role" : "AXCheckBox"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "a, glyph\/s²",
+      "AXEnabled" : false,
+      "AXRoleDescription" : "negative acceleration at 1× speed; 0 keeps constant speed. drops slow to 20% of their entry speed and continue falling. changes apply to new drops.",
+      "AXValue" : -12,
+      "AXValueDescription" : "-12.0",
+      "id" : "dreams.rain-deceleration",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXIncrement",
+        "AXDecrement"
+      ],
+      "AXDescription" : "Searching glyphs",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "share of visible glyphs simultaneously searching: 10% keeps at least one in ten in a rapid search burst. 0% disables search; 100% searches all live glyphs. fading lifetimes are preserved.",
+      "AXValue" : 0.10000000000000001,
+      "AXValueDescription" : "10%",
+      "id" : "dreams.rain-search-fraction",
+      "role" : "AXSlider"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXDescription" : "Pause preview",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "button",
+      "id" : "dreams.native.preview-playback",
+      "role" : "AXButton"
+    },
+    {
+      "actions" : [
+
+      ],
+      "AXDescription" : "Live Preview",
+      "AXRoleDescription" : "image",
+      "id" : "dreams.native.preview",
+      "role" : "AXImage"
+    },
+    {
+      "actions" : [
+        "AXCancel",
+        "AXPress",
+        "AXPick"
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "menu item",
+      "AXTitle" : "Stream test · DEMO",
+      "id" : "dreams.event-fixtures",
+      "role" : "AXMenuItem"
+    }
+  ],
+  "pid" : 86330,
+  "visited" : 176
+}

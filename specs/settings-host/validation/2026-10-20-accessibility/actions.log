@@ -1,0 +1,4 @@
+before: value=Optional(0.43) readout=Optional(0.43×)
+increment: value=Optional(0.44) readout=Optional(0.44×)
+decrement: value=Optional(0.43) readout=Optional(0.43×)
+restored: value=Optional(0.43) readout=Optional(0.43×)
