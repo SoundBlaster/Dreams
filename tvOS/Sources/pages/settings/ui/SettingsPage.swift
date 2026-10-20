@@ -13,36 +13,37 @@ struct SettingsPage: View {
     @FocusState private var focusedField: SettingsField?
 
     var body: some View {
-        HStack {
-            List {
-                Section {
-                    Text("settings.hint").font(.callout).foregroundStyle(.secondary)
-                    Toggle("settings.preview", isOn: $previewPlays)
-                    Button("settings.done", action: close).focused($focusedField, equals: .done)
-                } header: { Text("settings.title") }
-                grid
-                motion
-                appearance
-                clock
-                Section {
-                    Button("settings.reset", role: .destructive) { confirmsReset = true }
-                }
+        List {
+            Section {
+                Text("settings.hint").font(.callout).foregroundStyle(.secondary)
+                Toggle("settings.preview", isOn: $previewPlays)
+                Button("settings.done", action: close).focused($focusedField, equals: .done)
+            } header: { Text("settings.title") }
+            grid
+            motion
+            appearance
+            clock
+            Section {
+                Button("settings.reset", role: .destructive) { confirmsReset = true }
             }
-            .onMoveCommand { direction in
-                if direction == .left { adjustFocused(by: -1) }
-                if direction == .right { adjustFocused(by: 1) }
-            }
-            .frame(maxWidth: 1100)
-            .background(.regularMaterial)
-            Spacer(minLength: 60)
         }
+        .onMoveCommand { direction in
+            if direction == .left { adjustFocused(by: -1) }
+            if direction == .right { adjustFocused(by: 1) }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .padding(24)
+        .frame(maxWidth: 1100)
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 28))
+        .clipShape(RoundedRectangle(cornerRadius: 28))
         .padding(60)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .tint(Color(red: settings.tuning.color.red, green: settings.tuning.color.green, blue: settings.tuning.color.blue))
         .preferredColorScheme(.dark)
         .defaultFocus($focusedField, .automatic)
         .task { focusedField = .automatic }
         .onExitCommand(perform: close)
-        .onPlayPauseCommand { previewPlays.toggle() }
+        .onPlayPauseCommand(perform: close)
         .confirmationDialog("settings.reset.confirm", isPresented: $confirmsReset) {
             Button("settings.reset", role: .destructive) { settings.reset() }
             Button("settings.cancel", role: .cancel) {}

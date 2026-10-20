@@ -12,7 +12,7 @@
 "settings.font.system" = "Системный";
 "settings.font.rounded" = "Скруглённый";
 "settings.font.monospaced" = "Моноширинный";
-"settings.hint" = "Смахните влево или вправо для настройки. Изменения видны сразу. Назад — вернуться к дождю.";
+"settings.hint" = "Смахните влево или вправо для настройки. Изменения видны сразу. Play/Pause или Назад — скрыть меню.";
 "settings.done" = "Показать дождь";
 "render.unavailable" = "Не удалось запустить часы. Откройте Dreams заново.";
 "clock.accessibility" = "Часы из дождя Matrix. Нажмите Select или Play/Pause для настроек.";

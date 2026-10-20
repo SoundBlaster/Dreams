@@ -12,7 +12,7 @@
 "settings.font.system" = "System";
 "settings.font.rounded" = "Rounded";
 "settings.font.monospaced" = "Monospaced";
-"settings.hint" = "Swipe left or right to adjust. Changes appear immediately. Press Back to return to the rain.";
+"settings.hint" = "Swipe left or right to adjust. Changes appear immediately. Play/Pause or Back hides this menu.";
 "settings.done" = "Show rain";
 "render.unavailable" = "The clock could not start. Please reopen Dreams.";
 "clock.accessibility" = "Matrix clock. Press Select or Play/Pause for settings.";
