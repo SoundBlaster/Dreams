@@ -1,0 +1,129 @@
+{
+  "controls" : [
+    {
+      "actions" : [
+        "AXRaise"
+      ],
+      "AXRoleDescription" : "standard window",
+      "AXSubrole" : "AXStandardWindow",
+      "AXTitle" : "Dreams",
+      "id" : "dreams.native-settings",
+      "role" : "AXWindow"
+    },
+    {
+      "actions" : [
+
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "text",
+      "AXValue" : "Dreams, Agentic Screensaver",
+      "id" : "dreams.native.sidebar-brand",
+      "role" : "AXStaticText"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXDescription" : "Pause preview",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "button",
+      "id" : "dreams.native.preview-playback",
+      "role" : "AXButton"
+    },
+    {
+      "actions" : [
+
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "text",
+      "AXValue" : "Waiting for agents. Background rain.\nAnimation stopped. Press “Start Matrix”.",
+      "id" : "dreams.native.activity",
+      "role" : "AXStaticText"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXDescription" : "Start Matrix",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "button",
+      "id" : "dreams.start-matrix",
+      "role" : "AXButton"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXDescription" : "Stop",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "button",
+      "id" : "dreams.stop",
+      "role" : "AXButton"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXEnabled" : true,
+      "AXHelp" : "How long the rain runs after Start on the black background. Over windows (transparent) it runs until you stop it.",
+      "AXRoleDescription" : "pop up button",
+      "AXValue" : "1 hour",
+      "id" : "dreams.run-time",
+      "role" : "AXPopUpButton"
+    },
+    {
+      "actions" : [
+
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "text",
+      "AXValue" : "Runs for 1 hour, full screen. Esc exits while the rain has focus. Move the pointer for the Exit button. Backup shortcut: ⌃⌥⌘D.",
+      "id" : "dreams.run-time-hint",
+      "role" : "AXStaticText"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXDescription" : "Change shortcut…",
+      "AXEnabled" : true,
+      "AXHelp" : "Click, then press a combination with ⌃, ⌥ or ⌘. Esc cancels.",
+      "AXRoleDescription" : "button",
+      "id" : "dreams.stop-hotkey",
+      "role" : "AXButton"
+    },
+    {
+      "actions" : [
+        "AXPress"
+      ],
+      "AXDescription" : "Default",
+      "AXEnabled" : true,
+      "AXRoleDescription" : "button",
+      "id" : "dreams.stop-hotkey-default",
+      "role" : "AXButton"
+    },
+    {
+      "actions" : [
+
+      ],
+      "AXDescription" : "Live Preview",
+      "AXRoleDescription" : "image",
+      "id" : "dreams.native.preview",
+      "role" : "AXImage"
+    },
+    {
+      "actions" : [
+        "AXCancel",
+        "AXPress",
+        "AXPick"
+      ],
+      "AXEnabled" : true,
+      "AXRoleDescription" : "menu item",
+      "AXTitle" : "Stream test · DEMO",
+      "id" : "dreams.event-fixtures",
+      "role" : "AXMenuItem"
+    }
+  ],
+  "pid" : 86330,
+  "visited" : 155
+}

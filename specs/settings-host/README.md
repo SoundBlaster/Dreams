@@ -136,3 +136,5 @@ Unframed preview: [2026-10-19-no-preview-outline](validation/2026-10-19-no-previ
 Content setting icons: [2026-10-19-content-icons](validation/2026-10-19-content-icons/README.md).
 
 Parity corrections: [2026-10-19-parity-fixes](validation/2026-10-19-parity-fixes/README.md).
+
+Accessibility audit and optional-help correction: [2026-10-20-accessibility](validation/2026-10-20-accessibility/README.md).
