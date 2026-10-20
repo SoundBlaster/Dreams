@@ -1,0 +1,104 @@
+== Build (arm64 + x86_64)
+Building for production...
+[Pre-planning 1 / 275]
+[Planning deferred tasks]
+[41 / 134]
+[53 / 140] Logging
+[65 / 152]
+[75 / 171]
+[82 / 172]
+[96 / 224]
+[108 / 224]
+[118 / 278]
+[126 / 278]
+[133 / 278] EventSource
+[148 / 278]
+[158 / 278]
+[162 / 278]
+[170 / 278] Logging
+[184 / 278] VirtualDisplayBridge
+[186 / 278]
+[191 / 278]
+[193 / 278]
+[195 / 278]
+[204 / 278]
+[208 / 278] Logging
+[217 / 278]
+[222 / 278]
+[223 / 278] EventSource
+[232 / 278]
+[232 / 278] SystemPackage
+[236 / 278] SystemPackage
+[246 / 280] MCP
+[248 / 281] MCP
+[252 / 285]
+[253 / 285]
+[254 / 285]
+[255 / 285]
+[256 / 285] DreamsSettingsUI
+[264 / 285] MCP
+[268 / 285] MCP
+[278 / 287] Dreams-product
+[281 / 289] Dreams-product
+[286 / 295]
+[288 / 295] Dreams-product
+[290 / 295] Dreams-product
+[292 / 295] Dreams-product
+[294 / 295] Dreams-product
+Build complete! (25.42 sec)
+== Assemble
+== Sign (hardened runtime)
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.app: replacing existing signature
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.app: valid on disk
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.app: satisfies its Designated Requirement
+== Notarize app
+Conducting pre-submission checks for Dreams.zip and initiating connection to the Apple notary service...
+Submission ID received
+  id: 83090647-1fe9-4b37-a198-776d78ff8903
+Successfully uploaded file
+  id: 83090647-1fe9-4b37-a198-776d78ff8903
+  path: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.zip
+Waiting for processing to complete.
+
+Current status: In Progress...
+Current status: In Progress....
+Current status: Accepted.....Processing complete
+  id: 83090647-1fe9-4b37-a198-776d78ff8903
+  status: Accepted
+
+Processing: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.app
+Processing: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.app
+The staple and validate action worked!
+Processing: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.app
+The validate action worked!
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Egor Merkushev (P8T2366K8X)
+== DMG
+hdiutil: WARNING: 'hdiutil create -volname -format ...' is deprecated. Please use 'diskutil image create from/blank --volumeName --format ...' instead.
+== Notarize DMG
+Conducting pre-submission checks for Dreams-0.1.9.dmg and initiating connection to the Apple notary service...
+Submission ID received
+  id: c206449f-0049-4dd2-802e-2500be8f0e28
+Successfully uploaded file
+  id: c206449f-0049-4dd2-802e-2500be8f0e28
+  path: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams-0.1.9.dmg
+Waiting for processing to complete.
+
+Current status: In Progress...
+Current status: In Progress....
+Current status: Accepted.....Processing complete
+  id: c206449f-0049-4dd2-802e-2500be8f0e28
+  status: Accepted
+
+Processing: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams-0.1.9.dmg
+Processing: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams-0.1.9.dmg
+The staple and validate action worked!
+Processing: /Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams-0.1.9.dmg
+The validate action worked!
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams-0.1.9.dmg: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Egor Merkushev (P8T2366K8X)
+== Result
+/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/release-0.1.9/Dreams-0.1.9.dmg
+sha256 697e99a0fef4fab20f079be9929b2a8fcc8960ee35aeb2f1ce66136bd9ddd9df
