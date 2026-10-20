@@ -607,3 +607,14 @@ replace the changed provider snapshot; historical observations remain preserved.
 [Audit](settings-host/validation/2026-10-20-accessibility/README.md) distinguishes rawAX/action
 results and bare SwiftUI comparison from unverified VoiceOver speech/hover behavior.
 Other profiles remain outside this audit.
+
+## 2026-10-20 — release 0.1.9 packaging
+
+VERSION and both plugin manifest versions advance together to 0.1.9. No runtime
+behavior, map roles or contract claims change; native settings still require an
+explicit --native-settings launch argument. Existing source baselines remain
+historical evidence, not a new test claim for the release commit.
+
+[Release 0.1.9 baseline](release/validation/2026-10-20-0.1.9/README.md) records
+metadata hashes, current host/catalog identity checks and signed/notarized artifact
+preparation separately from historical runtime tests and later GitHub publication.

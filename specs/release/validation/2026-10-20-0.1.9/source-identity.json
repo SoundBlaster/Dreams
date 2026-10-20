@@ -1,0 +1,34 @@
+{
+  "sourceRevision": "b707355d815615ad61f7aceb71b9aefdf8e4d8ae",
+  "releaseVersion": "0.1.9",
+  "files": [
+    {
+      "path": "VERSION",
+      "sha256": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107"
+    },
+    {
+      "path": "plugins/dreams-claude/.claude-plugin/plugin.json",
+      "sha256": "f8c5ac37cf177633245780e75c1e2ce5ada9fcb3c0bb8328140e87c821154e74"
+    },
+    {
+      "path": "plugins/dreams-codex/plugin.json",
+      "sha256": "8b865bd46ca3c039f66cd5be5b038f8a072a56f01f1f7d54aa5eaac8b3cf8203"
+    }
+  ],
+  "checkedCurrentContracts": [
+    {
+      "package": "settings-host",
+      "identity": "specs/settings-host/evidence/2026-10-20-accessibility/source-identity.json",
+      "identitySha256": "077e9a8355a8145bcb1d826d78730041e3a7687b47e29ca03ebc423ae297ad5b",
+      "entriesChecked": 60,
+      "exitCode": 0
+    },
+    {
+      "package": "settings-catalog",
+      "identity": "specs/settings-catalog/evidence/2026-10-20-accessibility/source-identity.json",
+      "identitySha256": "415b77d27f8724c9f6c6a719db2a6c9beca67d1883899bb30814ba80924ac8e4",
+      "entriesChecked": 25,
+      "exitCode": 0
+    }
+  ]
+}
