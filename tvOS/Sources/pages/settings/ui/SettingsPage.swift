@@ -31,7 +31,7 @@ struct SettingsPage: View {
             if direction == .left { adjustFocused(by: -1) }
             if direction == .right { adjustFocused(by: 1) }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        // Keep room for tvOS focus expansion outside the List's layout bounds.
         .padding(24)
         .frame(maxWidth: 1100)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 28))
