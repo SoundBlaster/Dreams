@@ -32,6 +32,7 @@ struct SettingsPage: View {
             if direction == .right { adjustFocused(by: 1) }
         }
         // Keep room for tvOS focus expansion outside the List's layout bounds.
+        .scrollClipDisabled()
         .padding(24)
         .frame(maxWidth: 1100)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 28))
