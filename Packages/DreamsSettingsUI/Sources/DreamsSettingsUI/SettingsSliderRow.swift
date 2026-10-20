@@ -9,7 +9,7 @@ public struct SettingsSliderRow: View {
     private let readout: String
     private let identifier: String
     private let systemImage: String?
-    private let helpText: Text
+    private let helpText: Text?
     @ScaledMetric(relativeTo: .body) private var readoutWidth = 80.0
 
     public init(_ title: LocalizedStringResource, value: Binding<Double>, in range: ClosedRange<Double>,
@@ -22,7 +22,7 @@ public struct SettingsSliderRow: View {
         self.readout = readout
         self.identifier = identifier
         self.systemImage = systemImage
-        helpText = help.map { Text($0) } ?? Text(verbatim: "")
+        helpText = help.map { Text($0) }
     }
 
     public var body: some View {
@@ -57,11 +57,18 @@ public struct SettingsSliderRow: View {
         }
     }
 
-    private var slider: some View {
+    @ViewBuilder private var slider: some View {
+        if let helpText {
+            nativeSlider.help(helpText)
+        } else {
+            nativeSlider
+        }
+    }
+
+    private var nativeSlider: some View {
         Group {
             if (range.upperBound - range.lowerBound) / step > 20 {
                 Slider(value: steppedValue, in: range) { Text(title) }
-                    .help(helpText)
                     .accessibilityAdjustableAction { direction in
                         switch direction {
                         case .increment: steppedValue.wrappedValue = value + step
@@ -71,7 +78,6 @@ public struct SettingsSliderRow: View {
                     }
             } else {
                 Slider(value: $value, in: range, step: step) { Text(title) }
-                    .help(helpText)
             }
         }
         .labelsHidden()
