@@ -7,7 +7,8 @@ Lifecycle:
   assembly: "one-renderer; active-scene rain; settings-preview-pause; idle-timer-only-on-rain-page"
 Settings:
   source: "tvOS/Sources/pages/settings/ui/SettingsPage.swift"
-  implementation: "scrollable-native-List-Toggles-and-remote-adjustment-Buttons"
+  implementation: "centered-padded-rounded-material-panel-with-native-List-Toggles-and-adjustment-Buttons"
+  play_pause: "open-settings-from-rain; close-open-menu; preview-pause-is-a-separate-toggle"
 Tuning:
   source: "tvOS/Sources/features/matrix/model/RainSettings.swift"
   implementation: "normalized-persistent-TV-preferences; preserve-old-keys; shared-new-preset-values"

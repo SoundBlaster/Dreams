@@ -32,7 +32,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | GlyphEditor.ProjectTransfer | JSON/SVG consumer | Folded into editor | loadProject/save/export | Browser receipt is not saved-file evidence |
 | GlyphEditor.CheckpointLibrary | Editor tab / local disk | dreams.glyph.checkpoints | Pinned Python/Node adapter | Review concurrency/crash limits |
 | GlyphEditor.EditorBuild | Developer | Folded into editor | build + pipeline.toml | No font adoption claim |
-| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [TV parity baseline](tvos/validation/2026-10-21-parity/README.md); shared simulation/pulse plus TV host | Physical Apple TV, overscan/performance and spoken VoiceOver remain unverified |
+| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [Current TV baseline](tvos/validation/2026-10-21-centered-menu/README.md); shared simulation/pulse plus TV host | Physical Apple TV, overscan/performance and spoken VoiceOver remain unverified |
 
 Maps: [architecture index](hypercode/README.md). Contracts, claim origins,
 source bindings, scenarios and unresolved decisions:
@@ -640,3 +640,16 @@ change, and macOS test passes are not claimed as TV evidence.
 The [dated TV baseline](tvos/validation/2026-10-21-parity/README.md) pins source/map
 snapshots, command results and simulator observations. Earlier TV observations stay
 historical. New contracts remain descriptive drafts pending acceptance.
+
+## 2026-10-21 — centered TV settings panel and Play/Pause menu exit
+
+User requested centered settings with inner spacing and rounded corners, and
+Play/Pause to hide the menu. TV draft.2 updates remote_settings; Play/Pause opens
+settings from rain and closes the open menu, while Live preview retains its own
+pause toggle. Settings now uses 24-point inner padding and a 28-point rounded
+material surface, capped at 1100 points and centered in the available area.
+Lifecycle, tuning, renderer and desktop/agent boundaries are unchanged.
+
+[New TV validation](tvos/validation/2026-10-21-centered-menu/README.md) supersedes
+only the changed UI source/map identities; older tests and screenshots remain
+historical and are not presented as new passes. Stable TV role/claim IDs remain.

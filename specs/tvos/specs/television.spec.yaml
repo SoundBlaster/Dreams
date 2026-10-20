@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.tv.rain
   title: TelevisionRainAndClock
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Give Apple TV viewers the desktop rain's motion and appearance controls without agent or desktop-window integrations, preserving the optional TV clock.
@@ -69,7 +69,7 @@ constraints:
   statement: Preserve existing TV preference keys and TV defaults (manual96 columns, density0.82, brightness0.18 and clock on). New appearance/motion defaults come from shared DreamsPreset. Normalize out-of-range and nonfinite numeric values. Reset persists all TV defaults after confirmation. TV state does not mutate desktop preferences.
 - id: remote_settings
   level: MUST
-  statement: Use a scrollable system List, native Toggles and focusable native Button adjustment rows (Slider is unavailable on tvOS). Directional Left/Right adjusts numeric values; Select increments. Expose localized names, values, adjustment hints and accessibility adjustment actions. Opening settings requests focus on Automatic columns. Show rain or Back closes settings. PlayPause opens settings from rain, and pauses/resumes its live preview while settings are open. Confirmation cancellation must not reset preferences.
+  statement: Use a scrollable system List, native Toggles and focusable native Button adjustment rows (Slider is unavailable on tvOS). Directional Left/Right adjusts numeric values; Select increments. Expose localized names, values, adjustment hints and accessibility adjustment actions. Opening settings requests focus on Automatic columns. Present a centered settings panel with internal spacing and a rounded system-material background. Show rain, Back or PlayPause closes settings. PlayPause opens settings from rain; the separate Live preview toggle pauses/resumes rendering while the menu is open. Confirmation cancellation must not reset preferences.
 - id: clock
   level: MUST
   statement: Preserve an optional HH:mm whole-glyph brightness mask, three typefaces, size0.5...1.15 and bounded floating drift. Cache the mask by minute, font, size and aspect. Drift changes sample coordinates, not grid positions. Clock off bypasses mask exposure and presents a rain accessibility label without a time value.
@@ -90,7 +90,7 @@ effects:
 evidence:
 - id: validation
   kind: test
-  path: validation/2026-10-21-parity/README.md
+  path: validation/2026-10-21-centered-menu/README.md
   supports:
   - constraints
 provenance:
@@ -107,7 +107,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 1857e9288959006c738bc72b9c5e8edc4f3c083c
+    revision: 71e0977ed439bae7d7f316186e0c4f032dc71452
   files:
     owned:
     - evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/AppRoot.swift
@@ -119,9 +119,9 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
-    - evidence/2026-10-21-parity/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
-    - evidence/2026-10-21-parity/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
-    - evidence/2026-10-21-parity/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
+    - evidence/2026-10-21-centered-menu/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
+    - evidence/2026-10-21-centered-menu/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
+    - evidence/2026-10-21-centered-menu/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
     - evidence/2026-10-21-parity/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-10-21-parity/source/tvOS/project.yml

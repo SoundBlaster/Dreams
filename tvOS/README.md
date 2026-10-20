@@ -47,8 +47,9 @@ defaults remain unchanged. Reset restores all TV defaults after confirmation.
 Select, Play/Pause or Back opens settings from the rain. Settings use a scrollable
 system List with native Toggles and focusable Button adjustment rows (Slider is not
 available on tvOS). Left/Right adjusts values; Select increments a numeric row.
-Settings changes immediately affect the rain behind the panel. Play/Pause while
-settings are open pauses/resumes the preview; Back or Show rain returns to the rain.
+Settings changes immediately affect the rain behind the centered, padded, rounded
+material panel. Play/Pause, Back or Show rain closes the open menu. The Live preview
+switch separately pauses/resumes rendering while settings are open.
 The preview does not create a second simulation or scale the full-screen rain down.
 
 The clock mask brightens ink only; halos stay at background exposure to avoid a

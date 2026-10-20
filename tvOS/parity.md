@@ -11,7 +11,7 @@
 | Color/spread/glow | sRGB color, 0–100% spread, 0–300% glow | Same units and linear-light conversion; remote RGB channels |
 | Glyph sets | Restored PUA font / classic Matrix-Code | Same fonts/repertoires; retain TV mirrored variants |
 | Settings | Native/legacy desktop controls; shared persistent state | Native TV list/toggles/adjustment buttons, immediate preview, reset confirmation |
-| Playback | Start/stop overlays and preview pause | Rain foreground; Play/Pause opens settings, then toggles preview |
+| Playback | Start/stop overlays and preview pause | Rain foreground; Play/Pause opens/closes the menu; preview switch controls pause |
 | Clock | Not part of desktop rain | Preserve optional HH:mm mask, three fonts, size and bounded drift |
 | Brightness | Renderer exposure controlled by activity | Preserve TV2–35% exposure without agent activity |
 | Agent words/activity, hooks, MCP | Desktop integration | Deliberately excluded |
