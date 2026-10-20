@@ -103,7 +103,7 @@ provenance:
   - User requested brightness pulsation; smooth independent breathing was the working interpretation pending optional style feedback.
   - Default 30 percent, real-time periods and the nonzero exposure floor are implementation choices, not claims of film fidelity.
   - Offscreen macOS GPU checks, control assertions, structural validation and physical compositor acceptance are distinct evidence levels.
-  - tvOS continues to use its prior renderer and receives no pulse option in this scope.
+  - This macOS boundary excludes tvOS; the separately recovered dreams.tv.rain contract covers its later shared-helper adoption.
 
 implementationBindings:
 - id: pulse_swift

@@ -1,0 +1,33 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.television
+  name: Dreams Apple TV rain and clock
+  version: 0.1.0-draft.1
+  summary: Foreground tvOS rain with desktop motion and appearance controls and an optional whole-glyph clock.
+  license: MIT
+  authors:
+  - name: Dreams contributors
+specs:
+- path: specs/television.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.tv.rain
+  requires:
+    capabilities:
+    - platform.apple.tvos
+    - platform.apple.metal_renderer
+compatibility:
+  platforms:
+  - tvos
+  languages:
+  - name: swift
+keywords:
+- digital-rain
+- apple-tv
+- descriptive-draft
+foreignArtifacts:
+- format: markdown
+  path: README.md
+  role: documentation

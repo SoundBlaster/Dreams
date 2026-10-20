@@ -32,7 +32,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | GlyphEditor.ProjectTransfer | JSON/SVG consumer | Folded into editor | loadProject/save/export | Browser receipt is not saved-file evidence |
 | GlyphEditor.CheckpointLibrary | Editor tab / local disk | dreams.glyph.checkpoints | Pinned Python/Node adapter | Review concurrency/crash limits |
 | GlyphEditor.EditorBuild | Developer | Folded into editor | build + pipeline.toml | No font adoption claim |
-| TelevisionApplication / clock | Apple TV user | Integrated PR #8; coarse orientation, contract unexplored | Current rebased source 691d94b; simulator tests separate | Recover clock/settings contract on its own baseline |
+| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [TV parity baseline](tvos/validation/2026-10-21-parity/README.md); shared simulation/pulse plus TV host | Physical Apple TV, overscan/performance and spoken VoiceOver remain unverified |
 
 Maps: [architecture index](hypercode/README.md). Contracts, claim origins,
 source bindings, scenarios and unresolved decisions:
@@ -618,3 +618,25 @@ historical evidence, not a new test claim for the release commit.
 [Release 0.1.9 baseline](release/validation/2026-10-20-0.1.9/README.md) records
 metadata hashes, current host/catalog identity checks and signed/notarized artifact
 preparation separately from historical runtime tests and later GitHub publication.
+
+## 2026-10-21 — tvOS rain/settings parity
+
+User confirmed TV adoption of desktop rain controls while preserving TV clock and
+excluding agent integrations and desktop-window/session functions. New TV profile
+covers grid, motion, simultaneous search, independent real-time pulse, pale-head
+visibility/cycling, RGB/spread/glow, dynamic restored/classic glyph resources,
+normalized saved settings, native remote input, one live preview and reset.
+Existing TV density/exposure/clock defaults and mirror variants remain intentional
+compatibility choices; this is feature parity rather than pixel equality.
+
+[TV draft](tvos/README.md) recovers Lifecycle/Settings/Tuning and renderer children
+as one bounded capability; [matrix](../tvOS/parity.md) lists platform distinctions.
+Parent TelevisionApplication keeps its identity and points at the new detail.
+Desktop motion/search/head/pulse contracts keep their macOS scope and existing
+claim IDs. A provenance note now distinguishes later TV adoption rather than
+claiming TV still has no pulse option. No desktop implementation or agent paths
+change, and macOS test passes are not claimed as TV evidence.
+
+The [dated TV baseline](tvos/validation/2026-10-21-parity/README.md) pins source/map
+snapshots, command results and simulator observations. Earlier TV observations stay
+historical. New contracts remain descriptive drafts pending acceptance.
