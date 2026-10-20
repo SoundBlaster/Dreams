@@ -32,7 +32,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | GlyphEditor.ProjectTransfer | JSON/SVG consumer | Folded into editor | loadProject/save/export | Browser receipt is not saved-file evidence |
 | GlyphEditor.CheckpointLibrary | Editor tab / local disk | dreams.glyph.checkpoints | Pinned Python/Node adapter | Review concurrency/crash limits |
 | GlyphEditor.EditorBuild | Developer | Folded into editor | build + pipeline.toml | No font adoption claim |
-| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [Current TV baseline](tvos/validation/2026-10-21-centered-menu/README.md); shared simulation/pulse plus TV host | Physical Apple TV, overscan/performance and spoken VoiceOver remain unverified |
+| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [Current TV baseline](tvos/validation/2026-10-21-focus-overflow/README.md); shared simulation/pulse plus TV host | Physical Apple TV, overscan/performance and spoken VoiceOver remain unverified |
 
 Maps: [architecture index](hypercode/README.md). Contracts, claim origins,
 source bindings, scenarios and unresolved decisions:
@@ -653,3 +653,17 @@ Lifecycle, tuning, renderer and desktop/agent boundaries are unchanged.
 [New TV validation](tvos/validation/2026-10-21-centered-menu/README.md) supersedes
 only the changed UI source/map identities; older tests and screenshots remain
 historical and are not presented as new passes. Stable TV role/claim IDs remain.
+
+## 2026-10-21 — TV settings focus overflow repair
+
+User's enlarged screenshot exposed flat side cuts on focused native rows. The
+inner List mask clipped tvOS focus expansion. Remove that mask and disable scroll viewport clipping; keep the
+24-point inner padding and rounded 28-point panel. Stable `remote_settings`,
+`lifecycle` and `platform_boundary` claims and HC roles still apply; no semantic
+contract or map rewrite is needed. The parent still owns one renderer and routes
+remote input to settings. Earlier statements that focus edges were clipping-free
+are superseded; their captures and results remain historical.
+
+[Current focus validation](tvos/validation/2026-10-21-focus-overflow/README.md) pins the changed
+Settings source and rechecks unchanged source/map/font identities. Contracts remain
+descriptive drafts; physical TV and spoken VoiceOver are still unverified.

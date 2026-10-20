@@ -90,7 +90,7 @@ effects:
 evidence:
 - id: validation
   kind: test
-  path: validation/2026-10-21-centered-menu/README.md
+  path: validation/2026-10-21-focus-overflow/README.md
   supports:
   - constraints
 provenance:
@@ -107,7 +107,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 71e0977ed439bae7d7f316186e0c4f032dc71452
+    revision: 3d2829e24453c6dac5a2c879822e50d7416bd9f8
   files:
     owned:
     - evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/AppRoot.swift
@@ -119,7 +119,7 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
-    - evidence/2026-10-21-centered-menu/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
+    - evidence/2026-10-21-focus-overflow/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
     - evidence/2026-10-21-centered-menu/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
     - evidence/2026-10-21-centered-menu/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
