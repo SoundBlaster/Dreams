@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 private enum SettingsField: Hashable {
     case automatic, columns, density, brightness, speed, fade, search, braking, acceleration
@@ -27,9 +28,14 @@ struct SettingsPage: View {
                 Button("settings.reset", role: .destructive) { confirmsReset = true }
             }
         }
-        .onMoveCommand { direction in
-            if direction == .left { adjustFocused(by: -1) }
-            if direction == .right { adjustFocused(by: 1) }
+        .onReceive(NotificationCenter.default.publisher(for: UIFocusSystem.movementDidFailNotification)) { notification in
+            guard !confirmsReset,
+                  let context = notification.userInfo?[UIFocusSystem.focusUpdateContextUserInfoKey] as? UIFocusUpdateContext
+            else { return }
+            // A row has no horizontal focus neighbour. The focus engine reports both
+            // touch-surface swipes and directional presses through this native path.
+            if context.focusHeading == .left { adjustFocused(by: -1) }
+            if context.focusHeading == .right { adjustFocused(by: 1) }
         }
         // Keep room for tvOS focus expansion outside the List's layout bounds.
         .scrollClipDisabled()
@@ -107,7 +113,7 @@ struct SettingsPage: View {
         }
     }
 
-    /// Native List focuses its cell, so handle directional input at the list boundary.
+    /// Native List focuses its cell; horizontal focus movement adjusts that row's value.
     private func adjustFocused(by direction: Int) {
         if focusedField == .columns {
             if !settings.tuning.automaticColumns { settings.tuning.columns += direction }
