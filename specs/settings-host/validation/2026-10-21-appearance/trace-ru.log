@@ -1,0 +1,15 @@
+python3 scripts/test-native-settings-trace.py
+Building for production...
+[Computing dependencies]
+[1 / 1]
+Build complete! (0.56 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test recordNativeFormsWithScreener() started.
+DREAMS_NATIVE_SETTINGS_TRACE=/tmp/dreams-appearance-hierarchy-ru/3BA13000-264D-4513-85E1-135804F9EC21.vtrace
+􁁛  Test recordNativeFormsWithScreener() passed after 5.229 seconds.
+􁁛  Suite NativeSettingsTests passed after 5.229 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 5.230 seconds.
+PASS: complete Screener native settings trace, 35 hierarchy frames: /tmp/dreams-appearance-hierarchy-ru/3BA13000-264D-4513-85E1-135804F9EC21.vtrace

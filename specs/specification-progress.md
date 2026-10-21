@@ -21,7 +21,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |
 | SettingsCatalog | Contributors / standalone macOS app | dreams.settings.catalog | Current bc7294f [glass panels](settings-catalog/validation/2026-10-19-liquid-glass/README.md); independent fixtures | Interactive catalog acceptance |
-| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current d93aca4 [sidebar rows/preview alignment](settings-host/validation/2026-10-19-sidebar-rows/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
+| DesktopApplication.SettingsPage | macOS user / legacy or native launch | dreams.settings.host | Current aa11113 [appearance recipes/palette](settings-host/validation/2026-10-21-appearance/README.md); grouped forms, shared owner and default-off routing | Owner visual acceptance; narrow compositor and keyboard/VoiceOver |
 | AgentIntegrations | Codex/Claude hooks and MCP | Unexplored | Package/plugin entrypoints only | Recover event/privacy/lifecycle obligations |
 | GlyphToolchain.FontBuild | Font contributor / release | Unexplored | pipeline.py orientation only | Recover adoption/build/install boundary |
 | GlyphEditor | Glyph contributor / local-server and standalone | dreams.glyph.editor | Pinned source + source review; structural results linked below | Review parent obligations and async saves |
@@ -618,3 +618,20 @@ historical evidence, not a new test claim for the release commit.
 [Release 0.1.9 baseline](release/validation/2026-10-20-0.1.9/README.md) records
 metadata hashes, current host/catalog identity checks and signed/notarized artifact
 preparation separately from historical runtime tests and later GitHub publication.
+
+## 2026-10-21 — native macOS appearance recipes and palette
+
+The user requested prototype presets and quick colors, starting with macOS.
+Settings host draft.21 adds `quick_appearance`, folded into Forms and SettingsBinding.
+NativeAppearancePreset defines Classic/Dimmed/Monochrome appearance values; native
+recipe Toggles and palette Buttons use one existing controller, with derived
+selection/Custom status. Native controls, one_settings_owner, operation_semantics,
+material_composition and independent_preview retain their stable IDs and ownership.
+Color/glow update only the active background profile; spread/pulse are shared.
+No motion/grid/glyph or tvOS behavior changes. The selected color continues to
+supply window tint. App-level assembly remains one settings owner and one preview.
+
+[New appearance baseline](settings-host/validation/2026-10-21-appearance/README.md)
+records new source/map identities and current checks. Earlier evidence stays on its
+original runtime; structural validation, model tests, native trace pixels and
+assistive input acceptance are separate. macOS 15 runtime remains unverified.
