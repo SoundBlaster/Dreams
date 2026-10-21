@@ -46,7 +46,8 @@ defaults remain unchanged. Reset restores all TV defaults after confirmation.
 
 Select, Play/Pause or Back opens settings from the rain. Settings use a scrollable
 system List with native Toggles and focusable Button adjustment rows (Slider is not
-available on tvOS). Left/Right adjusts values; Select increments a numeric row.
+available on tvOS). Horizontal focus movement adjusts values (directional presses and touch-surface swipes);
+Up/Down keeps native row navigation. Select increments a numeric row.
 Settings changes immediately affect the rain behind the centered, padded, rounded
 material panel. Play/Pause, Back or Show rain closes the open menu. The Live preview
 switch separately pauses/resumes rendering while settings are open.
@@ -63,6 +64,8 @@ teardown releases the Metal view delegate/renderer.
 ## Build and verification
 
 Requires Xcode with tvOS SDK and XcodeGen. Generated project/build outputs are ignored.
+Use Release configuration for physical-device performance checks; simulator/Debug
+results do not establish frame rate on older Apple TV hardware.
 
 ```sh
 make app-tv

@@ -32,7 +32,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | GlyphEditor.ProjectTransfer | JSON/SVG consumer | Folded into editor | loadProject/save/export | Browser receipt is not saved-file evidence |
 | GlyphEditor.CheckpointLibrary | Editor tab / local disk | dreams.glyph.checkpoints | Pinned Python/Node adapter | Review concurrency/crash limits |
 | GlyphEditor.EditorBuild | Developer | Folded into editor | build + pipeline.toml | No font adoption claim |
-| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [Current TV baseline](tvos/validation/2026-10-21-focus-overflow/README.md); shared simulation/pulse plus TV host | Physical Apple TV, overscan/performance and spoken VoiceOver remain unverified |
+| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [Current TV baseline](tvos/validation/2026-10-21-focus-input/README.md); shared simulation/pulse plus TV host | Owner reports Release slowdown resolved; physical swipe, measured performance and spoken VoiceOver remain unverified |
 
 Maps: [architecture index](hypercode/README.md). Contracts, claim origins,
 source bindings, scenarios and unresolved decisions:
@@ -667,3 +667,13 @@ are superseded; their captures and results remain historical.
 [Current focus validation](tvos/validation/2026-10-21-focus-overflow/README.md) pins the changed
 Settings source and rechecks unchanged source/map/font identities. Contracts remain
 descriptive drafts; physical TV and spoken VoiceOver are still unverified.
+
+## 2026-10-21 — TV native horizontal input and Release feedback
+
+TV draft.3 retains `remote_settings` and existing roles/assembly obligations while
+explicitly covering touch-surface swipe adjustment through native failed focus
+movement headings. Vertical List focus and reset confirmation remain guarded.
+[Current baseline](tvos/validation/2026-10-21-focus-input/README.md) separates simulator
+commands, physical owner feedback on Release and pending physical remote swipe acceptance.
+The renderer was not changed; Release removed the owner's observed severe slowdown,
+without a valid Instruments trace or quantified performance acceptance.

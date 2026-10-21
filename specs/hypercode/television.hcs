@@ -8,6 +8,7 @@ Lifecycle:
 Settings:
   source: "tvOS/Sources/pages/settings/ui/SettingsPage.swift"
   implementation: "centered-padded-rounded-material-panel-with-native-List-Toggles-and-adjustment-Buttons"
+  horizontal_input: "native-failed-focus-movement-heading; preserve-vertical-focus; ignore-reset-confirmation"
   play_pause: "open-settings-from-rain; close-open-menu; preview-pause-is-a-separate-toggle"
 Tuning:
   source: "tvOS/Sources/features/matrix/model/RainSettings.swift"

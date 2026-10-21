@@ -15,5 +15,5 @@ It recovers the TV host separately from existing macOS-only renderer contracts.
 | Lifecycle | Who owns drawing and idle prevention? / lifecycle, platform_boundary | One renderer; scene/pause/teardown handling; no desktop or agent integration |
 
 [macOS/TV parity matrix](../../tvOS/parity.md) lists deliberate platform differences.
-[Current dated validation](validation/2026-10-21-focus-overflow/README.md) records source/map
+[Current dated validation](validation/2026-10-21-focus-input/README.md) records source/map
 identities and separates checks from remaining physical-device/VoiceOver acceptance.
