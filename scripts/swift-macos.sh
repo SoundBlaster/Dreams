@@ -6,6 +6,15 @@ dreams_command="${1:?Usage: swift-macos.sh build|test [SwiftPM options]}"
 shift
 [[ "$dreams_command" == build || "$dreams_command" == test ]] || exit 2
 
+# Wrappers such as make app and the trace runner retain checkout-specific build paths.
+# Explicit command options take precedence over the per-process environment.
+if [[ -n "${DREAMS_SWIFTPM_SCRATCH_PATH:-}" && " ${*} " != *" --scratch-path"* ]]; then
+  set -- --scratch-path "$DREAMS_SWIFTPM_SCRATCH_PATH" "$@"
+fi
+if [[ -n "${DREAMS_SWIFTPM_CACHE_PATH:-}" && " ${*} " != *" --cache-path"* ]]; then
+  set -- --cache-path "$DREAMS_SWIFTPM_CACHE_PATH" "$@"
+fi
+
 typeset -a dreams_package_options=()
 dreams_product=""
 for (( dreams_index = 1; dreams_index <= $#; dreams_index++ )); do
