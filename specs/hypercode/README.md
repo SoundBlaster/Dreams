@@ -57,3 +57,8 @@ The drop-motion detail now includes HeadAppearance, with [current head validatio
 Other shader/atlas rendering and physical desktop compositing remain unexplored.
 
 [Glyph pulse](glyph-pulse.hc) / [profiles](glyph-pulse.hcs) recover macOS whole-glyph exposure, independent real-time phases and shared strength tuning. Validate default, `pulse=off` and `background=transparent`; tvOS adoption remains excluded.
+
+The [performance probe](performance.hc) / [properties](performance.hcs) describes
+opt-in bounded developer measurements separately from ordinary overlay/settings
+lifecycle. [Draft contract](../performance/README.md) and current evidence disclose
+hardware/profile limits; instrumentation does not establish optimization gains.

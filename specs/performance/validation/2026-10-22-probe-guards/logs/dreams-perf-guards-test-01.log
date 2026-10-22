@@ -1,0 +1,20 @@
+Building for production...
+[Computing dependencies]
+[1 / 1]
+Build complete! (0.59 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite RainPerformanceTests started.
+􀟈  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() started.
+􀟈  Test percentilesUseNearestRankAndPreserveMissingData() started.
+􀟈  Test allScenarioFixturesAreBoundedAndFullySpecified() started.
+􀟈  Test droppedPresentationIsNotAZeroDurationFrame() started.
+􀟈  Test rejectsInvalidBoundsAndMissingRequiredInputs() started.
+􁁛  Test percentilesUseNearestRankAndPreserveMissingData() passed after 0.001 seconds.
+􁁛  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() passed after 0.001 seconds.
+􁁛  Test droppedPresentationIsNotAZeroDurationFrame() passed after 0.001 seconds.
+􁁛  Test allScenarioFixturesAreBoundedAndFullySpecified() passed after 0.001 seconds.
+􁁛  Test rejectsInvalidBoundsAndMissingRequiredInputs() passed after 0.001 seconds.
+􁁛  Suite RainPerformanceTests passed after 0.001 seconds.
+􁁛  Test run with 5 tests in 1 suite passed after 0.002 seconds.

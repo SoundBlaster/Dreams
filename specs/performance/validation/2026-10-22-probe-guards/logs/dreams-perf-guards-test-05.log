@@ -1,0 +1,15 @@
+Building for production...
+[Computing dependencies]
+Build complete! (0.41 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite TransparentFadeRenderingTests started.
+􀟈  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 2 arguments restored → true, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 2 arguments restored → true, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 2 arguments restored → false, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 2 arguments restored → false, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􁁛  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) with 4 test cases passed after 0.752 seconds.
+􁁛  Suite TransparentFadeRenderingTests passed after 0.753 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.753 seconds.

@@ -99,6 +99,7 @@ test-tv:
 		-destination 'platform=tvOS Simulator,id=$(TV_DEVICE)' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO test
 
 test-unit:
+	python3 scripts/test-performance-reports.py
 	swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
 	.build/activity-checks
 	swiftc -swift-version 6 Sources/Dreams/features/rain/model/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
@@ -246,3 +247,7 @@ specs-check:
 	"$(HYPERCODE)" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs
 	"$(HYPERCODE)" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=disabled
 	"$(HYPERCODE)" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=saturated
+
+	"$(HYPERCODE)" parse specs/hypercode/performance.hc
+	"$(HYPERCODE)" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs
+	"$(SPECPM)" validate specs/performance --json

@@ -1,0 +1,135 @@
+{
+  "sourceRevision": "6cc029cc0f7755365e97f6a405b44163bc2ece87",
+  "mapBaseRevision": "6cc029cc0f7755365e97f6a405b44163bc2ece87",
+  "dirtyMaps": [
+    "specs/hypercode/application.hc",
+    "specs/hypercode/application.hcs",
+    "specs/hypercode/performance.hc",
+    "specs/hypercode/performance.hcs"
+  ],
+  "files": [
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "61b5ca76cf7b34518f37ac2eaf50de9953b54a9fa598994d8c01e503047a66c9",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "d2431a4d11ad24069299f3984f89c9ef824465cdb28a5f12370a8e1767087f10",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "a51be1dd14fb34de712be5f20a21c0f1282b421f8c2aa472c3a178cddf733b2f",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "sha256": "bdb833e14c4f26f20bac7044dfaf4ad4740484070aea81a4bf5cbfa62d4a4912",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "21b73390045966ebda7078f01210abb4ee153973da0d6f940c8e4d26bb78b289",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "eade09198977479a9c682522e9ea0515941bc3d2c6e31bb8728cc7cb450b658c",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "sha256": "0531bdece3101c003b86eab260613a81a79b9a890ed9ffa36ffc7e9808fb299d",
+      "snapshot": "evidence/2026-10-22-baseline/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-performance.py",
+      "sha256": "b75ae7007559f4599336855f6f926e6aa1fedd26c74b52c0b67d5f6c16f2b427",
+      "snapshot": "evidence/2026-10-22-baseline/source/scripts/run-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/summarize-performance.py",
+      "sha256": "29bd38ca0f849ae2bd8e084ab42b56938abef61f4975306efc5d586f9cf8b4b5",
+      "snapshot": "evidence/2026-10-22-baseline/source/scripts/summarize-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/swift-macos.sh",
+      "sha256": "a5165bf53292441d50e54fea04284b49819f600f9cea83ec60de12803f804192",
+      "snapshot": "evidence/2026-10-22-baseline/source/scripts/swift-macos.sh",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/scenarios/search-saturated.json",
+      "sha256": "a409cb09c53af31d6733dae29ebb6ae3c079f6dafe3eb7ff8da9d11c96a41521",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/scenarios/normal.json",
+      "sha256": "6458f4282d75754a5baaf5bf85a1ac1264812ceb7ef6dae2b8f104a1a7c73887",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/scenarios/dense-no-glow.json",
+      "sha256": "77173c2e5faa93a8db55d454b722c2e52bb4a42a4397bc3b5aa11c633e0ecf5f",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/scenarios/dense.json",
+      "sha256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense.json",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/scenarios/preview-crop.json",
+      "sha256": "9dea4524c4b55abf08e3a09ea830876d71fcd940bf405b404025a42420a1f190",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/preview-crop.json",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "c7a1fb43a4dd35e966f012baa16cfe0bd2c4e70b244faeec122341b471924177",
+      "snapshot": "evidence/2026-10-22-baseline/maps/specs/hypercode/application.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "5c01938ff3ebec39152dbea70c584928dba0163488a0443f2c54e3d9a40c7eae",
+      "snapshot": "evidence/2026-10-22-baseline/maps/specs/hypercode/application.hcs",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "eecfa596fb09d998e0cd7bbea70a2cf9e0e65cc025597cc679acb98a979a3d53",
+      "snapshot": "evidence/2026-10-22-baseline/maps/specs/hypercode/performance.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "77167e3dfc7839374b60dd56ef6dd20837e874423a2c826686828eece448e55e",
+      "snapshot": "evidence/2026-10-22-baseline/maps/specs/hypercode/performance.hcs",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "scopeNote": "Opt-in probe only. Main renderer/simulation algorithms and ordinary nil-recorder behavior unchanged. Existing motion/search/head/pulse, preview_scale/playback_lifetime and overlay capture claims retain their accepted requirements. Historical execution results are not relabeled for this runtime."
+}

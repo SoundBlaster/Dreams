@@ -1,0 +1,22 @@
+PerformanceProbe:
+  source: "Sources/Dreams/app/providers/PerformanceRun.swift"
+  capability: "dreams.performance.measure"
+Scenario:
+  source: "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift"
+  boundary: "bounded-explicit-JSON; isolated-empty-feed; default-simulation-seed; elapsed-clock"
+RunLifetime:
+  implementation: "Release-only; separate-window; no-production-delegate-or-migration; bounded-stop-and-drain"
+Measurement:
+  source: "Sources/Dreams/features/rain/model/RainPerformance.swift"
+  ownership: "opt-in-MainActor-recorder; bounded-per-run-samples; unavailable-data-is-absent"
+FrameCPU:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  scope: "selected-elapsed-spans-and-application-resource-requests; not-CPU-utilization-or-allocator-events"
+GPUCompletion:
+  source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+  scope: "completed-command-buffer-timestamps; not-per-pass-counters"
+Presentation:
+  implementation: "actual-presentedTime; sort-timestamps-independent-of-callback-order"
+ReportExport:
+  source: "scripts/run-performance.py"
+  implementation: "export-after-stop; preserve-all-runs-and-identities; smoke-is-not-baseline"

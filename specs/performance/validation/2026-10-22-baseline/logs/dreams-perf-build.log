@@ -1,0 +1,19 @@
+zsh scripts/build-app.sh release
+Built 28 film + 142 designed glyphs into /Users/egor/.codex/worktrees/performance-baseline/Dreams/research/glyphs/build: failed none, warnings none
+See /Users/egor/.codex/worktrees/performance-baseline/Dreams/research/glyphs/build/report.md and /Users/egor/.codex/worktrees/performance-baseline/Dreams/research/glyphs/build/proof.png
+Another instance of SwiftPM (PID: 29003) is already running using '/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/swiftpm', waiting until that process has finished execution...Building for production...
+[6 / 24] Logging
+[12 / 27] DreamsSettingsUI
+[14 / 28] DreamsSettingsUI
+[18 / 29] EventSource
+[22 / 30] Logging
+[27 / 32] SystemPackage
+[33 / 37] MCP
+[35 / 38] MCP
+[41 / 44] Dreams-product
+[42 / 45] Dreams-product
+[44 / 45] Dreams-product
+[45 / 45] Dreams-product
+Build complete! (22.15 sec)
+/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app: replacing existing signature
+/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app

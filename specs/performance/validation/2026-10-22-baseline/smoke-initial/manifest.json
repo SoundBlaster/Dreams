@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runKind": "smoke",
+  "revision": "8af63e1fc38fddfcff17dc4499e1f3cb3b84ebf6",
+  "workingTreeStatus": " M Sources/Dreams/app/entrypoint/DreamsMain.swift\n M Sources/Dreams/features/rain/ui/MatrixRain.swift\n M Sources/Dreams/features/rain/ui/RainRenderer.swift\n M scripts/swift-macos.sh\n?? .venv\n?? Sources/Dreams/app/providers/PerformanceRun.swift\n?? Sources/Dreams/features/rain/model/RainPerformance.swift\n?? Sources/Dreams/features/rain/model/RainPerformanceScenario.swift\n?? Tests/DreamsTests/RainPerformanceTests.swift\n?? dist\n?? research/performance-measurement-plan.md\n?? research/performance/\n?? scripts/run-performance.py\n",
+  "binarySHA256": "b0998bde09009ba3997efc0999428d9077b2985efafb1d26d9dc27c72be81ae8",
+  "fixtureSHA256": "6f118846f387adda3a8df925036cfa5713075aa9203b69a48dc5b39962045ef7",
+  "machine": "arm64",
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "sdk": "27.0",
+  "command": [
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/dist/Dreams.app/Contents/MacOS/Dreams",
+    "--performance-run",
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/smoke-initial/scenario.json"
+  ],
+  "results": [
+    {
+      "file": "run-01.json",
+      "exitCode": 0,
+      "valid": false
+    }
+  ]
+}

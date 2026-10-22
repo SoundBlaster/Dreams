@@ -91,7 +91,7 @@ evidence:
   - constraints.assembly
 - id: validation
   kind: test
-  path: validation/2026-10-15-materials/README.md
+  path: validation/2026-10-22-performance/README.md
   supports:
   - constraints
 provenance:
@@ -110,12 +110,12 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 96bda65c685ca4759e93e7fde95056b97fc237f9
+    revision: 6cc029cc0f7755365e97f6a405b44163bc2ece87
   files:
     owned:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
-    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
@@ -124,6 +124,7 @@ implementationBindings:
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
     border:
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
     - evidence/2026-10-15-shortcut-compact/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift

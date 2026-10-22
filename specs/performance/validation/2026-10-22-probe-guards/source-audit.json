@@ -1,0 +1,145 @@
+{
+  "allMatch": true,
+  "checks": [
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "scripts/run-performance.py",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "scripts/summarize-performance.py",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "scripts/swift-macos.sh",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "research/performance/scenarios/search-saturated.json",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "research/performance/scenarios/normal.json",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "research/performance/scenarios/dense-no-glow.json",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "research/performance/scenarios/dense.json",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "research/performance/scenarios/preview-crop.json",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/application.hc",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/application.hcs",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/performance.hc",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/performance.hcs",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "scripts/summarize-performance.py",
+      "matches": true
+    },
+    {
+      "package": "performance",
+      "path": "scripts/test-performance-reports.py",
+      "matches": true
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    }
+  ]
+}
