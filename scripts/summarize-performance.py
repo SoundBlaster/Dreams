@@ -1,16 +1,28 @@
 #!/usr/bin/env python3
 """Summarize each run without pooling percentiles or hiding invalid measurements."""
 import argparse
+import gzip
 import json
 from pathlib import Path
 import statistics
+
+
+def read_report(path):
+    if path.exists():
+        return json.loads(path.read_text())
+    return json.loads(gzip.decompress(Path(str(path) + ".gz").read_bytes()))
+
+
+def milliseconds(summary, percentile):
+    value = summary.get(percentile)
+    return None if value is None else value * 1000
 
 
 def summarize(directory):
     manifest = json.loads((directory / "manifest.json").read_text())
     runs = []
     for result in manifest["results"]:
-        report = json.loads((directory / result["file"]).read_text())
+        report = read_report(directory / result["file"])
         samples = report["samples"]
         intervals = report["summaries"]["presentation_interval_seconds"]
         times = sorted(s["presentedAt"] for s in samples if "presentedAt" in s)
@@ -18,11 +30,11 @@ def summarize(directory):
         runs.append({
             "file": result["file"], "valid": report["valid"] and result["exitCode"] == 0,
             "frames": len(samples), "observedFPS": intervals["count"] / elapsed if elapsed > 0 else None,
-            "drawP95ms": report["summaries"]["draw_seconds"].get("p95", 0) * 1000,
-            "simulationP95ms": report["summaries"]["simulation_seconds"].get("p95", 0) * 1000,
-            "instancesP95ms": report["summaries"]["instances_seconds"].get("p95", 0) * 1000,
-            "gpuP95ms": None if not report["summaries"]["gpu_seconds"]["count"] else report["summaries"]["gpu_seconds"]["p95"] * 1000,
-            "presentationP99ms": None if not intervals["count"] else intervals["p99"] * 1000,
+            "drawP95ms": milliseconds(report["summaries"]["draw_seconds"], "p95"),
+            "simulationP95ms": milliseconds(report["summaries"]["simulation_seconds"], "p95"),
+            "instancesP95ms": milliseconds(report["summaries"]["instances_seconds"], "p95"),
+            "gpuP95ms": milliseconds(report["summaries"]["gpu_seconds"], "p95"),
+            "presentationP99ms": milliseconds(intervals, "p99"),
             "intervalsOver50ms": report["intervalsOver50ms"], "intervalsOver100ms": report["intervalsOver100ms"],
             "meanCoreInstances": statistics.mean(s["coreInstances"] for s in samples) if samples else None,
             "meanHaloInstances": statistics.mean(s["haloInstances"] for s in samples) if samples else None,

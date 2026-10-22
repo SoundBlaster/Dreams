@@ -31,6 +31,9 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
             // An empty dedicated directory prevents private live messages entering a report.
             let files = try FileManager.default.contentsOfDirectory(atPath: feed)
             guard files.isEmpty else { throw DreamsError.unavailable("The performance mailbox must be empty.") }
+            guard !FileManager.default.fileExists(atPath: arguments[index + 2]) else {
+                throw DreamsError.unavailable("The performance output must not already exist.")
+            }
             #if DEBUG
             throw DreamsError.unavailable("Performance runs require Release configuration.")
             #endif
@@ -81,11 +84,11 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
     }
 
     private func start() {
+        started = CACurrentMediaTime()
         window.center()
         window.makeKeyAndOrderFront(nil)
         window.orderFrontRegardless()
         NSApplication.shared.activate(ignoringOtherApps: true)
-        started = CACurrentMediaTime()
         // Independent of draw callbacks: missing drawable cannot keep a run alive indefinitely.
         Task { @MainActor in
             try? await Task.sleep(for: .seconds(scenario.warmupSeconds + scenario.measureSeconds))
@@ -101,7 +104,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
     }
 
     func draw(in view: MTKView) {
-        guard !finishing else { return }
+        guard !finishing, started > 0 else { return }
         let now = CACurrentMediaTime()
         let elapsed = now - started
         if elapsed >= scenario.warmupSeconds {
