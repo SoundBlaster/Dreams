@@ -23,6 +23,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--runs", type=int, default=5)
     parser.add_argument("--smoke", action="store_true", help="1s warmup + 3s collection; never baseline evidence")
+    parser.add_argument("--calibration", choices=["control", "full"], help="common observer with nil or full collector")
     args = parser.parse_args()
     if not 1 <= args.runs <= 10:
         parser.error("--runs must be 1...10")
@@ -38,8 +39,9 @@ def main():
     if (resources / "Contents/Resources").is_dir():
         resources = resources / "Contents/Resources"
     manifest = {
-        "schemaVersion": 1,
-        "runKind": "smoke" if args.smoke else "baseline",
+        "schemaVersion": 2 if args.calibration else 1,
+        "runKind": "smoke" if args.smoke else "calibration" if args.calibration else "baseline",
+        "calibrationMode": args.calibration,
         "revision": revision,
         "workingTreeStatus": dirty,
         "binarySHA256": digest(args.binary),
@@ -50,21 +52,25 @@ def main():
         "cpuModel": subprocess.check_output(["sysctl", "-n", "machdep.cpu.brand_string"], text=True).strip(),
         "toolchain": subprocess.check_output(["swift", "--version"], text=True).strip(),
         "sdk": subprocess.check_output(["xcrun", "--sdk", "macosx", "--show-sdk-version"], text=True).strip(),
-        "command": [str(args.binary.resolve()), "--performance-run", str(fixture)],
+        "command": [str(args.binary.resolve()), "--performance-calibration" if args.calibration else "--performance-run", str(fixture)],
         "results": [],
     }
     manifest_path = args.output / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     for run in range(1, args.runs + 1):
         report = args.output.resolve() / f"run-{run:02}.json"
+        command = manifest["command"] + [str(report)] + ([args.calibration] if args.calibration else [])
         with tempfile.TemporaryDirectory(prefix="dreams-perf-mailbox-") as mailbox:
             env = os.environ | {"DREAMS_FEED_DIRECTORY": mailbox, "DREAMS_PERF_REVISION": revision}
             with (args.output / f"run-{run:02}.log").open("w") as log:
-                result = subprocess.run([str(args.binary.resolve()), "--performance-run", str(fixture), str(report)],
+                result = subprocess.run(command,
                                         env=env, stdout=log, stderr=subprocess.STDOUT,
                                         timeout=scenario["warmupSeconds"] + scenario["measureSeconds"] + 120)
-        valid = result.returncode == 0 and report.exists() and json.loads(report.read_text())["valid"]
-        manifest["results"].append({"file": report.name, "exitCode": result.returncode, "valid": valid})
+        data = json.loads(report.read_text()) if report.exists() else {}
+        valid = result.returncode == 0 and data.get("valid", False)
+        if args.calibration:
+            valid = valid and data.get("calibration", {}).get("mode") == args.calibration
+        manifest["results"].append({"file": report.name, "exitCode": result.returncode, "valid": valid, "command": command})
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
         print(f"{scenario['name']} {run}/{args.runs}: valid={valid}", flush=True)
         if not valid:

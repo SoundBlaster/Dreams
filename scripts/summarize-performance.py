@@ -23,6 +23,8 @@ def summarize(directory):
     runs = []
     for result in manifest["results"]:
         report = read_report(directory / result["file"])
+        if report.get("calibration") is not None:
+            raise ValueError("Calibration reports require scripts/analyze-calibration.py; control has no full-collector samples.")
         samples = report["samples"]
         intervals = report["summaries"]["presentation_interval_seconds"]
         times = sorted(s["presentedAt"] for s in samples if "presentedAt" in s)
