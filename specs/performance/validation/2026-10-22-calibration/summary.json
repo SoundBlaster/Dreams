@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 1,
+  "runKind": "calibration",
+  "complete": true,
+  "sufficientRepeats": true,
+  "nominalThermalStates": true,
+  "identities": [
+    {
+      "revision": "bb400f40a3ee9b950d91c65a19238b78b00108ec",
+      "binarySHA256": "2ad902ff1e2f404c7d511e2ffbdcd09e47dc1df66f957c398b2815d6ef415a95",
+      "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+      "resourceSHA256": {
+        "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+        "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b",
+        "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6"
+      },
+      "gpu": "Apple M4 Pro",
+      "os": "Version 27.0 (Build 26A428)",
+      "backingScale": 2,
+      "screenMaximumFPS": 120,
+      "screenFrame": "{{0, 0}, {1512, 982}}",
+      "machine": "arm64",
+      "hardwareModel": "Mac16,8",
+      "cpuModel": "Apple M4 Pro"
+    }
+  ],
+  "runs": [
+    {
+      "block": 1,
+      "position": 1,
+      "mode": "control",
+      "directory": "01-1-control",
+      "valid": true,
+      "draws": 1811,
+      "processCPUmsPerDraw": 7.6751673108779706,
+      "processCPUSeconds": 13.899728000000003,
+      "processCPUCores": 0.23030804009050257,
+      "outerDrawP50ms": 7.056666654534638,
+      "outerDrawP95ms": 7.952791638672352,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 29.994011306221953,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "position": 2,
+      "mode": "full",
+      "directory": "01-2-full",
+      "valid": true,
+      "draws": 1817,
+      "processCPUmsPerDraw": 7.491735828288388,
+      "processCPUSeconds": 13.612484000000002,
+      "processCPUCores": 0.2248090680305333,
+      "outerDrawP50ms": 6.749833293724805,
+      "outerDrawP95ms": 7.769208285026252,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 29.998149584125997,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "position": 3,
+      "mode": "control",
+      "directory": "01-3-control",
+      "valid": true,
+      "draws": 1805,
+      "processCPUmsPerDraw": 7.477547368421052,
+      "processCPUSeconds": 13.496973,
+      "processCPUCores": 0.2243925459928353,
+      "outerDrawP50ms": 6.931041658390313,
+      "outerDrawP95ms": 7.8439583303406835,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 30.00021088700482,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "mode": "control",
+      "directory": "02-1-control",
+      "valid": true,
+      "draws": 1816,
+      "processCPUmsPerDraw": 6.751786894273127,
+      "processCPUSeconds": 12.261244999999999,
+      "processCPUCores": 0.20256610658476987,
+      "outerDrawP50ms": 6.276250001974404,
+      "outerDrawP95ms": 7.018916658125818,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 29.996078549854417,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "position": 2,
+      "mode": "full",
+      "directory": "02-2-full",
+      "valid": true,
+      "draws": 1804,
+      "processCPUmsPerDraw": 6.812715077605323,
+      "processCPUSeconds": 12.290138000000002,
+      "processCPUCores": 0.20439561513721916,
+      "outerDrawP50ms": 6.357666628900915,
+      "outerDrawP95ms": 7.088041689712554,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 29.99605126856288,
+      "over50ms": 1,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "position": 3,
+      "mode": "control",
+      "directory": "02-3-control",
+      "valid": true,
+      "draws": 1802,
+      "processCPUmsPerDraw": 7.003264705882354,
+      "processCPUSeconds": 12.619883000000002,
+      "processCPUCores": 0.21021229062583552,
+      "outerDrawP50ms": 6.3461666577495635,
+      "outerDrawP95ms": 7.327375002205372,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 30.008539958106734,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "mode": "control",
+      "directory": "03-1-control",
+      "valid": true,
+      "draws": 1807,
+      "processCPUmsPerDraw": 7.714939679026012,
+      "processCPUSeconds": 13.940896000000002,
+      "processCPUCores": 0.23146139404574814,
+      "outerDrawP50ms": 7.077749993186444,
+      "outerDrawP95ms": 8.013333310373127,
+      "presentationP99ms": 41.671750019304454,
+      "observedFPS": 29.991903639100933,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 3,
+      "position": 2,
+      "mode": "full",
+      "directory": "03-2-full",
+      "valid": true,
+      "draws": 1816,
+      "processCPUmsPerDraw": 7.926989537444933,
+      "processCPUSeconds": 14.395413,
+      "processCPUCores": 0.2378618705094291,
+      "outerDrawP50ms": 7.30429170653224,
+      "outerDrawP95ms": 8.197541697882116,
+      "presentationP99ms": 41.67199996300042,
+      "observedFPS": 29.996074356738287,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 3,
+      "position": 3,
+      "mode": "control",
+      "directory": "03-3-control",
+      "valid": true,
+      "draws": 1817,
+      "processCPUmsPerDraw": 7.33628948816731,
+      "processCPUSeconds": 13.330038000000002,
+      "processCPUCores": 0.22024228394116319,
+      "outerDrawP50ms": 6.595125014428049,
+      "outerDrawP95ms": 7.7462499612011015,
+      "presentationP99ms": 41.66645836085081,
+      "observedFPS": 30.01053485866285,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "mode": "control",
+      "directory": "04-1-control",
+      "valid": true,
+      "draws": 1816,
+      "processCPUmsPerDraw": 7.376653083700441,
+      "processCPUSeconds": 13.396002000000001,
+      "processCPUCores": 0.22130244028708704,
+      "outerDrawP50ms": 6.674000003840774,
+      "outerDrawP95ms": 7.812750001903623,
+      "presentationP99ms": 41.66645836085081,
+      "observedFPS": 30.00227143228866,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 4,
+      "position": 2,
+      "mode": "full",
+      "directory": "04-2-full",
+      "valid": true,
+      "draws": 1816,
+      "processCPUmsPerDraw": 7.4658325991189445,
+      "processCPUSeconds": 13.557952000000002,
+      "processCPUCores": 0.22401980753207687,
+      "outerDrawP50ms": 6.702458369545639,
+      "outerDrawP95ms": 7.784041692502797,
+      "presentationP99ms": 41.66645836085081,
+      "observedFPS": 29.9940081184753,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 4,
+      "position": 3,
+      "mode": "control",
+      "directory": "04-3-control",
+      "valid": true,
+      "draws": 1816,
+      "processCPUmsPerDraw": 6.859670704845815,
+      "processCPUSeconds": 12.457162,
+      "processCPUCores": 0.2058228169101891,
+      "outerDrawP50ms": 6.271333375480026,
+      "outerDrawP95ms": 7.0259166532196105,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 29.9960734891902,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "mode": "control",
+      "directory": "05-1-control",
+      "valid": true,
+      "draws": 1801,
+      "processCPUmsPerDraw": 6.858745141588006,
+      "processCPUSeconds": 12.352599999999999,
+      "processCPUCores": 0.20582375523947208,
+      "outerDrawP50ms": 6.236499990336597,
+      "outerDrawP95ms": 6.9912082981318235,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 30.004371845350718,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 5,
+      "position": 2,
+      "mode": "full",
+      "directory": "05-2-full",
+      "valid": true,
+      "draws": 1808,
+      "processCPUmsPerDraw": 6.950876659292035,
+      "processCPUSeconds": 12.567184999999998,
+      "processCPUCores": 0.20862368105523296,
+      "outerDrawP50ms": 6.250999984331429,
+      "outerDrawP95ms": 7.289749977644533,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 30.006433241467462,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    },
+    {
+      "block": 5,
+      "position": 3,
+      "mode": "control",
+      "directory": "05-3-control",
+      "valid": true,
+      "draws": 1817,
+      "processCPUmsPerDraw": 7.188798018712163,
+      "processCPUSeconds": 13.062045999999999,
+      "processCPUCores": 0.21575425366535186,
+      "outerDrawP50ms": 6.624375004321337,
+      "outerDrawP95ms": 7.378166657872498,
+      "presentationP99ms": 41.6664166841656,
+      "observedFPS": 30.004336708849934,
+      "over50ms": 0,
+      "over100ms": 0,
+      "unpresentedSamples": 0,
+      "unavailableDrawable": 0,
+      "thermalStates": [
+        0
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "block": 1,
+      "processCPUmsPerDraw": {
+        "controlBracketMean": 7.576357339649512,
+        "full": 7.491735828288388,
+        "delta": -0.0846215113611235,
+        "controlToControlDelta": -0.19761994245691827
+      },
+      "outerDrawP50ms": {
+        "controlBracketMean": 6.993854156462476,
+        "full": 6.749833293724805,
+        "delta": -0.24402086273767054,
+        "controlToControlDelta": -0.12562499614432454
+      },
+      "outerDrawP95ms": {
+        "controlBracketMean": 7.898374984506518,
+        "full": 7.769208285026252,
+        "delta": -0.12916669948026538,
+        "controlToControlDelta": -0.10883330833166838
+      },
+      "presentationP99ms": {
+        "controlBracketMean": 41.6664166841656,
+        "full": 41.6664166841656,
+        "delta": 0.0,
+        "controlToControlDelta": 0.0
+      },
+      "observedFPS": {
+        "controlBracketMean": 29.997111096613388,
+        "full": 29.998149584125997,
+        "delta": 0.0010384875126092652,
+        "controlToControlDelta": 0.0061995807828658656
+      }
+    },
+    {
+      "block": 2,
+      "processCPUmsPerDraw": {
+        "controlBracketMean": 6.87752580007774,
+        "full": 6.812715077605323,
+        "delta": -0.06481072247241748,
+        "controlToControlDelta": 0.25147781160922733
+      },
+      "outerDrawP50ms": {
+        "controlBracketMean": 6.311208329861984,
+        "full": 6.357666628900915,
+        "delta": 0.04645829903893173,
+        "controlToControlDelta": 0.0699166557751596
+      },
+      "outerDrawP95ms": {
+        "controlBracketMean": 7.173145830165595,
+        "full": 7.088041689712554,
+        "delta": -0.0851041404530406,
+        "controlToControlDelta": 0.3084583440795541
+      },
+      "presentationP99ms": {
+        "controlBracketMean": 41.6664166841656,
+        "full": 41.6664166841656,
+        "delta": 0.0,
+        "controlToControlDelta": 0.0
+      },
+      "observedFPS": {
+        "controlBracketMean": 30.002309253980577,
+        "full": 29.99605126856288,
+        "delta": -0.006257985417697398,
+        "controlToControlDelta": 0.01246140825231734
+      }
+    },
+    {
+      "block": 3,
+      "processCPUmsPerDraw": {
+        "controlBracketMean": 7.525614583596661,
+        "full": 7.926989537444933,
+        "delta": 0.40137495384827204,
+        "controlToControlDelta": -0.37865019085870166
+      },
+      "outerDrawP50ms": {
+        "controlBracketMean": 6.836437503807247,
+        "full": 7.30429170653224,
+        "delta": 0.46785420272499323,
+        "controlToControlDelta": -0.4826249787583947
+      },
+      "outerDrawP95ms": {
+        "controlBracketMean": 7.8797916357871145,
+        "full": 8.197541697882116,
+        "delta": 0.31775006209500134,
+        "controlToControlDelta": -0.2670833491720259
+      },
+      "presentationP99ms": {
+        "controlBracketMean": 41.66910419007763,
+        "full": 41.67199996300042,
+        "delta": 0.00289577292278409,
+        "controlToControlDelta": -0.005291658453643322
+      },
+      "observedFPS": {
+        "controlBracketMean": 30.001219248881892,
+        "full": 29.996074356738287,
+        "delta": -0.005144892143604807,
+        "controlToControlDelta": 0.018631219561918044
+      }
+    },
+    {
+      "block": 4,
+      "processCPUmsPerDraw": {
+        "controlBracketMean": 7.118161894273128,
+        "full": 7.4658325991189445,
+        "delta": 0.3476707048458163,
+        "controlToControlDelta": -0.5169823788546264
+      },
+      "outerDrawP50ms": {
+        "controlBracketMean": 6.4726666896604,
+        "full": 6.702458369545639,
+        "delta": 0.2297916798852384,
+        "controlToControlDelta": -0.4026666283607483
+      },
+      "outerDrawP95ms": {
+        "controlBracketMean": 7.419333327561617,
+        "full": 7.784041692502797,
+        "delta": 0.36470836494117975,
+        "controlToControlDelta": -0.7868333486840129
+      },
+      "presentationP99ms": {
+        "controlBracketMean": 41.666437522508204,
+        "full": 41.66645836085081,
+        "delta": 2.0838342607021332e-05,
+        "controlToControlDelta": -4.1676685214042664e-05
+      },
+      "observedFPS": {
+        "controlBracketMean": 29.99917246073943,
+        "full": 29.9940081184753,
+        "delta": -0.005164342264130539,
+        "controlToControlDelta": -0.0061979430984600015
+      }
+    },
+    {
+      "block": 5,
+      "processCPUmsPerDraw": {
+        "controlBracketMean": 7.023771580150084,
+        "full": 6.950876659292035,
+        "delta": -0.07289492085804916,
+        "controlToControlDelta": 0.33005287712415665
+      },
+      "outerDrawP50ms": {
+        "controlBracketMean": 6.430437497328967,
+        "full": 6.250999984331429,
+        "delta": -0.17943751299753785,
+        "controlToControlDelta": 0.3878750139847398
+      },
+      "outerDrawP95ms": {
+        "controlBracketMean": 7.184687478002161,
+        "full": 7.289749977644533,
+        "delta": 0.10506249964237213,
+        "controlToControlDelta": 0.3869583597406745
+      },
+      "presentationP99ms": {
+        "controlBracketMean": 41.6664166841656,
+        "full": 41.6664166841656,
+        "delta": 0.0,
+        "controlToControlDelta": 0.0
+      },
+      "observedFPS": {
+        "controlBracketMean": 30.004354277100326,
+        "full": 30.006433241467462,
+        "delta": 0.0020789643671363933,
+        "controlToControlDelta": -3.513650078446062e-05
+      }
+    }
+  ],
+  "processCPUmsPerDrawDelta": {
+    "median": -0.06481072247241748,
+    "minimum": -0.0846215113611235,
+    "maximum": 0.40137495384827204
+  },
+  "absoluteControlToControlSpreadMs": {
+    "median": 0.33005287712415665,
+    "minimum": 0.19761994245691827,
+    "maximum": 0.5169823788546264
+  },
+  "repeatablePositiveCostAboveObservedControlSpread": false,
+  "conclusion": "cost not resolved above control spread; never infer zero overhead",
+  "limits": [
+    "Common observer cost excluded; not total instrumentation overhead",
+    "Interactive host; control spread is not a confidence interval",
+    "No subtraction/correction of earlier baseline percentiles",
+    "No GPU overhead, memory, energy, fullscreen or tvOS acceptance"
+  ]
+}

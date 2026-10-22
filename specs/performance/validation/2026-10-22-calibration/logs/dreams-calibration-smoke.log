@@ -1,0 +1,7 @@
+START block=1 position=1 mode=control
+swift-driver version: 1.168.6 dense 1/1: valid=True
+START block=1 position=2 mode=full
+swift-driver version: 1.168.6 dense 1/1: valid=True
+START block=1 position=3 mode=control
+swift-driver version: 1.168.6 dense 1/1: valid=True
+CALIBRATION_COMPLETE

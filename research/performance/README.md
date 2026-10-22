@@ -64,9 +64,11 @@ reference dimensions, not its logical window frame, define renderer workload.
 
 No automatic improvement threshold or issue closure is inferred. Compare paired
 runs on the same hardware, preserve their spread, and check behavior separately.
-Profiling overhead has not yet been established; use Instruments captures for
-allocator/memory data and a separate instrumentation comparison before small gains
-are accepted.
+The [collector comparison](../../specs/performance/validation/2026-10-22-calibration/README.md)
+completed five bracketing blocks, but incremental CPU cost remained unresolved
+above control spread. The common observer's own cost remains uncalibrated. Use
+Instruments for allocator/memory data and stronger control of variance before
+small CPU gains are accepted.
 
 ## Remaining measurement work
 
@@ -74,7 +76,7 @@ are accepted.
 - Preview reopen/resource lifetime and capture-tool response for #45/#47.
 - Fullscreen, multi-display and physical Apple TV Release runs.
 - Allocations, memory, power and GPU pass counters using appropriate tools.
-- Quantified collector overhead and device-specific budgets after baseline.
+- Better resolution of collector CPU cost, common-observer overhead and device-specific budgets.
 
 The [descriptive probe contract](../../specs/performance/README.md) records scope
 and separates source/structural checks from measurement and acceptance.
@@ -82,3 +84,12 @@ and separates source/structural checks from measurement and acceptance.
 The first [15-run baseline](../../specs/performance/validation/2026-10-22-baseline/README.md)
 retains compressed raw samples and a reproducible summary. The summary script
 accepts either `run-01.json` or its archived `run-01.json.gz` equivalent.
+
+## Collector calibration
+
+The [calibration protocol](calibration-protocol.md) fixes five control/full/control
+blocks and the interpretation before collection. `scripts/run-calibration.py`
+retains per-run evidence; `scripts/analyze-calibration.py` compares only matching
+source/binary/resources/fixtures/devices and preserves signed differences and
+control spread. The common observer cost is excluded; unresolved cost does not
+imply zero overhead. Calibration control reports are not GPU-validation baselines.

@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.performance.measure
   title: RendererPerformanceProbe
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Give contributors repeatable per-run renderer measurements with explicit scope, validity and provenance.
@@ -12,10 +12,12 @@ scope:
   includes:
   - Explicit bounded JSON scenarios, a single macOS windowed renderer, selected wall spans, GPU timestamps and actual presentation intervals.
   - Bounded in-memory samples, isolated empty mailbox, Release-only launch and post-run JSON export.
+  - Calibration control/full profiles with an identical outer observer, process CPU boundary counters and bracketing controls.
   excludes:
   - Renderer optimization, user preferences, production overlay lifecycle, agent integrations and hooks.
   - Allocator events, process memory, energy, per-pass GPU counters, fullscreen and multi-display acceptance or tvOS evidence.
   - Automatic issue closure, quantified speedup, accepted budgets or an unmeasured zero-overhead claim.
+  - Total common-observer overhead or automatic correction of historical baseline percentiles.
 provides:
   capabilities:
   - id: dreams.performance.measure
@@ -38,6 +40,13 @@ interfaces:
       outputs:
       - name: report
         type: JSON with fixture identity, configuration, validity, raw samples, summaries and unavailable metrics
+    - name: --performance-calibration
+      inputs:
+      - name: paths_and_mode
+        type: scenario JSON, output JSON, control or full; same isolated mailbox and source-revision requirements
+      outputs:
+      - name: calibration_report
+        type: schema-2 JSON with common outer draw/presentation samples and process CPU delta; full-collector samples only in full mode
   outbound: []
 constraints:
 - id: isolation
@@ -52,6 +61,9 @@ constraints:
 - id: provenance
   level: MUST
   statement: Preserve fixture hash, caller source revision, binary digest and working-tree status through reports/manifest. Keep individual runs and distinguish smoke from baseline. The Python runner requires a new output directory. Caller is responsible for matching the executable to recorded source; a digest identifies bytes, not source-to-binary conformance.
+- id: calibration
+  level: MUST
+  statement: Keep the full recorder absent in control and enabled only during full collection. Use the same outer draw/presentation observer in both modes and process CPU counter snapshots at collection boundaries, excluding drain/export. Control reports are not full GPU-validation baselines. Compare fixed control/full/control blocks only with matching source, binary, resources, fixture and device identities. Retain signed deltas and control-to-control spread; missing CPU is not zero, insufficient repeats or unresolved cost never imply zero overhead. The common observer's cost remains outside this incremental comparison. Generic baseline summaries reject calibration reports.
 effects:
   sideEffects:
   - id: display
@@ -63,7 +75,7 @@ effects:
 evidence:
 - id: validation
   kind: test
-  path: validation/2026-10-22-baseline/README.md
+  path: validation/2026-10-22-calibration/README.md
   supports:
   - constraints
 provenance:
@@ -73,30 +85,37 @@ provenance:
   notes:
   - Owner agreed to measurement-first work for issues 41 through 49. This initial macOS probe is only the first bounded stage.
   - Existing motion, head, pulse, preview-scale and capture requirements remain unchanged. Draft structural validation does not establish hardware performance acceptance.
+  - Calibration extends the same contributor boundary. The earlier four claim IDs remain stable; calibration is additive and preserves historical measurements.
 
 implementationBindings:
 - id: performance_swift_python
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 32ebeb5298f66766cca4673b7b4a905da17e425f
+    revision: 7479e608be5bd53728eebf78dfd3f375e77360c9
   files:
     owned:
-    - evidence/2026-10-22-baseline/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-22-probe-guards/source/Sources/Dreams/app/providers/PerformanceRun.swift
+    - evidence/2026-10-22-calibration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-22-calibration/source/Sources/Dreams/app/providers/PerformanceRun.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-22-baseline/source/Tests/DreamsTests/RainPerformanceTests.swift
-    - evidence/2026-10-22-baseline/source/scripts/run-performance.py
-    - evidence/2026-10-22-probe-guards/source/scripts/summarize-performance.py
+    - evidence/2026-10-22-calibration/source/scripts/run-performance.py
+    - evidence/2026-10-22-calibration/source/scripts/summarize-performance.py
     - evidence/2026-10-22-baseline/source/scripts/swift-macos.sh
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/preview-crop.json
-    - evidence/2026-10-22-probe-guards/source/scripts/test-performance-reports.py
+    - evidence/2026-10-22-calibration/source/scripts/test-performance-reports.py
+    - evidence/2026-10-22-calibration/source/Sources/Dreams/features/rain/model/RainCalibration.swift
+    - evidence/2026-10-22-calibration/source/Tests/DreamsTests/RainCalibrationTests.swift
+    - evidence/2026-10-22-calibration/source/scripts/run-calibration.py
+    - evidence/2026-10-22-calibration-analysis/source/scripts/analyze-calibration.py
+    - evidence/2026-10-22-calibration-analysis/source/scripts/test-calibration.py
+    - evidence/2026-10-22-calibration/source/research/performance/calibration-protocol.md
     border: []

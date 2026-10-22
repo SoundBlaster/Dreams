@@ -1,0 +1,38 @@
+PerformanceProbe:
+  source: "Sources/Dreams/app/providers/PerformanceRun.swift"
+  capability: "dreams.performance.measure"
+Scenario:
+  source: "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift"
+  boundary: "bounded-explicit-JSON; isolated-empty-feed; default-simulation-seed; elapsed-clock"
+RunLifetime:
+  implementation: "Release-only; separate-window; no-production-delegate-or-migration; bounded-stop-and-drain"
+Measurement:
+  source: "Sources/Dreams/features/rain/model/RainPerformance.swift"
+  ownership: "opt-in-MainActor-recorder; bounded-per-run-samples; unavailable-data-is-absent"
+  full_collector: "enabled-only-during-regular-collection"
+FrameCPU:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  scope: "selected-elapsed-spans-and-application-resource-requests; not-CPU-utilization-or-allocator-events"
+GPUCompletion:
+  source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+  scope: "completed-command-buffer-timestamps; not-per-pass-counters"
+Presentation:
+  implementation: "actual-presentedTime; sort-timestamps-independent-of-callback-order"
+Calibration:
+  source: "Sources/Dreams/features/rain/model/RainCalibration.swift"
+  comparison: "scripts/analyze-calibration.py"
+  mode: "not-selected"
+  boundary: "same-outer-observer-for-both-modes; common-observer-cost-excluded; signed-paired-deltas-and-control-spread"
+ReportExport:
+  source: "scripts/run-performance.py"
+  implementation: "export-after-stop; preserve-all-runs-and-identities; smoke-is-not-baseline"
+@probe[control]:
+  Measurement:
+    full_collector: "absent"
+  Calibration:
+    mode: "control"
+@probe[full]:
+  Measurement:
+    full_collector: "enabled-during-collection"
+  Calibration:
+    mode: "full"

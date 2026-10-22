@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "runKind": "calibration",
+  "blocks": 5,
+  "order": [
+    "control",
+    "full",
+    "control"
+  ],
+  "runs": [
+    {
+      "block": 1,
+      "position": 1,
+      "mode": "control",
+      "directory": "01-1-control",
+      "beganUnix": 1792706790.808723,
+      "endedUnix": 1792706881.650849,
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "position": 2,
+      "mode": "full",
+      "directory": "01-2-full",
+      "beganUnix": 1792706881.65166,
+      "endedUnix": 1792706972.8247528,
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "position": 3,
+      "mode": "control",
+      "directory": "01-3-control",
+      "beganUnix": 1792706972.825568,
+      "endedUnix": 1792707063.5201762,
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "mode": "control",
+      "directory": "02-1-control",
+      "beganUnix": 1792707063.521379,
+      "endedUnix": 1792707154.553828,
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "position": 2,
+      "mode": "full",
+      "directory": "02-2-full",
+      "beganUnix": 1792707154.5547159,
+      "endedUnix": 1792707245.196348,
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "position": 3,
+      "mode": "control",
+      "directory": "02-3-control",
+      "beganUnix": 1792707245.197088,
+      "endedUnix": 1792707335.759186,
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "mode": "control",
+      "directory": "03-1-control",
+      "beganUnix": 1792707335.759855,
+      "endedUnix": 1792707426.550294,
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "position": 2,
+      "mode": "full",
+      "directory": "03-2-full",
+      "beganUnix": 1792707426.5509918,
+      "endedUnix": 1792707517.618091,
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "position": 3,
+      "mode": "control",
+      "directory": "03-3-control",
+      "beganUnix": 1792707517.618885,
+      "endedUnix": 1792707608.717392,
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "mode": "control",
+      "directory": "04-1-control",
+      "beganUnix": 1792707608.718067,
+      "endedUnix": 1792707699.700338,
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "position": 2,
+      "mode": "full",
+      "directory": "04-2-full",
+      "beganUnix": 1792707699.700997,
+      "endedUnix": 1792707790.732973,
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "position": 3,
+      "mode": "control",
+      "directory": "04-3-control",
+      "beganUnix": 1792707790.733788,
+      "endedUnix": 1792707881.7613928,
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "mode": "control",
+      "directory": "05-1-control",
+      "beganUnix": 1792707881.762399,
+      "endedUnix": 1792707972.3783412,
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "position": 2,
+      "mode": "full",
+      "directory": "05-2-full",
+      "beganUnix": 1792707972.378996,
+      "endedUnix": 1792708063.117271,
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "position": 3,
+      "mode": "control",
+      "directory": "05-3-control",
+      "beganUnix": 1792708063.118027,
+      "endedUnix": 1792708154.1920562,
+      "exitCode": 0
+    }
+  ]
+}

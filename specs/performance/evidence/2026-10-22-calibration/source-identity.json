@@ -1,0 +1,91 @@
+{
+  "sourceRevision": "bb400f40a3ee9b950d91c65a19238b78b00108ec",
+  "mapBaseRevision": "bb400f40a3ee9b950d91c65a19238b78b00108ec",
+  "dirtyMaps": [
+    "specs/hypercode/performance.hc",
+    "specs/hypercode/performance.hcs"
+  ],
+  "scopeNote": "Additive calibration mode; MatrixRain, RainRenderer, MatrixSimulation and all user settings/overlay/TV implementations are byte-unchanged from merged main. Baseline source/results remain historical.",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "b6c59e9512a8a420424102ac67a956363a80c9f4a57eeaf0af9fa4dc9bb661b2",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "561b5e0e05d452de8e550f1b2d124bcf22a0c4eac35116becd132b044a1832d1",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "sha256": "c032603004438284a998781a7b0d32b1c909bb131c2f1d08057b1b7ccfd118bb",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/RainCalibrationTests.swift",
+      "sha256": "15c9f8dee840ee006311e31e3f728e3d8d45fa7cc4d4435149408aebbeb9f905",
+      "snapshot": "evidence/2026-10-22-calibration/source/Tests/DreamsTests/RainCalibrationTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-performance.py",
+      "sha256": "f5dcbc7b5cc79190faff6e06500e359456afbaf91a5b56080105d390aa6f3789",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/summarize-performance.py",
+      "sha256": "8061c599910e02e22efe2fc263b13f1acc9f5edab1eaa60dba36853d96021242",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/summarize-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-calibration.py",
+      "sha256": "c6c157833f91a0ac0f0e609500ec135fa55d62d6266c5068f52fab591796284d",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-calibration.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/analyze-calibration.py",
+      "sha256": "efeae216b78d6e1f75f0eaa69d7654b55a49a18f9862e82c4e0c2eb1400aa340",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/analyze-calibration.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-calibration.py",
+      "sha256": "45063be2b5cf28ec72a1aa8ffb336c7ee54929fe0487a1fbeeb7a2f3bf2d4a6a",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/test-calibration.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-performance-reports.py",
+      "sha256": "71738303f1a7d58746ffb1de1629fe24168e08f8447d7f9fd5bfa7ca8f60667d",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/test-performance-reports.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/calibration-protocol.md",
+      "sha256": "aad3cb7a234f634d0affbf582be1c9b04aa1eeb7038ad358e47c0d663a9fc480",
+      "snapshot": "evidence/2026-10-22-calibration/source/research/performance/calibration-protocol.md",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "075833b37f5fcdd23620ce45cb6d994b66f0c632c46372ddb050fa8f1f506e84",
+      "snapshot": "evidence/2026-10-22-calibration/maps/specs/hypercode/performance.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "ede9b14090ca8a1c7ff6c2890c1a3294f09fd1f885d225f5cca0921ba82be9cc",
+      "snapshot": "evidence/2026-10-22-calibration/maps/specs/hypercode/performance.hcs",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

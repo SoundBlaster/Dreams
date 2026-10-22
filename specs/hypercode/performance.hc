@@ -5,4 +5,5 @@ PerformanceProbe
     FrameCPU
     GPUCompletion
     Presentation
+  Calibration
   ReportExport

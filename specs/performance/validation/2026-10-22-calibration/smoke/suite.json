@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "runKind": "smoke",
+  "blocks": 1,
+  "order": [
+    "control",
+    "full",
+    "control"
+  ],
+  "runs": [
+    {
+      "block": 1,
+      "position": 1,
+      "mode": "control",
+      "directory": "01-1-control",
+      "beganUnix": 1792706612.2587829,
+      "endedUnix": 1792706617.459413,
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "position": 2,
+      "mode": "full",
+      "directory": "01-2-full",
+      "beganUnix": 1792706617.4599528,
+      "endedUnix": 1792706622.014527,
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "position": 3,
+      "mode": "control",
+      "directory": "01-3-control",
+      "beganUnix": 1792706622.014962,
+      "endedUnix": 1792706626.6294148,
+      "exitCode": 0
+    }
+  ]
+}

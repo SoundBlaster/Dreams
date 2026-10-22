@@ -62,3 +62,8 @@ The [performance probe](performance.hc) / [properties](performance.hcs) describe
 opt-in bounded developer measurements separately from ordinary overlay/settings
 lifecycle. [Draft contract](../performance/README.md) and current evidence disclose
 hardware/profile limits; instrumentation does not establish optimization gains.
+
+Calibration adds one PerformanceProbe.Calibration responsibility with explicit
+`probe=control` and `probe=full` properties. The fixed protocol and current
+evidence separate full-collector overhead from the common observer cost.
+These contexts describe diagnostic modes, not application configuration.

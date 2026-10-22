@@ -1,0 +1,44 @@
+Building for production...
+[Computing dependencies]
+[1 / 34]
+[5 / 26] SystemPackage
+[13 / 30] DreamsSettingsUI
+[17 / 31] EventSource
+[21 / 32] Logging
+[26 / 34] SystemPackage
+[32 / 39] MCP
+[34 / 40] MCP
+[41 / 45] Dreams-product
+[43 / 47] Dreams
+[47 / 49] Dreams-product
+[51 / 55] Dreams-product
+[52 / 55] Dreams-product
+[54 / 55] DreamsTests-product
+[55 / 56] DreamsTests-product
+[61 / 65] DreamsTests-product
+[63 / 65] DreamsTests-product
+Build complete! (35.69 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite RainCalibrationTests started.
+􀟈  Suite RainPerformanceTests started.
+􀟈  Test droppedPresentationAndAbsentCPUAreNotZeroCost() started.
+􀟈  Test commonObserverBoundsStorageAndSortsPresentationTime() started.
+􀟈  Test allScenarioFixturesAreBoundedAndFullySpecified() started.
+􀟈  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() started.
+􀟈  Test processCPUDeltaPreservesMissingAndRejectsReversedCounters() started.
+􀟈  Test droppedPresentationIsNotAZeroDurationFrame() started.
+􀟈  Test percentilesUseNearestRankAndPreserveMissingData() started.
+􀟈  Test rejectsInvalidBoundsAndMissingRequiredInputs() started.
+􁁛  Test percentilesUseNearestRankAndPreserveMissingData() passed after 0.001 seconds.
+􁁛  Test processCPUDeltaPreservesMissingAndRejectsReversedCounters() passed after 0.001 seconds.
+􁁛  Test droppedPresentationAndAbsentCPUAreNotZeroCost() passed after 0.001 seconds.
+􁁛  Test commonObserverBoundsStorageAndSortsPresentationTime() passed after 0.001 seconds.
+􁁛  Suite RainCalibrationTests passed after 0.001 seconds.
+􁁛  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() passed after 0.001 seconds.
+􁁛  Test droppedPresentationIsNotAZeroDurationFrame() passed after 0.001 seconds.
+􁁛  Test allScenarioFixturesAreBoundedAndFullySpecified() passed after 0.001 seconds.
+􁁛  Test rejectsInvalidBoundsAndMissingRequiredInputs() passed after 0.002 seconds.
+􁁛  Suite RainPerformanceTests passed after 0.002 seconds.
+􁁛  Test run with 8 tests in 2 suites passed after 0.003 seconds.

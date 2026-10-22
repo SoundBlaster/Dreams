@@ -251,4 +251,6 @@ specs-check:
 
 	"$(HYPERCODE)" parse specs/hypercode/performance.hc
 	"$(HYPERCODE)" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs
+	"$(HYPERCODE)" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs --ctx probe=control
+	"$(HYPERCODE)" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs --ctx probe=full
 	"$(SPECPM)" validate specs/performance --json
