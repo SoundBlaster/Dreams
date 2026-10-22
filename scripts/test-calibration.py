@@ -30,6 +30,7 @@ with tempfile.TemporaryDirectory(prefix="dreams-calibration-test-") as directory
         folder.mkdir()
         (folder / "scenario.json").write_bytes(fixture)
         manifest = {"revision": "source", "binarySHA256": "binary", "fixtureSHA256": digest,
+                    "machine": "arm64", "hardwareModel": "model", "cpuModel": "cpu",
                     "resourceSHA256": {"font": "font"}, "runKind": "calibration", "calibrationMode": mode,
                     "results": [{"exitCode": 0, "valid": True}]}
         cal = {"mode": mode, "cpu": {"userSeconds": seconds, "systemSeconds": 0}, "processCPUSecondsPerDraw": seconds / 3,
@@ -45,6 +46,8 @@ with tempfile.TemporaryDirectory(prefix="dreams-calibration-test-") as directory
     (root / "suite.json").write_text(json.dumps(suite))
     result = module.analyze(root)
     assert result["complete"] and not result["sufficientRepeats"]
+    assert "insufficient repeats" in result["conclusion"]
+    assert result["identities"][0]["hardwareModel"] == "model"
     assert abs(result["blocks"][0]["processCPUmsPerDraw"]["delta"] - 1) < 1e-9
     assert result["absoluteControlToControlSpreadMs"]["median"] == 2
     assert not result["repeatablePositiveCostAboveObservedControlSpread"]
@@ -59,12 +62,17 @@ with tempfile.TemporaryDirectory(prefix="dreams-calibration-test-") as directory
     full_path.write_text(json.dumps(full))
     invalid = module.analyze(root)
     assert not invalid["complete"] and invalid["runs"][1]["processCPUmsPerDraw"] is None
+    assert "invalid or incomplete" in invalid["conclusion"]
     manifest_path = root / "01-3-control/manifest.json"
     changed = json.loads(manifest_path.read_text())
     changed["binarySHA256"] = "different"
     manifest_path.write_text(json.dumps(changed))
     expect_rejection(root)
     changed["binarySHA256"] = "binary"
+    changed["cpuModel"] = "different cpu"
+    manifest_path.write_text(json.dumps(changed))
+    expect_rejection(root)
+    changed["cpuModel"] = "cpu"
     manifest_path.write_text(json.dumps(changed))
     (root / "01-3-control/scenario.json").write_text("{}")
     expect_rejection(root)

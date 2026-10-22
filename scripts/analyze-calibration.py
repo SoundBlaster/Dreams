@@ -43,7 +43,8 @@ def analyze(root):
             raise ValueError("Calibration mode/run kind mismatch")
         identities.add((manifest["revision"], manifest["binarySHA256"], fixture_hash,
                         json.dumps(manifest["resourceSHA256"], sort_keys=True), report["device"], report["os"],
-                        report["backingScale"], report["screenMaximumFPS"], report["screenFrame"]))
+                        report["backingScale"], report["screenMaximumFPS"], report["screenFrame"],
+                        manifest["machine"], manifest["hardwareModel"], manifest["cpuModel"]))
         frames = len(cal["samples"])
         collector_matches = len(report["samples"]) == (0 if mode == "control" else frames)
         cpu = cal.get("cpu")
@@ -91,12 +92,27 @@ def analyze(root):
     control_spread = [abs(block["processCPUmsPerDraw"]["controlToControlDelta"]) for block in blocks]
     sufficient = suite["runKind"] == "calibration" and len(blocks) >= 5
     resolved = bool(complete and nominal and sufficient and min(deltas) > max(control_spread))
+    if not complete:
+        conclusion = "invalid or incomplete collection; no overhead estimate accepted"
+    elif not sufficient:
+        conclusion = "insufficient repeats or smoke; no performance conclusion"
+    elif not nominal:
+        conclusion = "non-nominal thermal state; comparison confounded"
+    elif resolved:
+        conclusion = "positive cost exceeds observed control spread in every block"
+    else:
+        conclusion = "cost not resolved above control spread; never infer zero overhead"
+    fields = ["revision", "binarySHA256", "fixtureSHA256", "resourceSHA256", "gpu", "os", "backingScale",
+              "screenMaximumFPS", "screenFrame", "machine", "hardwareModel", "cpuModel"]
+    identity_records = [dict(zip(fields, identity)) for identity in sorted(identities)]
+    for identity in identity_records:
+        identity["resourceSHA256"] = json.loads(identity["resourceSHA256"])
     return {"schemaVersion": 1, "runKind": suite["runKind"], "complete": complete, "sufficientRepeats": sufficient,
-            "nominalThermalStates": nominal, "identities": [list(identity) for identity in sorted(identities)],
+            "nominalThermalStates": nominal, "identities": identity_records,
             "runs": rows, "blocks": blocks,
             "processCPUmsPerDrawDelta": describe(deltas), "absoluteControlToControlSpreadMs": describe(control_spread),
             "repeatablePositiveCostAboveObservedControlSpread": resolved,
-            "conclusion": "positive cost exceeds observed control spread in every block" if resolved else "cost not resolved above control spread; never infer zero overhead",
+            "conclusion": conclusion,
             "limits": ["Common observer cost excluded; not total instrumentation overhead", "Interactive host; control spread is not a confidence interval",
                        "No subtraction/correction of earlier baseline percentiles", "No GPU overhead, memory, energy, fullscreen or tvOS acceptance"]}
 
