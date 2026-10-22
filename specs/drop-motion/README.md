@@ -64,3 +64,6 @@ Current native shortcut integration: [2026-10-15 shortcut](validation/2026-10-15
 Current compact shortcut layout: [2026-10-15-shortcut-compact](validation/2026-10-15-shortcut-compact/README.md). Behavior and stable claim IDs remain unchanged.
 
 Current startup-conflict retry fix: [2026-10-15-shortcut-retry](validation/2026-10-15-shortcut-retry/README.md). Historical evidence remains on its original baseline.
+
+Optional performance instrumentation source/impact: [2026-10-22](validation/2026-10-22-performance/README.md).
+Ordinary behavior and stable claims remain unchanged; prior passes stay historical.

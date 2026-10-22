@@ -1,0 +1,31 @@
+START round=1 scenario=normal
+swift-driver version: 1.168.6 normal 1/1: valid=True
+START round=1 scenario=dense
+swift-driver version: 1.168.6 dense 1/1: valid=True
+START round=1 scenario=dense-no-glow
+swift-driver version: 1.168.6 dense-no-glow 1/1: valid=True
+START round=2 scenario=dense
+swift-driver version: 1.168.6 dense 1/1: valid=True
+START round=2 scenario=dense-no-glow
+swift-driver version: 1.168.6 dense-no-glow 1/1: valid=True
+START round=2 scenario=normal
+swift-driver version: 1.168.6 normal 1/1: valid=True
+START round=3 scenario=dense-no-glow
+swift-driver version: 1.168.6 dense-no-glow 1/1: valid=True
+START round=3 scenario=normal
+swift-driver version: 1.168.6 normal 1/1: valid=True
+START round=3 scenario=dense
+swift-driver version: 1.168.6 dense 1/1: valid=True
+START round=4 scenario=normal
+swift-driver version: 1.168.6 normal 1/1: valid=True
+START round=4 scenario=dense
+swift-driver version: 1.168.6 dense 1/1: valid=True
+START round=4 scenario=dense-no-glow
+swift-driver version: 1.168.6 dense-no-glow 1/1: valid=True
+START round=5 scenario=dense
+swift-driver version: 1.168.6 dense 1/1: valid=True
+START round=5 scenario=dense-no-glow
+swift-driver version: 1.168.6 dense-no-glow 1/1: valid=True
+START round=5 scenario=normal
+swift-driver version: 1.168.6 normal 1/1: valid=True
+SUITE_COMPLETE

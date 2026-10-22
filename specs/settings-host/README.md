@@ -138,3 +138,6 @@ Content setting icons: [2026-10-19-content-icons](validation/2026-10-19-content-
 Parity corrections: [2026-10-19-parity-fixes](validation/2026-10-19-parity-fixes/README.md).
 
 Accessibility audit and optional-help correction: [2026-10-20-accessibility](validation/2026-10-20-accessibility/README.md).
+
+Optional performance instrumentation source/impact: [2026-10-22](validation/2026-10-22-performance/README.md).
+Ordinary behavior and stable claims remain unchanged; prior passes stay historical.

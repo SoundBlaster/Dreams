@@ -2,6 +2,7 @@ Dreams
   DesktopApplication
     RainOverlaySession
     SettingsPage
+    PerformanceProbe
   TelevisionApplication
   SettingsCatalog
   AgentIntegrations

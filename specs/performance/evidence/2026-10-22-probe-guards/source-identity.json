@@ -1,0 +1,25 @@
+{
+  "sourceRevision": "32ebeb5298f66766cca4673b7b4a905da17e425f",
+  "performanceBaselineRevision": "6cc029cc0f7755365e97f6a405b44163bc2ece87",
+  "scopeNote": "Startup/overwrite guards and summary null/gzip handling only. The 15 hardware baseline runs remain pinned to 6cc029c; they are not execution evidence for this revision.",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "f1cf31f23bc2bee0412115cdf63decd0e3744adf704fa7b3d00fb5c974208ddd",
+      "snapshot": "evidence/2026-10-22-probe-guards/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/summarize-performance.py",
+      "sha256": "43bd656e3cc69671132dfcb97b194779ddae94a2177077c10d2ff842618bcda1",
+      "snapshot": "evidence/2026-10-22-probe-guards/source/scripts/summarize-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-performance-reports.py",
+      "sha256": "c9387fcc06aee08c2eff7cc610196ed6a254e4b88bafd8aa189f5a03ab7ddf58",
+      "snapshot": "evidence/2026-10-22-probe-guards/source/scripts/test-performance-reports.py",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

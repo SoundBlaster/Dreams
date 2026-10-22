@@ -126,7 +126,7 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-20-accessibility/README.md
+  path: validation/2026-10-22-performance/README.md
   supports:
   - constraints
 - id: local_ui_dependency
@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: b839251fbe0835976af104000f2320a03367006f
+    revision: 6cc029cc0f7755365e97f6a405b44163bc2ece87
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -194,11 +194,12 @@ implementationBindings:
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift
     - evidence/2026-10-19-parity-fixes/source/Tests/DreamsTests/NativeSettingsParityTests.swift
     border:
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
     - evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift

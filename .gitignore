@@ -1,8 +1,8 @@
 .build/
-dist/
+dist
 .DS_Store
 artifacts/
-.venv/
+.venv
 research/glyphs/build/
 .build/
 __pycache__/

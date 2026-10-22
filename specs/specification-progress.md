@@ -618,3 +618,28 @@ historical evidence, not a new test claim for the release commit.
 [Release 0.1.9 baseline](release/validation/2026-10-20-0.1.9/README.md) records
 metadata hashes, current host/catalog identity checks and signed/notarized artifact
 preparation separately from historical runtime tests and later GitHub publication.
+
+## 2026-10-22 — measurement-first performance probe
+
+New DesktopApplication.PerformanceProbe role covers a bounded macOS windowed
+production renderer for contributors. Its Scenario/RunLifetime/Measurement/
+ReportExport responsibilities map to the draft dreams.performance.measure claims
+isolation, observation, lifetime and provenance. [Probe contract and evidence](performance/README.md).
+
+Existing rain motion/search/head/pulse and preview_scale/lifecycle requirements
+remain unchanged: ordinary launches have no recorder and retain existing paths.
+CaptureVisibility and TV code are unchanged. Scripted agent traffic, native preview
+reopen/capture latency, full-screen/multi-display and physical TV measurement are
+explicit backlog. Existing historical passes are not evidence for this source.
+
+Current source binding refreshes for drop_motion/search_occupancy/head_visibility/
+glyph_pulse and settings host preview_scale/playback_lifetime retain stable IDs.
+The normal nil-recorder path preserves their requirements; changed renderer inputs
+and the optional recorder dependency have fresh snapshots. Overlay capture and
+TV bindings are unchanged because no owned source in those boundaries changed.
+
+Fifteen valid Release windowed runs (five each of normal, dense and dense-no-glow)
+are pinned to runtime `6cc029c`. The later `32ebeb5` probe guards have separate
+build/test/smoke evidence; the hardware baseline is not relabeled for that source.
+Uncalibrated instrumentation overhead and interactive-host variance prevent a
+small-gain acceptance threshold. No optimization issue is closed by these data.

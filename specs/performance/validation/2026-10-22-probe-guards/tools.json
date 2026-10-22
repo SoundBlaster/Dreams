@@ -1,0 +1,24 @@
+[
+  {
+    "command": [
+      "specpm",
+      "--version"
+    ],
+    "exitCode": 0,
+    "output": "specpm 0.2.0\n"
+  },
+  {
+    "command": [
+      "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "--version"
+    ],
+    "exitCode": 1,
+    "output": "error: cannot read --version\n"
+  },
+  {
+    "tool": "Hypercode local executable",
+    "sha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f",
+    "sizeBytes": 1545920,
+    "versionNote": "This executable does not support --version; the failed query is retained above. Binary digest is the tool identity, not an inferred package version."
+  }
+]
