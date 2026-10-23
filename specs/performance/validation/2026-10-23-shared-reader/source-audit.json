@@ -1,0 +1,281 @@
+{
+  "sourceRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "sources": [
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "6aa3af45bdac82594dbf4e7ce39f002e1b06ab1d10c3b64f85c12a74e0bfa903"
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ddc0d0d5bf4d20f4896d75ebb6ea0eaf259511fa5a333edc71dd1f01c41066a4"
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "7c27d8844f4fc8684c9ce97b43b77b6989597d15b6528fafb0afe7d19871d969"
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "a564760f6b25717155461529b2f51c1b6bd6ce7963108d4c1f047c5a6ff75918"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/run-feed-performance.py",
+      "sha256": "0e6c92155bb971ff8a3463343f66b6e19ccafa8ecc80e545583a9398cfbc2c04"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/analyze-feed-performance.py",
+      "sha256": "c5b306c8efc7f28e6ca3e38e91baaa0e29c24bdc999275e5a7c97c787902896c"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/test-feed-performance.py",
+      "sha256": "c48a4db0e648ada10bea76187f9064047eb74dd39c73c95f18570ef064a13131"
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "ad1ec0ad32bf748cab83603a69756a6c3da4e520c974e2eb5e8ad701cb8ad9ac"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/run-feed-comparison.py",
+      "sha256": "6b212d37c6bfac1c2f4b626155828628fba0bb09d3ffb1bcbdb2c7253cad17cb"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/compare-feed-performance.py",
+      "sha256": "87ab9fecb8e232e2dd1c14e9a14c89bed465a1b5180fa4856f46ea48431ec131"
+    },
+    {
+      "package": "performance",
+      "path": "research/performance/shared-reader-protocol.md",
+      "sha256": "d3bc51be8483fb6cd430f38d382d10ac5fdb5ee1a7f1e526053d940ea0bfaa2b"
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "289b25331bf27bacad4d3946deef994828611125204e73d809260794152d85ae"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "ad1ec0ad32bf748cab83603a69756a6c3da4e520c974e2eb5e8ad701cb8ad9ac"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "289b25331bf27bacad4d3946deef994828611125204e73d809260794152d85ae"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "sha256": "c673eca0937c03357ab5868e0603c6830b5ef4fd4d2502c9cec0377084c540a9"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "7c27d8844f4fc8684c9ce97b43b77b6989597d15b6528fafb0afe7d19871d969"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "a564760f6b25717155461529b2f51c1b6bd6ce7963108d4c1f047c5a6ff75918"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "a564760f6b25717155461529b2f51c1b6bd6ce7963108d4c1f047c5a6ff75918"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "7c27d8844f4fc8684c9ce97b43b77b6989597d15b6528fafb0afe7d19871d969"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ddc0d0d5bf4d20f4896d75ebb6ea0eaf259511fa5a333edc71dd1f01c41066a4"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "289b25331bf27bacad4d3946deef994828611125204e73d809260794152d85ae"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "ad1ec0ad32bf748cab83603a69756a6c3da4e520c974e2eb5e8ad701cb8ad9ac"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "sha256": "d5eb90796a649e59b3fa891d3c436b20e51cf8daacde0b171fde3c3c0ecf5899"
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ddc0d0d5bf4d20f4896d75ebb6ea0eaf259511fa5a333edc71dd1f01c41066a4"
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "a564760f6b25717155461529b2f51c1b6bd6ce7963108d4c1f047c5a6ff75918"
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "289b25331bf27bacad4d3946deef994828611125204e73d809260794152d85ae"
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "ad1ec0ad32bf748cab83603a69756a6c3da4e520c974e2eb5e8ad701cb8ad9ac"
+    }
+  ],
+  "maps": [
+    {
+      "package": "performance",
+      "path": "specs/hypercode/keyword-feed.hc",
+      "sha256": "196bf28779d9b9a32fe9c7c46f0cf273ea9eeb704c829b0ddb5b6659291881d2"
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/keyword-feed.hcs",
+      "sha256": "06320a070b6f95145e25ed10a9c823501e1ba435aba26eaba2bb34a8fc1c9f72"
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "ce959ac576f9cf49be627807274a60fdeb45ff9016b6f79982da88bc6417f000"
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "850d304fe2628bd6e9f41c9cb8de41cb809b860ee3771a80b146f119e01924d3"
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88"
+    },
+    {
+      "package": "performance",
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "8d07208a24b0ba9d662ca2f9dce0dbdd34e8d96422fafe80f153629ea2097ecb"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "specs/hypercode/keyword-feed.hc",
+      "sha256": "196bf28779d9b9a32fe9c7c46f0cf273ea9eeb704c829b0ddb5b6659291881d2"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "specs/hypercode/keyword-feed.hcs",
+      "sha256": "06320a070b6f95145e25ed10a9c823501e1ba435aba26eaba2bb34a8fc1c9f72"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "ce959ac576f9cf49be627807274a60fdeb45ff9016b6f79982da88bc6417f000"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "850d304fe2628bd6e9f41c9cb8de41cb809b860ee3771a80b146f119e01924d3"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "8d07208a24b0ba9d662ca2f9dce0dbdd34e8d96422fafe80f153629ea2097ecb"
+    }
+  ],
+  "reports": [
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/04-before/run-01.json.gz",
+      "uncompressedSHA256": "c7f45c74a4c25b29984aeef9b311ba53ff90869a995a667382bf81284c5a1eda",
+      "archivedSHA256": "814aadafac5eec5df1408d2015dfb9c30b5fbede25cc62be5037d3070b5e027e"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/02-before/run-01.json.gz",
+      "uncompressedSHA256": "c31a8e46338de1ee60b4d0662272755ec6a9295b4aa210395ab6e48056b24de2",
+      "archivedSHA256": "8012d25539023a331956249ad1c2365bd496e7a59448602346f8078c1e618656"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/01-after/run-01.json.gz",
+      "uncompressedSHA256": "7e04fbb5b301ea7198de7097fb5eab6220f7131c79fcbb71a41602b130933a46",
+      "archivedSHA256": "e441f29b44d8fa4baf352733f09202e531f34d7653c3b1ee45d9d40193146572"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/05-before/run-01.json.gz",
+      "uncompressedSHA256": "a82e921e05b22d5149a83ad15e4692758564aa58d7a87ee773ff5ca0f6183ca6",
+      "archivedSHA256": "7c82f2e16ec80c8c762fc2ba2f4c465ae1c26e28e9aa2b211f061f5fcc5d1c04"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/03-after/run-01.json.gz",
+      "uncompressedSHA256": "105d0f2344f5febac2c45e67a62a58d16f2856f936b6c2ce2090ac8a6ffc870b",
+      "archivedSHA256": "f0d9fc0f33f435fa122cf46b066afb3bcaa52a748577f38487e7536cf95f1361"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/05-after/run-01.json.gz",
+      "uncompressedSHA256": "be94fb8bf341ddaa007d7baedffad32b417481f7fd53e4e6994cef50943c612e",
+      "archivedSHA256": "5e17334509753c88d6b01c0f3ec2687e11c3479ed1efb0b4873c6c0a11a0083b"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/03-before/run-01.json.gz",
+      "uncompressedSHA256": "b4257a96b4579f73ffae461214270fd8600d15ed44f0779dc883a6814d7bebe1",
+      "archivedSHA256": "0537093b3955966e5d8afb28e9a84a73c1fc4355ac888e904f4745e1fd9f1f8b"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/02-after/run-01.json.gz",
+      "uncompressedSHA256": "df8f77a5ef72751a1ef7bb3c7a3cfea8bcb25695379981b3b2ec3a5636bf332e",
+      "archivedSHA256": "f055a423076abe9d8947c1f26f5a8c2956465f62ea651ca31f751321f80119ea"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/04-after/run-01.json.gz",
+      "uncompressedSHA256": "d16674d8c760d52198d5031a8fdb2e52ed534d34169394056de31fdf90306760",
+      "archivedSHA256": "41446393938cd043c88dbdae0c2e2b1094d39a6c823eaf662bd77f5717cf3240"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/pairs/01-before/run-01.json.gz",
+      "uncompressedSHA256": "b0f1760f788bae4f5f12ec6e3999d858c633b2c655e651b91608c370d4c507e8",
+      "archivedSHA256": "f7d7d7303d0825a76c8c5f20d066f721c90ebf031b28d9c2f113969c4384dfb6"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/02-before/run-01.json.gz",
+      "uncompressedSHA256": "73448d84cc8c17c72d631cb3bf9fbd83ffc4799653e69d2cdda71fcf2a663e46",
+      "archivedSHA256": "aba863e5c304e2e568a3ecf0c683b86b2bd8ef61906c399e603bdd46ca4d4aea"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/01-after/run-01.json.gz",
+      "uncompressedSHA256": "7988d1ce0d24a3e7db9a8c3dc8d55f69c0880de4de0f1b50b22d1d8a217910da",
+      "archivedSHA256": "d0b0f74ce8364a03970fe566a058976a240789623a6e5d789f875e804f651c4c"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/02-after/run-01.json.gz",
+      "uncompressedSHA256": "6c721bc21728ec19147df2b8fc8856d3604f866662d0cc13794a02d336c6c69e",
+      "archivedSHA256": "bb331aa4148c4fdbb1bf50a9d7abf52e1568577d59938c32a2fd205c388c9a5c"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/01-before/run-01.json.gz",
+      "uncompressedSHA256": "2eae2d2917cac12b80f2906b2e16f48130e52bf6bf3acf91327a4b68affa9f5e",
+      "archivedSHA256": "63a2296b8f937a0405dfefdca2cf36f4d2d3be474fc61e4c087e3b2d8843f8fc"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-shared-reader/smoke/run-01.json.gz",
+      "uncompressedSHA256": "3f704d19f8ecc5c306b7cf9fcfa7512694819d816bec9d3e591f4b76653ff8c4",
+      "archivedSHA256": "10f79074abaa08257acd6a42d1483f7aa52c0573e88a88591b38a50555794529"
+    }
+  ],
+  "externalOriginalsChecked": true,
+  "status": "pass"
+}

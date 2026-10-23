@@ -1,0 +1,143 @@
+Building for production...
+[Computing dependencies]
+[1 / 4] ScreenerKit
+[2 / 3] DreamsTests-product
+[3 / 4] DreamsTests-product
+[8 / 12] DreamsTests-product
+[10 / 12] DreamsTests-product
+Build complete! (11.74 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite RainPerformanceTests started.
+􀟈  Suite KeywordFeedReaderTests started.
+􀟈  Suite RainCalibrationTests started.
+􀟈  Suite GlyphPulseRenderingTests started.
+􀟈  Test percentilesUseNearestRankAndPreserveMissingData() started.
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test twoRenderersEachDisplayTheSameEventFromOneReader() started.
+􀟈  Suite DropHeadRenderingTests started.
+􀟈  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() started.
+􀟈  Suite TransparentFadeRenderingTests started.
+􀟈  Suite DropDecelerationTests started.
+􀟈  Test sharedConsumersReceiveNotificationsAndLastReleaseStops() started.
+􀟈  Suite SearchOccupancyTests started.
+􀟈  Test busyMailboxRetainsCacheAndExpiredFilesArePrunedOffMain() started.
+􀟈  Test allScenarioFixturesAreBoundedAndFullySpecified() started.
+􀟈  Test feedObservationKeepsEventFrameAndRefreshIdentity() started.
+􀟈  Test processCPUDeltaPreservesMissingAndRejectsReversedCounters() started.
+􀟈  Test droppedPresentationIsNotAZeroDurationFrame() started.
+􀟈  Test fallbackPrunesExpiryWithoutAnotherPublisherWrite() started.
+􀟈  Test rejectsInvalidBoundsAndMissingRequiredInputs() started.
+􀟈  Test malformedAccelerationCannotReverseOrStallDrops() started.
+􀟈  Test droppedPresentationAndAbsentCPUAreNotZeroCost() started.
+􀟈  Test commonObserverBoundsStorageAndSortsPresentationTime() started.
+􀟈  Test fullDensityRemainsFilledAcrossSlowPackets() started.
+􀟈  Test liveTuningOnlyChangesTheNextPacket() started.
+􀟈  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test timeStepsDoNotChangeTheDeceleratingPath() started.
+􀟈  Test negativeAccelerationMeetsTheSpeedFloorContinuously() started.
+􀟈  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() started.
+􀟈  Test expiryAndHidingCancelSearchesWithoutResurrection() started.
+􀟈  Test invalidFractionsCannotExceedTheWholePopulation() started.
+􀟈  Test searchesDoNotChangeMotionBrightnessOrLifetime() started.
+􀟈  Test headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test multipleConcurrentSearchesRemainFrameIndependent() started.
+􀟈  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test replacingDirectoryReattachesWatchAndRestartClearsStaleValues() started.
+􁁛  Test percentilesUseNearestRankAndPreserveMissingData() passed after 0.001 seconds.
+􀟈  Test disabledOrZeroAccelerationPreservesTheExistingRain() started.
+􀟈  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() started.
+􁁛  Test malformedAccelerationCannotReverseOrStallDrops() passed after 0.001 seconds.
+􀟈  Test case passing 2 arguments restored → true, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments acceleration → -1.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments transparent → false, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -12.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􁁛  Test processCPUDeltaPreservesMissingAndRejectsReversedCounters() passed after 0.002 seconds.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 0.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 0.5 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􀟈  Test case passing 2 arguments acceleration → -120.0, density → 1.0 to headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) started.
+􁁛  Test negativeAccelerationMeetsTheSpeedFloorContinuously() passed after 0.003 seconds.
+􁁛  Test liveTuningOnlyChangesTheNextPacket() passed after 0.003 seconds.
+􀟈  Test case passing 1 argument transparent → false to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􁁛  Test expiryAndHidingCancelSearchesWithoutResurrection() passed after 0.003 seconds.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􁁛  Test allScenarioFixturesAreBoundedAndFullySpecified() passed after 0.009 seconds.
+􁁛  Test rejectsInvalidBoundsAndMissingRequiredInputs() passed after 0.009 seconds.
+􁁛  Test fullDensityRemainsFilledAcrossSlowPackets() passed after 0.009 seconds.
+􁁛  Test timeStepsDoNotChangeTheDeceleratingPath() passed after 0.009 seconds.
+􁁛  Test invalidFractionsCannotExceedTheWholePopulation() passed after 0.009 seconds.
+􁁛  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() passed after 0.009 seconds.
+􁁛  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() passed after 0.010 seconds.
+􁁛  Test headsSlowWhileTheTailDissolvesInOrder(acceleration:density:) with 9 test cases passed after 0.010 seconds.
+􁁛  Test multipleConcurrentSearchesRemainFrameIndependent() passed after 0.013 seconds.
+􁁛  Test disabledOrZeroAccelerationPreservesTheExistingRain() passed after 0.034 seconds.
+􁁛  Suite DropDecelerationTests passed after 0.034 seconds.
+􁁛  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) with 10 test cases passed after 0.037 seconds.
+􁁛  Test searchesDoNotChangeMotionBrightnessOrLifetime() passed after 0.041 seconds.
+􁁛  Suite SearchOccupancyTests passed after 0.042 seconds.
+􁁛  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() passed after 0.160 seconds.
+􁁛  Test feedObservationKeepsEventFrameAndRefreshIdentity() passed after 0.161 seconds.
+􁁛  Test droppedPresentationAndAbsentCPUAreNotZeroCost() passed after 0.162 seconds.
+􁁛  Test droppedPresentationIsNotAZeroDurationFrame() passed after 0.162 seconds.
+􁁛  Test commonObserverBoundsStorageAndSortsPresentationTime() passed after 0.162 seconds.
+􁁛  Suite RainPerformanceTests passed after 0.162 seconds.
+􁁛  Suite RainCalibrationTests passed after 0.162 seconds.
+􁁛  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() passed after 0.465 seconds.
+􀟈  Test previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 0, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments transparent → false, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􁁛  Test sharedConsumersReceiveNotificationsAndLastReleaseStops() passed after 0.645 seconds.
+􁁛  Test busyMailboxRetainsCacheAndExpiredFilesArePrunedOffMain() passed after 0.646 seconds.
+􁁛  Test replacingDirectoryReattachesWatchAndRestartClearsStaleValues() passed after 0.730 seconds.
+􁁛  Test fallbackPrunesExpiryWithoutAnotherPublisherWrite() passed after 0.730 seconds.
+􀟈  Test case passing 2 arguments transparent → true, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments columns → 0, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􁁛  Test twoRenderersEachDisplayTheSameEventFromOneReader() passed after 0.898 seconds.
+􁁛  Suite KeywordFeedReaderTests passed after 0.898 seconds.
+􀟈  Test case passing 2 arguments restored → true, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 2 arguments transparent → true, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 1 argument transparent → true to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􁁛  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) with 4 test cases passed after 1.299 seconds.
+􀟈  Test aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 2 arguments restored → false, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 1 argument transparent → true to aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􁁛  Test aTrailGapCannotHideTheDrop(transparent:) with 2 test cases passed after 0.495 seconds.
+􀟈  Test theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􁁛  Test previewIsAPixelExactScreenCrop(columns:scale:) with 4 test cases passed after 1.403 seconds.
+􀟈  Test previewIsLazyAndDoesNotRequestAnOverlay() started.
+􁁛  Test previewIsLazyAndDoesNotRequestAnOverlay() passed after 0.001 seconds.
+􀟈  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() started.
+􀟈  Test case passing 2 arguments restored → false, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􁁛  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) with 2 test cases passed after 2.111 seconds.
+􁁛  Suite GlyphPulseRenderingTests passed after 2.111 seconds.
+􀟈  Test case passing 1 argument transparent → true to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􁁛  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() passed after 0.458 seconds.
+􀟈  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() started.
+􁁛  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() passed after 0.063 seconds.
+􁁛  Suite NativeSettingsTests passed after 2.398 seconds.
+􁁛  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) with 4 test cases passed after 2.525 seconds.
+􁁛  Suite TransparentFadeRenderingTests passed after 2.525 seconds.
+􁁛  Test theHeadChangesShapeBetweenRowArrivals(transparent:) with 2 test cases passed after 0.783 seconds.
+􁁛  Suite DropHeadRenderingTests passed after 2.579 seconds.
+􁁛  Test run with 38 tests in 9 suites passed after 2.579 seconds.

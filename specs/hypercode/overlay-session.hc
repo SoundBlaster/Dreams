@@ -10,6 +10,7 @@ RainOverlaySession
   SessionLifetime
   CaptureVisibility
   Renderer
+    FeedInput
     DropMotion
     GlyphSearch
     GlyphPulse

@@ -1,0 +1,56 @@
+{
+  "status": "passed local checks; performance acceptance open",
+  "runtimeSourceRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "changesAfterRuntime": "specification, source snapshots, evidence and roadmap only",
+  "checks": [
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "logs/dreams-reader-lint-final.log"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/dreams-reader-specs-final.log"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-performance-reports.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-calibration.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-feed-performance.py"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "notes": [
+    "make lint: relative links in 146 staged Markdown files passed; existing unused_import analyzer configuration warning.",
+    "make specs-check: all commands exit 0, no structural errors or missing evidence paths; unresolved platform/external capabilities remain warnings in descriptive drafts.",
+    "Release default and selected Metal tests are recorded separately; overlapping tests and opt-in early returns are not independent additional executions.",
+    "CI not monitored. No physical TV or release/install validation."
+  ],
+  "buildRouting": {
+    "scratch": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/swiftpm",
+    "cache": "/Volumes/TB5/Developer/Caches/swiftpm",
+    "pythonBytecode": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/python/bytecode",
+    "ruff": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/python/ruff"
+  },
+  "cleanup": {
+    "method": "cua.listApps inventory filtered for Dreams",
+    "atUTC": "2026-10-23T06:56:47Z",
+    "matchingApps": 0,
+    "installedAppReplaced": false
+  }
+}

@@ -5,7 +5,7 @@ opt-in probe. [Usage and limits](../../research/performance/README.md),
 [plan](../../research/performance-measurement-plan.md) and
 [architecture map](../hypercode/performance.hc) define this bounded first stage.
 
-[Current validation](validation/2026-10-23-feed/README.md) separates unit/build/
+[Current validation](validation/2026-10-23-shared-reader/README.md) separates unit/build/
 structural checks, rejected probe attempts and actual measurement evidence.
 The package does not accept numerical budgets or mark optimization issues solved.
 
@@ -19,3 +19,8 @@ and a presented-letter delivery proxy. The [protocol](../../research/performance
 and current evidence leave pixel/full-label acceptance and issue #42 resolution open.
 The [calibration evidence](validation/2026-10-22-calibration/README.md) remains pinned
 to its own source; it does not calibrate the added feed observer.
+
+The [shared-reader protocol](../../research/performance/shared-reader-protocol.md)
+and dated comparison retain independent background reads and before/after identities.
+Production reader obligations belong to [dreams.feed.read](../keyword-feed/README.md);
+the measurement package does not silently turn structural success into acceptance.

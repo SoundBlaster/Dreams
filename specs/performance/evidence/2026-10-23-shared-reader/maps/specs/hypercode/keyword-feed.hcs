@@ -1,0 +1,20 @@
+KeywordFeedReader:
+  source: "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift"
+  capability: "dreams.feed.read"
+  profile: "macOS-render-consumers"
+SnapshotCache:
+  ownership: "MainActor-owned-Sendable-value; synchronous-memory-access"
+  content: "messages; recent-events; pressure; last-attempt-observation"
+SubscriptionLifetime:
+  implementation: "one-worker-per-active-reader; generation-guard; cancel-after-last-lease"
+  assembly: "normal-RainRenderer-instances-share-default-reader; explicit-test-injection-allowed"
+BackgroundObservation:
+  source: "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift"
+  execution: "concurrent-utility-task; serialized-read-loop; bounded-notification-stream"
+DirectoryChanges:
+  implementation: "filesystem-source; coalesce-20ms; inode-reconciliation; cancel-closes-descriptor"
+FallbackRefresh:
+  implementation: "one-second-request-timer; pruning-and-locks-outside-render-thread"
+OfflineRefresh:
+  implementation: "await-read-starting-after-request; failure-cancel-or-two-second-timeout-returns-false"
+  consumer: "RainRenderer.previewPNG; synchronous-draw-never-awaits"

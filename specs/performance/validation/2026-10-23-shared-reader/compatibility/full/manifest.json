@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "runKind": "smoke",
+  "calibrationMode": "full",
+  "revision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "workingTreeStatus": " M Makefile\n M research/performance/README.md\n M specs/drop-motion/specs/head.spec.yaml\n M specs/drop-motion/specs/motion.spec.yaml\n M specs/drop-motion/specs/pulse.spec.yaml\n M specs/drop-motion/specs/search.spec.yaml\n M specs/hypercode/README.md\n M specs/hypercode/overlay-session.hc\n M specs/hypercode/overlay-session.hcs\n M specs/hypercode/performance.hc\n M specs/hypercode/performance.hcs\n M specs/performance/README.md\n M specs/performance/specpm.yaml\n M specs/performance/specs/measurement.spec.yaml\n M specs/settings-host/specs/host.spec.yaml\n M specs/specification-progress.md\n?? specs/drop-motion/evidence/2026-10-23-shared-reader/\n?? specs/hypercode/keyword-feed.hc\n?? specs/hypercode/keyword-feed.hcs\n?? specs/keyword-feed/\n?? specs/performance/evidence/2026-10-23-shared-reader/\n?? specs/performance/validation/2026-10-23-shared-reader/\n?? specs/settings-host/evidence/2026-10-23-shared-reader/\n",
+  "binarySHA256": "724dcc43ec2628ec349021e1d73465958fe312ec6e98cf9f3b4e43260647419e",
+  "resourceSHA256": {
+    "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+    "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "fixtureSHA256": "6f118846f387adda3a8df925036cfa5713075aa9203b69a48dc5b39962045ef7",
+  "machine": "arm64",
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "sdk": "27.0",
+  "command": [
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/dist/Dreams.app/Contents/MacOS/Dreams",
+    "--performance-calibration",
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-compatibility-smokes-2026-10-23/full/scenario.json"
+  ],
+  "results": [
+    {
+      "file": "run-01.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-calibration",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-compatibility-smokes-2026-10-23/full/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-compatibility-smokes-2026-10-23/full/run-01.json",
+        "full"
+      ]
+    }
+  ]
+}

@@ -218,6 +218,9 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/keyword-feed.hc
+	"$(HYPERCODE)" validate specs/hypercode/keyword-feed.hc --hcs specs/hypercode/keyword-feed.hcs
+	"$(SPECPM)" validate specs/keyword-feed --json
 	"$(HYPERCODE)" parse specs/hypercode/glyph-pulse.hc
 	"$(HYPERCODE)" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs
 	"$(HYPERCODE)" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs --ctx pulse=off

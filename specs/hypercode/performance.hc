@@ -9,5 +9,6 @@ PerformanceProbe
   SyntheticFeed
     Publication
     SnapshotObservation
+    BackgroundReads
     DeliveryProxy
   ReportExport

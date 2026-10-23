@@ -110,7 +110,22 @@ is deliberately avoided. Reports separate the snapshot API's wall time from the
 first presented drawable with a stable event-letter instance. This delivery proxy
 does not establish actual pixels or complete label readability. Missing events
 invalidate delivery. Added observer cost, cold disk, lock contention, multi-display
-and physical TV acceptance remain unmeasured. Production polling is unchanged.
+and physical TV acceptance remain unmeasured. The retained baseline used synchronous
+production polling; the shared-reader comparison below evaluates its replacement.
 
 [Current evidence](../../specs/performance/validation/2026-10-23-feed/README.md)
 retains source/binary/trace identities, raw reports and rejected smoke attempts.
+
+## Shared reader comparison
+
+[Protocol](shared-reader-protocol.md) fixes five alternating before/after pairs
+against the preserved baseline bundle. `scripts/run-feed-comparison.py` retains
+the runtime revision separately from the runner revision. Analyze a completed suite
+with `scripts/compare-feed-performance.py`; mismatched identities, incomplete pairs,
+smoke runs or non-nominal thermal states are rejected as controlled comparisons.
+
+New feed reports keep all observed background attempts in `feedReads`, independently
+of frame consumption. A frame's `feedRefresh` marks the cached input it consumed;
+it does not attribute background I/O to draw. Generic summaries still reject feed
+reports. [Current comparison evidence](../../specs/performance/validation/2026-10-23-shared-reader/README.md)
+keeps the original baseline and calibration evidence historical.

@@ -1,0 +1,125 @@
+{
+  "sourceRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "6aa3af45bdac82594dbf4e7ce39f002e1b06ab1d10c3b64f85c12a74e0bfa903",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ddc0d0d5bf4d20f4896d75ebb6ea0eaf259511fa5a333edc71dd1f01c41066a4",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "7c27d8844f4fc8684c9ce97b43b77b6989597d15b6528fafb0afe7d19871d969",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "a564760f6b25717155461529b2f51c1b6bd6ce7963108d4c1f047c5a6ff75918",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-feed-performance.py",
+      "sha256": "0e6c92155bb971ff8a3463343f66b6e19ccafa8ecc80e545583a9398cfbc2c04",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/run-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/analyze-feed-performance.py",
+      "sha256": "c5b306c8efc7f28e6ca3e38e91baaa0e29c24bdc999275e5a7c97c787902896c",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/analyze-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-feed-performance.py",
+      "sha256": "c48a4db0e648ada10bea76187f9064047eb74dd39c73c95f18570ef064a13131",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/test-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "ad1ec0ad32bf748cab83603a69756a6c3da4e520c974e2eb5e8ad701cb8ad9ac",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-feed-comparison.py",
+      "sha256": "6b212d37c6bfac1c2f4b626155828628fba0bb09d3ffb1bcbdb2c7253cad17cb",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/run-feed-comparison.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/compare-feed-performance.py",
+      "sha256": "87ab9fecb8e232e2dd1c14e9a14c89bed465a1b5180fa4856f46ea48431ec131",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/compare-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/shared-reader-protocol.md",
+      "sha256": "d3bc51be8483fb6cd430f38d382d10ac5fdb5ee1a7f1e526053d940ea0bfaa2b",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/research/performance/shared-reader-protocol.md.txt",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "289b25331bf27bacad4d3946deef994828611125204e73d809260794152d85ae",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "scopeNote": "Shared background read/cache/lease path; historical tests and measurements remain on their original source. Current bindings refreshed for affected reader/render dependencies.",
+  "mapBaseRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "dirtyMaps": [
+    "specs/hypercode/keyword-feed.hc",
+    "specs/hypercode/keyword-feed.hcs",
+    "specs/hypercode/overlay-session.hc",
+    "specs/hypercode/overlay-session.hcs",
+    "specs/hypercode/performance.hc",
+    "specs/hypercode/performance.hcs"
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/keyword-feed.hc",
+      "sha256": "196bf28779d9b9a32fe9c7c46f0cf273ea9eeb704c829b0ddb5b6659291881d2",
+      "snapshot": "evidence/2026-10-23-shared-reader/maps/specs/hypercode/keyword-feed.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/keyword-feed.hcs",
+      "sha256": "06320a070b6f95145e25ed10a9c823501e1ba435aba26eaba2bb34a8fc1c9f72",
+      "snapshot": "evidence/2026-10-23-shared-reader/maps/specs/hypercode/keyword-feed.hcs",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "ce959ac576f9cf49be627807274a60fdeb45ff9016b6f79982da88bc6417f000",
+      "snapshot": "evidence/2026-10-23-shared-reader/maps/specs/hypercode/overlay-session.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "850d304fe2628bd6e9f41c9cb8de41cb809b860ee3771a80b146f119e01924d3",
+      "snapshot": "evidence/2026-10-23-shared-reader/maps/specs/hypercode/overlay-session.hcs",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88",
+      "snapshot": "evidence/2026-10-23-shared-reader/maps/specs/hypercode/performance.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "8d07208a24b0ba9d662ca2f9dce0dbdd34e8d96422fafe80f153629ea2097ecb",
+      "snapshot": "evidence/2026-10-23-shared-reader/maps/specs/hypercode/performance.hcs",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+PASS: missing measurements stay null, invalid runs stay invalid, gzip and raw reports agree
+PASS: bracketing/negative deltas, missing CPU, repeat counts and mixed binary/fixture rejection
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.023s
+
+OK

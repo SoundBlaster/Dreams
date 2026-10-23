@@ -1,0 +1,6 @@
+{
+  "primaryComparisonMatches": true,
+  "quietRunAnalysesMatch": 4,
+  "sourceAuditStatus": "pass",
+  "limits": "Integrity and analysis reproduction only; no performance acceptance."
+}

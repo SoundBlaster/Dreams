@@ -692,3 +692,48 @@ recovered hook/MCP integration contract. Its I/O remains on the draw path and
 the desired no-frame-I/O criterion of #42 is still outstanding. Overlay/capture
 and tvOS source/claims are unchanged. This macOS window baseline does not cover
 multi-renderer sharing, lock contention, cold storage or pixel/full-label latency.
+
+## 2026-10-23 — shared background mailbox reader
+
+Renderer.FeedInput now composes the newly recovered descriptive draft
+[dreams.feed.read](keyword-feed/README.md). SnapshotCache, SubscriptionLifetime,
+BackgroundObservation (DirectoryChanges/FallbackRefresh) and OfflineRefresh cover
+the macOS render consumer. Read/prune/lock work is moved to a concurrent utility
+task; ordinary draw reads MainActor-owned memory. Production renderers share the
+default reader, while per-renderer consumed IDs preserve delivery to every surface.
+Status RPC and legacy session listing remain on-demand synchronous consumers;
+producer hook/MCP semantics remain uncovered by this reader draft.
+
+Runtime `680833b` owns this change and the fixed alternating comparison protocol.
+The performance draft adds feed_comparison and independent background read samples;
+feedRefresh in an after-frame identifies consumed input, not I/O by that draw.
+Frame, process, source, runner and fixture identities remain distinct. Existing
+motion/search/head/pulse and preview_scale/preview_lifetime/preview_playback claims
+keep their IDs and requirements; renderer bindings are refreshed. Simulation,
+colour formulas and viewport code are unchanged. Preview still releases its
+renderer, which releases its reader lease. Overlay controller/display/capture
+source and requirements are unchanged; the Renderer map adds its ready-input
+assembly dependency without claiming physical overlay acceptance.
+
+Functional evidence covers cache retention during lock contention, expiry without
+a publisher write, directory replacement, last-consumer release/restart and two
+offscreen renderers displaying the same event. A parallel Metal fixture initially
+shared a mailbox with the crop test; its input was isolated, retaining exact pixel
+assertions. Historical passes are not relabeled. [Dated evidence](performance/validation/2026-10-23-shared-reader/README.md)
+separates tests, structural checks, paired window measurements and owner acceptance.
+Physical TV/multi-display performance, pixel/full-label event latency, cold storage
+and total CPU/energy remain unmeasured.
+
+Current incremental coverage (2026-10-23):
+
+| Role | Draft capability | Evidence / remaining work |
+| --- | --- | --- |
+| Renderer.FeedInput / KeywordFeedReader | dreams.feed.read | Source, lifecycle and two-renderer tests; paired latency benefit; rare cadence gaps unresolved |
+| PerformanceProbe.SyntheticFeed.BackgroundReads | dreams.performance.measure / feed_comparison | Five complete pairs plus separate two-pair diagnostic; no automatic performance acceptance |
+
+All 120 primary events arrived and all 420 after-reads were off main. Each pair's
+delivery p95 improved (778–1078 ms before, 139–177 ms after). Three after-only
+>50 ms presentation intervals occurred in the primary series and two more in
+the separate quiet diagnostic, versus none before. p99 stayed about 41.667 ms;
+this does not establish absence of regression. Cadence acceptance and issue #42
+remain open. All 15 raw reports and both variant identities are preserved.
