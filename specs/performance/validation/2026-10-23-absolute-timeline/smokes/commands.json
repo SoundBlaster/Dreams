@@ -1,0 +1,55 @@
+[
+  {
+    "name": "before-on",
+    "command": [
+      "python3",
+      "scripts/run-feed-performance.py",
+      "--binary",
+      "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+      "--revision",
+      "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+      "--output",
+      "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/timestamp-smokes-2026-10-23/before-on",
+      "--runs",
+      "1",
+      "--smoke",
+      "--timeline"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "after-on",
+    "command": [
+      "python3",
+      "scripts/run-feed-performance.py",
+      "--binary",
+      "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+      "--revision",
+      "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+      "--output",
+      "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/timestamp-smokes-2026-10-23/after-on",
+      "--runs",
+      "1",
+      "--smoke",
+      "--timeline"
+    ],
+    "exitCode": 0
+  },
+  {
+    "name": "after-off",
+    "command": [
+      "python3",
+      "scripts/run-feed-performance.py",
+      "--binary",
+      "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+      "--revision",
+      "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+      "--output",
+      "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/timestamp-smokes-2026-10-23/after-off",
+      "--runs",
+      "1",
+      "--smoke"
+    ],
+    "exitCode": 0
+  }
+]

@@ -1,0 +1,99 @@
+{
+  "sourceRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+  "freshSourceEntries": [
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "87d2d69035dccf14a70de2e240f6611c0c42ff80fe8cfe9e71201f05ae35d473"
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "2ce134b46a4cba1a4e6e878dfef0c2aefb6719cf493b2c3e28fe90f626ffd8c8"
+    },
+    {
+      "package": "performance",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "332d7f63ff862568e69dbf4bcf5150efde5db3b609c13c60d948f88cc53c0fb7"
+    },
+    {
+      "package": "performance",
+      "path": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "sha256": "96bc9a1d70667c1d8afe09eb04d5821435a99290c6a62bcb479cbb0a6946e97e"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/run-feed-performance.py",
+      "sha256": "10b7e5460edd60acb4adef3f178c55f1fb68eb5bfbd15d687f35471f4c0aa8e8"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/analyze-feed-performance.py",
+      "sha256": "dc96f12e8c52f53989465c752334c8c54efcb43e3bdf6f5d71650950b2486f9d"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/analyze-cadence.py",
+      "sha256": "6478cc0c4be3968fe4ee923d0bfa223e3cc46d12ad9e2d306c1bae2cd51b1e0f"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/run-cadence-experiment.py",
+      "sha256": "fe0bc916c8f4126009f24e3597f012c05752c6abf5d5883fb6b0607b533c8bc4"
+    },
+    {
+      "package": "performance",
+      "path": "scripts/test-cadence.py",
+      "sha256": "84f25010ed88c1df6dbe4e71a41a57dfd29047a43532ee947f2e97c69381f72a"
+    },
+    {
+      "package": "performance",
+      "path": "research/performance/timestamp-protocol.md",
+      "sha256": "12ff1570df50c352355fdcebc293f0297d2f38bc49619fb0333fbebdc1dbec66"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "332d7f63ff862568e69dbf4bcf5150efde5db3b609c13c60d948f88cc53c0fb7"
+    },
+    {
+      "package": "drop-motion",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "2ce134b46a4cba1a4e6e878dfef0c2aefb6719cf493b2c3e28fe90f626ffd8c8"
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "2ce134b46a4cba1a4e6e878dfef0c2aefb6719cf493b2c3e28fe90f626ffd8c8"
+    },
+    {
+      "package": "settings-host",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "332d7f63ff862568e69dbf4bcf5150efde5db3b609c13c60d948f88cc53c0fb7"
+    },
+    {
+      "package": "keyword-feed",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "332d7f63ff862568e69dbf4bcf5150efde5db3b609c13c60d948f88cc53c0fb7"
+    }
+  ],
+  "reusedBindingSnapshotsMatch": true,
+  "mapSnapshotsMatch": true,
+  "commonObserverSegments": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "start": "extension RainRenderer:",
+      "sha256": "d43c8efa19410142ff76fd1136ee7cb49de952b4f85a6d5a35b2ae8fec97040a"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "start": "struct RainFrameTimeline:",
+      "sha256": "caa5322d818b4e0527d44bb3fa628019bb1b246af356353a80cfd021bcf36222"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "start": "    func committed(",
+      "sha256": "a507aafbb9e9d6f8d7034f8d1f755f2e60cb3fef45ccbb01b43ac6b4cb7bc0f1"
+    }
+  ]
+}

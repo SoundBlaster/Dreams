@@ -1,5 +1,5 @@
 {
-  "sourceRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+  "sourceRevision": "d86b7d2a208a11d74636d554795ba4f14740f653",
   "files": [
     {
       "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
@@ -39,7 +39,7 @@
     },
     {
       "path": "scripts/analyze-cadence.py",
-      "sha256": "6478cc0c4be3968fe4ee923d0bfa223e3cc46d12ad9e2d306c1bae2cd51b1e0f",
+      "sha256": "d5f037a70fd2535f87a8f3a90ef5dc3a4c0dce9ca2df29ea649a2d31385d78a5",
       "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/analyze-cadence.py",
       "snapshotKind": "full-file"
     },
@@ -51,7 +51,7 @@
     },
     {
       "path": "scripts/test-cadence.py",
-      "sha256": "84f25010ed88c1df6dbe4e71a41a57dfd29047a43532ee947f2e97c69381f72a",
+      "sha256": "52a5954942f5de3c18b25c89244551e62e462044aa87f1eb55c5db049611da40",
       "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/test-cadence.py",
       "snapshotKind": "full-file"
     },
@@ -62,7 +62,7 @@
       "snapshotKind": "full-file"
     }
   ],
-  "scopeNote": "Default-off diagnostic-only timestamp extension; production formulas, preview/capture/reader algorithms unchanged. Legacy snapshots reused only where byte-identical.",
+  "scopeNote": "Default-off diagnostic-only timestamp extension; production formulas, preview/capture/reader algorithms unchanged. Legacy snapshots reused only where byte-identical. Analysis-only order/clock gates at d86b7d2a208a11d74636d554795ba4f14740f653; runtime files are byte-identical to 58d2097cf51215a088d0e99eb9b71dc7bf8549ff. mapBaseRevision/dirtyMaps preserve precollection history; mapRevision pins the final committed map bytes.",
   "mapBaseRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
   "dirtyMaps": [
     "specs/hypercode/performance.hcs"
@@ -80,5 +80,8 @@
       "snapshot": "evidence/2026-10-23-absolute-timeline/maps/specs/hypercode/performance.hcs",
       "snapshotKind": "full-file"
     }
-  ]
+  ],
+  "runtimeRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+  "analysisRevision": "d86b7d2a208a11d74636d554795ba4f14740f653",
+  "mapRevision": "d86b7d2a208a11d74636d554795ba4f14740f653"
 }

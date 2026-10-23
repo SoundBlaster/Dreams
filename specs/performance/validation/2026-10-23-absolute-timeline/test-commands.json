@@ -1,0 +1,26 @@
+[
+  {
+    "mode": "default",
+    "command": [
+      "zsh",
+      "scripts/swift-macos.sh",
+      "test",
+      "-c",
+      "release"
+    ],
+    "exitCode": 0
+  },
+  {
+    "mode": "metal",
+    "command": [
+      "zsh",
+      "scripts/swift-macos.sh",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "KeywordFeedReaderTests|RainPerformanceTests|RainCalibrationTests|DropHeadRenderingTests|GlyphPulseRenderingTests|TransparentFadeRenderingTests|NativePreviewTests|DropDecelerationTests|SearchOccupancyTests"
+    ],
+    "exitCode": 0
+  }
+]

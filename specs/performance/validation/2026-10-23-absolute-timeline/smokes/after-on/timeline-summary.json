@@ -1,0 +1,49 @@
+{
+  "metrics": {
+    "preCommitMs": {
+      "count": 361,
+      "p50": 6.013416626956314,
+      "p95": 7.831625000108033,
+      "p99": 8.546708384528756,
+      "max": 9.842999977990985
+    },
+    "commitCallMs": {
+      "count": 361,
+      "p50": 0.015500001609325409,
+      "p95": 0.05574995884671807,
+      "p99": 0.07016665767878294,
+      "max": 0.08037500083446503
+    },
+    "gpuWaitLowerBoundMs": {
+      "count": 361,
+      "p50": 0.6143332575447857,
+      "p95": 0.7298749405890703,
+      "p99": 0.9289999143220484,
+      "max": 1.1231666430830956
+    },
+    "gpuWaitUpperBoundMs": {
+      "count": 361,
+      "p50": 0.6327499286271632,
+      "p95": 0.7546665729023516,
+      "p99": 0.9889999637380242,
+      "max": 1.1744999210350215
+    },
+    "gpuMs": {
+      "count": 361,
+      "p50": 5.874291644431651,
+      "p95": 6.096499972045422,
+      "p99": 6.363958353176713,
+      "max": 6.542333343531936
+    },
+    "gpuEndToPresentedMs": {
+      "count": 361,
+      "p50": 22.678166744299233,
+      "p95": 24.76358343847096,
+      "p99": 25.245458411518484,
+      "max": 27.60550007224083
+    }
+  },
+  "gaps": [],
+  "gpuStartsBeforeCommitReturns": 0,
+  "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+}

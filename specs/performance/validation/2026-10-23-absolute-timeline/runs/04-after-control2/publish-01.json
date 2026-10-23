@@ -1,0 +1,372 @@
+{
+  "exitCode": 0,
+  "started": 441036.26715866674,
+  "handshakeReceived": 441036.267316083,
+  "clock": {
+    "implementation": "clock_gettime(CLOCK_UPTIME_RAW)",
+    "resolution": 4.2000000000000006e-08
+  },
+  "writes": [
+    {
+      "began": 441036.267328083,
+      "commitBegan": 441036.267827833,
+      "committed": 441036.267917625,
+      "sessionID": "synthetic-00",
+      "eventID": null
+    },
+    {
+      "began": 441036.267925958,
+      "commitBegan": 441036.268173791,
+      "committed": 441036.268264,
+      "sessionID": "synthetic-01",
+      "eventID": null
+    },
+    {
+      "began": 441036.268271833,
+      "commitBegan": 441036.268457125,
+      "committed": 441036.26852125,
+      "sessionID": "synthetic-02",
+      "eventID": null
+    },
+    {
+      "began": 441036.268526166,
+      "commitBegan": 441036.268737416,
+      "committed": 441036.268822666,
+      "sessionID": "synthetic-03",
+      "eventID": null
+    },
+    {
+      "began": 441036.268829083,
+      "commitBegan": 441036.2689765,
+      "committed": 441036.2690425,
+      "sessionID": "synthetic-04",
+      "eventID": null
+    },
+    {
+      "began": 441036.269046916,
+      "commitBegan": 441036.269168958,
+      "committed": 441036.269228916,
+      "sessionID": "synthetic-05",
+      "eventID": null
+    },
+    {
+      "began": 441036.269232166,
+      "commitBegan": 441036.269357208,
+      "committed": 441036.269417583,
+      "sessionID": "synthetic-06",
+      "eventID": null
+    },
+    {
+      "began": 441036.269420583,
+      "commitBegan": 441036.269695666,
+      "committed": 441036.269754291,
+      "sessionID": "synthetic-07",
+      "eventID": null
+    },
+    {
+      "began": 441036.269757291,
+      "commitBegan": 441036.26987475,
+      "committed": 441036.269936083,
+      "sessionID": "synthetic-08",
+      "eventID": null
+    },
+    {
+      "began": 441036.269939125,
+      "commitBegan": 441036.270058,
+      "committed": 441036.270127625,
+      "sessionID": "synthetic-09",
+      "eventID": null
+    },
+    {
+      "began": 441036.270130875,
+      "commitBegan": 441036.2702435,
+      "committed": 441036.270309583,
+      "sessionID": "synthetic-10",
+      "eventID": null
+    },
+    {
+      "began": 441036.270312791,
+      "commitBegan": 441036.270440166,
+      "committed": 441036.270496833,
+      "sessionID": "synthetic-11",
+      "eventID": null
+    },
+    {
+      "began": 441036.270499416,
+      "commitBegan": 441036.270616041,
+      "committed": 441036.270680916,
+      "sessionID": "synthetic-12",
+      "eventID": null
+    },
+    {
+      "began": 441036.270684166,
+      "commitBegan": 441036.270801458,
+      "committed": 441036.270869708,
+      "sessionID": "synthetic-13",
+      "eventID": null
+    },
+    {
+      "began": 441036.270872375,
+      "commitBegan": 441036.270976166,
+      "committed": 441036.271034875,
+      "sessionID": "synthetic-14",
+      "eventID": null
+    },
+    {
+      "began": 441036.271037208,
+      "commitBegan": 441036.271144583,
+      "committed": 441036.271199666,
+      "sessionID": "synthetic-15",
+      "eventID": null
+    },
+    {
+      "began": 441036.271202166,
+      "commitBegan": 441036.271312791,
+      "committed": 441036.271367,
+      "sessionID": "synthetic-16",
+      "eventID": null
+    },
+    {
+      "began": 441036.271369708,
+      "commitBegan": 441036.271480666,
+      "committed": 441036.271535333,
+      "sessionID": "synthetic-17",
+      "eventID": null
+    },
+    {
+      "began": 441036.271537875,
+      "commitBegan": 441036.271642791,
+      "committed": 441036.271694958,
+      "sessionID": "synthetic-18",
+      "eventID": null
+    },
+    {
+      "began": 441036.271697375,
+      "commitBegan": 441036.271799416,
+      "committed": 441036.271853041,
+      "sessionID": "synthetic-19",
+      "eventID": null
+    },
+    {
+      "began": 441036.2718555,
+      "commitBegan": 441036.271960791,
+      "committed": 441036.272017625,
+      "sessionID": "synthetic-20",
+      "eventID": null
+    },
+    {
+      "began": 441036.272020083,
+      "commitBegan": 441036.272160666,
+      "committed": 441036.272329583,
+      "sessionID": "synthetic-21",
+      "eventID": null
+    },
+    {
+      "began": 441036.272345,
+      "commitBegan": 441036.272588791,
+      "committed": 441036.272651833,
+      "sessionID": "synthetic-22",
+      "eventID": null
+    },
+    {
+      "began": 441036.27265625,
+      "commitBegan": 441036.272780083,
+      "committed": 441036.2728355,
+      "sessionID": "synthetic-23",
+      "eventID": null
+    },
+    {
+      "began": 441066.42228625,
+      "commitBegan": 441066.422731416,
+      "committed": 441066.422916166,
+      "sessionID": "synthetic-00",
+      "eventID": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+      "scheduled": 441066.41715866677,
+      "label": "TRACE_ALPHA"
+    },
+    {
+      "began": 441070.922320833,
+      "commitBegan": 441070.923268375,
+      "committed": 441070.923668583,
+      "sessionID": "synthetic-01",
+      "eventID": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+      "scheduled": 441070.91715866677,
+      "label": "\u041f\u0420\u041e\u0411\u0410"
+    },
+    {
+      "began": 441075.522248708,
+      "commitBegan": 441075.522645041,
+      "committed": 441075.522811083,
+      "sessionID": "synthetic-02",
+      "eventID": "f62715a0-85c4-5812-a133-b60f15655e37",
+      "scheduled": 441075.51715866674,
+      "label": "swift test --filter Rain"
+    },
+    {
+      "began": 441080.119504666,
+      "commitBegan": 441080.120496416,
+      "committed": 441080.120848625,
+      "sessionID": "synthetic-03",
+      "eventID": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+      "scheduled": 441080.1171586667,
+      "label": "TRACE_ALPHA"
+    },
+    {
+      "began": 441084.71933175,
+      "commitBegan": 441084.720346875,
+      "committed": 441084.720715,
+      "sessionID": "synthetic-04",
+      "eventID": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+      "scheduled": 441084.71715866675,
+      "label": "\u041f\u0420\u041e\u0411\u0410"
+    },
+    {
+      "began": 441086.619242791,
+      "commitBegan": 441086.620298208,
+      "committed": 441086.620572708,
+      "sessionID": "expired-00",
+      "eventID": null
+    },
+    {
+      "began": 441086.620587708,
+      "commitBegan": 441086.620936708,
+      "committed": 441086.621081458,
+      "sessionID": "expired-01",
+      "eventID": null
+    },
+    {
+      "began": 441086.621090333,
+      "commitBegan": 441086.62138575,
+      "committed": 441086.621519458,
+      "sessionID": "expired-02",
+      "eventID": null
+    },
+    {
+      "began": 441086.621526416,
+      "commitBegan": 441086.621816416,
+      "committed": 441086.621943,
+      "sessionID": "expired-03",
+      "eventID": null
+    },
+    {
+      "began": 441086.621950083,
+      "commitBegan": 441086.622200708,
+      "committed": 441086.622359083,
+      "sessionID": "expired-04",
+      "eventID": null
+    },
+    {
+      "began": 441086.622365083,
+      "commitBegan": 441086.6226475,
+      "committed": 441086.622768291,
+      "sessionID": "expired-05",
+      "eventID": null
+    },
+    {
+      "began": 441086.622774416,
+      "commitBegan": 441086.623006875,
+      "committed": 441086.623121791,
+      "sessionID": "expired-06",
+      "eventID": null
+    },
+    {
+      "began": 441086.623127625,
+      "commitBegan": 441086.623375458,
+      "committed": 441086.623492125,
+      "sessionID": "expired-07",
+      "eventID": null
+    },
+    {
+      "began": 441086.623497958,
+      "commitBegan": 441086.62373525,
+      "committed": 441086.623855833,
+      "sessionID": "expired-08",
+      "eventID": null
+    },
+    {
+      "began": 441086.623861375,
+      "commitBegan": 441086.624086458,
+      "committed": 441086.62420175,
+      "sessionID": "expired-09",
+      "eventID": null
+    },
+    {
+      "began": 441086.624207375,
+      "commitBegan": 441086.624433375,
+      "committed": 441086.624557166,
+      "sessionID": "expired-10",
+      "eventID": null
+    },
+    {
+      "began": 441086.624562541,
+      "commitBegan": 441086.624797208,
+      "committed": 441086.624914166,
+      "sessionID": "expired-11",
+      "eventID": null
+    },
+    {
+      "began": 441089.319273125,
+      "commitBegan": 441089.320260458,
+      "committed": 441089.320611541,
+      "sessionID": "synthetic-05",
+      "eventID": "f7279266-bd18-525c-b81b-cae73b64d6db",
+      "scheduled": 441089.31715866673,
+      "label": "swift test --filter Rain"
+    },
+    {
+      "began": 441093.918423083,
+      "commitBegan": 441093.919397458,
+      "committed": 441093.919775125,
+      "sessionID": "synthetic-06",
+      "eventID": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+      "scheduled": 441093.91715866677,
+      "label": "CONTEXT"
+    },
+    {
+      "began": 441098.51927625,
+      "commitBegan": 441098.520217583,
+      "committed": 441098.520601833,
+      "sessionID": "synthetic-07",
+      "eventID": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+      "scheduled": 441098.51715866674,
+      "label": "TASK"
+    },
+    {
+      "began": 441103.1223305,
+      "commitBegan": 441103.123271125,
+      "committed": 441103.123779333,
+      "sessionID": "synthetic-08",
+      "eventID": "a7412999-4485-5d1a-a9c3-268d275d928f",
+      "scheduled": 441103.1171586667,
+      "label": "TRACE_ALPHA"
+    },
+    {
+      "began": 441107.7191895,
+      "commitBegan": 441107.720078125,
+      "committed": 441107.7204535,
+      "sessionID": "synthetic-09",
+      "eventID": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+      "scheduled": 441107.71715866675,
+      "label": "\u041f\u0420\u041e\u0411\u0410"
+    },
+    {
+      "began": 441112.319074875,
+      "commitBegan": 441112.32015025,
+      "committed": 441112.320583,
+      "sessionID": "synthetic-10",
+      "eventID": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+      "scheduled": 441112.31715866673,
+      "label": "swift test --filter Rain"
+    },
+    {
+      "began": 441116.919291166,
+      "commitBegan": 441116.92070075,
+      "committed": 441116.921266833,
+      "sessionID": "synthetic-11",
+      "eventID": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+      "scheduled": 441116.91715866677,
+      "label": "DONE"
+    }
+  ],
+  "remainingJSONFiles": 24
+}

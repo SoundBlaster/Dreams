@@ -1,0 +1,585 @@
+{
+  "kind": "five-bracketed-timeline-pairs",
+  "runs": [
+    {
+      "block": 1,
+      "variant": "before",
+      "mode": "control1",
+      "directory": "01-before-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/01-before-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "variant": "before",
+      "mode": "timeline",
+      "directory": "01-before-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/01-before-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "variant": "before",
+      "mode": "control2",
+      "directory": "01-before-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/01-before-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "variant": "after",
+      "mode": "control1",
+      "directory": "01-after-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/01-after-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "variant": "after",
+      "mode": "timeline",
+      "directory": "01-after-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/01-after-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 1,
+      "variant": "after",
+      "mode": "control2",
+      "directory": "01-after-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/01-after-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "variant": "after",
+      "mode": "control1",
+      "directory": "02-after-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/02-after-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "variant": "after",
+      "mode": "timeline",
+      "directory": "02-after-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/02-after-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "variant": "after",
+      "mode": "control2",
+      "directory": "02-after-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/02-after-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "variant": "before",
+      "mode": "control1",
+      "directory": "02-before-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/02-before-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "variant": "before",
+      "mode": "timeline",
+      "directory": "02-before-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/02-before-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 2,
+      "variant": "before",
+      "mode": "control2",
+      "directory": "02-before-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/02-before-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "variant": "before",
+      "mode": "control1",
+      "directory": "03-before-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/03-before-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "variant": "before",
+      "mode": "timeline",
+      "directory": "03-before-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/03-before-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "variant": "before",
+      "mode": "control2",
+      "directory": "03-before-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/03-before-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "variant": "after",
+      "mode": "control1",
+      "directory": "03-after-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/03-after-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "variant": "after",
+      "mode": "timeline",
+      "directory": "03-after-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/03-after-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 3,
+      "variant": "after",
+      "mode": "control2",
+      "directory": "03-after-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/03-after-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "variant": "after",
+      "mode": "control1",
+      "directory": "04-after-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-after-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "variant": "after",
+      "mode": "timeline",
+      "directory": "04-after-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-after-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "variant": "after",
+      "mode": "control2",
+      "directory": "04-after-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-after-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "variant": "before",
+      "mode": "control1",
+      "directory": "04-before-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-before-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "variant": "before",
+      "mode": "timeline",
+      "directory": "04-before-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-before-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 4,
+      "variant": "before",
+      "mode": "control2",
+      "directory": "04-before-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-before-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "variant": "before",
+      "mode": "control1",
+      "directory": "05-before-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/05-before-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "variant": "before",
+      "mode": "timeline",
+      "directory": "05-before-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/05-before-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "variant": "before",
+      "mode": "control2",
+      "directory": "05-before-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/cadence-before/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/05-before-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "variant": "after",
+      "mode": "control1",
+      "directory": "05-after-control1",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/05-after-control1",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "variant": "after",
+      "mode": "timeline",
+      "directory": "05-after-timeline",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/05-after-timeline",
+        "--runs",
+        "1",
+        "--timeline"
+      ],
+      "exitCode": 0
+    },
+    {
+      "block": 5,
+      "variant": "after",
+      "mode": "control2",
+      "directory": "05-after-control2",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/scripts/run-feed-performance.py",
+        "--binary",
+        "/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--revision",
+        "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "--output",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/05-after-control2",
+        "--runs",
+        "1"
+      ],
+      "exitCode": 0
+    }
+  ]
+}

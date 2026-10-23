@@ -1,0 +1,16 @@
+{
+  "name": "24-sessions-12-events-expiry",
+  "sessions": 24,
+  "expiredFiles": 12,
+  "expiryOffset": 6,
+  "events": [
+    {
+      "offset": 0.2,
+      "label": "TRACE"
+    },
+    {
+      "offset": 4.5,
+      "label": "ПРОБА"
+    }
+  ]
+}

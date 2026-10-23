@@ -1,0 +1,602 @@
+[
+  {
+    "block": 1,
+    "variant": "before",
+    "mode": "control1",
+    "frames": 1817,
+    "measuredSeconds": 60.54447104164865,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.6818932306,
+    "meanDrawMs": 6.184379059067134,
+    "meanGpuMs": 5.883538937235859,
+    "beganAt": 439251.0666313751,
+    "lastPresentedAt": 439311.6315431251,
+    "timed": false
+  },
+  {
+    "block": 1,
+    "variant": "before",
+    "mode": "timeline",
+    "frames": 1808,
+    "measuredSeconds": 60.23854987497907,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.32743362832,
+    "meanDrawMs": 5.782609858263729,
+    "meanGpuMs": 5.879599972200771,
+    "beganAt": 439342.14500308345,
+    "lastPresentedAt": 439402.39759516675,
+    "timed": true
+  },
+  {
+    "block": 1,
+    "variant": "before",
+    "mode": "control2",
+    "frames": 1817,
+    "measuredSeconds": 60.55707029165933,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.75564116676,
+    "meanDrawMs": 6.4382004220603495,
+    "meanGpuMs": 6.222292813487827,
+    "beganAt": 439432.9568115001,
+    "lastPresentedAt": 439493.5178113751,
+    "timed": false
+  },
+  {
+    "block": 1,
+    "variant": "after",
+    "mode": "control1",
+    "frames": 1802,
+    "measuredSeconds": 60.0450157916639,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.217536071032,
+    "meanDrawMs": 2.8675979467937833,
+    "meanGpuMs": 4.949317263953799,
+    "beganAt": 439524.1396368751,
+    "lastPresentedAt": 439584.20050812507,
+    "timed": false
+  },
+  {
+    "block": 1,
+    "variant": "after",
+    "mode": "timeline",
+    "frames": 1801,
+    "measuredSeconds": 60.01685891667148,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.726263187118,
+    "meanDrawMs": 2.963837890961786,
+    "meanGpuMs": 2.6973434666061524,
+    "beganAt": 439614.73883066676,
+    "lastPresentedAt": 439674.7664308751,
+    "timed": true
+  },
+  {
+    "block": 1,
+    "variant": "after",
+    "mode": "control2",
+    "frames": 1802,
+    "measuredSeconds": 60.042894166661426,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 1,
+    "over100": 0,
+    "meanCoreInstances": 14314.713651498336,
+    "meanDrawMs": 2.9196164225572856,
+    "meanGpuMs": 3.023794534348456,
+    "beganAt": 439705.37474333344,
+    "lastPresentedAt": 439765.4364391668,
+    "timed": false
+  },
+  {
+    "block": 2,
+    "variant": "after",
+    "mode": "control1",
+    "frames": 1802,
+    "measuredSeconds": 60.04017616668716,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.551054384017,
+    "meanDrawMs": 2.948765700373418,
+    "meanGpuMs": 2.6188207773523264,
+    "beganAt": 439796.01644529175,
+    "lastPresentedAt": 439856.0772319168,
+    "timed": false
+  },
+  {
+    "block": 2,
+    "variant": "after",
+    "mode": "timeline",
+    "frames": 1801,
+    "measuredSeconds": 60.028257416619454,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.810660744031,
+    "meanDrawMs": 2.9159460948412512,
+    "meanGpuMs": 3.870351679876771,
+    "beganAt": 439886.6654883751,
+    "lastPresentedAt": 439946.6930200834,
+    "timed": true
+  },
+  {
+    "block": 2,
+    "variant": "after",
+    "mode": "control2",
+    "frames": 1801,
+    "measuredSeconds": 60.028272208350245,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.811215991116,
+    "meanDrawMs": 2.7420369480689497,
+    "meanGpuMs": 5.8660707007943635,
+    "beganAt": 439977.19804741675,
+    "lastPresentedAt": 440037.2255686251,
+    "timed": false
+  },
+  {
+    "block": 2,
+    "variant": "before",
+    "mode": "control1",
+    "frames": 1816,
+    "measuredSeconds": 60.515278083330486,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.107378854625,
+    "meanDrawMs": 2.8363661211684534,
+    "meanGpuMs": 5.9244835033275836,
+    "beganAt": 440067.7390155834,
+    "lastPresentedAt": 440128.2664934584,
+    "timed": false
+  },
+  {
+    "block": 2,
+    "variant": "before",
+    "mode": "timeline",
+    "frames": 1816,
+    "measuredSeconds": 60.52044424996711,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.025881057269,
+    "meanDrawMs": 2.718655470191216,
+    "meanGpuMs": 5.878221295865782,
+    "beganAt": 440158.7756652501,
+    "lastPresentedAt": 440219.3074403334,
+    "timed": true
+  },
+  {
+    "block": 2,
+    "variant": "before",
+    "mode": "control2",
+    "frames": 1816,
+    "measuredSeconds": 60.53196995833423,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.113986784141,
+    "meanDrawMs": 2.7906765322760463,
+    "meanGpuMs": 5.865441124171115,
+    "beganAt": 440249.7957639584,
+    "lastPresentedAt": 440310.3234012501,
+    "timed": false
+  },
+  {
+    "block": 3,
+    "variant": "before",
+    "mode": "control1",
+    "frames": 1816,
+    "measuredSeconds": 60.51999391667778,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.685022026431,
+    "meanDrawMs": 6.381905470687038,
+    "meanGpuMs": 6.012312362465694,
+    "beganAt": 440340.8410273751,
+    "lastPresentedAt": 440401.3852140001,
+    "timed": false
+  },
+  {
+    "block": 3,
+    "variant": "before",
+    "mode": "timeline",
+    "frames": 1816,
+    "measuredSeconds": 60.523903791676275,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.522577092512,
+    "meanDrawMs": 6.609785953406624,
+    "meanGpuMs": 5.908769295186252,
+    "beganAt": 440431.8650950001,
+    "lastPresentedAt": 440492.41374304175,
+    "timed": true
+  },
+  {
+    "block": 3,
+    "variant": "before",
+    "mode": "control2",
+    "frames": 1804,
+    "measuredSeconds": 60.11959499999648,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.472838137472,
+    "meanDrawMs": 6.516007529350953,
+    "meanGpuMs": 5.91760737622831,
+    "beganAt": 440522.93550004176,
+    "lastPresentedAt": 440583.0797995834,
+    "timed": false
+  },
+  {
+    "block": 3,
+    "variant": "after",
+    "mode": "control1",
+    "frames": 1801,
+    "measuredSeconds": 60.02426174998982,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.314825097168,
+    "meanDrawMs": 6.761958240822262,
+    "meanGpuMs": 5.915834328338353,
+    "beganAt": 440613.61823987507,
+    "lastPresentedAt": 440673.6583672501,
+    "timed": false
+  },
+  {
+    "block": 3,
+    "variant": "after",
+    "mode": "timeline",
+    "frames": 1801,
+    "measuredSeconds": 60.03211916668806,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.514158800666,
+    "meanDrawMs": 6.979978090950569,
+    "meanGpuMs": 6.009032690278598,
+    "beganAt": 440704.18852670846,
+    "lastPresentedAt": 440764.21610958345,
+    "timed": true
+  },
+  {
+    "block": 3,
+    "variant": "after",
+    "mode": "control2",
+    "frames": 1802,
+    "measuredSeconds": 60.03208937495947,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.234184239735,
+    "meanDrawMs": 6.881764568192067,
+    "meanGpuMs": 5.868926887104823,
+    "beganAt": 440794.66708041675,
+    "lastPresentedAt": 440854.72802579176,
+    "timed": false
+  },
+  {
+    "block": 4,
+    "variant": "after",
+    "mode": "control1",
+    "frames": 1801,
+    "measuredSeconds": 60.04053987498628,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.174347584676,
+    "meanDrawMs": 6.948415648306191,
+    "meanGpuMs": 5.99071548128633,
+    "beganAt": 440885.2498431668,
+    "lastPresentedAt": 440945.28578108345,
+    "timed": false
+  },
+  {
+    "block": 4,
+    "variant": "after",
+    "mode": "timeline",
+    "frames": 1801,
+    "measuredSeconds": 60.020069124992006,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.980566352027,
+    "meanDrawMs": 6.691088213953502,
+    "meanGpuMs": 5.976663265834412,
+    "beganAt": 440975.74928895844,
+    "lastPresentedAt": 441035.7935402084,
+    "timed": true
+  },
+  {
+    "block": 4,
+    "variant": "after",
+    "mode": "control2",
+    "frames": 1802,
+    "measuredSeconds": 60.04041425004834,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.975027746948,
+    "meanDrawMs": 6.684334905083952,
+    "meanGpuMs": 5.905376594948048,
+    "beganAt": 441066.27382458345,
+    "lastPresentedAt": 441126.33463491674,
+    "timed": false
+  },
+  {
+    "block": 4,
+    "variant": "before",
+    "mode": "control1",
+    "frames": 1816,
+    "measuredSeconds": 60.52473283332074,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14316.52037444934,
+    "meanDrawMs": 6.025071540907167,
+    "meanGpuMs": 5.935588151604729,
+    "beganAt": 441156.7980697501,
+    "lastPresentedAt": 441217.34239570843,
+    "timed": false
+  },
+  {
+    "block": 4,
+    "variant": "before",
+    "mode": "timeline",
+    "frames": 1802,
+    "measuredSeconds": 60.040875583305024,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14316.752497225305,
+    "meanDrawMs": 7.003650665332302,
+    "meanGpuMs": 5.945270833508686,
+    "beganAt": 441247.83090404177,
+    "lastPresentedAt": 441307.89598816674,
+    "timed": true
+  },
+  {
+    "block": 4,
+    "variant": "before",
+    "mode": "control2",
+    "frames": 1804,
+    "measuredSeconds": 60.1320490000071,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.65022172949,
+    "meanDrawMs": 6.596537833290481,
+    "meanGpuMs": 5.962055525064887,
+    "beganAt": 441338.38027983345,
+    "lastPresentedAt": 441398.5079167501,
+    "timed": false
+  },
+  {
+    "block": 5,
+    "variant": "before",
+    "mode": "control1",
+    "frames": 1801,
+    "measuredSeconds": 60.01961974997539,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.821210438646,
+    "meanDrawMs": 6.947394687258874,
+    "meanGpuMs": 5.956474596771284,
+    "beganAt": 441428.9922852084,
+    "lastPresentedAt": 441489.0365175834,
+    "timed": false
+  },
+  {
+    "block": 5,
+    "variant": "before",
+    "mode": "timeline",
+    "frames": 1816,
+    "measuredSeconds": 60.52376316668233,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.68667400881,
+    "meanDrawMs": 6.748126812421795,
+    "meanGpuMs": 5.961068971085132,
+    "beganAt": 441519.5416437501,
+    "lastPresentedAt": 441580.0859516251,
+    "timed": true
+  },
+  {
+    "block": 5,
+    "variant": "before",
+    "mode": "control2",
+    "frames": 1816,
+    "measuredSeconds": 60.515446416684426,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.795704845816,
+    "meanDrawMs": 6.801108755603369,
+    "meanGpuMs": 5.895405493513579,
+    "beganAt": 441610.61608666676,
+    "lastPresentedAt": 441671.15205404174,
+    "timed": false
+  },
+  {
+    "block": 5,
+    "variant": "after",
+    "mode": "control1",
+    "frames": 1801,
+    "measuredSeconds": 60.02569579164265,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14315.273736812882,
+    "meanDrawMs": 6.77339663150033,
+    "meanGpuMs": 5.982573060430007,
+    "beganAt": 441701.64889133343,
+    "lastPresentedAt": 441761.6848297084,
+    "timed": false
+  },
+  {
+    "block": 5,
+    "variant": "after",
+    "mode": "timeline",
+    "frames": 1802,
+    "measuredSeconds": 60.04877629166003,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.786348501664,
+    "meanDrawMs": 7.109088535552646,
+    "meanGpuMs": 6.019955026254587,
+    "beganAt": 441792.12328016676,
+    "lastPresentedAt": 441852.20094104175,
+    "timed": true
+  },
+  {
+    "block": 5,
+    "variant": "after",
+    "mode": "control2",
+    "frames": 1801,
+    "measuredSeconds": 60.03343062498607,
+    "unavailableDrawable": 0,
+    "occludedFrames": 0,
+    "thermal": [
+      0
+    ],
+    "over50": 0,
+    "over100": 0,
+    "meanCoreInstances": 14314.791227096057,
+    "meanDrawMs": 7.021025865173783,
+    "meanGpuMs": 6.001595988443565,
+    "beganAt": 441882.6801866251,
+    "lastPresentedAt": 441942.72955408343,
+    "timed": false
+  }
+]

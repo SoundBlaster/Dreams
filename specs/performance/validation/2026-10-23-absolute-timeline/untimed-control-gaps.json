@@ -1,0 +1,54 @@
+{
+  "run": "01-after-control2",
+  "timelineEnabled": false,
+  "gaps": [
+    {
+      "intervalMs": 74.99933335930109,
+      "previous": {
+        "bufferBytes": 1367136,
+        "bufferCreations": 2,
+        "columns": 160,
+        "coreInstances": 14241,
+        "drawSeconds": 0.0028816249687224627,
+        "encodingSeconds": 0.00014841667143628,
+        "eventLetters": [],
+        "feedSeconds": 3.7497375160455704e-07,
+        "glyphRasterizations": 0,
+        "gpuCompleted": true,
+        "gpuFailed": false,
+        "gpuSeconds": 0.0027865833253599703,
+        "haloInstances": 14241,
+        "id": 788,
+        "instancesSeconds": 0.0018874999950639904,
+        "presentationReported": true,
+        "presentedAt": 439731.67008204176,
+        "rows": 90,
+        "simulationSeconds": 0.0007724583265371621,
+        "submittedAt": 439731.6419521251
+      },
+      "current": {
+        "bufferBytes": 1367136,
+        "bufferCreations": 2,
+        "columns": 160,
+        "coreInstances": 14241,
+        "drawSeconds": 0.002824708295520395,
+        "encodingSeconds": 0.0001400416367687285,
+        "eventLetters": [],
+        "feedSeconds": 5.00003807246685e-07,
+        "glyphRasterizations": 0,
+        "gpuCompleted": true,
+        "gpuFailed": false,
+        "gpuSeconds": 0.0024295833427459,
+        "haloInstances": 14241,
+        "id": 789,
+        "instancesSeconds": 0.0018330833408981562,
+        "presentationReported": true,
+        "presentedAt": 439731.7450813751,
+        "rows": 90,
+        "simulationSeconds": 0.0007667499594390392,
+        "submittedAt": 439731.6751987918
+      }
+    }
+  ],
+  "attribution": "Unavailable: no absolute commit/GPU clocks or concurrent system activity record. Does not establish a reader regression, system-load cause or explanation of historical gaps."
+}

@@ -1,0 +1,3053 @@
+{
+  "identity": {
+    "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+    "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+    "resourceSHA256": {
+      "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+      "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+      "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+    },
+    "hardwareModel": "Mac16,8",
+    "cpuModel": "Apple M4 Pro",
+    "sdk": "27.0",
+    "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "display": {
+      "device": "Apple M4 Pro",
+      "os": "Version 27.0 (Build 26A428)",
+      "cpu": 12,
+      "backingScale": 2,
+      "screenMaximumFPS": 120,
+      "screenFrame": "{{0, 0}, {1512, 982}}"
+    }
+  },
+  "variants": {
+    "before": {
+      "revision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+      "binarySHA256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5"
+    },
+    "after": {
+      "revision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+      "binarySHA256": "f3c8b629b35bbe1970e3c7ff8949972a370c4cf5bf51ef0c7d06167fa435f9b9"
+    }
+  },
+  "overhead": [
+    {
+      "block": 1,
+      "variant": "before",
+      "timelineMinusControlMsPerDraw": -0.5733117947019544,
+      "controlSpreadMsPerDraw": 0.2638959823885525,
+      "control1": 6.922138139790864,
+      "timeline": 6.4807743362831856,
+      "control2": 7.186034122179416
+    },
+    {
+      "block": 1,
+      "variant": "after",
+      "timelineMinusControlMsPerDraw": 0.07878455658189631,
+      "controlSpreadMsPerDraw": 0.10120699223085472,
+      "control1": 3.483882907880133,
+      "timeline": 3.613270960577457,
+      "control2": 3.585089900110988
+    },
+    {
+      "block": 2,
+      "variant": "before",
+      "timelineMinusControlMsPerDraw": -0.06303524229074853,
+      "controlSpreadMsPerDraw": 0.0875352422907496,
+      "control1": 3.3589151982378858,
+      "timeline": 3.2521123348017626,
+      "control2": 3.271379955947136
+    },
+    {
+      "block": 2,
+      "variant": "after",
+      "timelineMinusControlMsPerDraw": 0.11782078630012549,
+      "controlSpreadMsPerDraw": 0.3203206705979711,
+      "control1": 3.580472253052164,
+      "timeline": 3.5381327040533037,
+      "control2": 3.260151582454193
+    },
+    {
+      "block": 3,
+      "variant": "before",
+      "timelineMinusControlMsPerDraw": 0.1498838710110677,
+      "controlSpreadMsPerDraw": 0.11799877780165247,
+      "control1": 7.116482929515419,
+      "timeline": 7.325366189427313,
+      "control2": 7.234481707317071
+    },
+    {
+      "block": 3,
+      "variant": "after",
+      "timelineMinusControlMsPerDraw": 0.17956602833793767,
+      "controlSpreadMsPerDraw": 0.09643707158620174,
+      "control1": 7.60239700166574,
+      "timeline": 7.830181565796779,
+      "control2": 7.698834073251942
+    },
+    {
+      "block": 4,
+      "variant": "before",
+      "timelineMinusControlMsPerDraw": 0.73264053769927,
+      "controlSpreadMsPerDraw": 0.6124229428973305,
+      "control1": 6.720665748898679,
+      "timeline": 7.759517758046615,
+      "control2": 7.33308869179601
+    },
+    {
+      "block": 4,
+      "variant": "after",
+      "timelineMinusControlMsPerDraw": -0.13553002185861818,
+      "controlSpreadMsPerDraw": 0.29157071697127357,
+      "control1": 7.802431982232095,
+      "timeline": 7.52111660188784,
+      "control2": 7.5108612652608215
+    },
+    {
+      "block": 5,
+      "variant": "before",
+      "timelineMinusControlMsPerDraw": -0.10931745671151827,
+      "controlSpreadMsPerDraw": 0.11953689580189053,
+      "control1": 7.661666851749027,
+      "timeline": 7.492580947136564,
+      "control2": 7.542129955947137
+    },
+    {
+      "block": 5,
+      "variant": "after",
+      "timelineMinusControlMsPerDraw": 0.2151342058703376,
+      "controlSpreadMsPerDraw": 0.21211937812326553,
+      "control1": 7.613601332593003,
+      "timeline": 7.934795227524973,
+      "control2": 7.8257207107162685
+    }
+  ],
+  "pairs": [
+    {
+      "pair": 1,
+      "before": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "binarySHA256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5",
+        "feed": {
+          "valid": true,
+          "refreshes": 59,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 59,
+          "snapshotMs": {
+            "count": 59,
+            "p50": 1.9165833364240825,
+            "p95": 2.8554166783578694,
+            "p99": 4.269625002052635,
+            "max": 4.269625002052635
+          },
+          "refreshDrawMs": {
+            "count": 59,
+            "p50": 7.8425833489745855,
+            "p95": 10.31908334698528,
+            "p99": 10.404000000562519,
+            "max": 10.404000000562519
+          },
+          "otherDrawMs": {
+            "count": 1749,
+            "p50": 6.1662916559726,
+            "p95": 7.685874996241182,
+            "p99": 8.174166723620147,
+            "max": 9.192499972414225
+          },
+          "presentationIntervalsMs": {
+            "count": 1807,
+            "maximum": 41.666499979328364,
+            "p50": 33.3331250003539,
+            "p95": 41.666416625957936,
+            "p99": 41.6664166841656
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 604.1094174725004,
+            "p95": 1129.2060837731697,
+            "p99": 1129.2060837731697,
+            "max": 1129.2060837731697
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439342.276955625,
+              "publicationEnd": 439342.277224166,
+              "scheduleLatenessMs": 5.844999861437827,
+              "firstRead": 439342.71368404175,
+              "firstPresentedLetter": 439342.7729977084,
+              "readLatencyMs": 436.45987572381273,
+              "presentationLatencyLowerMs": 495.7735423813574,
+              "presentationLatencyUpperMs": 496.0420834249817
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439346.775872333,
+              "publicationEnd": 439346.776022083,
+              "scheduleLatenessMs": 4.761707852594554,
+              "firstRead": 439347.7462119168,
+              "firstPresentedLetter": 439347.8146302501,
+              "readLatencyMs": 970.1898337807506,
+              "presentationLatencyLowerMs": 1038.6081670876592,
+              "presentationLatencyUpperMs": 1038.757917121984
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439351.377159416,
+              "publicationEnd": 439351.377476791,
+              "scheduleLatenessMs": 6.048790877684951,
+              "firstRead": 439351.8807819584,
+              "firstPresentedLetter": 439351.98126883345,
+              "readLatencyMs": 503.30516742542386,
+              "presentationLatencyLowerMs": 603.7920424714684,
+              "presentationLatencyUpperMs": 604.1094174725004
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439355.977075458,
+              "publicationEnd": 439355.977403791,
+              "scheduleLatenessMs": 5.964832904282957,
+              "firstRead": 439356.9475410001,
+              "firstPresentedLetter": 439357.0479010834,
+              "readLatencyMs": 970.1372091076337,
+              "presentationLatencyLowerMs": 1070.4972924431786,
+              "presentationLatencyUpperMs": 1070.825625443831
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439360.574295,
+              "publicationEnd": 439360.57461575,
+              "scheduleLatenessMs": 3.184374887496233,
+              "firstRead": 439361.01262354176,
+              "firstPresentedLetter": 439361.0728738751,
+              "readLatencyMs": 438.00779175944626,
+              "presentationLatencyLowerMs": 498.25812509516254,
+              "presentationLatencyUpperMs": 498.57887509278953
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439365.177175458,
+              "publicationEnd": 439365.177541416,
+              "scheduleLatenessMs": 6.0648329090327024,
+              "firstRead": 439366.11166945845,
+              "firstPresentedLetter": 439366.1811727501,
+              "readLatencyMs": 934.1280424268916,
+              "presentationLatencyLowerMs": 1003.6313340533525,
+              "presentationLatencyUpperMs": 1003.9972920785658
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 439369.776665416,
+              "publicationEnd": 439369.776865666,
+              "scheduleLatenessMs": 5.554790899623185,
+              "firstRead": 439370.2132726251,
+              "firstPresentedLetter": 439370.30614491674,
+              "readLatencyMs": 436.4069591392763,
+              "presentationLatencyLowerMs": 529.2792507680133,
+              "presentationLatencyUpperMs": 529.4795007212088
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 439374.377010375,
+              "publicationEnd": 439374.37732625,
+              "scheduleLatenessMs": 5.899749929085374,
+              "firstRead": 439375.31208462507,
+              "firstPresentedLetter": 439375.4061105418,
+              "readLatencyMs": 934.7583750495687,
+              "presentationLatencyLowerMs": 1028.7842917605303,
+              "presentationLatencyUpperMs": 1029.1001667501405
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439378.977234458,
+              "publicationEnd": 439378.977607083,
+              "scheduleLatenessMs": 6.123832950834185,
+              "firstRead": 439379.41309254174,
+              "firstPresentedLetter": 439379.5144162918,
+              "readLatencyMs": 435.485458758194,
+              "presentationLatencyLowerMs": 536.8092088028789,
+              "presentationLatencyUpperMs": 537.1818337589502
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439383.576841958,
+              "publicationEnd": 439383.577195083,
+              "scheduleLatenessMs": 5.731332872528583,
+              "firstRead": 439384.5471165001,
+              "firstPresentedLetter": 439384.70604804176,
+              "readLatencyMs": 969.9214170686901,
+              "presentationLatencyLowerMs": 1128.8529587327503,
+              "presentationLatencyUpperMs": 1129.2060837731697
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439388.175874791,
+              "publicationEnd": 439388.176121458,
+              "scheduleLatenessMs": 4.764165903907269,
+              "firstRead": 439388.6140130418,
+              "firstPresentedLetter": 439388.6768546251,
+              "readLatencyMs": 437.8915837733075,
+              "presentationLatencyLowerMs": 500.7331671076827,
+              "presentationLatencyUpperMs": 500.9798341197893
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 439392.776478666,
+              "publicationEnd": 439392.7766395,
+              "scheduleLatenessMs": 5.3680408746004105,
+              "firstRead": 439393.73848537507,
+              "firstPresentedLetter": 439393.8059865001,
+              "readLatencyMs": 961.8458750774153,
+              "presentationLatencyLowerMs": 1029.347000119742,
+              "presentationLatencyUpperMs": 1029.5078341150656
+            }
+          ],
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 6.4807743362831856,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1808,
+              "p50": 6.201708340086043,
+              "p95": 7.830833317711949,
+              "p99": 8.700624981429428,
+              "max": 10.406083310954273
+            },
+            "commitCallMs": {
+              "count": 1808,
+              "p50": 0.014750054106116295,
+              "p95": 0.03245827974751592,
+              "p99": 0.060999998822808266,
+              "max": 0.09912496898323298
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1808,
+              "p50": 0.5315415910445154,
+              "p95": 0.7132499595172703,
+              "p99": 0.7621666300110519,
+              "max": 0.9794582729227841
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1808,
+              "p50": 0.5476248916238546,
+              "p95": 0.736874935682863,
+              "p99": 0.7844583014957607,
+              "max": 0.9979582973755896
+            },
+            "gpuMs": {
+              "count": 1808,
+              "p50": 5.988250020891428,
+              "p95": 6.446749961469322,
+              "p99": 7.76520831277594,
+              "max": 9.194208309054375
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1808,
+              "p50": 22.109000070486218,
+              "p95": 24.037875060457736,
+              "p99": 24.910583393648267,
+              "max": 31.66241670260206
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1808,
+        "measuredSeconds": 60.23854987497907,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 439342.14500308345,
+        "lastPresentedAt": 439402.39759516675
+      },
+      "after": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "binarySHA256": "f3c8b629b35bbe1970e3c7ff8949972a370c4cf5bf51ef0c7d06167fa435f9b9",
+        "feed": {
+          "valid": true,
+          "refreshes": 84,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 0,
+          "snapshotMs": {
+            "count": 84,
+            "p50": 0.9042916353791952,
+            "p95": 1.2410416966304183,
+            "p99": 2.385916712228209,
+            "max": 2.385916712228209
+          },
+          "refreshDrawMs": {
+            "count": 77,
+            "p50": 2.9212083318270743,
+            "p95": 3.104208328295499,
+            "p99": 6.418166623916477,
+            "max": 6.418166623916477
+          },
+          "otherDrawMs": {
+            "count": 1724,
+            "p50": 2.9199999989941716,
+            "p95": 3.1110833515413105,
+            "p99": 4.086375003680587,
+            "max": 7.344791665673256
+          },
+          "presentationIntervalsMs": {
+            "count": 1800,
+            "maximum": 41.66720830835402,
+            "p50": 33.333041705191135,
+            "p95": 33.3331250003539,
+            "p99": 41.666291654109955
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 108.32979244878516,
+            "p95": 142.66650046920404,
+            "p99": 142.66650046920404,
+            "max": 142.66650046920404
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439614.862407958,
+              "publicationEnd": 439614.862562166,
+              "scheduleLatenessMs": 5.498916259966791,
+              "firstRead": 439614.8853847501,
+              "firstPresentedLetter": 439614.9669373751,
+              "readLatencyMs": 22.82258408376947,
+              "presentationLatencyLowerMs": 104.37520907726139,
+              "presentationLatencyUpperMs": 104.52941706171259
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439619.358572041,
+              "publicationEnd": 439619.358739291,
+              "scheduleLatenessMs": 1.6629992169328034,
+              "firstRead": 439619.38134158344,
+              "firstPresentedLetter": 439619.4669018334,
+              "readLatencyMs": 22.602292418014258,
+              "presentationLatencyLowerMs": 108.16254239762202,
+              "presentationLatencyUpperMs": 108.32979244878516
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439623.957531583,
+              "publicationEnd": 439623.957797208,
+              "scheduleLatenessMs": 0.6225412362255156,
+              "firstRead": 439623.9804372501,
+              "firstPresentedLetter": 439624.10019808344,
+              "readLatencyMs": 22.640042123384774,
+              "presentationLatencyLowerMs": 142.40087545476854,
+              "presentationLatencyUpperMs": 142.66650046920404
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439628.55825625,
+              "publicationEnd": 439628.558409916,
+              "scheduleLatenessMs": 1.347208279184997,
+              "firstRead": 439628.57987908344,
+              "firstPresentedLetter": 439628.70016079175,
+              "readLatencyMs": 21.469167433679104,
+              "presentationLatencyLowerMs": 141.75087574403733,
+              "presentationLatencyUpperMs": 141.90454175695777
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439633.161913083,
+              "publicationEnd": 439633.162146458,
+              "scheduleLatenessMs": 5.004041246138513,
+              "firstRead": 439633.18470762507,
+              "firstPresentedLetter": 439633.2667902084,
+              "readLatencyMs": 22.561167075764388,
+              "presentationLatencyLowerMs": 104.64375041192397,
+              "presentationLatencyUpperMs": 104.87712541362271
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439637.759327333,
+              "publicationEnd": 439637.7594685,
+              "scheduleLatenessMs": 2.418291289359331,
+              "firstRead": 439637.77730416675,
+              "firstPresentedLetter": 439637.86675229174,
+              "readLatencyMs": 17.835666774772108,
+              "presentationLatencyLowerMs": 107.2837917599827,
+              "presentationLatencyUpperMs": 107.42495872545987
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 439642.3615525,
+              "publicationEnd": 439642.361690125,
+              "scheduleLatenessMs": 4.6434582327492535,
+              "firstRead": 439642.3845930418,
+              "firstPresentedLetter": 439642.50004704174,
+              "readLatencyMs": 22.90291676763445,
+              "presentationLatencyLowerMs": 138.35691672284156,
+              "presentationLatencyUpperMs": 138.49454175215214
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 439646.960781458,
+              "publicationEnd": 439646.960939416,
+              "scheduleLatenessMs": 3.872416273225099,
+              "firstRead": 439646.9834222084,
+              "firstPresentedLetter": 439647.1000079584,
+              "readLatencyMs": 22.482792381197214,
+              "presentationLatencyLowerMs": 139.06854239758104,
+              "presentationLatencyUpperMs": 139.2265004105866
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439651.5619465,
+              "publicationEnd": 439651.562110166,
+              "scheduleLatenessMs": 5.037458264268935,
+              "firstRead": 439651.5841103751,
+              "firstPresentedLetter": 439651.69996845844,
+              "readLatencyMs": 22.000209079124033,
+              "presentationLatencyLowerMs": 137.85829243715852,
+              "presentationLatencyUpperMs": 138.02195846801624
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439656.157690333,
+              "publicationEnd": 439656.1578775,
+              "scheduleLatenessMs": 0.7812912808731198,
+              "firstRead": 439656.1806120834,
+              "firstPresentedLetter": 439656.2999287084,
+              "readLatencyMs": 22.734583413694054,
+              "presentationLatencyLowerMs": 142.0512084150687,
+              "presentationLatencyUpperMs": 142.23837538156658
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439660.758328083,
+              "publicationEnd": 439660.7584645,
+              "scheduleLatenessMs": 1.4190412475727499,
+              "firstRead": 439660.7796811251,
+              "firstPresentedLetter": 439660.8665550001,
+              "readLatencyMs": 21.216625056695193,
+              "presentationLatencyLowerMs": 108.09050005627796,
+              "presentationLatencyUpperMs": 108.22691710200161
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 439665.362282625,
+              "publicationEnd": 439665.362478041,
+              "scheduleLatenessMs": 5.373583233449608,
+              "firstRead": 439665.38509091677,
+              "firstPresentedLetter": 439665.4665142084,
+              "readLatencyMs": 22.612875793129206,
+              "presentationLatencyLowerMs": 104.03616743860766,
+              "presentationLatencyUpperMs": 104.23158342018723
+            }
+          ],
+          "feedReadMode": "shared-background",
+          "backgroundRefreshes": 84,
+          "drawsConsumingFeed": 77,
+          "feedCacheMs": {
+            "count": 1801,
+            "p50": 0.000500003807246685,
+            "p95": 0.0014583347365260124,
+            "p99": 0.010249961633235216,
+            "max": 0.024250010028481483
+          },
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 3.613270960577457,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1801,
+              "p50": 2.922541694715619,
+              "p95": 3.1088750110939145,
+              "p99": 4.091958282515407,
+              "max": 7.34945829026401
+            },
+            "commitCallMs": {
+              "count": 1801,
+              "p50": 0.011625001206994057,
+              "p95": 0.022458320017904043,
+              "p99": 0.03062502946704626,
+              "max": 0.050541653763502836
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1801,
+              "p50": 0.12120825704187155,
+              "p95": 0.26145821902900934,
+              "p99": 0.4172499175183475,
+              "max": 0.49279158702120185
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1801,
+              "p50": 0.13358326395973563,
+              "p95": 0.2795832697302103,
+              "p99": 0.43049990199506283,
+              "max": 0.5047498852945864
+            },
+            "gpuMs": {
+              "count": 1801,
+              "p50": 2.5137500488199294,
+              "p95": 3.4427500213496387,
+              "p99": 5.236625031102449,
+              "max": 8.529250044375658
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1801,
+              "p50": 22.60841673705727,
+              "p95": 23.202083364594728,
+              "p99": 28.810291725676507,
+              "max": 31.500250042881817
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1801,
+        "measuredSeconds": 60.01685891667148,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 439614.73883066676,
+        "lastPresentedAt": 439674.7664308751
+      }
+    },
+    {
+      "pair": 2,
+      "before": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "binarySHA256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5",
+        "feed": {
+          "valid": true,
+          "refreshes": 59,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 59,
+          "snapshotMs": {
+            "count": 59,
+            "p50": 0.8777083712629974,
+            "p95": 1.07795832445845,
+            "p99": 1.65779166854918,
+            "max": 1.65779166854918
+          },
+          "refreshDrawMs": {
+            "count": 59,
+            "p50": 3.5736666759476066,
+            "p95": 3.8315000128932297,
+            "p99": 4.249958321452141,
+            "max": 4.249958321452141
+          },
+          "otherDrawMs": {
+            "count": 1757,
+            "p50": 2.6599999982863665,
+            "p95": 2.885583380702883,
+            "p99": 3.712375008035451,
+            "max": 4.625208326615393
+          },
+          "presentationIntervalsMs": {
+            "count": 1815,
+            "maximum": 37.49975003302097,
+            "p50": 33.33308332366869,
+            "p95": 33.3331250003539,
+            "p99": 33.33316667703912
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 528.6636674427427,
+            "p95": 1032.8886674833484,
+            "p99": 1032.8886674833484,
+            "max": 1032.8886674833484
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440158.908414291,
+              "publicationEnd": 440158.90855475,
+              "scheduleLatenessMs": 4.87624917877838,
+              "firstRead": 440159.3765009584,
+              "firstPresentedLetter": 440159.4370779584,
+              "readLatencyMs": 467.9462083731778,
+              "presentationLatencyLowerMs": 528.5232083988376,
+              "presentationLatencyUpperMs": 528.6636674427427
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440163.406934083,
+              "publicationEnd": 440163.407088208,
+              "scheduleLatenessMs": 3.396041167434305,
+              "firstRead": 440163.44237945846,
+              "firstPresentedLetter": 440163.5037122084,
+              "readLatencyMs": 35.291250445879996,
+              "presentationLatencyLowerMs": 96.62400040542707,
+              "presentationLatencyUpperMs": 96.77812544396147
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440168.004936166,
+              "publicationEnd": 440168.005088708,
+              "scheduleLatenessMs": 1.3981242082081735,
+              "firstRead": 440168.5430222501,
+              "firstPresentedLetter": 440168.6370051668,
+              "readLatencyMs": 537.9335421021096,
+              "presentationLatencyLowerMs": 631.9164587766863,
+              "presentationLatencyUpperMs": 632.0690007996745
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440172.605032125,
+              "publicationEnd": 440172.60518275,
+              "scheduleLatenessMs": 1.494083262514323,
+              "firstRead": 440172.61400429177,
+              "firstPresentedLetter": 440172.70780583343,
+              "readLatencyMs": 8.821541792713106,
+              "presentationLatencyLowerMs": 102.6230834540911,
+              "presentationLatencyUpperMs": 102.77370840776712
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440177.203982666,
+              "publicationEnd": 440177.204147166,
+              "scheduleLatenessMs": 0.44462422374635935,
+              "firstRead": 440177.74730891676,
+              "firstPresentedLetter": 440177.80776591675,
+              "readLatencyMs": 543.1617507711053,
+              "presentationLatencyLowerMs": 603.6187507561408,
+              "presentationLatencyUpperMs": 603.7832507281564
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440181.806832833,
+              "publicationEnd": 440181.806994166,
+              "scheduleLatenessMs": 3.294791211374104,
+              "firstRead": 440181.8137947501,
+              "firstPresentedLetter": 440181.8744002501,
+              "readLatencyMs": 6.80058408761397,
+              "presentationLatencyLowerMs": 67.40608409745619,
+              "presentationLatencyUpperMs": 67.56741710705683
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 440186.404952708,
+              "publicationEnd": 440186.405103,
+              "scheduleLatenessMs": 1.414666185155511,
+              "firstRead": 440186.9139206668,
+              "firstPresentedLetter": 440187.00769354176,
+              "readLatencyMs": 508.8176667923108,
+              "presentationLatencyLowerMs": 602.5905417627655,
+              "presentationLatencyUpperMs": 602.7408337686211
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 440191.004919875,
+              "publicationEnd": 440191.005067791,
+              "scheduleLatenessMs": 1.381833222694695,
+              "firstRead": 440191.0136544168,
+              "firstPresentedLetter": 440191.1076611251,
+              "readLatencyMs": 8.58662580139935,
+              "presentationLatencyLowerMs": 102.59333410067484,
+              "presentationLatencyUpperMs": 102.74125006981194
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440195.608951208,
+              "publicationEnd": 440195.609079625,
+              "scheduleLatenessMs": 5.413166247308254,
+              "firstRead": 440196.1136718751,
+              "firstPresentedLetter": 440196.20762104174,
+              "readLatencyMs": 504.5922501012683,
+              "presentationLatencyLowerMs": 598.5414167516865,
+              "presentationLatencyUpperMs": 598.6698337364942
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440200.206421708,
+              "publicationEnd": 440200.206555208,
+              "scheduleLatenessMs": 2.883666194975376,
+              "firstRead": 440200.2135898751,
+              "firstPresentedLetter": 440200.30758891674,
+              "readLatencyMs": 7.034667069092393,
+              "presentationLatencyLowerMs": 101.03370872093365,
+              "presentationLatencyUpperMs": 101.16720874793828
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440204.80800725,
+              "publicationEnd": 440204.808149833,
+              "scheduleLatenessMs": 4.469208244699985,
+              "firstRead": 440205.3135760001,
+              "firstPresentedLetter": 440205.3742156668,
+              "readLatencyMs": 505.42616710299626,
+              "presentationLatencyLowerMs": 566.0658337874338,
+              "presentationLatencyUpperMs": 566.208416770678
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 440209.407954041,
+              "publicationEnd": 440209.408103666,
+              "scheduleLatenessMs": 4.415999166667461,
+              "firstRead": 440210.38024091674,
+              "firstPresentedLetter": 440210.44084270846,
+              "readLatencyMs": 972.1372507628985,
+              "presentationLatencyLowerMs": 1032.7390424790792,
+              "presentationLatencyUpperMs": 1032.8886674833484
+            }
+          ],
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 3.2521123348017626,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1816,
+              "p50": 2.6644166791811585,
+              "p95": 2.990374981891364,
+              "p99": 3.7696666549891233,
+              "max": 4.6262083342298865
+            },
+            "commitCallMs": {
+              "count": 1816,
+              "p50": 0.012208300177007914,
+              "p95": 0.01729169161990285,
+              "p99": 0.0211666920222342,
+              "max": 0.027125002816319466
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1816,
+              "p50": 0.49629161367192864,
+              "p95": 0.5937499227002263,
+              "p99": 0.6136249285191298,
+              "max": 0.6317915976978838
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1816,
+              "p50": 0.5084582953713834,
+              "p95": 0.6074582342989743,
+              "p99": 0.6286666030064225,
+              "max": 0.6464999169111252
+            },
+            "gpuMs": {
+              "count": 1816,
+              "p50": 5.877958319615573,
+              "p95": 6.058291648514569,
+              "p99": 6.176499999128282,
+              "max": 7.0990833337418735
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1816,
+              "p50": 19.183541706297547,
+              "p95": 19.631041737738997,
+              "p99": 20.159833424258977,
+              "max": 23.473125067539513
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1816,
+        "measuredSeconds": 60.52044424996711,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 440158.7756652501,
+        "lastPresentedAt": 440219.3074403334
+      },
+      "after": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "binarySHA256": "f3c8b629b35bbe1970e3c7ff8949972a370c4cf5bf51ef0c7d06167fa435f9b9",
+        "feed": {
+          "valid": true,
+          "refreshes": 84,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 0,
+          "snapshotMs": {
+            "count": 84,
+            "p50": 0.8784166420809925,
+            "p95": 1.289333333261311,
+            "p99": 3.5165833542123437,
+            "max": 3.5165833542123437
+          },
+          "refreshDrawMs": {
+            "count": 84,
+            "p50": 2.9118750244379044,
+            "p95": 3.055791661608964,
+            "p99": 3.950333339162171,
+            "max": 3.950333339162171
+          },
+          "otherDrawMs": {
+            "count": 1717,
+            "p50": 2.887624956201762,
+            "p95": 3.0835416400805116,
+            "p99": 3.9775833138264716,
+            "max": 4.955833312124014
+          },
+          "presentationIntervalsMs": {
+            "count": 1800,
+            "maximum": 49.999541661236435,
+            "p50": 33.33300002850592,
+            "p95": 33.33308332366869,
+            "p99": 33.338958281092346
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 98.66283374140039,
+            "p95": 132.14520912151784,
+            "p99": 132.14520912151784,
+            "max": 132.14520912151784
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439886.794932458,
+              "publicationEnd": 439886.795077958,
+              "scheduleLatenessMs": 1.3396662543527782,
+              "firstRead": 439886.8168365001,
+              "firstPresentedLetter": 439886.89359529177,
+              "readLatencyMs": 21.758542046882212,
+              "presentationLatencyLowerMs": 98.51733373943716,
+              "presentationLatencyUpperMs": 98.66283374140039
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439891.296569,
+              "publicationEnd": 439891.29672425,
+              "scheduleLatenessMs": 2.9762082267552614,
+              "firstRead": 439891.3184002501,
+              "firstPresentedLetter": 439891.39355145843,
+              "readLatencyMs": 21.67600009124726,
+              "presentationLatencyLowerMs": 96.82720841374248,
+              "presentationLatencyUpperMs": 96.98245843173936
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439895.898425375,
+              "publicationEnd": 439895.89858,
+              "scheduleLatenessMs": 4.83258324675262,
+              "firstRead": 439895.9212507084,
+              "firstPresentedLetter": 439896.02683970844,
+              "readLatencyMs": 22.670708422083408,
+              "presentationLatencyLowerMs": 128.25970846461132,
+              "presentationLatencyUpperMs": 128.4143334487453
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439900.495022666,
+              "publicationEnd": 439900.495171833,
+              "scheduleLatenessMs": 1.4298742753453553,
+              "firstRead": 439900.51780141675,
+              "firstPresentedLetter": 439900.62679491675,
+              "readLatencyMs": 22.629583720117807,
+              "presentationLatencyLowerMs": 131.62308372557163,
+              "presentationLatencyUpperMs": 131.77225075196475
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439905.097634833,
+              "publicationEnd": 439905.0978195,
+              "scheduleLatenessMs": 4.042041255161166,
+              "firstRead": 439905.1204024584,
+              "firstPresentedLetter": 439905.19341729174,
+              "readLatencyMs": 22.582958394195884,
+              "presentationLatencyLowerMs": 95.59779171831906,
+              "presentationLatencyUpperMs": 95.78245872398838
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439909.69814925,
+              "publicationEnd": 439909.698331208,
+              "scheduleLatenessMs": 4.556458268780261,
+              "firstRead": 439909.71665595844,
+              "firstPresentedLetter": 439909.7933728334,
+              "readLatencyMs": 18.3247504173778,
+              "presentationLatencyLowerMs": 95.0416253763251,
+              "presentationLatencyUpperMs": 95.22358339745551
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 439914.294516291,
+              "publicationEnd": 439914.29467525,
+              "scheduleLatenessMs": 0.9234992321580648,
+              "firstRead": 439914.31742495846,
+              "firstPresentedLetter": 439914.4266615001,
+              "readLatencyMs": 22.749708441551775,
+              "presentationLatencyLowerMs": 131.98625011136755,
+              "presentationLatencyUpperMs": 132.14520912151784
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 439918.8977655,
+              "publicationEnd": 439918.897918916,
+              "scheduleLatenessMs": 4.172708257101476,
+              "firstRead": 439918.9193250001,
+              "firstPresentedLetter": 439919.02661720844,
+              "readLatencyMs": 21.40608406625688,
+              "presentationLatencyLowerMs": 128.69829242117703,
+              "presentationLatencyUpperMs": 128.85170843219385
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 439923.494392041,
+              "publicationEnd": 439923.494540666,
+              "scheduleLatenessMs": 0.7992492755874991,
+              "firstRead": 439923.5160624168,
+              "firstPresentedLetter": 439923.5932398334,
+              "readLatencyMs": 21.521750779356807,
+              "presentationLatencyLowerMs": 98.69916742900386,
+              "presentationLatencyUpperMs": 98.84779242565855
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 439928.094517166,
+              "publicationEnd": 439928.09468625,
+              "scheduleLatenessMs": 0.924374267924577,
+              "firstRead": 439928.1172942501,
+              "firstPresentedLetter": 439928.2265281251,
+              "readLatencyMs": 22.60800008662045,
+              "presentationLatencyLowerMs": 131.8418750888668,
+              "presentationLatencyUpperMs": 132.01095908880234
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 439932.698776458,
+              "publicationEnd": 439932.698923875,
+              "scheduleLatenessMs": 5.183666246011853,
+              "firstRead": 439932.7158828751,
+              "firstPresentedLetter": 439932.7931505418,
+              "readLatencyMs": 16.959000087808818,
+              "presentationLatencyLowerMs": 94.22666678437963,
+              "presentationLatencyUpperMs": 94.37408379744738
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 439937.298712,
+              "publicationEnd": 439937.298861166,
+              "scheduleLatenessMs": 5.119208246469498,
+              "firstRead": 439937.32149591675,
+              "firstPresentedLetter": 439937.3931067918,
+              "readLatencyMs": 22.634750755969435,
+              "presentationLatencyLowerMs": 94.24562577623874,
+              "presentationLatencyUpperMs": 94.39479175489396
+            }
+          ],
+          "feedReadMode": "shared-background",
+          "backgroundRefreshes": 84,
+          "drawsConsumingFeed": 84,
+          "feedCacheMs": {
+            "count": 1801,
+            "p50": 0.0005416804924607277,
+            "p95": 0.004958361387252808,
+            "p99": 0.010624993592500687,
+            "max": 0.030166644137352705
+          },
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 3.5381327040533037,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1801,
+              "p50": 2.8896666481159627,
+              "p95": 3.0844166758470237,
+              "p99": 3.974416642449796,
+              "max": 4.957541648764163
+            },
+            "commitCallMs": {
+              "count": 1801,
+              "p50": 0.011625001206994057,
+              "p95": 0.021083338651806116,
+              "p99": 0.026083318516612053,
+              "max": 0.04895834717899561
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1801,
+              "p50": 0.13637496158480644,
+              "p95": 0.4495832836255431,
+              "p99": 0.48099993728101254,
+              "max": 0.8319582557305694
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1801,
+              "p50": 0.15004159649834037,
+              "p95": 0.4638332757167518,
+              "p99": 0.49512495752424,
+              "max": 0.8475832873955369
+            },
+            "gpuMs": {
+              "count": 1801,
+              "p50": 2.879041654523462,
+              "p95": 6.148833315819502,
+              "p99": 8.325374976266176,
+              "max": 9.552625007927418
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1801,
+              "p50": 22.352416708599776,
+              "p95": 23.01508339587599,
+              "p99": 23.670041759032756,
+              "max": 31.666791765019298
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1801,
+        "measuredSeconds": 60.028257416619454,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 439886.6654883751,
+        "lastPresentedAt": 439946.6930200834
+      }
+    },
+    {
+      "pair": 3,
+      "before": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "binarySHA256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5",
+        "feed": {
+          "valid": true,
+          "refreshes": 59,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 59,
+          "snapshotMs": {
+            "count": 59,
+            "p50": 2.2747499751858413,
+            "p95": 3.8285416667349637,
+            "p99": 4.089583351742476,
+            "max": 4.089583351742476
+          },
+          "refreshDrawMs": {
+            "count": 59,
+            "p50": 8.519166673067957,
+            "p95": 10.346916678827256,
+            "p99": 11.635708331596106,
+            "max": 11.635708331596106
+          },
+          "otherDrawMs": {
+            "count": 1757,
+            "p50": 6.616041646338999,
+            "p95": 8.002541668247432,
+            "p99": 8.56787501834333,
+            "max": 9.100833325646818
+          },
+          "presentationIntervalsMs": {
+            "count": 1815,
+            "maximum": 41.66645830264315,
+            "p50": 33.3331250003539,
+            "p95": 41.666291654109955,
+            "p99": 41.6664166841656
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 586.1817924305797,
+            "p95": 1127.4204167420976,
+            "p99": 1127.4204167420976,
+            "max": 1127.4204167420976
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440432.005587875,
+              "publicationEnd": 440432.005839541,
+              "scheduleLatenessMs": 3.9051665808074176,
+              "firstRead": 440432.4999977501,
+              "firstPresentedLetter": 440432.56832341675,
+              "readLatencyMs": 494.15820912690833,
+              "presentationLatencyLowerMs": 562.483875779435,
+              "presentationLatencyUpperMs": 562.7355417236686
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440436.507545416,
+              "publicationEnd": 440436.507850666,
+              "scheduleLatenessMs": 5.862707563210279,
+              "firstRead": 440436.53373991675,
+              "firstPresentedLetter": 440436.60162833345,
+              "readLatencyMs": 25.88925074087456,
+              "presentationLatencyLowerMs": 93.77766744000837,
+              "presentationLatencyUpperMs": 94.08291743602604
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440441.107552875,
+              "publicationEnd": 440441.107844166,
+              "scheduleLatenessMs": 5.870166583918035,
+              "firstRead": 440441.6008989168,
+              "firstPresentedLetter": 440441.7015926251,
+              "readLatencyMs": 493.0547507829033,
+              "presentationLatencyLowerMs": 593.7484591268003,
+              "presentationLatencyUpperMs": 594.0397501108237
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440445.70746975,
+              "publicationEnd": 440445.707765,
+              "scheduleLatenessMs": 5.787041620351374,
+              "firstRead": 440446.73463341675,
+              "firstPresentedLetter": 440446.83489016676,
+              "readLatencyMs": 1026.868416753132,
+              "presentationLatencyLowerMs": 1127.1251667640172,
+              "presentationLatencyUpperMs": 1127.4204167420976
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440450.306862916,
+              "publicationEnd": 440450.307183416,
+              "scheduleLatenessMs": 5.180207546800375,
+              "firstRead": 440450.8004267501,
+              "firstPresentedLetter": 440450.8681953751,
+              "readLatencyMs": 493.2433341164142,
+              "presentationLatencyLowerMs": 561.0119591001421,
+              "presentationLatencyUpperMs": 561.3324590958655
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440454.907461375,
+              "publicationEnd": 440454.907753833,
+              "scheduleLatenessMs": 5.778666585683823,
+              "firstRead": 440455.9013402918,
+              "firstPresentedLetter": 440455.9681600001,
+              "readLatencyMs": 993.5864587896504,
+              "presentationLatencyLowerMs": 1060.4061671183445,
+              "presentationLatencyUpperMs": 1060.6986251077615
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 440459.506949666,
+              "publicationEnd": 440459.507164166,
+              "scheduleLatenessMs": 5.266957567073405,
+              "firstRead": 440459.99961383344,
+              "firstPresentedLetter": 440460.09313145844,
+              "readLatencyMs": 492.4496674211696,
+              "presentationLatencyLowerMs": 585.9672924270853,
+              "presentationLatencyUpperMs": 586.1817924305797
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 440464.107340166,
+              "publicationEnd": 440464.1076345,
+              "scheduleLatenessMs": 5.657457571942359,
+              "firstRead": 440465.1011480418,
+              "firstPresentedLetter": 440465.20142950007,
+              "readLatencyMs": 993.5135417617857,
+              "presentationLatencyLowerMs": 1093.795000051614,
+              "presentationLatencyUpperMs": 1094.0893340739422
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440468.707202041,
+              "publicationEnd": 440468.707483708,
+              "scheduleLatenessMs": 5.519332597032189,
+              "firstRead": 440469.1993925418,
+              "firstPresentedLetter": 440469.29306795844,
+              "readLatencyMs": 491.9088337919675,
+              "presentationLatencyLowerMs": 585.5842504533939,
+              "presentationLatencyUpperMs": 585.8659174409695
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440473.307306458,
+              "publicationEnd": 440473.307608041,
+              "scheduleLatenessMs": 5.623749573715031,
+              "firstRead": 440474.2671716251,
+              "firstPresentedLetter": 440474.36803304177,
+              "readLatencyMs": 959.5635841251351,
+              "presentationLatencyLowerMs": 1060.4250007891096,
+              "presentationLatencyUpperMs": 1060.7265837606974
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440477.908291333,
+              "publicationEnd": 440477.908778,
+              "scheduleLatenessMs": 6.608624593354762,
+              "firstRead": 440478.34700508346,
+              "firstPresentedLetter": 440478.41383858345,
+              "readLatencyMs": 438.22708347579464,
+              "presentationLatencyLowerMs": 505.0605834694579,
+              "presentationLatencyUpperMs": 505.5472504463978
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 440482.507121833,
+              "publicationEnd": 440482.50746775,
+              "scheduleLatenessMs": 5.439124535769224,
+              "firstRead": 440483.4793564168,
+              "firstPresentedLetter": 440483.5471368334,
+              "readLatencyMs": 971.888666797895,
+              "presentationLatencyLowerMs": 1039.669083431363,
+              "presentationLatencyUpperMs": 1040.0150004425086
+            }
+          ],
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 7.325366189427313,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1816,
+              "p50": 6.629166717175394,
+              "p95": 8.172624977305532,
+              "p99": 8.949499984737486,
+              "max": 11.637208343017846
+            },
+            "commitCallMs": {
+              "count": 1816,
+              "p50": 0.014249992091208696,
+              "p95": 0.05320837954059243,
+              "p99": 0.06883329479023814,
+              "max": 0.09162502828985453
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1816,
+              "p50": 0.6278749206103384,
+              "p95": 0.6927915965206921,
+              "p99": 0.7249582558870316,
+              "max": 0.8110415656119585
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1816,
+              "p50": 0.6445415783673525,
+              "p95": 0.7204999565146863,
+              "p99": 0.7601248798891902,
+              "max": 0.829541590064764
+            },
+            "gpuMs": {
+              "count": 1816,
+              "p50": 5.889624997507781,
+              "p95": 6.199791678227484,
+              "p99": 6.472958310041577,
+              "max": 7.0440416457131505
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1816,
+              "p50": 23.2634583953768,
+              "p95": 24.352583393920213,
+              "p99": 24.979833397082984,
+              "max": 27.30929176323116
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1816,
+        "measuredSeconds": 60.523903791676275,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 440431.8650950001,
+        "lastPresentedAt": 440492.41374304175
+      },
+      "after": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "binarySHA256": "f3c8b629b35bbe1970e3c7ff8949972a370c4cf5bf51ef0c7d06167fa435f9b9",
+        "feed": {
+          "valid": true,
+          "refreshes": 84,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 0,
+          "snapshotMs": {
+            "count": 84,
+            "p50": 2.0425416878424585,
+            "p95": 2.6947916485369205,
+            "p99": 3.539333352819085,
+            "max": 3.539333352819085
+          },
+          "refreshDrawMs": {
+            "count": 84,
+            "p50": 6.633875018451363,
+            "p95": 8.183708356227726,
+            "p99": 8.887499978300184,
+            "max": 8.887499978300184
+          },
+          "otherDrawMs": {
+            "count": 1717,
+            "p50": 6.854208302684128,
+            "p95": 8.33066669292748,
+            "p99": 8.747916668653488,
+            "max": 10.381624975707382
+          },
+          "presentationIntervalsMs": {
+            "count": 1800,
+            "maximum": 41.666499979328364,
+            "p50": 33.3331250003539,
+            "p95": 33.33320835372433,
+            "p99": 41.6664166841656
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 101.78104240912944,
+            "p95": 135.50400076201186,
+            "p99": 135.50400076201186,
+            "max": 135.50400076201186
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440704.326184375,
+              "publicationEnd": 440704.326460708,
+              "scheduleLatenessMs": 4.944374843034893,
+              "firstRead": 440704.34843670845,
+              "firstPresentedLetter": 440704.42483216675,
+              "readLatencyMs": 21.97600045474246,
+              "presentationLatencyLowerMs": 98.37145876372233,
+              "presentationLatencyUpperMs": 98.6477917758748
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440708.823668541,
+              "publicationEnd": 440708.824138541,
+              "scheduleLatenessMs": 2.42854084353894,
+              "firstRead": 440708.8474980001,
+              "firstPresentedLetter": 440708.92480270844,
+              "readLatencyMs": 23.359459068160504,
+              "presentationLatencyLowerMs": 100.66416743211448,
+              "presentationLatencyUpperMs": 101.13416746025905
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440713.422601791,
+              "publicationEnd": 440713.422998041,
+              "scheduleLatenessMs": 1.3617908698506653,
+              "firstRead": 440713.44641766674,
+              "firstPresentedLetter": 440713.55810579174,
+              "readLatencyMs": 23.419625766109675,
+              "presentationLatencyLowerMs": 135.10775077156723,
+              "presentationLatencyUpperMs": 135.50400076201186
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440718.022744333,
+              "publicationEnd": 440718.023150916,
+              "scheduleLatenessMs": 1.5043329331092536,
+              "firstRead": 440718.04597733344,
+              "firstPresentedLetter": 440718.1580757501,
+              "readLatencyMs": 22.82641746569425,
+              "presentationLatencyLowerMs": 134.92483412846923,
+              "presentationLatencyUpperMs": 135.33141708467156
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440722.622931541,
+              "publicationEnd": 440722.623369625,
+              "scheduleLatenessMs": 1.6915408778004348,
+              "firstRead": 440722.6471017501,
+              "firstPresentedLetter": 440722.7247125834,
+              "readLatencyMs": 23.732125060632825,
+              "presentationLatencyLowerMs": 101.34295839816332,
+              "presentationLatencyUpperMs": 101.78104240912944
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440727.223673416,
+              "publicationEnd": 440727.224154083,
+              "scheduleLatenessMs": 2.4334159097634256,
+              "firstRead": 440727.2449646251,
+              "firstPresentedLetter": 440727.32468266675,
+              "readLatencyMs": 20.81054210430011,
+              "presentationLatencyLowerMs": 100.52858374547213,
+              "presentationLatencyUpperMs": 101.00925073493272
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 440731.822706625,
+              "publicationEnd": 440731.823118125,
+              "scheduleLatenessMs": 1.4666248462162912,
+              "firstRead": 440731.84580333345,
+              "firstPresentedLetter": 440731.9579857918,
+              "readLatencyMs": 22.6852084742859,
+              "presentationLatencyLowerMs": 134.86766681307927,
+              "presentationLatencyUpperMs": 135.2791668032296
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 440736.426129041,
+              "publicationEnd": 440736.42640075,
+              "scheduleLatenessMs": 4.889040894340724,
+              "firstRead": 440736.44826429174,
+              "firstPresentedLetter": 440736.5579558751,
+              "readLatencyMs": 21.86354174045846,
+              "presentationLatencyLowerMs": 131.55512511730194,
+              "presentationLatencyUpperMs": 131.82683411287144
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440741.022768208,
+              "publicationEnd": 440741.023250125,
+              "scheduleLatenessMs": 1.5282079111784697,
+              "firstRead": 440741.0460916251,
+              "firstPresentedLetter": 440741.15792595845,
+              "readLatencyMs": 22.841500118374825,
+              "presentationLatencyLowerMs": 134.67583345482126,
+              "presentationLatencyUpperMs": 135.15775045379996
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440745.623724541,
+              "publicationEnd": 440745.624176291,
+              "scheduleLatenessMs": 2.4845408624969423,
+              "firstRead": 440745.6479950001,
+              "firstPresentedLetter": 440745.7578960834,
+              "readLatencyMs": 23.81870913086459,
+              "presentationLatencyLowerMs": 133.71979241492227,
+              "presentationLatencyUpperMs": 134.17154242051765
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440750.227117958,
+              "publicationEnd": 440750.227430041,
+              "scheduleLatenessMs": 5.877957912161946,
+              "firstRead": 440750.24446604174,
+              "firstPresentedLetter": 440750.3245331251,
+              "readLatencyMs": 17.036000732332468,
+              "presentationLatencyLowerMs": 97.10308408830315,
+              "presentationLatencyUpperMs": 97.41516708163545
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 440754.823362166,
+              "publicationEnd": 440754.823995541,
+              "scheduleLatenessMs": 2.1221658680588007,
+              "firstRead": 440754.84731629177,
+              "firstPresentedLetter": 440754.9245032501,
+              "readLatencyMs": 23.320750740822405,
+              "presentationLatencyLowerMs": 100.5077090812847,
+              "presentationLatencyUpperMs": 101.14108410198241
+            }
+          ],
+          "feedReadMode": "shared-background",
+          "backgroundRefreshes": 84,
+          "drawsConsumingFeed": 84,
+          "feedCacheMs": {
+            "count": 1801,
+            "p50": 0.001125037670135498,
+            "p95": 0.005708308890461922,
+            "p99": 0.015624973457306623,
+            "max": 0.0332500203512609
+          },
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 7.830181565796779,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1801,
+              "p50": 6.827916658949107,
+              "p95": 8.328333322424442,
+              "p99": 8.765916631091386,
+              "max": 10.38266666000709
+            },
+            "commitCallMs": {
+              "count": 1801,
+              "p50": 0.01408334355801344,
+              "p95": 0.04116666968911886,
+              "p99": 0.06370834307745099,
+              "max": 0.08491665357723832
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1801,
+              "p50": 0.4968749126419425,
+              "p95": 0.5960832932032645,
+              "p99": 0.6349582690745592,
+              "max": 0.975749921053648
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1801,
+              "p50": 0.5129582714289427,
+              "p95": 0.6133749266155064,
+              "p99": 0.6511249230243266,
+              "max": 0.996791641227901
+            },
+            "gpuMs": {
+              "count": 1801,
+              "p50": 5.9118749923072755,
+              "p95": 6.342749984469265,
+              "p99": 6.5330000361427665,
+              "max": 7.014499977231026
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1801,
+              "p50": 22.699875058606267,
+              "p95": 24.1182500612922,
+              "p99": 24.913875095080584,
+              "max": 33.27950002858415
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1801,
+        "measuredSeconds": 60.03211916668806,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 440704.18852670846,
+        "lastPresentedAt": 440764.21610958345
+      }
+    },
+    {
+      "pair": 4,
+      "before": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "binarySHA256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5",
+        "feed": {
+          "valid": true,
+          "refreshes": 59,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 59,
+          "snapshotMs": {
+            "count": 59,
+            "p50": 2.6571666239760816,
+            "p95": 4.031750024296343,
+            "p99": 5.63620834145695,
+            "max": 5.63620834145695
+          },
+          "refreshDrawMs": {
+            "count": 59,
+            "p50": 9.152500017080456,
+            "p95": 11.436916654929519,
+            "p99": 11.712708335835487,
+            "max": 11.712708335835487
+          },
+          "otherDrawMs": {
+            "count": 1743,
+            "p50": 6.849708326626569,
+            "p95": 8.26966663589701,
+            "p99": 8.658958307933062,
+            "max": 10.103333333972842
+          },
+          "presentationIntervalsMs": {
+            "count": 1801,
+            "maximum": 49.99970836797729,
+            "p50": 33.3331250003539,
+            "p95": 33.333249972201884,
+            "p99": 41.66645830264315
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 582.7265834668651,
+            "p95": 1118.8117917627096,
+            "p99": 1118.8117917627096,
+            "max": 1118.8117917627096
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441247.976906,
+              "publicationEnd": 441247.977163208,
+              "scheduleLatenessMs": 5.15816651750356,
+              "firstRead": 441248.4328544168,
+              "firstPresentedLetter": 441248.49219808343,
+              "readLatencyMs": 455.6912087718956,
+              "presentationLatencyLowerMs": 515.0348754250444,
+              "presentationLatencyUpperMs": 515.2920834370889
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441252.473020208,
+              "publicationEnd": 441252.473271458,
+              "scheduleLatenessMs": 1.2723745312541723,
+              "firstRead": 441252.4992981251,
+              "firstPresentedLetter": 441252.56717220845,
+              "readLatencyMs": 26.026667095720768,
+              "presentationLatencyLowerMs": 93.90075044939294,
+              "presentationLatencyUpperMs": 94.1520004416816
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441257.076388875,
+              "publicationEnd": 441257.076513958,
+              "scheduleLatenessMs": 4.641041567083448,
+              "firstRead": 441257.6326903751,
+              "firstPresentedLetter": 441257.7338061251,
+              "readLatencyMs": 556.1764170997776,
+              "presentationLatencyLowerMs": 657.2921671322547,
+              "presentationLatencyUpperMs": 657.4172500986606
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441261.677815,
+              "publicationEnd": 441261.678132583,
+              "scheduleLatenessMs": 6.067166570574045,
+              "firstRead": 441261.72445108346,
+              "firstPresentedLetter": 441261.8254467501,
+              "readLatencyMs": 46.318500477354974,
+              "presentationLatencyLowerMs": 147.31416711583734,
+              "presentationLatencyUpperMs": 147.63175009284168
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441266.277674416,
+              "publicationEnd": 441266.277989875,
+              "scheduleLatenessMs": 5.926582554820925,
+              "firstRead": 441266.8245885001,
+              "firstPresentedLetter": 441266.89208129176,
+              "readLatencyMs": 546.5986250783317,
+              "presentationLatencyLowerMs": 614.0914167626761,
+              "presentationLatencyUpperMs": 614.4068757421337
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441270.877925583,
+              "publicationEnd": 441270.878306541,
+              "scheduleLatenessMs": 6.1777495429851115,
+              "firstRead": 441270.9252776251,
+              "firstPresentedLetter": 441270.99205533345,
+              "readLatencyMs": 46.97108408436179,
+              "presentationLatencyLowerMs": 113.74879244249314,
+              "presentationLatencyUpperMs": 114.12975046550855
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 441275.477667416,
+              "publicationEnd": 441275.478030083,
+              "scheduleLatenessMs": 5.919582501519471,
+              "firstRead": 441275.9918702084,
+              "firstPresentedLetter": 441276.09202291677,
+              "readLatencyMs": 513.8401254080236,
+              "presentationLatencyLowerMs": 613.9928337652236,
+              "presentationLatencyUpperMs": 614.3555007874966
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 441280.07317875,
+              "publicationEnd": 441280.073520333,
+              "scheduleLatenessMs": 1.4309165417216718,
+              "firstRead": 441281.0925978751,
+              "firstPresentedLetter": 441281.19199054176,
+              "readLatencyMs": 1019.0775421215221,
+              "presentationLatencyLowerMs": 1118.4702087775804,
+              "presentationLatencyUpperMs": 1118.8117917627096
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441284.675904875,
+              "publicationEnd": 441284.676230916,
+              "scheduleLatenessMs": 4.157041548751295,
+              "firstRead": 441285.15976645844,
+              "firstPresentedLetter": 441285.25863145845,
+              "readLatencyMs": 483.5355424438603,
+              "presentationLatencyLowerMs": 582.4005424510688,
+              "presentationLatencyUpperMs": 582.7265834668651
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441289.277815541,
+              "publicationEnd": 441289.278241625,
+              "scheduleLatenessMs": 6.067707552574575,
+              "firstRead": 441290.2582242918,
+              "firstPresentedLetter": 441290.3585991251,
+              "readLatencyMs": 979.9826667876914,
+              "presentationLatencyLowerMs": 1080.3575001191348,
+              "presentationLatencyUpperMs": 1080.7835840969346
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441293.877893625,
+              "publicationEnd": 441293.8783305,
+              "scheduleLatenessMs": 6.145791558083147,
+              "firstRead": 441294.29173204175,
+              "firstPresentedLetter": 441294.35857379175,
+              "readLatencyMs": 413.40154176577926,
+              "presentationLatencyLowerMs": 480.24329176405445,
+              "presentationLatencyUpperMs": 480.68016674369574
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 441298.4744855,
+              "publicationEnd": 441298.474676625,
+              "scheduleLatenessMs": 2.737666538450867,
+              "firstRead": 441299.45781504177,
+              "firstPresentedLetter": 441299.52520783345,
+              "readLatencyMs": 983.1384167773649,
+              "presentationLatencyLowerMs": 1050.5312084569596,
+              "presentationLatencyUpperMs": 1050.7223334279843
+            }
+          ],
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 7.759517758046615,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1802,
+              "p50": 6.907708360813558,
+              "p95": 8.413125004153699,
+              "p99": 9.875166695564985,
+              "max": 11.713958345353603
+            },
+            "commitCallMs": {
+              "count": 1802,
+              "p50": 0.01466670073568821,
+              "p95": 0.047124980483204126,
+              "p99": 0.06641668733209372,
+              "max": 0.08662499021738768
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1802,
+              "p50": 0.5077499663457274,
+              "p95": 0.6525415810756385,
+              "p99": 0.702874967828393,
+              "max": 0.8190832450054586
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1802,
+              "p50": 0.5250415997579694,
+              "p95": 0.6711249588988721,
+              "p99": 0.7319999276660383,
+              "max": 0.8407082641497254
+            },
+            "gpuMs": {
+              "count": 1802,
+              "p50": 5.900625023059547,
+              "p95": 6.342458364088088,
+              "p99": 6.512166641186923,
+              "max": 7.355124980676919
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1802,
+              "p50": 22.56875007878989,
+              "p95": 24.203541746828705,
+              "p99": 24.81916669057682,
+              "max": 30.352583446074277
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1802,
+        "measuredSeconds": 60.040875583305024,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 441247.83090404177,
+        "lastPresentedAt": 441307.89598816674
+      },
+      "after": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "binarySHA256": "f3c8b629b35bbe1970e3c7ff8949972a370c4cf5bf51ef0c7d06167fa435f9b9",
+        "feed": {
+          "valid": true,
+          "refreshes": 84,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 0,
+          "snapshotMs": {
+            "count": 84,
+            "p50": 1.6536666662432253,
+            "p95": 3.8377083255909383,
+            "p99": 8.943041670136154,
+            "max": 8.943041670136154
+          },
+          "refreshDrawMs": {
+            "count": 81,
+            "p50": 6.699541641864926,
+            "p95": 8.08499997947365,
+            "p99": 9.049749991390854,
+            "max": 9.049749991390854
+          },
+          "otherDrawMs": {
+            "count": 1720,
+            "p50": 6.747166684363037,
+            "p95": 8.258666668552905,
+            "p99": 8.674458309542388,
+            "max": 9.89066669717431
+          },
+          "presentationIntervalsMs": {
+            "count": 1800,
+            "maximum": 41.666500037536025,
+            "p50": 33.3331250003539,
+            "p95": 41.66637494927272,
+            "p99": 41.6664166841656
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 118.70100046508014,
+            "p95": 151.88495913753286,
+            "p99": 151.88495913753286,
+            "max": 151.88495913753286
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440975.87492225,
+              "publicationEnd": 440975.875210416,
+              "scheduleLatenessMs": 5.5526248761452734,
+              "firstRead": 440975.89834158344,
+              "firstPresentedLetter": 440975.98558604176,
+              "readLatencyMs": 23.131167457904667,
+              "presentationLatencyLowerMs": 110.37562577985227,
+              "presentationLatencyUpperMs": 110.66379176918417
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440980.3751085,
+              "publicationEnd": 440980.375444,
+              "scheduleLatenessMs": 5.738874897360802,
+              "firstRead": 440980.3965200001,
+              "firstPresentedLetter": 440980.4855575001,
+              "readLatencyMs": 21.07600012095645,
+              "presentationLatencyLowerMs": 110.11350009357557,
+              "presentationLatencyUpperMs": 110.44900008710101
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440984.975505083,
+              "publicationEnd": 440984.975890166,
+              "scheduleLatenessMs": 6.135457893833518,
+              "firstRead": 440984.99917445844,
+              "firstPresentedLetter": 440985.11886141676,
+              "readLatencyMs": 23.284292430616915,
+              "presentationLatencyLowerMs": 142.97125075245276,
+              "presentationLatencyUpperMs": 143.35633377777413
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 440989.575126041,
+              "publicationEnd": 440989.575461166,
+              "scheduleLatenessMs": 5.756415950600058,
+              "firstRead": 440989.5970652918,
+              "firstPresentedLetter": 440989.7188322501,
+              "readLatencyMs": 21.60412579542026,
+              "presentationLatencyLowerMs": 143.37108412291855,
+              "presentationLatencyUpperMs": 143.70620908448473
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 440994.174270166,
+              "publicationEnd": 440994.174798125,
+              "scheduleLatenessMs": 4.900540923699737,
+              "firstRead": 440994.1961092501,
+              "firstPresentedLetter": 440994.28546991677,
+              "readLatencyMs": 21.311125077772886,
+              "presentationLatencyLowerMs": 110.67179177189246,
+              "presentationLatencyUpperMs": 111.19975073961541
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 440998.7751165,
+              "publicationEnd": 440998.775534333,
+              "scheduleLatenessMs": 5.746874900069088,
+              "firstRead": 440998.79238954175,
+              "firstPresentedLetter": 440998.8854407918,
+              "readLatencyMs": 16.855208727065474,
+              "presentationLatencyLowerMs": 109.90645876154304,
+              "presentationLatencyUpperMs": 110.32429180340841
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 441003.374926625,
+              "publicationEnd": 441003.375245791,
+              "scheduleLatenessMs": 5.5569998803548515,
+              "firstRead": 441003.39668283344,
+              "firstPresentedLetter": 441003.51041145844,
+              "readLatencyMs": 21.43704245099798,
+              "presentationLatencyLowerMs": 135.1656674523838,
+              "presentationLatencyUpperMs": 135.48483344493434
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 441007.975512666,
+              "publicationEnd": 441007.975843291,
+              "scheduleLatenessMs": 6.14304089685902,
+              "firstRead": 441007.99924108345,
+              "firstPresentedLetter": 441008.1187155834,
+              "readLatencyMs": 23.39779247995466,
+              "presentationLatencyLowerMs": 142.87229243200272,
+              "presentationLatencyUpperMs": 143.20291741751134
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441012.575140916,
+              "publicationEnd": 441012.575439083,
+              "scheduleLatenessMs": 5.771290918346494,
+              "firstRead": 441012.59878229175,
+              "firstPresentedLetter": 441012.7270258751,
+              "readLatencyMs": 23.343208769802004,
+              "presentationLatencyLowerMs": 151.58679214073345,
+              "presentationLatencyUpperMs": 151.88495913753286
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441017.175380041,
+              "publicationEnd": 441017.175729791,
+              "scheduleLatenessMs": 6.010415905620903,
+              "firstRead": 441017.19916933344,
+              "firstPresentedLetter": 441017.32699054177,
+              "readLatencyMs": 23.439542448613793,
+              "presentationLatencyLowerMs": 151.26075077569112,
+              "presentationLatencyUpperMs": 151.61050076130778
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441021.774867,
+              "publicationEnd": 441021.775306625,
+              "scheduleLatenessMs": 5.497374921105802,
+              "firstRead": 441021.79972779175,
+              "firstPresentedLetter": 441021.88529491675,
+              "readLatencyMs": 24.42116674501449,
+              "presentationLatencyLowerMs": 109.98829174786806,
+              "presentationLatencyUpperMs": 110.4279167484492
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 441026.374898083,
+              "publicationEnd": 441026.375286583,
+              "scheduleLatenessMs": 5.528457870241255,
+              "firstRead": 441026.3964482084,
+              "firstPresentedLetter": 441026.49359908345,
+              "readLatencyMs": 21.16162545280531,
+              "presentationLatencyLowerMs": 118.31250047544017,
+              "presentationLatencyUpperMs": 118.70100046508014
+            }
+          ],
+          "feedReadMode": "shared-background",
+          "backgroundRefreshes": 84,
+          "drawsConsumingFeed": 81,
+          "feedCacheMs": {
+            "count": 1801,
+            "p50": 0.0007500057108700275,
+            "p95": 0.004458299372345209,
+            "p99": 0.016666657757014036,
+            "max": 0.04016666207462549
+          },
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 7.52111660188784,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1801,
+              "p50": 6.745250022504479,
+              "p95": 8.25291668297723,
+              "p99": 8.678291691467166,
+              "max": 9.892208327073604
+            },
+            "commitCallMs": {
+              "count": 1801,
+              "p50": 0.014124962035566568,
+              "p95": 0.05179166328161955,
+              "p99": 0.06870832294225693,
+              "max": 0.09029166540130973
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1801,
+              "p50": 0.568208284676075,
+              "p95": 0.6879582651890814,
+              "p99": 0.7199582760222256,
+              "max": 0.7992082391865551
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1801,
+              "p50": 0.5850415909662843,
+              "p95": 0.7145415875129402,
+              "p99": 0.7518749334849417,
+              "max": 0.8146666223183274
+            },
+            "gpuMs": {
+              "count": 1801,
+              "p50": 6.040666659828275,
+              "p95": 6.297541665844619,
+              "p99": 6.491916661616415,
+              "max": 7.401750015560538
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1801,
+              "p50": 22.87170838098973,
+              "p95": 24.003500060644,
+              "p99": 24.63962510228157,
+              "max": 32.54525002557784
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1801,
+        "measuredSeconds": 60.020069124992006,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 440975.74928895844,
+        "lastPresentedAt": 441035.7935402084
+      }
+    },
+    {
+      "pair": 5,
+      "before": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+        "binarySHA256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5",
+        "feed": {
+          "valid": true,
+          "refreshes": 59,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 59,
+          "snapshotMs": {
+            "count": 59,
+            "p50": 2.3391249706037343,
+            "p95": 3.389958350453526,
+            "p99": 3.7098749889992177,
+            "max": 3.7098749889992177
+          },
+          "refreshDrawMs": {
+            "count": 59,
+            "p50": 8.7599583202973,
+            "p95": 10.741583304479718,
+            "p99": 11.81504171108827,
+            "max": 11.81504171108827
+          },
+          "otherDrawMs": {
+            "count": 1757,
+            "p50": 6.717249983921647,
+            "p95": 7.981708331499249,
+            "p99": 8.42000002739951,
+            "max": 9.965499979443848
+          },
+          "presentationIntervalsMs": {
+            "count": 1815,
+            "maximum": 49.999666633084416,
+            "p50": 33.3331250003539,
+            "p95": 41.666416625957936,
+            "p99": 41.66645836085081
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 235.66887574270368,
+            "p95": 746.373875066638,
+            "p99": 746.373875066638,
+            "max": 746.373875066638
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441519.672959791,
+              "publicationEnd": 441519.673244333,
+              "scheduleLatenessMs": 3.626624180469662,
+              "firstRead": 441520.24396250007,
+              "firstPresentedLetter": 441520.31132270844,
+              "readLatencyMs": 570.7181670586579,
+              "presentationLatencyLowerMs": 638.0783754284494,
+              "presentationLatencyUpperMs": 638.3629174670205
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441524.175731041,
+              "publicationEnd": 441524.17613625,
+              "scheduleLatenessMs": 6.397874210961163,
+              "firstRead": 441524.3105203751,
+              "firstPresentedLetter": 441524.37796408345,
+              "readLatencyMs": 134.3841250636615,
+              "presentationLatencyLowerMs": 201.82783342897892,
+              "presentationLatencyUpperMs": 202.23304245155305
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441528.773225,
+              "publicationEnd": 441528.7735955,
+              "scheduleLatenessMs": 3.891833242960274,
+              "firstRead": 441529.4183919168,
+              "firstPresentedLetter": 441529.5195988751,
+              "readLatencyMs": 644.7964168037288,
+              "presentationLatencyLowerMs": 746.0033750976436,
+              "presentationLatencyUpperMs": 746.373875066638
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441533.375571291,
+              "publicationEnd": 441533.3759945,
+              "scheduleLatenessMs": 6.238124275114387,
+              "firstRead": 441533.5186877918,
+              "firstPresentedLetter": 441533.61124016676,
+              "readLatencyMs": 142.69329176750034,
+              "presentationLatencyLowerMs": 235.24566675769165,
+              "presentationLatencyUpperMs": 235.66887574270368
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441537.975621166,
+              "publicationEnd": 441537.97603,
+              "scheduleLatenessMs": 6.287999218329787,
+              "firstRead": 441538.55239029176,
+              "firstPresentedLetter": 441538.6195423334,
+              "readLatencyMs": 576.3602917431854,
+              "presentationLatencyLowerMs": 643.5123333940282,
+              "presentationLatencyUpperMs": 643.9211674151011
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441542.575280708,
+              "publicationEnd": 441542.575585875,
+              "scheduleLatenessMs": 5.947541270870715,
+              "firstRead": 441542.65186841675,
+              "firstPresentedLetter": 441542.7195167501,
+              "readLatencyMs": 76.28254173323512,
+              "presentationLatencyLowerMs": 143.93087505595759,
+              "presentationLatencyUpperMs": 144.2360420478508
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 441547.175483083,
+              "publicationEnd": 441547.175868083,
+              "scheduleLatenessMs": 6.149916211143136,
+              "firstRead": 441547.7187570418,
+              "firstPresentedLetter": 441547.8194851251,
+              "readLatencyMs": 542.8889587637968,
+              "presentationLatencyLowerMs": 643.6170420492999,
+              "presentationLatencyUpperMs": 644.0020420704968
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 441551.775145333,
+              "publicationEnd": 441551.775438791,
+              "scheduleLatenessMs": 5.812166258692741,
+              "firstRead": 441551.7849312084,
+              "firstPresentedLetter": 441551.8861265001,
+              "readLatencyMs": 9.492417389992625,
+              "presentationLatencyLowerMs": 110.68770906422287,
+              "presentationLatencyUpperMs": 110.98116706125438
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441556.37546275,
+              "publicationEnd": 441556.375765666,
+              "scheduleLatenessMs": 6.129583227448165,
+              "firstRead": 441556.9185490834,
+              "firstPresentedLetter": 441557.01942804176,
+              "readLatencyMs": 542.7834173897281,
+              "presentationLatencyLowerMs": 643.6623757472262,
+              "presentationLatencyUpperMs": 643.9652917906642
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441560.975562875,
+              "publicationEnd": 441560.975937916,
+              "scheduleLatenessMs": 6.229708204045892,
+              "firstRead": 441561.01902729174,
+              "firstPresentedLetter": 441561.11940258346,
+              "readLatencyMs": 43.08937571477145,
+              "presentationLatencyLowerMs": 143.4646674315445,
+              "presentationLatencyUpperMs": 143.83970847120509
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441565.5755275,
+              "publicationEnd": 441565.575915875,
+              "scheduleLatenessMs": 6.194333254825324,
+              "firstRead": 441566.1518923751,
+              "firstPresentedLetter": 441566.21103770845,
+              "readLatencyMs": 575.976500113029,
+              "presentationLatencyLowerMs": 635.121833474841,
+              "presentationLatencyUpperMs": 635.5102084344253
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 441570.174906791,
+              "publicationEnd": 441570.175103958,
+              "scheduleLatenessMs": 5.573624221142381,
+              "firstRead": 441570.21782491676,
+              "firstPresentedLetter": 441570.2776848751,
+              "readLatencyMs": 42.72095876513049,
+              "presentationLatencyLowerMs": 102.58091712603346,
+              "presentationLatencyUpperMs": 102.77808411046863
+            }
+          ],
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 7.492580947136564,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1816,
+              "p50": 6.735958333592862,
+              "p95": 8.20670835673809,
+              "p99": 9.394083346705884,
+              "max": 11.817250051535666
+            },
+            "commitCallMs": {
+              "count": 1816,
+              "p50": 0.015541678294539452,
+              "p95": 0.05900004180148244,
+              "p99": 0.06958335870876908,
+              "max": 0.08887500734999776
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1816,
+              "p50": 0.6421249127015471,
+              "p95": 0.7120416266843677,
+              "p99": 0.7389582460746169,
+              "max": 0.9871665970422328
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1816,
+              "p50": 0.6617082399316132,
+              "p95": 0.7414165884256363,
+              "p99": 0.7787499343976378,
+              "max": 0.9999582543969154
+            },
+            "gpuMs": {
+              "count": 1816,
+              "p50": 6.029000040143728,
+              "p95": 6.197416689246893,
+              "p99": 6.476833310443908,
+              "max": 6.744666665326804
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1816,
+              "p50": 22.922458418179303,
+              "p95": 23.747541708871722,
+              "p99": 24.592083413153887,
+              "max": 31.678958446718752
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1816,
+        "measuredSeconds": 60.52376316668233,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 441519.5416437501,
+        "lastPresentedAt": 441580.0859516251
+      },
+      "after": {
+        "identity": {
+          "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+          "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+          "resourceSHA256": {
+            "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+            "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+            "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+          },
+          "hardwareModel": "Mac16,8",
+          "cpuModel": "Apple M4 Pro",
+          "sdk": "27.0",
+          "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+          "display": {
+            "device": "Apple M4 Pro",
+            "os": "Version 27.0 (Build 26A428)",
+            "cpu": 12,
+            "backingScale": 2,
+            "screenMaximumFPS": 120,
+            "screenFrame": "{{0, 0}, {1512, 982}}"
+          }
+        },
+        "revision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+        "binarySHA256": "f3c8b629b35bbe1970e3c7ff8949972a370c4cf5bf51ef0c7d06167fa435f9b9",
+        "feed": {
+          "valid": true,
+          "refreshes": 84,
+          "failedRefreshes": 0,
+          "mainThreadRefreshes": 0,
+          "snapshotMs": {
+            "count": 84,
+            "p50": 1.915416680276394,
+            "p95": 2.9523749835789204,
+            "p99": 3.7899166927672923,
+            "max": 3.7899166927672923
+          },
+          "refreshDrawMs": {
+            "count": 72,
+            "p50": 6.803874974139035,
+            "p95": 8.389749971684068,
+            "p99": 8.684791682753712,
+            "max": 8.684791682753712
+          },
+          "otherDrawMs": {
+            "count": 1730,
+            "p50": 6.904124980792403,
+            "p95": 8.462958328891546,
+            "p99": 8.892124984413385,
+            "max": 10.697666672058403
+          },
+          "presentationIntervalsMs": {
+            "count": 1801,
+            "maximum": 45.83308333531022,
+            "p50": 33.3331250003539,
+            "p95": 33.33320835372433,
+            "p99": 41.6664166841656
+          },
+          "intervalsOver50ms": 0,
+          "intervalsOver100ms": 0,
+          "glyphRasterizations": 28,
+          "eventLatencyMs": {
+            "count": 12,
+            "p50": 121.95333378622308,
+            "p95": 218.93333410844207,
+            "p99": 218.93333410844207,
+            "max": 218.93333410844207
+          },
+          "events": [
+            {
+              "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441792.273860375,
+              "publicationEnd": 441792.274164208,
+              "scheduleLatenessMs": 1.0087082046084106,
+              "firstRead": 441792.29579020845,
+              "firstPresentedLetter": 441792.3929743751,
+              "readLatencyMs": 21.626000467222184,
+              "presentationLatencyLowerMs": 118.81016712868586,
+              "presentationLatencyUpperMs": 119.11400011740625
+            },
+            {
+              "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441796.774255,
+              "publicationEnd": 441796.774596166,
+              "scheduleLatenessMs": 1.4033332117833197,
+              "firstRead": 441796.7984176251,
+              "firstPresentedLetter": 441796.8929467501,
+              "readLatencyMs": 23.821459093596786,
+              "presentationLatencyLowerMs": 118.35058411816135,
+              "presentationLatencyUpperMs": 118.69175010360777
+            },
+            {
+              "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441801.37397375,
+              "publicationEnd": 441801.374304291,
+              "scheduleLatenessMs": 1.1220832238905132,
+              "firstRead": 441801.39590179175,
+              "firstPresentedLetter": 441801.52625170845,
+              "readLatencyMs": 21.59750077407807,
+              "presentationLatencyLowerMs": 151.9474174710922,
+              "presentationLatencyUpperMs": 152.27795846294612
+            },
+            {
+              "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441805.9741675,
+              "publicationEnd": 441805.974610333,
+              "scheduleLatenessMs": 1.3158332440070808,
+              "firstRead": 441805.9978863751,
+              "firstPresentedLetter": 441806.1262235001,
+              "readLatencyMs": 23.2760421349667,
+              "presentationLatencyLowerMs": 151.6131671378389,
+              "presentationLatencyUpperMs": 152.05600013723597
+            },
+            {
+              "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441810.576429291,
+              "publicationEnd": 441810.57675975,
+              "scheduleLatenessMs": 3.577624214813113,
+              "firstRead": 441810.59966779174,
+              "firstPresentedLetter": 441810.6928621251,
+              "readLatencyMs": 22.90804171934724,
+              "presentationLatencyLowerMs": 116.10237509012222,
+              "presentationLatencyUpperMs": 116.43283412558958
+            },
+            {
+              "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441815.178760541,
+              "publicationEnd": 441815.179073458,
+              "scheduleLatenessMs": 5.9088742709718645,
+              "firstRead": 441815.1953552084,
+              "firstPresentedLetter": 441815.2928338751,
+              "readLatencyMs": 16.28175040241331,
+              "presentationLatencyLowerMs": 113.76041709445417,
+              "presentationLatencyUpperMs": 114.07333408715203
+            },
+            {
+              "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+              "label": "CONTEXT",
+              "valid": true,
+              "publicationBegin": 441819.77387425,
+              "publicationEnd": 441819.774161166,
+              "scheduleLatenessMs": 1.0225832229480147,
+              "firstRead": 441819.79582970846,
+              "firstPresentedLetter": 441819.9261387918,
+              "readLatencyMs": 21.668542467523366,
+              "presentationLatencyLowerMs": 151.97762579191476,
+              "presentationLatencyUpperMs": 152.26454177172855
+            },
+            {
+              "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+              "label": "TASK",
+              "valid": true,
+              "publicationBegin": 441824.374636166,
+              "publicationEnd": 441824.374827666,
+              "scheduleLatenessMs": 1.7844992107711732,
+              "firstRead": 441824.3977418751,
+              "firstPresentedLetter": 441824.51777733344,
+              "readLatencyMs": 22.914209112059325,
+              "presentationLatencyLowerMs": 142.94966746820137,
+              "presentationLatencyUpperMs": 143.14116747118533
+            },
+            {
+              "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+              "label": "TRACE_ALPHA",
+              "valid": true,
+              "publicationBegin": 441828.974311541,
+              "publicationEnd": 441828.974687958,
+              "scheduleLatenessMs": 1.4598742709495127,
+              "firstRead": 441828.9980375834,
+              "firstPresentedLetter": 441829.12608241674,
+              "readLatencyMs": 23.349625407718122,
+              "presentationLatencyLowerMs": 151.39445872046053,
+              "presentationLatencyUpperMs": 151.77087573101744
+            },
+            {
+              "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+              "label": "\u041f\u0420\u041e\u0411\u0410",
+              "valid": true,
+              "publicationBegin": 441833.577953791,
+              "publicationEnd": 441833.578263875,
+              "scheduleLatenessMs": 5.102124239783734,
+              "firstRead": 441833.60089716676,
+              "firstPresentedLetter": 441833.7968871251,
+              "readLatencyMs": 22.63329178094864,
+              "presentationLatencyLowerMs": 218.62325014080852,
+              "presentationLatencyUpperMs": 218.93333410844207
+            },
+            {
+              "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+              "label": "swift test --filter Rain",
+              "valid": true,
+              "publicationBegin": 441838.174906208,
+              "publicationEnd": 441838.175226875,
+              "scheduleLatenessMs": 2.0545412553474307,
+              "firstRead": 441838.19744570844,
+              "firstPresentedLetter": 441838.2968595418,
+              "readLatencyMs": 22.21883344464004,
+              "presentationLatencyLowerMs": 121.63266679272056,
+              "presentationLatencyUpperMs": 121.95333378622308
+            },
+            {
+              "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+              "label": "DONE",
+              "valid": true,
+              "publicationBegin": 441842.779056125,
+              "publicationEnd": 441842.779494625,
+              "scheduleLatenessMs": 6.204458186402917,
+              "firstRead": 441842.8025330834,
+              "firstPresentedLetter": 441842.8968313334,
+              "readLatencyMs": 23.03845842834562,
+              "presentationLatencyLowerMs": 117.33670841204002,
+              "presentationLatencyUpperMs": 117.7752084331587
+            }
+          ],
+          "feedReadMode": "shared-background",
+          "backgroundRefreshes": 84,
+          "drawsConsumingFeed": 72,
+          "feedCacheMs": {
+            "count": 1802,
+            "p50": 0.0008333590812981129,
+            "p95": 0.003916677087545395,
+            "p99": 0.01716666156426072,
+            "max": 0.036166689824312925
+          },
+          "file": "run-01.json",
+          "thermalStates": [
+            0
+          ]
+        },
+        "cpuMsPerDraw": 7.934795227524973,
+        "timeline": {
+          "metrics": {
+            "preCommitMs": {
+              "count": 1802,
+              "p50": 6.900458363816142,
+              "p95": 8.45495832618326,
+              "p99": 8.884500013664365,
+              "max": 10.698749974835664
+            },
+            "commitCallMs": {
+              "count": 1802,
+              "p50": 0.013375014532357454,
+              "p95": 0.029374961741268635,
+              "p99": 0.06183335790410638,
+              "max": 0.08704164065420628
+            },
+            "gpuWaitLowerBoundMs": {
+              "count": 1802,
+              "p50": 0.4954999312758446,
+              "p95": 0.6263332907110453,
+              "p99": 0.6765832658857107,
+              "max": 0.8730832487344742
+            },
+            "gpuWaitUpperBoundMs": {
+              "count": 1802,
+              "p50": 0.5113332299515605,
+              "p95": 0.6422916194424033,
+              "p99": 0.7070415886119008,
+              "max": 0.8923748973757029
+            },
+            "gpuMs": {
+              "count": 1802,
+              "p50": 5.93262497568503,
+              "p95": 6.3715416472405195,
+              "p99": 6.5091249998658895,
+              "max": 6.791083316784352
+            },
+            "gpuEndToPresentedMs": {
+              "count": 1802,
+              "p50": 22.823500097729266,
+              "p95": 24.22845840919763,
+              "p99": 24.86416674219072,
+              "max": 31.544125056825578
+            }
+          },
+          "gaps": [],
+          "gpuStartsBeforeCommitReturns": 0,
+          "limits": "Commit is an API bracket, not exact driver enqueue. Signed lower bounds preserve overlap. Drawable timestamp, not physical scanout; no causal attribution."
+        },
+        "recordedFrames": 1802,
+        "measuredSeconds": 60.04877629166003,
+        "unavailableDrawable": 0,
+        "collectionBeganAt": 441792.12328016676,
+        "lastPresentedAt": 441852.20094104175
+      }
+    }
+  ],
+  "acceptance": "Descriptive evidence only. Signed incremental cost vs control spread; common observer excluded. No automatic issue closure or cadence acceptance; no pooling quantiles."
+}

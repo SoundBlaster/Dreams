@@ -115,7 +115,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 58d2097cf51215a088d0e99eb9b71dc7bf8549ff
+    revision: d86b7d2a208a11d74636d554795ba4f14740f653
   files:
     owned:
     - evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift

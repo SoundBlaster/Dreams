@@ -1,0 +1,73 @@
+{
+  "dateUTC": "2026-10-23",
+  "validationBaseRevision": "d86b7d2a208a11d74636d554795ba4f14740f653",
+  "runtimeRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+  "analysisRevision": "d86b7d2a208a11d74636d554795ba4f14740f653",
+  "workingTreeNote": "Final evidence/docs and refreshed byte-identical source bindings are staged on this base; source/map/doc hashes below identify validation input without relabeling earlier runtime tests.",
+  "tools": {
+    "specpm": "specpm 0.2.0",
+    "hypercodePath": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "commands": [
+    {
+      "command": "rtk proxy env DREAMS_FSD_TOOLING_DIR=/Users/egor/Development/GitHub/Dreams/.fsd-ios-tooling PYTHONPYCACHEPREFIX=/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/python/bytecode RUFF_CACHE_DIR=/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/python/ruff make lint",
+      "exitCode": 0,
+      "log": "logs/dreams-timestamps-lint-final.log.gz",
+      "diagnostics": "PASS: architecture, SwiftLint, Ruff, shell syntax and relative links in 150 Markdown files. Existing unused_import analyzer_rules warning."
+    },
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/dreams-timestamps-specs-final.log.gz",
+      "diagnostics": "HC parse/validation and SpecPM checks pass. Existing unresolved platform/external-capability warnings remain; no runtime/profile acceptance follows."
+    },
+    {
+      "command": "rtk proxy env PYTHONPYCACHEPREFIX=/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/python/bytecode python3 scripts/analyze-cadence.py specs/performance/validation/2026-10-23-absolute-timeline/runs",
+      "exitCode": 0,
+      "result": "JSON equals comparison.json exactly; five complete blocks, same identities, no overlapping/reordered collections."
+    },
+    {
+      "command": "rtk proxy git diff --cached --check",
+      "exitCode": 0
+    }
+  ],
+  "sourceAudit": "source-audit.json",
+  "archiveIntegrity": "archive-integrity.json",
+  "runtimeTests": "Exact historical revision commands/logs retained separately; no runtime rebuild for evidence/docs-only finalization.",
+  "performanceAcceptance": "Not established: external load unmeasured, observer cost and cadence causality unresolved.",
+  "inputs": [
+    {
+      "path": "research/performance-measurement-plan.md",
+      "sha256": "8a97b4f70910be9e4c0065bf5bda2647c8520b79b6ceda516a9c2a64c57afe5a"
+    },
+    {
+      "path": "research/performance/quiet-host-plan.md",
+      "sha256": "06ca9ce3eebc33459d3fbb555ed21c3a404522453252518537786d7789987be2"
+    },
+    {
+      "path": "specs/specification-progress.md",
+      "sha256": "fa9e88e5e455e7ec317c629fd14d42fd84831445e184e904750c30c30f82f9d5"
+    },
+    {
+      "path": "specs/performance/specs/measurement.spec.yaml",
+      "sha256": "9a68c3b0e553af1a0b7aa31f61adcc623f37747553016a7aa7318b739bfaf602"
+    },
+    {
+      "path": "specs/performance/specpm.yaml",
+      "sha256": "73011613d4cd9621cb29a82241ab20742de0d084b67e1c963b35f085cf0a7da9"
+    },
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88"
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "2496fb843003fc22afa814d0819a2e9f8b5380997863163150756b03c11811e8"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-23-absolute-timeline/README.md",
+      "sha256": "8c29c81f1cf4da57b5f550e3a7dab1cad678227f70bd1e94a0272ffa001df4cc"
+    }
+  ]
+}

@@ -773,5 +773,29 @@ patch/source is retained as experimental input, not a newly accepted production
 profile. Historical binaries and prior gaps cannot be relabeled with new clocks.
 Motion/search/head/pulse and preview_scale/preview_lifetime/preview_playback retain
 requirements; affected dependency source identities are refreshed. Reader, overlay,
-display, capture and TV algorithms are unchanged. Collection/acceptance is pending;
-no cadence remedy or numerical budget is accepted by this instrumentation change.
+display, capture and TV algorithms are unchanged. Collection is now complete;
+acceptance remains open. No cadence remedy or numerical budget is accepted by
+this instrumentation change.
+
+All 30 preregistered runs are preserved in the
+[absolute-timeline packet](performance/validation/2026-10-23-absolute-timeline/README.md).
+All 360 events arrived; all input/clock/order/nominal-thermal checks pass. The ten
+timed runs have no >50 ms interval; one after control with timestamps disabled
+has a 74.999 ms interval and cannot supply absolute-stage attribution. Five timed
+pairs retain lower observed delivery p95 after (132–219 ms vs 746–1129 ms).
+Signed observer CPU deltas remain unresolved above time/control variation.
+
+Other-process load was not captured. The owner subsequently reported another
+parallel agent likely compiling Rust/Swift. This is an unmeasured confound, not a
+proven explanation or a reason to erase a slow run. Report integrity does not
+establish host-load isolation: these are interactive-host observations, not a clean
+baseline or accepted CPU improvement. Historical gaps remain unresolved; #42 stays
+open and #54 stays draft. The proposed next experiment requires a coordinated quiet
+window and precommitted external-load observation/contamination rules.
+
+Final analyzer `d86b7d2` adds order/nonoverlap guards without changing runtime or
+statistics. Performance bindings are refreshed to that source; other affected
+consumer bindings remain on byte-identical runtime `58d2097`. Current source/map,
+before-fixture patch and archive integrity audits preserve these separate identities.
+Existing parent and motion/settings/feed claims retain requirements and draft status;
+structural checks, tests, measured observations and owner acceptance remain separate.

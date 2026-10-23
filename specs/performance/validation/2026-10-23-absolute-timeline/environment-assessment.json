@@ -1,0 +1,13 @@
+{
+  "inputIntegrity": "passed",
+  "hostLoadIsolation": "unverified",
+  "externalProcessLoadRecorded": false,
+  "ownerContextAfterCollection": "Another parallel agent likely compiling Rust and Swift; exact overlap and load unmeasured.",
+  "causalAttribution": "unresolved",
+  "performanceAcceptance": "not established",
+  "historicalEvidenceReclassified": false,
+  "suiteUTC": {
+    "begin": "2026-10-23T19:49:23Z",
+    "end": "2026-10-23T20:34:44Z"
+  }
+}
