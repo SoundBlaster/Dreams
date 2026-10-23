@@ -72,7 +72,11 @@ def one_run(directory, enabled):
     common["display"] = value["identity"]
     return {"identity": common, "revision": manifest["revision"], "binarySHA256": manifest["binarySHA256"],
             "feed": value["runs"][0], "cpuMsPerDraw": sum(values) * 1000 / len(report["samples"]),
-            "timeline": timeline(report) if enabled else None}
+            "timeline": timeline(report) if enabled else None,
+            "recordedFrames": len(report["samples"]), "measuredSeconds": report["measuredSeconds"],
+            "unavailableDrawable": report["unavailableDrawable"],
+            "collectionBeganAt": min(s["submittedAt"] for s in report["samples"]),
+            "lastPresentedAt": max(s["presentedAt"] for s in report["samples"])}
 
 
 def analyze(directory):
@@ -81,11 +85,20 @@ def analyze(directory):
     slots = [(r["block"], r["variant"], r["mode"]) for r in suite["runs"]]
     if len(slots) != 30 or set(slots) != expected:
         raise ValueError("Five complete bracketed blocks for both variants required")
+    order = [(b, v, m) for b in range(1, 6)
+             for v in (["before", "after"] if b % 2 else ["after", "before"])
+             for m in ["control1", "timeline", "control2"]]
+    if slots != order:
+        raise ValueError("Wrong C/F/C or alternating implementation order")
     inputs, identity, variants = {}, None, {}
+    previous_end = None
     for item in suite["runs"]:
         if item["exitCode"] != 0:
             raise ValueError("Incomplete/failed run retained")
         value = one_run(directory / item["directory"], item["mode"] == "timeline")
+        if previous_end is not None and value["collectionBeganAt"] <= previous_end:
+            raise ValueError("Overlapping or reordered collection clocks")
+        previous_end = value["lastPresentedAt"]
         if identity is not None and value["identity"] != identity:
             raise ValueError("Mixed fixture/resource/hardware identity")
         identity = value["identity"]

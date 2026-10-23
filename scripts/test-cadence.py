@@ -51,13 +51,16 @@ class CadenceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             runs = [{"block": b, "variant": v, "mode": m, "directory": f"{b}-{v}-{m}", "exitCode": 0}
-                    for b in range(1, 6) for v in ['before', 'after'] for m in ['control1', 'timeline', 'control2']]
+                    for b in range(1, 6) for v in (['before', 'after'] if b % 2 else ['after', 'before'])
+                    for m in ['control1', 'timeline', 'control2']]
             (root / 'suite.json').write_text(json.dumps({"runs": runs}))
 
             def one(path, enabled):
                 variant = 'before' if 'before' in path.name else 'after'
                 return {"identity": {"fixture": 1}, "revision": variant, "binarySHA256": variant,
-                        "cpuMsPerDraw": 1 if enabled else 2, "feed": {}, "timeline": {}}
+                        "cpuMsPerDraw": 1 if enabled else 2, "feed": {}, "timeline": {},
+                        "collectionBeganAt": next(i for i, r in enumerate(runs) if r['directory'] == path.name) * 100 + 1,
+                        "lastPresentedAt": next(i for i, r in enumerate(runs) if r['directory'] == path.name) * 100 + 61}
 
             with patch.object(cadence, 'one_run', side_effect=one):
                 value = cadence.analyze(root)
@@ -71,6 +74,20 @@ class CadenceTests(unittest.TestCase):
                 return value
 
             with patch.object(cadence, 'one_run', side_effect=mixed), self.assertRaises(ValueError):
+                cadence.analyze(root)
+
+            (root / 'suite.json').write_text(json.dumps({"runs": list(reversed(runs))}))
+            with patch.object(cadence, 'one_run', side_effect=one), self.assertRaises(ValueError):
+                cadence.analyze(root)
+            (root / 'suite.json').write_text(json.dumps({"runs": runs}))
+
+            def overlap(path, enabled):
+                value = one(path, enabled)
+                if path.name == '3-after-timeline':
+                    value['collectionBeganAt'] -= 100
+                return value
+
+            with patch.object(cadence, 'one_run', side_effect=overlap), self.assertRaises(ValueError):
                 cadence.analyze(root)
 
 
