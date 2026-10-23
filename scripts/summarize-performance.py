@@ -23,6 +23,8 @@ def summarize(directory):
     runs = []
     for result in manifest["results"]:
         report = read_report(directory / result["file"])
+        if report.get("feedProbe"):
+            raise ValueError("Feed reports require scripts/analyze-feed-performance.py; include event delivery checks.")
         if report.get("calibration") is not None:
             raise ValueError("Calibration reports require scripts/analyze-calibration.py; control has no full-collector samples.")
         samples = report["samples"]

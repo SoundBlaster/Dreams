@@ -69,4 +69,22 @@ struct RainPerformanceTests {
         #expect(recorder.samples[0].presentedAt == nil && recorder.samples[0].gpuFailed)
         #expect(recorder.summaries["gpu_seconds"]?.count == 0)
     }
+
+    @Test @MainActor func feedObservationKeepsEventFrameAndRefreshIdentity() throws {
+        #expect(!RainPerformanceRecorder(limit: 1).observeFeed)
+        let recorder = RainPerformanceRecorder(limit: 2, observeFeed: true)
+        let event = UUID()
+        let frame = RainFrameMeasurement(observeFeed: recorder.observeFeed)
+        frame.feedRefresh = RainFeedRefresh(began: 10, ended: 10.004, succeeded: true,
+            onMainThread: true, messageCount: 24, eventIDs: [event])
+        frame.eventLetters = [event]
+        let first = try #require(recorder.append(frame))
+        let second = try #require(recorder.append(RainFrameMeasurement(observeFeed: true)))
+        recorder.presented(second, at: 10.08)
+        recorder.presented(first, at: 10.04)
+        #expect(recorder.samples[first].eventLetters == [event])
+        #expect(recorder.samples[first].feedRefresh?.eventIDs == [event])
+        #expect(recorder.samples[second].feedRefresh == nil)
+        #expect(recorder.samples[second].eventLetters.isEmpty)
+    }
 }

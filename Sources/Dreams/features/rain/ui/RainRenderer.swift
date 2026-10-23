@@ -118,7 +118,7 @@ extension RainRenderer: @MainActor MTKViewDelegate {
     func draw(in view: MTKView) { draw(in: view, posedTime: nil) }
 
     func draw(in view: MTKView, posedTime: Float?, referenceSize: CGSize? = nil) {
-        let measurement = performanceRecorder.map { _ in RainFrameMeasurement() }
+        let measurement = performanceRecorder.map { RainFrameMeasurement(observeFeed: $0.observeFeed) }
         guard let drawable = view.currentDrawable,
               let descriptor = view.currentRenderPassDescriptor,
               let buffer = queue.makeCommandBuffer(),

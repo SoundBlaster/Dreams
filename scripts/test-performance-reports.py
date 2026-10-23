@@ -37,5 +37,14 @@ with tempfile.TemporaryDirectory(prefix="dreams-report-test-") as folder:
         assert "analyze-calibration.py" in str(error)
     else:
         raise AssertionError("Control must not be summarized as a zero-cost full collector")
+    report.pop("calibration")
+    report["feedProbe"] = True
+    (root / "run-01.json").write_text(json.dumps(report))
+    try:
+        module.summarize(root)
+    except ValueError as error:
+        assert "analyze-feed-performance.py" in str(error)
+    else:
+        raise AssertionError("Feed reports must retain delivery validation")
 
 print("PASS: missing measurements stay null, invalid runs stay invalid, gzip and raw reports agree")

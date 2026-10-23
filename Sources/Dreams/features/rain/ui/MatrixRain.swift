@@ -33,7 +33,7 @@ final class MatrixRain {
     private var lastMessageUpdate = Date()
     private var surgePending = false
     private var pendingEvents: [KeywordMessage.RainEvent] = []
-    private var pulseWords: [Int: (characters: [Character], began: Double, ends: Double)] = [:]
+    private var pulseWords: [Int: (characters: [Character], began: Double, ends: Double, eventID: UUID)] = [:]
     private var eventColumn = 0
     private var actionPressure = 0.0
     private var mutationPressure = 0.0
@@ -126,7 +126,15 @@ final class MatrixRain {
         let feedBegan = measurement.map { _ in CACurrentMediaTime() }
         let now = ProcessInfo.processInfo.systemUptime
         if now >= nextRefresh {
-            if let snapshot = try? feed.snapshot() { messages = snapshot }
+            let snapshotBegan = measurement?.observeFeed == true ? CACurrentMediaTime() : nil
+            var succeeded = false
+            if let snapshot = try? feed.snapshot() { messages = snapshot; succeeded = true }
+            if let snapshotBegan {
+                let ended = CACurrentMediaTime()
+                measurement?.feedRefresh = RainFeedRefresh(began: snapshotBegan, ended: ended,
+                    succeeded: succeeded, onMainThread: Thread.isMainThread, messageCount: messages.count,
+                    eventIDs: succeeded ? messages.flatMap { ($0.events ?? []).map(\.id) } : [])
+            }
             // Quantized targets avoid continuously restarting the smooth activity transition.
             actionPressure = (KeywordMessage.pressure(messages) * 10).rounded() / 10
             let recent = messages.flatMap { $0.events ?? [] }
@@ -195,7 +203,7 @@ final class MatrixRain {
             eventColumn += 1
             let duration = simulation!.trigger(column: column, at: simulationClock)
             // Call lines are printed verbatim: case and spaces belong to the command.
-            pulseWords[column] = (Array(event.label), simulationClock, simulationClock + duration)
+            pulseWords[column] = (Array(event.label), simulationClock, simulationClock + duration, event.id)
         }
         pendingEvents.removeAll()
         // Event streams are one-shot packets and ignore the coverage; ordinary columns re-draw
@@ -300,6 +308,14 @@ final class MatrixRain {
                     color: SIMD4(haloTint * exposure * wordExposure,
                         (0.30 * pulsedInk * inkOpacity + 0.75 * white) * glyphAlpha * Float(min(3, glow))))) }
                 cells.append(Cell(rect: rect, uv: uv, color: SIMD4(rgb * exposure, glyphAlpha)))
+                // First stable, non-space event letter submitted in the visible viewport.
+                // Presentation of this drawable is a proxy; this is not pixel/OCR verification.
+                if let measurement, measurement.observeFeed, let pulse, isKeyword, !mutating,
+                   !text.allSatisfy({ $0.isWhitespace }), glyphAlpha > 0.008, rgb.max() > 0,
+                   rect.x < 1, rect.y < 1, rect.x + rect.z > 0, rect.y + rect.w > 0,
+                   !measurement.eventLetters.contains(pulse.eventID) {
+                    measurement.eventLetters.append(pulse.eventID)
+                }
             }
         }
         if let instancesBegan { measurement?.instancesSeconds = CACurrentMediaTime() - instancesBegan }
@@ -312,17 +328,20 @@ final class MatrixRain {
         encoder.setRenderPipelineState(glowPipeline)
         encode(halos, texture: glowAtlas, encoder: encoder, time: t, noise: 0, diffuse: true, measurement: measurement)
         encoder.setRenderPipelineState(pipeline)
-        encode(cells, texture: atlas, encoder: encoder, time: t, noise: 0.7, measurement: measurement)
+        if !encode(cells, texture: atlas, encoder: encoder, time: t, noise: 0.7, measurement: measurement) {
+            measurement?.eventLetters.removeAll()
+        }
         if let encodingBegan { measurement?.encodingSeconds = CACurrentMediaTime() - encodingBegan }
     }
 
+    @discardableResult
     private func encode(_ cells: [Cell], texture: any MTLTexture, encoder: any MTLRenderCommandEncoder,
-                        time: Float, noise: Float, diffuse: Bool = false, measurement: RainFrameMeasurement? = nil) {
-        guard !cells.isEmpty else { return }
+                        time: Float, noise: Float, diffuse: Bool = false, measurement: RainFrameMeasurement? = nil) -> Bool {
+        guard !cells.isEmpty else { return false }
         let buffer = cells.withUnsafeBytes { bytes in
             device.makeBuffer(bytes: bytes.baseAddress!, length: bytes.count, options: .storageModeShared)
         }
-        guard let buffer else { return }
+        guard let buffer else { return false }
         measurement?.bufferCreations += 1
         measurement?.bufferBytes += cells.count * MemoryLayout<Cell>.stride
         encoder.setVertexBuffer(buffer, offset: 0, index: 0)
@@ -330,6 +349,7 @@ final class MatrixRain {
         var parameters = SIMD4<Float>(time, noise, diffuse ? 1 : 0, transparentBackground ? 1 : 0)
         encoder.setFragmentBytes(&parameters, length: MemoryLayout<SIMD4<Float>>.stride, index: 0)
         encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6, instanceCount: cells.count)
+        return true
     }
 
     private func hash(_ n: Float) -> Float {
