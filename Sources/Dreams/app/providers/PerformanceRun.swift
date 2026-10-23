@@ -75,7 +75,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
         self.calibrationMode = calibrationMode
         self.feedProbe = feedProbe
         fixtureHash = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
-        recorder = RainPerformanceRecorder(limit: Int(scenario.measureSeconds * 120) + 120, observeFeed: feedProbe)
+        recorder = RainPerformanceRecorder(limit: Int(scenario.measureSeconds * 120) + 120, observeFeed: feedProbe,
+            observeTimeline: feedProbe && ProcessInfo.processInfo.environment["DREAMS_PERF_TIMELINE"] == "1")
         calibration = calibrationMode.map { _ in RainCalibrationRecorder(limit: Int(scenario.measureSeconds * 120) + 120) }
         let size = NSSize(width: 960, height: 960 * Double(scenario.drawableHeight) / Double(scenario.drawableWidth))
         view = MTKView(frame: NSRect(origin: .zero, size: size))
@@ -140,7 +141,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
         if elapsed >= scenario.warmupSeconds {
             if measurementStarted == nil {
                 measurementStarted = now
-                if calibration != nil { cpuStarted = RainProcessCPU.read() }
+                if calibration != nil || feedProbe { cpuStarted = RainProcessCPU.read() }
             }
             renderer.performanceRecorder = calibrationMode == .control ? nil : recorder
             if !window.occlusionState.contains(.visible) { occludedFrames += 1 }
@@ -170,7 +171,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
         guard !finishing else { return }
         finishing = true
         let stopped = CACurrentMediaTime()
-        let cpuStopped = calibration == nil ? nil : RainProcessCPU.read()
+        let cpuStopped = calibration == nil && !feedProbe ? nil : RainProcessCPU.read()
         view.isPaused = true
         renderer.performanceRecorder = nil
         renderer.feedReader.onRead = nil
@@ -189,7 +190,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
             let valid = observed && recorder.overflow == 0 && recorder.pendingCallbacks == 0
                 && !samples.contains(where: { $0.gpuFailed }) && occludedFrames == 0 && !userClosed
                 && stopped - (measurementStarted ?? stopped) >= scenario.measureSeconds * 0.9
-            let report = PerformanceReport(schemaVersion: feedProbe ? 3 : calibration == nil ? 1 : 2,
+            let report = PerformanceReport(schemaVersion: recorder.observeTimeline ? 4 : feedProbe ? 3 : calibration == nil ? 1 : 2,
+                timelineMode: recorder.observeTimeline ? "commit-bracket-gpu-absolute-v1" : nil, collectionCPU: feedProbe ? cpu : nil,
                 feedProbe: feedProbe, feedReadMode: feedProbe ? "shared-background" : nil,
                 feedReads: feedProbe ? recorder.feedReads : nil,
                 clock: "real elapsed time; deterministic default simulation seed 0xD2EA5EED; "
@@ -222,6 +224,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
 
 private struct PerformanceReport: Encodable {
     let schemaVersion: Int
+    let timelineMode: String?
+    let collectionCPU: RainProcessCPU?
     let feedProbe: Bool
     let feedReadMode: String?
     let feedReads: [RainFeedRefresh]?

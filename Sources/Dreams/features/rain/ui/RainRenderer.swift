@@ -144,18 +144,27 @@ extension RainRenderer: @MainActor MTKViewDelegate {
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint, measurement: measurement)
         encoder.endEncoding()
         buffer.present(drawable)
+        var recordedID: Int?
         if let recorder = performanceRecorder, let measurement, let id = recorder.append(measurement) {
+            recordedID = id
             buffer.addCompletedHandler { command in
-                let seconds = command.gpuEndTime - command.gpuStartTime
+                let gpuStart = command.gpuStartTime, gpuEnd = command.gpuEndTime
+                let seconds = gpuEnd - gpuStart
                 let failed = command.status != .completed
-                Task { @MainActor in recorder.completed(id, duration: seconds, failed: failed) }
+                Task { @MainActor in
+                    recorder.completed(id, duration: seconds, failed: failed, gpuStartedAt: gpuStart, gpuEndedAt: gpuEnd)
+                }
             }
             drawable.addPresentedHandler { presented in
                 let time = presented.presentedTime
                 Task { @MainActor in recorder.presented(id, at: time) }
             }
         }
-        buffer.commit()
+        if let recorder = performanceRecorder, recorder.observeTimeline, let id = recordedID {
+            let began = CACurrentMediaTime()
+            buffer.commit()
+            recorder.committed(id, began: began, returned: CACurrentMediaTime())
+        } else { buffer.commit() }
         framesRendered += 1
     }
 }

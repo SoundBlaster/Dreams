@@ -3,6 +3,47 @@ import Testing
 @testable import Dreams
 
 struct RainPerformanceTests {
+    @Test @MainActor func optionalTimelinePreservesCommitOverlapAndAbsoluteGPUClocks() throws {
+        let recorder = RainPerformanceRecorder(limit: 1, observeTimeline: true)
+        let id = try #require(recorder.append(RainFrameMeasurement()))
+        let base = recorder.samples[id].submittedAt
+        recorder.committed(id, began: base + 1, returned: base + 1.004)
+        recorder.completed(id, duration: 0.002, failed: false,
+            gpuStartedAt: base + 1.001, gpuEndedAt: base + 1.003)
+        let timeline = try #require(recorder.samples[id].timeline)
+        #expect(timeline.commitBeganAt == base + 1)
+        #expect(timeline.commitReturnedAt == base + 1.004)
+        #expect(timeline.gpuStartedAt == base + 1.001)
+        #expect(timeline.gpuEndedAt == base + 1.003)
+        let data = try JSONEncoder().encode(recorder.samples[id])
+        let decoded = try JSONDecoder().decode(RainPerformanceSample.self, from: data)
+        #expect(decoded.timeline?.gpuStartedAt == timeline.gpuStartedAt)
+        #expect(decoded.timeline?.commitReturnedAt == timeline.commitReturnedAt)
+    }
+
+    @Test @MainActor func legacySamplesDecodeWithoutTimelineAndDisabledRecorderOmitsIt() throws {
+        let recorder = RainPerformanceRecorder(limit: 1)
+        let id = try #require(recorder.append(RainFrameMeasurement()))
+        recorder.committed(id, began: 10, returned: 10.1)
+        recorder.completed(id, duration: 0.002, failed: false, gpuStartedAt: 10.1, gpuEndedAt: 10.102)
+        let data = try JSONEncoder().encode(recorder.samples[id])
+        let object = try #require(JSONSerialization.jsonObject(with: data) as? [String: Any])
+        #expect(object["timeline"] == nil)
+        #expect(try JSONDecoder().decode(RainPerformanceSample.self, from: data).timeline == nil)
+    }
+
+    @Test @MainActor func invalidOrUnavailableTimelineRemainsMissing() throws {
+        let recorder = RainPerformanceRecorder(limit: 1, observeTimeline: true)
+        let id = try #require(recorder.append(RainFrameMeasurement()))
+        recorder.committed(id, began: .nan, returned: 10)
+        recorder.committed(id, began: 10, returned: 9)
+        recorder.completed(id, duration: nil, failed: true, gpuStartedAt: 10, gpuEndedAt: 11)
+        #expect(recorder.samples[id].timeline?.commitBeganAt == nil)
+        #expect(recorder.samples[id].timeline?.gpuStartedAt == nil)
+        recorder.completed(id, duration: 0.002, failed: false, gpuStartedAt: 0, gpuEndedAt: .infinity)
+        #expect(recorder.samples[id].timeline?.gpuEndedAt == nil)
+    }
+
     @Test func percentilesUseNearestRankAndPreserveMissingData() {
         let empty = RainMetricSummary([])
         #expect(empty.count == 0 && empty.p99 == nil && empty.maximum == nil)
