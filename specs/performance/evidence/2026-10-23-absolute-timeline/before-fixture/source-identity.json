@@ -20,5 +20,7 @@
       "sha256": "96bc9a1d70667c1d8afe09eb04d5821435a99290c6a62bcb479cbb0a6946e97e"
     }
   ],
-  "scope": "Controlled synchronous-reader diagnostic fixture; full patch/source retained, not current production conformance or a replacement for historical evidence."
+  "scope": "Controlled synchronous-reader diagnostic fixture; full patch/source retained, not current production conformance or a replacement for historical evidence.",
+  "patch": "observer.patch.gz",
+  "archiveSHA256": "5c7df83f20c783178aa3d6d4d4b67433e32e3149a732f57c1910d67830b56c19"
 }
