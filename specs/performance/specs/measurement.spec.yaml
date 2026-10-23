@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.performance.measure
   title: RendererPerformanceProbe
-  version: 0.1.0-draft.4
+  version: 0.1.0-draft.5
   status: draft
 intent:
   summary: Give contributors repeatable per-run renderer measurements with explicit scope, validity and provenance.
@@ -15,6 +15,7 @@ scope:
   - Calibration control/full profiles with an identical outer observer, process CPU boundary counters and bracketing controls.
   - Opt-in fixed synthetic mailbox publication, snapshot API observations and event-to-presented-letter delivery proxy.
   - Independent bounded background read observations and identified alternating before/after feed comparison.
+  - Default-off absolute command/GPU timelines and per-variant bracketing of incremental observation cost.
   excludes:
   - Renderer optimization, user preferences, production overlay lifecycle, production agent integrations and hooks.
   - Allocator events, process memory, energy, per-pass GPU counters, fullscreen and multi-display acceptance or tvOS evidence.
@@ -55,7 +56,7 @@ interfaces:
         type: scenario JSON and output JSON; same initially empty explicit mailbox and revision requirements; bounded external synthetic writer
       outputs:
       - name: feed_report
-        type: schema-3 frame report with snapshot observations, optional shared-background feedReads/read mode and stable event-letter identities; publication timestamps and trace identities retained by external runner
+        type: schema-3 frame report, or opt-in schema-4 commit-bracket/GPU timeline with DREAMS_PERF_TIMELINE=1; snapshot observations/read mode and event-letter IDs; external publication/trace identities; collection CPU in new diagnostic derivatives
   outbound: []
 constraints:
 - id: isolation
@@ -79,6 +80,12 @@ constraints:
 - id: feed_comparison
   level: MUST
   statement: Background snapshots are observed independently of frame delivery because multiple reads can finish before a draw consumes the latest input. In shared-background reports feedRefresh identifies consumed cached input, not I/O in that frame; feedReads retains bounded attempts during collection. Before/after comparison requires five complete pairs with matching fixture, trace, resources, hardware, OS, display, tuning and nominal thermal state; each variant keeps its own executable/runtime identity separate from runner identity. Retain per-pair delivery and cadence without pooling percentiles, silently dropping runs, automatic acceptance or issue closure. Legacy synchronous reports remain analyzable with their original semantics.
+- id: absolute_timeline
+  level: MUST
+  statement: Only the isolated feed probe may opt into commit-bracket-gpu-absolute-v1. Record API call entry/return and absolute completed-buffer GPU start/end with stable sample identity; ordinary launches retain no recorder. Keep submittedAt as historical draw-entry semantics, not driver enqueue. Commit is an API bracket; GPU may start before return. Preserve signed lower queue-wait bounds and reject missing/nonfinite/inconsistent absolute clocks in timeline analysis. Missing optional fields in old reports remain decodable. Drawable presentation is not physical scanout.
+- id: timeline_calibration
+  level: MUST
+  statement: Compare five complete blocks for both identified derivative implementations, each with the same full feed collector in control1/timeline/control2. Alternate implementation order between blocks. Use matching fixed inputs/resources/hardware and nominal thermal state; preserve every run, signed per-draw process CPU differences and control spread. Process CPU snapshots at collection boundaries are common to all modes. The comparison excludes common integration, callback and CPU-observer cost; unresolved incremental cost is not zero. Never relabel the original preserved binaries with diagnostic derivative identities or pool percentiles/auto-accept an optimization.
 effects:
   sideEffects:
   - id: display
@@ -90,7 +97,7 @@ effects:
 evidence:
 - id: validation
   kind: test
-  path: validation/2026-10-23-shared-reader/README.md
+  path: validation/2026-10-23-absolute-timeline/README.md
   supports:
   - constraints
 provenance:
@@ -108,17 +115,17 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 680833b15edb0435c31bf3f4f1bc3c17ca934dd5
+    revision: 58d2097cf51215a088d0e99eb9b71dc7bf8549ff
   files:
     owned:
     - evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/app/providers/PerformanceRun.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/model/RainPerformance.swift
+    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/app/providers/PerformanceRun.swift
+    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
     - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-23-feed/source/Tests/DreamsTests/RainPerformanceTests.swift
+    - evidence/2026-10-23-absolute-timeline/source/Tests/DreamsTests/RainPerformanceTests.swift
     - evidence/2026-10-22-calibration/source/scripts/run-performance.py
     - evidence/2026-10-23-feed/source/scripts/summarize-performance.py
     - evidence/2026-10-22-baseline/source/scripts/swift-macos.sh
@@ -134,14 +141,18 @@ implementationBindings:
     - evidence/2026-10-22-calibration-analysis/source/scripts/analyze-calibration.py
     - evidence/2026-10-22-calibration-analysis/source/scripts/test-calibration.py
     - evidence/2026-10-22-calibration/source/research/performance/calibration-protocol.md
-    - evidence/2026-10-23-shared-reader/source/scripts/run-feed-performance.py
-    - evidence/2026-10-23-shared-reader/source/scripts/analyze-feed-performance.py
+    - evidence/2026-10-23-absolute-timeline/source/scripts/run-feed-performance.py
+    - evidence/2026-10-23-absolute-timeline/source/scripts/analyze-feed-performance.py
     - evidence/2026-10-23-shared-reader/source/scripts/test-feed-performance.py
     - evidence/2026-10-23-feed/source/research/performance/feed-trace.json
     - evidence/2026-10-23-feed/source/research/performance/feed-protocol.md.txt
     - evidence/2026-10-23-shared-reader/source/scripts/run-feed-comparison.py
     - evidence/2026-10-23-shared-reader/source/scripts/compare-feed-performance.py
     - evidence/2026-10-23-shared-reader/source/research/performance/shared-reader-protocol.md.txt
+    - evidence/2026-10-23-absolute-timeline/source/scripts/analyze-cadence.py
+    - evidence/2026-10-23-absolute-timeline/source/scripts/run-cadence-experiment.py
+    - evidence/2026-10-23-absolute-timeline/source/scripts/test-cadence.py
+    - evidence/2026-10-23-absolute-timeline/source/research/performance/timestamp-protocol.md.txt
     border:
     - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
     - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift

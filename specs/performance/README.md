@@ -5,7 +5,7 @@ opt-in probe. [Usage and limits](../../research/performance/README.md),
 [plan](../../research/performance-measurement-plan.md) and
 [architecture map](../hypercode/performance.hc) define this bounded first stage.
 
-[Current validation](validation/2026-10-23-shared-reader/README.md) separates unit/build/
+[Current validation](validation/2026-10-23-absolute-timeline/README.md) separates unit/build/
 structural checks, rejected probe attempts and actual measurement evidence.
 The package does not accept numerical budgets or mark optimization issues solved.
 
@@ -28,3 +28,8 @@ the measurement package does not silently turn structural success into acceptanc
 [Cadence investigation](validation/2026-10-23-cadence-study/README.md) narrows three
 instrumented waits to the interval after GPU completion. It leaves the original
 unprofiled-gap cause and acceptance open; existing bindings are unchanged.
+
+[Absolute timeline protocol](../../research/performance/timestamp-protocol.md) adds
+default-off command API brackets and absolute GPU clocks. Old before/after and
+profiled evidence stays pinned separately; incremental observer cost is bracketed
+for each implementation, excluding common integration cost.

@@ -159,7 +159,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 680833b15edb0435c31bf3f4f1bc3c17ca934dd5
+    revision: 58d2097cf51215a088d0e99eb9b71dc7bf8549ff
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -194,13 +194,13 @@ implementationBindings:
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift
     - evidence/2026-10-19-parity-fixes/source/Tests/DreamsTests/NativeSettingsParityTests.swift
     border:
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/model/RainPerformance.swift
+    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
     - evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
     - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift

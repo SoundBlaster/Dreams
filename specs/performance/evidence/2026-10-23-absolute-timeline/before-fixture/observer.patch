@@ -1,0 +1,211 @@
+diff --git a/Sources/Dreams/app/providers/PerformanceRun.swift b/Sources/Dreams/app/providers/PerformanceRun.swift
+index c471765..1c807e5 100644
+--- a/Sources/Dreams/app/providers/PerformanceRun.swift
++++ b/Sources/Dreams/app/providers/PerformanceRun.swift
+@@ -75,7 +75,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
+         self.calibrationMode = calibrationMode
+         self.feedProbe = feedProbe
+         fixtureHash = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
+-        recorder = RainPerformanceRecorder(limit: Int(scenario.measureSeconds * 120) + 120, observeFeed: feedProbe)
++        recorder = RainPerformanceRecorder(limit: Int(scenario.measureSeconds * 120) + 120, observeFeed: feedProbe,
++            observeTimeline: feedProbe && ProcessInfo.processInfo.environment["DREAMS_PERF_TIMELINE"] == "1")
+         calibration = calibrationMode.map { _ in RainCalibrationRecorder(limit: Int(scenario.measureSeconds * 120) + 120) }
+         let size = NSSize(width: 960, height: 960 * Double(scenario.drawableHeight) / Double(scenario.drawableWidth))
+         view = MTKView(frame: NSRect(origin: .zero, size: size))
+@@ -134,7 +135,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
+         if elapsed >= scenario.warmupSeconds {
+             if measurementStarted == nil {
+                 measurementStarted = now
+-                if calibration != nil { cpuStarted = RainProcessCPU.read() }
++                if calibration != nil || feedProbe { cpuStarted = RainProcessCPU.read() }
+             }
+             renderer.performanceRecorder = calibrationMode == .control ? nil : recorder
+             if !window.occlusionState.contains(.visible) { occludedFrames += 1 }
+@@ -164,7 +165,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
+         guard !finishing else { return }
+         finishing = true
+         let stopped = CACurrentMediaTime()
+-        let cpuStopped = calibration == nil ? nil : RainProcessCPU.read()
++        let cpuStopped = calibration == nil && !feedProbe ? nil : RainProcessCPU.read()
+         view.isPaused = true
+         renderer.performanceRecorder = nil
+         let deadline = CACurrentMediaTime() + 3
+@@ -182,7 +183,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
+             let valid = observed && recorder.overflow == 0 && recorder.pendingCallbacks == 0
+                 && !samples.contains(where: { $0.gpuFailed }) && occludedFrames == 0 && !userClosed
+                 && stopped - (measurementStarted ?? stopped) >= scenario.measureSeconds * 0.9
+-            let report = PerformanceReport(schemaVersion: feedProbe ? 3 : calibration == nil ? 1 : 2,
++            let report = PerformanceReport(schemaVersion: recorder.observeTimeline ? 4 : feedProbe ? 3 : calibration == nil ? 1 : 2,
++                timelineMode: recorder.observeTimeline ? "commit-bracket-gpu-absolute-v1" : nil, collectionCPU: feedProbe ? cpu : nil,
+                 feedProbe: feedProbe,
+                 clock: "real elapsed time; deterministic default simulation seed 0xD2EA5EED; "
+                     + (feedProbe ? "isolated synthetic feed; " : "empty isolated feed; ") + "forced steady activity",
+@@ -214,6 +216,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
+ 
+ private struct PerformanceReport: Encodable {
+     let schemaVersion: Int
++    let timelineMode: String?
++    let collectionCPU: RainProcessCPU?
+     let feedProbe: Bool
+     let profile = "macOS-windowed-production-renderer"
+     let configuration = "Release"
+diff --git a/Sources/Dreams/features/rain/model/RainPerformance.swift b/Sources/Dreams/features/rain/model/RainPerformance.swift
+index 5669277..900fbb8 100644
+--- a/Sources/Dreams/features/rain/model/RainPerformance.swift
++++ b/Sources/Dreams/features/rain/model/RainPerformance.swift
+@@ -33,6 +33,14 @@ struct RainFeedRefresh: Codable, Sendable {
+     let eventIDs: [UUID]
+ }
+ 
++/// API call bracket, not an exact driver enqueue timestamp. GPU can start before commit returns.
++struct RainFrameTimeline: Codable, Sendable {
++    var commitBeganAt: Double?
++    var commitReturnedAt: Double?
++    var gpuStartedAt: Double?
++    var gpuEndedAt: Double?
++}
++
+ struct RainPerformanceSample: Codable, Sendable {
+     let id: Int
+     let submittedAt: Double
+@@ -51,6 +59,7 @@ struct RainPerformanceSample: Codable, Sendable {
+     var feedRefresh: RainFeedRefresh?
+     var eventLetters: [UUID] = []
+     var gpuSeconds: Double?
++    var timeline: RainFrameTimeline?
+     var presentedAt: Double?
+     var gpuCompleted = false
+     var gpuFailed = false
+@@ -86,10 +95,12 @@ final class RainPerformanceRecorder {
+     private(set) var unavailableDrawable = 0
+     let limit: Int
+     let observeFeed: Bool
++    let observeTimeline: Bool
+ 
+-    init(limit: Int, observeFeed: Bool = false) {
++    init(limit: Int, observeFeed: Bool = false, observeTimeline: Bool = false) {
+         self.limit = limit
+         self.observeFeed = observeFeed
++        self.observeTimeline = observeTimeline
+         samples.reserveCapacity(limit)
+     }
+ 
+@@ -105,15 +116,29 @@ final class RainPerformanceRecorder {
+             coreInstances: frame.coreInstances, haloInstances: frame.haloInstances,
+             bufferCreations: frame.bufferCreations, bufferBytes: frame.bufferBytes,
+             glyphRasterizations: frame.glyphRasterizations, columns: frame.columns, rows: frame.rows,
+-            feedRefresh: frame.feedRefresh, eventLetters: frame.eventLetters))
++            feedRefresh: frame.feedRefresh, eventLetters: frame.eventLetters,
++            timeline: observeTimeline ? RainFrameTimeline() : nil))
+         return id
+     }
+ 
+-    func completed(_ id: Int, duration: Double?, failed: Bool) {
++    func committed(_ id: Int, began: Double, returned: Double) {
++        guard samples.indices.contains(id), samples[id].timeline != nil,
++              began.isFinite, returned.isFinite, began > 0, returned >= began else { return }
++        samples[id].timeline?.commitBeganAt = began
++        samples[id].timeline?.commitReturnedAt = returned
++    }
++
++    func completed(_ id: Int, duration: Double?, failed: Bool,
++                   gpuStartedAt: Double? = nil, gpuEndedAt: Double? = nil) {
+         guard samples.indices.contains(id) else { return }
+         samples[id].gpuCompleted = true
+         samples[id].gpuFailed = failed
+         samples[id].gpuSeconds = duration.flatMap { $0.isFinite && $0 > 0 ? $0 : nil }
++        if !failed, let gpuStartedAt, let gpuEndedAt, gpuStartedAt.isFinite, gpuEndedAt.isFinite,
++           gpuStartedAt > 0, gpuEndedAt > gpuStartedAt {
++            samples[id].timeline?.gpuStartedAt = gpuStartedAt
++            samples[id].timeline?.gpuEndedAt = gpuEndedAt
++        }
+     }
+ 
+     func presented(_ id: Int, at time: Double) {
+diff --git a/Sources/Dreams/features/rain/ui/RainRenderer.swift b/Sources/Dreams/features/rain/ui/RainRenderer.swift
+index 85e829a..fd85d29 100644
+--- a/Sources/Dreams/features/rain/ui/RainRenderer.swift
++++ b/Sources/Dreams/features/rain/ui/RainRenderer.swift
+@@ -138,18 +138,27 @@ extension RainRenderer: @MainActor MTKViewDelegate {
+             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint, measurement: measurement)
+         encoder.endEncoding()
+         buffer.present(drawable)
++        var recordedID: Int?
+         if let recorder = performanceRecorder, let measurement, let id = recorder.append(measurement) {
++            recordedID = id
+             buffer.addCompletedHandler { command in
+-                let seconds = command.gpuEndTime - command.gpuStartTime
++                let gpuStart = command.gpuStartTime, gpuEnd = command.gpuEndTime
++                let seconds = gpuEnd - gpuStart
+                 let failed = command.status != .completed
+-                Task { @MainActor in recorder.completed(id, duration: seconds, failed: failed) }
++                Task { @MainActor in
++                    recorder.completed(id, duration: seconds, failed: failed, gpuStartedAt: gpuStart, gpuEndedAt: gpuEnd)
++                }
+             }
+             drawable.addPresentedHandler { presented in
+                 let time = presented.presentedTime
+                 Task { @MainActor in recorder.presented(id, at: time) }
+             }
+         }
+-        buffer.commit()
++        if let recorder = performanceRecorder, recorder.observeTimeline, let id = recordedID {
++            let began = CACurrentMediaTime()
++            buffer.commit()
++            recorder.committed(id, began: began, returned: CACurrentMediaTime())
++        } else { buffer.commit() }
+         framesRendered += 1
+     }
+ }
+diff --git a/Tests/DreamsTests/RainPerformanceTests.swift b/Tests/DreamsTests/RainPerformanceTests.swift
+index 761cc80..68d2696 100644
+--- a/Tests/DreamsTests/RainPerformanceTests.swift
++++ b/Tests/DreamsTests/RainPerformanceTests.swift
+@@ -3,6 +3,47 @@ import Testing
+ @testable import Dreams
+ 
+ struct RainPerformanceTests {
++    @Test @MainActor func optionalTimelinePreservesCommitOverlapAndAbsoluteGPUClocks() throws {
++        let recorder = RainPerformanceRecorder(limit: 1, observeTimeline: true)
++        let id = try #require(recorder.append(RainFrameMeasurement()))
++        let base = recorder.samples[id].submittedAt
++        recorder.committed(id, began: base + 1, returned: base + 1.004)
++        recorder.completed(id, duration: 0.002, failed: false,
++            gpuStartedAt: base + 1.001, gpuEndedAt: base + 1.003)
++        let timeline = try #require(recorder.samples[id].timeline)
++        #expect(timeline.commitBeganAt == base + 1)
++        #expect(timeline.commitReturnedAt == base + 1.004)
++        #expect(timeline.gpuStartedAt == base + 1.001)
++        #expect(timeline.gpuEndedAt == base + 1.003)
++        let data = try JSONEncoder().encode(recorder.samples[id])
++        let decoded = try JSONDecoder().decode(RainPerformanceSample.self, from: data)
++        #expect(decoded.timeline?.gpuStartedAt == timeline.gpuStartedAt)
++        #expect(decoded.timeline?.commitReturnedAt == timeline.commitReturnedAt)
++    }
++
++    @Test @MainActor func legacySamplesDecodeWithoutTimelineAndDisabledRecorderOmitsIt() throws {
++        let recorder = RainPerformanceRecorder(limit: 1)
++        let id = try #require(recorder.append(RainFrameMeasurement()))
++        recorder.committed(id, began: 10, returned: 10.1)
++        recorder.completed(id, duration: 0.002, failed: false, gpuStartedAt: 10.1, gpuEndedAt: 10.102)
++        let data = try JSONEncoder().encode(recorder.samples[id])
++        let object = try #require(JSONSerialization.jsonObject(with: data) as? [String: Any])
++        #expect(object["timeline"] == nil)
++        #expect(try JSONDecoder().decode(RainPerformanceSample.self, from: data).timeline == nil)
++    }
++
++    @Test @MainActor func invalidOrUnavailableTimelineRemainsMissing() throws {
++        let recorder = RainPerformanceRecorder(limit: 1, observeTimeline: true)
++        let id = try #require(recorder.append(RainFrameMeasurement()))
++        recorder.committed(id, began: .nan, returned: 10)
++        recorder.committed(id, began: 10, returned: 9)
++        recorder.completed(id, duration: nil, failed: true, gpuStartedAt: 10, gpuEndedAt: 11)
++        #expect(recorder.samples[id].timeline?.commitBeganAt == nil)
++        #expect(recorder.samples[id].timeline?.gpuStartedAt == nil)
++        recorder.completed(id, duration: 0.002, failed: false, gpuStartedAt: 0, gpuEndedAt: .infinity)
++        #expect(recorder.samples[id].timeline?.gpuEndedAt == nil)
++    }
++
+     @Test func percentilesUseNearestRankAndPreserveMissingData() {
+         let empty = RainMetricSummary([])
+         #expect(empty.count == 0 && empty.p99 == nil && empty.maximum == nil)

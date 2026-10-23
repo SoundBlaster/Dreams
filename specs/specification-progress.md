@@ -757,3 +757,21 @@ and failures are retained, without mixing profiler-confounded runs into baseline
 Cadence acceptance remains open, PR #54 remains draft and #42 stays open. Next
 experiment: the same lightweight absolute GPU/commit observations on both variants,
 with observer overhead checked and alternating unprofiled runs.
+
+## 2026-10-23 — opt-in absolute timeline experiment
+
+The [fixed protocol](../research/performance/timestamp-protocol.md) adds optional
+commit API brackets and absolute GPU start/end to the existing diagnostic boundary.
+`dreams.performance.measure` keeps existing claims and adds absolute_timeline and
+timeline_calibration. FrameCPU/GPUCompletion/Presentation and Calibration fold this
+into existing roles. On/off comparisons share the full feed collector and process
+CPU observer; common integration cost is explicitly excluded.
+
+Runtime `58d2097` is a new diagnostic derivative of the shared reader. Counterfactual
+`f8b2a50` backports the same observer to synchronous-reader base `29e07ea`; its full
+patch/source is retained as experimental input, not a newly accepted production
+profile. Historical binaries and prior gaps cannot be relabeled with new clocks.
+Motion/search/head/pulse and preview_scale/preview_lifetime/preview_playback retain
+requirements; affected dependency source identities are refreshed. Reader, overlay,
+display, capture and TV algorithms are unchanged. Collection/acceptance is pending;
+no cadence remedy or numerical budget is accepted by this instrumentation change.
