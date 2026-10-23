@@ -1,0 +1,10 @@
+{
+  "start-date": "2026-10-23T21:38:25.165+03:00",
+  "end-date": "2026-10-23T21:39:53.833+03:00",
+  "duration": "88.668591",
+  "end-reason": "Target app exited",
+  "instruments-version": "27.1 (27A9275)",
+  "template-name": "Metal System Trace",
+  "recording-mode": "Windowed (1 minute)",
+  "time-limit": "1 minute, 40 seconds"
+}

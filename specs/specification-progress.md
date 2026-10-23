@@ -737,3 +737,23 @@ delivery p95 improved (778–1078 ms before, 139–177 ms after). Three after-on
 the separate quiet diagnostic, versus none before. p99 stayed about 41.667 ms;
 this does not establish absence of regression. Cadence acceptance and issue #42
 remain open. All 15 raw reports and both variant identities are preserved.
+
+## 2026-10-23 — cadence investigation (no runtime change)
+
+[Diagnostic packet](performance/validation/2026-10-23-cadence-study/README.md)
+keeps three profiling attempts separate from the original five-pair experiment.
+FrameCPU/GPUCompletion/Presentation and BackgroundReads retain their source and
+`dreams.performance.measure` observation/provenance/feed_comparison requirements.
+Reader and parent assembly claims are unchanged; no runtime, map or binding changed.
+
+The final native trace uniquely joins 905 command buffers to application draws.
+For three covered long intervals, native commit-to-GPU wait is 0.48–0.62 ms, GPU
+execution 5.85–6.72 ms, and the remaining GPU-end-to-recorded-presentation wait
+35.99–58.94 ms. This locates those instrumented waits after GPU completion; it
+does not assign their cause or explain the five historical unprofiled gaps.
+The other three new gaps lie outside actual exported native coverage. One earlier
+trace failed finalization; another did not cover its save-phase gaps. All reports
+and failures are retained, without mixing profiler-confounded runs into baseline.
+Cadence acceptance remains open, PR #54 remains draft and #42 stays open. Next
+experiment: the same lightweight absolute GPU/commit observations on both variants,
+with observer overhead checked and alternating unprofiled runs.

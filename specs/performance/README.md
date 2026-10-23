@@ -24,3 +24,7 @@ The [shared-reader protocol](../../research/performance/shared-reader-protocol.m
 and dated comparison retain independent background reads and before/after identities.
 Production reader obligations belong to [dreams.feed.read](../keyword-feed/README.md);
 the measurement package does not silently turn structural success into acceptance.
+
+[Cadence investigation](validation/2026-10-23-cadence-study/README.md) narrows three
+instrumented waits to the interval after GPU completion. It leaves the original
+unprofiled-gap cause and acceptance open; existing bindings are unchanged.

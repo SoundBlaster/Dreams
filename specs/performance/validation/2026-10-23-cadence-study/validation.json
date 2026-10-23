@@ -1,0 +1,37 @@
+{
+  "status": "passed local documentation, structural, reproduction and syntax checks; cause/acceptance unresolved",
+  "runtimeRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "sourceAndMapCheckpoint": "38c88041b3741542fb489739a8051cdbe69f8e4c",
+  "nativeReproductionIdentical": true,
+  "newRuntimeTests": "none; source unchanged, prior results retain original dates/SHA",
+  "applicationBuild": "none",
+  "checks": [
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "note": "Existing unused_import analyzer configuration warning only; 147 Markdown links checked."
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "note": "No structural errors; existing unresolved external/platform capability draft warnings."
+    },
+    {
+      "command": "python3 -m py_compile analyze-native-timeline.py profile-executed.py",
+      "exitCode": 0,
+      "note": "PYTHONPYCACHEPREFIX is checkout-specific TB5 path."
+    },
+    {
+      "command": "python3 analyze-native-timeline.py after-metal-full-window",
+      "exitCode": 0,
+      "note": "Matches all 905 archived derived rows and all three covered gaps exactly."
+    }
+  ],
+  "uncalibratedProfiler": true,
+  "cleanup": {
+    "observation": "cua.listApps filtered for Dreams",
+    "atUTC": "2026-10-23T18:51:28Z",
+    "matchingApps": 0,
+    "installedAppReplaced": false
+  }
+}

@@ -1,0 +1,332 @@
+[
+  {
+    "group": "pairs",
+    "run": "04-after",
+    "presentationIntervalMs": 58.33291669841856,
+    "frame": 80,
+    "drawMs": 20.17562504624948,
+    "submissionIntervalMs": 33.10574998613447,
+    "gpuMs": 10.53387502906844,
+    "glyphRasterizations": 0,
+    "consumedFeed": false,
+    "backgroundReadsOverlapping": 0,
+    "postDrawToPresentedMs": 33.92937500029802,
+    "neighbors": [
+      {
+        "frame": 77,
+        "drawBeganAt": 390478.55322466674,
+        "drawSeconds": 0.006986625026911497,
+        "presentedAt": 390478.5897475001,
+        "gpuSeconds": 0.00607995834434405
+      },
+      {
+        "frame": 78,
+        "drawBeganAt": 390478.58655854175,
+        "drawSeconds": 0.006718041666317731,
+        "presentedAt": 390478.6230806251,
+        "gpuSeconds": 0.0060747083043679595
+      },
+      {
+        "frame": 79,
+        "drawBeganAt": 390478.61920266674,
+        "drawSeconds": 0.0064128750236704946,
+        "presentedAt": 390478.6480805001,
+        "gpuSeconds": 0.005893541674595326
+      },
+      {
+        "frame": 80,
+        "drawBeganAt": 390478.6523084167,
+        "drawSeconds": 0.02017562504624948,
+        "presentedAt": 390478.7064134168,
+        "gpuSeconds": 0.01053387502906844
+      },
+      {
+        "frame": 81,
+        "drawBeganAt": 390478.6945353751,
+        "drawSeconds": 0.007178333296906203,
+        "presentedAt": 390478.72307991673,
+        "gpuSeconds": 0.002085625019390136
+      },
+      {
+        "frame": 82,
+        "drawBeganAt": 390478.7282277501,
+        "drawSeconds": 0.007447874988429248,
+        "presentedAt": 390478.7647463751,
+        "gpuSeconds": 0.005053958331700414
+      },
+      {
+        "frame": 83,
+        "drawBeganAt": 390478.7615763751,
+        "drawSeconds": 0.00832241663010791,
+        "presentedAt": 390478.78974616673,
+        "gpuSeconds": 0.0025226249708794057
+      }
+    ],
+    "negativePresentationDeltas": 0,
+    "zeroPresentationDeltas": 0
+  },
+  {
+    "group": "pairs",
+    "run": "05-after",
+    "presentationIntervalMs": 62.49958334956318,
+    "frame": 120,
+    "drawMs": 5.057750036939979,
+    "submissionIntervalMs": 33.28170831082389,
+    "gpuMs": 2.506833348888904,
+    "glyphRasterizations": 0,
+    "consumedFeed": false,
+    "backgroundReadsOverlapping": 1,
+    "postDrawToPresentedMs": 52.30154166929424,
+    "neighbors": [
+      {
+        "frame": 117,
+        "drawBeganAt": 390752.2764214167,
+        "drawSeconds": 0.006739000033121556,
+        "presentedAt": 390752.30459641677,
+        "gpuSeconds": 0.0032817083410918713
+      },
+      {
+        "frame": 118,
+        "drawBeganAt": 390752.3097455834,
+        "drawSeconds": 0.006769125000573695,
+        "presentedAt": 390752.3462627501,
+        "gpuSeconds": 0.005096625012811273
+      },
+      {
+        "frame": 119,
+        "drawBeganAt": 390752.3431212084,
+        "drawSeconds": 0.007462166657205671,
+        "presentedAt": 390752.3712626251,
+        "gpuSeconds": 0.00208416668465361
+      },
+      {
+        "frame": 120,
+        "drawBeganAt": 390752.37640291674,
+        "drawSeconds": 0.005057750036939979,
+        "presentedAt": 390752.43376220844,
+        "gpuSeconds": 0.002506833348888904
+      },
+      {
+        "frame": 121,
+        "drawBeganAt": 390752.4097286251,
+        "drawSeconds": 0.005420416651759297,
+        "presentedAt": 390752.4545954167,
+        "gpuSeconds": 0.003184375003911555
+      },
+      {
+        "frame": 122,
+        "drawBeganAt": 390752.4422112501,
+        "drawSeconds": 0.0032232083613052964,
+        "presentedAt": 390752.5504281251,
+        "gpuSeconds": 0.005760041705798358
+      },
+      {
+        "frame": 123,
+        "drawBeganAt": 390752.47349979175,
+        "drawSeconds": 0.003367041645105928,
+        "presentedAt": 390752.5587613751,
+        "gpuSeconds": 0.01023308333242312
+      }
+    ],
+    "negativePresentationDeltas": 0,
+    "zeroPresentationDeltas": 0
+  },
+  {
+    "group": "pairs",
+    "run": "05-after",
+    "presentationIntervalMs": 95.83270834991708,
+    "frame": 122,
+    "drawMs": 3.2232083613052964,
+    "submissionIntervalMs": 32.48262498527765,
+    "gpuMs": 5.760041705798358,
+    "glyphRasterizations": 0,
+    "consumedFeed": true,
+    "backgroundReadsOverlapping": 0,
+    "postDrawToPresentedMs": 104.9936666386202,
+    "neighbors": [
+      {
+        "frame": 119,
+        "drawBeganAt": 390752.3431212084,
+        "drawSeconds": 0.007462166657205671,
+        "presentedAt": 390752.3712626251,
+        "gpuSeconds": 0.00208416668465361
+      },
+      {
+        "frame": 120,
+        "drawBeganAt": 390752.37640291674,
+        "drawSeconds": 0.005057750036939979,
+        "presentedAt": 390752.43376220844,
+        "gpuSeconds": 0.002506833348888904
+      },
+      {
+        "frame": 121,
+        "drawBeganAt": 390752.4097286251,
+        "drawSeconds": 0.005420416651759297,
+        "presentedAt": 390752.4545954167,
+        "gpuSeconds": 0.003184375003911555
+      },
+      {
+        "frame": 122,
+        "drawBeganAt": 390752.4422112501,
+        "drawSeconds": 0.0032232083613052964,
+        "presentedAt": 390752.5504281251,
+        "gpuSeconds": 0.005760041705798358
+      },
+      {
+        "frame": 123,
+        "drawBeganAt": 390752.47349979175,
+        "drawSeconds": 0.003367041645105928,
+        "presentedAt": 390752.5587613751,
+        "gpuSeconds": 0.01023308333242312
+      },
+      {
+        "frame": 124,
+        "drawBeganAt": 390752.5076730418,
+        "drawSeconds": 0.017505916650407016,
+        "presentedAt": 390752.5670946251,
+        "gpuSeconds": 0.0025593750178813934
+      },
+      {
+        "frame": 125,
+        "drawBeganAt": 390752.54827395844,
+        "drawSeconds": 0.00313595833722502,
+        "presentedAt": 390752.5754278751,
+        "gpuSeconds": 0.0030220416956581175
+      }
+    ],
+    "negativePresentationDeltas": 0,
+    "zeroPresentationDeltas": 0
+  },
+  {
+    "group": "quiet-pairs",
+    "run": "01-after",
+    "presentationIntervalMs": 54.16629166575149,
+    "frame": 1345,
+    "drawMs": 3.783083346206695,
+    "submissionIntervalMs": 31.181958329398185,
+    "gpuMs": 2.6160000124946237,
+    "glyphRasterizations": 0,
+    "consumedFeed": false,
+    "backgroundReadsOverlapping": 0,
+    "postDrawToPresentedMs": 45.57395831216127,
+    "neighbors": [
+      {
+        "frame": 1342,
+        "drawBeganAt": 391250.3773252084,
+        "drawSeconds": 0.007116666703950614,
+        "presentedAt": 391250.42629425006,
+        "gpuSeconds": 0.005456874961964786
+      },
+      {
+        "frame": 1343,
+        "drawBeganAt": 391250.40996495844,
+        "drawSeconds": 0.010357499995734543,
+        "presentedAt": 391250.45129408344,
+        "gpuSeconds": 0.002147999999579042
+      },
+      {
+        "frame": 1344,
+        "drawBeganAt": 391250.44158791675,
+        "drawSeconds": 0.004583208356052637,
+        "presentedAt": 391250.4679606251,
+        "gpuSeconds": 0.0026287916698493063
+      },
+      {
+        "frame": 1345,
+        "drawBeganAt": 391250.4727698751,
+        "drawSeconds": 0.003783083346206695,
+        "presentedAt": 391250.52212691674,
+        "gpuSeconds": 0.0026160000124946237
+      },
+      {
+        "frame": 1346,
+        "drawBeganAt": 391250.5058150418,
+        "drawSeconds": 0.004739333293400705,
+        "presentedAt": 391250.53879679175,
+        "gpuSeconds": 0.003410500008612871
+      },
+      {
+        "frame": 1347,
+        "drawBeganAt": 391250.5391387501,
+        "drawSeconds": 0.003203916654456407,
+        "presentedAt": 391250.5721266251,
+        "gpuSeconds": 0.006780208379495889
+      },
+      {
+        "frame": 1348,
+        "drawBeganAt": 391250.56965420843,
+        "drawSeconds": 0.0032723749754950404,
+        "presentedAt": 391250.5971264584,
+        "gpuSeconds": 0.002472291642334312
+      }
+    ],
+    "negativePresentationDeltas": 0,
+    "zeroPresentationDeltas": 0
+  },
+  {
+    "group": "quiet-pairs",
+    "run": "01-after",
+    "presentationIntervalMs": 66.66633335407823,
+    "frame": 1349,
+    "drawMs": 3.024666686542332,
+    "submissionIntervalMs": 32.43562497664243,
+    "gpuMs": 3.0141249881125987,
+    "glyphRasterizations": 0,
+    "consumedFeed": false,
+    "backgroundReadsOverlapping": 0,
+    "postDrawToPresentedMs": 58.678291679825634,
+    "neighbors": [
+      {
+        "frame": 1346,
+        "drawBeganAt": 391250.5058150418,
+        "drawSeconds": 0.004739333293400705,
+        "presentedAt": 391250.53879679175,
+        "gpuSeconds": 0.003410500008612871
+      },
+      {
+        "frame": 1347,
+        "drawBeganAt": 391250.5391387501,
+        "drawSeconds": 0.003203916654456407,
+        "presentedAt": 391250.5721266251,
+        "gpuSeconds": 0.006780208379495889
+      },
+      {
+        "frame": 1348,
+        "drawBeganAt": 391250.56965420843,
+        "drawSeconds": 0.0032723749754950404,
+        "presentedAt": 391250.5971264584,
+        "gpuSeconds": 0.002472291642334312
+      },
+      {
+        "frame": 1349,
+        "drawBeganAt": 391250.6020898334,
+        "drawSeconds": 0.003024666686542332,
+        "presentedAt": 391250.6637927918,
+        "gpuSeconds": 0.0030141249881125987
+      },
+      {
+        "frame": 1350,
+        "drawBeganAt": 391250.63463995844,
+        "drawSeconds": 0.003218500001821667,
+        "presentedAt": 391250.68462591677,
+        "gpuSeconds": 0.004312833305448294
+      },
+      {
+        "frame": 1351,
+        "drawBeganAt": 391250.66885416675,
+        "drawSeconds": 0.003005083359312266,
+        "presentedAt": 391250.69712579175,
+        "gpuSeconds": 0.006301500019617379
+      },
+      {
+        "frame": 1352,
+        "drawBeganAt": 391250.70197458344,
+        "drawSeconds": 0.0035524166305549443,
+        "presentedAt": 391250.73045887507,
+        "gpuSeconds": 0.004475374997127801
+      }
+    ],
+    "negativePresentationDeltas": 0,
+    "zeroPresentationDeltas": 0
+  }
+]
