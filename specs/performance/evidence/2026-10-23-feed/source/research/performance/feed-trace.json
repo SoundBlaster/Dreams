@@ -1,0 +1,20 @@
+{
+  "name": "24-sessions-12-events-expiry",
+  "sessions": 24,
+  "expiredFiles": 12,
+  "expiryOffset": 20.35,
+  "events": [
+    {"offset": 0.15, "label": "TRACE_ALPHA"},
+    {"offset": 4.65, "label": "ПРОБА"},
+    {"offset": 9.25, "label": "swift test --filter Rain"},
+    {"offset": 13.85, "label": "TRACE_ALPHA"},
+    {"offset": 18.45, "label": "ПРОБА"},
+    {"offset": 23.05, "label": "swift test --filter Rain"},
+    {"offset": 27.65, "label": "CONTEXT"},
+    {"offset": 32.25, "label": "TASK"},
+    {"offset": 36.85, "label": "TRACE_ALPHA"},
+    {"offset": 41.45, "label": "ПРОБА"},
+    {"offset": 46.05, "label": "swift test --filter Rain"},
+    {"offset": 50.65, "label": "DONE"}
+  ]
+}

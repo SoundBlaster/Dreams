@@ -1,0 +1,38 @@
+{
+  "specs/performance/validation/2026-10-23-feed/runs/run-02.json.gz": {
+    "originalSHA256": "fea21616a65f08b9b7b814eb62b1352c8a04f9da1379eddd200278ac4c548dfb",
+    "archivedSHA256": "4355da68abcd86d8428b7c6bb271f5f62a6481dc2aaea71cbde16a7d521b95aa"
+  },
+  "specs/performance/validation/2026-10-23-feed/runs/run-03.json.gz": {
+    "originalSHA256": "3b69f0aac0658fae52e24501a65fea1517581a534ca9616eecfe8e0ca994103e",
+    "archivedSHA256": "1b0be67456050c1770eea702f0fc9f13679d20f8357ac7f69b3479f41d490a60"
+  },
+  "specs/performance/validation/2026-10-23-feed/runs/run-01.json.gz": {
+    "originalSHA256": "417324526dac2cdbe81c8892f5ea4ccd11c8e444643bcbd9a52535cc3c54c17b",
+    "archivedSHA256": "cb71101f8dd8eac42884f04ec9daf803c7fafb9a525666feec0a6740847850f5"
+  },
+  "specs/performance/validation/2026-10-23-feed/runs/run-05.json.gz": {
+    "originalSHA256": "41e89fff8ab44f55e00d29ff385be28fcf8880cbd0e24a4e3e4090b29b120d47",
+    "archivedSHA256": "463ccc4f09cd417f969be922d8a0035d09374e9d2fd55e7560bde544ce04fac1"
+  },
+  "specs/performance/validation/2026-10-23-feed/runs/run-04.json.gz": {
+    "originalSHA256": "43ec310089c3501b7b4765dd09fee7c8b62af59edf8ea40dac86574e1102ff29",
+    "archivedSHA256": "24942f153bdec7f29571e8b1ddec756d784513ca269853a3c1270126d68da611"
+  },
+  "specs/performance/validation/2026-10-23-feed/smoke/run-01.json.gz": {
+    "originalSHA256": "7b6d9386828ecad9766411b03b0e629175a7235fb6810e9e39497f3d7bb18fde",
+    "archivedSHA256": "9d0c27d997382c5c7f846f791ffb8a9748f258383a58a7ecbdd80942c28ff5ff"
+  },
+  "specs/performance/validation/2026-10-23-feed/legacy-smoke/run-01.json.gz": {
+    "originalSHA256": "1c90c4dee931503c853da47b7401a7dd7bdc99ba9fbbeb06da18ca8f8941718d",
+    "archivedSHA256": "3f581f81e7ace4db22f48f54b229ea071046772ebfe0b9bb398c83a8246720e0"
+  },
+  "specs/performance/validation/2026-10-23-feed/calibration-control-smoke/run-01.json.gz": {
+    "originalSHA256": "4291af48272d1192ac8f86a98977766a96a8eb713edebd1c45a98f9717eef013",
+    "archivedSHA256": "8b4519d3ba0abd8989527c42e6f16928b7da2cbd5acbc72fef43c0efc3e915b7"
+  },
+  "specs/performance/validation/2026-10-23-feed/calibration-full-smoke/run-01.json.gz": {
+    "originalSHA256": "68be302d879b513105c1ed066a7557ca1e39b91c19f33521d1a1585ff6f274f5",
+    "archivedSHA256": "aa897199dad00f6f5fbf60fb10dfa2ab587e2af4dc3756131abf80a3c8e45d94"
+  }
+}

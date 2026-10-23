@@ -666,3 +666,29 @@ blocks and nominal thermal states. Paired process CPU differences ranged from
 unresolved, not zero. Common-observer cost remains excluded and no historical
 percentile is corrected. Analysis-only checkpoint `7479e60` tightens hardware
 identity/status validation without changing any measured statistic or app source.
+
+## 2026-10-23 — fixed synthetic feed baseline
+
+PerformanceProbe.SyntheticFeed folds Publication/SnapshotObservation/DeliveryProxy
+into dreams.performance.measure, with additive feed_observation and the existing
+isolation/observation/lifetime/provenance claims. Its parent correlates external
+publication identity and the shared host clock with successful snapshot receipt
+and actual drawable presentation. A stable event-letter instance is a proxy,
+not pixels or whole-label acceptance. [Protocol](../research/performance/feed-protocol.md)
+and [current evidence](performance/validation/2026-10-23-feed/README.md) preserve these limits.
+
+Runtime `29e07ea` retains synchronous production polling and the rendering algorithm;
+observations are enabled only by --performance-feed. Pulse packets retain an event
+ID and encoding reports success for diagnostic correlation. Motion/search/head/
+pulse formulas and preview viewport/playback/lifetime paths are unchanged. Current
+bindings for dreams.rain.drop_motion/search_occupancy/head_visibility/glyph_pulse
+and dreams.settings.host are refreshed for the affected renderer dependency.
+The identity audit also found pre-existing settings-source snapshot drift and
+refreshes those source identities; historical UI observations are not promoted
+to current runtime evidence. Claims remain drafts; no new visual acceptance follows.
+
+Production KeywordFeed is a border snapshot for this diagnostic consumer, not a
+recovered hook/MCP integration contract. Its I/O remains on the draw path and
+the desired no-frame-I/O criterion of #42 is still outstanding. Overlay/capture
+and tvOS source/claims are unchanged. This macOS window baseline does not cover
+multi-renderer sharing, lock contention, cold storage or pixel/full-label latency.

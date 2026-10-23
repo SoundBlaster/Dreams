@@ -3,7 +3,7 @@ PerformanceProbe:
   capability: "dreams.performance.measure"
 Scenario:
   source: "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift"
-  boundary: "bounded-explicit-JSON; isolated-empty-feed; default-simulation-seed; elapsed-clock"
+  boundary: "bounded-explicit-JSON; initially-empty-isolated-feed; default-simulation-seed; elapsed-clock"
 RunLifetime:
   implementation: "Release-only; separate-window; no-production-delegate-or-migration; bounded-stop-and-drain"
 Measurement:
@@ -26,6 +26,19 @@ Calibration:
 ReportExport:
   source: "scripts/run-performance.py"
   implementation: "export-after-stop; preserve-all-runs-and-identities; smoke-is-not-baseline"
+SyntheticFeed:
+  mode: "absent"
+  boundary: "synthetic-contributor-probe; not-production-agent-integration-conformance"
+Publication:
+  source: "scripts/run-feed-performance.py"
+  input: "research/performance/feed-trace.json"
+  clock: "clock_gettime-CLOCK_UPTIME_RAW; atomic-rename-bracket; external-process"
+SnapshotObservation:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  scope: "opt-in-snapshot-API-wall-time-success-thread-and-IDs; not-syscall-counts"
+DeliveryProxy:
+  source: "scripts/analyze-feed-performance.py"
+  scope: "first-presented-drawable-with-stable-event-letter-instance; not-pixel-or-full-label-proof"
 @probe[control]:
   Measurement:
     full_collector: "absent"
@@ -36,3 +49,6 @@ ReportExport:
     full_collector: "enabled-during-collection"
   Calibration:
     mode: "full"
+@probe[feed]:
+  SyntheticFeed:
+    mode: "fixed-external-trace"

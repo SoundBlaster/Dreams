@@ -1,0 +1,52 @@
+[
+  {
+    "run": "run-01.json",
+    "snapshotP95ms": 3.172875032760203,
+    "snapshotMaximumMs": 4.311375028919429,
+    "readLatencyP95ms": 733.0104174325243,
+    "readToPresentedP95ms": 101.89570835791528,
+    "maximumScheduleLatenessMs": 6.3048742595128715,
+    "presentationP99ms": 41.66633333079517,
+    "observedFPS": 29.996112859101
+  },
+  {
+    "run": "run-02.json",
+    "snapshotP95ms": 2.4108749930746853,
+    "snapshotMaximumMs": 2.7671666466630995,
+    "readLatencyP95ms": 780.4537504562177,
+    "readToPresentedP95ms": 94.80812499532476,
+    "maximumScheduleLatenessMs": 5.428249598480761,
+    "presentationP99ms": 33.3331250003539,
+    "observedFPS": 29.996098079482678
+  },
+  {
+    "run": "run-03.json",
+    "snapshotP95ms": 4.0181250078603625,
+    "snapshotMaximumMs": 5.206166708376259,
+    "readLatencyP95ms": 723.4002090990543,
+    "readToPresentedP95ms": 94.06066668452695,
+    "maximumScheduleLatenessMs": 6.849041266832501,
+    "presentationP99ms": 41.66637494927272,
+    "observedFPS": 29.996114490897916
+  },
+  {
+    "run": "run-04.json",
+    "snapshotP95ms": 2.7745416737161577,
+    "snapshotMaximumMs": 3.866333281621337,
+    "readLatencyP95ms": 594.4974587764591,
+    "readToPresentedP95ms": 160.67045833915472,
+    "maximumScheduleLatenessMs": 5.895624577533454,
+    "presentationP99ms": 41.66637500748038,
+    "observedFPS": 30.000234836557247
+  },
+  {
+    "run": "run-05.json",
+    "snapshotP95ms": 2.626291709020734,
+    "snapshotMaximumMs": 3.9190417155623436,
+    "readLatencyP95ms": 692.0040007098578,
+    "readToPresentedP95ms": 101.07891669031233,
+    "maximumScheduleLatenessMs": 5.858624237589538,
+    "presentationP99ms": 41.66637500748038,
+    "observedFPS": 30.00022779097408
+  }
+]

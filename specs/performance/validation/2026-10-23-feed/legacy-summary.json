@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scenario": {
+    "name": "normal",
+    "warmupSeconds": 1,
+    "measureSeconds": 3,
+    "drawableWidth": 1920,
+    "drawableHeight": 1080,
+    "referenceWidth": 1920,
+    "referenceHeight": 1080,
+    "columns": 0,
+    "density": 0.8,
+    "searchFraction": 0.1,
+    "glow": 1,
+    "speed": 1,
+    "fadeRows": 1,
+    "pulseStrength": 0.3,
+    "brightnessSpread": 1,
+    "restoredGlyphs": true,
+    "transparent": false
+  },
+  "runKind": "smoke",
+  "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+  "binarySHA256": "0ed7e6fa955d99f4c64b1983cfbad1ff40e8cad156bd652aa30abf500dfb561e",
+  "fixtureSHA256": "2e344b3b5579df474e18cd5eb7ed4fd2589822c7406c88d04a89645af23d077a",
+  "allValid": true,
+  "runs": [
+    {
+      "file": "run-01.json",
+      "valid": true,
+      "frames": 95,
+      "observedFPS": 29.92065535585418,
+      "drawP95ms": 1.4675416750833392,
+      "simulationP95ms": 0.44916669139638543,
+      "instancesP95ms": 0.8993333321996033,
+      "gpuP95ms": 5.90666668722406,
+      "presentationP99ms": 41.66637500748038,
+      "intervalsOver50ms": 0,
+      "intervalsOver100ms": 0,
+      "meanCoreInstances": 4333.4631578947365,
+      "meanHaloInstances": 4333.4631578947365,
+      "bufferCreations": 190,
+      "bufferBytes": 39521184,
+      "glyphRasterizations": 0
+    }
+  ],
+  "limits": "Windowed single-renderer probe; no allocation, energy, fullscreen, tvOS or per-pass GPU acceptance."
+}

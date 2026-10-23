@@ -141,3 +141,6 @@ Accessibility audit and optional-help correction: [2026-10-20-accessibility](val
 
 Optional performance instrumentation source/impact: [2026-10-22](validation/2026-10-22-performance/README.md).
 Ordinary behavior and stable claims remain unchanged; prior passes stay historical.
+
+Fixed synthetic feed observation impact and current renderer dependencies:
+[2026-10-23](validation/2026-10-23-feed/README.md).

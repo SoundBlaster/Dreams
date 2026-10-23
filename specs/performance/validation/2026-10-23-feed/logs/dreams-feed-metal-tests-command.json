@@ -1,0 +1,13 @@
+{
+  "command": [
+    "zsh",
+    "scripts/swift-macos.sh",
+    "test",
+    "-c",
+    "release",
+    "--filter",
+    "RainPerformanceTests|RainCalibrationTests|DropHeadRenderingTests|GlyphPulseRenderingTests|TransparentFadeRenderingTests|NativePreviewTests|DropDecelerationTests|SearchOccupancyTests"
+  ],
+  "exitCode": 0,
+  "profile": "macOS offscreen Metal, isolated empty mailbox"
+}
