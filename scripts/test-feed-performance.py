@@ -3,6 +3,8 @@
 import copy
 import importlib.util
 from pathlib import Path
+import subprocess
+import sys
 import unittest
 import uuid
 
@@ -21,6 +23,15 @@ runner = load("feed_runner", "run-feed-performance.py")
 
 
 class FeedPerformanceTests(unittest.TestCase):
+    @unittest.skipUnless(sys.platform == "darwin", "macOS host clock")
+    def test_host_clock_epoch_is_shared_across_processes(self):
+        before = runner.host_time()
+        child = float(subprocess.check_output([sys.executable, "-c",
+                      "import time; print(time.clock_gettime(time.CLOCK_UPTIME_RAW))"], text=True))
+        after = runner.host_time()
+        self.assertLessEqual(before, child)
+        self.assertLessEqual(child, after)
+
     def fixture(self):
         trace = {"name": "test", "sessions": 24, "expiredFiles": 12, "expiryOffset": 1,
                  "events": [{"offset": 0, "label": "TEST"}]}

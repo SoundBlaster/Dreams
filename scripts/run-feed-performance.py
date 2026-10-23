@@ -17,6 +17,12 @@ ROOT = Path(__file__).resolve().parents[1]
 APPLE_EPOCH = 978307200
 
 
+def host_time():
+    # Python <3.10 monotonic() uses a process-relative epoch on macOS.
+    # UPTIME_RAW exposes the mach_absolute_time domain shared with Core Animation.
+    return time.clock_gettime(time.CLOCK_UPTIME_RAW)
+
+
 def load_module(name, filename):
     spec = importlib.util.spec_from_file_location(name, ROOT / "scripts" / filename)
     module = importlib.util.module_from_spec(spec)
@@ -40,14 +46,14 @@ def validate_trace(trace, seconds):
 
 
 def write_message(directory, session, event=None, expired=False):
-    started = time.monotonic()
+    started = host_time()
     with (directory / ".lock").open("a+b") as lock:
         while True:
             try:
                 fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
                 break
             except BlockingIOError:
-                if time.monotonic() - started > 2:
+                if host_time() - started > 2:
                     raise TimeoutError("Synthetic writer lock timeout") from None
                 time.sleep(.005)
         now = time.time() - APPLE_EPOCH
@@ -59,9 +65,9 @@ def write_message(directory, session, event=None, expired=False):
         temporary = directory / ".synthetic-publish"
         temporary.write_text(json.dumps(message, ensure_ascii=False))
         temporary.chmod(0o600)
-        commit_began = time.monotonic()
+        commit_began = host_time()
         os.replace(temporary, path)
-        committed = time.monotonic()
+        committed = host_time()
     return {"began": started, "commitBegan": commit_began, "committed": committed,
             "sessionID": session, "eventID": None if event is None else event["id"]}
 
@@ -79,16 +85,16 @@ def execute(command, env, mailbox, scenario, trace, log):
         if not line.startswith("PERFORMANCE_STARTED="):
             raise ValueError("Invalid startup handshake: " + line)
         began = float(line.split("=", 1)[1])
-        received = time.monotonic()
+        received = host_time()
         if not 0 <= received - began <= 5:
-            raise ValueError("Runner/app host clocks are not comparable")
+            raise ValueError(f"Runner/app host clocks are not comparable: app={began}, runner={received}, delta={received - began}")
         for index in range(trace["sessions"]):
             writes.append(write_message(mailbox, f"synthetic-{index:02}"))
         schedule = [(e["offset"], "event", i, e) for i, e in enumerate(trace["events"])]
         schedule.append((trace["expiryOffset"], "expiry", 0, None))
         for offset, kind, index, event in sorted(schedule):
             target = began + scenario["warmupSeconds"] + offset
-            time.sleep(max(0, target - time.monotonic()))
+            time.sleep(max(0, target - host_time()))
             if process.poll() is not None:
                 raise ValueError("App exited before trace completed")
             if kind == "event":
@@ -98,12 +104,13 @@ def execute(command, env, mailbox, scenario, trace, log):
             else:
                 for expired in range(trace["expiredFiles"]):
                     writes.append(write_message(mailbox, f"expired-{expired:02}", expired=True))
-        remaining = began + scenario["warmupSeconds"] + scenario["measureSeconds"] - time.monotonic()
+        remaining = began + scenario["warmupSeconds"] + scenario["measureSeconds"] - host_time()
         tail, _ = process.communicate(timeout=max(0, remaining) + 30)
         log.write(tail)
         leftovers = len(list(mailbox.glob("*.json")))
         return {"exitCode": process.returncode, "started": began, "handshakeReceived": received,
-                "clock": vars(time.get_clock_info("monotonic")), "writes": writes,
+                "clock": {"implementation": "clock_gettime(CLOCK_UPTIME_RAW)",
+                          "resolution": time.clock_getres(time.CLOCK_UPTIME_RAW)}, "writes": writes,
                 "remainingJSONFiles": leftovers}
     except Exception as error:
         log.write(f"RUNNER_ERROR={error}\n")
@@ -150,6 +157,7 @@ def main():
                 "hardwareModel": subprocess.check_output(["sysctl", "-n", "hw.model"], text=True).strip(),
                 "cpuModel": subprocess.check_output(["sysctl", "-n", "machdep.cpu.brand_string"], text=True).strip(),
                 "toolchain": subprocess.check_output(["swift", "--version"], text=True).strip(),
+                "python": __import__("sys").version,
                 "sdk": subprocess.check_output(["xcrun", "--sdk", "macosx", "--show-sdk-version"], text=True).strip(), "results": []}
     for run in range(1, args.runs + 1):
         report = args.output.resolve() / f"run-{run:02}.json"

@@ -23,8 +23,9 @@ the final mailbox must contain only the 24 active sessions. No private live
 mailbox, preferences, hook installation or MCP traffic is involved.
 
 Record both sides of each atomic rename and the actual schedule lateness.
-Python's [monotonic clock](https://docs.python.org/3/library/time.html#time.monotonic)
-uses `mach_absolute_time` on macOS and shares its domain across processes.
+Use Python's [clock_gettime](https://docs.python.org/3/library/time.html#time.clock_gettime)
+with `CLOCK_UPTIME_RAW`, the macOS `mach_absolute_time` domain. Python before 3.10
+uses a process-relative epoch for `monotonic()`; it is unsuitable here.
 Require the startup handshake to agree with the runner clock within five seconds.
 Use the same host clock as the renderer's `CACurrentMediaTime` and drawable
 [`presentedTime`](https://developer.apple.com/documentation/metal/mtldrawable/presentedtime).
