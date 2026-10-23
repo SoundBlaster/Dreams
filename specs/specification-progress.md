@@ -799,3 +799,22 @@ consumer bindings remain on byte-identical runtime `58d2097`. Current source/map
 before-fixture patch and archive integrity audits preserve these separate identities.
 Existing parent and motion/settings/feed claims retain requirements and draft status;
 structural checks, tests, measured observations and owner acceptance remain separate.
+
+## 2026-10-24 — quiet-host prerequisites (no renderer comparison)
+
+The [dated prerequisite packet](performance/validation/2026-10-24-quiet-host-preflight/README.md)
+preserves the owner-offered window, observer CPU C/F/C check and both one-minute
+idle references. No active compiler was detected, memory pressure and swap-out
+counter were stable, but p95 busy CPU was 2.05/2.25 cores out of 12 against a fixed
+1.5-core prerequisite. This conservative guard is not a hardware performance budget
+or proof that the background caused any historical frame gap. Neither reference
+was erased or relabeled; no renderer, build, install or settings migration followed.
+
+PerformanceProbe.Calibration/ReportExport and dreams.performance.measure provenance,
+observation, calibration, feed_comparison and timeline_calibration retain requirements.
+Runtime/source bindings and maps are unchanged. The experimental helper is a pinned
+input to this dated observation, not a supported host-monitor contract; reusable
+environmental gates and comparable idle-condition definition remain explicit backlog.
+Observer process CPU (about 0.055 CPU s/s incremental in one short block) is distinct
+from renderer latency/total overhead. Cadence causality, observer cost acceptance,
+#42 and #54/#55 readiness remain unresolved; physical tvOS evidence is unchanged.

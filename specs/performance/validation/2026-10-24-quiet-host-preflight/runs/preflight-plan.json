@@ -1,0 +1,37 @@
+{
+  "kind": "prerequisite-only, no renderer comparison",
+  "order": [
+    [
+      "control1",
+      10,
+      false
+    ],
+    [
+      "monitor",
+      20,
+      true
+    ],
+    [
+      "control2",
+      10,
+      false
+    ],
+    [
+      "idle-reference",
+      60,
+      true
+    ]
+  ],
+  "samplingSeconds": 1,
+  "purpose": "Quantify sidecar process CPU plus sampled commands and characterize idle context. Not a renderer-latency overhead calibration.",
+  "retention": "Keep every result; do not start renderer if preflight is not quiet.",
+  "referenceGates": {
+    "p95HostBusyCoresMax": 1.5,
+    "hostBusyCoresMax": 3.0,
+    "noActiveBuildTools": true,
+    "noDreamsProcess": true,
+    "normalMemoryPressure": 1,
+    "noSwapoutCounterIncrease": true,
+    "power": "AC"
+  }
+}

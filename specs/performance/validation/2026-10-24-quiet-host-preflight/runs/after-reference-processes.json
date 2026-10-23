@@ -1,0 +1,57 @@
+{
+  "beganAt": 446404.378754416,
+  "endedAt": 446414.445245166,
+  "cpuCount": 12,
+  "processes": [
+    {
+      "process": "Codex (Service)",
+      "cpuPercentOfOneCore": 18.78
+    },
+    {
+      "process": "WindowServer",
+      "cpuPercentOfOneCore": 15.99
+    },
+    {
+      "process": "Codex (Renderer)",
+      "cpuPercentOfOneCore": 14.4
+    },
+    {
+      "process": "com.apple.Virtualization.VirtualMachine",
+      "cpuPercentOfOneCore": 8.94
+    },
+    {
+      "process": "screener-mcp",
+      "cpuPercentOfOneCore": 7.85
+    },
+    {
+      "process": "com.apple.DriverKit-AppleBCMWLAN",
+      "cpuPercentOfOneCore": 3.08
+    },
+    {
+      "process": "launchd",
+      "cpuPercentOfOneCore": 2.68
+    },
+    {
+      "process": "Xcode",
+      "cpuPercentOfOneCore": 2.58
+    },
+    {
+      "process": "opencode-cli",
+      "cpuPercentOfOneCore": 2.48
+    },
+    {
+      "process": "Activity Monitor",
+      "cpuPercentOfOneCore": 2.09
+    },
+    {
+      "process": "xray",
+      "cpuPercentOfOneCore": 1.89
+    },
+    {
+      "process": "airportd",
+      "cpuPercentOfOneCore": 1.69
+    }
+  ],
+  "scope": "Post-reference 10-second diagnostic only; cannot attribute earlier reference samples or historical gaps. Names only; no arguments, full executable paths or environments.",
+  "processDeltaLimit": "Processes absent at an endpoint are omitted; this is not full host accounting."
+}

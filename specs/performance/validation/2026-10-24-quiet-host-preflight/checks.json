@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-24 Europe/Moscow",
+  "validationBaseRevision": "a11c624b905a96acce300b57d5ebad0ffe349a8f",
+  "workingTreeScope": "New dated prerequisite evidence and two docs; production runtime/maps/bindings unchanged.",
+  "archiveDigestAndSummaryReproduction": "passed",
+  "rendererLaunchCount": 0,
+  "runtimeChanged": false,
+  "comparisonAcceptance": "not established; both prerequisite attempts failed fixed p95 guard",
+  "tools": {
+    "specpm": "specpm 0.2.0",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "commands": [
+    {
+      "command": "rtk proxy env DREAMS_FSD_TOOLING_DIR=/Users/egor/Development/GitHub/Dreams/.fsd-ios-tooling PYTHONPYCACHEPREFIX=/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/python/bytecode RUFF_CACHE_DIR=/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/python/ruff make lint",
+      "exitCode": 0,
+      "log": "logs/dreams-quiet-preflight-lint.log.gz",
+      "diagnostics": "151 Markdown files; architecture/SwiftLint/Ruff/shell checks pass; existing unused_import analyzer_rules warning."
+    },
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/dreams-quiet-preflight-specs.log.gz",
+      "diagnostics": "HC/SpecPM pass; existing unresolved platform/external capability warnings retained."
+    },
+    {
+      "command": "rtk proxy git diff --cached --check",
+      "exitCode": 0
+    }
+  ],
+  "inputs": [
+    {
+      "path": "research/performance/quiet-host-plan.md",
+      "sha256": "9da8abb529a66ffc05b95baf4c41e3ce992b47026eda0ecb4d8fd509a3f6ceee"
+    },
+    {
+      "path": "specs/specification-progress.md",
+      "sha256": "75846d900be27786cfca5e61d06dec7ef7814f3a183a5eb46f469df6585daa79"
+    },
+    {
+      "path": "specs/performance/validation/2026-10-24-quiet-host-preflight/README.md",
+      "sha256": "eddf392658007271e6725588e093985d8cfbcfbd5e40a304e718064f15ab0146"
+    }
+  ]
+}

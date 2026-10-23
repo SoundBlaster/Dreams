@@ -1,0 +1,33 @@
+{
+  "repositoryRevision": "a11c624b905a96acce300b57d5ebad0ffe349a8f",
+  "date": "2026-10-24 Europe/Moscow; 2026-10-23 UTC",
+  "monitorInput": "inputs/host-monitor.py",
+  "runtimeChanged": false,
+  "rendererLaunchCount": 0,
+  "python": "3.9.6",
+  "os": "macOS-27.0-arm64-arm-64bit",
+  "sdkHeaders": [
+    {
+      "name": "host_info.h",
+      "sha256": "4b0d40d08ea62da23ed80a6cce3f0cc45bd595a81b17c86348a289342983e1b0"
+    },
+    {
+      "name": "machine.h",
+      "sha256": "00d57dcf5a8332ba5a759b447f8305b3ef8bf15a9025c142af04e13c2a5b14f5"
+    }
+  ],
+  "binaryPrecheck": [
+    {
+      "variant": "before",
+      "sourceRevision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+      "sha256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5",
+      "launched": false
+    },
+    {
+      "variant": "after",
+      "sourceRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+      "sha256": "f3c8b629b35bbe1970e3c7ff8949972a370c4cf5bf51ef0c7d06167fa435f9b9",
+      "launched": false
+    }
+  ]
+}

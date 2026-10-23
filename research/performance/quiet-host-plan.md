@@ -1,4 +1,4 @@
-# Quiet-host follow-up — proposed, not yet collected
+# Quiet-host follow-up — renderer comparison still proposed
 
 The [absolute-timeline series](../../specs/performance/validation/2026-10-23-absolute-timeline/README.md)
 preserves valid diagnostic inputs but has no concurrent external-load record.
@@ -68,3 +68,15 @@ cost, or primarily sensitivity to external load. A loaded-host experiment should
 use one explicit reproducible load on both variants and remain a separate dataset.
 No present evidence closes issue #42 or makes PR #54 ready automatically. Physical
 tvOS and multi-display acceptance require their own device/profile checks.
+
+## 2026-10-24 — prerequisite attempt retained
+
+The owner offered a quiet window. [Two one-minute references](../../specs/performance/validation/2026-10-24-quiet-host-preflight/README.md)
+found no active compiler or swap-out increase, but p95 aggregate busy CPU reached
+2.05 and 2.25 cores out of 12, exceeding the prospectively selected 1.5-core guard.
+No application comparison was started and no threshold was relaxed. The guard is
+an operational choice, not proof of harmful load or an accepted hardware budget.
+The observer's own short C/F/C estimate is retained separately (about 0.055 CPU s/s);
+it does not establish zero renderer interference. All source/runtime identities and
+historical results remain intact. A supported environmental-validity runner and
+the definition of comparable ordinary idle conditions remain tooling backlog.

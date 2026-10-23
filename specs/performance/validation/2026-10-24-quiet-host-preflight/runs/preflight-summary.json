@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "referenceCoverage": true,
+    "p95HostBusyAtMost1_5Core": false,
+    "maximumHostBusyAtMost3Core": true,
+    "noActiveBuildTools": true,
+    "noDreamsProcess": true,
+    "pressureNormal": true,
+    "noSwapoutCounterIncrease": true,
+    "AC": true
+  },
+  "pass": false,
+  "hostBusyCores": {
+    "p50": 1.1829573934837092,
+    "p95": 2.050251256281407,
+    "max": 2.9346733668341707
+  },
+  "monitorCPUSecondsPerSecond": {
+    "control1": 7.536620893486661e-05,
+    "monitor": 0.05539248347774995,
+    "control2": 9.565828143373225e-05
+  },
+  "monitorMinusControlsCPUSecondsPerSecond": 0.05530697123256565,
+  "swapoutPagesFirstLast": [
+    5744150,
+    5744150
+  ],
+  "limits": "Monitor own CPU only, not total renderer overhead or scheduler interference. Short reference cannot prove absence of transient competition."
+}
