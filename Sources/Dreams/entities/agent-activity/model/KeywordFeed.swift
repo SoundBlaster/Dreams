@@ -2,15 +2,15 @@ import Foundation
 import CryptoKit
 import Darwin
 
-struct KeywordMessage: Codable, Equatable {
-    enum Activity: String, Codable { case working, idle }
+struct KeywordMessage: Codable, Equatable, Sendable {
+    enum Activity: String, Codable, Sendable { case working, idle }
     let sessionID: String
     let words: [String]
     let color: String
     let updatedAt: Date
     let expiresAt: Date
     var activity: Activity?
-    struct RainEvent: Codable, Equatable {
+    struct RainEvent: Codable, Equatable, Sendable {
         let id: UUID
         let time: Date
         let label: String
@@ -55,14 +55,15 @@ struct KeywordMessage: Codable, Equatable {
 
 /// A bounded, per-user mailbox shared by GUI, MCP publishers and short-lived hooks.
 /// Atomic files prevent partial reads; the nonblocking file lock coordinates processes.
-struct KeywordFeed {
+struct KeywordFeed: Sendable {
     let directory: URL
 
-    init() {
-        if let override = ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"] {
-            directory = URL(fileURLWithPath: override, isDirectory: true)
+    init(directory: URL? = nil) {
+        if let directory { self.directory = directory }
+        else if let override = ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"] {
+            self.directory = URL(fileURLWithPath: override, isDirectory: true)
         } else {
-            directory = FileManager.default.urls(for: .applicationSupportDirectory,
+            self.directory = FileManager.default.urls(for: .applicationSupportDirectory,
                 in: .userDomainMask)[0].appendingPathComponent("Dreams/Keywords", isDirectory: true)
         }
     }

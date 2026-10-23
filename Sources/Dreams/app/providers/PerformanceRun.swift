@@ -101,6 +101,12 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
         renderer.rainBrightnessSpread = scenario.brightnessSpread
         renderer.rainIdleIntensity = 1
         renderer.demoWorkingAgents = 3
+        if feedProbe {
+            renderer.feedReader.onRead = { [weak self] read in
+                guard let self, !self.finishing, let began = self.measurementStarted, read.began >= began else { return }
+                self.recorder.observedFeedRead(read)
+            }
+        }
     }
 
     private func start() {
@@ -167,6 +173,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
         let cpuStopped = calibration == nil ? nil : RainProcessCPU.read()
         view.isPaused = true
         renderer.performanceRecorder = nil
+        renderer.feedReader.onRead = nil
         let deadline = CACurrentMediaTime() + 3
         while (recorder.pendingCallbacks > 0 || (calibration?.pendingCallbacks ?? 0) > 0) && CACurrentMediaTime() < deadline {
             try? await Task.sleep(for: .milliseconds(20))
@@ -183,7 +190,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
                 && !samples.contains(where: { $0.gpuFailed }) && occludedFrames == 0 && !userClosed
                 && stopped - (measurementStarted ?? stopped) >= scenario.measureSeconds * 0.9
             let report = PerformanceReport(schemaVersion: feedProbe ? 3 : calibration == nil ? 1 : 2,
-                feedProbe: feedProbe,
+                feedProbe: feedProbe, feedReadMode: feedProbe ? "shared-background" : nil,
+                feedReads: feedProbe ? recorder.feedReads : nil,
                 clock: "real elapsed time; deterministic default simulation seed 0xD2EA5EED; "
                     + (feedProbe ? "isolated synthetic feed; " : "empty isolated feed; ") + "forced steady activity",
                 scenario: scenario, fixtureSHA256: fixtureHash,
@@ -215,6 +223,8 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
 private struct PerformanceReport: Encodable {
     let schemaVersion: Int
     let feedProbe: Bool
+    let feedReadMode: String?
+    let feedReads: [RainFeedRefresh]?
     let profile = "macOS-windowed-production-renderer"
     let configuration = "Release"
     let clock: String

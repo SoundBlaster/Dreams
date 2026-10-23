@@ -24,14 +24,7 @@ final class RainFrameMeasurement {
 }
 
 /// Snapshot API timing and event identities, not filesystem syscall counts.
-struct RainFeedRefresh: Codable, Sendable {
-    let began: Double
-    let ended: Double
-    let succeeded: Bool
-    let onMainThread: Bool
-    let messageCount: Int
-    let eventIDs: [UUID]
-}
+typealias RainFeedRefresh = KeywordFeedRead
 
 struct RainPerformanceSample: Codable, Sendable {
     let id: Int
@@ -84,6 +77,7 @@ final class RainPerformanceRecorder {
     private(set) var samples: [RainPerformanceSample] = []
     private(set) var overflow = 0
     private(set) var unavailableDrawable = 0
+    private(set) var feedReads: [RainFeedRefresh] = []
     let limit: Int
     let observeFeed: Bool
 
@@ -94,6 +88,12 @@ final class RainPerformanceRecorder {
     }
 
     func missedDrawable() { unavailableDrawable += 1 }
+
+    func observedFeedRead(_ read: RainFeedRefresh) {
+        guard observeFeed else { return }
+        guard feedReads.count < limit else { overflow += 1; return }
+        feedReads.append(read)
+    }
 
     func append(_ frame: RainFrameMeasurement) -> Int? {
         guard samples.count < limit else { overflow += 1; return nil }

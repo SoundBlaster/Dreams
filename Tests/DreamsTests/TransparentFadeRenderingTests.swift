@@ -10,11 +10,15 @@ struct TransparentFadeRenderingTests {
     @Test(arguments: [true, false], [true, false])
     func dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored: Bool, keyword: Bool) async throws {
         _ = try #require(ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"])
-        let feed = KeywordFeed()
+        let directory = FileManager.default.temporaryDirectory.appendingPathComponent("alpha-fixture-\(UUID())")
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let feed = KeywordFeed(directory: directory)
+        let reader = KeywordFeedReader(feed: feed)
         let session = "alpha-fade-\(UUID())"
         if keyword { try feed.publish(sessionID: session, words: ["MATRIX"], eventLabel: "MMMM") }
         defer { if keyword { try? feed.clear(sessionID: session) } }
-        let renderer = try RainRenderer(view: MTKView(), restoredGlyphs: true, transparentBackground: true)
+        let renderer = try RainRenderer(view: MTKView(), restoredGlyphs: true, transparentBackground: true, feedReader: reader)
         try renderer.setRestoredGlyphs(restored)
         renderer.rainIdleIntensity = 1
         renderer.rainColumnCount = 48

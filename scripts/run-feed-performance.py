@@ -129,6 +129,7 @@ def main():
     parser.add_argument("--trace", type=Path, default=ROOT / "research/performance/feed-trace.json")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--runs", type=int, default=5)
+    parser.add_argument("--revision", help="explicit runtime source identity when replaying a preserved binary")
     parser.add_argument("--smoke", action="store_true", help="1s warmup + 12s, two events; not baseline")
     args = parser.parse_args()
     if not 1 <= args.runs <= 10:
@@ -145,12 +146,13 @@ def main():
     trace_path = args.output / "trace.json"
     trace_path.write_text(json.dumps(trace, indent=2, ensure_ascii=False) + "\n")
     common = load_module("performance", "run-performance.py")
-    revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    runner_revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    revision = args.revision or runner_revision
     resources = args.binary.parent.parent / "Resources/Dreams_Dreams.bundle"
     if (resources / "Contents/Resources").is_dir():
         resources = resources / "Contents/Resources"
     manifest = {"schemaVersion": 3, "runKind": "smoke" if args.smoke else "feed-baseline",
-                "revision": revision, "binarySHA256": common.digest(args.binary),
+                "revision": revision, "runnerRevision": runner_revision, "binarySHA256": common.digest(args.binary),
                 "workingTreeStatus": subprocess.check_output(["git", "status", "--porcelain"], cwd=ROOT, text=True),
                 "fixtureSHA256": common.digest(fixture), "traceSHA256": common.digest(trace_path),
                 "resourceSHA256": {n: common.digest(resources / n) for n in ["Rain.metal", "DreamsMatrix.ttf", "Matrix-Code.ttf"]},
