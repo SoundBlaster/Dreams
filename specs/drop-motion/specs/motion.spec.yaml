@@ -152,7 +152,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
+    revision: 864b3b77c5589e5c6d7b563696cf1aee84289859
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
@@ -160,11 +160,11 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
     - evidence/2026-10-14-native-host/source/scripts/test-matrix.swift

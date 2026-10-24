@@ -1022,3 +1022,7 @@ physical install/launch.
 ## 2026-10-25 — pr62 combined-stack integration
 
 [Integration scope and identities](integration/2026-10-25/pr62/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.
+
+## 2026-10-25 — pr63 combined-stack integration
+
+[Integration scope and identities](integration/2026-10-25/pr63/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.

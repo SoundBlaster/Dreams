@@ -127,7 +127,7 @@ evidence:
   - constraints
 - id: source
   kind: source
-  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+  path: evidence/2026-10-25-pr63-integration/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
   supports:
   - constraints
 - id: tests
@@ -178,7 +178,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
+    revision: 864b3b77c5589e5c6d7b563696cf1aee84289859
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -186,17 +186,17 @@ implementationBindings:
     - evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsScenarioTests.swift
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
-    - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift

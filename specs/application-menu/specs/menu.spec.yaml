@@ -71,17 +71,17 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
+    revision: 864b3b77c5589e5c6d7b563696cf1aee84289859
   files:
     owned:
     - evidence/2026-10-24/source/Sources/Dreams/app/providers/ApplicationMenus.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/app/providers/DreamsDelegate.swift
     - evidence/2026-10-24/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift
     - evidence/2026-10-24/source/scripts/Info.plist.in
     border:
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift
