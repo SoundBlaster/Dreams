@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.rain.fps
   title: OptionalFrameCadenceReadout
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Let viewers inspect rain cadence without an external debugger.
@@ -56,11 +56,16 @@ constraints:
   statement: Measure timestamp intervals independently for each renderer. macOS uses successful drawable presentation timestamps; tvOS uses successful command-buffer GPU completion timestamps because the TV SDK does not expose drawable presentation callbacks. Do not substitute CPU draw-call frequency. Round intervals per elapsed second to an integer and update only after a window of at least one second. Reject zero, non-finite and non-increasing timestamps. No number is shown until a full window is available.
 - id: lifetime
   level: MUST
-  statement: Reset the sampling window when toggling or resuming the TV renderer or settings preview. Reject callbacks from earlier generations. Keep state synchronized across Metal callback threads and the main renderer. A disabled readout is absent immediately; retained atlas resources can be reused on re-enable.
+  statement: Reset the sampling window when toggling or resuming the TV renderer or settings preview. Reject callbacks from earlier generations. Requested paused TV stills exclude FPS callbacks and readout. Keep state synchronized across Metal callback threads and the main renderer. A disabled readout is absent immediately; retained atlas resources can be reused on re-enable.
 - id: appearance
   level: MUST
   statement: Use unmirrored DreamsMatrix-Regular digits with fixed spacing and a fixed right edge. Draw pale ink with a dark offset shadow through the existing Metal pass, without rain pulse, mutation, random brightness or glow. Preserve rain scale; anchor to actual drawable size even in a cropped settings preview, below its playback button. The offline PNG path does not add a live counter.
 evidence:
+- id: paused_tv_validation
+  kind: test
+  path: validation/2026-10-24-paused-preview.md
+  supports:
+  - constraints.lifetime
 - id: validation
   kind: test
   path: validation/2026-10-24/README.md
@@ -78,13 +83,13 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 58bb3bd8628392fd9b26dd6d0127066a99cb2c24
+    revision: 734bb95772389f91f66cec07bb2ab11647d90d57
   files:
     owned:
     - evidence/2026-10-24/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
     - evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift
     - evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-10-24/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-24/source/Tests/DreamsTests/PresentedFPSTests.swift
-    - evidence/2026-10-24/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Tests/RainParityTests.swift
     border: []

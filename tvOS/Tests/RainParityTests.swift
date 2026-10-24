@@ -35,6 +35,39 @@ final class RainParityTests: XCTestCase {
         XCTAssertEqual(RainSettings(defaults: defaults).tuning, RainTuning())
     }
 
+    func testA8GlowDefaultPreservesAnExplicitPreferenceAndResetUsesHardwareDefault() throws {
+        let name = "DreamsTVHardwareTests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: name))
+        defer { defaults.removePersistentDomain(forName: name) }
+        let settings = RainSettings(defaults: defaults, machine: "AppleTV5,3")
+        XCTAssertEqual(settings.tuning.glow, 0)
+        settings.tuning.glow = 1.25
+        XCTAssertEqual(RainSettings(defaults: defaults, machine: "AppleTV5,3").tuning.glow, 1.25)
+        settings.reset()
+        XCTAssertEqual(settings.tuning.glow, 0)
+        XCTAssertEqual(TVHardwareDefaults.glow(machine: "AppleTV6,2"), DreamsPreset.glow)
+        XCTAssertEqual(TVHardwareDefaults.glow(machine: "unknown"), DreamsPreset.glow)
+    }
+
+    func testPausedEditsDoNotAdvanceSimulation() throws {
+        let view = MTKView(frame: CGRect(x: 0, y: 0, width: 640, height: 360))
+        let renderer = try MatrixRenderer(view: view) { XCTFail("renderer failed") }
+        view.isPaused = true
+        renderer.draw(in: view)
+        let time = renderer.clock
+        renderer.tuning.color = RainColor(red: 1, green: 0, blue: 0)
+        renderer.draw(in: view)
+        renderer.tuning.glow = 0
+        renderer.draw(in: view)
+        XCTAssertEqual(renderer.clock, time)
+        renderer.resume()
+        view.isPaused = false
+        renderer.draw(in: view)
+        XCTAssertEqual(renderer.clock, time, "Resume must not include time spent paused")
+        view.isPaused = true
+        view.delegate = nil
+    }
+
     func testBoundsInvalidValuesAndAutomaticGridMatchDesktop() {
         var tuning = RainTuning()
         tuning.columns = 999

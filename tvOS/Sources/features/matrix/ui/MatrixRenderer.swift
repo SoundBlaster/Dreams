@@ -10,6 +10,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     }
 
     var tuning = RainTuning()
+    var permitsDrawing = true
     private let device: MTLDevice
     private let queue: MTLCommandQueue
     private let library: MTLLibrary
@@ -28,7 +29,9 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     private var maskSize = 0.0
     private var driftLimits = SIMD2<Float>.zero
     private var simulation: MatrixSimulation?
-    private var clock = 0.0
+    private let simulationSeed = UInt64.random(in: 1...UInt64.max)
+    private(set) var clock = 0.0
+    private var renderedWallTime: Double?
     private var lastFrame: CFTimeInterval?
     private var failed = false
     private let onFailure: () -> Void
@@ -76,7 +79,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) { maskKey = "" }
 
     func draw(in view: MTKView) {
-        guard !failed, view.drawableSize.width > 0, view.drawableSize.height > 0 else { return }
+        guard permitsDrawing, !failed, view.drawableSize.width > 0, view.drawableSize.height > 0 else { return }
         do {
             try drawFrame(in: view)
         } catch {
@@ -101,13 +104,16 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         }
         if simulation?.columns.count != columns || simulation?.rows != rows {
             simulation = MatrixSimulation(columnCount: columns, rows: rows, glyphCount: atlas.variantCount,
-                                          seed: UInt64.random(in: 1...UInt64.max), density: value.density, fadeRows: value.fade)
-            clock = 0
+                                          seed: simulationSeed, density: value.density, fadeRows: value.fade)
+            // Structural edits need a new grid. A bounded, repeatable sample avoids an empty still.
+            clock = view.isPaused ? min(8, max(2, clock)) : 0
             lastFrame = nil
         }
-        let now = CACurrentMediaTime()
-        clock += min(0.1, max(0, now - (lastFrame ?? now))) * value.speed
-        lastFrame = now
+        // A requested paused frame changes appearance, never the position or animation phase.
+        let now = view.isPaused ? (renderedWallTime ?? CACurrentMediaTime()) : CACurrentMediaTime()
+        renderedWallTime = now
+        if !view.isPaused { clock += min(0.1, max(0, now - (lastFrame ?? now))) * value.speed }
+        lastFrame = view.isPaused ? nil : now
         simulation?.setDensity(value.density)
         simulation?.setFadeRows(value.fade)
         simulation?.setDeceleration(value.deceleration)
@@ -134,7 +140,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         let cells = makeCells(simulation: simulation, tuning: value, wallTime: now)
         encode(cells.halos, texture: atlas.glow, pipeline: glowPipeline, diffuse: true, encoder: encoder)
         encode(cells.cores, texture: atlas.core, pipeline: corePipeline, diffuse: false, encoder: encoder)
-        if value.showsFPS {
+        if value.showsFPS && !view.isPaused {
             if fpsOverlay == nil, let url = Bundle.main.url(forResource: "DreamsMatrix", withExtension: "ttf") {
                 fpsOverlay = try FPSOverlay(device: device, library: library, format: .bgra8Unorm_srgb, fontURL: url)
             }
