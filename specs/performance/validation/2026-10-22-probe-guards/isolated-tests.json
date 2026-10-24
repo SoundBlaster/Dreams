@@ -1,0 +1,37 @@
+[
+  {
+    "filter": "RainPerformanceTests",
+    "exitCode": 0,
+    "log": "dreams-perf-guards-test-01.log"
+  },
+  {
+    "filter": "SearchOccupancyTests",
+    "exitCode": 0,
+    "log": "dreams-perf-guards-test-02.log"
+  },
+  {
+    "filter": "DropHeadRenderingTests",
+    "exitCode": 0,
+    "log": "dreams-perf-guards-test-03.log"
+  },
+  {
+    "filter": "GlyphPulseRenderingTests",
+    "exitCode": 0,
+    "log": "dreams-perf-guards-test-04.log"
+  },
+  {
+    "filter": "TransparentFadeRenderingTests",
+    "exitCode": 0,
+    "log": "dreams-perf-guards-test-05.log"
+  },
+  {
+    "filter": "RainTrailRenderingTests",
+    "exitCode": 0,
+    "log": "dreams-perf-guards-test-06.log"
+  },
+  {
+    "filter": "previewIsAPixelExactScreenCrop",
+    "exitCode": 0,
+    "log": "dreams-perf-guards-test-07.log"
+  }
+]

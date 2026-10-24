@@ -1,0 +1,125 @@
+{
+  "order": "rotated across rounds; one renderer at a time",
+  "runs": [
+    {
+      "round": 1,
+      "scenario": "normal",
+      "directory": "01-normal",
+      "exitCode": 0,
+      "beganUnix": 1792701444.4440699,
+      "endedUnix": 1792701535.2328808
+    },
+    {
+      "round": 1,
+      "scenario": "dense",
+      "directory": "01-dense",
+      "exitCode": 0,
+      "beganUnix": 1792701535.2334888,
+      "endedUnix": 1792701626.291133
+    },
+    {
+      "round": 1,
+      "scenario": "dense-no-glow",
+      "directory": "01-dense-no-glow",
+      "exitCode": 0,
+      "beganUnix": 1792701626.292453,
+      "endedUnix": 1792701717.054891
+    },
+    {
+      "round": 2,
+      "scenario": "dense",
+      "directory": "02-dense",
+      "exitCode": 0,
+      "beganUnix": 1792701717.055634,
+      "endedUnix": 1792701807.993338
+    },
+    {
+      "round": 2,
+      "scenario": "dense-no-glow",
+      "directory": "02-dense-no-glow",
+      "exitCode": 0,
+      "beganUnix": 1792701807.998753,
+      "endedUnix": 1792701899.10792
+    },
+    {
+      "round": 2,
+      "scenario": "normal",
+      "directory": "02-normal",
+      "exitCode": 0,
+      "beganUnix": 1792701899.1089568,
+      "endedUnix": 1792701989.744027
+    },
+    {
+      "round": 3,
+      "scenario": "dense-no-glow",
+      "directory": "03-dense-no-glow",
+      "exitCode": 0,
+      "beganUnix": 1792701989.745267,
+      "endedUnix": 1792702080.4502552
+    },
+    {
+      "round": 3,
+      "scenario": "normal",
+      "directory": "03-normal",
+      "exitCode": 0,
+      "beganUnix": 1792702080.451283,
+      "endedUnix": 1792702171.3444228
+    },
+    {
+      "round": 3,
+      "scenario": "dense",
+      "directory": "03-dense",
+      "exitCode": 0,
+      "beganUnix": 1792702171.3451142,
+      "endedUnix": 1792702262.339755
+    },
+    {
+      "round": 4,
+      "scenario": "normal",
+      "directory": "04-normal",
+      "exitCode": 0,
+      "beganUnix": 1792702262.340567,
+      "endedUnix": 1792702353.504479
+    },
+    {
+      "round": 4,
+      "scenario": "dense",
+      "directory": "04-dense",
+      "exitCode": 0,
+      "beganUnix": 1792702353.505302,
+      "endedUnix": 1792702445.1417742
+    },
+    {
+      "round": 4,
+      "scenario": "dense-no-glow",
+      "directory": "04-dense-no-glow",
+      "exitCode": 0,
+      "beganUnix": 1792702445.1426802,
+      "endedUnix": 1792702535.863611
+    },
+    {
+      "round": 5,
+      "scenario": "dense",
+      "directory": "05-dense",
+      "exitCode": 0,
+      "beganUnix": 1792702535.864604,
+      "endedUnix": 1792702626.893533
+    },
+    {
+      "round": 5,
+      "scenario": "dense-no-glow",
+      "directory": "05-dense-no-glow",
+      "exitCode": 0,
+      "beganUnix": 1792702626.894581,
+      "endedUnix": 1792702717.677439
+    },
+    {
+      "round": 5,
+      "scenario": "normal",
+      "directory": "05-normal",
+      "exitCode": 0,
+      "beganUnix": 1792702717.6781409,
+      "endedUnix": 1792702808.53869
+    }
+  ]
+}

@@ -11,21 +11,26 @@ struct FilmAtlas {
     let core: MTLTexture
     let glow: MTLTexture
     static let width = 512
-    static let height = 256
+    let height: Int
+    let glyphCount: Int
+    var variantCount: Int { glyphCount * 2 }
 
-    init(device: MTLDevice) throws {
-        guard let url = Bundle.main.url(forResource: "DreamsMatrix", withExtension: "ttf") else {
-            throw MatrixRenderError.resource("DreamsMatrix.ttf")
+    init(device: MTLDevice, restored: Bool = true) throws {
+        let resource = restored ? "DreamsMatrix" : "Matrix-Code"
+        guard let url = Bundle.main.url(forResource: resource, withExtension: "ttf") else {
+            throw MatrixRenderError.resource(resource + ".ttf")
         }
         CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
-        let font = CTFontCreateWithName("DreamsMatrix-Regular" as CFString, 26, nil)
-        let characters = CTFontCopyCharacterSet(font)
-        guard FilmGlyphs.scalars.allSatisfy({ CFCharacterSetIsLongCharacterMember(characters, $0.value) }) else {
-            throw MatrixRenderError.missingGlyph
-        }
-        var pixels = [UInt8](repeating: 0, count: Self.width * Self.height)
+        let name = restored ? "DreamsMatrix-Regular" : "Matrix-Code"
+        let font = CTFontCreateWithName(name as CFString, 26, nil)
+        guard CTFontCopyPostScriptName(font) as String == name else { throw MatrixRenderError.missingGlyph }
+        let scalars = FilmGlyphs.scalars(font: font, restored: restored)
+        guard !scalars.isEmpty else { throw MatrixRenderError.missingGlyph }
+        glyphCount = scalars.count
+        height = ((glyphCount + 7) / 8) * 64
+        var pixels = [UInt8](repeating: 0, count: Self.width * height)
         var haze = pixels
-        for (index, scalar) in FilmGlyphs.scalars.enumerated() {
+        for (index, scalar) in scalars.enumerated() {
             let tile = try Self.rasterize(String(scalar), font: font)
             let blurred = Self.blur(tile, sigma: 3)
             let wide = Self.blur(tile, sigma: 6)
@@ -38,8 +43,8 @@ struct FilmAtlas {
                 }
             }
         }
-        core = try Self.texture(device: device, width: Self.width, height: Self.height, pixels: pixels)
-        glow = try Self.texture(device: device, width: Self.width, height: Self.height, pixels: haze)
+        core = try Self.texture(device: device, width: Self.width, height: height, pixels: pixels)
+        glow = try Self.texture(device: device, width: Self.width, height: height, pixels: haze)
     }
 
     static func texture(device: MTLDevice, width: Int, height: Int, pixels: [UInt8]) throws -> MTLTexture {

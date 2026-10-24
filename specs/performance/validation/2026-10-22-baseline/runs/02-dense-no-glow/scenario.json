@@ -1,0 +1,19 @@
+{
+  "name": "dense-no-glow",
+  "warmupSeconds": 30,
+  "measureSeconds": 60,
+  "drawableWidth": 1920,
+  "drawableHeight": 1080,
+  "referenceWidth": 1920,
+  "referenceHeight": 1080,
+  "columns": 160,
+  "density": 1,
+  "searchFraction": 0.1,
+  "glow": 0,
+  "speed": 1,
+  "fadeRows": 1,
+  "pulseStrength": 0.3,
+  "brightnessSpread": 1,
+  "restoredGlyphs": true,
+  "transparent": false
+}

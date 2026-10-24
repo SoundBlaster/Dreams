@@ -16,8 +16,9 @@ HC nesting describes composition, not event order/dataflow. HCS source values
 are repository-relative bindings, not executable imports. The app/editor does
 not load these maps. `mode=standalone` describes a generated editor served
 without the checkpoint API; the default describes the local-server profile.
-No contract establishes behavior on tvOS; its implementation is on separate
-PR #8 and is not imported from unrelated/untracked files into this baseline.
+The original recovery excluded tvOS. Its later [television detail](television.hc) /
+[properties](television.hcs) and [draft contract](../tvos/README.md) now describe
+the tracked foreground rain/clock/settings host on a separate baseline.
 
 Use `make specs-check` with the tools on PATH. If Hypercode is available only
 as a built checkout binary, provide `HYPERCODE=/absolute/path/to/hypercode`.
@@ -57,3 +58,12 @@ The drop-motion detail now includes HeadAppearance, with [current head validatio
 Other shader/atlas rendering and physical desktop compositing remain unexplored.
 
 [Glyph pulse](glyph-pulse.hc) / [profiles](glyph-pulse.hcs) recover macOS whole-glyph exposure, independent real-time phases and shared strength tuning. Validate default, `pulse=off` and `background=transparent`; tvOS adoption remains excluded.
+
+The television detail covers shared motion/search/pulse adoption and native remote
+settings. Validate default and `clock=hidden`. Desktop contracts continue to exclude
+TV; a shared source does not transfer macOS execution evidence or acceptance.
+
+The [performance probe](performance.hc) / [properties](performance.hcs) describes
+opt-in bounded developer measurements separately from ordinary overlay/settings
+lifecycle. [Draft contract](../performance/README.md) and current evidence disclose
+hardware/profile limits; instrumentation does not establish optimization gains.

@@ -25,8 +25,13 @@ SettingsPage:
   detail_status: "flagged-native-host-recovered; full-interactive-parity-unaccepted"
 TelevisionApplication:
   source: "tvOS/Sources/app/entrypoint/DreamsTVApp.swift"
-  detail_status: "foreground-clock-application-contract-unexplored"
+  detail: "television.hc + television.hcs"
+  detail_status: "tvOS-rain-clock-and-settings-descriptive-draft"
 SettingsCatalog:
   source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift"
   detail: "settings-catalog.hc + settings-catalog.hcs"
   assembly: "standalone-app; production links UI library only, not catalog executable"
+PerformanceProbe:
+  source: "Sources/Dreams/app/providers/PerformanceRun.swift"
+  detail: "performance.hc + performance.hcs"
+  scope: "opt-in-bounded-macOS-windowed-probe; no-tvOS-or-fullscreen-acceptance"

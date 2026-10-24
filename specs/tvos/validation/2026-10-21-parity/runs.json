@@ -1,0 +1,26 @@
+{
+  "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+  "sourceRevision": "1857e9288959006c738bc72b9c5e8edc4f3c083c",
+  "runs": [
+    {
+      "command": "make app-tv TV_DERIVED_DATA=/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/xcode/DerivedData",
+      "exitCode": 0,
+      "log": "build.log"
+    },
+    {
+      "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/xcode/DerivedData TV_TEST_OPTIONS=\"-parallel-testing-enabled NO\"",
+      "exitCode": 0,
+      "log": "tests.log"
+    },
+    {
+      "command": "make lint (RUFF_CACHE_DIR and PYTHONPYCACHEPREFIX on verified TB5)",
+      "exitCode": 0,
+      "log": "lint.log"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "structure.log"
+    }
+  ]
+}

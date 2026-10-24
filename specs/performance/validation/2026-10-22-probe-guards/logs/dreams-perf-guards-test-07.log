@@ -1,0 +1,15 @@
+Building for production...
+[Computing dependencies]
+Build complete! (0.40 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 0, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 0, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􁁛  Test previewIsAPixelExactScreenCrop(columns:scale:) with 4 test cases passed after 0.667 seconds.
+􁁛  Suite NativeSettingsTests passed after 0.667 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.667 seconds.

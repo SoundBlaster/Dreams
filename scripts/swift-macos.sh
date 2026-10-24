@@ -4,6 +4,12 @@
 set -euo pipefail
 dreams_command="${1:?Usage: swift-macos.sh build|test [SwiftPM options]}"
 shift
+if [[ -n "${DREAMS_SWIFT_SCRATCH_PATH:-}" ]]; then
+  set -- --scratch-path "$DREAMS_SWIFT_SCRATCH_PATH" "$@"
+fi
+if [[ -n "${DREAMS_SWIFT_CACHE_PATH:-}" ]]; then
+  set -- --cache-path "$DREAMS_SWIFT_CACHE_PATH" "$@"
+fi
 [[ "$dreams_command" == build || "$dreams_command" == test ]] || exit 2
 
 # Wrappers such as make app and the trace runner retain checkout-specific build paths.

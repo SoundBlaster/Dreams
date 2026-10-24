@@ -1,0 +1,25 @@
+[
+  {
+    "command": [
+      "make",
+      "app"
+    ],
+    "exitCode": 0,
+    "runtimeRevision": "210e6f1",
+    "profile": "macOS Release; isolated feed"
+  },
+  {
+    "command": [
+      "zsh",
+      "scripts/swift-macos.sh",
+      "test",
+      "-c",
+      "release",
+      "--filter",
+      "NativeSettingsTests"
+    ],
+    "exitCode": 0,
+    "runtimeRevision": "210e6f1",
+    "profile": "macOS Release; isolated feed"
+  }
+]

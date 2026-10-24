@@ -1,4 +1,4 @@
-# Current runtime: 4973f2576232fab2c33398e6c49ce461cd5ad95d; validation/2026-10-15-materials/README.md
+# Current runtime: 6cc029cc0f7755365e97f6a405b44163bc2ece87; validation/2026-10-22-performance/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
@@ -94,7 +94,7 @@ evidence:
   - constraints.independent_motion
 - id: integration
   kind: source
-  path: evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+  path: evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
   supports:
   - constraints.parent_assembly
 - id: native_settings
@@ -104,7 +104,7 @@ evidence:
   - constraints.parent_assembly
 - id: current_validation
   kind: test
-  path: validation/2026-10-15-materials/README.md
+  path: validation/2026-10-22-performance/README.md
   supports:
   - constraints
 provenance:
@@ -125,24 +125,25 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 96bda65c685ca4759e93e7fde95056b97fc237f9
+    revision: b541faf740c47658273e1b588829f1e17e645d3d
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-24-native-default/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-24-native-default/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-24-native-default/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
     - evidence/2026-10-14-native-host/source/scripts/test-matrix.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/SettingsPageTests.swift
+    - evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsPageTests.swift
     border:
+    - evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift

@@ -1,0 +1,109 @@
+Building for production...
+[Computing dependencies]
+[1 / 33]
+[5 / 25] SystemPackage
+[11 / 28] DreamsSettingsUI
+[13 / 29] DreamsSettingsUI
+[17 / 30] EventSource
+[21 / 31] Logging
+[26 / 33] SystemPackage
+[32 / 38] MCP
+[34 / 39] MCP
+[42 / 48] Dreams
+[45 / 50] Dreams
+[48 / 50] Dreams-product
+[50 / 55] Dreams-product
+[51 / 55] Dreams-product
+[56 / 66] DreamsTests-product
+[58 / 67] DreamsTests-product
+[61 / 65] DreamsTests-product
+[63 / 65] DreamsTests-product
+Build complete! (38.93 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀙟  Suite RainTrailRenderingTests skipped.
+􀟈  Suite NativeSettingsTests started.
+􀟈  Suite TransparentFadeRenderingTests started.
+􀙟  Test captureTrailMotion() skipped.
+􀟈  Test previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Suite RainPerformanceTests started.
+􀟈  Suite DropHeadRenderingTests started.
+􀟈  Test case passing 2 arguments columns → 0, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test percentilesUseNearestRankAndPreserveMissingData() started.
+􀟈  Suite SearchOccupancyTests started.
+􀟈  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() started.
+􀟈  Test searchesDoNotChangeMotionBrightnessOrLifetime() started.
+􀟈  Test allScenarioFixturesAreBoundedAndFullySpecified() started.
+􀟈  Test expiryAndHidingCancelSearchesWithoutResurrection() started.
+􀟈  Test case passing 2 arguments restored → true, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test multipleConcurrentSearchesRemainFrameIndependent() started.
+􀟈  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() started.
+􀟈  Test invalidFractionsCannotExceedTheWholePopulation() started.
+􀟈  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test droppedPresentationIsNotAZeroDurationFrame() started.
+􀟈  Suite GlyphPulseRenderingTests started.
+􀟈  Test case passing 2 arguments transparent → false, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test rejectsInvalidBoundsAndMissingRequiredInputs() started.
+􁁛  Test percentilesUseNearestRankAndPreserveMissingData() passed after 0.001 seconds.
+􀟈  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() started.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.1, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.01, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 0.5, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 1 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 2 arguments fraction → 1.0, columnCount → 9 to fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) started.
+􀟈  Test case passing 1 argument transparent → false to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􁁛  Test invalidFractionsCannotExceedTheWholePopulation() passed after 0.003 seconds.
+􁁛  Test loweringTheQuotaStopsExcessSearchesWithoutRewritingInk() passed after 0.004 seconds.
+􁁛  Test expiryAndHidingCancelSearchesWithoutResurrection() passed after 0.003 seconds.
+􁁛  Test rejectsInvalidBoundsAndMissingRequiredInputs() passed after 0.003 seconds.
+􁁛  Test allScenarioFixturesAreBoundedAndFullySpecified() passed after 0.005 seconds.
+􁁛  Test pendingTrialsSurviveQuotaChangesAndRetriggerWithoutStaleSearches() passed after 0.008 seconds.
+􁁛  Test multipleConcurrentSearchesRemainFrameIndependent() passed after 0.009 seconds.
+􁁛  Test fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction:columnCount:) with 10 test cases passed after 0.030 seconds.
+􁁛  Test searchesDoNotChangeMotionBrightnessOrLifetime() passed after 0.039 seconds.
+􁁛  Suite SearchOccupancyTests passed after 0.039 seconds.
+􁁛  Test droppedPresentationIsNotAZeroDurationFrame() passed after 0.242 seconds.
+􁁛  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() passed after 0.242 seconds.
+􁁛  Suite RainPerformanceTests passed after 0.242 seconds.
+􀢄  Test previewIsAPixelExactScreenCrop(columns:scale:) recorded an issue with 2 arguments columns → 0, scale → 1 at NativePreviewTests.swift:72:9: Expectation failed: differentRows == 0
+􀄵  Preview must crop the screen-sized viewport without shrinking glyphs
+􀄵  differentRows == 0 → false
+􀄵    differentRows → 192
+􀟈  Test case passing 2 arguments columns → 0, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments transparent → false, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 1 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments restored → true, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􀟈  Test case passing 2 arguments transparent → true, braking → false to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 2 arguments columns → 80, scale → 2 to previewIsAPixelExactScreenCrop(columns:scale:) started.
+􀟈  Test case passing 2 arguments transparent → true, braking → true to aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) started.
+􀟈  Test case passing 1 argument transparent → true to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􀢄  Test previewIsAPixelExactScreenCrop(columns:scale:) with 4 test cases failed after 1.325 seconds with 1 issue.
+􀢄  Suite NativeSettingsTests failed after 1.325 seconds with 1 issue.
+􀟈  Test case passing 2 arguments restored → false, keyword → true to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􁁛  Test aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:) with 4 test cases passed after 1.372 seconds.
+􀟈  Test aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 1 argument transparent → true to aTrailGapCannotHideTheDrop(transparent:) started.
+􀟈  Test case passing 2 arguments restored → false, keyword → false to dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) started.
+􁁛  Test aTrailGapCannotHideTheDrop(transparent:) with 2 test cases passed after 0.385 seconds.
+􀟈  Test theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􁁛  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) with 2 test cases passed after 1.775 seconds.
+􁁛  Suite GlyphPulseRenderingTests passed after 1.775 seconds.
+􀟈  Test case passing 1 argument transparent → true to theHeadChangesShapeBetweenRowArrivals(transparent:) started.
+􁁛  Test dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:) with 4 test cases passed after 2.044 seconds.
+􁁛  Suite TransparentFadeRenderingTests passed after 2.044 seconds.
+􁁛  Test theHeadChangesShapeBetweenRowArrivals(transparent:) with 2 test cases passed after 0.373 seconds.
+􁁛  Suite DropHeadRenderingTests passed after 2.131 seconds.
+􀢄  Test run with 19 tests in 7 suites failed after 2.131 seconds with 1 issue.
+Note: Some test targets reported failures:
+  - DreamsTests (Swift Testing)

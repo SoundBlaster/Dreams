@@ -1,0 +1,14 @@
+Building for production...
+[Computing dependencies]
+[1 / 11] Dreams
+Build complete! (0.42 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite GlyphPulseRenderingTests started.
+􀟈  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􀟈  Test case passing 1 argument transparent → true to wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) started.
+􁁛  Test wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:) with 2 test cases passed after 0.512 seconds.
+􁁛  Suite GlyphPulseRenderingTests passed after 0.512 seconds.
+􁁛  Test run with 1 test in 1 suite passed after 0.512 seconds.

@@ -1,0 +1,36 @@
+Building for production...
+[Computing dependencies]
+[1 / 33]
+[5 / 25] Logging
+[13 / 29] DreamsSettingsUI
+[17 / 30] EventSource
+[21 / 31] Logging
+[26 / 33] SystemPackage
+[32 / 38] MCP
+[34 / 39] MCP
+[42 / 48] Dreams
+[45 / 50] Dreams
+[50 / 52] Dreams-product
+[52 / 57] Dreams-product
+[53 / 57] Dreams-product
+[58 / 68] DreamsTests-product
+[60 / 69] DreamsTests-product
+[64 / 68] DreamsTests-product
+[66 / 68] DreamsTests-product
+Build complete! (37.78 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite RainPerformanceTests started.
+􀟈  Test allScenarioFixturesAreBoundedAndFullySpecified() started.
+􀟈  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() started.
+􀟈  Test droppedPresentationIsNotAZeroDurationFrame() started.
+􀟈  Test rejectsInvalidBoundsAndMissingRequiredInputs() started.
+􀟈  Test percentilesUseNearestRankAndPreserveMissingData() started.
+􁁛  Test percentilesUseNearestRankAndPreserveMissingData() passed after 0.001 seconds.
+􁁛  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() passed after 0.001 seconds.
+􁁛  Test droppedPresentationIsNotAZeroDurationFrame() passed after 0.001 seconds.
+􁁛  Test allScenarioFixturesAreBoundedAndFullySpecified() passed after 0.001 seconds.
+􁁛  Test rejectsInvalidBoundsAndMissingRequiredInputs() passed after 0.002 seconds.
+􁁛  Suite RainPerformanceTests passed after 0.003 seconds.
+􁁛  Test run with 5 tests in 1 suite passed after 0.003 seconds.

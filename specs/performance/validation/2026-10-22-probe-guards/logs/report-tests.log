@@ -1,0 +1,3 @@
+PASS: missing measurements stay null, invalid runs stay invalid, gzip and raw reports agree
+
+exitCode=0

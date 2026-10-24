@@ -1,0 +1,48 @@
+{
+  "runtimeRevision": "32ebeb5298f66766cca4673b7b4a905da17e425f",
+  "dirtyDocsAndCI": true,
+  "commands": [
+    {
+      "command": "make app with DREAMS_SWIFT_SCRATCH_PATH and DREAMS_SWIFT_CACHE_PATH on TB5",
+      "exitCode": 0,
+      "log": "logs/dreams-perf-guards-build.log"
+    },
+    {
+      "command": "seven isolated swift-macos.sh test -c release filters with DREAMS_TEST_METAL=1",
+      "exitCode": 0,
+      "result": "isolated-tests.json"
+    },
+    {
+      "command": "python3 scripts/test-performance-reports.py",
+      "exitCode": 0,
+      "log": "logs/report-tests.log"
+    },
+    {
+      "command": "make lint with external caches and existing FSD tooling",
+      "exitCode": 0,
+      "log": "logs/final-lint.log"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/final-specs.log"
+    },
+    {
+      "command": "analyze-suite.py runs; cmp reproduced summary.json",
+      "exitCode": 0
+    },
+    {
+      "command": "bounded Release --smoke --runs 1",
+      "exitCode": 0,
+      "result": "smoke/manifest.json"
+    }
+  ],
+  "acceptance": "Descriptive draft; no performance budget or optimization issue acceptance",
+  "remainingUnknowns": [
+    "collector overhead",
+    "allocator/memory/energy",
+    "agent-event latency",
+    "fullscreen/multi-display",
+    "physical tvOS"
+  ]
+}

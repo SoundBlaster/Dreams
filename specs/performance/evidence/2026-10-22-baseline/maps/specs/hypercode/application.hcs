@@ -1,0 +1,36 @@
+Dreams:
+  map_kind: "coarse-capability-composition"
+  evidence_level: "partial-source-recovery-see-coverage"
+DesktopApplication:
+  source: "Sources/Dreams/app/entrypoint/DreamsMain.swift"
+  detail_status: "overlay-recovered-other-UI-unexplored"
+RainOverlaySession:
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift"
+  detail: "overlay-session.hc + overlay-session.hcs"
+AgentIntegrations:
+  source: "plugins/"
+  detail_status: "unexplored"
+GlyphToolchain:
+  source: "scripts/glyphs/"
+GlyphEditor:
+  source: "scripts/glyphs/stroke-editor.js"
+  detail: "glyph-editor.hc + glyph-editor.hcs"
+FontBuild:
+  source: "scripts/glyphs/pipeline.py"
+  detail_status: "unexplored"
+SettingsPage:
+  source: "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
+  assembly: "app/providers/DreamsDelegate injects rain controller"
+  detail: "settings-host.hc + settings-host.hcs"
+  detail_status: "flagged-native-host-recovered; full-interactive-parity-unaccepted"
+TelevisionApplication:
+  source: "tvOS/Sources/app/entrypoint/DreamsTVApp.swift"
+  detail_status: "foreground-clock-application-contract-unexplored"
+SettingsCatalog:
+  source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift"
+  detail: "settings-catalog.hc + settings-catalog.hcs"
+  assembly: "standalone-app; production links UI library only, not catalog executable"
+PerformanceProbe:
+  source: "Sources/Dreams/app/providers/PerformanceRun.swift"
+  detail: "performance.hc + performance.hcs"
+  scope: "opt-in-bounded-macOS-windowed-probe; no-tvOS-or-fullscreen-acceptance"

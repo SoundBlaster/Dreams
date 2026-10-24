@@ -1,0 +1,57 @@
+{
+  "sourceRevision": "c9818b9299c981252c78b2f8e1a7b6fc97b46333",
+  "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+  "commands": [
+    {
+      "command": "make app-tv TV_DERIVED_DATA=<verified TB5 checkout DerivedData>",
+      "exitCode": 0,
+      "log": "build-simulator.log"
+    },
+    {
+      "command": "xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV -configuration Release -destination platform=tvOS,id=<owner paired AppleTV5,3> -derivedDataPath <verified TB5 checkout DerivedData> -clonedSourcePackagesDirPath <verified checkout SourcePackages> -packageCachePath <TB5 swiftpm cache> SYMROOT=<TB5 DerivedData/Build/Products> OBJROOT=<TB5 DerivedData/Build/Intermediates.noindex> DEVELOPMENT_TEAM=<owner team> CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY=Apple Development build",
+      "exitCode": 0,
+      "log": "build-release.log"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "lint.log"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "structure.log"
+    }
+  ],
+  "buildOutputs": "/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/xcode/DerivedData",
+  "toolIdentities": "../2026-10-21-parity/tools.json",
+  "physicalPerformance": {
+    "configuration": "Release",
+    "runtimeBeforeInputChange": "3d2829e24453c6dac5a2c879822e50d7416bd9f8",
+    "device": "AppleTV5,3 / A8",
+    "os": "tvOS 26.6",
+    "ownerReport": "Previously described slowdown no longer observed",
+    "quantitativeTrace": false
+  },
+  "deviceInstall": {
+    "configuration": "Release",
+    "sourceRevision": "c9818b9299c981252c78b2f8e1a7b6fc97b46333",
+    "device": "AppleTV5,3 / A8 / tvOS 26.6",
+    "exitCode": 0,
+    "log": "install.log",
+    "preferences": "Preserved existing app data; no uninstall or reset"
+  },
+  "deviceLaunch": {
+    "exitCode": 1,
+    "log": "launch.log",
+    "reason": "System asleep; foreground launch forbidden"
+  },
+  "ui": {
+    "report": "report.md",
+    "sourceRevision": "c9818b9299c981252c78b2f8e1a7b6fc97b46333",
+    "simulator": "B29EC156-5EF9-4A56-8147-1C98D4E228DB",
+    "physicalDevice": false,
+    "result": "PASS: exact discrete steps, vertical focus, Play/Pause; actual swipes pending",
+    "sessionEnded": true
+  }
+}

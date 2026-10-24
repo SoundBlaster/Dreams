@@ -1,0 +1,29 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.performance
+  name: Dreams performance probe
+  version: 0.1.0-draft.1
+  summary: Bounded opt-in macOS renderer measurements with explicit evidence limits.
+  license: MIT
+  authors:
+  - name: Dreams contributors
+specs:
+- path: specs/measurement.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.performance.measure
+  requires:
+    capabilities:
+    - platform.apple.metal_renderer
+compatibility:
+  platforms:
+  - macos
+  languages:
+  - name: swift
+  - name: python
+foreignArtifacts:
+- format: markdown
+  path: README.md
+  role: documentation

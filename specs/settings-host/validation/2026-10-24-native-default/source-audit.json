@@ -1,0 +1,34 @@
+{
+  "packages": [
+    {
+      "package": "settings-host",
+      "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+      "runtimeRevision": "210e6f19a36fb4ce94e4ce72438bdf070f64d526",
+      "filesChecked": 40,
+      "snapshotsAndGitAndCurrentBytesMatch": true,
+      "refreshedSnapshots": [
+        "Tests/DreamsTests/SettingsScenarioTests.swift",
+        "Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+        "Tests/DreamsTests/NativeSettingsTests.swift",
+        "scripts/swift-macos.sh"
+      ]
+    },
+    {
+      "package": "drop-motion",
+      "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+      "runtimeRevision": "210e6f19a36fb4ce94e4ce72438bdf070f64d526",
+      "filesChecked": 24,
+      "snapshotsAndGitAndCurrentBytesMatch": true,
+      "refreshedSnapshots": [
+        "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+        "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+        "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+        "Tests/DreamsTests/SettingsPageTests.swift",
+        "Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+        "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+        "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift"
+      ]
+    }
+  ],
+  "runtimeUnchangedBetweenBuildAndFinalTestSource": true
+}
