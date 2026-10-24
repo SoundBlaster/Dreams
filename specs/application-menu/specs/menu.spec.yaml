@@ -67,14 +67,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+    revision: 24ac88f2ebdee5d06d27e68742875a3889912d2e
   files:
     owned:
     - evidence/2026-10-24/source/Sources/Dreams/app/providers/ApplicationMenus.swift
     - evidence/2026-10-24/source/Sources/Dreams/app/providers/DreamsDelegate.swift
     - evidence/2026-10-24/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift
     - evidence/2026-10-24/source/scripts/Info.plist.in
     border: []

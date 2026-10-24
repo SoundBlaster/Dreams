@@ -122,7 +122,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+    revision: 24ac88f2ebdee5d06d27e68742875a3889912d2e
   files:
     owned:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift
@@ -138,9 +138,9 @@ implementationBindings:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
-    - evidence/2026-10-21-parity/source/tvOS/Tests/RainParityTests.swift
-    - evidence/2026-10-21-parity/source/tvOS/project.yml
-    - evidence/2026-10-24-main-menu/source/Makefile
+    - evidence/2026-10-25-pr62-integration/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-25-pr62-integration/source/tvOS/project.yml
+    - evidence/2026-10-25-pr62-integration/source/Makefile
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/config/DreamsPreset.swift

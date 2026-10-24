@@ -170,7 +170,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+    revision: 24ac88f2ebdee5d06d27e68742875a3889912d2e
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -187,8 +187,8 @@ implementationBindings:
     - evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-24-main-integration/pr40/source/Tests/DreamsTests/NativeSettingsTests.swift

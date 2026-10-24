@@ -130,7 +130,7 @@ evidence:
   - effects.input_registration
 - id: source_5
   kind: source
-  path: evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
+  path: evidence/2026-10-25-pr62-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
   supports:
   - constraints.local_escape
   - constraints.all_displays
@@ -173,7 +173,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+    revision: 24ac88f2ebdee5d06d27e68742875a3889912d2e
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -182,7 +182,7 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
     - evidence/2026-10-24-main-integration/pr39/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-25-pr62-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-main-menu/source/Sources/Dreams/app/providers/DreamsDelegate.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift

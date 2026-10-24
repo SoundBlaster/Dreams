@@ -1,0 +1,22 @@
+{
+  "runtimeSourceRevision": "24ac88f2ebdee5d06d27e68742875a3889912d2e",
+  "currentBindings": 236,
+  "staleOrMissing": 0,
+  "checks": [
+    {
+      "command": "make specs-check HYPERCODE=<verified local Hypercode>",
+      "exitCode": 0,
+      "logSha256": "2c2eb6f8f5de748868a28d337e58e06ccf1242f6f951b9abe7562edcf03b1c3d"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "logSha256": "70cac6b262514eab2d7d8dc2d9aed71c08df00a94b939bb606ac38880e225613"
+    }
+  ],
+  "status": "local structural checks passed",
+  "limits": [
+    "Pre-existing unresolved platform capability warnings retained.",
+    "Final CI is evaluated separately; no device/performance acceptance inferred."
+  ]
+}
