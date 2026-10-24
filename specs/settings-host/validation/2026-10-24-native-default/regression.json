@@ -1,0 +1,14 @@
+{
+  "command": [
+    "zsh",
+    "scripts/swift-macos.sh",
+    "test",
+    "-c",
+    "release",
+    "--filter",
+    "NativeSettingsTests|SettingsPageTests|GlyphPulseSettingsTests"
+  ],
+  "exitCode": 0,
+  "sourceRevision": "b541faf",
+  "profile": "macOS Release; isolated feed; native and explicit legacy regressions"
+}

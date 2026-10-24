@@ -643,3 +643,27 @@ are pinned to runtime `6cc029c`. The later `32ebeb5` probe guards have separate
 build/test/smoke evidence; the hardware baseline is not relabeled for that source.
 Uncalibrated instrumentation overhead and interactive-host variance prevent a
 small-gain acceptance threshold. No optimization issue is closed by these data.
+
+## 2026-10-24 — native settings default rollout
+
+The owner explicitly requested native settings by default, superseding the earlier
+opt-in rollout requirement. Runtime `210e6f1` changes only NativeSettingsFeature:
+ordinary launch selects native, --native-settings remains a compatible alias and
+--legacy-settings wins in either argument order. Legacy-only regression fixtures
+explicitly select their retained route at `b541faf`; shared controller, preferences,
+renderer and overlay algorithms are unchanged. The installed app opens the native
+window without either flag; existing application preference values were preserved.
+
+Host draft.21 and SettingsHost.FeatureFlag retain role/claim identities. The historical
+default_off claim ID is deliberately versioned with the new owner-authorized routing
+requirement, preserving earlier evidence rather than relabeling it. Native controls,
+one_settings_owner, explicit_legacy_access, lifetime and parent overlay-exit obligations
+remain in force. [Dated source/test/install evidence](settings-host/validation/2026-10-24-native-default/README.md)
+separates default routing from full accessibility, compositor and performance acceptance.
+
+Source identities also refresh legacy test fixtures for dreams.rain.drop_motion,
+search_occupancy and glyph_pulse without changing their requirements or maps.
+The audit found pre-existing snapshot drift in the build helper and several shared
+settings dependencies; current bytes are now pinned, with no historical test pass
+promoted to this source. Physical tvOS, capture/display routing and agent integrations
+remain outside this change. Local installation is ad-hoc signed, not a release.
