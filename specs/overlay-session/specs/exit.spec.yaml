@@ -130,7 +130,7 @@ evidence:
   - effects.input_registration
 - id: source_5
   kind: source
-  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+  path: evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
   supports:
   - constraints.local_escape
   - constraints.all_displays

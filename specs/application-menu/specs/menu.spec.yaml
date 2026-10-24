@@ -82,6 +82,6 @@ implementationBindings:
     - evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift
     - evidence/2026-10-24/source/scripts/Info.plist.in
     border:
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift

@@ -97,3 +97,6 @@ process lease and repeat-launch settings handoff. Validate default,
 `mode=publisher` and `mode=controller`; independent publishing is not a second
 desktop owner. Native reopen delivery and UI observations remain separate from
 structural validation.
+
+The [FPS readout](fps.hc) / [profiles](fps.hcs) recover the opt-in digit overlay
+and its platform-specific timestamp semantics; [contract](../fps/README.md).

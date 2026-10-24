@@ -1,0 +1,17 @@
+{
+  "sourceRevision": "734bb95772389f91f66cec07bb2ab11647d90d57",
+  "files": [
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "3675ab09be5165dbdfd6938074377001e0ed2eee4374d912f05ae3e5de9b8703",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Tests/RainParityTests.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Tests/RainParityTests.swift",
+      "sha256": "b55607ea92818d6c8b1d4ddb4ec3d8195e2aefeae3c290fe7e273b65101e2390",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

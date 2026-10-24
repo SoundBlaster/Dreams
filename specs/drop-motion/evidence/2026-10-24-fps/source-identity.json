@@ -1,0 +1,30 @@
+{
+  "sourceRevision": "58bb3bd8628392fd9b26dd6d0127066a99cb2c24",
+  "note": "Runtime source is committed; Makefile specification-check additions, when included, are pinned by full-file hash.",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "8b859556759f7c53c87b5a6a74efdd472a902bf7b91cae41493ab8253fb521d3",
+      "snapshot": "evidence/2026-10-24-fps/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "a10f9706c30c5d24dbb0bbbc8e1867d92723038ebb40758715ef6cc96426f4c4",
+      "snapshot": "evidence/2026-10-24-fps/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "5085e0b636be7cb98cf17776852864673584c8d32e79b01dc4b4f94cf1a9b8cb",
+      "snapshot": "evidence/2026-10-24-fps/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "f4b5ad4b16124fca18f1330e39f341bfc6ea2a2ed1bd6616c3c591e21ddfef4f",
+      "snapshot": "evidence/2026-10-24-fps/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

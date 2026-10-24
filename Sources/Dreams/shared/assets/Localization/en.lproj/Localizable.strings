@@ -219,3 +219,6 @@
 
 "menubar.show" = "Show icon in menu bar";
 "menubar.tip" = "You can still open settings from Dreams > Settings… or the Dock.";
+
+"debug.fps" = "Show FPS";
+"debug.fps.tip" = "Presented frames per second, updated once a second.";

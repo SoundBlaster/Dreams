@@ -1004,3 +1004,43 @@ and exit claims retain their algorithms/obligations; old evidence remains
 historical. tvOS, glyph tooling and renderer algorithms are unchanged.
 [Checks and limits](application-menu/validation/2026-10-24-single-instance/README.md) distinguish
 unit/source, concurrent process admission, MCP publishers and native UI motion.
+
+## Optional FPS readout — 2026-10-24
+
+`dreams.rain.fps` adds independent opt-in diagnostics to macOS and tvOS.
+Affected parent claims: `dreams.settings.host` settings binding/preview lifecycle
+and new `constraints.fps`; `dreams.tv.rain` lifecycle/platform boundary and new
+`constraints.fps`. Existing motion/search/pulse and performance-probe claims keep
+their semantics: this readout does not change their algorithms or acceptance.
+[Contract](fps/README.md), [validation](fps/validation/2026-10-24/README.md).
+TV GPU completion and macOS presentation are distinct; physical-device cadence
+and overhead measurements remain outstanding. Historical evidence is preserved.
+
+## TV paused preview and A8 default — 2026-10-24
+
+Affected claims: `dreams.tv.rain` constraints.lifecycle/settings/platform_boundary,
+new constraints.paused_preview and constraints.a8_glow_default; `dreams.rain.fps`
+constraints.lifetime excludes manual paused frames. Stable roles and existing
+motion/search/pulse contracts remain unchanged. [Dated evidence](tvos/validation/2026-10-24-paused-preview/README.md).
+The owner's A8 observation isolates Glow as a substantial cost; it does not
+establish GPU versus CPU attribution or a guaranteed frame rate. Measured
+comparison and a cheaper glow implementation remain backlog.
+
+## FPS inside rain cells — 2026-10-24
+
+Owner clarification replaces pixel-positioned overlay geometry with reserved
+rain cells on macOS and tvOS. `dreams.rain.fps` constraints.appearance and parent
+renderer assembly change; cadence/opt-in/lifetime semantics remain unchanged.
+[Current validation](fps/validation/2026-10-24-grid/README.md). Historical screenshots
+of the separate overlay do not establish the new grid placement. Paused-preview
+UI interaction could not be verified by the bounded simulator attempt; only a
+running rain frame was observed, distinct from the passing TV unit tests and
+physical install/launch.
+
+## 2026-10-25 — pr62 combined-stack integration
+
+[Integration scope and identities](integration/2026-10-25/pr62/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.
+
+## 2026-10-25 — pr63 combined-stack integration
+
+[Integration scope and identities](integration/2026-10-25/pr63/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.

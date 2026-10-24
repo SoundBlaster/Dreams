@@ -1,0 +1,4 @@
+FPSReadout
+  Preferences
+  Sampling
+  DigitOverlay

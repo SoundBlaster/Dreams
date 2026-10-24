@@ -111,6 +111,9 @@ constraints:
 - id: preview_playback
   level: MUST
   statement: Preview has a local pause/play control and native failure/Retry state. Reduce Motion initially pauses animation and enabling it pauses playback; disabling it never auto-resumes, while explicit Play is allowed.
+- id: fps
+  level: MUST
+  statement: Advanced exposes a localized FPS toggle with identifier dreams.show-fps and a cadence explanation. The production controller owns persistence and updates live overlays and the independent settings preview. Reset disables the toggle. The readout uses dreams.rain.fps presentation timestamps and actual drawable coordinates beneath the preview playback control.
 effects:
   sideEffects:
   - id: saved_settings
@@ -132,7 +135,7 @@ evidence:
   - constraints
 - id: source
   kind: source
-  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+  path: evidence/2026-10-25-pr63-integration/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
   supports:
   - constraints
 - id: tests
@@ -191,17 +194,17 @@ implementationBindings:
     - evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsScenarioTests.swift
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
-    - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift
@@ -229,7 +232,7 @@ implementationBindings:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
     - evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
-    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
     - evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
     - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift

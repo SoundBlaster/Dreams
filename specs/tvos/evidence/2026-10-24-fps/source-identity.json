@@ -1,0 +1,54 @@
+{
+  "sourceRevision": "58bb3bd8628392fd9b26dd6d0127066a99cb2c24",
+  "note": "Runtime source is committed; Makefile specification-check additions, when included, are pinned by full-file hash.",
+  "files": [
+    {
+      "path": "tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "sha256": "b2a52988a274b31c49f4dc02ff450549c8636a931d28d9c71de829c833337464",
+      "snapshot": "evidence/2026-10-24-fps/source/tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "c2603d5d974bd80bc8c8908621e227f8a1ad17125a1e81ac22c40921e1d71c66",
+      "snapshot": "evidence/2026-10-24-fps/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "sha256": "9c2a58f5f68a15dad29f3cfb891d6489b4cb3383c80c03db6c4ac0974bd1851f",
+      "snapshot": "evidence/2026-10-24-fps/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "sha256": "26a7015e371b82facc9d0812d5cd3560f6028ee4ca286a3a1d8c2ef5cd3f26de",
+      "snapshot": "evidence/2026-10-24-fps/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "sha256": "13614b19d8f813682ac92dd056b14d6a0eca8ecf51c3ee2434a5f01a57324604",
+      "snapshot": "evidence/2026-10-24-fps/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Tests/RainParityTests.swift",
+      "sha256": "571b5e0c17aa061c2c73e14f5f13fca084d3ff7d68d3bf0eae5dba20b85296c3",
+      "snapshot": "evidence/2026-10-24-fps/source/tvOS/Tests/RainParityTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/project.yml",
+      "sha256": "cd69f5f6af10f631d0a67e7955993d090d5a8fbd7b63cd3f16171325637f13bf",
+      "snapshot": "evidence/2026-10-24-fps/source/tvOS/project.yml",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Makefile",
+      "sha256": "63fa839d9e7b8a20917c10132223b9cced96a7c4834a4adfe17f876c628bfe01",
+      "snapshot": "evidence/2026-10-24-fps/source/Makefile",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

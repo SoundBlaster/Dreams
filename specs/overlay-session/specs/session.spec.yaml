@@ -122,7 +122,7 @@ effects:
 evidence:
 - id: source_1
   kind: source
-  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+  path: evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
   supports:
   - interfaces
   - constraints
@@ -181,7 +181,7 @@ implementationBindings:
     revision: a0cd20994743c20f941414be99b407d9b00cd11c
   files:
     owned:
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift

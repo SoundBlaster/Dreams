@@ -1,0 +1,11 @@
+{
+  "sourceRevision": "abc78f11d722f3086ff656c8c63d631b9cfb6547",
+  "files": [
+    {
+      "path": "tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "snapshot": "evidence/2026-10-24-safe-identifier/source/tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "sha256": "7d9c67c0a3707e41a2f9b39f61427c7879cf04703d27e426975190e1be01bd79",
+      "snapshotKind": "full-file"
+    }
+  ]
+}
