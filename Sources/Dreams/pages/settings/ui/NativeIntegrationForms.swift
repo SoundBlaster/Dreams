@@ -81,7 +81,7 @@ struct NativeDisplaysForm: View {
 }
 
 struct NativeAdvancedForm: View {
-    let model: NativeSettingsModel
+    @Bindable var model: NativeSettingsModel
     @State private var confirmingReset = false
 
     var body: some View {
@@ -92,6 +92,11 @@ struct NativeAdvancedForm: View {
                 Text(settingsString("native.legacyHint")).foregroundStyle(.secondary)
             }
             Section(settingsString("debug.menu")) {
+                Toggle(isOn: $model.showsFPS) {
+                    SettingsRowLabel(settingsString("debug.fps"), systemImage: "speedometer")
+                }
+                .accessibilityIdentifier("dreams.show-fps")
+                .help(settingsString("debug.fps.tip"))
                 Button(settingsString("debug.fixtures")) { model.showFixtures() }
                     .accessibilityIdentifier("dreams.event-fixtures")
                     .help(settingsString("debug.fixtures.tip"))

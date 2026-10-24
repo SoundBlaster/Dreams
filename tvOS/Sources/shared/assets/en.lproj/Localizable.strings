@@ -39,3 +39,9 @@
 "settings.reset" = "Restore defaults";
 "settings.reset.confirm" = "Restore all rain and clock settings?";
 "settings.cancel" = "Cancel";
+
+"settings.advanced" = "Advanced";
+"settings.fps" = "Show FPS";
+"settings.fps.hint" = "GPU-completed frames per second, updated once a second.";
+
+"settings.preview.hint" = "Live preview animates the rain. When off, changing a setting updates a still frame.";

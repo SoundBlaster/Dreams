@@ -8,6 +8,10 @@ final class RainRenderer: NSObject {
     private let library: any MTLLibrary
     private let transparentBackground: Bool
     private var colorPixelFormat: MTLPixelFormat { transparentBackground ? .bgra8Unorm : .bgra8Unorm_srgb }
+    private let fps = PresentedFPS()
+    private var fpsOverlay: FPSOverlay?
+    var showsFPS = false { didSet { if showsFPS != oldValue { fps.reset() } } }
+    func resetFPS() { fps.reset() }
     var rainColumnCount = DreamsPreset.columnCount
     var rainDensity = DreamsPreset.density
     var rainFadeRows = DreamsPreset.fadeRows
@@ -135,13 +139,26 @@ extension RainRenderer: @MainActor MTKViewDelegate {
         // A screen-sized viewport is clipped by the preview drawable, preserving physical glyph size.
         let size = referenceSize ?? view.drawableSize
         encoder.setViewport(MTLViewport(originX: 0, originY: 0, width: size.width, height: size.height, znear: 0, zfar: 1))
-        keywords.draw(encoder: encoder,
+        let fpsValue = showsFPS ? fps.value : nil
+        let grid = keywords.draw(encoder: encoder,
             resolution: SIMD2(Float(size.width), Float(size.height)),
             brightness: brightness, previewTime: posedTime, demoWorkingAgents: demoWorkingAgents,
             columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
-            keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint, measurement: measurement)
+            keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint, measurement: measurement,
+            reserveFPS: fpsValue != nil, visibleSize: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)),
+            fpsTopInset: referenceSize == nil ? 0 : 112)
+        if showsFPS {
+            if fpsOverlay == nil, let url = Bundle.module.url(forResource: "DreamsMatrix", withExtension: "ttf") {
+                fpsOverlay = try? FPSOverlay(device: queue.device, library: library, format: colorPixelFormat, fontURL: url)
+            }
+            if let value = fpsValue, let grid {
+                fpsOverlay?.draw(value, encoder: encoder, grid: grid, transparent: transparentBackground)
+            }
+            let counter = fps, generation = fps.generation
+            drawable.addPresentedHandler { counter.presented(at: $0.presentedTime, generation: generation) }
+        }
         encoder.endEncoding()
         buffer.present(drawable)
         var recordedID: Int?

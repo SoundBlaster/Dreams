@@ -1,0 +1,50 @@
+{
+  "sourceRevision": "734bb95772389f91f66cec07bb2ab11647d90d57",
+  "commands": [
+    {
+      "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=<verified TB5 DerivedData> TV_TEST_OPTIONS=\"-configuration Release ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES\"",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/paused-tv-final-tests.log",
+      "sha256": "90a4f94b2b152505fbafeea1634d09adc2c1b98fb55515550ae1f55eab25dc2c"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 2,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/paused-final-lint.log",
+      "sha256": "5d4c40d2ea286f6eac753f895a292e2f94b42b6ad040ffc2f5c0848ec372d232"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/paused-specs.log",
+      "sha256": "87c2dad75d8bb3a996804b9a15afd4cfa6b3954e31bf8da1807c322ffe8cdccd"
+    },
+    {
+      "command": "make lint (after UTF-8 initializer correction)",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/paused-corrected-lint.log",
+      "sha256": "91203f727c9d44286aaee4a7dbfd1c9864d5d0b5e40150297b2eb35c8a604ea9",
+      "sourceRevision": "abc78f11d722f3086ff656c8c63d631b9cfb6547"
+    }
+  ],
+  "tests": "19 tests passed on tvOS27 arm64 Simulator Release",
+  "map": {
+    "path": "specs/hypercode/television.hcs",
+    "sha256": "f605423c375df460d22675a70821d90e1c650cce4ec1b52a1a506c479ed30d45"
+  },
+  "bindingAudit": {
+    "count": 229,
+    "stale": []
+  },
+  "acceptance": "Descriptive draft; owner performance observations precede this fix. No new physical performance acceptance.",
+  "device": {
+    "model": "AppleTV5,3/A8",
+    "configuration": "Release ENABLE_TESTABILITY=NO",
+    "sourceRevision": "734bb95",
+    "buildExitCode": 0,
+    "installExitCode": 0,
+    "appData": "preserved",
+    "receipts": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/device-install/2026-10-24-paused-734bb95",
+    "launchExitCode": 0
+  }
+}

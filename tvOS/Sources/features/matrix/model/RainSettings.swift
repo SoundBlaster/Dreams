@@ -1,5 +1,17 @@
+import Darwin
 import Foundation
 import Observation
+
+/// First supported Apple TV (A8): owner measured 11–12 FPS with glow and 25 FPS without it.
+enum TVHardwareDefaults {
+    static var machineIdentifier: String {
+        var info = utsname()
+        guard uname(&info) == 0 else { return "" }
+        return withUnsafeBytes(of: &info.machine) { String(bytes: $0.prefix { $0 != 0 }, encoding: .utf8) ?? "" }
+    }
+
+    static func glow(machine: String) -> Double { machine == "AppleTV5,3" ? 0 : DreamsPreset.glow }
+}
 
 enum ClockTypeface: String, CaseIterable {
     case system, rounded, monospaced
@@ -47,6 +59,7 @@ struct RainTuning: Equatable {
     var color = RainColor()
     var restoredGlyphs = true
     var showsClock = true
+    var showsFPS = false
 
     var deceleration: MatrixSimulation.Deceleration {
         MatrixSimulation.Deceleration(enabled: decelerationEnabled, acceleration: acceleration)
@@ -113,20 +126,25 @@ final class RainSettings {
             defaults.set([value.color.red, value.color.green, value.color.blue], forKey: "rain.color")
             defaults.set(value.restoredGlyphs, forKey: "rain.restoredGlyphs")
             defaults.set(value.showsClock, forKey: "clock.visible")
+            defaults.set(value.showsFPS, forKey: "debug.showsFPS")
         }
     }
     private let defaults: UserDefaults
+    private let defaultTuning: RainTuning
 
-    func reset() { tuning = RainTuning() }
+    func reset() { tuning = defaultTuning }
 
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .standard, machine: String = TVHardwareDefaults.machineIdentifier) {
         self.defaults = defaults
+        var initial = RainTuning()
+        initial.glow = TVHardwareDefaults.glow(machine: machine)
+        defaultTuning = initial
         defaults.register(defaults: ["rain.columns": 96, "rain.density": 0.82, "rain.brightness": 0.18, "rain.speed": 0.43, "rain.fade": 3.0,
                                      "clock.floating": true, "clock.typeface": "system", "clock.size": 1.0,
                                      "rain.automaticColumns": false, "rain.searchFraction": DreamsPreset.searchFraction,
                                      "rain.decelerationEnabled": DreamsPreset.decelerationEnabled, "rain.acceleration": DreamsPreset.deceleration,
                                      "rain.brightnessSpread": DreamsPreset.brightnessSpread, "rain.pulseStrength": DreamsPreset.pulseStrength,
-                                     "rain.glow": DreamsPreset.glow, "rain.color": DreamsPreset.rainColor,
+                                     "rain.glow": initial.glow, "rain.color": DreamsPreset.rainColor,
                                      "rain.restoredGlyphs": true, "clock.visible": true])
         let components = defaults.array(forKey: "rain.color") as? [Double] ?? DreamsPreset.rainColor
         let color = components.count == 3
@@ -140,6 +158,7 @@ final class RainSettings {
                             decelerationEnabled: defaults.bool(forKey: "rain.decelerationEnabled"), acceleration: defaults.double(forKey: "rain.acceleration"),
                             brightnessSpread: defaults.double(forKey: "rain.brightnessSpread"), pulseStrength: defaults.double(forKey: "rain.pulseStrength"),
                             glow: defaults.double(forKey: "rain.glow"), color: color,
-                            restoredGlyphs: defaults.bool(forKey: "rain.restoredGlyphs"), showsClock: defaults.bool(forKey: "clock.visible")).normalized()
+                            restoredGlyphs: defaults.bool(forKey: "rain.restoredGlyphs"), showsClock: defaults.bool(forKey: "clock.visible"),
+                            showsFPS: defaults.bool(forKey: "debug.showsFPS")).normalized()
     }
 }

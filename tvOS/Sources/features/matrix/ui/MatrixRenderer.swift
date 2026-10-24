@@ -10,8 +10,13 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     }
 
     var tuning = RainTuning()
+    var permitsDrawing = true
     private let device: MTLDevice
     private let queue: MTLCommandQueue
+    private let library: MTLLibrary
+    private let fps = PresentedFPS()
+    private var fpsOverlay: FPSOverlay?
+    private var fpsEnabled = false
     private let corePipeline: MTLRenderPipelineState
     private let glowPipeline: MTLRenderPipelineState
     private var atlas: FilmAtlas
@@ -24,7 +29,9 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     private var maskSize = 0.0
     private var driftLimits = SIMD2<Float>.zero
     private var simulation: MatrixSimulation?
-    private var clock = 0.0
+    private let simulationSeed = UInt64.random(in: 1...UInt64.max)
+    private(set) var clock = 0.0
+    private var renderedWallTime: Double?
     private var lastFrame: CFTimeInterval?
     private var failed = false
     private let onFailure: () -> Void
@@ -42,6 +49,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         }
         let source = try String(contentsOf: shaderURL, encoding: .utf8)
         let library = try device.makeLibrary(source: source, options: nil)
+        self.library = library
         guard let vertex = library.makeFunction(name: "matrixVertex"),
               let fragment = library.makeFunction(name: "matrixFragment") else { throw MatrixRenderError.shader }
         func pipeline(additive: Bool) throws -> MTLRenderPipelineState {
@@ -67,11 +75,11 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         view.delegate = self
     }
 
-    func resume() { lastFrame = nil }
+    func resume() { lastFrame = nil; fps.reset() }
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) { maskKey = "" }
 
     func draw(in view: MTKView) {
-        guard !failed, view.drawableSize.width > 0, view.drawableSize.height > 0 else { return }
+        guard permitsDrawing, !failed, view.drawableSize.width > 0, view.drawableSize.height > 0 else { return }
         do {
             try drawFrame(in: view)
         } catch {
@@ -84,6 +92,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
 
     private func drawFrame(in view: MTKView) throws {
         let value = tuning.normalized()
+        if fpsEnabled != value.showsFPS { fps.reset(); fpsEnabled = value.showsFPS }
         let aspect = view.drawableSize.width / view.drawableSize.height
         let grid = value.grid(aspect: aspect)
         let columns = grid.columns, rows = grid.rows
@@ -95,13 +104,16 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         }
         if simulation?.columns.count != columns || simulation?.rows != rows {
             simulation = MatrixSimulation(columnCount: columns, rows: rows, glyphCount: atlas.variantCount,
-                                          seed: UInt64.random(in: 1...UInt64.max), density: value.density, fadeRows: value.fade)
-            clock = 0
+                                          seed: simulationSeed, density: value.density, fadeRows: value.fade)
+            // Structural edits need a new grid. A bounded, repeatable sample avoids an empty still.
+            clock = view.isPaused ? min(8, max(2, clock)) : 0
             lastFrame = nil
         }
-        let now = CACurrentMediaTime()
-        clock += min(0.1, max(0, now - (lastFrame ?? now))) * value.speed
-        lastFrame = now
+        // A requested paused frame changes appearance, never the position or animation phase.
+        let now = view.isPaused ? (renderedWallTime ?? CACurrentMediaTime()) : CACurrentMediaTime()
+        renderedWallTime = now
+        if !view.isPaused { clock += min(0.1, max(0, now - (lastFrame ?? now))) * value.speed }
+        lastFrame = view.isPaused ? nil : now
         simulation?.setDensity(value.density)
         simulation?.setFadeRows(value.fade)
         simulation?.setDeceleration(value.deceleration)
@@ -125,28 +137,44 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         guard let simulation, let pass = view.currentRenderPassDescriptor,
               let drawable = view.currentDrawable, let command = queue.makeCommandBuffer(),
               let encoder = command.makeRenderCommandEncoder(descriptor: pass) else { return }
-        let cells = makeCells(simulation: simulation, tuning: value, wallTime: now)
+        let fpsValue = value.showsFPS && !view.isPaused ? fps.value : nil
+        let readout = fpsValue == nil ? nil : FPSGrid(columns: columns, rows: rows)
+        let cells = makeCells(simulation: simulation, tuning: value, wallTime: now, reserved: readout)
         encode(cells.halos, texture: atlas.glow, pipeline: glowPipeline, diffuse: true, encoder: encoder)
         encode(cells.cores, texture: atlas.core, pipeline: corePipeline, diffuse: false, encoder: encoder)
+        if value.showsFPS && !view.isPaused {
+            if fpsOverlay == nil, let url = Bundle.main.url(forResource: "DreamsMatrix", withExtension: "ttf") {
+                fpsOverlay = try FPSOverlay(device: device, library: library, format: .bgra8Unorm_srgb, fontURL: url)
+            }
+            if let value = fpsValue, let readout {
+                fpsOverlay?.draw(value, encoder: encoder, grid: readout)
+            }
+            let counter = fps, generation = fps.generation
+            // tvOS does not expose MTLDrawable presentation callbacks. Report completed GPU frames.
+            command.addCompletedHandler { command in
+                if command.status == .completed { counter.presented(at: command.gpuEndTime, generation: generation) }
+            }
+        }
         encoder.endEncoding()
         command.present(drawable)
         command.commit()
     }
 
     /// Shared by the drawable path and deterministic renderer regression checks.
-    func makeCells(simulation: MatrixSimulation, tuning value: RainTuning, wallTime now: Double) -> (cores: [Cell], halos: [Cell]) {
+    func makeCells(simulation: MatrixSimulation, tuning value: RainTuning, wallTime now: Double, reserved: FPSGrid? = nil) -> (cores: [Cell], halos: [Cell]) {
         let columns = simulation.columns.count, rows = simulation.rows
         var cores: [Cell] = []
         var halos: [Cell] = []
         cores.reserveCapacity(columns * rows)
         halos.reserveCapacity(columns * rows)
-        let width: Float = 1.30 * (22.0 / 30.0) / (38.0 / 46.0)
+        let width = FPSGrid.glyphWidth
         let globalExposure = Float(value.brightness / 0.18)
         let offset = value.floatingClock
             ? driftLimits * SIMD2(Float(sin(now / 47)), Float(sin(now / 61))) : .zero
         let green = value.color.linear
         for column in simulation.columns.indices {
             for row in 0..<rows {
+                if reserved?.contains(column: column, row: row) == true { continue }
                 let symbol = simulation.columns[column].cells[row]
                 let opacity = value.glyphOpacity(simulation.opacity(column: column, row: row))
                 let head = simulation.headIntensity(column: column, row: row)
