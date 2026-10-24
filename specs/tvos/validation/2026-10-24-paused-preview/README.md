@@ -29,6 +29,7 @@ Simulator UI evidence and physical installation are reported separately.
 Physical Release source `734bb95` built with testability disabled, installed over
 existing AppleTV5,3 data and launched successfully. Performance after this change
 and the owner's acceptance remain unmeasured. Test-only simulation build enabled
-testability: 19 tests passed. `make lint`, HC/SpecPM and docs checks passed;
+testability: 19 tests passed. Initial lint found the optional String conversion rule; the follow-up initializer
+correction passed `make lint`. HC/SpecPM and docs checks passed;
 229 current source bindings match their snapshots. Commands, hashes and identities
 are in [results](results.json).
