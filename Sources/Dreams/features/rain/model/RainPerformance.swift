@@ -26,6 +26,14 @@ final class RainFrameMeasurement {
 /// Snapshot API timing and event identities, not filesystem syscall counts.
 typealias RainFeedRefresh = KeywordFeedRead
 
+/// API call bracket, not an exact driver enqueue timestamp. GPU can start before commit returns.
+struct RainFrameTimeline: Codable, Sendable {
+    var commitBeganAt: Double?
+    var commitReturnedAt: Double?
+    var gpuStartedAt: Double?
+    var gpuEndedAt: Double?
+}
+
 struct RainPerformanceSample: Codable, Sendable {
     let id: Int
     let submittedAt: Double
@@ -44,6 +52,7 @@ struct RainPerformanceSample: Codable, Sendable {
     var feedRefresh: RainFeedRefresh?
     var eventLetters: [UUID] = []
     var gpuSeconds: Double?
+    var timeline: RainFrameTimeline?
     var presentedAt: Double?
     var gpuCompleted = false
     var gpuFailed = false
@@ -80,10 +89,12 @@ final class RainPerformanceRecorder {
     private(set) var feedReads: [RainFeedRefresh] = []
     let limit: Int
     let observeFeed: Bool
+    let observeTimeline: Bool
 
-    init(limit: Int, observeFeed: Bool = false) {
+    init(limit: Int, observeFeed: Bool = false, observeTimeline: Bool = false) {
         self.limit = limit
         self.observeFeed = observeFeed
+        self.observeTimeline = observeTimeline
         samples.reserveCapacity(limit)
     }
 
@@ -105,15 +116,29 @@ final class RainPerformanceRecorder {
             coreInstances: frame.coreInstances, haloInstances: frame.haloInstances,
             bufferCreations: frame.bufferCreations, bufferBytes: frame.bufferBytes,
             glyphRasterizations: frame.glyphRasterizations, columns: frame.columns, rows: frame.rows,
-            feedRefresh: frame.feedRefresh, eventLetters: frame.eventLetters))
+            feedRefresh: frame.feedRefresh, eventLetters: frame.eventLetters,
+            timeline: observeTimeline ? RainFrameTimeline() : nil))
         return id
     }
 
-    func completed(_ id: Int, duration: Double?, failed: Bool) {
+    func committed(_ id: Int, began: Double, returned: Double) {
+        guard samples.indices.contains(id), samples[id].timeline != nil,
+              began.isFinite, returned.isFinite, began > 0, returned >= began else { return }
+        samples[id].timeline?.commitBeganAt = began
+        samples[id].timeline?.commitReturnedAt = returned
+    }
+
+    func completed(_ id: Int, duration: Double?, failed: Bool,
+                   gpuStartedAt: Double? = nil, gpuEndedAt: Double? = nil) {
         guard samples.indices.contains(id) else { return }
         samples[id].gpuCompleted = true
         samples[id].gpuFailed = failed
         samples[id].gpuSeconds = duration.flatMap { $0.isFinite && $0 > 0 ? $0 : nil }
+        if !failed, let gpuStartedAt, let gpuEndedAt, gpuStartedAt.isFinite, gpuEndedAt.isFinite,
+           gpuStartedAt > 0, gpuEndedAt > gpuStartedAt {
+            samples[id].timeline?.gpuStartedAt = gpuStartedAt
+            samples[id].timeline?.gpuEndedAt = gpuEndedAt
+        }
     }
 
     func presented(_ id: Int, at time: Double) {

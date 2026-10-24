@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3,
+  "runKind": "feed-baseline",
+  "revision": "f8b2a503c4ca0c76c0621ee315270625a2d590ca",
+  "runnerRevision": "fbe54f90b56a5cf84e4d421c83fc7692cc847322",
+  "binarySHA256": "bd07ce0de6b21f6843b5c727d1822c87deea1575ec679f929d36d3ce3569f6e5",
+  "timelineEnabled": true,
+  "workingTreeStatus": "",
+  "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+  "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+  "resourceSHA256": {
+    "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+    "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "python": "3.9.6 (default, Aug 17 2026, 12:07:42) \n[Clang 21.0.0 (clang-2100.3.34.1)]",
+  "sdk": "27.0",
+  "results": [
+    {
+      "file": "run-01.json",
+      "publication": "publish-01.json",
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-1b96a52219b38c64/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-feed",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-before-timeline/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/absolute-timeline-2026-10-23/04-before-timeline/run-01.json"
+      ],
+      "exitCode": 0,
+      "valid": true
+    }
+  ]
+}

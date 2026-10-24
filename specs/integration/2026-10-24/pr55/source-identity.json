@@ -1,0 +1,202 @@
+{
+  "sourceRevision": "58f4d3a1ec6188b01a55130b749ce51fa8707fc5",
+  "snapshotRefreshOnly": true,
+  "historicalEvidencePreserved": true,
+  "bindings": [
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "capability": "dreams.feed.read",
+      "binding": "reader_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/keyword-feed/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "no_frame_mailbox_io",
+        "shared_snapshot",
+        "freshness_and_expiry",
+        "errors",
+        "lifetime",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "capability": "dreams.rain.head_visibility",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "flight_visibility",
+        "independent_ink",
+        "head_trials",
+        "tail_and_search"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "capability": "dreams.rain.head_visibility",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "flight_visibility",
+        "independent_ink",
+        "head_trials",
+        "tail_and_search"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "capability": "dreams.rain.glyph_pulse",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "independent_phase",
+        "bounds_and_off",
+        "lifetime_and_head",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "capability": "dreams.tv.rain",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Makefile",
+      "previousSnapshot": "specs/tvos/evidence/2026-10-24-main-integration/pr54/source/Makefile",
+      "snapshot": "specs/tvos/evidence/2026-10-24-main-integration/pr55/source/Makefile",
+      "sha256": "ead7e64ea767bda9b1c4e46bbdf406d9f4e9cceffe4b5d1f8716c69488259cd7",
+      "preservedClaims": [
+        "grid_and_motion",
+        "head_and_pulse",
+        "appearance",
+        "resources",
+        "persistent_tuning",
+        "remote_settings",
+        "clock",
+        "lifecycle",
+        "platform_boundary"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "549af60961902b5aff6e2b59b0a89aeefac850cc0b4008d68518fe604552ccd6",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison",
+        "absolute_timeline",
+        "timeline_calibration"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "sha256": "29ddb2fcef229333025d1c141ee872bd8ad88e6fd3556d846eece1b1a8aa8227",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison",
+        "absolute_timeline",
+        "timeline_calibration"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison",
+        "absolute_timeline",
+        "timeline_calibration"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-23-absolute-timeline/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr55/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "sha256": "a6f46e5193c1537b425f50005b204088c3c264c7b758ff92f1d49446e26fdbf3",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison",
+        "absolute_timeline",
+        "timeline_calibration"
+      ]
+    }
+  ],
+  "maps": {
+    "specs/hypercode/application.hc": "c7a1fb43a4dd35e966f012baa16cfe0bd2c4e70b244faeec122341b471924177",
+    "specs/hypercode/application.hcs": "629dc6f35d5573afd4b12b8dfeef276aecb4cc94954bab96d8b6d494cb7b13e1",
+    "specs/hypercode/drop-motion.hc": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+    "specs/hypercode/drop-motion.hcs": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586",
+    "specs/hypercode/glyph-editor.hc": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+    "specs/hypercode/glyph-editor.hcs": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+    "specs/hypercode/glyph-pulse.hc": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+    "specs/hypercode/glyph-pulse.hcs": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+    "specs/hypercode/glyph-search.hc": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+    "specs/hypercode/glyph-search.hcs": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9",
+    "specs/hypercode/keyword-feed.hc": "196bf28779d9b9a32fe9c7c46f0cf273ea9eeb704c829b0ddb5b6659291881d2",
+    "specs/hypercode/keyword-feed.hcs": "06320a070b6f95145e25ed10a9c823501e1ba435aba26eaba2bb34a8fc1c9f72",
+    "specs/hypercode/overlay-session.hc": "ce959ac576f9cf49be627807274a60fdeb45ff9016b6f79982da88bc6417f000",
+    "specs/hypercode/overlay-session.hcs": "850d304fe2628bd6e9f41c9cb8de41cb809b860ee3771a80b146f119e01924d3",
+    "specs/hypercode/performance.hc": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88",
+    "specs/hypercode/performance.hcs": "2496fb843003fc22afa814d0819a2e9f8b5380997863163150756b03c11811e8",
+    "specs/hypercode/settings-catalog.hc": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+    "specs/hypercode/settings-catalog.hcs": "3cfa711b0a5c469c041dcd7c4f585aef0bc5aa3e134ea077f1d174d8b045168d",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "956345e877454f50ff88e62e60d3f7ac223f513aa55b81cdf0fdc640d0d4ea95",
+    "specs/hypercode/television.hc": "22e27690318135add27ae6cee5b6e5202c3e8dd535f271c08c5b66dd96760492",
+    "specs/hypercode/television.hcs": "d48d4d5e80f22f74195f1c253267b36a748bd9b5fd3a77b4325bddc183df1975"
+  }
+}

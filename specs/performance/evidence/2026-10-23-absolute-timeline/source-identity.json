@@ -1,0 +1,87 @@
+{
+  "sourceRevision": "d86b7d2a208a11d74636d554795ba4f14740f653",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "87d2d69035dccf14a70de2e240f6611c0c42ff80fe8cfe9e71201f05ae35d473",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "2ce134b46a4cba1a4e6e878dfef0c2aefb6719cf493b2c3e28fe90f626ffd8c8",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "332d7f63ff862568e69dbf4bcf5150efde5db3b609c13c60d948f88cc53c0fb7",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "sha256": "96bc9a1d70667c1d8afe09eb04d5821435a99290c6a62bcb479cbb0a6946e97e",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-feed-performance.py",
+      "sha256": "10b7e5460edd60acb4adef3f178c55f1fb68eb5bfbd15d687f35471f4c0aa8e8",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/run-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/analyze-feed-performance.py",
+      "sha256": "dc96f12e8c52f53989465c752334c8c54efcb43e3bdf6f5d71650950b2486f9d",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/analyze-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/analyze-cadence.py",
+      "sha256": "d5f037a70fd2535f87a8f3a90ef5dc3a4c0dce9ca2df29ea649a2d31385d78a5",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/analyze-cadence.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-cadence-experiment.py",
+      "sha256": "fe0bc916c8f4126009f24e3597f012c05752c6abf5d5883fb6b0607b533c8bc4",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/run-cadence-experiment.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-cadence.py",
+      "sha256": "52a5954942f5de3c18b25c89244551e62e462044aa87f1eb55c5db049611da40",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/test-cadence.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/timestamp-protocol.md",
+      "sha256": "12ff1570df50c352355fdcebc293f0297d2f38bc49619fb0333fbebdc1dbec66",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/research/performance/timestamp-protocol.md.txt",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "scopeNote": "Default-off diagnostic-only timestamp extension; production formulas, preview/capture/reader algorithms unchanged. Legacy snapshots reused only where byte-identical. Analysis-only order/clock gates at d86b7d2a208a11d74636d554795ba4f14740f653; runtime files are byte-identical to 58d2097cf51215a088d0e99eb9b71dc7bf8549ff. mapBaseRevision/dirtyMaps preserve precollection history; mapRevision pins the final committed map bytes.",
+  "mapBaseRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+  "dirtyMaps": [
+    "specs/hypercode/performance.hcs"
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/maps/specs/hypercode/performance.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "2496fb843003fc22afa814d0819a2e9f8b5380997863163150756b03c11811e8",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/maps/specs/hypercode/performance.hcs",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "runtimeRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+  "analysisRevision": "d86b7d2a208a11d74636d554795ba4f14740f653",
+  "mapRevision": "d86b7d2a208a11d74636d554795ba4f14740f653"
+}

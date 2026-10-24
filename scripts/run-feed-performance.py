@@ -130,6 +130,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--runs", type=int, default=5)
     parser.add_argument("--revision", help="explicit runtime source identity when replaying a preserved binary")
+    parser.add_argument("--timeline", action="store_true", help="opt-in commit bracket and absolute GPU timestamps")
     parser.add_argument("--smoke", action="store_true", help="1s warmup + 12s, two events; not baseline")
     args = parser.parse_args()
     if not 1 <= args.runs <= 10:
@@ -153,6 +154,7 @@ def main():
         resources = resources / "Contents/Resources"
     manifest = {"schemaVersion": 3, "runKind": "smoke" if args.smoke else "feed-baseline",
                 "revision": revision, "runnerRevision": runner_revision, "binarySHA256": common.digest(args.binary),
+                "timelineEnabled": args.timeline,
                 "workingTreeStatus": subprocess.check_output(["git", "status", "--porcelain"], cwd=ROOT, text=True),
                 "fixtureSHA256": common.digest(fixture), "traceSHA256": common.digest(trace_path),
                 "resourceSHA256": {n: common.digest(resources / n) for n in ["Rain.metal", "DreamsMatrix.ttf", "Matrix-Code.ttf"]},
@@ -165,12 +167,14 @@ def main():
         report = args.output.resolve() / f"run-{run:02}.json"
         command = [str(args.binary.resolve()), "--performance-feed", str(fixture), str(report)]
         with tempfile.TemporaryDirectory(prefix="dreams-feed-probe-") as temporary:
-            env = os.environ | {"DREAMS_FEED_DIRECTORY": temporary, "DREAMS_PERF_REVISION": revision}
+            env = os.environ | {"DREAMS_FEED_DIRECTORY": temporary, "DREAMS_PERF_REVISION": revision,
+                                "DREAMS_PERF_TIMELINE": "1" if args.timeline else "0"}
             with (args.output / f"run-{run:02}.log").open("w") as log:
                 publication = execute(command, env, Path(temporary), scenario, trace, log)
         (args.output / f"publish-{run:02}.json").write_text(json.dumps(publication, indent=2) + "\n")
         data = json.loads(report.read_text()) if report.exists() else {}
         valid = publication["exitCode"] == 0 and data.get("valid", False) and data.get("feedProbe", False)
+        valid = valid and (data.get("timelineMode") == "commit-bracket-gpu-absolute-v1") == args.timeline
         manifest["results"].append({"file": report.name, "publication": f"publish-{run:02}.json",
                                     "command": command, "exitCode": publication["exitCode"], "valid": valid})
         (args.output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")

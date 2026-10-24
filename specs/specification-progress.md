@@ -834,6 +834,67 @@ Cadence acceptance remains open, PR #54 remains draft and #42 stays open. Next
 experiment: the same lightweight absolute GPU/commit observations on both variants,
 with observer overhead checked and alternating unprofiled runs.
 
+## 2026-10-23 — opt-in absolute timeline experiment
+
+The [fixed protocol](../research/performance/timestamp-protocol.md) adds optional
+commit API brackets and absolute GPU start/end to the existing diagnostic boundary.
+`dreams.performance.measure` keeps existing claims and adds absolute_timeline and
+timeline_calibration. FrameCPU/GPUCompletion/Presentation and Calibration fold this
+into existing roles. On/off comparisons share the full feed collector and process
+CPU observer; common integration cost is explicitly excluded.
+
+Runtime `58d2097` is a new diagnostic derivative of the shared reader. Counterfactual
+`f8b2a50` backports the same observer to synchronous-reader base `29e07ea`; its full
+patch/source is retained as experimental input, not a newly accepted production
+profile. Historical binaries and prior gaps cannot be relabeled with new clocks.
+Motion/search/head/pulse and preview_scale/preview_lifetime/preview_playback retain
+requirements; affected dependency source identities are refreshed. Reader, overlay,
+display, capture and TV algorithms are unchanged. Collection is now complete;
+acceptance remains open. No cadence remedy or numerical budget is accepted by
+this instrumentation change.
+
+All 30 preregistered runs are preserved in the
+[absolute-timeline packet](performance/validation/2026-10-23-absolute-timeline/README.md).
+All 360 events arrived; all input/clock/order/nominal-thermal checks pass. The ten
+timed runs have no >50 ms interval; one after control with timestamps disabled
+has a 74.999 ms interval and cannot supply absolute-stage attribution. Five timed
+pairs retain lower observed delivery p95 after (132–219 ms vs 746–1129 ms).
+Signed observer CPU deltas remain unresolved above time/control variation.
+
+Other-process load was not captured. The owner subsequently reported another
+parallel agent likely compiling Rust/Swift. This is an unmeasured confound, not a
+proven explanation or a reason to erase a slow run. Report integrity does not
+establish host-load isolation: these are interactive-host observations, not a clean
+baseline or accepted CPU improvement. Historical gaps remain unresolved; #42 stays
+open and #54 stays draft. The proposed next experiment requires a coordinated quiet
+window and precommitted external-load observation/contamination rules.
+
+Final analyzer `d86b7d2` adds order/nonoverlap guards without changing runtime or
+statistics. Performance bindings are refreshed to that source; other affected
+consumer bindings remain on byte-identical runtime `58d2097`. Current source/map,
+before-fixture patch and archive integrity audits preserve these separate identities.
+Existing parent and motion/settings/feed claims retain requirements and draft status;
+structural checks, tests, measured observations and owner acceptance remain separate.
+
+## 2026-10-24 — quiet-host prerequisites (no renderer comparison)
+
+The [dated prerequisite packet](performance/validation/2026-10-24-quiet-host-preflight/README.md)
+preserves the owner-offered window, observer CPU C/F/C check and both one-minute
+idle references. No active compiler was detected, memory pressure and swap-out
+counter were stable, but p95 busy CPU was 2.05/2.25 cores out of 12 against a fixed
+1.5-core prerequisite. This conservative guard is not a hardware performance budget
+or proof that the background caused any historical frame gap. Neither reference
+was erased or relabeled; no renderer, build, install or settings migration followed.
+
+PerformanceProbe.Calibration/ReportExport and dreams.performance.measure provenance,
+observation, calibration, feed_comparison and timeline_calibration retain requirements.
+Runtime/source bindings and maps are unchanged. The experimental helper is a pinned
+input to this dated observation, not a supported host-monitor contract; reusable
+environmental gates and comparable idle-condition definition remain explicit backlog.
+Observer process CPU (about 0.055 CPU s/s incremental in one short block) is distinct
+from renderer latency/total overhead. Cadence causality, observer cost acceptance,
+#42 and #54/#55 readiness remain unresolved; physical tvOS evidence is unchanged.
+
 ## 2026-10-24 — native settings default rollout
 
 The owner explicitly requested native settings by default, superseding the earlier
@@ -891,3 +952,7 @@ requirements remain in force; performance and physical TV acceptance are unchang
 ## 2026-10-24 — pr54 main integration
 
 [Integration identities and scope](integration/2026-10-24/pr54/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
+
+## 2026-10-24 — pr55 main integration
+
+[Integration identities and scope](integration/2026-10-24/pr55/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.

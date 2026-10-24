@@ -129,3 +129,14 @@ of frame consumption. A frame's `feedRefresh` marks the cached input it consumed
 it does not attribute background I/O to draw. Generic summaries still reject feed
 reports. [Current comparison evidence](../../specs/performance/validation/2026-10-23-shared-reader/README.md)
 keeps the original baseline and calibration evidence historical.
+
+## Optional command/GPU timeline
+
+`run-feed-performance.py --timeline` selects `DREAMS_PERF_TIMELINE=1` for the
+isolated feed child. Schema 4 adds commit API-entry/return and absolute GPU
+start/end; older absent optional fields remain supported. Historical `submittedAt`
+means draw entry. Commit is a bracket and GPU may start before it returns.
+`run-cadence-experiment.py` executes the fixed [30-run protocol](timestamp-protocol.md);
+`analyze-cadence.py` retains signed queue-wait bounds, per-run long intervals and
+per-variant bracketing/control spread. No Instruments, automatic acceptance or
+relabeling of historical source is involved.

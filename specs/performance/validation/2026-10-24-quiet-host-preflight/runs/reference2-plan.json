@@ -1,0 +1,6 @@
+{
+  "seconds": 60,
+  "purpose": "Second and final prerequisite attempt after completing diagnostic tool/UI activity. Conditions may differ; no asserted cause for first failure.",
+  "gates": "Identical to preflight-plan.json referenceGates; no threshold change.",
+  "retention": "First reference and its failure remain preserved. No renderer run has occurred. Do not perform benchmark if this reference fails; no further preflight retry this task."
+}

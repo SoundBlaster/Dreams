@@ -1,0 +1,94 @@
+{
+  "files": [
+    {
+      "path": "runs/after-reference-processes.json",
+      "rawSHA256": "0b042f20219a5e2dea0ec1f7109674958e7730bdbd6fcab5f562586e94a3ff3c",
+      "archiveSHA256": "0b042f20219a5e2dea0ec1f7109674958e7730bdbd6fcab5f562586e94a3ff3c",
+      "compression": "none"
+    },
+    {
+      "path": "runs/control1.json.gz",
+      "rawSHA256": "5f3b58057258a50911baa877a082efa19f13e32fb04658a658788341df309d7b",
+      "archiveSHA256": "dab0ebed6e580ff89f1a5bf996fe49e1bd7e3763ac4c63504120c60c88788423",
+      "compression": "gzip"
+    },
+    {
+      "path": "runs/control2.json.gz",
+      "rawSHA256": "03eac4682bdbe735484e09c79587827024f66621f1f5d1ceae2ddaae93a4faad",
+      "archiveSHA256": "6666bf548e2348082806076e82fcb9015b8c5853ef21c96edce08442fed30b48",
+      "compression": "gzip"
+    },
+    {
+      "path": "runs/idle-reference.json.gz",
+      "rawSHA256": "abf8506d5b84096c6a9e14bc27581b7507de17783eba6ec3cf6de618653859e1",
+      "archiveSHA256": "a599d759bb788493eebfc4371e908f2b56f41fef8078ef5133d88c9815aaa6a8",
+      "compression": "gzip"
+    },
+    {
+      "path": "runs/idle-reference2.json.gz",
+      "rawSHA256": "c14f4b3f2948b8571569a00fff364aa848cb155951bcc46539e1c5168538d695",
+      "archiveSHA256": "75418512a82ab8ea6886c4de375e80f52a0ad92be38d6ad83a8a2af37838551f",
+      "compression": "gzip"
+    },
+    {
+      "path": "runs/monitor.json.gz",
+      "rawSHA256": "87f734bc3709d21f1d13601a898cf57fe2e72c4e8d97b0c6cb9ba0be5df7e717",
+      "archiveSHA256": "081d08290f3239885e20eba180b1f59a2f00957732748f6433979fda93e0200d",
+      "compression": "gzip"
+    },
+    {
+      "path": "runs/preflight-plan.json",
+      "rawSHA256": "bd37f17eade8dffdcabcb8c4808026a785a1d3b6ec6b5c89a33cf98a49c63a9e",
+      "archiveSHA256": "bd37f17eade8dffdcabcb8c4808026a785a1d3b6ec6b5c89a33cf98a49c63a9e",
+      "compression": "none"
+    },
+    {
+      "path": "runs/preflight-summary.json",
+      "rawSHA256": "9ffd287c5ff026678e76cf5b409e1adba38ce98b8c3d7de055573637436c80ef",
+      "archiveSHA256": "9ffd287c5ff026678e76cf5b409e1adba38ce98b8c3d7de055573637436c80ef",
+      "compression": "none"
+    },
+    {
+      "path": "runs/reference2-plan.json",
+      "rawSHA256": "886b6005129139a783386e629c66fb19b3dce0f3ac0e3c3d0996da3480d16d93",
+      "archiveSHA256": "886b6005129139a783386e629c66fb19b3dce0f3ac0e3c3d0996da3480d16d93",
+      "compression": "none"
+    },
+    {
+      "path": "runs/reference2-summary.json",
+      "rawSHA256": "7278e5c7f8464f2f8c048234d8a750f06720bf1423ead2b62d5f25a4921a2963",
+      "archiveSHA256": "7278e5c7f8464f2f8c048234d8a750f06720bf1423ead2b62d5f25a4921a2963",
+      "compression": "none"
+    },
+    {
+      "path": "inputs/host-monitor.py",
+      "rawSHA256": "6b9b9a54ab6db572dd3f3826b2ad8ffdb0f3f8a872a598c889c3f4743a277aaf",
+      "archiveSHA256": "6b9b9a54ab6db572dd3f3826b2ad8ffdb0f3f8a872a598c889c3f4743a277aaf",
+      "compression": "none"
+    },
+    {
+      "path": "logs/dreams-quiet-preflight.log.gz",
+      "rawSHA256": "3d70309e5dc86bf24e65ec0e80c81a17874baad82b455870f47e6f9191e18695",
+      "archiveSHA256": "62df4fdd17c5a3d54ca311ee676e7558f4cb1e933828be307afcc738963aee6d",
+      "compression": "gzip"
+    },
+    {
+      "path": "logs/dreams-quiet-reference2.log.gz",
+      "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archiveSHA256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "compression": "gzip"
+    },
+    {
+      "path": "logs/dreams-quiet-preflight-lint.log.gz",
+      "rawSHA256": "31299aa9024010ed2ccfa6600f1f5af17da9e16b5284e099370ccb27505c56c7",
+      "archiveSHA256": "9724c3244607e98a791dfc233911b302200337e969060df182f31d82f8271a33",
+      "compression": "gzip"
+    },
+    {
+      "path": "logs/dreams-quiet-preflight-specs.log.gz",
+      "rawSHA256": "bbf588f6f947d0aa4d10610e4cc094f1d349597bcaeaa0eeae1af331da1d43ad",
+      "archiveSHA256": "e294228ade0556d44b2be0da860e9840cf8e8e73b011bea875fda1c86ccbaa31",
+      "compression": "gzip"
+    }
+  ]
+}

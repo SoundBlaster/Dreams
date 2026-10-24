@@ -23,8 +23,10 @@ def metric(values):
 
 
 def analyze_run(report, publication, trace):
-    if report.get("schemaVersion") != 3 or report.get("feedProbe") is not True or report.get("calibration") is not None:
+    if report.get("schemaVersion") not in [3, 4] or report.get("feedProbe") is not True or report.get("calibration") is not None:
         raise ValueError("A full feed probe is required")
+    if report["schemaVersion"] == 4 and report.get("timelineMode") != "commit-bracket-gpu-absolute-v1":
+        raise ValueError("Unknown absolute timeline schema")
     samples = report["samples"]
     consuming_frames = [(s, s["feedRefresh"]) for s in samples if s.get("feedRefresh") is not None]
     mode = report.get("feedReadMode", "synchronous-frame")

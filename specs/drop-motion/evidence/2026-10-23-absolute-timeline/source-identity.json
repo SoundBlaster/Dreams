@@ -1,0 +1,18 @@
+{
+  "sourceRevision": "58d2097cf51215a088d0e99eb9b71dc7bf8549ff",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "332d7f63ff862568e69dbf4bcf5150efde5db3b609c13c60d948f88cc53c0fb7",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "2ce134b46a4cba1a4e6e878dfef0c2aefb6719cf493b2c3e28fe90f626ffd8c8",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "scopeNote": "Default-off diagnostic-only timestamp extension; production formulas, preview/capture/reader algorithms unchanged. Legacy snapshots reused only where byte-identical."
+}

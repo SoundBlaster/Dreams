@@ -15,17 +15,19 @@ FrameCPU:
   scope: "selected-elapsed-spans-and-application-resource-requests; not-CPU-utilization-or-allocator-events"
 GPUCompletion:
   source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
-  scope: "completed-command-buffer-timestamps; not-per-pass-counters"
+  scope: "completed-command-buffer-duration; optional-absolute-GPU-start/end-and-commit-API-bracket; not-per-pass-counters"
 Presentation:
-  implementation: "actual-presentedTime; sort-timestamps-independent-of-callback-order"
+  implementation: "actual-presentedTime; sort-timestamps-independent-of-callback-order; post-GPU-residual-is-not-physical-scanout"
 Calibration:
   source: "Sources/Dreams/features/rain/model/RainCalibration.swift"
   comparison: "scripts/analyze-calibration.py"
   mode: "not-selected"
+  timeline_increment: "scripts/run-cadence-experiment.py; five-per-variant-full-collector-off/on/off-blocks; common-integration-cost-excluded"
   boundary: "same-outer-observer-for-both-modes; common-observer-cost-excluded; signed-paired-deltas-and-control-spread"
 ReportExport:
   source: "scripts/run-performance.py"
   implementation: "export-after-stop; preserve-all-runs-and-identities; smoke-is-not-baseline"
+  timeline_analysis: "scripts/analyze-cadence.py; signed-queue-bounds; no-auto-acceptance"
 SyntheticFeed:
   mode: "absent"
   boundary: "synthetic-contributor-probe; not-production-agent-integration-conformance"

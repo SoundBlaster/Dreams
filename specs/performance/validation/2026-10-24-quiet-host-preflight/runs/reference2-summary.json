@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "referenceCoverage": true,
+    "p95HostBusyAtMost1_5Core": false,
+    "maximumHostBusyAtMost3Core": true,
+    "noActiveBuildTools": true,
+    "noDreamsProcess": true,
+    "pressureNormal": true,
+    "noSwapoutCounterIncrease": true,
+    "AC": true
+  },
+  "pass": false,
+  "hostBusyCores": {
+    "p50": 1.2621035058430716,
+    "p95": 2.251256281407035,
+    "max": 2.648829431438127
+  },
+  "notBenchmarkReplacement": true
+}
