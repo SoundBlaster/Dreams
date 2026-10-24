@@ -41,5 +41,16 @@
     "specs/hypercode/fps.hc": "e0ba171fd7f47bc8f4aa4f61c62fdc6915ca1cc54ff233faa29e83d59b8d1c08",
     "specs/hypercode/fps.hcs": "e179e2d95cc04d02420d9da187b0b60ea7fdc4070d34bee4829d54fe42a547d1"
   },
-  "acceptance": "descriptive draft; physical FPS accuracy and owner visual acceptance remain separate"
+  "acceptance": "descriptive draft; physical FPS accuracy and owner visual acceptance remain separate",
+  "device": {
+    "model": "physical AppleTV5,3/A8",
+    "runtimeRevision": "7dfe2ac8c33601aa2560c14d4b13a671d4fb4070",
+    "configuration": "Release ENABLE_TESTABILITY=NO",
+    "buildExitCode": 0,
+    "installExitCode": 0,
+    "launchExitCode": 0,
+    "appData": "preserved",
+    "visualAcceptance": false,
+    "receipts": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/device-install/2026-10-24-grid-7dfe2ac"
+  }
 }
