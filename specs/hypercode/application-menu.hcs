@@ -3,7 +3,7 @@ ApplicationMenu:
   platform: "macOS; main commands interactive only; status visibility for menu-bearing launches"
 LaunchInstallation:
   source: "Sources/Dreams/app/providers/DreamsDelegate.swift"
-  lifecycle: "will-finish-launching; showsControls guard; before settings window"
+  lifecycle: "will-finish-launching when interactive; exclusive accessory owner may install on explicit GUI reopen before showing settings; independent publisher cannot promote"
 StandardCommands:
   source: "Sources/Dreams/app/providers/ApplicationMenus.swift"
   ownership: "mainMenu + servicesMenu + windowsMenu"

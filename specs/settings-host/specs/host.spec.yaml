@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.23
+  version: 0.1.0-draft.24
   status: draft
 intent:
   summary: Let macOS users change Dreams settings through native SwiftUI forms by default while retaining explicit legacy access.
@@ -90,6 +90,9 @@ constraints:
 - id: shortcut_recording
   level: MUST
   statement: Both settings presentations share one temporary window-scoped recorder. Accept a combination only with Control, Option or Command; invalid plain/Shift-only keys keep recording with guidance. Consume Escape to cancel without invoking the window exit path. Cancel on a second activation, native section change, recording-window close/key loss, application deactivation/hide or terminal cleanup. Unrelated-window keys pass through. Retrying after a failed startup install restores both the Carbon handler and key registration. Successful registration updates the existing preference/menu/UI; failed registration retains the saved value and displays the error in both presentations. Carbon rollback remains fallible under dreams.overlay.exit.
+- id: preview_reopen
+  level: MUST
+  statement: When reopening a retained native window after an observed close, replace only its Metal surface to restore the native display link, preserving the window and navigation. Repeated presentation of an already open window and adaptive layout retain the current surface. Explicit reopening also clears the close latch without relying on a new didBecomeKey notification; use current settings for the replacement. Preserve the user's current Play/Pause choice and Reduce Motion behavior; reopening a paused preview must not force playback. Visible playback uses the native MetalKit timer with enableSetNeedsDisplay false and isPaused false; paused single-frame drawing uses the event-driven mode.
 - id: preview_limit
   level: MUST
   statement: This host embeds a separate live rain backdrop under system settings surfaces with an uncovered viewing region. Preview playback and setting edits do not themselves launch a fullscreen overlay.
@@ -117,6 +120,11 @@ effects:
     kind: state_mutation
     summary: Explicit start/stop, window reopen, reset and hook buttons delegate to existing production operations.
 evidence:
+- id: preview_reopening
+  kind: test
+  path: validation/2026-10-24-single-instance/README.md
+  supports:
+  - constraints
 - id: menu_bar_visibility
   kind: test
   path: validation/2026-10-24-status-icon/README.md
@@ -152,7 +160,7 @@ evidence:
   - constraints.native_controls
 - id: preview_tests
   kind: test
-  path: evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
+  path: evidence/2026-10-24-single-instance/source/Tests/DreamsTests/NativePreviewTests.swift
   supports:
   - constraints.independent_preview
   - constraints.preview_scale
@@ -175,7 +183,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
+    revision: a0cd20994743c20f941414be99b407d9b00cd11c
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -189,7 +197,7 @@ implementationBindings:
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
-    - evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
@@ -198,11 +206,11 @@ implementationBindings:
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
-    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
-    - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
-    - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
-    - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
+    - evidence/2026-10-24-single-instance/source/Tests/DreamsTests/NativePreviewTests.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
     - evidence/2026-10-21-appearance/source/scripts/test-native-settings-trace.py
     - evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh
     - evidence/2026-10-24-main-menu/source/scripts/build-app.sh

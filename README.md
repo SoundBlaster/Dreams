@@ -86,6 +86,8 @@ Everything in the window applies at once and is remembered. **Reset to Defaults*
 
 The app is in English and Russian and follows the system language.
 
+Dreams keeps one desktop instance per user, including across installed and development copies. Launching it again reopens the existing settings window. Additional agents should use publisher-only connections so they do not compete for the desktop.
+
 ## For agents: MCP
 
 Dreams is also an MCP server, so an agent can start and stop the rain, hide it before it takes screenshots, and publish short public labels:
@@ -95,6 +97,8 @@ Dreams is also an MCP server, so an agent can start and stop the rain, hide it b
 command = "/Applications/Dreams.app/Contents/MacOS/Dreams"
 args = ["--mcp"]
 ```
+
+Full-control `--mcp` owns the desktop exclusively: quit the normal app first. For simultaneous label-producing agents next to the app, use `args = ["--mcp", "--publisher"]`; publishers cannot start or stop its rain.
 
 Tools: `dreams_status`, `dreams_preview`, `dreams_start`, `dreams_stop`, `dreams_prepare_ui`, `dreams_resume`, `dreams_publish_keywords`, `dreams_clear_keywords`, and the experimental `dreams_workspace_create` / `dreams_workspace_close`. Details are in the [reference](docs/REFERENCE.md#mcp).
 

@@ -1,0 +1,36 @@
+{
+  "sourceRevision": "a0cd20994743c20f941414be99b407d9b00cd11c",
+  "note": "Runtime commit identified; Makefile structure-check edits pinned separately by full-file hash in this specification commit.",
+  "files": [
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "sha256": "8973ae21450159b54903d0ec8989685ec6e7ad44fda969c0720f38abbb9c601d",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "sha256": "ad822e0169116bbace8b41c60d3c1df91da0a2ea0a40613d5d47f91e6f3a7d94",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "sha256": "b1c3231b0d48dd19110988dfb5af2470733fe4fff5ab40e8d0543b8c2be955e4",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativePreviewTests.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Tests/DreamsTests/NativePreviewTests.swift",
+      "sha256": "b66c9346948f03aae6a2ddbda4db8167f8687696007b23d1926985862ae0fa9a",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "sha256": "790f17415342ad5a3cebcfdf4a1ace6b62a20f5cb5f692d2eb0cea862e1a5fee",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

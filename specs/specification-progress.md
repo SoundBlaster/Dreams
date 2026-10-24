@@ -986,3 +986,21 @@ acceptance. `dreams.overlay.session`, `dreams.overlay.exit`,
 obligations; their changed full-file bindings are refreshed with a dated impact
 record, preserving previous evidence. TV execution/performance is not inferred
 from this macOS run. [Current checks](application-menu/validation/2026-10-24-status-icon/README.md).
+
+## Single desktop owner and preview reopening — 2026-10-24
+
+`DesktopApplication.InstanceOwnership` / `dreams.desktop.single_instance` is a
+new descriptive draft for startup mode admission, an atomic user-local process
+lease, duplicate GUI handoff and exclusive full-control MCP/lab ownership.
+Publisher-only and offline helpers remain distinct and cannot promote into a GUI.
+Runtime/test source `a0cd20994743c20f941414be99b407d9b00cd11c`. The parent owns admission before menu/controller/
+shortcut/window construction; native settings owns the retained window and
+`dreams.settings.host/preview_reopen`, which replaces only a previously closed Metal canvas and clears its close
+latch while preserving Play/Pause and retained window/navigation state. Main-menu native commands keep stable IDs;
+owner-only accessory promotion is an explicit startup/lifecycle extension.
+
+Current changed-file bindings and affected maps are refreshed. Overlay session
+and exit claims retain their algorithms/obligations; old evidence remains
+historical. tvOS, glyph tooling and renderer algorithms are unchanged.
+[Checks and limits](application-menu/validation/2026-10-24-single-instance/README.md) distinguish
+unit/source, concurrent process admission, MCP publishers and native UI motion.

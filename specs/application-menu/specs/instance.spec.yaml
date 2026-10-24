@@ -1,0 +1,88 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.desktop.single_instance
+  title: DesktopInstanceOwnership
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Prevent independent copies of Dreams from competing for the desktop, settings, status item and fullscreen rain.
+scope:
+  boundedContext: desktop_process_ownership
+  includes:
+  - User-local desktop ownership across installed/development copies, startup admission and repeat-launch settings handoff.
+  - Interactive, full-control MCP and lab entry points; publisher-only/offline mode separation.
+  excludes:
+  - Cross-user machine-wide exclusion, protocol forwarding between full-control MCP clients, rendering algorithms and tvOS.
+  - Retroactive enforcement in older binaries that do not implement the lease.
+provides:
+  capabilities:
+  - id: dreams.desktop.single_instance
+    role: primary
+    summary: One desktop owner per user with repeat-launch settings access and independent publishing helpers.
+requires:
+  capabilities:
+  - id: platform.apple.appkit
+    summary: Running application identity, native reopening and process-local window lifecycle.
+interfaces:
+  inbound:
+  - id: launch
+    kind: cli
+    summary: Classify arguments before constructing the desktop application and its controller.
+  outbound:
+  - id: reopen
+    kind: event
+    summary: Notify the desktop owner to show its retained settings window; native reopening handles an already-running older GUI.
+constraints:
+- id: admission
+  level: MUST
+  statement: Interactive, full-control --mcp and --lab modes acquire the same user-local desktop lease before settings migration, controller/menu/shortcut construction or window/render setup. A second interactive launch hands off and exits without constructing another desktop. A busy full-control/lab launch writes a diagnostic to stderr and exits nonzero before starting its MCP transport or workspace. Do not silently change its protocol capabilities.
+- id: atomic_lifetime
+  level: MUST
+  statement: Use nonblocking exclusive flock on one persistent file in the user Dreams Application Support directory, independent of checkout/bundle path. Retain its close-on-exec descriptor for the desktop run lifetime; never unlink the lock file when releasing it. Closing the descriptor or process exit releases ownership, so a surviving file does not prevent restart. Filesystem and locking errors fail closed, with a diagnostic and no second desktop.
+- id: reopen
+  level: MUST
+  statement: A repeat interactive launch posts an immediate user-session reopen notification; only the lease owner listens. When the lease is busy, use the existing owner notification without issuing a redundant Launch Services launch. Only after acquiring an otherwise free lease check for a pre-lease regular Dreams GUI with the current or legacy bundle identifier; release the candidate lease and reuse that older application through NSWorkspace with createsNewApplicationInstance false. This compatibility check also avoids creating another desktop beside a pre-lease GUI. Native activation/delivery remains best effort; propagation failure must not grant another lease or start competing windows.
+- id: publisher_separation
+  level: MUST
+  statement: --mcp --publisher does not claim the desktop lease, install a status item or promote itself to a GUI on a native reopen event. Hooks, keyword publishing, hook maintenance, fixtures and explicit offline render/performance modes remain independent. Full-control MCP is exclusive; use publisher-only connections for additional simultaneous event-producing clients. This change does not forward full-control RPCs to another process.
+- id: owner_presentation
+  level: MUST
+  statement: Only a desktop owner can handle settings-reopen requests. An accessory full-control/lab owner may become a regular app on an explicit GUI reopen, install the standard main menu and expose Settings in its existing status menu before showing the retained settings window. Repeated reopening reuses that window and the established stopForReopen semantics. Publisher-only/offline delegates ignore this promotion path.
+effects:
+  sideEffects:
+  - id: ownership
+    kind: filesystem_write
+    summary: Create the user-local lock file and hold an advisory descriptor; leave the inode in place after release.
+  - id: activation
+    kind: state_mutation
+    summary: Reopen/activate the existing application and settings window; an exclusive accessory owner may switch to regular activation.
+evidence:
+- id: current_checks
+  kind: test
+  path: validation/2026-10-24-single-instance/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    extraction: high
+    behavior: medium
+  notes:
+  - Owner explicitly requested single-instance desktop behavior to avoid competing rains. Mode separation and file-lease mechanics are implementation decisions. This recovered contract remains a descriptive draft; structural validity, native observations and acceptance are distinct.
+implementationBindings:
+- id: desktop_startup
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: a0cd20994743c20f941414be99b407d9b00cd11c
+  files:
+    owned:
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DesktopInstance.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-24-single-instance/source/Tests/DreamsTests/DesktopInstanceTests.swift
+    border:
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift

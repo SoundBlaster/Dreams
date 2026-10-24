@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "a0cd20994743c20f941414be99b407d9b00cd11c",
+  "note": "Runtime commit identified; Makefile structure-check edits pinned separately by full-file hash in this specification commit.",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "bad8e752a63c968b3f7e6565eb2bed0a3dc956bbb478d9dadbb4bf559fc457b5",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

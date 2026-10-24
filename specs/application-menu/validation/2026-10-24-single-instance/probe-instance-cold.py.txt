@@ -1,0 +1,23 @@
+from pathlib import Path
+import subprocess,os,signal,time,json
+build=Path('/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129')
+pid=int((build/'instance-owner-pid.txt').read_text());os.kill(pid,signal.SIGTERM)
+for _ in range(50):
+    try:os.kill(pid,0)
+    except ProcessLookupError:break
+    time.sleep(.1)
+else:raise RuntimeError('Previous task-owned process did not terminate')
+binary=build/'dist/Dreams.app/Contents/MacOS/Dreams';children=[]
+for i in range(6):
+    with (build/f'instance-cold-{i}.log').open('wb') as log:
+        children.append(subprocess.Popen([str(binary)],stdin=subprocess.DEVNULL,stdout=log,stderr=log,start_new_session=True))
+deadline=time.monotonic()+12
+while time.monotonic()<deadline:
+    alive=[p for p in children if p.poll() is None]
+    if len(alive)==1 and sum(p.poll()==0 for p in children)==5:break
+    time.sleep(.1)
+assert len(alive)==1 and sum(p.poll()==0 for p in children)==5,[(p.pid,p.poll()) for p in children]
+owner=alive[0];(build/'instance-owner-pid.txt').write_text(str(owner.pid)+'\n')
+report={'coldConcurrentLaunches':6,'ownerPID':owner.pid,'children':[{'pid':p.pid,'exitCode':p.poll()} for p in children],'persistentOwners':1}
+(build/'instance-cold-results.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(report))
