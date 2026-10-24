@@ -1,0 +1,67 @@
+import Testing
+import MetalKit
+@testable import Dreams
+
+struct PresentedFPSTests {
+    @Test func measuresIntervalsAndUpdatesOncePerSecond() {
+        let counter = PresentedFPS()
+        let generation = counter.generation
+        for frame in 0..<30 { counter.presented(at: 10 + Double(frame) / 30, generation: generation) }
+        #expect(counter.value == nil)
+        counter.presented(at: 11, generation: generation)
+        #expect(counter.value == 30)
+        for frame in 1...15 { counter.presented(at: 11 + Double(frame) / 15, generation: generation) }
+        #expect(counter.value == 15)
+    }
+
+    @Test(.enabled(if: ProcessInfo.processInfo.environment["DREAMS_TEST_METAL"] == "1"))
+    @MainActor func ownDigitsRenderInTheTopRightCorner() async throws {
+        let device = try #require(MTLCreateSystemDefaultDevice())
+        let shader = try #require(Bundle.module.url(forResource: "Rain", withExtension: "metal"))
+        let font = try #require(Bundle.module.url(forResource: "DreamsMatrix", withExtension: "ttf"))
+        let library = try await device.makeLibrary(source: String(contentsOf: shader, encoding: .utf8), options: nil)
+        let overlay = try FPSOverlay(device: device, library: library, format: .bgra8Unorm_srgb, fontURL: font)
+        let descriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .bgra8Unorm_srgb,
+            width: 320, height: 180, mipmapped: false)
+        descriptor.storageMode = .shared
+        descriptor.usage = .renderTarget
+        let texture = try #require(device.makeTexture(descriptor: descriptor))
+        let pass = MTLRenderPassDescriptor()
+        pass.colorAttachments[0].texture = texture
+        pass.colorAttachments[0].loadAction = .clear
+        pass.colorAttachments[0].storeAction = .store
+        let queue = try #require(device.makeCommandQueue())
+        let command = try #require(queue.makeCommandBuffer())
+        let encoder = try #require(command.makeRenderCommandEncoder(descriptor: pass))
+        overlay.draw(30, encoder: encoder, size: SIMD2(320, 180))
+        encoder.endEncoding()
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            command.addCompletedHandler { _ in continuation.resume() }
+            command.commit()
+        }
+        #expect(command.status == .completed)
+        var pixels = [UInt8](repeating: 0, count: 320 * 180 * 4)
+        pixels.withUnsafeMutableBytes {
+            texture.getBytes($0.baseAddress!, bytesPerRow: 320 * 4, from: MTLRegionMake2D(0, 0, 320, 180), mipmapLevel: 0)
+        }
+        let ink = (0..<(320 * 180)).filter { pixels[$0 * 4] > 100 }
+        #expect(ink.count > 50)
+        #expect(ink.allSatisfy { $0 % 320 > 240 && $0 / 320 >= 32 && $0 / 320 < 72 })
+    }
+
+    @Test func resetRejectsPendingCallbacksAndInvalidTimestamps() {
+        let counter = PresentedFPS()
+        let old = counter.generation
+        counter.reset()
+        counter.presented(at: 10, generation: old)
+        counter.presented(at: 11, generation: old)
+        #expect(counter.value == nil)
+        let generation = counter.generation
+        for time in [Double.nan, .infinity, -1, 0] { counter.presented(at: time, generation: generation) }
+        counter.presented(at: 10, generation: generation)
+        counter.presented(at: 10, generation: generation)
+        counter.presented(at: 9, generation: generation)
+        counter.presented(at: 11, generation: generation)
+        #expect(counter.value == 1)
+    }
+}

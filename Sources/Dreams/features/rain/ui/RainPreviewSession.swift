@@ -85,7 +85,7 @@ final class RainPreviewSession: NSObject, MTKViewDelegate {
     private func updatePlayback() {
         guard let view else { return }
         let paused = !isPlaying || !isVisible || renderer == nil
-        if paused || view.isPaused != paused { lastDraw = nil }
+        if paused || view.isPaused != paused { lastDraw = nil; renderer?.resetFPS() }
         view.isPaused = paused
         if isVisible && renderer != nil { view.draw() }
     }

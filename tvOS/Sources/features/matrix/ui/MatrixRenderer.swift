@@ -12,6 +12,10 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     var tuning = RainTuning()
     private let device: MTLDevice
     private let queue: MTLCommandQueue
+    private let library: MTLLibrary
+    private let fps = PresentedFPS()
+    private var fpsOverlay: FPSOverlay?
+    private var fpsEnabled = false
     private let corePipeline: MTLRenderPipelineState
     private let glowPipeline: MTLRenderPipelineState
     private var atlas: FilmAtlas
@@ -42,6 +46,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         }
         let source = try String(contentsOf: shaderURL, encoding: .utf8)
         let library = try device.makeLibrary(source: source, options: nil)
+        self.library = library
         guard let vertex = library.makeFunction(name: "matrixVertex"),
               let fragment = library.makeFunction(name: "matrixFragment") else { throw MatrixRenderError.shader }
         func pipeline(additive: Bool) throws -> MTLRenderPipelineState {
@@ -67,7 +72,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         view.delegate = self
     }
 
-    func resume() { lastFrame = nil }
+    func resume() { lastFrame = nil; fps.reset() }
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) { maskKey = "" }
 
     func draw(in view: MTKView) {
@@ -84,6 +89,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
 
     private func drawFrame(in view: MTKView) throws {
         let value = tuning.normalized()
+        if fpsEnabled != value.showsFPS { fps.reset(); fpsEnabled = value.showsFPS }
         let aspect = view.drawableSize.width / view.drawableSize.height
         let grid = value.grid(aspect: aspect)
         let columns = grid.columns, rows = grid.rows
@@ -128,6 +134,19 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         let cells = makeCells(simulation: simulation, tuning: value, wallTime: now)
         encode(cells.halos, texture: atlas.glow, pipeline: glowPipeline, diffuse: true, encoder: encoder)
         encode(cells.cores, texture: atlas.core, pipeline: corePipeline, diffuse: false, encoder: encoder)
+        if value.showsFPS {
+            if fpsOverlay == nil, let url = Bundle.main.url(forResource: "DreamsMatrix", withExtension: "ttf") {
+                fpsOverlay = try FPSOverlay(device: device, library: library, format: .bgra8Unorm_srgb, fontURL: url)
+            }
+            if let value = fps.value {
+                fpsOverlay?.draw(value, encoder: encoder, size: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)))
+            }
+            let counter = fps, generation = fps.generation
+            // tvOS does not expose MTLDrawable presentation callbacks. Report completed GPU frames.
+            command.addCompletedHandler { command in
+                if command.status == .completed { counter.presented(at: command.gpuEndTime, generation: generation) }
+            }
+        }
         encoder.endEncoding()
         command.present(drawable)
         command.commit()

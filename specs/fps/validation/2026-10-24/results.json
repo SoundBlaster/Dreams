@@ -1,0 +1,93 @@
+{
+  "sourceRevision": "58bb3bd8628392fd9b26dd6d0127066a99cb2c24",
+  "maps": [
+    {
+      "path": "specs/hypercode/fps.hc",
+      "sha256": "e0ba171fd7f47bc8f4aa4f61c62fdc6915ca1cc54ff233faa29e83d59b8d1c08"
+    },
+    {
+      "path": "specs/hypercode/fps.hcs",
+      "sha256": "e675d9fe986e1ab4a0b958a3090acf8195f7b2a0364e3d0dcbd3d2b2611d5e7b"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hc",
+      "sha256": "fc00a21ba00e280e955542b45f71612223b8fed23ea065d013f30775649554d4"
+    },
+    {
+      "path": "specs/hypercode/overlay-session.hcs",
+      "sha256": "521f872c4b08081eff64aaf7b3a050f16086a031fa6472c91a5dbdd5f730c4ec"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hc",
+      "sha256": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "956345e877454f50ff88e62e60d3f7ac223f513aa55b81cdf0fdc640d0d4ea95"
+    },
+    {
+      "path": "specs/hypercode/television.hc",
+      "sha256": "bd111faa3fd1ee79100ad587a2abdff73910a0c19e9540fde9e7dc404224428f"
+    },
+    {
+      "path": "specs/hypercode/television.hcs",
+      "sha256": "876b3185d89df1b965ac018e1c13b5ac8fd8197e610c41b777bd97042bc045cd"
+    }
+  ],
+  "commands": [
+    {
+      "command": "swift test -c release --scratch-path <TB5 checkout swiftpm> --cache-path <TB5 swiftpm cache>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/fps-final-suite.log",
+      "logSHA256": "cc1776efaf6381a261105817774a5c9950eaca490d29f6e32a6c6e715062f939"
+    },
+    {
+      "command": "DREAMS_TEST_METAL=1 swift test -c release --filter PresentedFPS --scratch-path <TB5 checkout swiftpm> --cache-path <TB5 swiftpm cache>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/fps-render-tests.log",
+      "logSHA256": "a63e97b5e9fbcaec4549929167f6ed0f3d3a8221a06c43c4c4550f0421732a6f"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/fps-final-lint.log",
+      "logSHA256": "fda5cd30d4b59fc9ae41bfe979eaf9902ebb21adad89cb52cebf9d8cb28a9101"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/fps-specs.log",
+      "logSHA256": "961ee6396689a5f5de0db94bff7b3a4b183b9b3624ec25583a6aa10da3f1722e"
+    },
+    {
+      "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=<verified TB5 DerivedData> TV_TEST_OPTIONS=\"-configuration Release ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES\"",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/fps-tv-final-tests.log",
+      "logSHA256": "23fc48c3b76c43bad208602d752d4e562c3b0712b5943d72c8c687329eae1ad6",
+      "result": "17 tests passed; includes default-off, persistence and reset assertions"
+    }
+  ],
+  "bindingAudit": {
+    "count": 229,
+    "stale": []
+  },
+  "tools": {
+    "swift": "Apple Swift 6.4 swiftlang-6.4.0.34.1",
+    "specpm": "0.2.0",
+    "hypercodePath": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "acceptance": "descriptive draft; physical accuracy and overhead unmeasured",
+  "ui": {
+    "platform": "tvOS27 Simulator",
+    "result": "off/on/display/off observed; preference restored",
+    "artifactDirectory": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/fps-ui/2026-10-24",
+    "screenshotSHA256": "5ebd70eb58bde5b39d939d02ffaf8e067dba51975abf0bb7a42d633f74b93af5",
+    "sessionClosed": true,
+    "limitations": [
+      "interaction metadata NotRun despite live AX and screenshot",
+      "captured before final rebuild; TV layout unchanged by final optional macOS-preview inset parameter",
+      "no physical-device FPS validation"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+FPSReadout:
+  capability: "dreams.rain.fps"
+  profiles: "macOS-presentation; tvOS-GPU-completion"
+Preferences:
+  source: "Sources/Dreams/features/rain/model/DreamsController.swift + tvOS/Sources/features/matrix/model/RainSettings.swift"
+  default: "off; reset-off; independent-app-preferences"
+Sampling:
+  source: "Sources/Dreams/features/rain/model/PresentedFPS.swift"
+  semantics: "synchronized-per-renderer; one-second-window; generation-reset; no-CPU-draw-count"
+  observation: "drawable-presentedTime"
+DigitOverlay:
+  source: "Sources/Dreams/features/rain/ui/FPSOverlay.swift"
+  presentation: "DreamsMatrix-unmirrored-digits; fixed-spacing-right-edge; constant-pale-ink-shadow"
+@platform[tvos]:
+  Sampling:
+    observation: "successful-command-buffer-gpuEndTime; SDK-has-no-drawable-presentation-callback"

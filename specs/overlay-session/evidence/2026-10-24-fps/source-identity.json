@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "58bb3bd8628392fd9b26dd6d0127066a99cb2c24",
+  "note": "Runtime source is committed; Makefile specification-check additions, when included, are pinned by full-file hash.",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "a10f9706c30c5d24dbb0bbbc8e1867d92723038ebb40758715ef6cc96426f4c4",
+      "snapshot": "evidence/2026-10-24-fps/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

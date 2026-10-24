@@ -84,3 +84,6 @@ ready macOS renderer input, background observation and lease lifetime through
 this reader; status and legacy session listing remain distinct consumers.
 PerformanceProbe.SyntheticFeed.BackgroundReads records attempts independently
 from frames, so callback timing does not hide a read in before/after evidence.
+
+The [FPS readout](fps.hc) / [profiles](fps.hcs) recover the opt-in digit overlay
+and its platform-specific timestamp semantics; [contract](../fps/README.md).

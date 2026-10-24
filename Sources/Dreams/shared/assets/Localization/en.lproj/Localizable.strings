@@ -197,3 +197,6 @@
 "palette.pink" = "Pink";
 "palette.red" = "Red";
 "palette.white" = "White";
+
+"debug.fps" = "Show FPS";
+"debug.fps.tip" = "Presented frames per second, updated once a second.";

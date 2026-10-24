@@ -39,3 +39,7 @@
 "settings.reset" = "Восстановить настройки";
 "settings.reset.confirm" = "Восстановить все настройки дождя и часов?";
 "settings.cancel" = "Отмена";
+
+"settings.advanced" = "Дополнительно";
+"settings.fps" = "Показывать FPS";
+"settings.fps.hint" = "Число завершённых GPU-кадров в секунду. Обновляется раз в секунду.";
