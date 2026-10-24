@@ -108,14 +108,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 680833b15edb0435c31bf3f4f1bc3c17ca934dd5
+    revision: c6da1a590ca7658dd885fa33096564d5830a4f81
   files:
     owned:
     - evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/app/providers/PerformanceRun.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/app/providers/PerformanceRun.swift
     - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/model/RainPerformance.swift
-    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-24-main-integration/pr53/source/Tests/DreamsTests/RainPerformanceTests.swift
@@ -143,5 +143,5 @@ implementationBindings:
     - evidence/2026-10-23-shared-reader/source/scripts/compare-feed-performance.py
     - evidence/2026-10-23-shared-reader/source/research/performance/shared-reader-protocol.md.txt
     border:
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift

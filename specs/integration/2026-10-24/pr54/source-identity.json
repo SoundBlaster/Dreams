@@ -1,0 +1,501 @@
+{
+  "sourceRevision": "c6da1a590ca7658dd885fa33096564d5830a4f81",
+  "snapshotRefreshOnly": true,
+  "historicalEvidencePreserved": true,
+  "bindings": [
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "capability": "dreams.feed.read",
+      "binding": "reader_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/keyword-feed/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "no_frame_mailbox_io",
+        "shared_snapshot",
+        "freshness_and_expiry",
+        "errors",
+        "lifetime",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "capability": "dreams.feed.read",
+      "binding": "reader_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/keyword-feed/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "no_frame_mailbox_io",
+        "shared_snapshot",
+        "freshness_and_expiry",
+        "errors",
+        "lifetime",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "capability": "dreams.feed.read",
+      "binding": "reader_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "previousSnapshot": "specs/keyword-feed/evidence/2026-10-23-shared-reader/source/Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-24-main-integration/pr54/source/Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "sha256": "a4ead06e09ca74c7a6f83a3de997b4da48f3988ab9bb8edd46dfb6bdce30ac0f",
+      "preservedClaims": [
+        "no_frame_mailbox_io",
+        "shared_snapshot",
+        "freshness_and_expiry",
+        "errors",
+        "lifetime",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "capability": "dreams.feed.read",
+      "binding": "reader_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/keyword-feed/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "no_frame_mailbox_io",
+        "shared_snapshot",
+        "freshness_and_expiry",
+        "errors",
+        "lifetime",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "capability": "dreams.settings.host",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/settings-host/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/settings-host/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "default_off",
+        "native_controls",
+        "one_settings_owner",
+        "range_units",
+        "operation_semantics",
+        "quick_appearance",
+        "explicit_legacy_access",
+        "lifetime",
+        "overlay_exit",
+        "shortcut_recording",
+        "preview_limit",
+        "independent_preview",
+        "preview_scale",
+        "material_composition",
+        "preview_lifetime",
+        "preview_playback"
+      ]
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "capability": "dreams.settings.host",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/settings-host/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/settings-host/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "default_off",
+        "native_controls",
+        "one_settings_owner",
+        "range_units",
+        "operation_semantics",
+        "quick_appearance",
+        "explicit_legacy_access",
+        "lifetime",
+        "overlay_exit",
+        "shortcut_recording",
+        "preview_limit",
+        "independent_preview",
+        "preview_scale",
+        "material_composition",
+        "preview_lifetime",
+        "preview_playback"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "capability": "dreams.rain.search_occupancy",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "simultaneous_share",
+        "tuning",
+        "burst",
+        "ink_lifetime",
+        "independent_motion",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "capability": "dreams.rain.search_occupancy",
+      "binding": "search_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "simultaneous_share",
+        "tuning",
+        "burst",
+        "ink_lifetime",
+        "independent_motion",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "capability": "dreams.rain.search_occupancy",
+      "binding": "search_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "simultaneous_share",
+        "tuning",
+        "burst",
+        "ink_lifetime",
+        "independent_motion",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "capability": "dreams.rain.head_visibility",
+      "binding": "head_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "flight_visibility",
+        "independent_ink",
+        "head_trials",
+        "tail_and_search"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "capability": "dreams.rain.head_visibility",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "flight_visibility",
+        "independent_ink",
+        "head_trials",
+        "tail_and_search"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "capability": "dreams.rain.head_visibility",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "flight_visibility",
+        "independent_ink",
+        "head_trials",
+        "tail_and_search"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "capability": "dreams.rain.glyph_pulse",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "independent_phase",
+        "bounds_and_off",
+        "lifetime_and_head",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "capability": "dreams.rain.glyph_pulse",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "be9a101a4d6bf7e8d43064ef5e534d5291b0604f4ba0cabb7357e4783b09e504",
+      "preservedClaims": [
+        "independent_phase",
+        "bounds_and_off",
+        "lifetime_and_head",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "capability": "dreams.rain.glyph_pulse",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "independent_phase",
+        "bounds_and_off",
+        "lifetime_and_head",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "capability": "dreams.rain.glyph_pulse",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "independent_phase",
+        "bounds_and_off",
+        "lifetime_and_head",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "capability": "dreams.rain.drop_motion",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "opt_in",
+        "kinematics",
+        "units_and_validation",
+        "deterministic_timing",
+        "tail_lifecycle",
+        "stable_packet",
+        "bounded_event",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "capability": "dreams.rain.drop_motion",
+      "binding": "motion_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "opt_in",
+        "kinematics",
+        "units_and_validation",
+        "deterministic_timing",
+        "tail_lifecycle",
+        "stable_packet",
+        "bounded_event",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "capability": "dreams.rain.drop_motion",
+      "binding": "motion_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "opt_in",
+        "kinematics",
+        "units_and_validation",
+        "deterministic_timing",
+        "tail_lifecycle",
+        "stable_packet",
+        "bounded_event",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "capability": "dreams.tv.rain",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Makefile",
+      "previousSnapshot": "specs/tvos/evidence/2026-10-24-main-integration/pr53/source/Makefile",
+      "snapshot": "specs/tvos/evidence/2026-10-24-main-integration/pr54/source/Makefile",
+      "sha256": "c27ce8ae0014ad78dec395bd2866385b8232fb84d91ddf10509bb2d54046e74c",
+      "preservedClaims": [
+        "grid_and_motion",
+        "head_and_pulse",
+        "appearance",
+        "resources",
+        "persistent_tuning",
+        "remote_settings",
+        "clock",
+        "lifecycle",
+        "platform_boundary"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-23-shared-reader/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "70ee02a5fde7e750dfd2c7345c96c09ad9c18d1297a90353c4af706b24916209",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "sha256": "29ddb2fcef229333025d1c141ee872bd8ad88e6fd3556d846eece1b1a8aa8227",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "473eacf4ba9fd47a1a87a17c1e15c8e039b3c95614dc8a9fb2a3df0f4ac84af4",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "95d0fa0dc7d5244da9d328714a96ec6160bd1419bbb568e99b3ab028a08a7c57",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "previousSnapshot": "specs/performance/evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "167230fd3291c43a364c668504be74515e93600f38fa4e2dde7b3f7ff1843b83",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance",
+        "calibration",
+        "feed_observation",
+        "feed_comparison"
+      ]
+    }
+  ],
+  "maps": {
+    "specs/hypercode/application.hc": "c7a1fb43a4dd35e966f012baa16cfe0bd2c4e70b244faeec122341b471924177",
+    "specs/hypercode/application.hcs": "629dc6f35d5573afd4b12b8dfeef276aecb4cc94954bab96d8b6d494cb7b13e1",
+    "specs/hypercode/drop-motion.hc": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+    "specs/hypercode/drop-motion.hcs": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586",
+    "specs/hypercode/glyph-editor.hc": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+    "specs/hypercode/glyph-editor.hcs": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+    "specs/hypercode/glyph-pulse.hc": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+    "specs/hypercode/glyph-pulse.hcs": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+    "specs/hypercode/glyph-search.hc": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+    "specs/hypercode/glyph-search.hcs": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9",
+    "specs/hypercode/keyword-feed.hc": "196bf28779d9b9a32fe9c7c46f0cf273ea9eeb704c829b0ddb5b6659291881d2",
+    "specs/hypercode/keyword-feed.hcs": "06320a070b6f95145e25ed10a9c823501e1ba435aba26eaba2bb34a8fc1c9f72",
+    "specs/hypercode/overlay-session.hc": "ce959ac576f9cf49be627807274a60fdeb45ff9016b6f79982da88bc6417f000",
+    "specs/hypercode/overlay-session.hcs": "850d304fe2628bd6e9f41c9cb8de41cb809b860ee3771a80b146f119e01924d3",
+    "specs/hypercode/performance.hc": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88",
+    "specs/hypercode/performance.hcs": "8d07208a24b0ba9d662ca2f9dce0dbdd34e8d96422fafe80f153629ea2097ecb",
+    "specs/hypercode/settings-catalog.hc": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+    "specs/hypercode/settings-catalog.hcs": "3cfa711b0a5c469c041dcd7c4f585aef0bc5aa3e134ea077f1d174d8b045168d",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "956345e877454f50ff88e62e60d3f7ac223f513aa55b81cdf0fdc640d0d4ea95",
+    "specs/hypercode/television.hc": "22e27690318135add27ae6cee5b6e5202c3e8dd535f271c08c5b66dd96760492",
+    "specs/hypercode/television.hcs": "d48d4d5e80f22f74195f1c253267b36a748bd9b5fd3a77b4325bddc183df1975"
+  }
+}
