@@ -1,0 +1,45 @@
+{
+  "metadataRevision": "bc38ab2",
+  "scope": "Version/plugin metadata and current dependency-snapshot audit. Runtime tests retain their #56 source; final binary/distribution proof is a release asset.",
+  "commands": [
+    {
+      "command": "rtk proxy env [verified TB5 cache paths] make lint plugins-check",
+      "exitCode": 0,
+      "log": "logs/dreams-release-0.1.10-lint-plugins.log.gz",
+      "phase": "before final preparation docs; release metadata unchanged"
+    },
+    {
+      "command": "rtk proxy env [verified TB5 cache paths] make lint",
+      "exitCode": 0,
+      "log": "logs/dreams-release-0.1.10-lint-final.log.gz"
+    },
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/dreams-release-0.1.10-specs-final.log.gz"
+    },
+    {
+      "command": "rtk proxy git diff --cached --check",
+      "exitCode": 0
+    }
+  ],
+  "diagnostics": "Lint/plugins/docs/HC/SpecPM pass. Existing unused_import analyzer_rules and unresolved external/platform-capability warnings remain. Initial source audit found pre-existing catalog helper drift, now refreshed and all 118 bound source files match.",
+  "logs": [
+    {
+      "path": "logs/dreams-release-0.1.10-lint-plugins.log.gz",
+      "rawSHA256": "23d1f9d0c27b9c6d7022a221a1efbf06e8dc4f7b8f10c2d5603101e716cfc120",
+      "archiveSHA256": "2e270d9dc5d14036beb36d6c1b2c2b9879203086ae2d267fae49fab262fb74c2"
+    },
+    {
+      "path": "logs/dreams-release-0.1.10-lint-final.log.gz",
+      "rawSHA256": "cc64dabd51ac1607b2778337db3a72a3be283a958b3eaedbc9a064c4b92fca2c",
+      "archiveSHA256": "85ffbd994e424ea265514bf2fa3a4b53bcf9860ad6ffec3514e8d57f7b8268c1"
+    },
+    {
+      "path": "logs/dreams-release-0.1.10-specs-final.log.gz",
+      "rawSHA256": "22125605638c853a5cadb28724ef4f65189534ec832a72f22778f6e16eaa0421",
+      "archiveSHA256": "37730a7e38daabe526a6ecc6f86bd43248fd28ff67373d2f81d36cbfdf2032cb"
+    }
+  ],
+  "distributionEvidence": "https://github.com/SoundBlaster/Dreams/releases/download/v0.1.10/release-verification.json"
+}

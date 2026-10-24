@@ -667,3 +667,17 @@ The audit found pre-existing snapshot drift in the build helper and several shar
 settings dependencies; current bytes are now pinned, with no historical test pass
 promoted to this source. Physical tvOS, capture/display routing and agent integrations
 remain outside this change. Local installation is ad-hoc signed, not a release.
+
+
+## 2026-10-24 — release 0.1.10 metadata
+
+VERSION and both plugin manifests advance together to 0.1.10 after merged native
+settings default rollout #56. No further runtime, map or contract behavior changes.
+Current host/catalog/motion bindings are audited byte-for-byte; pre-existing catalog
+build-helper snapshot drift is refreshed. Historical runtime/UI tests retain their
+original source and profile. Packaging remains an unrecovered boundary.
+
+[Metadata preparation](release/validation/2026-10-24-0.1.10/README.md) separates local
+source/structural checks from signed/notarized artifact and publication verification
+attached to the GitHub release. Default route, legacy access and shared owner
+requirements remain in force; performance and physical TV acceptance are unchanged.
