@@ -1,0 +1,80 @@
+{
+  "sourceRevision": "83599b5034d0f5a8481a43e0f3157b4e6bec6101",
+  "commands": [
+    {
+      "command": "swift test -c release --filter ApplicationMenus --scratch-path <TB5 swiftpm> --cache-path <TB5 cache>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/menu-tests.log",
+      "sha256": "bac7a48000f991f3f4bf707e0e3b8f83cd0484be61ef5a2d13c4204e9e84621c"
+    },
+    {
+      "command": "swift test -c release --scratch-path <TB5 swiftpm> --cache-path <TB5 cache>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/menu-full-tests.log",
+      "sha256": "a9fbcfcfd8c6509a73216b685fe1ac887ada263451d3b967812d9fc28ccfc59e"
+    },
+    {
+      "command": "DREAMS_GLYPH_OUTPUT=<TB5 glyphs> DREAMS_SWIFT_SCRATCH_PATH=<TB5 swiftpm> DREAMS_SWIFT_CACHE_PATH=<TB5 cache> PYTHONPYCACHEPREFIX=<TB5 bytecode> make app",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/menu-app-build.log",
+      "sha256": "81dec02380741c931f0255c24c14b5a5a4b5aefcf9253abe74c6ca3ff724ae63"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/menu-lint.log",
+      "sha256": "fda5cd30d4b59fc9ae41bfe979eaf9902ebb21adad89cb52cebf9d8cb28a9101"
+    },
+    {
+      "command": "make specs-check HYPERCODE=<local hypercode>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/menu-specs.log",
+      "sha256": "7e50616b04e083a11d95932169a459d82f855473976bc6b7651918585df6f5c5"
+    }
+  ],
+  "tests": "90 tests /22 suites passed; opt-in GPU/UI traces skipped by default;2 menu-specific tests pass",
+  "localization": "189 EN/RU keys; formatter parity and hook localization passed",
+  "bindingAudit": {
+    "count": 230,
+    "stale": []
+  },
+  "maps": {
+    "specs/hypercode/application-menu.hc": "531edc53949441b0ec4e87364fee0031c2c9a98c08f7d5e743cd70977a045e83",
+    "specs/hypercode/application-menu.hcs": "0104bc3ddd3746d587503986a3cbe9e82b4fbb63dbfc846c781fe51a37032522",
+    "specs/hypercode/application.hc": "679d24186111dac29d1330e5d959d67be73c2bc25d7c4420db39ce43e715413d",
+    "specs/hypercode/application.hcs": "54366feaa69e3ee79a81b775b7e2890cce072de07f5e8bdf2dd9b06e777fc90c"
+  },
+  "acceptance": "Descriptive draft. Unit dispatch, source profile guard, packaged build, native UI observation and release acceptance remain distinct.",
+  "nativeUI": {
+    "appPath": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/dist/Dreams.app",
+    "binarySHA256": "8b69934572538cb33ba3d9bb26a71a8d7d2cfe864e4ec6de500951ada544b1ad",
+    "backend": "CUA native AppKit accessibility",
+    "topLevelMenus": [
+      "Dreams",
+      "Edit",
+      "Window"
+    ],
+    "observedApplicationCommands": [
+      "About Dreams",
+      "Settings\u2026",
+      "Services",
+      "Hide Dreams",
+      "Hide Others",
+      "Show All",
+      "Quit Dreams"
+    ],
+    "observedWindowCommands": [
+      "Close Window",
+      "Minimize",
+      "Zoom",
+      "Bring All to Front",
+      "system tiling commands",
+      "Dreams window entry"
+    ],
+    "settingsItemSelection": "Returned to visible dreams.native-settings window",
+    "keyboardShortcutEvidence": "Unit target/action/key-equivalent checks; shortcut behavior not independently established by the GUI capture",
+    "screenshotPixels": false,
+    "installedApplicationsCopyChanged": false,
+    "testAppLeftRunning": true
+  }
+}

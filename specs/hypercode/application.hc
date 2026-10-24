@@ -1,5 +1,6 @@
 Dreams
   DesktopApplication
+    ApplicationMenu
     RainOverlaySession
     SettingsPage
     PerformanceProbe

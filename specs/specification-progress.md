@@ -957,6 +957,18 @@ requirements remain in force; performance and physical TV acceptance are unchang
 
 [Integration identities and scope](integration/2026-10-24/pr55/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
 
+## Interactive macOS menu — 2026-10-24
+
+Recover `DesktopApplication.ApplicationMenu` / `dreams.desktop.main_menu`:
+standard native application/edit/window commands are installed on regular
+interactive launch. The status-item menu and accessory entry paths remain
+separate. `dreams.settings.host` existing one-owner/reopen claims still apply:
+Command-comma invokes the same retained SettingsPageController. Overlay session
+and exit action semantics remain unchanged; only the app's main menu is added.
+`build-app.sh` accepts an optional glyph-output path so the required app build can
+keep generated glyph artifacts on the verified TB5 volume; its default and bundled
+font bytes are unchanged. [Validation](application-menu/validation/2026-10-24/README.md).
+
 ## Optional FPS readout — 2026-10-24
 
 `dreams.rain.fps` adds independent opt-in diagnostics to macOS and tvOS.
@@ -988,3 +1000,7 @@ of the separate overlay do not establish the new grid placement. Paused-preview
 UI interaction could not be verified by the bounded simulator attempt; only a
 running rain frame was observed, distinct from the passing TV unit tests and
 physical install/launch.
+
+## 2026-10-25 — pr62 combined-stack integration
+
+[Integration scope and identities](integration/2026-10-25/pr62/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.

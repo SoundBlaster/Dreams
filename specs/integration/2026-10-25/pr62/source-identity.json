@@ -1,0 +1,73 @@
+{
+  "runtimeSourceRevision": "24ac88f2ebdee5d06d27e68742875a3889912d2e",
+  "affectedSpecs": [
+    "specs/application-menu/specs/menu.spec.yaml",
+    "specs/drop-motion/specs/motion.spec.yaml",
+    "specs/drop-motion/specs/search.spec.yaml",
+    "specs/overlay-session/specs/exit.spec.yaml",
+    "specs/settings-host/specs/host.spec.yaml",
+    "specs/tvos/specs/television.spec.yaml"
+  ],
+  "refreshedSnapshots": [
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "250f28abbabfbb77f4d22d3cba9cbbb939747bf8a763ab0c4d5ce591a9578875"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "6b6b676b20e16e2685addb5d5948cca088afc8d5a84995815f042b3c9556c6dd"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "250f28abbabfbb77f4d22d3cba9cbbb939747bf8a763ab0c4d5ce591a9578875"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "6b6b676b20e16e2685addb5d5948cca088afc8d5a84995815f042b3c9556c6dd"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "250f28abbabfbb77f4d22d3cba9cbbb939747bf8a763ab0c4d5ce591a9578875"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "6b6b676b20e16e2685addb5d5948cca088afc8d5a84995815f042b3c9556c6dd"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "specs/overlay-session/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "a10f9706c30c5d24dbb0bbbc8e1867d92723038ebb40758715ef6cc96426f4c4"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "specs/settings-host/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "250f28abbabfbb77f4d22d3cba9cbbb939747bf8a763ab0c4d5ce591a9578875"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "specs/settings-host/evidence/2026-10-25-pr62-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "6b6b676b20e16e2685addb5d5948cca088afc8d5a84995815f042b3c9556c6dd"
+    },
+    {
+      "path": "tvOS/Tests/RainParityTests.swift",
+      "snapshot": "specs/tvos/evidence/2026-10-25-pr62-integration/source/tvOS/Tests/RainParityTests.swift",
+      "sha256": "b55607ea92818d6c8b1d4ddb4ec3d8195e2aefeae3c290fe7e273b65101e2390"
+    },
+    {
+      "path": "tvOS/project.yml",
+      "snapshot": "specs/tvos/evidence/2026-10-25-pr62-integration/source/tvOS/project.yml",
+      "sha256": "cd69f5f6af10f631d0a67e7955993d090d5a8fbd7b63cd3f16171325637f13bf"
+    },
+    {
+      "path": "Makefile",
+      "snapshot": "specs/tvos/evidence/2026-10-25-pr62-integration/source/Makefile",
+      "sha256": "caa62a068e383ed20eea52a0cd39e75498dd065e6aab38a1262b2984405b701e"
+    }
+  ]
+}
