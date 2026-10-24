@@ -1,0 +1,11 @@
+{
+  "sourceRevision": "869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "84e811cc460d2f53cd83bd220f1a5436581f3645f64fab8efc486b95f603a32e",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

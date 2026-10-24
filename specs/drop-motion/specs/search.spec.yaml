@@ -125,15 +125,15 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 58bb3bd8628392fd9b26dd6d0127066a99cb2c24
+    revision: 869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-24-fps/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-24-fps/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-24-fps/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings

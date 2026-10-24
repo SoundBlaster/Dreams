@@ -33,3 +33,7 @@ testability: 19 tests passed. Initial lint found the optional String conversion 
 correction passed `make lint`. HC/SpecPM and docs checks passed;
 229 current source bindings match their snapshots. Commands, hashes and identities
 are in [results](results.json).
+
+Bounded simulator interaction attempt: installation and a live rain frame were
+observed, but Select did not open settings in the captured state. No paused-edit
+UI acceptance is claimed. The session ended; no test preferences were changed.
