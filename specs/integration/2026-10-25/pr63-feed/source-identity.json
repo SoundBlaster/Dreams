@@ -1,0 +1,13 @@
+{
+  "runtimeSourceRevision": "56d3a81b71347841fa0838e1ca742f672dfb8ff6",
+  "affectedSpecs": [
+    "specs/keyword-feed/specs/reader.spec.yaml"
+  ],
+  "refreshedSnapshots": [
+    {
+      "path": "Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-25-pr63-feed-integration/source/Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "sha256": "e47389575884fa6c3f54da14689da281c5139f269c25d7911a7049f71fdc2177"
+    }
+  ]
+}
