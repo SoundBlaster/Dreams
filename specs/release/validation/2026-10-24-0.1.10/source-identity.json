@@ -1,0 +1,98 @@
+{
+  "metadataRevision": "bc38ab210313ca496a9ee0787771824f8b766916",
+  "nativeDefaultMergeRevision": "d11920b605706c392086a6962204471409c29762",
+  "version": "0.1.10",
+  "files": [
+    {
+      "path": "VERSION",
+      "sha256": "fecf23c4b3c2c29381d4c14cacb998939eb53f5791b99ab7e4e0bc7972c44524"
+    },
+    {
+      "path": "plugins/dreams-claude/.claude-plugin/plugin.json",
+      "sha256": "408308bb1ced638987939ccd4c07536d4cd4ec7c90f339fb63328ef773290c1b"
+    },
+    {
+      "path": "plugins/dreams-codex/plugin.json",
+      "sha256": "0717df4dad3ff6647b31ff262ec9b66a2f88a32b8f9a01529baf2ce662b6ca32"
+    },
+    {
+      "path": "Package.swift",
+      "sha256": "976e7543a0ce2a163df40c8493acb7cc4a8aaf2a28844ccb0f0789f4053c6786"
+    },
+    {
+      "path": "Package.resolved",
+      "sha256": "3bfb803b8d5e2d2bc976d79e2faf1afc6c731a98f51079705b667d931bdb69f5"
+    },
+    {
+      "path": "scripts/release.sh",
+      "sha256": "85b2592c16221415e91bd9145e82489a4db1cca8a8d3d07e045fb1f674109e9d"
+    },
+    {
+      "path": "scripts/swift-macos.sh",
+      "sha256": "a5165bf53292441d50e54fea04284b49819f600f9cea83ec60de12803f804192"
+    },
+    {
+      "path": "scripts/Info.plist.in",
+      "sha256": "21912b958ef9488b13e564ec056e7ff3a2a31e5ab5e923fc40a0fafd6e800554"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMatrix.ttf",
+      "sha256": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845"
+    },
+    {
+      "path": "Sources/Dreams/Matrix-Code.ttf",
+      "sha256": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+    },
+    {
+      "path": "assets/AppIcon.icns",
+      "sha256": "b4a74dfb5aaead2d9179c0fb79ca9c4e583301b0250a7a74f873cfef761bc74a"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "fbabef436c926f05fe8cbba9b4d377e03f224b89a7c4d235319de1dddef692d1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "5f911d611cd052249688422212dc25bb3e35817baba94ac0f6b75953a24f3cca"
+    }
+  ],
+  "bindingAudits": [
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+      "fileCount": 40,
+      "pinnedSnapshotsAndCurrentBytesMatch": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "sourceRevision": "bc38ab210313ca496a9ee0787771824f8b766916",
+      "fileCount": 20,
+      "pinnedSnapshotsAndCurrentBytesMatch": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+      "fileCount": 18,
+      "pinnedSnapshotsAndCurrentBytesMatch": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "sourceRevision": "6cc029cc0f7755365e97f6a405b44163bc2ece87",
+      "fileCount": 8,
+      "pinnedSnapshotsAndCurrentBytesMatch": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+      "fileCount": 14,
+      "pinnedSnapshotsAndCurrentBytesMatch": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+      "fileCount": 18,
+      "pinnedSnapshotsAndCurrentBytesMatch": true
+    }
+  ],
+  "scope": "Version/plugin metadata only after native-default rollout. Pre-existing catalog build-helper snapshot drift refreshed; no new runtime code or accepted requirement change."
+}

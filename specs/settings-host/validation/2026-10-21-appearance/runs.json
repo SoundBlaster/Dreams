@@ -1,0 +1,86 @@
+{
+  "sourceRevision": "aa11113675d1a5046c01cfb570d939ae5df29b14",
+  "cwd": "/Users/egor/.codex/worktrees/appearance-presets/Dreams",
+  "commands": [
+    {
+      "command": "zsh scripts/swift-macos.sh test -c release --filter NativeSettingsTests",
+      "exitCode": 0,
+      "log": "tests.log",
+      "environment": {
+        "DREAMS_SWIFTPM_SCRATCH_PATH": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-7a1c9958d1209f62/swiftpm",
+        "DREAMS_SWIFTPM_CACHE_PATH": "/Volumes/TB5/Developer/Caches/swiftpm"
+      }
+    },
+    {
+      "command": "make app",
+      "exitCode": 0,
+      "log": "build.log",
+      "environment": {
+        "DREAMS_SWIFTPM_SCRATCH_PATH": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-7a1c9958d1209f62/swiftpm",
+        "DREAMS_SWIFTPM_CACHE_PATH": "/Volumes/TB5/Developer/Caches/swiftpm",
+        "PYTHONPYCACHEPREFIX": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-7a1c9958d1209f62/python/bytecode"
+      }
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "lint.log"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "structure.log"
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "log": "docs.log"
+    },
+    {
+      "command": "make test-native-settings-trace",
+      "exitCode": 0,
+      "log": "trace-en.log",
+      "environment": {
+        "DREAMS_SWIFTPM_SCRATCH_PATH": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-7a1c9958d1209f62/swiftpm",
+        "DREAMS_SWIFTPM_CACHE_PATH": "/Volumes/TB5/Developer/Caches/swiftpm",
+        "DREAMS_LANGUAGE": "en",
+        "DREAMS_NATIVE_CAPTURE_BACKEND": "hierarchy",
+        "DREAMS_TRACE_DIRECTORY": "/tmp/dreams-appearance-hierarchy-en"
+      }
+    },
+    {
+      "command": "make test-native-settings-trace",
+      "exitCode": 0,
+      "log": "trace-ru.log",
+      "environment": {
+        "DREAMS_SWIFTPM_SCRATCH_PATH": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-7a1c9958d1209f62/swiftpm",
+        "DREAMS_SWIFTPM_CACHE_PATH": "/Volumes/TB5/Developer/Caches/swiftpm",
+        "DREAMS_LANGUAGE": "ru",
+        "DREAMS_NATIVE_CAPTURE_BACKEND": "hierarchy",
+        "DREAMS_TRACE_DIRECTORY": "/tmp/dreams-appearance-hierarchy-ru"
+      }
+    }
+  ],
+  "tools": {
+    "xcode": "Xcode 27.1\nBuild version 27A9275",
+    "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "sdk": "27.0",
+    "specpm": "specpm 0.2.0",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "screenCaptureAttempt": {
+    "completed": false,
+    "exitCode": 2,
+    "log": "screen-capture-attempt.log"
+  },
+  "operator": {
+    "backend": "CUA native macOS app",
+    "isolatedBundleID": "ru.egormerkushev.dreams.appearance-qa",
+    "captures": [
+      "classic.png",
+      "blue.png",
+      "monochrome.png"
+    ],
+    "cleanup": "isolated QA terminated"
+  }
+}

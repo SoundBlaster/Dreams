@@ -180,3 +180,20 @@
 
 
 "native.brand.subtitle" = "Agentic Screensaver";
+
+/* Appearance recipes and quick color buttons. */
+"appearance.style" = "Стиль";
+"appearance.classic" = "Классический";
+"appearance.dimmed" = "Приглушённый";
+"appearance.monochrome" = "Монохромный";
+"appearance.custom" = "Свой стиль — ваши ручные настройки оформления.";
+"appearance.help" = "Применить цвет, свечение, разброс и пульсацию яркости вместе. Движение и сетка сохраняются.";
+"palette.title" = "Быстрые цвета";
+"palette.green" = "Зелёный";
+"palette.lime" = "Лаймовый";
+"palette.cyan" = "Бирюзовый";
+"palette.blue" = "Синий";
+"palette.purple" = "Фиолетовый";
+"palette.pink" = "Розовый";
+"palette.red" = "Красный";
+"palette.white" = "Белый";

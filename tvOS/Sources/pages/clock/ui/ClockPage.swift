@@ -3,6 +3,7 @@ import SwiftUI
 struct ClockPage: View {
     let tuning: RainTuning
     let isActive: Bool
+    var acceptsInput = true
     let openSettings: () -> Void
     @State private var renderingFailed = false
 
@@ -17,11 +18,11 @@ struct ClockPage: View {
             } else {
                 TimelineView(.everyMinute) { timeline in
                     MatrixSurface(tuning: tuning, isActive: isActive) { renderingFailed = true }
-                        .accessibilityLabel(Text("clock.accessibility"))
-                        .accessibilityValue(Text(timeline.date, style: .time))
-                        .focusable(isActive)
-                        .onTapGesture(perform: openSettings)
-                        .onPlayPauseCommand(perform: openSettings)
+                        .accessibilityLabel(Text(tuning.showsClock ? "clock.accessibility" : "rain.accessibility"))
+                        .accessibilityValue(tuning.showsClock ? Text(timeline.date, style: .time) : Text(""))
+                        .focusable(isActive && acceptsInput)
+                        .onTapGesture { if acceptsInput { openSettings() } }
+                        .onPlayPauseCommand { if acceptsInput { openSettings() } }
                 }
             }
         }

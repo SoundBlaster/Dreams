@@ -1,0 +1,277 @@
+{
+  "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+  "runtimeRevision": "210e6f19a36fb4ce94e4ce72438bdf070f64d526",
+  "scopeNote": "Native default is owner-authorized. Legacy control fixtures explicitly select legacy; motion/search/pulse requirements and production formulas are unchanged. All reused bindings were checked byte-for-byte against current and pinned source. The existing swift-macos.sh snapshot drift was refreshed from the unchanged current helper, not introduced by this task.",
+  "bindings": [
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d"
+    }
+  ],
+  "refreshedSnapshots": [
+    "Tests/DreamsTests/SettingsScenarioTests.swift",
+    "Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+    "Tests/DreamsTests/NativeSettingsTests.swift",
+    "scripts/swift-macos.sh"
+  ],
+  "files": [
+    {
+      "path": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "sha256": "4e8bf0a4d3aacb42c7fadbcf5aeb01c3b1fe040d48f733bc50d29ca7b3021ca8",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "sha256": "33f72c6db8808da2de71745e37766ce0c1c3c8227f567dc99a1600c3c932cad2",
+      "snapshot": "evidence/2026-10-15-shortcut-retry/source/Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/SettingsScenarioTests.swift",
+      "sha256": "307e4df0ff8fd3667cf9cc2b9365da6ed1bead5c50c2e99912530000749c6163",
+      "snapshot": "evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsScenarioTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Package.resolved",
+      "sha256": "3bfb803b8d5e2d2bc976d79e2faf1afc6c731a98f51079705b667d931bdb69f5",
+      "snapshot": "evidence/2026-10-14/source/Package.resolved",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Package.swift",
+      "sha256": "976e7543a0ce2a163df40c8493acb7cc4a8aaf2a28844ccb0f0789f4053c6786",
+      "snapshot": "evidence/2026-10-14/source/Package.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "5c1311e915cb8b229180c3a6cd10fc41594a5f7f3915c15a8d69d2ca200b2429",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "sha256": "545991ff6feec17d502a50b01225cd1fd8f5038892395ae74f353b5be613550c",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "sha256": "d8909f7f160e7f33970d780699a8e3bca8337dce1a30ee02230af958a41f0af7",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "sha256": "b1156d6e831c42e90e534c59222a90a41948a76de644f4084516f62a14781557",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "b5a43d6ae72fefaf5d25ae8a5530672fa07eca865cdbe66cc4eab74711f8832a",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "sha256": "0253813072ce666ad3739dc0fa82440e22e74421cdb546d52c385ed7845a9a57",
+      "snapshot": "evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "sha256": "b0126b33a0075760ea89f12fe09e30bb370ef28491f92ffb1d8cf5999fa505a5",
+      "snapshot": "evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "4ebbe361233d4fd0355c065bc0d5f87eb9d1d28e42392d84d050db0b6d6b65ca",
+      "snapshot": "evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "59f56c03890b82c03023ef46fedc823f8e87592b6bd1e7317c3b36f457c3e5dd",
+      "snapshot": "evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "sha256": "f5564aa813fb95fcb28221bd69ca7377b164cdcb6d87e30e53fffa886b42d37d",
+      "snapshot": "evidence/2026-10-24-native-default/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/lib/Localization.swift",
+      "sha256": "c7b973f8a6fd74adbdead9d836017c5429004891929fe721804015d746aade99",
+      "snapshot": "evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "sha256": "3d8a70142a54453ff96f2c2d6feacbe2ad589e02b7f130a188db14fd7b670859",
+      "snapshot": "evidence/2026-10-24-native-default/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "sha256": "fb16423d6b9d7e047794838a693100f5db77bb265927035b69cfe823c6815895",
+      "snapshot": "evidence/2026-10-18-preview-growth/source/Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "sha256": "9f3d03a306a997432e554fb5f20b76c768991243dc38f748b968bc5e72373f9f",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "sha256": "dc494b61ab6c90e0918b00bdbbc6c439f7ae6c6690514e3a89fab1e1f0b59f9c",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "sha256": "0b3670a478ff62b4be79062c90a3f31438f6161dc794b75510616c8a373ee44c",
+      "snapshot": "evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativePreviewTests.swift",
+      "sha256": "1eb78c33b95d9e3d88a054c67604781646236fdf5825287e08e6c0784a08ef10",
+      "snapshot": "evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "sha256": "50e037539bd7cd189bf31f6693e04829d0f79e543902937c246ea066f577fe70",
+      "snapshot": "evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-native-settings-trace.py",
+      "sha256": "fe5fa14564909d2da6699acfe089b839ed7368a9efc15c43491fc51a91538453",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/test-native-settings-trace.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/swift-macos.sh",
+      "sha256": "a5165bf53292441d50e54fea04284b49819f600f9cea83ec60de12803f804192",
+      "snapshot": "evidence/2026-10-24-native-default/source/scripts/swift-macos.sh",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/build-app.sh",
+      "sha256": "ac645f98bdf99215bd8eb5464f847ef4862ef22b24b388c863e6cc47549aa5c6",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/build-app.sh",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/release.sh",
+      "sha256": "85b2592c16221415e91bd9145e82489a4db1cca8a8d3d07e045fb1f674109e9d",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/release.sh",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift",
+      "sha256": "39cf2cbccc6f71b4d0fa11f9398bfb1797c3cddf9e56e092f1f22a7619f98b52",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativeSettingsParityTests.swift",
+      "sha256": "110746c4ac8c10830a2204168db49fede9a21f1aed7d8748809e1d214f8c0acd",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Tests/DreamsTests/NativeSettingsParityTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "a51be1dd14fb34de712be5f20a21c0f1282b421f8c2aa472c3a178cddf733b2f",
+      "snapshot": "evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "sha256": "a93e7cf7822acb382eac5547ae5d2fe5dc87fe7f38bf16b6178668d05b412d43",
+      "snapshot": "evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/lib/StopHotkey.swift",
+      "sha256": "f1f8f91b6f60965f1e72eafb73042ed68575c793da24c675482d51b17acbc74a",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "sha256": "13de3684a25d153f71fd55424348a769226200524167290f865bad2d93b8ea1d",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "sha256": "22d984dc5ca078b773cd774c529504a7b6e19a772b76abd55b57a05b66174351",
+      "snapshot": "evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "sha256": "0a5ba82d809d6763e0b9c5ffe132f1b01539f377da71af3f0cbb8d740672a6fc",
+      "snapshot": "evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "eade09198977479a9c682522e9ea0515941bc3d2c6e31bb8728cc7cb450b658c",
+      "snapshot": "evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Package.swift",
+      "sha256": "960abf7f65e32ae18963de0d9d56dec32e9f264a39d11b691cc7ee94b8b02118",
+      "snapshot": "evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "sha256": "4542827672698ad26beb6ca4841aedaeec5000bb88a071cce91770dc8f73fa48",
+      "snapshot": "evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "mapBaseRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+  "dirtyMaps": [
+    "specs/hypercode/settings-host.hcs"
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/settings-host.hc",
+      "sha256": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+      "snapshot": "evidence/2026-10-24-native-default/maps/specs/hypercode/settings-host.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "e5e88c2464576834ea8b9318b34aa7711a37a2eb8db7ae4604e86beea03bb079",
+      "snapshot": "evidence/2026-10-24-native-default/maps/specs/hypercode/settings-host.hcs",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

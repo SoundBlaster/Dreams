@@ -1,0 +1,10 @@
+SettingsPage
+  LaunchRouting
+  NativePresentation
+    Navigation
+    Forms
+    LivePreview
+  SettingsBinding
+  ShortcutRecording
+  LegacyAccess
+  WindowLifetime
