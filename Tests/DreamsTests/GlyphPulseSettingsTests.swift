@@ -12,7 +12,7 @@ struct GlyphPulseSettingsTests {
         UserDefaults.standard.removeObject(forKey: "rainPulseStrength")
         let controller = DreamsController()
         #expect(controller.rainPulseStrength == DreamsPreset.pulseStrength)
-        let page = SettingsPageController(controller: controller)
+        let page = SettingsPageController(controller: controller, nativeSettingsEnabled: false)
         page.showControls()
         defer { page.controlsWindow?.close(); page.cleanUp() }
         let slider = try #require(page.controlsByID["dreams.rain-pulse-strength"] as? NSSlider)

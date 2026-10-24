@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""Record explicit native-form states with Screener; distinguish hierarchy from screen evidence."""
+import json
+import os
+from pathlib import Path
+import subprocess
+import tempfile
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    with tempfile.TemporaryDirectory(prefix="dreams-native-feed-") as feed:
+        result = subprocess.run(
+            ["zsh", "scripts/swift-macos.sh", "test", "-c", "release", "--filter", "recordNativeFormsWithScreener"], cwd=ROOT,
+            env=dict(os.environ, DREAMS_RECORD_NATIVE_SETTINGS="1", DREAMS_FEED_DIRECTORY=feed),
+            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=300,
+        )
+    print(result.stdout, end="", flush=True)
+    if result.returncode:
+        raise SystemExit(result.returncode)
+    paths = [line.removeprefix("DREAMS_NATIVE_SETTINGS_TRACE=") for line in result.stdout.splitlines()
+             if line.startswith("DREAMS_NATIVE_SETTINGS_TRACE=")]
+    assert len(paths) == 1, "Recorded scenario did not complete"
+    trace = Path(paths[0])
+    records = [json.loads(line) for line in (trace / "timeline.jsonl").read_text().splitlines()]
+    assert records[0]["kind"] == "sessionStarted" and records[-1]["kind"] == "sessionEnded"
+    assert not any(record.get("name") == "Scenario.failed" for record in records)
+    frames = [record for record in records if record["kind"] == "keyframe"]
+    assert len(frames) == 35
+    names = {frame["name"] for frame in frames}
+    assert {"appearance.preset.classic", "appearance.preset.dimmed", "appearance.preset.monochrome",
+            "appearance.palette.blue", "appearance.palette.narrow", "appearance.custom"} <= names
+    for section in ("general", "appearance", "rain", "background", "words", "displays", "advanced"):
+        assert f"section.{section}" in names, f"Missing wide {section} checkpoint"
+        assert f"section.{section}.narrow" in names, f"Missing narrow {section} checkpoint"
+    assert {"appearance.large-text.narrow", "rain.large-text.narrow"} <= names
+    assert {"rain.edited.light", "rain.minimum.light", "rain.minimum.dark"} <= names
+    assert {"rain.expanded.light", "rain.expanded.dark"} <= names
+    assert all((trace / record["blob"]).is_file() for record in frames)
+    backend = os.environ.get("DREAMS_NATIVE_CAPTURE_BACKEND", "hierarchy")
+    print(f"PASS: complete Screener native settings trace, {len(frames)} {backend} frames: {trace}")
+
+
+if __name__ == "__main__":
+    main()

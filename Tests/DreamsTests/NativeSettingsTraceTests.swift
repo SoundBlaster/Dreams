@@ -73,6 +73,15 @@ extension NativeSettingsTests {
                 try await checkpoint(section, name: "section." + section.rawValue + ".narrow", width: 560)
             }
             try await checkpoint(.appearance, name: "appearance.large-text.narrow", width: 560, largeText: true)
+            for preset in NativeAppearancePreset.allCases {
+                model.applyAppearance(preset)
+                try await checkpoint(.appearance, name: "appearance.preset." + preset.rawValue, dark: true)
+            }
+            model.applyColor(.blue)
+            try await checkpoint(.appearance, name: "appearance.palette.blue", dark: true)
+            try await checkpoint(.appearance, name: "appearance.palette.narrow", width: 560, dark: true)
+            model[parameter: .pulse] = 0.77
+            try await checkpoint(.appearance, name: "appearance.custom", dark: true)
             try await checkpoint(.rain, name: "rain.large-text.narrow", width: 560, largeText: true)
             try await checkpoint(.general, name: "shortcut.recording", recording: true)
             model.cancelShortcutRecording()

@@ -143,7 +143,7 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/scripts/test-matrix.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/SettingsPageTests.swift
+    - evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsPageTests.swift
     border:
     - evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift

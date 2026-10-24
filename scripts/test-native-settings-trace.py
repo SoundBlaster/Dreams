@@ -27,8 +27,10 @@ def main():
     assert records[0]["kind"] == "sessionStarted" and records[-1]["kind"] == "sessionEnded"
     assert not any(record.get("name") == "Scenario.failed" for record in records)
     frames = [record for record in records if record["kind"] == "keyframe"]
-    assert len(frames) == 29
+    assert len(frames) == 35
     names = {frame["name"] for frame in frames}
+    assert {"appearance.preset.classic", "appearance.preset.dimmed", "appearance.preset.monochrome",
+            "appearance.palette.blue", "appearance.palette.narrow", "appearance.custom"} <= names
     for section in ("general", "appearance", "rain", "background", "words", "displays", "advanced"):
         assert f"section.{section}" in names, f"Missing wide {section} checkpoint"
         assert f"section.{section}.narrow" in names, f"Missing narrow {section} checkpoint"

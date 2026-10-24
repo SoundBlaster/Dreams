@@ -18,6 +18,8 @@ Dreams covers your screen with Matrix digital rain and ties it to your coding ag
 
 Free, MIT-licensed, macOS 15 or newer. Developed on Apple silicon; the build is universal.
 
+![Dreams settings window with rain controls and a live preview](assets/screenshots/settings.jpg)
+
 ## Install
 
 With [Homebrew](https://brew.sh):

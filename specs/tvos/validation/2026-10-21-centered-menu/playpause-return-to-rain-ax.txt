@@ -1,0 +1,11 @@
+Device orientation: Unknown
+------------------------
+Application bundle identifier: ru.egormerkushev.DreamsTV
+Application UI orientation: Unknown
+Application, pid: 58786, label: 'Dreams'
+ Window, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+  Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+   Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+    Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+     Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+      Other, {{0.0, 0.0}, {1920.0, 1080.0}}, label: 'Matrix rain. Press Select or Play/Pause for settings.', Focused, hitPoint: {960.0, 540.0}

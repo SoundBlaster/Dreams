@@ -1,0 +1,33 @@
+TelevisionApplication:
+  source: "tvOS/Sources/app/entrypoint/DreamsTVApp.swift"
+  capability: "dreams.tv.rain"
+  scope: "foreground-tvOS-18+-no-agent-integrations-or-desktop-windows"
+Lifecycle:
+  source: "tvOS/Sources/app/entrypoint/AppRoot.swift"
+  assembly: "one-renderer; active-scene rain; settings-preview-pause; idle-timer-only-on-rain-page"
+Settings:
+  source: "tvOS/Sources/pages/settings/ui/SettingsPage.swift"
+  implementation: "centered-padded-rounded-material-panel-with-native-List-Toggles-and-adjustment-Buttons"
+  horizontal_input: "native-failed-focus-movement-heading; preserve-vertical-focus; ignore-reset-confirmation"
+  play_pause: "open-settings-from-rain; close-open-menu; preview-pause-is-a-separate-toggle"
+Tuning:
+  source: "tvOS/Sources/features/matrix/model/RainSettings.swift"
+  implementation: "normalized-persistent-TV-preferences; preserve-old-keys; shared-new-preset-values"
+Renderer:
+  source: "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift"
+  assembly: "one-Metal-surface; linear-sRGB-input; cached-clock-mask; no-agent-feed"
+Simulation:
+  source: "Sources/Dreams/features/rain/model/MatrixSimulation.swift"
+  implementation: "shared-stationary-cells; deceleration; simultaneous-search; independent-head-cycle"
+Appearance:
+  source: "Sources/Dreams/features/rain/model/GlyphPulse.swift"
+  implementation: "shared-real-time-pulse-before-pale-head; TV-clock-ink-exposure; configurable-color-spread-glow"
+ClockMask:
+  source: "tvOS/Sources/features/matrix/lib/ClockMask.swift"
+  implementation: "whole-glyph-clock; bounded-drift; background-level-halos"
+GlyphResources:
+  source: "tvOS/Sources/features/matrix/lib/FilmAtlas.swift"
+  implementation: "bundled-restored-PUA-or-classic-font; padded-atlas; mirrored-TV-variants; bundled-notices"
+@clock[hidden]:
+  ClockMask:
+    implementation: "mask-bypassed; ordinary-rain-exposure"

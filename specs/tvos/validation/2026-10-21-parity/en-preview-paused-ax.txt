@@ -1,0 +1,193 @@
+Device orientation: Unknown
+------------------------
+Application bundle identifier: ru.egormerkushev.DreamsTV
+Application UI orientation: Unknown
+Application, pid: 23652, label: 'Dreams'
+ Window, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+  Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+   Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+    Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+     Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+      Other, {{0.0, 0.0}, {1920.0, 1080.0}}, label: 'Matrix rain. Press Select or Play/Pause for settings.', hitPoint: {960.0, 540.0}
+      Table, {{140.0, 120.0}, {1100.0, 840.0}}, hitPoint: {690.0, 540.0}
+       Other, {{140.0, 120.0}, {1100.0, 46.0}}, hitPoint: {690.0, 143.0}
+        Other, {{140.0, 120.0}, {1100.0, 46.0}}, hitPoint: {690.0, 143.0}
+         Other, {{140.0, 120.0}, {1100.0, 46.0}}, hitPoint: {690.0, 143.0}
+          StaticText, {{160.0, 120.0}, {130.0, 46.0}}, label: 'Dreams', hitPoint: {225.0, 143.0}
+       Cell, {{140.0, 166.0}, {1100.0, 87.0}}, label: 'Swipe left or right to adjust. Changes appear immediately. Press Back to return to the rain.', hitPoint: {690.0, 209.5}
+        Other, {{140.0, 166.0}, {1100.0, 87.0}}, hitPoint: {690.0, 209.5}
+         Other, {{140.0, 166.0}, {1100.0, 87.0}}, hitPoint: {690.0, 209.5}
+          StaticText, {{160.0, 172.0}, {981.0, 75.0}}, label: 'Swipe left or right to adjust. Changes appear immediately. Press Back to return to the rain.', hitPoint: {650.5, 209.5}
+        Other, {{140.0, 166.0}, {1100.0, 87.0}}, hitPoint: {690.0, 209.5}
+       Cell, {{140.0, 267.0}, {1100.0, 79.0}}, label: 'Live preview, Off', Focused, hitPoint: {690.0, 306.5}
+        Other, {{136.0, 266.7}, {1108.0, 79.6}}, hitPoint: {690.0, 306.5}
+         Other, {{136.0, 266.7}, {1108.0, 79.6}}, hitPoint: {690.0, 306.5}
+          Switch, {{156.1, 288.9}, {1067.7, 35.3}}, label: 'Live preview, Off', value: 0, hitPoint: {690.0, 306.5}
+           StaticText, {{156.1, 288.9}, {161.2, 35.3}}, label: 'Live preview', hitPoint: {236.7, 306.5}
+           StaticText, {{156.1, 288.9}, {1067.7, 35.3}}, label: 'Live preview, Off', hitPoint: {690.0, 306.5}
+        Other, {{136.0, 266.7}, {1108.0, 79.6}}, hitPoint: {690.0, 306.5}
+         Other, {{140.0, 267.0}, {1100.0, 79.0}}, hitPoint: {690.0, 306.5}
+          Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+           Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+            Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+             Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+              Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+               Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+              Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+               Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+              Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+               Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+                Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+           Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+           Other, {{136.0, 266.7}, {1108.0, 79.6}}, hitPoint: {690.0, 306.5}
+            Other, {{136.0, 266.7}, {1108.0, 79.6}}, hitPoint: {690.0, 306.5}
+             Other, {{136.0, 266.7}, {1108.0, 79.6}}, hitPoint: {690.0, 306.5}
+              Other, {{136.0, 266.7}, {1108.0, 79.6}}, hitPoint: {690.0, 306.5}
+               Switch, {{156.1, 288.9}, {1067.7, 35.3}}, label: 'Live preview, Off', value: 0, hitPoint: {690.0, 306.5}
+                StaticText, {{156.1, 288.9}, {161.2, 35.3}}, label: 'Live preview', hitPoint: {236.7, 306.5}
+                StaticText, {{156.1, 288.9}, {1067.7, 35.3}}, label: 'Live preview, Off', hitPoint: {690.0, 306.5}
+          Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+           Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+            Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+          Other, {{136.0, 263.0}, {1108.0, 87.0}}, hitPoint: {690.0, 306.5}
+       Cell, {{140.0, 360.0}, {1100.0, 66.0}}, label: 'Show rain', hitPoint: {690.0, 393.0}
+        Other, {{140.0, 360.0}, {1100.0, 66.0}}, hitPoint: {690.0, 393.0}
+         Other, {{140.0, 360.0}, {1100.0, 66.0}}, hitPoint: {690.0, 393.0}
+          Button, {{160.0, 376.0}, {127.0, 35.0}}, label: 'Show rain', hitPoint: {223.5, 393.5}
+        Other, {{140.0, 360.0}, {1100.0, 66.0}}, hitPoint: {690.0, 393.0}
+         Other, {{140.0, 360.0}, {1100.0, 66.0}}, hitPoint: {690.0, 393.0}
+          Button, {{160.0, 376.0}, {127.0, 35.0}}, label: 'Show rain', hitPoint: {223.5, 393.5}
+       Other, {{140.0, 440.0}, {1100.0, 46.0}}, hitPoint: {690.0, 463.0}
+        Other, {{140.0, 440.0}, {1100.0, 46.0}}, hitPoint: {690.0, 463.0}
+         Other, {{140.0, 440.0}, {1100.0, 46.0}}, hitPoint: {690.0, 463.0}
+          StaticText, {{160.0, 440.0}, {72.0, 46.0}}, label: 'Grid', hitPoint: {196.0, 463.0}
+       Cell, {{140.0, 486.0}, {1100.0, 79.0}}, label: 'Automatic columns, On', hitPoint: {690.0, 525.5}
+        Other, {{140.0, 486.0}, {1100.0, 79.0}}, hitPoint: {690.0, 525.5}
+         Other, {{140.0, 486.0}, {1100.0, 79.0}}, hitPoint: {690.0, 525.5}
+          Switch, {{160.0, 508.0}, {1060.0, 35.0}}, label: 'Automatic columns, On', value: 1, hitPoint: {690.0, 525.5}
+           StaticText, {{160.0, 508.0}, {1060.0, 35.0}}, label: 'Automatic columns, On', hitPoint: {690.0, 525.5}
+           StaticText, {{160.0, 508.0}, {248.0, 35.0}}, label: 'Automatic columns', hitPoint: {284.0, 525.5}
+        Other, {{140.0, 486.0}, {1100.0, 79.0}}, hitPoint: {690.0, 525.5}
+         Other, {{140.0, 486.0}, {1100.0, 79.0}}, hitPoint: {690.0, 525.5}
+          Switch, {{160.0, 508.0}, {1060.0, 35.0}}, label: 'Automatic columns, On', value: 1, hitPoint: {690.0, 525.5}
+           StaticText, {{160.0, 508.0}, {1060.0, 35.0}}, label: 'Automatic columns, On', hitPoint: {690.0, 525.5}
+           StaticText, {{160.0, 508.0}, {248.0, 35.0}}, label: 'Automatic columns', hitPoint: {284.0, 525.5}
+       Cell, {{140.0, 579.0}, {1100.0, 66.0}}, label: 'Columns', hitPoint: {690.0, 612.0}
+        Other, {{140.0, 579.0}, {1100.0, 66.0}}, hitPoint: {690.0, 612.0}
+         Other, {{140.0, 579.0}, {1100.0, 66.0}}, hitPoint: {690.0, 612.0}
+          Button, {{160.0, 595.0}, {1058.0, 35.0}}, identifier: 'dreams.tv.settings.columns', label: 'Columns', value: 64, Disabled, hitPoint: {689.0, 612.5}
+           StaticText, {{160.0, 595.0}, {115.0, 35.0}}, label: 'Columns', Disabled, hitPoint: {217.5, 612.5}
+           Image, {{878.0, 599.0}, {15.0, 26.0}}, identifier: 'chevron.left', label: 'Back', Disabled, hitPoint: {885.5, 612.0}
+           StaticText, {{1030.0, 595.0}, {37.0, 35.0}}, label: '64', Disabled, hitPoint: {1048.5, 612.5}
+           Image, {{1203.0, 599.0}, {15.0, 26.0}}, identifier: 'chevron.right', label: 'Forward', Disabled, hitPoint: {1210.5, 612.0}
+        Other, {{140.0, 579.0}, {1100.0, 66.0}}, hitPoint: {690.0, 612.0}
+       Cell, {{140.0, 659.0}, {1100.0, 66.0}}, label: 'Rain density', hitPoint: {690.0, 692.0}
+        Other, {{140.0, 659.0}, {1100.0, 66.0}}, hitPoint: {690.0, 692.0}
+         Other, {{140.0, 659.0}, {1100.0, 66.0}}, hitPoint: {690.0, 692.0}
+          Button, {{160.0, 675.0}, {1058.0, 35.0}}, identifier: 'dreams.tv.settings.density', label: 'Rain density', value: 95%, hitPoint: {689.0, 692.5}
+           StaticText, {{160.0, 675.0}, {158.0, 35.0}}, label: 'Rain density', hitPoint: {239.0, 692.5}
+           Image, {{878.0, 679.0}, {15.0, 26.0}}, identifier: 'chevron.left', label: 'Back', hitPoint: {885.5, 692.0}
+           StaticText, {{1017.0, 675.0}, {62.0, 35.0}}, label: '95%', hitPoint: {1048.0, 692.5}
+           Image, {{1203.0, 679.0}, {15.0, 26.0}}, identifier: 'chevron.right', label: 'Forward', hitPoint: {1210.5, 692.0}
+        Other, {{140.0, 659.0}, {1100.0, 66.0}}, hitPoint: {690.0, 692.0}
+         Other, {{140.0, 659.0}, {1100.0, 66.0}}, hitPoint: {690.0, 692.0}
+          Button, {{160.0, 675.0}, {1058.0, 35.0}}, identifier: 'dreams.tv.settings.density', label: 'Rain density', value: 95%, hitPoint: {689.0, 692.5}
+           StaticText, {{160.0, 675.0}, {158.0, 35.0}}, label: 'Rain density', hitPoint: {239.0, 692.5}
+           Image, {{878.0, 679.0}, {15.0, 26.0}}, identifier: 'chevron.left', label: 'Back', hitPoint: {885.5, 692.0}
+           StaticText, {{1017.0, 675.0}, {62.0, 35.0}}, label: '95%', hitPoint: {1048.0, 692.5}
+           Image, {{1203.0, 679.0}, {15.0, 26.0}}, identifier: 'chevron.right', label: 'Forward', hitPoint: {1210.5, 692.0}
+       Other, {{140.0, 739.0}, {1100.0, 46.0}}, hitPoint: {690.0, 762.0}
+        Other, {{140.0, 739.0}, {1100.0, 46.0}}, hitPoint: {690.0, 762.0}
+         Other, {{140.0, 739.0}, {1100.0, 46.0}}, hitPoint: {690.0, 762.0}
+          StaticText, {{160.0, 739.0}, {117.0, 46.0}}, label: 'Motion', hitPoint: {218.5, 762.0}
+       Cell, {{140.0, 785.0}, {1100.0, 66.0}}, label: 'Speed', hitPoint: {690.0, 818.0}
+        Other, {{140.0, 785.0}, {1100.0, 66.0}}, hitPoint: {690.0, 818.0}
+         Other, {{140.0, 785.0}, {1100.0, 66.0}}, hitPoint: {690.0, 818.0}
+          Button, {{160.0, 801.0}, {1058.0, 35.0}}, identifier: 'dreams.tv.settings.speed', label: 'Speed', value: 0.40×, hitPoint: {689.0, 818.5}
+           StaticText, {{160.0, 801.0}, {84.0, 35.0}}, label: 'Speed', hitPoint: {202.0, 818.5}
+           Image, {{878.0, 805.0}, {15.0, 26.0}}, identifier: 'chevron.left', label: 'Back', hitPoint: {885.5, 818.0}
+           StaticText, {{1008.0, 801.0}, {81.0, 35.0}}, label: '0.40×', hitPoint: {1048.5, 818.5}
+           Image, {{1203.0, 805.0}, {15.0, 26.0}}, identifier: 'chevron.right', label: 'Forward', hitPoint: {1210.5, 818.0}
+        Other, {{140.0, 785.0}, {1100.0, 66.0}}, hitPoint: {690.0, 818.0}
+       Cell, {{140.0, 865.0}, {1100.0, 66.0}}, label: 'Fade · glyphs', hitPoint: {690.0, 898.0}
+        Other, {{140.0, 865.0}, {1100.0, 66.0}}, hitPoint: {690.0, 898.0}
+         Other, {{140.0, 865.0}, {1100.0, 66.0}}, hitPoint: {690.0, 898.0}
+          Button, {{160.0, 881.0}, {1058.0, 35.0}}, identifier: 'dreams.tv.settings.fade', label: 'Fade · glyphs', value: 2, hitPoint: {689.0, 898.5}
+           StaticText, {{160.0, 881.0}, {169.0, 35.0}}, label: 'Fade · glyphs', hitPoint: {244.5, 898.5}
+           Image, {{878.0, 885.0}, {15.0, 26.0}}, identifier: 'chevron.left', label: 'Back', hitPoint: {885.5, 898.0}
+           StaticText, {{1039.0, 881.0}, {19.0, 35.0}}, label: '2', hitPoint: {1048.5, 898.5}
+           Image, {{1203.0, 885.0}, {15.0, 26.0}}, identifier: 'chevron.right', label: 'Forward', hitPoint: {1210.5, 898.0}
+        Other, {{140.0, 865.0}, {1100.0, 66.0}}, hitPoint: {690.0, 898.0}
+       Cell, {{140.0, 945.0}, {1100.0, 66.0}}, label: 'Searching glyphs', hitPoint: {690.0, 978.0}
+        Other, {{140.0, 945.0}, {1100.0, 66.0}}, hitPoint: {690.0, 978.0}
+         Other, {{140.0, 945.0}, {1100.0, 66.0}}, hitPoint: {690.0, 978.0}
+          Button, {{160.0, 961.0}, {1058.0, 35.0}}, identifier: 'dreams.tv.settings.search', label: 'Searching glyphs', value: 10%, hitPoint: {689.0, 978.5}
+           StaticText, {{160.0, 961.0}, {223.0, 35.0}}, label: 'Searching glyphs', hitPoint: {271.5, 978.5}
+           Image, {{878.0, 965.0}, {15.0, 26.0}}, identifier: 'chevron.left', label: 'Back', hitPoint: {885.5, 978.0}
+           StaticText, {{1017.0, 961.0}, {62.0, 35.0}}, label: '10%', hitPoint: {1048.0, 978.5}
+           Image, {{1203.0, 965.0}, {15.0, 26.0}}, identifier: 'chevron.right', label: 'Forward', hitPoint: {1210.5, 978.0}
+        Other, {{140.0, 945.0}, {1100.0, 66.0}}, hitPoint: {690.0, 978.0}
+       Cell, {{140.0, 1025.0}, {1100.0, 79.0}}, label: 'Decelerate drops, On', hitPoint: {690.0, 1052.5}
+        Other, {{140.0, 1025.0}, {1100.0, 79.0}}, hitPoint: {690.0, 1052.5}
+         Other, {{140.0, 1025.0}, {1100.0, 79.0}}, hitPoint: {690.0, 1052.5}
+          Switch, {{160.0, 1047.0}, {1060.0, 35.0}}, label: 'Decelerate drops, On', value: 1, hitPoint: {690.0, 1063.5}
+           StaticText, {{160.0, 1047.0}, {1060.0, 35.0}}, label: 'Decelerate drops, On', hitPoint: {690.0, 1063.5}
+           StaticText, {{160.0, 1047.0}, {220.0, 35.0}}, label: 'Decelerate drops', hitPoint: {270.0, 1063.5}
+        Other, {{140.0, 1025.0}, {1100.0, 79.0}}, hitPoint: {690.0, 1052.5}
+       Cell, {{140.0, 1118.0}, {1100.0, 66.0}}, label: 'Acceleration · glyph/s²'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1244.0}, {1100.0, 66.0}}, label: 'Brightness'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1324.0}, {1100.0, 66.0}}, label: 'Brightness spread'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1404.0}, {1100.0, 66.0}}, label: 'Brightness pulse'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1484.0}, {1100.0, 66.0}}, label: 'Glow'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1564.0}, {1100.0, 66.0}}, label: 'Rain color · red'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1644.0}, {1100.0, 66.0}}, label: 'Rain color · green'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1724.0}, {1100.0, 66.0}}, label: 'Rain color · blue'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 1804.0}, {1100.0, 79.0}}, label: 'Restored film glyphs, On'
+        Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+        Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+         Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+       Cell, {{140.0, 1943.0}, {1100.0, 79.0}}, label: 'Show clock, Off'
+        Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+        Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+         Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+       Cell, {{140.0, 2036.0}, {1100.0, 79.0}}, label: 'Floating clock, Off'
+        Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+        Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+         Other, {{140.0, 120.0}, {1100.0, 79.0}}, hitPoint: {690.0, 159.5}
+       Cell, {{140.0, 2129.0}, {1100.0, 66.0}}, label: 'Clock font'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 2209.0}, {1100.0, 66.0}}, label: 'Clock size'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+       Cell, {{140.0, 2289.0}, {1100.0, 66.0}}, label: 'Restore defaults'
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+         Other, {{140.0, 120.0}, {1100.0, 66.0}}, hitPoint: {690.0, 153.0}
+        Other, {{1234.0, 932.0}, {3.0, 25.0}}, hitPoint: {1235.5, 944.5}
