@@ -5,6 +5,10 @@ changes. Initial scope: repository maintenance rules and the browser glyph
 editor on `96fef7ad121cf9ba278eabd878c5179fd754a0cd`. All recovered contracts are **descriptive drafts**;
 formal acceptance and runtime conformance remain separate owner decisions.
 
+## Notification-test delivery boundary — 2026-10-25
+
+`dreams.feed.read/shared_snapshot`, `freshness_and_expiry`, `errors` and `lifetime` retain their implementation requirements. The notification regression now waits for the expected session IDs instead of treating any read after a timestamp as message delivery, and explicitly forces the earlier empty-read race. The five-second test bound remains below the fixture's 30-second fallback. Production reader/publisher code is unchanged. [Source and checks](integration/2026-10-25/pr63-feed/README.md) retain the hosted failure separately from later passes.
+
 ## Coverage — 2026-10-13
 
 | HC role/path | Consumer / profile | Contract or disposition | Baseline / evidence | Next action |
