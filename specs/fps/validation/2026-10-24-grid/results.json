@@ -52,5 +52,13 @@
     "appData": "preserved",
     "visualAcceptance": false,
     "receipts": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/device-install/2026-10-24-grid-7dfe2ac"
+  },
+  "simulatorUI": {
+    "installedAndLaunched": true,
+    "argumentOnlyOverrides": true,
+    "preferencesChanged": false,
+    "visualAcceptance": false,
+    "reason": "DeviceInteraction session disappeared; fallback screenshot failed with permission error. No alignment screenshot available.",
+    "sessionClosed": true
   }
 }

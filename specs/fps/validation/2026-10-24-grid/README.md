@@ -11,3 +11,10 @@ Metal offscreen render and geometry/sampling tests: 4 passed. TV Simulator
 Release regression suite: 19 passed. Final suite, current bindings and physical
 installation are recorded in results.json. UI/runtime screenshots are separate
 from the deterministic pixel test and physical frame-rate acceptance.
+
+The simulator app launched with argument-only FPS overrides; preferences were
+not changed. The interaction session disappeared and screenshot fallback failed
+with a permission error. No simulator alignment screenshot/acceptance is claimed;
+session cleanup was confirmed. Deterministic Metal pixel verification passed.
+The physical Release was built, installed preserving data and launched; owner
+visual acceptance remains separate.
