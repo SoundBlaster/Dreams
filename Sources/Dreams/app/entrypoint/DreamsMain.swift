@@ -4,7 +4,7 @@ import MetalKit
 @main
 enum DreamsMain {
     @MainActor
-    static func main() {
+    static func main() async {
         if CommandLine.arguments.contains("--performance-run") || CommandLine.arguments.contains("--performance-calibration")
             || CommandLine.arguments.contains("--performance-feed") {
             PerformanceRun.run(arguments: CommandLine.arguments)
@@ -48,6 +48,34 @@ enum DreamsMain {
             }
             return
         }
+        let mode = DesktopInstance.Mode(arguments: CommandLine.arguments)
+        var instance: DesktopInstance?
+        if mode != .independent {
+            do {
+                let candidate = try DesktopInstance()
+                let existing = DesktopInstance.existingGUI()
+                let acquired = try (existing == nil && candidate.acquire())
+                guard acquired else {
+                    if mode == .interactive { try await DesktopInstance.reopen(existing) }
+                    else {
+                        let message = "Dreams: another desktop instance is running. "
+                            + "Use --mcp --publisher for independent event publishing.\n"
+                        FileHandle.standardError.write(Data(message.utf8))
+                        exit(1)
+                    }
+                    return
+                }
+                instance = candidate
+            } catch {
+                FileHandle.standardError.write(Data("Dreams: cannot acquire or reopen the desktop instance: \(error.localizedDescription)\n".utf8))
+                exit(1)
+            }
+        }
+        runDesktop(instance: instance)
+    }
+
+    @MainActor
+    private static func runDesktop(instance: DesktopInstance?) {
         SettingsMigration.run()
         let publisherOnly = CommandLine.arguments.contains("--publisher")
         let interactive = !CommandLine.arguments.contains("--mcp")
@@ -63,7 +91,9 @@ enum DreamsMain {
         }
         let delegate = DreamsDelegate()
         delegate.showsControls = interactive
+        delegate.ownsDesktop = instance?.isOwner == true
         application.delegate = delegate
+        instance?.observeReopen { [weak delegate] in delegate?.reopenSettings() }
         if !publisherOnly { delegate.setupMenu() }
         if CommandLine.arguments.contains("--mcp") {
             Task {
@@ -100,7 +130,7 @@ enum DreamsMain {
                 catch { delegate.show(error: error) }
             }
         }
-        withExtendedLifetime(delegate) { application.run() }
+        withExtendedLifetime((delegate, instance)) { application.run() }
     }
 
 }
