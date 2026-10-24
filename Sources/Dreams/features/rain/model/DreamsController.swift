@@ -99,6 +99,12 @@ final class DreamsController: NSObject {
     private let log = Logger(subsystem: "ru.egormerkushev.dreams", category: "rain")
     private(set) var lastStopReason: StopReason?
 
+    /// Hide only the status item; native application commands and shortcuts remain available.
+    var showsMenuBarIcon = UserDefaults.standard.object(forKey: "showsMenuBarIcon") as? Bool
+        ?? DreamsPreset.showsMenuBarIcon {
+        didSet { UserDefaults.standard.set(showsMenuBarIcon, forKey: "showsMenuBarIcon"); settingsChanged() }
+    }
+
     var runTimeSeconds: Double = {
         let value = UserDefaults.standard.object(forKey: "runTimeSeconds") as? Double ?? DreamsPreset.runTimeSeconds
         return DreamsPreset.runTimeChoices.contains(value) ? value : DreamsPreset.runTimeSeconds
@@ -155,6 +161,7 @@ final class DreamsController: NSObject {
         try setRestoredGlyphs(DreamsPreset.restoredGlyphs)
         setHideFromScreenshots(DreamsPreset.hideFromScreenshots)
         runTimeSeconds = DreamsPreset.runTimeSeconds
+        showsMenuBarIcon = DreamsPreset.showsMenuBarIcon
         stopHotkey = .standard
         try setDisplaySelection(RainDisplaySelection())
     }

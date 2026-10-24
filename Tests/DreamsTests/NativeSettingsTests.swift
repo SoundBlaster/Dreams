@@ -10,7 +10,7 @@ struct NativeSettingsTests {
     static let savedKeys = ["rainColumnCount", "rainDensity", "rainSpeed", "rainSearchFraction", "rainFadeRows",
                             "rainDecelerationEnabled", "rainDeceleration", "rainBrightnessSpread", "rainPulseStrength", "rainGlow", "transparentRainGlow",
                             "rainIdleIntensity", "rainColor", "transparentRainColor", "keywordColor", "keywordBrightness",
-                            "transparentBackground", "restoredGlyphs", "hideFromScreenshots", "runTimeSeconds",
+                            "transparentBackground", "restoredGlyphs", "hideFromScreenshots", "runTimeSeconds", "showsMenuBarIcon",
                             "rainDisplayMode", "rainDisplayIDs", "stopHotkeyKeyCode", "stopHotkeyModifiers", "stopHotkeyKey"]
 
     static func preserveDefaults() -> () -> Void {
@@ -77,6 +77,37 @@ struct NativeSettingsTests {
         #expect(model[parameter: .speed] == 0.73)
     }
 
+    @Test func menuBarIconDefaultsToVisibleAndTracksSavedPreference() throws {
+        _ = NSApplication.shared
+        let restore = Self.preserveDefaults()
+        defer { restore() }
+        UserDefaults.standard.removeObject(forKey: "showsMenuBarIcon")
+        #expect(DreamsController().showsMenuBarIcon)
+        UserDefaults.standard.set(false, forKey: "showsMenuBarIcon")
+        let delegate = DreamsDelegate()
+        delegate.showsControls = true
+        delegate.setupMenu()
+        defer { delegate.applicationWillTerminate(Foundation.Notification(name: NSApplication.willTerminateNotification)) }
+        let item = try #require(delegate.statusItem)
+        #expect(!item.isVisible)
+        let page = SettingsPageController(controller: delegate.controller)
+        let model = NativeSettingsModel(owner: page)
+        defer { page.cleanUp() }
+        let shortcutRegistered = delegate.controller.emergencyHotkeyRegistered
+        for visible in [true, false, true, false] {
+            model.showsMenuBarIcon = visible
+            #expect(item.isVisible == visible)
+            #expect(delegate.statusItem === item)
+            #expect(DreamsController().showsMenuBarIcon == visible)
+            #expect(item.menu != nil)
+            #expect(delegate.controller.emergencyHotkeyRegistered == shortcutRegistered)
+        }
+        try delegate.controller.resetToDefaults()
+        #expect(model.showsMenuBarIcon)
+        #expect(item.isVisible)
+        #expect(DreamsController().showsMenuBarIcon)
+    }
+
     @Test func bothWindowsSharePreferencesAndOneActivityTimer() throws {
         _ = NSApplication.shared
         let restore = Self.preserveDefaults()
@@ -106,6 +137,12 @@ struct NativeSettingsTests {
         model.transparent = true
         #expect(model[parameter: .glow] == 0.12)
         #expect((page.controlsByID["dreams.transparent-background"] as? NSButton)?.state == .on)
+        let menuBarIcon = try #require(page.controlsByID["dreams.show-menu-bar-icon"] as? NSButton)
+        model.showsMenuBarIcon = false
+        #expect(menuBarIcon.state == .off)
+        menuBarIcon.state = .on
+        page.changeMenuBarIcon(menuBarIcon)
+        #expect(model.showsMenuBarIcon)
         window.close()
         page.showControls()
         #expect(page.nativeWindow === window)

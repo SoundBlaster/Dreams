@@ -234,6 +234,10 @@ final class SettingsPageController: NSObject {
         refreshRunTimeHint()
     }
 
+    @objc func changeMenuBarIcon(_ sender: NSButton) {
+        controller.showsMenuBarIcon = sender.state == .on
+    }
+
     @objc func resetDefaults() {
         let alert = NSAlert()
         alert.messageText = L("reset.confirm.title")
@@ -268,6 +272,7 @@ final class SettingsPageController: NSObject {
         (controlsByID["dreams.transparent-background"] as? NSButton)?.state = controller.transparentBackground ? .on : .off
         (controlsByID["dreams.restored-glyphs"] as? NSButton)?.state = controller.restoredGlyphs ? .on : .off
         (controlsByID["dreams.hide-from-screenshots"] as? NSButton)?.state = controller.hideFromScreenshots ? .on : .off
+        (controlsByID["dreams.show-menu-bar-icon"] as? NSButton)?.state = controller.showsMenuBarIcon ? .on : .off
         if let popup = controlsByID["dreams.run-time"] as? NSPopUpButton,
            let index = DreamsPreset.runTimeChoices.firstIndex(of: controller.runTimeSeconds) { popup.selectItem(at: index) }
         refreshRunTimeHint()

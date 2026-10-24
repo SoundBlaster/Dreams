@@ -45,6 +45,16 @@ struct NativeGeneralForm: View {
             Section(settingsString("hotkey.label")) {
                 NativeShortcutRow(model: model)
             }
+            Section {
+                Toggle(isOn: $model.showsMenuBarIcon) {
+                    SettingsRowLabel(settingsString("menubar.show"), systemImage: "menubar.rectangle")
+                }
+                .accessibilityIdentifier("dreams.show-menu-bar-icon")
+                .help(settingsString("menubar.tip"))
+                Text(settingsString("menubar.tip"))
+                    .font(.caption).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
         .formStyle(.grouped)
     }
