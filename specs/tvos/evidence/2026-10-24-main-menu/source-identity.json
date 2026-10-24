@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "83599b5034d0f5a8481a43e0f3157b4e6bec6101",
+  "note": "Runtime source committed; specification-check additions to Makefile are pinned by full-file hash.",
+  "files": [
+    {
+      "path": "Makefile",
+      "snapshot": "evidence/2026-10-24-main-menu/source/Makefile",
+      "sha256": "ff69bf22d892ae80b789770ebc1d480f5ce2fadc89b76cfa47460a24140370c1",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

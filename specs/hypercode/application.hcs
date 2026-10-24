@@ -35,3 +35,8 @@ PerformanceProbe:
   source: "Sources/Dreams/app/providers/PerformanceRun.swift"
   detail: "performance.hc + performance.hcs"
   scope: "opt-in-bounded-macOS-windowed-probe; no-tvOS-or-fullscreen-acceptance"
+
+ApplicationMenu:
+  source: "Sources/Dreams/app/providers/ApplicationMenus.swift"
+  capability: "dreams.desktop.main_menu"
+  detail: "application-menu.hc + application-menu.hcs"

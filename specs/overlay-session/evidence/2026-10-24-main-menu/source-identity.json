@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "83599b5034d0f5a8481a43e0f3157b4e6bec6101",
+  "note": "Runtime source committed; specification-check additions to Makefile are pinned by full-file hash.",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24-main-menu/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "ee6acf46c4f4a5f4c6d223d0fd775c27429e822050217d8e7d3623805764b653",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "sourceRevision": "83599b5034d0f5a8481a43e0f3157b4e6bec6101",
+  "note": "Runtime source committed; specification-check additions to Makefile are pinned by full-file hash.",
+  "files": [
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "9e87a8e31ddfe57e5a84ddb92b88caaebe5e1afbda1739155c90f7c5db140a6c",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "a20dbfaf56c6fb1bdd27a0e03343eda803dc21bd3c22df303331e529981c7d1a",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/build-app.sh",
+      "snapshot": "evidence/2026-10-24-main-menu/source/scripts/build-app.sh",
+      "sha256": "1aca7a792693a799b9cf32a76cc3fde9f665abd3cc7dd5440ab9bc78572a9448",
+      "snapshotKind": "full-file"
+    }
+  ]
+}
