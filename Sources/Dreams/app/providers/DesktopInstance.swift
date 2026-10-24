@@ -74,10 +74,14 @@ final class DesktopInstance {
             .first { $0.processIdentifier != getpid() && !$0.isTerminated && $0.activationPolicy == .regular }
     }
 
-    static func reopen(_ application: NSRunningApplication?) async throws {
+    static func requestReopen() {
         // Only the lease owner listens, including an accessory full-control MCP process.
         DistributedNotificationCenter.default().postNotificationName(reopenNotification, object: nil,
             userInfo: nil, deliverImmediately: true)
+    }
+
+    static func reopen(_ application: NSRunningApplication?) async throws {
+        requestReopen()
         if let url = application?.bundleURL {
             let configuration = NSWorkspace.OpenConfiguration()
             configuration.activates = true

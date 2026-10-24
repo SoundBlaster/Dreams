@@ -4,7 +4,7 @@ import MetalKit
 @main
 enum DreamsMain {
     @MainActor
-    static func main() async {
+    static func main() {
         if CommandLine.arguments.contains("--performance-run") || CommandLine.arguments.contains("--performance-calibration")
             || CommandLine.arguments.contains("--performance-feed") {
             PerformanceRun.run(arguments: CommandLine.arguments)
@@ -57,7 +57,20 @@ enum DreamsMain {
                 let existing = acquired ? DesktopInstance.existingGUI() : nil
                 guard acquired && existing == nil else {
                     candidate.release()
-                    if mode == .interactive { try await DesktopInstance.reopen(existing) }
+                    if mode == .interactive {
+                        if let existing {
+                            // Only the short-lived legacy handoff needs an asynchronous workspace call.
+                            Task { @MainActor in
+                                do { try await DesktopInstance.reopen(existing); exit(0) }
+                                catch {
+                                    FileHandle.standardError.write(Data("Dreams: cannot reopen the desktop instance: \(error.localizedDescription)\n".utf8))
+                                    exit(1)
+                                }
+                            }
+                            dispatchMain()
+                        }
+                        DesktopInstance.requestReopen()
+                    }
                     else {
                         let message = "Dreams: another desktop instance is running. "
                             + "Use --mcp --publisher for independent event publishing.\n"

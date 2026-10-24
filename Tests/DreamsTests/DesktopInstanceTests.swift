@@ -44,13 +44,13 @@ struct DesktopInstanceTests {
         #expect(try third.acquire())
     }
 
-    @Test func processExitReleasesLeaseWithoutRemovingTheLockFile() throws {
+    @Test func processExitReleasesLeaseWithoutRemovingTheLockFile() async throws {
         let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: directory) }
         let candidate = try DesktopInstance(directory: directory)
         let child = Process()
-        child.executableURL = URL(fileURLWithPath: "/usr/bin/python3")
-        child.arguments = ["-c", """
+        child.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+        child.arguments = ["python3", "-c", """
             import fcntl, sys
             with open(sys.argv[1], 'r+') as lock:
                 fcntl.flock(lock, fcntl.LOCK_EX)
@@ -62,11 +62,25 @@ struct DesktopInstanceTests {
         child.standardOutput = output
         child.standardInput = input
         try child.run()
-        defer { if child.isRunning { child.terminate(); child.waitUntilExit() } }
-        #expect(String(data: output.fileHandleForReading.availableData, encoding: .utf8) == "locked\n")
+        defer { if child.isRunning { kill(child.processIdentifier, SIGKILL) } }
+        let descriptor = output.fileHandleForReading.fileDescriptor
+        try #require(fcntl(descriptor, F_SETFL, O_NONBLOCK) == 0)
+        var receipt = ""
+        var bytes = [UInt8](repeating: 0, count: 64)
+        for _ in 0..<100 {
+            let count = Darwin.read(descriptor, &bytes, bytes.count)
+            if count > 0 { receipt += String(decoding: bytes.prefix(count), as: UTF8.self) }
+            if receipt.contains("locked\n") || !child.isRunning { break }
+            try await Task.sleep(for: .milliseconds(50))
+        }
+        try #require(receipt == "locked\n", "Child lock readiness must arrive within five seconds")
         #expect(try !candidate.acquire())
         child.terminate()
-        child.waitUntilExit()
+        for _ in 0..<100 {
+            if !child.isRunning { break }
+            try await Task.sleep(for: .milliseconds(50))
+        }
+        try #require(!child.isRunning, "Child termination must complete within five seconds")
         #expect(try candidate.acquire())
         #expect(FileManager.default.fileExists(atPath: directory.appendingPathComponent("desktop-instance.lock").path))
     }
