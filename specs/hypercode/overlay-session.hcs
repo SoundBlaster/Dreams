@@ -45,6 +45,9 @@ FeedInput:
   source: "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift"
   capability: "dreams.feed.read"
   assembly: "shared-reader-lease-per-renderer; ready-memory-snapshot-in-frame; independent-consumed-event-IDs"
+FPSReadout:
+  detail: "fps.hc + fps.hcs"
+  capability: "dreams.rain.fps"
 @background[transparent]:
   RainOverlaySession:
     background: "transparent"

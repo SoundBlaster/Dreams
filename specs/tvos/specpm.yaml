@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.television
   name: Dreams Apple TV rain and clock
-  version: 0.1.0-draft.3
+  version: 0.1.0-draft.4
   summary: Foreground tvOS rain with desktop motion and appearance controls and an optional whole-glyph clock.
   license: MIT
   authors:

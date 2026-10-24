@@ -1,0 +1,90 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.rain.fps
+  title: OptionalFrameCadenceReadout
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Let viewers inspect rain cadence without an external debugger.
+scope:
+  boundedContext: rain_diagnostics
+  includes:
+  - Per-renderer cadence sampling, Dreams digit atlas, Metal overlay and persistent opt-in controls.
+  excludes:
+  - Benchmark acceptance, frame-time percentiles, system-wide FPS and performance optimizations.
+provides:
+  capabilities:
+  - id: dreams.rain.fps
+    role: primary
+    summary: Optional right-aligned numeric FPS readout in the upper-right corner.
+requires:
+  capabilities:
+  - id: platform.apple.metal_renderer
+    summary: Render the overlay in the existing rain pass and observe completion or presentation callbacks.
+interfaces:
+  inbound:
+  - id: setting
+    kind: ui
+    summary: Localized native Advanced toggle controls the per-app saved FPS preference.
+    operations:
+    - name: Show FPS
+      inputs:
+      - name: enabled
+        type: Boolean, default false
+      outputs:
+      - name: readout
+        type: Optional numeric Metal overlay after one full sampling window
+  - id: timestamps
+    kind: library
+    summary: Renderer callbacks report observed successful frame timestamps to a synchronized window.
+  outbound:
+  - id: metal_overlay
+    kind: library
+    summary: Encode Dreams digits into the existing drawable render pass without changing rain scale.
+effects:
+  sideEffects:
+  - id: preferences
+    kind: state_mutation
+    summary: Persist explicit toggle edits and reset to default off.
+constraints:
+- id: opt_in
+  level: MUST
+  statement: Default off. Native macOS Advanced and tvOS Advanced expose localized toggles and explanations. Persist independently per app; reset turns the readout off. Disabled rendering installs no FPS callbacks and lazily allocates no FPS atlas or pipeline.
+- id: cadence
+  level: MUST
+  statement: Measure timestamp intervals independently for each renderer. macOS uses successful drawable presentation timestamps; tvOS uses successful command-buffer GPU completion timestamps because the TV SDK does not expose drawable presentation callbacks. Do not substitute CPU draw-call frequency. Round intervals per elapsed second to an integer and update only after a window of at least one second. Reject zero, non-finite and non-increasing timestamps. No number is shown until a full window is available.
+- id: lifetime
+  level: MUST
+  statement: Reset the sampling window when toggling or resuming the TV renderer or settings preview. Reject callbacks from earlier generations. Keep state synchronized across Metal callback threads and the main renderer. A disabled readout is absent immediately; retained atlas resources can be reused on re-enable.
+- id: appearance
+  level: MUST
+  statement: Use unmirrored DreamsMatrix-Regular digits with fixed spacing and a fixed right edge. Draw pale ink with a dark offset shadow through the existing Metal pass, without rain pulse, mutation, random brightness or glow. Preserve rain scale; anchor to actual drawable size even in a cropped settings preview, below its playback button. The offline PNG path does not add a live counter.
+evidence:
+- id: validation
+  kind: test
+  path: validation/2026-10-24/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    extraction: high
+    behavior: medium
+  notes:
+  - Owner approved an optional in-glyph FPS counter for macOS and tvOS. TV completion semantics were disclosed during implementation. Descriptive draft; screenshots and structural validity do not establish physical FPS accuracy or negligible overhead.
+implementationBindings:
+- id: shared_readout
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 58bb3bd8628392fd9b26dd6d0127066a99cb2c24
+  files:
+    owned:
+    - evidence/2026-10-24/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
+    - evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift
+    - evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-24/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-10-24/source/Tests/DreamsTests/PresentedFPSTests.swift
+    - evidence/2026-10-24/source/tvOS/Tests/RainParityTests.swift
+    border: []

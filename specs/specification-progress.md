@@ -956,3 +956,14 @@ requirements remain in force; performance and physical TV acceptance are unchang
 ## 2026-10-24 — pr55 main integration
 
 [Integration identities and scope](integration/2026-10-24/pr55/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
+
+## Optional FPS readout — 2026-10-24
+
+`dreams.rain.fps` adds independent opt-in diagnostics to macOS and tvOS.
+Affected parent claims: `dreams.settings.host` settings binding/preview lifecycle
+and new `constraints.fps`; `dreams.tv.rain` lifecycle/platform boundary and new
+`constraints.fps`. Existing motion/search/pulse and performance-probe claims keep
+their semantics: this readout does not change their algorithms or acceptance.
+[Contract](fps/README.md), [validation](fps/validation/2026-10-24/README.md).
+TV GPU completion and macOS presentation are distinct; physical-device cadence
+and overhead measurements remain outstanding. Historical evidence is preserved.
