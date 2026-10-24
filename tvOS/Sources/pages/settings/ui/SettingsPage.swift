@@ -18,6 +18,7 @@ struct SettingsPage: View {
             Section {
                 Text("settings.hint").font(.callout).foregroundStyle(.secondary)
                 Toggle("settings.preview", isOn: $previewPlays)
+                Text("settings.preview.hint").font(.callout).foregroundStyle(.secondary)
                 Button("settings.done", action: close).focused($focusedField, equals: .done)
             } header: { Text("settings.title") }
             grid

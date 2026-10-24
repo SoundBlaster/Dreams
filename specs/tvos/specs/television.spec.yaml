@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.tv.rain
   title: TelevisionRainAndClock
-  version: 0.1.0-draft.4
+  version: 0.1.0-draft.5
   status: draft
 intent:
   summary: Give Apple TV viewers the desktop rain's motion and appearance controls without agent or desktop-window integrations, preserving the optional TV clock.
@@ -66,7 +66,7 @@ constraints:
   statement: Discover restored private-use scalars from the bundled DreamsMatrix font, excluding designed Latin/Cyrillic. Classic mode uses the same Matrix-Code repertoire as macOS. Retain TV horizontal mirror variants and size the atlas for the selected repertoire. Prepare a replacement atlas before adoption; restarting the TV grid on repertoire change avoids obsolete indices. Bundle both fonts and third-party notices. Missing Metal/font/shader resources stop rendering with a visible localized failure route to settings.
 - id: persistent_tuning
   level: MUST
-  statement: Preserve existing TV preference keys and TV defaults (manual96 columns, density0.82, brightness0.18 and clock on). New appearance/motion defaults come from shared DreamsPreset. Normalize out-of-range and nonfinite numeric values. Reset persists all TV defaults after confirmation. TV state does not mutate desktop preferences.
+  statement: Preserve existing TV preference keys and TV defaults (manual96 columns, density0.82, brightness0.18 and clock on). New appearance/motion defaults come from shared DreamsPreset except the explicitly requested AppleTV5,3 Glow-zero hardware default. Normalize out-of-range and nonfinite numeric values. Reset persists all TV defaults after confirmation. TV state does not mutate desktop preferences.
 - id: remote_settings
   level: MUST
   statement: Use a scrollable system List, native Toggles and focusable native Button adjustment rows (Slider is unavailable on tvOS). Horizontal focus movement from directional presses or touch-surface swipes adjusts numeric values; vertical focus navigation remains native. Select increments. Ignore adjustment events while reset confirmation is presented. Expose localized names, values, adjustment hints and accessibility adjustment actions. Opening settings requests focus on Automatic columns. Present a centered settings panel with internal spacing and a rounded system-material background. Show rain, Back or PlayPause closes settings. PlayPause opens settings from rain; the separate Live preview toggle pauses/resumes rendering while the menu is open. Confirmation cancellation must not reset preferences.
@@ -76,6 +76,12 @@ constraints:
 - id: lifecycle
   level: MUST
   statement: Own one renderer/simulation in the app's root. Preview settings edits reuse it without scaling the full-screen surface down. Render only in an active scene, respecting settings preview pause. Disable the idle timer only on the active rain page; restore it in settings, on inactivity and disappearance. Reset frame timing on resume, and pause/remove the Metal delegate and renderer on teardown. Settings must receive focus/input rather than the background rain.
+- id: paused_preview
+  level: MUST
+  statement: With Live preview off in an active settings scene, coalesce tuning edits into one requested Metal frame without continuous animation. Focus-only updates must not request frames. Retain simulation time and wall-time appearance phase for nonstructural edits; resume excludes paused wall time. Grid/font edits rebuild with the renderer's stable seed and a bounded two-to-eight-second sample so the still is populated. Suppress FPS sampling/overlay on a requested paused frame. An inactive scene permits no drawing.
+- id: a8_glow_default
+  level: MUST
+  statement: On AppleTV5,3 (A8), new preferences and reset use Glow zero. Preserve any existing saved Glow value and allow manual enabling. Other and unknown hardware retain the shared default; this changes a default, not the glow algorithm or a performance guarantee.
 - id: fps
   level: MUST
   statement: Expose an optional default-off FPS toggle in Advanced. Use dreams.rain.fps with successful GPU completion timestamps, persistent preferences and reset-off semantics. Keep clock and rain behavior independent of the diagnostic readout.
@@ -91,6 +97,12 @@ effects:
     kind: state_mutation
     summary: Render local Metal frames and manage the foreground application's idle timer.
 evidence:
+- id: paused_preview_validation
+  kind: test
+  path: validation/2026-10-24-paused-preview/README.md
+  supports:
+  - constraints.paused_preview
+  - constraints.a8_glow_default
 - id: validation
   kind: test
   path: validation/2026-10-21-focus-input/README.md
@@ -110,23 +122,23 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 58bb3bd8628392fd9b26dd6d0127066a99cb2c24
+    revision: abc78f11d722f3086ff656c8c63d631b9cfb6547
   files:
     owned:
-    - evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/AppRoot.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/DreamsTVApp.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/ClockMask.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift
-    - evidence/2026-10-24-fps/source/tvOS/Sources/features/matrix/model/RainSettings.swift
-    - evidence/2026-10-24-fps/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
-    - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
-    - evidence/2026-10-21-parity/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
-    - evidence/2026-10-24-fps/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
-    - evidence/2026-10-24-fps/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
-    - evidence/2026-10-24-fps/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
+    - evidence/2026-10-24-safe-identifier/source/tvOS/Sources/features/matrix/model/RainSettings.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
+    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
-    - evidence/2026-10-24-fps/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-24-paused-preview/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-10-24-fps/source/tvOS/project.yml
     - evidence/2026-10-24-fps/source/Makefile
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift

@@ -967,3 +967,13 @@ their semantics: this readout does not change their algorithms or acceptance.
 [Contract](fps/README.md), [validation](fps/validation/2026-10-24/README.md).
 TV GPU completion and macOS presentation are distinct; physical-device cadence
 and overhead measurements remain outstanding. Historical evidence is preserved.
+
+## TV paused preview and A8 default — 2026-10-24
+
+Affected claims: `dreams.tv.rain` constraints.lifecycle/settings/platform_boundary,
+new constraints.paused_preview and constraints.a8_glow_default; `dreams.rain.fps`
+constraints.lifetime excludes manual paused frames. Stable roles and existing
+motion/search/pulse contracts remain unchanged. [Dated evidence](tvos/validation/2026-10-24-paused-preview/README.md).
+The owner's A8 observation isolates Glow as a substantial cost; it does not
+establish GPU versus CPU attribution or a guaranteed frame rate. Measured
+comparison and a cheaper glow implementation remain backlog.
