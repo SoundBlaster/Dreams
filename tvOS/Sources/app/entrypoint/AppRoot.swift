@@ -11,7 +11,7 @@ struct AppRoot: View {
     var body: some View {
         ZStack {
             ClockPage(tuning: settings.tuning, isActive: scenePhase == .active && (!showsSettings || previewPlays),
-                      acceptsInput: !showsSettings) { showsSettings = true }
+                      acceptsInput: !showsSettings, allowsStillUpdates: scenePhase == .active && showsSettings && !previewPlays) { showsSettings = true }
                 .allowsHitTesting(!showsSettings)
                 .accessibilityHidden(showsSettings)
             if showsSettings {

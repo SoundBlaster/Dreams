@@ -4,6 +4,7 @@ struct ClockPage: View {
     let tuning: RainTuning
     let isActive: Bool
     var acceptsInput = true
+    var allowsStillUpdates = false
     let openSettings: () -> Void
     @State private var renderingFailed = false
 
@@ -17,7 +18,7 @@ struct ClockPage: View {
                 }
             } else {
                 TimelineView(.everyMinute) { timeline in
-                    MatrixSurface(tuning: tuning, isActive: isActive) { renderingFailed = true }
+                    MatrixSurface(tuning: tuning, isActive: isActive, allowsStillUpdates: allowsStillUpdates) { renderingFailed = true }
                         .accessibilityLabel(Text(tuning.showsClock ? "clock.accessibility" : "rain.accessibility"))
                         .accessibilityValue(tuning.showsClock ? Text(timeline.date, style: .time) : Text(""))
                         .focusable(isActive && acceptsInput)
