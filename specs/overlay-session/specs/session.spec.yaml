@@ -181,7 +181,7 @@ implementationBindings:
     revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
   files:
     owned:
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-24-fps/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
     - evidence/2026-10-24-main-integration/pr39/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-24-main-menu/source/Sources/Dreams/app/providers/DreamsDelegate.swift

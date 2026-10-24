@@ -1,0 +1,49 @@
+name: DreamsTV
+options:
+  bundleIdPrefix: ru.egormerkushev
+  deploymentTarget:
+    tvOS: '18.0'
+settings:
+  base:
+    SWIFT_VERSION: '6.0'
+    DEVELOPMENT_TEAM: ''
+targets:
+  DreamsTV:
+    type: application
+    platform: tvOS
+    sources:
+      - path: Sources
+        excludes: ['**/*.metal']
+      - path: ../Sources/Dreams/features/rain/model/MatrixSimulation.swift
+      - path: ../Sources/Dreams/features/rain/model/PresentedFPS.swift
+      - path: ../Sources/Dreams/features/rain/ui/FPSOverlay.swift
+      - path: ../Sources/Dreams/features/rain/model/GlyphPulse.swift
+      - path: ../Sources/Dreams/features/rain/config/DreamsPreset.swift
+      - path: ../Sources/Dreams/Rain.metal
+        buildPhase:
+          copyFiles:
+            destination: resources
+      - path: ../Sources/Dreams/DreamsMatrix.ttf
+      - path: ../Sources/Dreams/Matrix-Code.ttf
+      - path: ../THIRD_PARTY_NOTICES.md
+      - path: ../LICENSE
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ru.egormerkushev.DreamsTV
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Dreams
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.entertainment
+    scheme:
+      testTargets: [DreamsTVTests]
+  DreamsTVTests:
+    type: bundle.unit-test
+    platform: tvOS
+    sources: [Tests]
+    dependencies:
+      - target: DreamsTV
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: ru.egormerkushev.DreamsTVTests

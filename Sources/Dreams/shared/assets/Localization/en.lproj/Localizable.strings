@@ -216,3 +216,6 @@
 "appMenu.minimize" = "Minimize";
 "appMenu.zoom" = "Zoom";
 "appMenu.bringAllToFront" = "Bring All to Front";
+
+"debug.fps" = "Show FPS";
+"debug.fps.tip" = "Presented frames per second, updated once a second.";

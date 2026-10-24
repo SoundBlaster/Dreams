@@ -88,3 +88,6 @@ from frames, so callback timing does not hide a read in before/after evidence.
 [Application menu](application-menu.hc) / [properties](application-menu.hcs) describe
 standard interactive macOS commands and their native responder-chain routing.
 The [contract](../application-menu/README.md) excludes accessory/TV behavior.
+
+The [FPS readout](fps.hc) / [profiles](fps.hcs) recover the opt-in digit overlay
+and its platform-specific timestamp semantics; [contract](../fps/README.md).

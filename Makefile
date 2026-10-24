@@ -229,6 +229,11 @@ specs-check:
 	"$(HYPERCODE)" parse specs/hypercode/application-menu.hc
 	"$(HYPERCODE)" validate specs/hypercode/application-menu.hc --hcs specs/hypercode/application-menu.hcs
 	"$(SPECPM)" validate specs/application-menu --json
+
+	"$(HYPERCODE)" parse specs/hypercode/fps.hc
+	"$(HYPERCODE)" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs
+	"$(HYPERCODE)" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs --ctx platform=tvos
+	"$(SPECPM)" validate specs/fps --json
 	"$(HYPERCODE)" parse specs/hypercode/keyword-feed.hc
 	"$(HYPERCODE)" validate specs/hypercode/keyword-feed.hc --hcs specs/hypercode/keyword-feed.hcs
 	"$(SPECPM)" validate specs/keyword-feed --json

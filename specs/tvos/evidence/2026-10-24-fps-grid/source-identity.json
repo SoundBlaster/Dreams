@@ -1,0 +1,11 @@
+{
+  "sourceRevision": "869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9",
+  "files": [
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "6157b67ddb8fb3266dafa01a72b40861bb291d2316b2dc3e673d79e8c2d3262b",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

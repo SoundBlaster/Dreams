@@ -7,3 +7,4 @@ TelevisionApplication
     Appearance
     ClockMask
     GlyphResources
+    FPSReadout

@@ -1,0 +1,41 @@
+{
+  "sourceRevision": "58bb3bd8628392fd9b26dd6d0127066a99cb2c24",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/model/PresentedFPS.swift",
+      "sha256": "58ea441d8a5872e2f8e0c31660da2748733bcb4794f09c2741c59c5d1f0c3c2c",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/features/rain/model/PresentedFPS.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/FPSOverlay.swift",
+      "sha256": "932d6b9e3af6257afd5a92a9a8804780e7e109778f90ed42118df6ccf28e1657",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "8b859556759f7c53c87b5a6a74efdd472a902bf7b91cae41493ab8253fb521d3",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "c2603d5d974bd80bc8c8908621e227f8a1ad17125a1e81ac22c40921e1d71c66",
+      "snapshot": "evidence/2026-10-24/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/PresentedFPSTests.swift",
+      "sha256": "76faf05adc9aac7d1c13342c099783f4264fbe27cb8e96a714208fac5a18718d",
+      "snapshot": "evidence/2026-10-24/source/Tests/DreamsTests/PresentedFPSTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Tests/RainParityTests.swift",
+      "sha256": "571b5e0c17aa061c2c73e14f5f13fca084d3ff7d68d3bf0eae5dba20b85296c3",
+      "snapshot": "evidence/2026-10-24/source/tvOS/Tests/RainParityTests.swift",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

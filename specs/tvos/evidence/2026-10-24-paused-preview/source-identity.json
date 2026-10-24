@@ -1,0 +1,59 @@
+{
+  "sourceRevision": "734bb95772389f91f66cec07bb2ab11647d90d57",
+  "files": [
+    {
+      "path": "tvOS/Sources/app/entrypoint/AppRoot.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift",
+      "sha256": "6a4285ea3ea9e8d1477efeae6d4712b0765e6ae6f58db8e5b1e7ed2bf60ba96b",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "sha256": "ec66f95fd53e8b8b310e84adf05739ecea3a64cc6839244d2c669ef629ebdbd0",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "3675ab09be5165dbdfd6938074377001e0ed2eee4374d912f05ae3e5de9b8703",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixSurface.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift",
+      "sha256": "1a9f515f8716cc2c699250a9f7a82bdfd9ad7e870ca1bd30b28dfd42ed02ea65",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/pages/clock/ui/ClockPage.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/clock/ui/ClockPage.swift",
+      "sha256": "49cd1eae3e4e91f3b0286df2635616aa741e1aeee2e114dbdc97e1560359132f",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "sha256": "77d2f7bf943283e1eefe2bba1f73fceb2d259db4f30e904a81823edcf2d3708a",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "sha256": "2658f3ba5f7fc68e98d25ccd9ae32721bdef46cf61dd194dae8e30ddb996c492",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "sha256": "8b24f7571bfbbbdd631aab582c1dceda50091d346e39f9fa58d5ed0301c2b89e",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Tests/RainParityTests.swift",
+      "snapshot": "evidence/2026-10-24-paused-preview/source/tvOS/Tests/RainParityTests.swift",
+      "sha256": "b55607ea92818d6c8b1d4ddb4ec3d8195e2aefeae3c290fe7e273b65101e2390",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

@@ -129,12 +129,12 @@ implementationBindings:
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-24-fps/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
     - evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings

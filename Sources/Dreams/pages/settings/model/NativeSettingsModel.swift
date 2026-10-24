@@ -40,6 +40,11 @@ final class NativeSettingsModel {
         }
     }
 
+    var showsFPS: Bool {
+        get { read(\.showsFPS) }
+        set { controller.showsFPS = newValue }
+    }
+
     var automaticColumns: Bool {
         get { read(\.rainColumnCount) == 0 }
         set { controller.rainColumnCount = newValue ? 0 : min(240, max(24, controller.automaticColumnCount)) }

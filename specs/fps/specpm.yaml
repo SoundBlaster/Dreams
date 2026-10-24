@@ -1,0 +1,29 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.fps
+  name: Dreams optional FPS readout
+  version: 0.1.0-draft.3
+  summary: Opt-in frame cadence readout using Dreams digits on macOS and tvOS.
+  license: MIT
+  authors:
+  - name: Dreams contributors
+specs:
+- path: specs/readout.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.rain.fps
+  requires:
+    capabilities:
+    - platform.apple.metal_renderer
+compatibility:
+  platforms:
+  - macos
+  - tvos
+  languages:
+  - name: swift
+foreignArtifacts:
+- format: markdown
+  path: README.md
+  role: documentation
