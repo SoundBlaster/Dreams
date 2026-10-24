@@ -1,0 +1,835 @@
+{
+  "sourceRevision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+  "bindings": [
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "8f9c56c88123ebaa61f58d37c13579c336ddf29d923cc4ece74ec26b0e045c70"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "fc55b3fb58dcf3fe06ef285b3e1ac2744abcced4f63eab0f0b6030ee7fc57162"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "sha256": "bdb833e14c4f26f20bac7044dfaf4ad4740484070aea81a4bf5cbfa62d4a4912"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "402662a402f2f4f65d71ff53a5362098ece88287a1183f4059dbf1596b4f8f48"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "sha256": "f3c60fea226d7d4b390bdd9043b61edaf8f9be651851643e17e4a23bfa0a7c9a"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/run-performance.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-performance.py",
+      "sha256": "f5dcbc7b5cc79190faff6e06500e359456afbaf91a5b56080105d390aa6f3789"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/summarize-performance.py",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/summarize-performance.py",
+      "sha256": "554f184b0370116a06d9637c3b758a70c38a316a91b30c9ddb370f15b01958bb"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/swift-macos.sh",
+      "snapshot": "evidence/2026-10-22-baseline/source/scripts/swift-macos.sh",
+      "sha256": "a5165bf53292441d50e54fea04284b49819f600f9cea83ec60de12803f804192"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/scenarios/search-saturated.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json",
+      "sha256": "a409cb09c53af31d6733dae29ebb6ae3c079f6dafe3eb7ff8da9d11c96a41521"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/scenarios/normal.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json",
+      "sha256": "6458f4282d75754a5baaf5bf85a1ac1264812ceb7ef6dae2b8f104a1a7c73887"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/scenarios/dense-no-glow.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json",
+      "sha256": "77173c2e5faa93a8db55d454b722c2e52bb4a42a4397bc3b5aa11c633e0ecf5f"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/scenarios/dense.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense.json",
+      "sha256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/scenarios/preview-crop.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/preview-crop.json",
+      "sha256": "9dea4524c4b55abf08e3a09ea830876d71fcd940bf405b404025a42420a1f190"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/test-performance-reports.py",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/test-performance-reports.py",
+      "sha256": "053ec7f7c2ce63402f281a8978c0fe24a6185a27869545ae95e4a208c1e21960"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "sha256": "c032603004438284a998781a7b0d32b1c909bb131c2f1d08057b1b7ccfd118bb"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Tests/DreamsTests/RainCalibrationTests.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Tests/DreamsTests/RainCalibrationTests.swift",
+      "sha256": "15c9f8dee840ee006311e31e3f728e3d8d45fa7cc4d4435149408aebbeb9f905"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/run-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-calibration.py",
+      "sha256": "c6c157833f91a0ac0f0e609500ec135fa55d62d6266c5068f52fab591796284d"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/analyze-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/analyze-calibration.py",
+      "sha256": "1b838375ef2319fedf7a4fbc40d5e1d5418f8a06841e0fca695da6ae5cadcd32"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/test-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/test-calibration.py",
+      "sha256": "ea8547567d7949eef7a79dbd26ff0cb3c8651b35f162774d17f127bcfeee259f"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/calibration-protocol.md",
+      "snapshot": "evidence/2026-10-22-calibration/source/research/performance/calibration-protocol.md",
+      "sha256": "aad3cb7a234f634d0affbf582be1c9b04aa1eeb7038ad358e47c0d663a9fc480"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/run-feed-performance.py",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/run-feed-performance.py",
+      "sha256": "ecc642b42ff2fa6ff7a8d66b85bedf6147098e62b0a631e262c9a05fdbfbb06b"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/analyze-feed-performance.py",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/analyze-feed-performance.py",
+      "sha256": "a429b147853d18191ace5f2438c62e60e258545238e1c06286b433c2d3a6bdf6"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "scripts/test-feed-performance.py",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/test-feed-performance.py",
+      "sha256": "325786216fd0dcb6f0b07d9b016d5fc32b9c5242c9820c434a9040ccad186035"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/feed-trace.json",
+      "snapshot": "evidence/2026-10-23-feed/source/research/performance/feed-trace.json",
+      "sha256": "6d26ff2648e2cd665dd6cd91a84298f92e729de8fe4f24c5f43aeafdc50fbfd9"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "research/performance/feed-protocol.md",
+      "snapshot": "evidence/2026-10-23-feed/source/research/performance/feed-protocol.md.txt",
+      "sha256": "ec4fd5c7ecef451c6110bc185a516ae61d637dc73f66334e18b3cb383264d1d4"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "4daceed665d033716d898070d2d9b026ec74ae9c50f5b0580e049d34ea678a5f"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "sha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "sha256": "4c160c354217cf754bbf689240acfc1e11c5de6cf4670234136a6517de9c9e08"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "sha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "402662a402f2f4f65d71ff53a5362098ece88287a1183f4059dbf1596b4f8f48"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "5c1311e915cb8b229180c3a6cd10fc41594a5f7f3915c15a8d69d2ca200b2429"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "4ebbe361233d4fd0355c065bc0d5f87eb9d1d28e42392d84d050db0b6d6b65ca"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "59f56c03890b82c03023ef46fedc823f8e87592b6bd1e7317c3b36f457c3e5dd"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Tests/DreamsTests/SearchOccupancyTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift",
+      "sha256": "4b5ecc7fc2faf834cbbb5f0776b75cd85c933a8bd5ee12b4c41c722c46983236"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "sha256": "cd39068a01d9e8950a90cb8b502700dbbe4a2f0c32c2d00cd0cff6482f43930a"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "scripts/test-matrix.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/scripts/test-matrix.swift",
+      "sha256": "e023a0442f245b18d31100f1e735dcbe7aea044ddfc66c6f81ed7280736b2142"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "34d453f652e428f77837fc55708f8c723ef8729e82e72525c0cca738e67c5390"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "sha256": "00fe041ff8be755737351f24d80ab24efb4c476f42203dcfb616b646152b3e1b"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "sha256": "4e8bf0a4d3aacb42c7fadbcf5aeb01c3b1fe040d48f733bc50d29ca7b3021ca8"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "402662a402f2f4f65d71ff53a5362098ece88287a1183f4059dbf1596b4f8f48"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Tests/DreamsTests/DropHeadTests.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift",
+      "sha256": "aa0c541d8fc8b7fff88f7a5c5af8bbfb07e62fa4d1bcd1020c124327cd8b3064"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Tests/DreamsTests/DropHeadRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift",
+      "sha256": "7283ebff8d99232971551169e85baa794b07e54f80d7614c1965dfcea748ae73"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "sha256": "ad1ad9532bb2c87adced76883f6a4d33592ec59e1f2418207f86c3f872673338"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Sources/Dreams/Rain.metal",
+      "snapshot": "evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal",
+      "sha256": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "sha256": "ae2dd82640aed8358f53f98a38965a579765639a47f02ba42c4b33620f6b1fd5"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "402662a402f2f4f65d71ff53a5362098ece88287a1183f4059dbf1596b4f8f48"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "5c1311e915cb8b229180c3a6cd10fc41594a5f7f3915c15a8d69d2ca200b2429"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "34d453f652e428f77837fc55708f8c723ef8729e82e72525c0cca738e67c5390"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Tests/DreamsTests/GlyphPulseTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift",
+      "sha256": "125e11ba384a208c57c844e855af15a6a7cd0632b4d0747ca8713b7a9f0f12ac"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Tests/DreamsTests/GlyphPulseRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift",
+      "sha256": "92c0f62494bf2d86c97a951a550ac361d32024d20956fd16095114f73969bfc5"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "sha256": "773a7c44ecb0545244c6c6fec313cbd88f3862cbab7141db49aa33f7a5cd7706"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "sha256": "4e8bf0a4d3aacb42c7fadbcf5aeb01c3b1fe040d48f733bc50d29ca7b3021ca8"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "sha256": "545991ff6feec17d502a50b01225cd1fd8f5038892395ae74f353b5be613550c"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "b5a43d6ae72fefaf5d25ae8a5530672fa07eca865cdbe66cc4eab74711f8832a"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "sha256": "70167574ee8402e15dd3722183314f20ee839705faca4d6c238511d523f5dbf5"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "sha256": "4c160c354217cf754bbf689240acfc1e11c5de6cf4670234136a6517de9c9e08"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "sha256": "119f578547e3cbe5f917259bf51cc78731800d43a6352ecde938a3df19fba5c1"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "402662a402f2f4f65d71ff53a5362098ece88287a1183f4059dbf1596b4f8f48"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "5c1311e915cb8b229180c3a6cd10fc41594a5f7f3915c15a8d69d2ca200b2429"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "4ebbe361233d4fd0355c065bc0d5f87eb9d1d28e42392d84d050db0b6d6b65ca"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "59f56c03890b82c03023ef46fedc823f8e87592b6bd1e7317c3b36f457c3e5dd"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Tests/DreamsTests/SearchOccupancyTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift",
+      "sha256": "4b5ecc7fc2faf834cbbb5f0776b75cd85c933a8bd5ee12b4c41c722c46983236"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "sha256": "cd39068a01d9e8950a90cb8b502700dbbe4a2f0c32c2d00cd0cff6482f43930a"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "scripts/test-matrix.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/scripts/test-matrix.swift",
+      "sha256": "e023a0442f245b18d31100f1e735dcbe7aea044ddfc66c6f81ed7280736b2142"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "34d453f652e428f77837fc55708f8c723ef8729e82e72525c0cca738e67c5390"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "sha256": "00fe041ff8be755737351f24d80ab24efb4c476f42203dcfb616b646152b3e1b"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "sha256": "4e8bf0a4d3aacb42c7fadbcf5aeb01c3b1fe040d48f733bc50d29ca7b3021ca8"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "sha256": "4e8bf0a4d3aacb42c7fadbcf5aeb01c3b1fe040d48f733bc50d29ca7b3021ca8"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "snapshot": "evidence/2026-10-15-shortcut-retry/source/Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "sha256": "33f72c6db8808da2de71745e37766ce0c1c3c8227f567dc99a1600c3c932cad2"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Tests/DreamsTests/SettingsScenarioTests.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Tests/DreamsTests/SettingsScenarioTests.swift",
+      "sha256": "43046d581b570154291dc4ca1ddf1fd266c6429bbef191113c2c3d612e6e1f4e"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Package.resolved",
+      "snapshot": "evidence/2026-10-14/source/Package.resolved",
+      "sha256": "3bfb803b8d5e2d2bc976d79e2faf1afc6c731a98f51079705b667d931bdb69f5"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Package.swift",
+      "snapshot": "evidence/2026-10-14/source/Package.swift",
+      "sha256": "976e7543a0ce2a163df40c8493acb7cc4a8aaf2a28844ccb0f0789f4053c6786"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "5c1311e915cb8b229180c3a6cd10fc41594a5f7f3915c15a8d69d2ca200b2429"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "sha256": "545991ff6feec17d502a50b01225cd1fd8f5038892395ae74f353b5be613550c"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "sha256": "d8909f7f160e7f33970d780699a8e3bca8337dce1a30ee02230af958a41f0af7"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "sha256": "b1156d6e831c42e90e534c59222a90a41948a76de644f4084516f62a14781557"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "b5a43d6ae72fefaf5d25ae8a5530672fa07eca865cdbe66cc4eab74711f8832a"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "snapshot": "evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "sha256": "0253813072ce666ad3739dc0fa82440e22e74421cdb546d52c385ed7845a9a57"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "snapshot": "evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "sha256": "b0126b33a0075760ea89f12fe09e30bb370ef28491f92ffb1d8cf5999fa505a5"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "92f3bb9695d064f4dd492c321958d1a18ee92e495537b86b96553e6a6524663c"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "4ebbe361233d4fd0355c065bc0d5f87eb9d1d28e42392d84d050db0b6d6b65ca"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "59f56c03890b82c03023ef46fedc823f8e87592b6bd1e7317c3b36f457c3e5dd"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "snapshot": "evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "sha256": "aafd642d351e4c4e041ec89cc25bb0828264f4d908e897d81fed0e1c082dc65e"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/shared/lib/Localization.swift",
+      "snapshot": "evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift",
+      "sha256": "c7b973f8a6fd74adbdead9d836017c5429004891929fe721804015d746aade99"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "sha256": "3d4c92377d9bddcd59d90cfc27c217dd75454de4da063936223328a090803630"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "snapshot": "evidence/2026-10-18-preview-growth/source/Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "sha256": "fb16423d6b9d7e047794838a693100f5db77bb265927035b69cfe823c6815895"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "sha256": "9f3d03a306a997432e554fb5f20b76c768991243dc38f748b968bc5e72373f9f"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "snapshot": "evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "sha256": "dc494b61ab6c90e0918b00bdbbc6c439f7ae6c6690514e3a89fab1e1f0b59f9c"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "snapshot": "evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "sha256": "0b3670a478ff62b4be79062c90a3f31438f6161dc794b75510616c8a373ee44c"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Tests/DreamsTests/NativePreviewTests.swift",
+      "snapshot": "evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift",
+      "sha256": "1eb78c33b95d9e3d88a054c67604781646236fdf5825287e08e6c0784a08ef10"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "snapshot": "evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "sha256": "50e037539bd7cd189bf31f6693e04829d0f79e543902937c246ea066f577fe70"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "scripts/test-native-settings-trace.py",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/test-native-settings-trace.py",
+      "sha256": "fe5fa14564909d2da6699acfe089b839ed7368a9efc15c43491fc51a91538453"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "scripts/swift-macos.sh",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/swift-macos.sh",
+      "sha256": "a5165bf53292441d50e54fea04284b49819f600f9cea83ec60de12803f804192"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "scripts/build-app.sh",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/build-app.sh",
+      "sha256": "ac645f98bdf99215bd8eb5464f847ef4862ef22b24b388c863e6cc47549aa5c6"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "scripts/release.sh",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/release.sh",
+      "sha256": "85b2592c16221415e91bd9145e82489a4db1cca8a8d3d07e045fb1f674109e9d"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift",
+      "sha256": "39cf2cbccc6f71b4d0fa11f9398bfb1797c3cddf9e56e092f1f22a7619f98b52"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Tests/DreamsTests/NativeSettingsParityTests.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Tests/DreamsTests/NativeSettingsParityTests.swift",
+      "sha256": "110746c4ac8c10830a2204168db49fede9a21f1aed7d8748809e1d214f8c0acd"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "snapshot": "evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "sha256": "a93e7cf7822acb382eac5547ae5d2fe5dc87fe7f38bf16b6178668d05b412d43"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/shared/lib/StopHotkey.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift",
+      "sha256": "f1f8f91b6f60965f1e72eafb73042ed68575c793da24c675482d51b17acbc74a"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "sha256": "13de3684a25d153f71fd55424348a769226200524167290f865bad2d93b8ea1d"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "snapshot": "evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "sha256": "22d984dc5ca078b773cd774c529504a7b6e19a772b76abd55b57a05b66174351"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "snapshot": "evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "sha256": "0a5ba82d809d6763e0b9c5ffe132f1b01539f377da71af3f0cbb8d740672a6fc"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Packages/DreamsSettingsUI/Package.swift",
+      "snapshot": "evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift",
+      "sha256": "960abf7f65e32ae18963de0d9d56dec32e9f264a39d11b691cc7ee94b8b02118"
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "path": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "snapshot": "evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "sha256": "4542827672698ad26beb6ca4841aedaeec5000bb88a071cce91770dc8f73fa48"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "5db82efbb68d158b9c2d9dd1bd4bf34f66f200163c03a49242e78f7e6c875c1b",
+      "snapshot": "evidence/2026-10-23-feed/maps/specs/hypercode/performance.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "f4499aa25d48ec59e961f8c5862c914d6c3725bdf40759e484387b483d4d7d6c",
+      "snapshot": "evidence/2026-10-23-feed/maps/specs/hypercode/performance.hcs",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "rawReports": {
+    "specs/performance/validation/2026-10-23-feed/runs/run-02.json.gz": {
+      "uncompressedSHA256": "fea21616a65f08b9b7b814eb62b1352c8a04f9da1379eddd200278ac4c548dfb",
+      "archivedSHA256": "4355da68abcd86d8428b7c6bb271f5f62a6481dc2aaea71cbde16a7d521b95aa",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    },
+    "specs/performance/validation/2026-10-23-feed/runs/run-03.json.gz": {
+      "uncompressedSHA256": "3b69f0aac0658fae52e24501a65fea1517581a534ca9616eecfe8e0ca994103e",
+      "archivedSHA256": "1b0be67456050c1770eea702f0fc9f13679d20f8357ac7f69b3479f41d490a60",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    },
+    "specs/performance/validation/2026-10-23-feed/runs/run-01.json.gz": {
+      "uncompressedSHA256": "417324526dac2cdbe81c8892f5ea4ccd11c8e444643bcbd9a52535cc3c54c17b",
+      "archivedSHA256": "cb71101f8dd8eac42884f04ec9daf803c7fafb9a525666feec0a6740847850f5",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    },
+    "specs/performance/validation/2026-10-23-feed/runs/run-05.json.gz": {
+      "uncompressedSHA256": "41e89fff8ab44f55e00d29ff385be28fcf8880cbd0e24a4e3e4090b29b120d47",
+      "archivedSHA256": "463ccc4f09cd417f969be922d8a0035d09374e9d2fd55e7560bde544ce04fac1",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    },
+    "specs/performance/validation/2026-10-23-feed/runs/run-04.json.gz": {
+      "uncompressedSHA256": "43ec310089c3501b7b4765dd09fee7c8b62af59edf8ea40dac86574e1102ff29",
+      "archivedSHA256": "24942f153bdec7f29571e8b1ddec756d784513ca269853a3c1270126d68da611",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    },
+    "specs/performance/validation/2026-10-23-feed/smoke/run-01.json.gz": {
+      "uncompressedSHA256": "7b6d9386828ecad9766411b03b0e629175a7235fb6810e9e39497f3d7bb18fde",
+      "archivedSHA256": "9d0c27d997382c5c7f846f791ffb8a9748f258383a58a7ecbdd80942c28ff5ff",
+      "revision": "37a61f8b3c76dd668e695a0e59905fd3f0772cd9"
+    },
+    "specs/performance/validation/2026-10-23-feed/legacy-smoke/run-01.json.gz": {
+      "uncompressedSHA256": "1c90c4dee931503c853da47b7401a7dd7bdc99ba9fbbeb06da18ca8f8941718d",
+      "archivedSHA256": "3f581f81e7ace4db22f48f54b229ea071046772ebfe0b9bb398c83a8246720e0",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    },
+    "specs/performance/validation/2026-10-23-feed/calibration-control-smoke/run-01.json.gz": {
+      "uncompressedSHA256": "4291af48272d1192ac8f86a98977766a96a8eb713edebd1c45a98f9717eef013",
+      "archivedSHA256": "8b4519d3ba0abd8989527c42e6f16928b7da2cbd5acbc72fef43c0efc3e915b7",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    },
+    "specs/performance/validation/2026-10-23-feed/calibration-full-smoke/run-01.json.gz": {
+      "uncompressedSHA256": "68be302d879b513105c1ed066a7557ca1e39b91c19f33521d1a1585ff6f274f5",
+      "archivedSHA256": "aa897199dad00f6f5fbf60fb10dfa2ab587e2af4dc3756131abf80a3c8e45d94",
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab"
+    }
+  },
+  "checkedCounts": {
+    "bindings": 127,
+    "maps": 2,
+    "rawReports": 9
+  },
+  "exitCode": 0,
+  "limits": "Identity equality does not prove semantic, visual or performance acceptance."
+}

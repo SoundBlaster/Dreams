@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "runKind": "smoke",
+  "revision": "37a61f8b3c76dd668e695a0e59905fd3f0772cd9",
+  "binarySHA256": "0ed7e6fa955d99f4c64b1983cfbad1ff40e8cad156bd652aa30abf500dfb561e",
+  "fixtureSHA256": "a8b32d89b7619674e7b9b88781198fd89c787e316154d0f3c32b5914b6d6a3c4",
+  "traceSHA256": "8d8b9dd072c875e657b66977f3c86cae4e32154c5d72c57069f56253a3fffba2",
+  "identity": {
+    "device": "Apple M4 Pro",
+    "os": "Version 27.0 (Build 26A428)",
+    "cpu": 12,
+    "backingScale": 2,
+    "screenMaximumFPS": 120,
+    "screenFrame": "{{0, 0}, {1512, 982}}"
+  },
+  "allValid": true,
+  "runs": [
+    {
+      "valid": true,
+      "refreshes": 13,
+      "failedRefreshes": 0,
+      "mainThreadRefreshes": 13,
+      "snapshotMs": {
+        "count": 13,
+        "p50": 2.055833290796727,
+        "p95": 5.335499998182058,
+        "p99": 5.335499998182058,
+        "max": 5.335499998182058
+      },
+      "refreshDrawMs": {
+        "count": 13,
+        "p50": 8.247958379797637,
+        "p95": 12.215833296068013,
+        "p99": 12.215833296068013,
+        "max": 12.215833296068013
+      },
+      "otherDrawMs": {
+        "count": 363,
+        "p50": 6.817625020630658,
+        "p95": 7.902416691649705,
+        "p99": 8.28725000610575,
+        "max": 8.83500004420057
+      },
+      "presentationIntervalsMs": {
+        "count": 375,
+        "maximum": 41.66637500748038,
+        "p50": 33.33308332366869,
+        "p95": 41.66633333079517,
+        "p99": 41.66637500748038
+      },
+      "intervalsOver50ms": 0,
+      "intervalsOver100ms": 0,
+      "glyphRasterizations": 10,
+      "eventLatencyMs": {
+        "count": 2,
+        "p50": 715.6939584529027,
+        "p95": 953.0327917309478,
+        "p99": 953.0327917309478,
+        "max": 953.0327917309478
+      },
+      "events": [
+        {
+          "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+          "label": "TRACE",
+          "valid": true,
+          "publicationBegin": 387166.2449925,
+          "publicationEnd": 387166.245392375,
+          "scheduleLatenessMs": 1.0954165481962264,
+          "firstRead": 387167.1384369584,
+          "firstPresentedLetter": 387167.1980252917,
+          "readLatencyMs": 893.044583441224,
+          "presentationLatencyLowerMs": 952.6329167420045,
+          "presentationLatencyUpperMs": 953.0327917309478
+        },
+        {
+          "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+          "label": "ПРОБА",
+          "valid": true,
+          "publicationBegin": 387170.54896675,
+          "publicationEnd": 387170.549150958,
+          "scheduleLatenessMs": 5.069666542112827,
+          "firstRead": 387171.2061368751,
+          "firstPresentedLetter": 387171.26466070843,
+          "readLatencyMs": 656.9859170704149,
+          "presentationLatencyLowerMs": 715.5097504146397,
+          "presentationLatencyUpperMs": 715.6939584529027
+        }
+      ],
+      "file": "run-01.json",
+      "thermalStates": [
+        0
+      ]
+    }
+  ],
+  "limits": "Snapshot API wall time, not syscall counts. First presented drawable with a stable non-space event letter is a proxy, not pixel/OCR or full-label acceptance. Single renderer, warm filesystem cache, no tvOS/fullscreen or causal speedup claim."
+}

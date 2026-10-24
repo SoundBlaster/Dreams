@@ -1,0 +1,143 @@
+{
+  "sourceRevision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "8f9c56c88123ebaa61f58d37c13579c336ddf29d923cc4ece74ec26b0e045c70",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "fc55b3fb58dcf3fe06ef285b3e1ac2744abcced4f63eab0f0b6030ee7fc57162",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "402662a402f2f4f65d71ff53a5362098ece88287a1183f4059dbf1596b4f8f48",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "sha256": "f3c60fea226d7d4b390bdd9043b61edaf8f9be651851643e17e4a23bfa0a7c9a",
+      "snapshot": "evidence/2026-10-23-feed/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/summarize-performance.py",
+      "sha256": "554f184b0370116a06d9637c3b758a70c38a316a91b30c9ddb370f15b01958bb",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/summarize-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-performance-reports.py",
+      "sha256": "053ec7f7c2ce63402f281a8978c0fe24a6185a27869545ae95e4a208c1e21960",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/test-performance-reports.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/run-feed-performance.py",
+      "sha256": "ecc642b42ff2fa6ff7a8d66b85bedf6147098e62b0a631e262c9a05fdbfbb06b",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/run-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/analyze-feed-performance.py",
+      "sha256": "a429b147853d18191ace5f2438c62e60e258545238e1c06286b433c2d3a6bdf6",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/analyze-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-feed-performance.py",
+      "sha256": "325786216fd0dcb6f0b07d9b016d5fc32b9c5242c9820c434a9040ccad186035",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/test-feed-performance.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/feed-trace.json",
+      "sha256": "6d26ff2648e2cd665dd6cd91a84298f92e729de8fe4f24c5f43aeafdc50fbfd9",
+      "snapshot": "evidence/2026-10-23-feed/source/research/performance/feed-trace.json",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "research/performance/feed-protocol.md",
+      "sha256": "ec4fd5c7ecef451c6110bc185a516ae61d637dc73f66334e18b3cb383264d1d4",
+      "snapshot": "evidence/2026-10-23-feed/source/research/performance/feed-protocol.md.txt",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "4daceed665d033716d898070d2d9b026ec74ae9c50f5b0580e049d34ea678a5f",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "refreshedBindings": [
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "Sources/Dreams/app/entrypoint/DreamsMain.swift"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "Sources/Dreams/app/providers/PerformanceRun.swift"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "Tests/DreamsTests/RainPerformanceTests.swift"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "scripts/summarize-performance.py"
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "source": "scripts/test-performance-reports.py"
+    }
+  ],
+  "scopeNote": "Diagnostic feed observations. Current implementation identities refreshed; historical source/test evidence remains historical. Prior settings source drift is refreshed as source identity only, not new visual acceptance.",
+  "maps": [
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "5db82efbb68d158b9c2d9dd1bd4bf34f66f200163c03a49242e78f7e6c875c1b",
+      "snapshot": "evidence/2026-10-23-feed/maps/specs/hypercode/performance.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "f4499aa25d48ec59e961f8c5862c914d6c3725bdf40759e484387b483d4d7d6c",
+      "snapshot": "evidence/2026-10-23-feed/maps/specs/hypercode/performance.hcs",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "mapBaseRevision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+  "dirtyMaps": [
+    "specs/hypercode/performance.hc",
+    "specs/hypercode/performance.hcs"
+  ]
+}

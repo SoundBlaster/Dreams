@@ -22,6 +22,35 @@ struct RainPerformanceTests {
         }
     }
 
+    @Test(arguments: ["normal", "dense", "preview-crop"])
+    func feedMeasurementsRejectClippedViewports(name: String) throws {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
+            .deletingLastPathComponent().deletingLastPathComponent()
+        let data = try Data(contentsOf: root.appendingPathComponent("research/performance/scenarios/\(name).json"))
+        let scenario = try JSONDecoder().decode(RainPerformanceScenario.self, from: data)
+        try scenario.validate()
+        if name == "preview-crop" {
+            #expect(throws: (any Error).self) { try scenario.validate(feedObservation: true) }
+        } else {
+            try scenario.validate(feedObservation: true)
+        }
+    }
+
+    @Test func feedMeasurementsRejectClippingInEitherDimension() throws {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
+            .deletingLastPathComponent().deletingLastPathComponent()
+        let data = try Data(contentsOf: root.appendingPathComponent("research/performance/scenarios/normal.json"))
+        let source = try #require(JSONSerialization.jsonObject(with: data) as? [String: Any])
+        for (key, value) in [("drawableWidth", 800), ("drawableHeight", 600)] {
+            var cropped = source
+            cropped[key] = value
+            let encoded = try JSONSerialization.data(withJSONObject: cropped)
+            let scenario = try JSONDecoder().decode(RainPerformanceScenario.self, from: encoded)
+            try scenario.validate()
+            #expect(throws: (any Error).self) { try scenario.validate(feedObservation: true) }
+        }
+    }
+
     @Test func rejectsInvalidBoundsAndMissingRequiredInputs() throws {
         let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
             .deletingLastPathComponent().deletingLastPathComponent()
@@ -68,5 +97,23 @@ struct RainPerformanceTests {
         #expect(recorder.presentationIntervals.isEmpty)
         #expect(recorder.samples[0].presentedAt == nil && recorder.samples[0].gpuFailed)
         #expect(recorder.summaries["gpu_seconds"]?.count == 0)
+    }
+
+    @Test @MainActor func feedObservationKeepsEventFrameAndRefreshIdentity() throws {
+        #expect(!RainPerformanceRecorder(limit: 1).observeFeed)
+        let recorder = RainPerformanceRecorder(limit: 2, observeFeed: true)
+        let event = UUID()
+        let frame = RainFrameMeasurement(observeFeed: recorder.observeFeed)
+        frame.feedRefresh = RainFeedRefresh(began: 10, ended: 10.004, succeeded: true,
+            onMainThread: true, messageCount: 24, eventIDs: [event])
+        frame.eventLetters = [event]
+        let first = try #require(recorder.append(frame))
+        let second = try #require(recorder.append(RainFrameMeasurement(observeFeed: true)))
+        recorder.presented(second, at: 10.08)
+        recorder.presented(first, at: 10.04)
+        #expect(recorder.samples[first].eventLetters == [event])
+        #expect(recorder.samples[first].feedRefresh?.eventIDs == [event])
+        #expect(recorder.samples[second].feedRefresh == nil)
+        #expect(recorder.samples[second].eventLetters.isEmpty)
     }
 }

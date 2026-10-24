@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.performance
   name: Dreams performance probe
-  version: 0.1.0-draft.2
+  version: 0.1.0-draft.3
   summary: Bounded opt-in macOS renderer measurements with explicit evidence limits.
   license: MIT
   authors:

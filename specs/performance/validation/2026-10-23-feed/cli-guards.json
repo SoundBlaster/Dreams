@@ -1,0 +1,48 @@
+[
+  {
+    "args": [
+      "--performance-feed"
+    ],
+    "exitCode": 1,
+    "diagnostic": "Dreams performance: Use --performance-run <scenario.json> <report.json> with isolated DREAMS_FEED_DIRECTORY and DREAMS_PERF_REVISION.\n",
+    "existingOutputPreserved": true
+  },
+  {
+    "args": [
+      "--performance-feed",
+      "/Users/egor/.codex/worktrees/performance-baseline/Dreams/research/performance/scenarios/dense.json",
+      "/var/folders/n1/5qrr5k4142l48nzsh8x44t9r0000gn/T/dreams-feed-cli-ee0_l2n5/report.json",
+      "--performance-calibration"
+    ],
+    "exitCode": 1,
+    "diagnostic": "Dreams performance: Use --performance-run <scenario.json> <report.json> with isolated DREAMS_FEED_DIRECTORY and DREAMS_PERF_REVISION.\n",
+    "existingOutputPreserved": true
+  },
+  {
+    "args": [
+      "--performance-feed",
+      "/Users/egor/.codex/worktrees/performance-baseline/Dreams/research/performance/scenarios/dense.json",
+      "/var/folders/n1/5qrr5k4142l48nzsh8x44t9r0000gn/T/dreams-feed-cli-ee0_l2n5/report.json",
+      "--performance-feed"
+    ],
+    "exitCode": 1,
+    "diagnostic": "Dreams performance: Use --performance-run <scenario.json> <report.json> with isolated DREAMS_FEED_DIRECTORY and DREAMS_PERF_REVISION.\n",
+    "existingOutputPreserved": true
+  },
+  {
+    "args": [
+      "--performance-feed",
+      "/Users/egor/.codex/worktrees/performance-baseline/Dreams/research/performance/scenarios/dense.json",
+      "/var/folders/n1/5qrr5k4142l48nzsh8x44t9r0000gn/T/dreams-feed-cli-ee0_l2n5/report.json"
+    ],
+    "exitCode": 1,
+    "diagnostic": "Dreams performance: The performance output must not already exist.\n",
+    "existingOutputPreserved": true
+  },
+  {
+    "case": "nonempty-mailbox",
+    "exitCode": 1,
+    "diagnostic": "Dreams performance: The performance mailbox must be empty.\n",
+    "noOutputCreated": true
+  }
+]

@@ -6,4 +6,8 @@ PerformanceProbe
     GPUCompletion
     Presentation
   Calibration
+  SyntheticFeed
+    Publication
+    SnapshotObservation
+    DeliveryProxy
   ReportExport

@@ -1,0 +1,140 @@
+{
+  "sourceRevision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "bb5e9a7c75fc1dd76b1abc31300deffdfecb732cb18a43d312ba6e8017d39f41",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "402662a402f2f4f65d71ff53a5362098ece88287a1183f4059dbf1596b4f8f48",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "4ebbe361233d4fd0355c065bc0d5f87eb9d1d28e42392d84d050db0b6d6b65ca",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "59f56c03890b82c03023ef46fedc823f8e87592b6bd1e7317c3b36f457c3e5dd",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ed216f4573980eb773008d1d041866b3a16df32e9101cc3b8488e73c2d59d315",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "sha256": "545991ff6feec17d502a50b01225cd1fd8f5038892395ae74f353b5be613550c",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "b5a43d6ae72fefaf5d25ae8a5530672fa07eca865cdbe66cc4eab74711f8832a",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "refreshedBindings": [
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings"
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "source": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings"
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift"
+    }
+  ],
+  "scopeNote": "Diagnostic feed observations. Current implementation identities refreshed; historical source/test evidence remains historical. Prior settings source drift is refreshed as source identity only, not new visual acceptance."
+}

@@ -14,6 +14,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
     private let recorder: RainPerformanceRecorder
     private let calibrationMode: RainCalibrationMode?
     private let calibration: RainCalibrationRecorder?
+    private let feedProbe: Bool
     private let constructionSeconds: Double
     private var started = 0.0
     private var measurementStarted: Double?
@@ -26,8 +27,10 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
     static func run(arguments: [String]) {
         do {
             let isCalibration = arguments.contains("--performance-calibration")
-            guard !(isCalibration && arguments.contains("--performance-run")),
-                  let index = arguments.firstIndex(of: isCalibration ? "--performance-calibration" : "--performance-run"),
+            let isFeed = arguments.contains("--performance-feed")
+            let flags = ["--performance-run", "--performance-calibration", "--performance-feed"]
+            guard arguments.filter({ flags.contains($0) }).count == 1,
+                  let index = arguments.firstIndex(of: isCalibration ? "--performance-calibration" : isFeed ? "--performance-feed" : "--performance-run"),
                   arguments.indices.contains(index + 2),
                   let feed = ProcessInfo.processInfo.environment["DREAMS_FEED_DIRECTORY"],
                   let revision = ProcessInfo.processInfo.environment["DREAMS_PERF_REVISION"], !revision.isEmpty else {
@@ -55,9 +58,9 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
             application.finishLaunching()
             let data = try Data(contentsOf: URL(fileURLWithPath: arguments[index + 1]))
             let scenario = try JSONDecoder().decode(RainPerformanceScenario.self, from: data)
-            try scenario.validate()
+            try scenario.validate(feedObservation: isFeed)
             let run = try PerformanceRun(scenario: scenario, data: data,
-                output: URL(fileURLWithPath: arguments[index + 2]), calibrationMode: mode)
+                output: URL(fileURLWithPath: arguments[index + 2]), calibrationMode: mode, feedProbe: isFeed)
             Task { @MainActor in run.start() }
             withExtendedLifetime(run) { application.run() }
         } catch {
@@ -66,12 +69,13 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
         }
     }
 
-    private init(scenario: RainPerformanceScenario, data: Data, output: URL, calibrationMode: RainCalibrationMode?) throws {
+    private init(scenario: RainPerformanceScenario, data: Data, output: URL, calibrationMode: RainCalibrationMode?, feedProbe: Bool) throws {
         self.scenario = scenario
         self.output = output
         self.calibrationMode = calibrationMode
+        self.feedProbe = feedProbe
         fixtureHash = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
-        recorder = RainPerformanceRecorder(limit: Int(scenario.measureSeconds * 120) + 120)
+        recorder = RainPerformanceRecorder(limit: Int(scenario.measureSeconds * 120) + 120, observeFeed: feedProbe)
         calibration = calibrationMode.map { _ in RainCalibrationRecorder(limit: Int(scenario.measureSeconds * 120) + 120) }
         let size = NSSize(width: 960, height: 960 * Double(scenario.drawableHeight) / Double(scenario.drawableWidth))
         view = MTKView(frame: NSRect(origin: .zero, size: size))
@@ -101,6 +105,10 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
 
     private func start() {
         started = CACurrentMediaTime()
+        if feedProbe {
+            // One startup handshake. Synthetic mailbox writes happen in the external runner.
+            FileHandle.standardOutput.write(Data("PERFORMANCE_STARTED=\(started)\n".utf8))
+        }
         window.center()
         window.makeKeyAndOrderFront(nil)
         window.orderFrontRegardless()
@@ -174,7 +182,11 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
             let valid = observed && recorder.overflow == 0 && recorder.pendingCallbacks == 0
                 && !samples.contains(where: { $0.gpuFailed }) && occludedFrames == 0 && !userClosed
                 && stopped - (measurementStarted ?? stopped) >= scenario.measureSeconds * 0.9
-            let report = PerformanceReport(schemaVersion: calibration == nil ? 1 : 2, scenario: scenario, fixtureSHA256: fixtureHash,
+            let report = PerformanceReport(schemaVersion: feedProbe ? 3 : calibration == nil ? 1 : 2,
+                feedProbe: feedProbe,
+                clock: "real elapsed time; deterministic default simulation seed 0xD2EA5EED; "
+                    + (feedProbe ? "isolated synthetic feed; " : "empty isolated feed; ") + "forced steady activity",
+                scenario: scenario, fixtureSHA256: fixtureHash,
                 revision: ProcessInfo.processInfo.environment["DREAMS_PERF_REVISION"] ?? "unknown",
                 valid: valid, measuredSeconds: stopped - (measurementStarted ?? stopped),
                 constructionSeconds: constructionSeconds, device: view.device?.name ?? "unknown",
@@ -202,9 +214,10 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
 
 private struct PerformanceReport: Encodable {
     let schemaVersion: Int
+    let feedProbe: Bool
     let profile = "macOS-windowed-production-renderer"
     let configuration = "Release"
-    let clock = "real elapsed time; deterministic default simulation seed 0xD2EA5EED; empty isolated feed; forced steady activity"
+    let clock: String
     let unavailableMetrics = ["allocator events", "resident/peak memory", "energy", "per-pass GPU counters", "tvOS", "fullscreen compositor"]
     let scenario: RainPerformanceScenario
     let fixtureSHA256: String

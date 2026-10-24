@@ -1,0 +1,89 @@
+{
+  "cwd": "/Users/egor/.codex/worktrees/performance-baseline/Dreams",
+  "runtimeRevision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+  "specificationState": "dirty additive maps/contracts and dated evidence; hashes in source-audit.json",
+  "commands": [
+    {
+      "command": "rtk proxy python3 /Users/egor/.codex/skills/tb5-build-cache/scripts/tb5_paths.py --project /Users/egor/.codex/worktrees/performance-baseline/Dreams",
+      "exitCode": 0,
+      "purpose": "Verified external cache/output routing"
+    },
+    {
+      "command": "rtk proxy env DREAMS_SWIFT_SCRATCH_PATH=<TB5>/swiftpm DREAMS_SWIFT_CACHE_PATH=/Volumes/TB5/Developer/Caches/swiftpm make app",
+      "exitCode": 0,
+      "log": "logs/dreams-feed-build-final2.log"
+    },
+    {
+      "command": "rtk proxy env DREAMS_SWIFT_SCRATCH_PATH=<TB5>/swiftpm DREAMS_SWIFT_CACHE_PATH=/Volumes/TB5/Developer/Caches/swiftpm zsh scripts/swift-macos.sh test -c release",
+      "exitCode": 0,
+      "log": "logs/dreams-feed-tests-final.log",
+      "scope": "Default tests; opt-in UI/Metal cases skipped, not physical acceptance"
+    },
+    {
+      "commandFile": "logs/dreams-feed-metal-tests-command.json",
+      "exitCode": 0,
+      "log": "logs/dreams-feed-metal-tests.log",
+      "scope": "33 selected functions, offscreen Metal plus models; not 33 additional distinct default tests"
+    },
+    {
+      "command": "rtk proxy env PYTHONPYCACHEPREFIX=<TB5>/python/bytecode python3 scripts/run-feed-performance.py --runs 5 --output <TB5>/performance/feed-baseline-2026-10-23",
+      "exitCode": 0,
+      "log": "logs/dreams-feed-baseline.log",
+      "scope": "Five 30+60s windowed runs; all frame/delivery checks valid"
+    },
+    {
+      "command": "rtk proxy python3 scripts/analyze-feed-performance.py <TB5>/performance/feed-baseline-2026-10-23",
+      "exitCode": 0,
+      "output": "summary.json"
+    },
+    {
+      "command": "rtk proxy python3 specs/performance/validation/2026-10-23-feed/derive-metrics.py",
+      "exitCode": 0,
+      "output": "derived-metrics.json"
+    },
+    {
+      "command": "rtk proxy env DREAMS_FSD_TOOLING_DIR=<primary>/.fsd-ios-tooling RUFF_CACHE_DIR=<TB5>/python/ruff PYTHONPYCACHEPREFIX=<TB5>/python/bytecode make lint",
+      "exitCode": 0,
+      "log": "logs/dreams-feed-lint-complete.log",
+      "diagnostics": "Existing SwiftLint unused_import analyzer-rule configuration warning; no lint errors"
+    },
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/dreams-feed-specs-final.log",
+      "diagnostics": "Expected unresolved external-provider warnings; no missing evidence path or errors in final check"
+    },
+    {
+      "command": "Explicit CLI guard subprocesses; arguments/exits/output preservation recorded in cli-guards.json",
+      "exitCode": 0
+    },
+    {
+      "command": "rtk proxy env PYTHONPYCACHEPREFIX=<TB5>/python/bytecode python3 scripts/test-feed-performance.py",
+      "exitCode": 0
+    },
+    {
+      "command": "rtk proxy env PYTHONPYCACHEPREFIX=<TB5>/python/bytecode python3 scripts/test-performance-reports.py",
+      "exitCode": 0
+    },
+    {
+      "command": "rtk proxy env PYTHONPYCACHEPREFIX=<TB5>/python/bytecode python3 scripts/test-calibration.py",
+      "exitCode": 0
+    },
+    {
+      "command": "Recompute scripts/analyze-feed-performance.py from archived gzip reports and compare JSON equality",
+      "exitCode": 0,
+      "scope": "All per-event and per-run baseline statistics reproduce exactly"
+    },
+    {
+      "command": "Schema-1 and schema-2 control/full run-performance.py --smoke --runs 1; exact child commands retained in each manifest",
+      "exitCode": 0,
+      "scope": "Compatibility only; not new calibration or performance acceptance"
+    }
+  ],
+  "checksNotPerformed": [
+    "No CI wait/watch",
+    "No physical Apple TV/fullscreen/multi-display acceptance",
+    "No syscall profiler or pixel/OCR delivery verification"
+  ],
+  "stagingNote": "Earlier tests before the final stored clock field were repeated on the final runtime. First specs log was preliminary and warned about the then-unwritten README; final log supersedes structural validity only, not historical evidence."
+}

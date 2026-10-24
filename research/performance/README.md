@@ -72,7 +72,7 @@ small CPU gains are accepted.
 
 ## Remaining measurement work
 
-- Scripted mailbox contents and event-to-pixel latency for #42/#46.
+- Pixel/full-label validation, lock contention and multi-renderer delivery for #42/#46.
 - Preview reopen/resource lifetime and capture-tool response for #45/#47.
 - Fullscreen, multi-display and physical Apple TV Release runs.
 - Allocations, memory, power and GPU pass counters using appropriate tools.
@@ -93,3 +93,24 @@ retains per-run evidence; `scripts/analyze-calibration.py` compares only matchin
 source/binary/resources/fixtures/devices and preserves signed differences and
 control spread. The common observer cost is excluded; unresolved cost does not
 imply zero overhead. Calibration control reports are not GPU-validation baselines.
+
+## Synthetic feed baseline
+
+The [feed protocol](feed-protocol.md) fixes 24 active sessions, twelve events and
+expired files before collection. Build Release as above, then run:
+
+```sh
+python3 scripts/run-feed-performance.py --output /absolute/new/feed-directory --runs 5
+python3 scripts/analyze-feed-performance.py /absolute/new/feed-directory
+```
+
+`--smoke --runs 1` uses 1+12 seconds and two events. The writer runs in a separate
+process with a shared macOS host clock; Python 3.9's process-relative `monotonic()`
+is deliberately avoided. Reports separate the snapshot API's wall time from the
+first presented drawable with a stable event-letter instance. This delivery proxy
+does not establish actual pixels or complete label readability. Missing events
+invalidate delivery. Added observer cost, cold disk, lock contention, multi-display
+and physical TV acceptance remain unmeasured. Production polling is unchanged.
+
+[Current evidence](../../specs/performance/validation/2026-10-23-feed/README.md)
+retains source/binary/trace identities, raw reports and rejected smoke attempts.

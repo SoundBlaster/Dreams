@@ -5,6 +5,7 @@ import QuartzCore
 @MainActor
 final class RainFrameMeasurement {
     let began = CACurrentMediaTime()
+    let observeFeed: Bool
     var feedSeconds = 0.0
     var simulationSeconds = 0.0
     var instancesSeconds = 0.0
@@ -16,6 +17,20 @@ final class RainFrameMeasurement {
     var glyphRasterizations = 0
     var columns = 0
     var rows = 0
+    var feedRefresh: RainFeedRefresh?
+    var eventLetters: [UUID] = []
+
+    init(observeFeed: Bool = false) { self.observeFeed = observeFeed }
+}
+
+/// Snapshot API timing and event identities, not filesystem syscall counts.
+struct RainFeedRefresh: Codable, Sendable {
+    let began: Double
+    let ended: Double
+    let succeeded: Bool
+    let onMainThread: Bool
+    let messageCount: Int
+    let eventIDs: [UUID]
 }
 
 struct RainPerformanceSample: Codable, Sendable {
@@ -33,6 +48,8 @@ struct RainPerformanceSample: Codable, Sendable {
     let glyphRasterizations: Int
     let columns: Int
     let rows: Int
+    var feedRefresh: RainFeedRefresh?
+    var eventLetters: [UUID] = []
     var gpuSeconds: Double?
     var presentedAt: Double?
     var gpuCompleted = false
@@ -68,9 +85,11 @@ final class RainPerformanceRecorder {
     private(set) var overflow = 0
     private(set) var unavailableDrawable = 0
     let limit: Int
+    let observeFeed: Bool
 
-    init(limit: Int) {
+    init(limit: Int, observeFeed: Bool = false) {
         self.limit = limit
+        self.observeFeed = observeFeed
         samples.reserveCapacity(limit)
     }
 
@@ -85,7 +104,8 @@ final class RainPerformanceRecorder {
             instancesSeconds: frame.instancesSeconds, encodingSeconds: frame.encodingSeconds,
             coreInstances: frame.coreInstances, haloInstances: frame.haloInstances,
             bufferCreations: frame.bufferCreations, bufferBytes: frame.bufferBytes,
-            glyphRasterizations: frame.glyphRasterizations, columns: frame.columns, rows: frame.rows))
+            glyphRasterizations: frame.glyphRasterizations, columns: frame.columns, rows: frame.rows,
+            feedRefresh: frame.feedRefresh, eventLetters: frame.eventLetters))
         return id
     }
 

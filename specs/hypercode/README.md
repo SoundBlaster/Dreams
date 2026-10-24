@@ -72,3 +72,8 @@ Calibration adds one PerformanceProbe.Calibration responsibility with explicit
 `probe=control` and `probe=full` properties. The fixed protocol and current
 evidence separate full-collector overhead from the common observer cost.
 These contexts describe diagnostic modes, not application configuration.
+
+`probe=feed` adds SyntheticFeed with Publication, SnapshotObservation and
+DeliveryProxy roles. The assembly correlates an external atomic publication with
+snapshot receipt and actual drawable presentation. It does not promise pixel
+verification or make production agent integrations a covered boundary.

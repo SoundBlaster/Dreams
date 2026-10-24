@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.performance.measure
   title: RendererPerformanceProbe
-  version: 0.1.0-draft.2
+  version: 0.1.0-draft.3
   status: draft
 intent:
   summary: Give contributors repeatable per-run renderer measurements with explicit scope, validity and provenance.
@@ -11,10 +11,11 @@ scope:
   boundedContext: performance_diagnostics
   includes:
   - Explicit bounded JSON scenarios, a single macOS windowed renderer, selected wall spans, GPU timestamps and actual presentation intervals.
-  - Bounded in-memory samples, isolated empty mailbox, Release-only launch and post-run JSON export.
+  - Bounded in-memory samples, initially empty isolated mailbox, Release-only launch and post-run JSON export.
   - Calibration control/full profiles with an identical outer observer, process CPU boundary counters and bracketing controls.
+  - Opt-in fixed synthetic mailbox publication, snapshot API observations and event-to-presented-letter delivery proxy.
   excludes:
-  - Renderer optimization, user preferences, production overlay lifecycle, agent integrations and hooks.
+  - Renderer optimization, user preferences, production overlay lifecycle, production agent integrations and hooks.
   - Allocator events, process memory, energy, per-pass GPU counters, fullscreen and multi-display acceptance or tvOS evidence.
   - Automatic issue closure, quantified speedup, accepted budgets or an unmeasured zero-overhead claim.
   - Total common-observer overhead or automatic correction of historical baseline percentiles.
@@ -47,11 +48,18 @@ interfaces:
       outputs:
       - name: calibration_report
         type: schema-2 JSON with common outer draw/presentation samples and process CPU delta; full-collector samples only in full mode
+    - name: --performance-feed
+      inputs:
+      - name: paths
+        type: scenario JSON and output JSON; same initially empty explicit mailbox and revision requirements; bounded external synthetic writer
+      outputs:
+      - name: feed_report
+        type: schema-3 frame report with snapshot observations and stable event-letter identities; publication timestamps and trace identities retained by external runner
   outbound: []
 constraints:
 - id: isolation
   level: MUST
-  statement: Normal launches leave the recorder absent. Diagnostic launch precedes settings migration and production delegate construction. Require an empty explicit mailbox, never read the owner's live feed or write saved preferences. Scenario validation bounds duration, dimensions and tuning; Debug is rejected.
+  statement: Normal launches leave the recorder absent. Diagnostic launch precedes settings migration and production delegate construction. Require an initially empty explicit mailbox, never read the owner's live feed or write saved preferences. Only the explicit feed profile permits synthetic publication during collection. Scenario validation bounds duration, dimensions and tuning; Debug is rejected.
 - id: observation
   level: MUST
   statement: Record selected CPU elapsed spans separately from completed command-buffer GPU duration. Actual drawable presentation defines intervals, independently of callback delivery order. Missing or zero GPU/presentation timestamps remain absent. Buffer request counts are not allocator-event measurements. No claim for unmeasured platforms or profiles follows from macOS results.
@@ -64,6 +72,9 @@ constraints:
 - id: calibration
   level: MUST
   statement: Keep the full recorder absent in control and enabled only during full collection. Use the same outer draw/presentation observer in both modes and process CPU counter snapshots at collection boundaries, excluding drain/export. Control reports are not full GPU-validation baselines. Compare fixed control/full/control blocks only with matching source, binary, resources, fixture and device identities. Retain signed deltas and control-to-control spread; missing CPU is not zero, insufficient repeats or unresolved cost never imply zero overhead. The common observer's cost remains outside this incremental comparison. Generic baseline summaries reject calibration reports.
+- id: feed_observation
+  level: MUST
+  statement: Enable feed observations only for the explicit feed probe. Publish identified bounded synthetic events from a separate process using a verified shared host clock and atomic-rename timestamp bracket. Preserve snapshot API wall spans, success and thread identity separately from syscall or allocator claims. Correlate each expected event to successful snapshot receipt and the earliest actually presented successful GPU frame containing a stable non-space event-letter instance. Feed probes reject scenarios whose reference viewport is wider or taller than the drawable, so clipped-away letters cannot count as delivered. Missing receipt or presentation invalidates delivery; GPU buffer allocation failure cannot count as submission. This is a delivery proxy, not pixel, full-label or physical-display proof. Preserve frame and delivery validity separately, fixture and trace hashes, every run and smoke distinctions. Generic summaries reject feed reports. Added feed-observer overhead is not covered by earlier calibration.
 effects:
   sideEffects:
   - id: display
@@ -71,11 +82,11 @@ effects:
     summary: Open and close a temporary diagnostic window without starting production overlays.
   - id: files
     kind: filesystem_write
-    summary: Create per-run reports/manifests and a disposable isolated mailbox; no per-frame report I/O.
+    summary: Create per-run reports/manifests and a disposable isolated mailbox; the external feed runner writes synthetic messages during collection; no per-frame report I/O.
 evidence:
 - id: validation
   kind: test
-  path: validation/2026-10-22-calibration/README.md
+  path: validation/2026-10-23-feed/README.md
   supports:
   - constraints
 provenance:
@@ -86,36 +97,43 @@ provenance:
   - Owner agreed to measurement-first work for issues 41 through 49. This initial macOS probe is only the first bounded stage.
   - Existing motion, head, pulse, preview-scale and capture requirements remain unchanged. Draft structural validation does not establish hardware performance acceptance.
   - Calibration extends the same contributor boundary. The earlier four claim IDs remain stable; calibration is additive and preserves historical measurements.
+  - Feed observations are additive diagnostic behavior. Production snapshot scheduling and renderer algorithms are unchanged; issue 42 acceptance remains outstanding.
 
 implementationBindings:
 - id: performance_swift_python
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 1b6ec9124b184e0c2c854bfd14b6b96f45d28336
+    revision: 14b9f3b35caca1d48b1a8c4428cdbac4693a6846
   files:
     owned:
-    - evidence/2026-10-22-calibration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-22-calibration/source/Sources/Dreams/app/providers/PerformanceRun.swift
-    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
-    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
-    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-24-main-integration/pr53/source/Sources/Dreams/app/providers/PerformanceRun.swift
+    - evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift
+    - evidence/2026-10-24-main-integration/pr53/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
+    - evidence/2026-10-24-main-integration/pr53/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-22-baseline/source/Tests/DreamsTests/RainPerformanceTests.swift
+    - evidence/2026-10-24-main-integration/pr53/source/Tests/DreamsTests/RainPerformanceTests.swift
     - evidence/2026-10-22-calibration/source/scripts/run-performance.py
-    - evidence/2026-10-22-calibration/source/scripts/summarize-performance.py
-    - evidence/2026-10-24-main-integration/pr52/source/scripts/swift-macos.sh
+    - evidence/2026-10-23-feed/source/scripts/summarize-performance.py
+    - evidence/2026-10-24-main-integration/pr53/source/scripts/swift-macos.sh
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/preview-crop.json
-    - evidence/2026-10-22-calibration/source/scripts/test-performance-reports.py
+    - evidence/2026-10-23-feed/source/scripts/test-performance-reports.py
     - evidence/2026-10-22-calibration/source/Sources/Dreams/features/rain/model/RainCalibration.swift
     - evidence/2026-10-22-calibration/source/Tests/DreamsTests/RainCalibrationTests.swift
     - evidence/2026-10-22-calibration/source/scripts/run-calibration.py
     - evidence/2026-10-22-calibration-analysis/source/scripts/analyze-calibration.py
     - evidence/2026-10-22-calibration-analysis/source/scripts/test-calibration.py
     - evidence/2026-10-22-calibration/source/research/performance/calibration-protocol.md
-    border: []
+    - evidence/2026-10-23-feed/source/scripts/run-feed-performance.py
+    - evidence/2026-10-23-feed/source/scripts/analyze-feed-performance.py
+    - evidence/2026-10-23-feed/source/scripts/test-feed-performance.py
+    - evidence/2026-10-23-feed/source/research/performance/feed-trace.json
+    - evidence/2026-10-23-feed/source/research/performance/feed-protocol.md.txt
+    border:
+    - evidence/2026-10-23-feed/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift

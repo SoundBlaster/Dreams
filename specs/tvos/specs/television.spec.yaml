@@ -107,7 +107,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 1b6ec9124b184e0c2c854bfd14b6b96f45d28336
+    revision: 14b9f3b35caca1d48b1a8c4428cdbac4693a6846
   files:
     owned:
     - evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/AppRoot.swift
@@ -125,7 +125,7 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
     - evidence/2026-10-21-parity/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-10-21-parity/source/tvOS/project.yml
-    - evidence/2026-10-24-main-integration/pr52/source/Makefile
+    - evidence/2026-10-24-main-integration/pr53/source/Makefile
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
