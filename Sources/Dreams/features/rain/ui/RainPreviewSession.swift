@@ -14,6 +14,8 @@ final class RainPreviewSession: NSObject, MTKViewDelegate {
     @ObservationIgnored private var lastDraw: Double?
     @ObservationIgnored private(set) var time = 6.0
     @ObservationIgnored private(set) var isVisible = false
+    @ObservationIgnored private var needsNewSurface = false
+    private(set) var surfaceGeneration = 0
     var isPlaying: Bool { didSet { updatePlayback() } }
     private(set) var errorMessage: String?
 
@@ -43,7 +45,20 @@ final class RainPreviewSession: NSObject, MTKViewDelegate {
         setVisible(visible)
     }
 
+    func windowWillClose(for view: MTKView) {
+        guard self.view === view else { return }
+        needsNewSurface = true
+        setVisible(false)
+    }
+
     func windowDidReopen() {
+        if needsNewSurface {
+            needsNewSurface = false
+            // A retained MTKView can lose its display link after NSWindow.close().
+            // Replace only the canvas; retain the window, navigation and playback choice.
+            surfaceGeneration += 1
+            return
+        }
         (view as? RainPreviewView)?.windowDidReopen()
         refresh()
     }

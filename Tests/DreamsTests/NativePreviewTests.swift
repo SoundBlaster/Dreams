@@ -173,6 +173,26 @@ extension NativeSettingsTests {
         session.detach(replacement)
         #expect(session.renderer == nil && !session.isVisible)
     }
+    @Test func onlyAClosedPreviewReplacesItsSurfaceOnReopen() {
+        _ = NSApplication.shared
+        let session = RainPreviewSession(controller: DreamsController())
+        let current = MTKView(frame: .zero)
+        let stale = MTKView(frame: .zero)
+        session.attach(current)
+        session.isPlaying = false
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 0)
+        session.windowWillClose(for: stale)
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 0)
+        session.windowWillClose(for: current)
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 1)
+        #expect(!session.isPlaying, "Reopening must preserve a deliberate pause")
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 1)
+        session.detach(current)
+    }
     /// SwiftPM tests do not run NSApplication.run; drain native window/display events explicitly.
     static func pumpPreviewEvents(milliseconds: Int) async throws {
         drainPreviewEvents(milliseconds: milliseconds)
