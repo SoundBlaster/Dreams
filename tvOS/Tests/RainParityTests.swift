@@ -18,6 +18,7 @@ final class RainParityTests: XCTestCase {
         XCTAssertEqual(settings.tuning.brightness, 0.12)
         XCTAssertEqual(settings.tuning.pulseStrength, DreamsPreset.pulseStrength)
         XCTAssertTrue(settings.tuning.showsClock)
+        XCTAssertFalse(settings.tuning.showsFPS)
         settings.tuning.automaticColumns = true
         settings.tuning.searchFraction = 0.73
         settings.tuning.decelerationEnabled = true
@@ -28,6 +29,7 @@ final class RainParityTests: XCTestCase {
         settings.tuning.color = RainColor(red: 0.7, green: 0.2, blue: 0.9)
         settings.tuning.restoredGlyphs = false
         settings.tuning.showsClock = false
+        settings.tuning.showsFPS = true
         XCTAssertEqual(RainSettings(defaults: defaults).tuning, settings.tuning)
         settings.reset()
         XCTAssertEqual(RainSettings(defaults: defaults).tuning, RainTuning())

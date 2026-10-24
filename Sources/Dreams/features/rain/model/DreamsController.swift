@@ -148,6 +148,7 @@ final class DreamsController: NSObject {
         rainDeceleration = DreamsPreset.deceleration
         rainBrightnessSpread = DreamsPreset.brightnessSpread
         rainPulseStrength = DreamsPreset.pulseStrength
+        showsFPS = false
         rainIdleIntensity = DreamsPreset.idleIntensity
         let words = DreamsPreset.keywordColor
         keywordColor = NSColor(srgbRed: words[0], green: words[1], blue: words[2], alpha: 1)
@@ -321,6 +322,14 @@ final class DreamsController: NSObject {
         didSet {
             UserDefaults.standard.set(rainBrightnessSpread, forKey: "rainBrightnessSpread")
             screenManager.renderers.forEach { $0.rainBrightnessSpread = rainBrightnessSpread }
+            settingsChanged()
+        }
+    }
+
+    var showsFPS = UserDefaults.standard.bool(forKey: "showsFPS") {
+        didSet {
+            UserDefaults.standard.set(showsFPS, forKey: "showsFPS")
+            screenManager.renderers.forEach { $0.showsFPS = showsFPS }
             settingsChanged()
         }
     }
@@ -537,6 +546,7 @@ final class DreamsController: NSObject {
         renderer.rainDeceleration = dropDeceleration
         renderer.rainBrightnessSpread = rainBrightnessSpread
         renderer.rainPulseStrength = rainPulseStrength
+        renderer.showsFPS = showsFPS
         renderer.rainFadeRows = rainFadeRows
         renderer.rainColumnCount = rainColumnCount
         renderer.rainDensity = rainDensity
