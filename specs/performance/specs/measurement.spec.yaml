@@ -76,7 +76,7 @@ constraints:
   statement: Keep the full recorder absent in control and enabled only during full collection. Use the same outer draw/presentation observer in both modes and process CPU counter snapshots at collection boundaries, excluding drain/export. Control reports are not full GPU-validation baselines. Compare fixed control/full/control blocks only with matching source, binary, resources, fixture and device identities. Retain signed deltas and control-to-control spread; missing CPU is not zero, insufficient repeats or unresolved cost never imply zero overhead. The common observer's cost remains outside this incremental comparison. Generic baseline summaries reject calibration reports.
 - id: feed_observation
   level: MUST
-  statement: Enable feed observations only for the explicit feed probe. Publish identified bounded synthetic events from a separate process using a verified shared host clock and atomic-rename timestamp bracket. Preserve snapshot API wall spans, success and thread identity separately from syscall or allocator claims. Correlate each expected event to successful snapshot receipt and the earliest actually presented successful GPU frame containing a stable non-space event-letter instance. Missing receipt or presentation invalidates delivery; GPU buffer allocation failure cannot count as submission. This is a delivery proxy, not pixel, full-label or physical-display proof. Preserve frame and delivery validity separately, fixture and trace hashes, every run and smoke distinctions. Generic summaries reject feed reports. Added feed-observer overhead is not covered by earlier calibration.
+  statement: Enable feed observations only for the explicit feed probe. Publish identified bounded synthetic events from a separate process using a verified shared host clock and atomic-rename timestamp bracket. Preserve snapshot API wall spans, success and thread identity separately from syscall or allocator claims. Correlate each expected event to successful snapshot receipt and the earliest actually presented successful GPU frame containing a stable non-space event-letter instance. Feed probes reject scenarios whose reference viewport is wider or taller than the drawable, so clipped-away letters cannot count as delivered. Missing receipt or presentation invalidates delivery; GPU buffer allocation failure cannot count as submission. This is a delivery proxy, not pixel, full-label or physical-display proof. Preserve frame and delivery validity separately, fixture and trace hashes, every run and smoke distinctions. Generic summaries reject feed reports. Added feed-observer overhead is not covered by earlier calibration.
 - id: feed_comparison
   level: MUST
   statement: Background snapshots are observed independently of frame delivery because multiple reads can finish before a draw consumes the latest input. In shared-background reports feedRefresh identifies consumed cached input, not I/O in that frame; feedReads retains bounded attempts during collection. Before/after comparison requires five complete pairs with matching fixture, trace, resources, hardware, OS, display, tuning and nominal thermal state; each variant keeps its own executable/runtime identity separate from runner identity. Retain per-pair delivery and cadence without pooling percentiles, silently dropping runs, automatic acceptance or issue closure. Legacy synchronous reports remain analyzable with their original semantics.
@@ -128,7 +128,7 @@ implementationBindings:
     - evidence/2026-10-23-absolute-timeline/source/Tests/DreamsTests/RainPerformanceTests.swift
     - evidence/2026-10-22-calibration/source/scripts/run-performance.py
     - evidence/2026-10-23-feed/source/scripts/summarize-performance.py
-    - evidence/2026-10-22-baseline/source/scripts/swift-macos.sh
+    - evidence/2026-10-24-main-integration/pr53/source/scripts/swift-macos.sh
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json
@@ -154,5 +154,5 @@ implementationBindings:
     - evidence/2026-10-23-absolute-timeline/source/scripts/test-cadence.py
     - evidence/2026-10-23-absolute-timeline/source/research/performance/timestamp-protocol.md.txt
     border:
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift

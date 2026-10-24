@@ -95,9 +95,9 @@ implementationBindings:
     revision: 58d2097cf51215a088d0e99eb9b71dc7bf8549ff
   files:
     owned:
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
-    - evidence/2026-10-23-shared-reader/source/Tests/DreamsTests/KeywordFeedReaderTests.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Tests/DreamsTests/KeywordFeedReaderTests.swift
     border:
     - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

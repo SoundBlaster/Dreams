@@ -26,6 +26,7 @@ final class KeywordFeedReader {
     static let shared = KeywordFeedReader()
     private let feed: KeywordFeed
     private let fallbackSeconds: Double
+    private let wallClock: @Sendable () -> Date
     private(set) var snapshot = KeywordFeedSnapshot.empty
     private(set) var revision = 0
     private(set) var consumers = 0
@@ -35,9 +36,11 @@ final class KeywordFeedReader {
     private var waiters: [UUID: (after: Double, continuation: CheckedContinuation<Bool, Never>)] = [:]
     var onRead: ((KeywordFeedRead) -> Void)?
 
-    init(feed: KeywordFeed = KeywordFeed(), fallbackSeconds: Double = 1) {
+    init(feed: KeywordFeed = KeywordFeed(), fallbackSeconds: Double = 1,
+         wallClock: @escaping @Sendable () -> Date = { Date() }) {
         self.feed = feed
         self.fallbackSeconds = max(0.05, fallbackSeconds)
+        self.wallClock = wallClock
     }
 
     func acquire() -> KeywordFeedSubscription {
@@ -49,9 +52,10 @@ final class KeywordFeedReader {
             revision += 1
             let (stream, continuation) = AsyncStream<Void>.makeStream(bufferingPolicy: .bufferingNewest(1))
             trigger = continuation
-            let feed = feed, interval = fallbackSeconds
+            let feed = feed, interval = fallbackSeconds, wallClock = wallClock
             task = Task(priority: .utility) { [weak self] in
-                await Self.observe(feed: feed, interval: interval, stream: stream, signal: continuation) { [weak self] value in
+                await Self.observe(feed: feed, interval: interval, stream: stream, signal: continuation,
+                                   wallClock: wallClock) { [weak self] value in
                     guard let self, self.generation == token, self.consumers > 0 else { return }
                     self.snapshot = value
                     self.revision += 1
@@ -117,6 +121,7 @@ final class KeywordFeedReader {
     @concurrent
     private static func observe(feed: KeywordFeed, interval: Double, stream: AsyncStream<Void>,
                                 signal: AsyncStream<Void>.Continuation,
+                                wallClock: @Sendable () -> Date,
                                 publish: @escaping @MainActor @Sendable (KeywordFeedSnapshot) -> Void) async {
         let queue = DispatchQueue(label: "Dreams.keyword-feed", qos: .utility)
         let timer = DispatchSource.makeTimerSource(queue: queue)
@@ -150,10 +155,10 @@ final class KeywordFeedReader {
                 }
             }
             let began = CACurrentMediaTime()
+            let now = wallClock()
             var succeeded = false
-            if let value = try? feed.snapshot() { messages = value; succeeded = true }
+            if let value = try? feed.snapshot(at: now) { messages = value; succeeded = true }
             let ended = CACurrentMediaTime()
-            let now = Date()
             let recent = messages.flatMap { $0.events ?? [] }.filter { now.timeIntervalSince($0.time) < 8 }
                 .sorted { $0.time < $1.time }
             let read = KeywordFeedRead(began: began, ended: ended, succeeded: succeeded,

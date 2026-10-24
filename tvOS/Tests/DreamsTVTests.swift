@@ -1,5 +1,6 @@
 import XCTest
 import MetalKit
+import CoreText
 @testable import DreamsTV
 
 @MainActor
@@ -9,7 +10,10 @@ final class DreamsTVTests: XCTestCase {
             let path = try XCTUnwrap(Bundle.main.path(forResource: language, ofType: "lproj"))
             let bundle = try XCTUnwrap(Bundle(path: path))
             for key in ["settings.columns", "settings.density", "settings.brightness", "settings.speed", "settings.fade", "settings.done",
-                        "settings.floating", "settings.typeface", "settings.size", "settings.font.rounded"] {
+                        "settings.floating", "settings.typeface", "settings.size", "settings.font.rounded",
+                        "settings.automatic", "settings.search", "settings.braking", "settings.acceleration", "settings.spread",
+                        "settings.pulse", "settings.glow", "settings.red", "settings.green", "settings.blue", "settings.glyphs",
+                        "settings.clock.visible", "settings.search.hint", "settings.adjust.hint", "rain.accessibility"] {
                 XCTAssertNotEqual(bundle.localizedString(forKey: key, value: nil, table: nil), key)
             }
         }
@@ -30,7 +34,7 @@ final class DreamsTVTests: XCTestCase {
         defer { defaults.removePersistentDomain(forName: name) }
         let settings = RainSettings(defaults: defaults)
         settings.tuning = RainTuning(columns: 999, brightness: .nan, speed: -1, fade: .infinity)
-        XCTAssertEqual(settings.tuning, RainTuning(columns: 160, brightness: 0.18, speed: 0.25, fade: 3))
+        XCTAssertEqual(settings.tuning, RainTuning(columns: 240, brightness: 0.18, speed: 0.25, fade: 3))
         XCTAssertEqual(RainSettings(defaults: defaults).tuning, settings.tuning)
     }
 
@@ -59,7 +63,7 @@ final class DreamsTVTests: XCTestCase {
         XCTAssertEqual(RainSettings(defaults: defaults).tuning.density, 1)
         XCTAssertEqual(settings.tuning.glyphOpacity(0.001), 0.2)
         settings.tuning.density = -1
-        XCTAssertEqual(settings.tuning.density, 0.1)
+        XCTAssertEqual(settings.tuning.density, 0)
         XCTAssertEqual(settings.tuning.glyphOpacity(0.001), 0.001)
         settings.tuning.density = .nan
         XCTAssertEqual(settings.tuning.density, 0.82)
@@ -68,7 +72,7 @@ final class DreamsTVTests: XCTestCase {
     func testFullDensityKeepsEveryCellOccupiedAfterWarmup() {
         // Also exercise a live change from sparse rain; old packets expire naturally.
         for fade in [1.0, 3.0, 16.0] {
-            var rain = MatrixSimulation(columnCount: 48, rows: 27, glyphCount: FilmGlyphs.variantCount,
+            var rain = MatrixSimulation(columnCount: 48, rows: 27, glyphCount: 56,
                                         seed: 14, density: 0.1, fadeRows: fade)
             rain.advance(to: 10)
             rain.setDensity(1)
@@ -89,7 +93,7 @@ final class DreamsTVTests: XCTestCase {
     }
 
     func testLowDensityLeavesSpaceBetweenPackets() {
-        var rain = MatrixSimulation(columnCount: 48, rows: 27, glyphCount: FilmGlyphs.variantCount,
+        var rain = MatrixSimulation(columnCount: 48, rows: 27, glyphCount: 56,
                                     seed: 14, density: 0.1)
         rain.advance(to: 25)
         let occupied = rain.columns.flatMap(\.cells).filter { $0.glyph >= 0 && !$0.isGap }.count
@@ -111,16 +115,29 @@ final class DreamsTVTests: XCTestCase {
         XCTAssertNotEqual(masks[0], masks[2])
     }
 
-    func testRepertoireHasOnlyFilmGlyphsAndHorizontalMirrors() {
-        XCTAssertEqual(FilmGlyphs.scalars.count, 28)
-        XCTAssertTrue(FilmGlyphs.scalars.allSatisfy { (0xE001...0xE01C).contains(Int($0.value)) })
-        for variant in 0..<28 {
-            let normal = FilmGlyphs.uv(for: variant, inset: 18, side: 28, atlasWidth: 512, atlasHeight: 256)
-            let mirrored = FilmGlyphs.uv(for: variant + 28, inset: 18, side: 28, atlasWidth: 512, atlasHeight: 256)
-            XCTAssertEqual(normal.x + normal.z, mirrored.x, accuracy: 0.0001)
-            XCTAssertEqual(normal.y, mirrored.y)
-            XCTAssertEqual(normal.z, -mirrored.z)
-            XCTAssertEqual(normal.w, mirrored.w)
+    func testRepertoireCoversWholeBundledFontAndClassicWithMirrors() throws {
+        let device = try XCTUnwrap(MTLCreateSystemDefaultDevice())
+        for restored in [true, false] {
+            let atlas = try FilmAtlas(device: device, restored: restored)
+            let font = CTFontCreateWithName((restored ? "DreamsMatrix-Regular" : "Matrix-Code") as CFString, 26, nil)
+            let scalars = FilmGlyphs.scalars(font: font, restored: restored)
+            XCTAssertEqual(atlas.glyphCount, scalars.count)
+            XCTAssertGreaterThanOrEqual(atlas.glyphCount, 28)
+            if restored {
+                XCTAssertTrue(scalars.allSatisfy { (0xE001...0xF8FF).contains(Int($0.value)) })
+                XCTAssertFalse(scalars.contains("A".unicodeScalars.first!))
+            }
+            for variant in scalars.indices {
+                let normal = FilmGlyphs.uv(for: variant, inset: 18, side: 28, atlasWidth: 512,
+                                          atlasHeight: Float(atlas.height), glyphCount: atlas.glyphCount)
+                let mirrored = FilmGlyphs.uv(for: variant + atlas.glyphCount, inset: 18, side: 28, atlasWidth: 512,
+                                            atlasHeight: Float(atlas.height), glyphCount: atlas.glyphCount)
+                XCTAssertEqual(normal.x + normal.z, mirrored.x, accuracy: 0.0001)
+                XCTAssertEqual(normal.y, mirrored.y)
+                XCTAssertEqual(normal.z, -mirrored.z)
+                XCTAssertEqual(normal.w, mirrored.w)
+                XCTAssertLessThanOrEqual(normal.y + normal.w, 1)
+            }
         }
     }
 

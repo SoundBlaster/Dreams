@@ -3,6 +3,7 @@ import QuartzCore
 import Darwin
 import Testing
 import MetalKit
+import Synchronization
 @testable import Dreams
 
 @MainActor
@@ -10,15 +11,18 @@ struct KeywordFeedReaderTests {
     @Test func fallbackPrunesExpiryWithoutAnotherPublisherWrite() async throws {
         let (directory, feed, _) = try fixture()
         defer { try? FileManager.default.removeItem(at: directory) }
+        let clock = KeywordFeedTestClock()
         let value = KeywordMessage(sessionID: "short", words: ["OLD"], color: "cyan",
-            updatedAt: Date(), expiresAt: Date().addingTimeInterval(0.5))
+            updatedAt: clock.read(), expiresAt: clock.read().addingTimeInterval(0.5))
         let file = directory.appendingPathComponent("short.json")
         try JSONEncoder().encode(value).write(to: file, options: .atomic)
-        let reader = KeywordFeedReader(feed: feed, fallbackSeconds: 0.05)
+        let reader = KeywordFeedReader(feed: feed, fallbackSeconds: 0.05, wallClock: { clock.read() })
         let lease = reader.acquire()
         defer { lease.cancel() }
         #expect(await reader.refresh())
         try #require(reader.snapshot.messages.count == 1)
+        // Advance expiry only after the initial read, without another publisher write or refresh request.
+        clock.advance(by: 1)
         while !reader.snapshot.messages.isEmpty {
             let after = try #require(reader.snapshot.read?.ended)
             try #require(await reader.waitForRead(after: after))
@@ -129,4 +133,11 @@ struct KeywordFeedReaderTests {
         lease = nil
         #expect(reader.consumers == 0)
     }
+}
+
+private final class KeywordFeedTestClock: Sendable {
+    private let value = Mutex(Date(timeIntervalSince1970: 1_000))
+
+    func read() -> Date { value.withLock { $0 } }
+    func advance(by seconds: TimeInterval) { value.withLock { $0.addTimeInterval(seconds) } }
 }

@@ -1,6 +1,6 @@
-/// Explicit launch opt-in; absence always preserves the legacy settings route.
+/// Native settings are the default; the explicit legacy override remains available.
 enum NativeSettingsFeature {
     static func isEnabled(arguments: [String] = CommandLine.arguments) -> Bool {
-        arguments.contains("--native-settings") && !arguments.contains("--legacy-settings")
+        !arguments.contains("--legacy-settings")
     }
 }

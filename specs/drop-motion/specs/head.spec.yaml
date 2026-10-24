@@ -112,7 +112,7 @@ implementationBindings:
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift
     - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift
     - evidence/2026-10-23-shared-reader/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift

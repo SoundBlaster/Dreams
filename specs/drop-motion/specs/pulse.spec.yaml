@@ -86,7 +86,7 @@ evidence:
   - constraints.lifetime_and_head
 - id: controls_test
   kind: test
-  path: evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
+  path: evidence/2026-10-24-native-default/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
   supports:
   - constraints.assembly
 - id: validation
@@ -103,7 +103,7 @@ provenance:
   - User requested brightness pulsation; smooth independent breathing was the working interpretation pending optional style feedback.
   - Default 30 percent, real-time periods and the nonzero exposure floor are implementation choices, not claims of film fidelity.
   - Offscreen macOS GPU checks, control assertions, structural validation and physical compositor acceptance are distinct evidence levels.
-  - tvOS continues to use its prior renderer and receives no pulse option in this scope.
+  - This macOS boundary excludes tvOS; the separately recovered dreams.tv.rain contract covers its later shared-helper adoption.
 
 implementationBindings:
 - id: pulse_swift
@@ -122,11 +122,11 @@ implementationBindings:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift
-    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
+    - evidence/2026-10-24-native-default/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
     border:
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
     - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift

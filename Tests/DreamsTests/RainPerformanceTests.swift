@@ -63,6 +63,35 @@ struct RainPerformanceTests {
         }
     }
 
+    @Test(arguments: ["normal", "dense", "preview-crop"])
+    func feedMeasurementsRejectClippedViewports(name: String) throws {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
+            .deletingLastPathComponent().deletingLastPathComponent()
+        let data = try Data(contentsOf: root.appendingPathComponent("research/performance/scenarios/\(name).json"))
+        let scenario = try JSONDecoder().decode(RainPerformanceScenario.self, from: data)
+        try scenario.validate()
+        if name == "preview-crop" {
+            #expect(throws: (any Error).self) { try scenario.validate(feedObservation: true) }
+        } else {
+            try scenario.validate(feedObservation: true)
+        }
+    }
+
+    @Test func feedMeasurementsRejectClippingInEitherDimension() throws {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
+            .deletingLastPathComponent().deletingLastPathComponent()
+        let data = try Data(contentsOf: root.appendingPathComponent("research/performance/scenarios/normal.json"))
+        let source = try #require(JSONSerialization.jsonObject(with: data) as? [String: Any])
+        for (key, value) in [("drawableWidth", 800), ("drawableHeight", 600)] {
+            var cropped = source
+            cropped[key] = value
+            let encoded = try JSONSerialization.data(withJSONObject: cropped)
+            let scenario = try JSONDecoder().decode(RainPerformanceScenario.self, from: encoded)
+            try scenario.validate()
+            #expect(throws: (any Error).self) { try scenario.validate(feedObservation: true) }
+        }
+    }
+
     @Test func rejectsInvalidBoundsAndMissingRequiredInputs() throws {
         let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
             .deletingLastPathComponent().deletingLastPathComponent()

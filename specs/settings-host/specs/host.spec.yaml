@@ -3,10 +3,10 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.20
+  version: 0.1.0-draft.22
   status: draft
 intent:
-  summary: Let an opted-in macOS user change the same Dreams settings through native SwiftUI forms while retaining legacy access.
+  summary: Let macOS users change Dreams settings through native SwiftUI forms by default while retaining explicit legacy access.
 scope:
   boundedContext: desktop_settings_presentation
   includes:
@@ -14,13 +14,13 @@ scope:
   - Existing rain, display and hook operations invoked through their current owners.
   - Window-local Metal backdrop using production renderer and shared tuning, system material forms and an uncovered rain region.
   excludes:
-  - Desktop-through-window transparency and default-on rollout.
+  - Desktop-through-window transparency.
   - Overlay algorithms, hook installation semantics, renderer internals, tvOS and glyph editing.
 provides:
   capabilities:
   - id: dreams.settings.host
     role: primary
-    summary: Opt-in native settings window using production state and an explicit legacy fallback.
+    summary: Default native settings window using production state and an explicit legacy fallback.
 requires:
   capabilities:
   - id: dreams.settings.ui
@@ -35,13 +35,13 @@ interfaces:
     kind: cli
     summary: Route the interactive settings action according to launch arguments.
     operations:
-    - name: Dreams --native-settings
+    - name: Dreams
       inputs:
       - name: arguments
-        type: Process launch arguments; --legacy-settings overrides --native-settings
+        type: Process launch arguments; --legacy-settings overrides the native default and compatible --native-settings alias
       outputs:
       - name: window
-        type: SwiftUI settings when opted in, otherwise the legacy AppKit window
+        type: SwiftUI settings by default, or the legacy AppKit window when --legacy-settings is present
   - id: settings_operations
     kind: library
     summary: Read and write the shared production settings controller through native bindings.
@@ -59,7 +59,7 @@ interfaces:
 constraints:
 - id: default_off
   level: MUST
-  statement: Absence of --native-settings selects the legacy window. --legacy-settings wins when both launch flags are present; there is no saved enablement key.
+  statement: Native settings are selected without launch arguments. --legacy-settings selects the legacy window and wins regardless of --native-settings or argument order; --native-settings remains a compatible explicit native alias. There is no saved enablement key. The stable default_off identifier is retained for historical traceability; this version intentionally supersedes its previous opt-in requirement at the owner's request.
 - id: native_controls
   level: MUST
   statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable. The native host hides the window toolbar and title with system APIs while retaining titled-window controls, a full-size content view and native window dragging. Section titles live inside settings panels. The sidebar has a noninteractive identity header with the current application icon, Dreams title and Agentic Screensaver subtitle above the native section list. Its text uses semantic styles and a combined accessibility element; its background supports native window dragging. The sidebar remains visible in a balanced NavigationSplitView with constant all-column visibility. There is no hide/show button, app-owned hide shortcut or collapsed-detail recovery layout. Native controls expose the existing localized parameter help. General shares the context-sensitive duration/exit explanation with legacy and gives Start the system Return default action. Display rows share built-in/main/agent-workspace suffixes and tooltips with legacy. App build/release and native trace helpers use the active compiler SDK and matching linked SDK metadata, preserving the package deployment target.
@@ -72,6 +72,9 @@ constraints:
 - id: operation_semantics
   level: MUST
   statement: Background changes retain separate color/glow profiles, displays use existing reconciliation and hook actions use the existing installer. After reset success or failure, attempt to register the current controller stop shortcut and synchronize legacy controls before refreshing the actual state. Present reset errors and existing shortcut conflicts; Carbon registration remains fallible. Do not promise rollback or atomic reset beyond that controller.
+- id: quick_appearance
+  level: MUST
+  statement: Native Appearance offers Classic, Dimmed and Monochrome recipes and eight named quick colors through native Toggles and Buttons. Recipes set only rain color, active-profile glow, shared brightness spread and pulse; grid, motion, glyphs, activity and agent settings are retained. Classic uses the existing active-background defaults; Dimmed reduces that green and glow; Monochrome uses neutral RGB. Color and glow retain the existing opaque/transparent storage split; spread and pulse stay shared. Quick colors change only active rain color. Selection is derived from actual color/glow/spread/pulse with numeric conversion tolerance, never a separately saved preset name. Unmatched manual values show Custom and remain editable with the native ColorPicker/sliders. Quick colors expose localized names and selected state; preview/window tint update through the existing owner notifications.
 - id: explicit_legacy_access
   level: MUST
   statement: Advanced provides access to the legacy window and all previous controls. General records and resets the stop shortcut directly. Both presentations use the same settings owner.
@@ -113,12 +116,12 @@ effects:
 evidence:
 - id: source
   kind: source
-  path: evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+  path: evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
   supports:
   - constraints
 - id: tests
   kind: test
-  path: evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
+  path: evidence/2026-10-24-native-default/source/Tests/DreamsTests/NativeSettingsTests.swift
   supports:
   - constraints.default_off
   - constraints.one_settings_owner
@@ -126,9 +129,14 @@ evidence:
   - constraints.lifetime
 - id: validation
   kind: test
-  path: validation/2026-10-22-performance/README.md
+  path: validation/2026-10-24-native-default/README.md
   supports:
   - constraints
+- id: appearance_validation
+  kind: test
+  path: validation/2026-10-21-appearance/README.md
+  supports:
+  - constraints.quick_appearance
 - id: local_ui_dependency
   kind: source
   path: evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
@@ -152,47 +160,50 @@ provenance:
   sourceConfidence:
     extraction: high
   notes:
-  - Default-off feature routing, native controls and preservation of previous settings are user product requirements; newly recovered contracts remain descriptive drafts.
+  - The owner explicitly requested native settings by default on 2026-10-24, superseding the former opt-in rollout requirement. The historical default_off claim identifier is preserved across this intentional versioned behavior change; earlier evidence remains on its original source. Native controls and preservation of previous settings remain requirements; recovered contracts stay descriptive drafts.
   - Source reading and local tests are separate from native keyboard/VoiceOver/compositor acceptance. Screener 0.2.0 hierarchy frames do not establish accurate glass or sidebar selection pixels. The optional test-only ScreenCaptureKit backend requires existing authorization, names the current test window/owner and provides no desktop or hierarchy fallback.
 implementationBindings:
 - id: native_host
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 58d2097cf51215a088d0e99eb9b71dc7bf8549ff
+    revision: c6da1a590ca7658dd885fa33096564d5830a4f81
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
     - evidence/2026-10-15-shortcut-retry/source/Tests/DreamsTests/StopShortcutRecorderTests.swift
-    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/SettingsScenarioTests.swift
+    - evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsScenarioTests.swift
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+    - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
-    - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-19-fixed-sidebar/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
-    - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
+    - evidence/2026-10-21-appearance/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-21-appearance/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
-    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
-    - evidence/2026-10-18-preview-growth/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-24-main-integration/pr40/source/Tests/DreamsTests/NativeSettingsTests.swift
+    - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
-    - evidence/2026-10-18-native-sliders/source/scripts/test-native-settings-trace.py
-    - evidence/2026-10-23-feed/source/scripts/swift-macos.sh
+    - evidence/2026-10-21-appearance/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh
     - evidence/2026-10-18-native-sliders/source/scripts/build-app.sh
     - evidence/2026-10-18-native-sliders/source/scripts/release.sh
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift
     - evidence/2026-10-19-parity-fixes/source/Tests/DreamsTests/NativeSettingsParityTests.swift
+    - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/model/NativeAppearancePreset.swift
+    - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/ui/NativeAppearanceChoices.swift
+    - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeAppearanceTests.swift
     border:
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift
@@ -203,5 +214,5 @@ implementationBindings:
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift
     - evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
