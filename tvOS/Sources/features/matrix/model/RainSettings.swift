@@ -7,7 +7,7 @@ enum TVHardwareDefaults {
     static var machineIdentifier: String {
         var info = utsname()
         guard uname(&info) == 0 else { return "" }
-        return withUnsafeBytes(of: &info.machine) { String(decoding: $0.prefix { $0 != 0 }, as: UTF8.self) }
+        return withUnsafeBytes(of: &info.machine) { String(bytes: $0.prefix { $0 != 0 }, encoding: .utf8) ?? "" }
     }
 
     static func glow(machine: String) -> Double { machine == "AppleTV5,3" ? 0 : DreamsPreset.glow }
