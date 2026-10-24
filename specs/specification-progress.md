@@ -818,3 +818,7 @@ requirements remain in force; performance and physical TV acceptance are unchang
 ## 2026-10-24 — pr52 main integration
 
 [Integration identities and scope](integration/2026-10-24/pr52/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
+
+## 2026-10-24 — pr53 main integration
+
+[Integration identities and scope](integration/2026-10-24/pr53/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
