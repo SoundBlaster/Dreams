@@ -3,7 +3,8 @@
 Stage one of the native settings migration: a standalone macOS SwiftUI application
 and a small composition library. The separately launched catalog remains independent of the production target.
 The production app now links only the small UI library and offers a SwiftUI settings
-host under the explicit, default-off `--native-settings` launch flag. See
+host by default. `--legacy-settings` selects the existing AppKit window;
+`--native-settings` remains a compatible explicit alias. See
 [host scope and limits](../../specs/settings-host/README.md).
 
 ## Build and open
@@ -58,21 +59,21 @@ Do not put the production controller or renderer into this UI package.
 
 ## Next stages
 
-1. Add a new settings host under a feature flag that defaults **off**. Keep the
-   existing AppKit settings path. The catalog itself is already an opt-in separate app;
-   this route is now available only with `--native-settings`; `--legacy-settings` wins
-   when both flags are supplied.
+1. The initial migration used a default-off launch flag. The owner enabled the native
+   host by default on 2026-10-24. The catalog remains a separate opt-in app;
+   `--legacy-settings` selects the retained AppKit path and wins over `--native-settings`.
 2. The new host now binds to the same production controller. General records and
    resets the stop shortcut directly; Advanced retains access to the legacy window.
    Both presentations share the recorder and Carbon registration owner. Validate
-   interactive parity before enabling the native host by default.
+   interactive parity as both presentations evolve.
 3. The host now injects one independent production renderer behind the settings detail,
    preserving 100% hosting-display scale with a clipped viewport.
-4. The opt-in host now places grouped forms over the shared material panel, leaving
+4. The native host now places grouped forms over the shared material panel, leaving
    a clear rain region beside/above them. macOS 26 uses system background extension
    under navigation and a glass playback button; macOS 15 retains standard materials.
    Continue evaluating legibility and accessibility before rollout.
-5. Validate parity and performance before separately deciding to enable the new host.
+5. Continue parity, accessibility and performance validation independently of the
+   default-route rollout; default enablement does not establish complete acceptance.
 
 The HTML kit and the NavigationSplitView sample informed composition; their custom
 web controls, fonts, mock engine and color-domain model are not dependencies.

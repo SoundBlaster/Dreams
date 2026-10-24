@@ -17,7 +17,7 @@ extension SettingsPageTests {
         let defaults = UserDefaults.standard
         let saved = Dictionary(uniqueKeysWithValues: keys.compactMap { key in defaults.object(forKey: key).map { (key, $0) } })
         let controller = DreamsController()
-        let page = SettingsPageController(controller: controller)
+        let page = SettingsPageController(controller: controller, nativeSettingsEnabled: false)
         defer {
             page.controlsWindow?.close()
             page.cleanUp()
