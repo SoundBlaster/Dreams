@@ -107,12 +107,14 @@ struct NativeAppearanceForm: View {
 
     var body: some View {
         Form {
+            NativeAppearanceChoices(model: model)
             Section(settingsString("label.color")) {
                 ColorPicker(selection: $model.rainColor, supportsOpacity: false) {
                     SettingsRowLabel(settingsString("rain.color.accessibility"), systemImage: "paintpalette")
                 }
                     .accessibilityIdentifier("dreams.rain-color")
                     .help(settingsString("rain.color.tip"))
+                NativeRainPalette(model: model)
                 NativeParameterRow(model: model, parameter: .glow)
                 NativeParameterRow(model: model, parameter: .spread)
                 NativeParameterRow(model: model, parameter: .pulse)

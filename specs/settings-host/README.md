@@ -139,6 +139,14 @@ Parity corrections: [2026-10-19-parity-fixes](validation/2026-10-19-parity-fixes
 
 Accessibility audit and optional-help correction: [2026-10-20-accessibility](validation/2026-10-20-accessibility/README.md).
 
+Appearance recipes and quick colors: [2026-10-21 appearance](validation/2026-10-21-appearance/README.md).
+Classic restores the existing appearance defaults for the active background;
+Dimmed lowers green/glow; Monochrome uses neutral RGB. Recipes change color, glow,
+spread and pulse together; quick colors change only color. Native controls derive
+selection from actual saved values and show Custom for unmatched manual edits.
+Color/glow stay profile-specific; spread/pulse remain shared. Motion, layout and
+glyph choices are not part of these recipes.
+
 Optional performance instrumentation source/impact: [2026-10-22](validation/2026-10-22-performance/README.md).
 Ordinary behavior and stable claims remain unchanged; prior passes stay historical.
 

@@ -136,7 +136,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: bc38ab210313ca496a9ee0787771824f8b766916
+    revision: 5f1c3fd54c06d949e8d70c13cfefefc5dcb1a065
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift
@@ -154,7 +154,7 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift
     - evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift
     - evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift
-    - evidence/2026-10-24-0.1.10/source/scripts/swift-macos.sh
+    - evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh
     - evidence/2026-10-18-native-sliders/source/scripts/build-settings-catalog.sh
     - evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift
     border: []
@@ -162,7 +162,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: bc38ab210313ca496a9ee0787771824f8b766916
+    revision: 5f1c3fd54c06d949e8d70c13cfefefc5dcb1a065
   files:
     owned:
     - evidence/2026-10-14-native-host/source/Package.swift

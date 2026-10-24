@@ -79,7 +79,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 32ebeb5298f66766cca4673b7b4a905da17e425f
+    revision: 5f1c3fd54c06d949e8d70c13cfefefc5dcb1a065
   files:
     owned:
     - evidence/2026-10-22-baseline/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
@@ -92,7 +92,7 @@ implementationBindings:
     - evidence/2026-10-22-baseline/source/Tests/DreamsTests/RainPerformanceTests.swift
     - evidence/2026-10-22-baseline/source/scripts/run-performance.py
     - evidence/2026-10-22-probe-guards/source/scripts/summarize-performance.py
-    - evidence/2026-10-22-baseline/source/scripts/swift-macos.sh
+    - evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json
     - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json

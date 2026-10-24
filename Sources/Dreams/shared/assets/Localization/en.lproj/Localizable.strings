@@ -180,3 +180,20 @@
 
 
 "native.brand.subtitle" = "Agentic Screensaver";
+
+/* Appearance recipes and quick color buttons. */
+"appearance.style" = "Style";
+"appearance.classic" = "Classic";
+"appearance.dimmed" = "Dimmed";
+"appearance.monochrome" = "Monochrome";
+"appearance.custom" = "Custom — your manual appearance settings.";
+"appearance.help" = "Apply color, glow, brightness variation and pulse together. Motion and layout stay as set.";
+"palette.title" = "Quick colors";
+"palette.green" = "Green";
+"palette.lime" = "Lime";
+"palette.cyan" = "Cyan";
+"palette.blue" = "Blue";
+"palette.purple" = "Purple";
+"palette.pink" = "Pink";
+"palette.red" = "Red";
+"palette.white" = "White";
