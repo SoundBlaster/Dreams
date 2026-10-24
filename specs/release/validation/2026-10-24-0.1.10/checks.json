@@ -3,13 +3,13 @@
   "scope": "Version/plugin metadata and current dependency-snapshot audit. Runtime tests retain their #56 source; final binary/distribution proof is a release asset.",
   "commands": [
     {
-      "command": "rtk proxy env [verified TB5 cache paths] make lint plugins-check",
+      "command": "rtk proxy env DREAMS_FSD_TOOLING_DIR=/Users/egor/Development/GitHub/Dreams/.fsd-ios-tooling PYTHONPYCACHEPREFIX=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/bytecode RUFF_CACHE_DIR=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/ruff make lint plugins-check",
       "exitCode": 0,
       "log": "logs/dreams-release-0.1.10-lint-plugins.log.gz",
       "phase": "before final preparation docs; release metadata unchanged"
     },
     {
-      "command": "rtk proxy env [verified TB5 cache paths] make lint",
+      "command": "rtk proxy env DREAMS_FSD_TOOLING_DIR=/Users/egor/Development/GitHub/Dreams/.fsd-ios-tooling PYTHONPYCACHEPREFIX=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/bytecode RUFF_CACHE_DIR=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/ruff make lint",
       "exitCode": 0,
       "log": "logs/dreams-release-0.1.10-lint-final.log.gz"
     },
@@ -41,5 +41,15 @@
       "archiveSHA256": "37730a7e38daabe526a6ecc6f86bd43248fd28ff67373d2f81d36cbfdf2032cb"
     }
   ],
-  "distributionEvidence": "https://github.com/SoundBlaster/Dreams/releases/download/v0.1.10/release-verification.json"
+  "distributionEvidence": "https://github.com/SoundBlaster/Dreams/releases/download/v0.1.10/release-verification.json",
+  "tools": {
+    "specpm": "specpm 0.2.0",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "mapHashes": {
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "e5e88c2464576834ea8b9318b34aa7711a37a2eb8db7ae4604e86beea03bb079",
+    "specs/hypercode/settings-catalog.hc": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+    "specs/hypercode/settings-catalog.hcs": "3cfa711b0a5c469c041dcd7c4f585aef0bc5aa3e134ea077f1d174d8b045168d"
+  }
 }
