@@ -6,8 +6,9 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     let controller = DreamsController()
     var showsControls = false
     private lazy var settings = SettingsPageController(controller: controller)
-    private var statusItem: NSStatusItem?
+    private(set) var statusItem: NSStatusItem?
     private var stopMenuItem: NSMenuItem?
+    private var menuVisibilityObserver: NSObjectProtocol?
 
     func applicationWillFinishLaunching(_ notification: Foundation.Notification) {
         guard showsControls else { return }
@@ -46,6 +47,15 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
         for menuItem in menu.items where menuItem.submenu == nil { menuItem.target = self }
         item.menu = menu
         statusItem = item
+        refreshMenuBarVisibility()
+        menuVisibilityObserver = NotificationCenter.default.addObserver(forName: DreamsController.settingsDidChange,
+            object: controller, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated { self?.refreshMenuBarVisibility() }
+        }
+    }
+
+    private func refreshMenuBarVisibility() {
+        statusItem?.isVisible = controller.showsMenuBarIcon
     }
 
     private func refreshStopMenuItem() {
@@ -62,6 +72,10 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     func show(error: Error) { settings.show(error: error) }
 
     func applicationWillTerminate(_ notification: Foundation.Notification) {
+        if let menuVisibilityObserver { NotificationCenter.default.removeObserver(menuVisibilityObserver) }
+        menuVisibilityObserver = nil
+        if let statusItem { NSStatusBar.system.removeStatusItem(statusItem) }
+        statusItem = nil
         settings.cleanUp()
     }
 }

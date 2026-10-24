@@ -1,0 +1,108 @@
+{
+  "sourceRevision": "f979c8c7d454589d225de75911c5fcdfe262c8b8",
+  "profile": "macOS native General + legacy settings; status-item default/hidden startup/live changes/reset",
+  "tools": {
+    "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "specpm": "specpm 0.2.0",
+    "hypercodeBinary": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "hypercodeSha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f",
+    "formatRFC": "SpecGraph-RFC-0001.md 0.0.1 draft",
+    "rfcSha256": "2cee49b7c98325cb947b240d7e65969cce0930feca6d43242c4d27893a088984"
+  },
+  "checks": [
+    {
+      "command": "swift test -c release --scratch-path <verified TB5>/swiftpm --cache-path /Volumes/TB5/Developer/Caches/swiftpm",
+      "exitCode": 0,
+      "result": "91 reported tests in 22 suites passed; opt-in GPU/UI tests skipped",
+      "skippedTests": [
+        "theHeadChangesShapeBetweenRowArrivals(transparent:)",
+        "twoRenderersEachDisplayTheSameEventFromOneReader()",
+        "captureSuspensionChangesVisibilityWithoutStoppingTheSession(transparent:)",
+        "aLowInkHeadStaysPaleOnBothBackgrounds(transparent:braking:)",
+        "captureSearchControl()",
+        "aTrailGapCannotHideTheDrop(transparent:)",
+        "wholeGlyphExposurePulsesWithoutChangingItsCoverage(transparent:)",
+        "captureTrailMotion()",
+        "dissolvingGlyphRevealsTheBackgroundWithoutTurningBlack(restored:keyword:)",
+        "controlsEnablePersistAndDisableDeceleration()",
+        "escapeButtonAndDisplayFocusLifecycle()",
+        "displaySettingsPersistAndExplainFallback()",
+        "recordedSettingsScenario()",
+        "previewIsAPixelExactScreenCrop(columns:scale:)",
+        "previewUsesSharedSettingsAndReleasesItsRendererWhenHidden()",
+        "dismantlingAnOldSurfaceDoesNotStopItsReplacement()",
+        "recordNativeFormsWithScreener()"
+      ],
+      "logSha256": "f66ea04ceafcfc04719ad22cf7ac74f0aa821462063df817de046309794e3ef7"
+    },
+    {
+      "command": "make app (DREAMS_GLYPH_OUTPUT, DREAMS_SWIFT_SCRATCH_PATH, DREAMS_SWIFT_CACHE_PATH, PYTHONPYCACHEPREFIX set to verified TB5 paths)",
+      "exitCode": 0,
+      "logSha256": "6f1fa5bea3dd9fe729d504878d8a2aaea4afcde87dea8dfae00229b750caf8c9"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "note": "Existing unused_import analyzer_rules configuration warning; no lint errors. Final added Markdown files checked separately after staging.",
+      "logSha256": "c47e154c1b162c83c658cbe05f6542ae0cb5dcd502b4ef7911de39025072af9d"
+    },
+    {
+      "command": "python3 scripts/test-localization.py",
+      "exitCode": 0,
+      "result": "191 keys in EN/RU; format specifiers and used keys match",
+      "logSha256": "5139571cb0e5285860a75d29caa8a3431e5d1e98769b7d95a16a673c1afc3aa2"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "note": "HC parse/validation and SpecPM structure pass; pre-existing required_capability_unresolved warnings remain, no schema errors.",
+      "logSha256": "3962d4a55c18dc8157830c4d6943ce27d1302285f0dd30646ff89f6117986f55"
+    },
+    {
+      "command": "Current implementationBindings byte comparison; .md.txt evidence suffixes mapped to original .md paths",
+      "exitCode": 0,
+      "result": "235 current bindings; zero stale/missing snapshots",
+      "evidence": "bindings.json"
+    },
+    {
+      "command": "SF Symbols exactName menubar.rectangle --min-platform macOS15",
+      "exitCode": 0,
+      "result": "Available since macOS11"
+    },
+    {
+      "command": "python3 scripts/check-docs.py (after staging all new Markdown)",
+      "exitCode": 0,
+      "result": "180 Markdown files; no broken relative links"
+    }
+  ],
+  "nativeObservation": {
+    "method": "delegated device-interaction skill / CUA native AX and screenshots; exact TB5 app path selected and Raise performed",
+    "newSwitch": "Show icon in menu bar; dreams.show-menu-bar-icon; ON -> OFF -> ON confirmed through AX and screenshots",
+    "settingsAccessWhileHidden": "Dreams -> Settings… returned to same native settings window with switch still OFF",
+    "finalPreference": true,
+    "rightStatusBarPixels": "Not exposed by app-scoped captures; physical disappearance of icon not visually established. Actual NSStatusItem.isVisible covered by production-delegate regression.",
+    "preview": "Two foreground screenshots changed glyph positions/content; Pause preview AX label; no pause/play needed. Prior old test copy looked frozen before replacement; exact historical pause cause not established.",
+    "installedApplicationsCopyChanged": false,
+    "testAppLeftRunning": true
+  },
+  "artifact": {
+    "path": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/dist/Dreams.app",
+    "binarySha256": "5b70eeb25ef2701b6fc8a8418942d25000ddf8481a93d5c162e9a37bf35fc034",
+    "locationVerified": "verified checkout-specific TB5 build root"
+  },
+  "scopeLimits": [
+    "No CI polling, merge or release.",
+    "No tvOS execution/performance or overlay compositor acceptance inferred.",
+    "Historical evidence retained; this status-icon change does not alter preview code or OS accessibility settings."
+  ],
+  "initialCorrections": [
+    "Lint required token-based observer detachment; corrected before final successful run.",
+    "Existing legacy-control inventory test needed new accessibility identifier; final suite passes."
+  ],
+  "mapSha256": {
+    "specs/hypercode/application-menu.hc": "0062e761e22df747decc00db3934c34d7a081dca09002d0a87b3c0885cac23ae",
+    "specs/hypercode/application-menu.hcs": "986d82315a1ecd7012c54357bf7da85134c60e3b0a62fe1708a60a78b693fc5c",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "91bc94cac569b6ea9f977ed068c4c0336820bd93fb0c93467a4b8ffa08faf16a"
+  }
+}

@@ -1,0 +1,5 @@
+# Notification delivery regression — 2026-10-25
+
+Hosted run40132496903 observed an empty successful read after the test's timestamp but before the publisher committed. The previous test accepted that read as delivery and failed its subsequent session/event assertions. The notification/lease test now deliberately completes an empty read after the boundary, publishes, then awaits the expected session IDs. Each subsequent observation advances the cursor; temporary busy/empty reads are not delivery. A five-second test deadline stays below the fixture's 30-second fallback, preserving notification coverage. Directory-replacement coverage uses the same semantic wait.
+
+`dreams.feed.read/shared_snapshot`, `freshness_and_expiry`, `errors` and `lifetime` keep their stable requirements. No production reader/publisher code, timeout policy or render algorithm changes. [Changed-source identity](source-identity.json) and [checks](checks.json) distinguish the historical failure, local regression and final pushed-head CI. This remains a descriptive draft, not performance or physical-device acceptance.

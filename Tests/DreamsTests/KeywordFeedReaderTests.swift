@@ -67,8 +67,10 @@ struct KeywordFeedReaderTests {
         #expect(reader.consumers == 2)
         #expect(await reader.refresh())
         let began = CACurrentMediaTime()
+        // Reproduce an empty read completing after the boundary but before the publisher commits.
+        #expect(await reader.refresh())
         try feed.publish(sessionID: "first", words: ["WORK"], eventLabel: "TASK")
-        #expect(await reader.waitForRead(after: began))
+        try await waitForSessions(["first"], reader: reader, after: began)
         #expect(reader.snapshot.messages.map(\.sessionID) == ["first"])
         #expect(reader.snapshot.recentEvents.count == 1)
         #expect(reader.snapshot.read?.onMainThread == false)
@@ -76,11 +78,22 @@ struct KeywordFeedReaderTests {
         #expect(reader.consumers == 1)
         let next = CACurrentMediaTime()
         try feed.publish(sessionID: "second", words: ["WORK"])
-        #expect(await reader.waitForRead(after: next))
+        try await waitForSessions(["first", "second"], reader: reader, after: next)
         #expect(reader.snapshot.messages.count == 2)
         second.cancel()
         #expect(reader.consumers == 0 && reader.snapshot.messages.isEmpty)
         #expect(!(await reader.refresh()))
+    }
+
+    private func waitForSessions(_ expected: [String], reader: KeywordFeedReader, after: Double) async throws {
+        let deadline = CACurrentMediaTime() + 5
+        var cursor = after
+        while reader.snapshot.messages.map(\.sessionID).sorted() != expected.sorted() {
+            try #require(CACurrentMediaTime() < deadline, "Expected notification-driven snapshot within five seconds")
+            _ = await reader.waitForRead(after: cursor)
+            // An empty or temporarily busy read is not delivery. Await a later observation.
+            cursor = (reader.snapshot.read?.ended ?? cursor).nextUp
+        }
     }
 
     @Test func busyMailboxRetainsCacheAndExpiredFilesArePrunedOffMain() async throws {
@@ -122,7 +135,7 @@ struct KeywordFeedReaderTests {
         #expect(await reader.refresh())
         let began = CACurrentMediaTime()
         try feed.publish(sessionID: "replacement", words: ["NEW"])
-        #expect(await reader.waitForRead(after: began))
+        try await waitForSessions(["replacement"], reader: reader, after: began)
         #expect(reader.snapshot.messages.map(\.sessionID) == ["replacement"])
         lease?.cancel()
         lease = nil

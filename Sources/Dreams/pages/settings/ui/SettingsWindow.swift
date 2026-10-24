@@ -191,8 +191,16 @@ extension SettingsPageController {
             footer.orientation = .horizontal
             footer.widthAnchor.constraint(equalToConstant: 420).isActive = true
 
+            let menuBarIcon = NSButton(checkboxWithTitle: L("menubar.show"), target: self, action: #selector(changeMenuBarIcon(_:)))
+            menuBarIcon.state = controller.showsMenuBarIcon ? .on : .off
+            menuBarIcon.toolTip = L("menubar.tip")
+            menuBarIcon.setAccessibilityIdentifier("dreams.show-menu-bar-icon")
+            controlsByID["dreams.show-menu-bar-icon"] = menuBarIcon
+            let menuBarNote = Self.note(L("menubar.tip"))
+
             let stack = NSStackView(views: [
                 activityLabel, launch, escapeHint, hotkeyRow, hotkeyNote,
+                menuBarIcon, menuBarNote,
                 Self.section(L("section.displays")), DisplaySettingsView(controller: controller),
                 Self.section(L("section.rain")), rain,
                 Self.section(L("section.between")), background, transparent, screenshots,

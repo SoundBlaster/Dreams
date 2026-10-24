@@ -3,8 +3,8 @@ kind: SpecPackage
 metadata:
   id: dreams.application_menu
   name: Dreams native application menu
-  version: 0.1.0-draft.1
-  summary: Standard AppKit menu bar for interactive macOS launches.
+  version: 0.1.0-draft.2
+  summary: Standard interactive macOS commands and saved status-item visibility.
   license: MIT
   authors:
   - name: Dreams contributors

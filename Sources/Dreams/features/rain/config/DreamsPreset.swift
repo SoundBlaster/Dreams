@@ -17,6 +17,7 @@ enum DreamsPreset {
     static let restoredGlyphs = true
     static let transparentBackground = false
     static let hideFromScreenshots = true
+    static let showsMenuBarIcon = true
     /// How long the rain runs after Start: 0 means until it is stopped. One hour by default.
     static let runTimeSeconds = 3600.0
     static let runTimeChoices: [Double] = [300, 1800, 3600, 0]

@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "f979c8c7d454589d225de75911c5fcdfe262c8b8",
+  "note": "New current full-file snapshots; earlier evidence remains historical. Unchanged consumers require separate profile acceptance.",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "5699e9f8267294b9cadadeb8f5445afa347e690bdf421c014d14778044e3bd48",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

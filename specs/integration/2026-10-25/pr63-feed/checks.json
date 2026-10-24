@@ -1,0 +1,36 @@
+{
+  "runtimeSourceRevision": "56d3a81b71347841fa0838e1ca742f672dfb8ff6",
+  "currentBindings": 241,
+  "staleOrMissing": 0,
+  "checks": [
+    {
+      "command": "swift test -c release <TB5 paths> --filter KeywordFeedReaderTests",
+      "exitCode": 0,
+      "logSha256": "3d190d5dde8cf02fec23efb045f558bd7919c1b09a0dc7acdf7d138ffcf236b7"
+    },
+    {
+      "command": "8 repeated same-source --skip-build KeywordFeedReaderTests runs",
+      "exitCode": 0,
+      "logSha256": "4a96c7befd25365dbc5bfc57533562ba0f41b94ed51f3e4c042dec3e081373b8"
+    },
+    {
+      "command": "make specs-check HYPERCODE=<verified local Hypercode>",
+      "exitCode": 0,
+      "logSha256": "ef0b37869b7cc626ca125aa954509ff68fe59d9549f9cc79c00dc69a3093c49d"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "logSha256": "2cab1524138bcdfbff43726fc75c3d630306966c01963d90294f8e93b373dee1"
+    }
+  ],
+  "status": "local regression and structural checks passed; final CI pending",
+  "historicalFailure": {
+    "run": 40132496903,
+    "logSha256": "e96791cc02010ce5f27900b80cb7f8e223d716d36691019ff25e01400340c560",
+    "result": "Empty snapshot accepted as delivery; two subsequent assertions failed."
+  },
+  "limits": [
+    "Production code unchanged; final new-head CI evaluated before merging."
+  ]
+}

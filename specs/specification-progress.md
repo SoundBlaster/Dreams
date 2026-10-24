@@ -5,6 +5,10 @@ changes. Initial scope: repository maintenance rules and the browser glyph
 editor on `96fef7ad121cf9ba278eabd878c5179fd754a0cd`. All recovered contracts are **descriptive drafts**;
 formal acceptance and runtime conformance remain separate owner decisions.
 
+## Notification-test delivery boundary — 2026-10-25
+
+`dreams.feed.read/shared_snapshot`, `freshness_and_expiry`, `errors` and `lifetime` retain their implementation requirements. The notification regression now waits for the expected session IDs instead of treating any read after a timestamp as message delivery, and explicitly forces the earlier empty-read race. The five-second test bound remains below the fixture's 30-second fallback. Production reader/publisher code is unchanged. [Source and checks](integration/2026-10-25/pr63-feed/README.md) retain the hosted failure separately from later passes.
+
 ## Coverage — 2026-10-13
 
 | HC role/path | Consumer / profile | Contract or disposition | Baseline / evidence | Next action |
@@ -969,6 +973,24 @@ and exit action semantics remain unchanged; only the app's main menu is added.
 keep generated glyph artifacts on the verified TB5 volume; its default and bundled
 font bytes are unchanged. [Validation](application-menu/validation/2026-10-24/README.md).
 
+## Saved macOS status-icon visibility — 2026-10-24
+
+`DesktopApplication.ApplicationMenu.StatusItemVisibility` folds the minor native
+icon-presence preference into `dreams.desktop.main_menu/status_item_visibility`;
+`dreams.settings.host/menu_bar_icon` owns native General/legacy presentation.
+Runtime/test source `f979c8c7d454589d225de75911c5fcdfe262c8b8`: one saved controller value, default/reset visible,
+immediate visibility changes on the same NSStatusItem and unchanged shortcut/menu
+ownership. Interactive main-menu Settings and Dock reopening remain available.
+Accessory setup reads the saved value; publisher-only mode still has no item.
+
+Updated maps and current full-file bindings preserve stable claim IDs and draft
+acceptance. `dreams.overlay.session`, `dreams.overlay.exit`,
+`dreams.rain.drop_motion`, `dreams.rain.search_occupancy`,
+`dreams.rain.glyph_pulse` and `dreams.tv.rain` retain their algorithms and profile
+obligations; their changed full-file bindings are refreshed with a dated impact
+record, preserving previous evidence. TV execution/performance is not inferred
+from this macOS run. [Current checks](application-menu/validation/2026-10-24-status-icon/README.md).
+
 ## Optional FPS readout — 2026-10-24
 
 `dreams.rain.fps` adds independent opt-in diagnostics to macOS and tvOS.
@@ -1004,3 +1026,7 @@ physical install/launch.
 ## 2026-10-25 — pr62 combined-stack integration
 
 [Integration scope and identities](integration/2026-10-25/pr62/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.
+
+## 2026-10-25 — pr63 combined-stack integration
+
+[Integration scope and identities](integration/2026-10-25/pr63/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.
