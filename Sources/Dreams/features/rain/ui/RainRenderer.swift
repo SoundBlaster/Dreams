@@ -25,9 +25,14 @@ final class RainRenderer: NSObject {
     var brightness: Float = 0.18
     private(set) var framesRendered = 0
     var performanceRecorder: RainPerformanceRecorder?
+    let feedReader: KeywordFeedReader
+    private let feedSubscription: KeywordFeedSubscription
 
-    init(view: MTKView, restoredGlyphs: Bool = false, transparentBackground: Bool = false) throws {
+    init(view: MTKView, restoredGlyphs: Bool = false, transparentBackground: Bool = false,
+         feedReader: KeywordFeedReader = .shared) throws {
         self.transparentBackground = transparentBackground
+        self.feedReader = feedReader
+        feedSubscription = feedReader.acquire()
         guard let device = MTLCreateSystemDefaultDevice(), let queue = device.makeCommandQueue(),
               let url = Bundle.module.url(forResource: "Rain", withExtension: "metal") else {
             throw DreamsError.unavailable("Metal is unavailable.")
@@ -37,7 +42,7 @@ final class RainRenderer: NSObject {
         self.library = library
         self.queue = queue
         keywords = try MatrixRain(device: device, library: library, restoredGlyphs: restoredGlyphs,
-                                  transparentBackground: transparentBackground)
+                                  transparentBackground: transparentBackground, feed: feedReader)
         super.init()
         view.device = device
         view.colorPixelFormat = colorPixelFormat
@@ -52,12 +57,13 @@ final class RainRenderer: NSObject {
     func setRestoredGlyphs(_ enabled: Bool) throws {
         // Prepare a complete atlas before replacing the active renderer.
         keywords = try MatrixRain(device: queue.device, library: library, restoredGlyphs: enabled,
-                                  transparentBackground: transparentBackground)
+                                  transparentBackground: transparentBackground, feed: feedReader)
     }
 
     /// Renders our shader into a texture, without capturing any screen content.
     func previewPNG(posedTime: Float? = nil, pixelSize: SIMD2<Int> = SIMD2(1512, 982),
-                    referenceSize: CGSize? = nil) async throws -> Data {
+                    referenceSize: CGSize? = nil, measurement: RainFrameMeasurement? = nil) async throws -> Data {
+        _ = await feedReader.refresh()
         let width = pixelSize.x
         let height = pixelSize.y
         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
@@ -84,7 +90,7 @@ final class RainRenderer: NSObject {
             columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows, speed: rainSpeed,
             brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
-            keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)
+            keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint, measurement: measurement)
         encoder.endEncoding()
         await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
             buffer.addCompletedHandler { _ in continuation.resume() }

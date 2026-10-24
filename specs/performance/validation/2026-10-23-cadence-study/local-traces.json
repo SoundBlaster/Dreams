@@ -1,0 +1,23 @@
+[
+  {
+    "directory": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/cadence-diagnostic-2026-10-23/after-metal",
+    "traceBytes": 8330746976,
+    "traceFiles": 2,
+    "profilerLogSHA256": "0d7fe100df64eac741ba60b63446b6130717fadbc85017bdc6b88db152321009",
+    "rawTraceKeptLocal": true
+  },
+  {
+    "directory": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/cadence-diagnostic-2026-10-23/after-metal-windowed",
+    "traceBytes": 206826346,
+    "traceFiles": 592,
+    "profilerLogSHA256": "0b00bf01aa7370c5b5bee349de951d6c2f3ffe90b466135ee7568c55f5652645",
+    "rawTraceKeptLocal": true
+  },
+  {
+    "directory": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/cadence-diagnostic-2026-10-23/after-metal-full-window",
+    "traceBytes": 229205034,
+    "traceFiles": 599,
+    "profilerLogSHA256": "c93268434e56acd6aca4051428a05c51a8fa2123b14f5bb756fbb05a47720c93",
+    "rawTraceKeptLocal": true
+  }
+]

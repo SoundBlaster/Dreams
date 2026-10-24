@@ -1,0 +1,14 @@
+{
+  "specpm": {
+    "version": "specpm 0.2.0",
+    "path": "/opt/homebrew/bin/specpm",
+    "sha256": "1c80370f940afd1be509c5bd53fb0c7c6d1bd558d8e6718fdf19b9179ae09142"
+  },
+  "hypercode": {
+    "path": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "sha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f",
+    "versionNote": "Executable does not expose --version; digest pins the executable."
+  },
+  "sourceRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "python": "Python 3.9.6"
+}

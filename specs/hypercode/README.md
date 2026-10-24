@@ -77,3 +77,10 @@ These contexts describe diagnostic modes, not application configuration.
 DeliveryProxy roles. The assembly correlates an external atomic publication with
 snapshot receipt and actual drawable presentation. It does not promise pixel
 verification or make production agent integrations a covered boundary.
+
+The [shared feed reader](keyword-feed.hc) / [properties](keyword-feed.hcs) covers
+ready macOS renderer input, background observation and lease lifetime through
+[dreams.feed.read](../keyword-feed/README.md). Overlay Renderer.FeedInput composes
+this reader; status and legacy session listing remain distinct consumers.
+PerformanceProbe.SyntheticFeed.BackgroundReads records attempts independently
+from frames, so callback timing does not hide a read in before/after evidence.

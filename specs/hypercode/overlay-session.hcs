@@ -39,8 +39,12 @@ CaptureVisibility:
   suspension_status: "rain_suspended_for_capture"
 Renderer:
   source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
-  detail_status: "motion-head-search-pulse-recovered-other-rendering-unexplored"
-  detail: "drop-motion.hc + glyph-search.hc + glyph-pulse.hc and their hcs profiles"
+  detail_status: "feed-motion-head-search-pulse-recovered-other-rendering-unexplored"
+  detail: "keyword-feed.hc + drop-motion.hc + glyph-search.hc + glyph-pulse.hc and their hcs profiles"
+FeedInput:
+  source: "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift"
+  capability: "dreams.feed.read"
+  assembly: "shared-reader-lease-per-renderer; ready-memory-snapshot-in-frame; independent-consumed-event-IDs"
 @background[transparent]:
   RainOverlaySession:
     background: "transparent"

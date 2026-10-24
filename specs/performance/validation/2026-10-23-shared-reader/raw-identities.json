@@ -1,0 +1,62 @@
+{
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/04-before/run-01.json.gz": {
+    "uncompressedSHA256": "c7f45c74a4c25b29984aeef9b311ba53ff90869a995a667382bf81284c5a1eda",
+    "archivedSHA256": "814aadafac5eec5df1408d2015dfb9c30b5fbede25cc62be5037d3070b5e027e"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/02-before/run-01.json.gz": {
+    "uncompressedSHA256": "c31a8e46338de1ee60b4d0662272755ec6a9295b4aa210395ab6e48056b24de2",
+    "archivedSHA256": "8012d25539023a331956249ad1c2365bd496e7a59448602346f8078c1e618656"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/01-after/run-01.json.gz": {
+    "uncompressedSHA256": "7e04fbb5b301ea7198de7097fb5eab6220f7131c79fcbb71a41602b130933a46",
+    "archivedSHA256": "e441f29b44d8fa4baf352733f09202e531f34d7653c3b1ee45d9d40193146572"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/05-before/run-01.json.gz": {
+    "uncompressedSHA256": "a82e921e05b22d5149a83ad15e4692758564aa58d7a87ee773ff5ca0f6183ca6",
+    "archivedSHA256": "7c82f2e16ec80c8c762fc2ba2f4c465ae1c26e28e9aa2b211f061f5fcc5d1c04"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/03-after/run-01.json.gz": {
+    "uncompressedSHA256": "105d0f2344f5febac2c45e67a62a58d16f2856f936b6c2ce2090ac8a6ffc870b",
+    "archivedSHA256": "f0d9fc0f33f435fa122cf46b066afb3bcaa52a748577f38487e7536cf95f1361"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/05-after/run-01.json.gz": {
+    "uncompressedSHA256": "be94fb8bf341ddaa007d7baedffad32b417481f7fd53e4e6994cef50943c612e",
+    "archivedSHA256": "5e17334509753c88d6b01c0f3ec2687e11c3479ed1efb0b4873c6c0a11a0083b"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/03-before/run-01.json.gz": {
+    "uncompressedSHA256": "b4257a96b4579f73ffae461214270fd8600d15ed44f0779dc883a6814d7bebe1",
+    "archivedSHA256": "0537093b3955966e5d8afb28e9a84a73c1fc4355ac888e904f4745e1fd9f1f8b"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/02-after/run-01.json.gz": {
+    "uncompressedSHA256": "df8f77a5ef72751a1ef7bb3c7a3cfea8bcb25695379981b3b2ec3a5636bf332e",
+    "archivedSHA256": "f055a423076abe9d8947c1f26f5a8c2956465f62ea651ca31f751321f80119ea"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/04-after/run-01.json.gz": {
+    "uncompressedSHA256": "d16674d8c760d52198d5031a8fdb2e52ed534d34169394056de31fdf90306760",
+    "archivedSHA256": "41446393938cd043c88dbdae0c2e2b1094d39a6c823eaf662bd77f5717cf3240"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/pairs/01-before/run-01.json.gz": {
+    "uncompressedSHA256": "b0f1760f788bae4f5f12ec6e3999d858c633b2c655e651b91608c370d4c507e8",
+    "archivedSHA256": "f7d7d7303d0825a76c8c5f20d066f721c90ebf031b28d9c2f113969c4384dfb6"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/02-before/run-01.json.gz": {
+    "uncompressedSHA256": "73448d84cc8c17c72d631cb3bf9fbd83ffc4799653e69d2cdda71fcf2a663e46",
+    "archivedSHA256": "aba863e5c304e2e568a3ecf0c683b86b2bd8ef61906c399e603bdd46ca4d4aea"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/01-after/run-01.json.gz": {
+    "uncompressedSHA256": "7988d1ce0d24a3e7db9a8c3dc8d55f69c0880de4de0f1b50b22d1d8a217910da",
+    "archivedSHA256": "d0b0f74ce8364a03970fe566a058976a240789623a6e5d789f875e804f651c4c"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/02-after/run-01.json.gz": {
+    "uncompressedSHA256": "6c721bc21728ec19147df2b8fc8856d3604f866662d0cc13794a02d336c6c69e",
+    "archivedSHA256": "bb331aa4148c4fdbb1bf50a9d7abf52e1568577d59938c32a2fd205c388c9a5c"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/quiet-pairs/01-before/run-01.json.gz": {
+    "uncompressedSHA256": "2eae2d2917cac12b80f2906b2e16f48130e52bf6bf3acf91327a4b68affa9f5e",
+    "archivedSHA256": "63a2296b8f937a0405dfefdca2cf36f4d2d3be474fc61e4c087e3b2d8843f8fc"
+  },
+  "specs/performance/validation/2026-10-23-shared-reader/smoke/run-01.json.gz": {
+    "uncompressedSHA256": "3f704d19f8ecc5c306b7cf9fcfa7512694819d816bec9d3e591f4b76653ff8c4",
+    "archivedSHA256": "10f79074abaa08257acd6a42d1483f7aa52c0573e88a88591b38a50555794529"
+  }
+}

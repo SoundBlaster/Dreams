@@ -225,6 +225,10 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/keyword-feed.hc
+	"$(HYPERCODE)" validate specs/hypercode/keyword-feed.hc --hcs specs/hypercode/keyword-feed.hcs
+	"$(SPECPM)" validate specs/keyword-feed --json
+
 	"$(HYPERCODE)" parse specs/hypercode/television.hc
 	"$(HYPERCODE)" validate specs/hypercode/television.hc --hcs specs/hypercode/television.hcs
 	"$(HYPERCODE)" validate specs/hypercode/television.hc --hcs specs/hypercode/television.hcs --ctx clock=hidden

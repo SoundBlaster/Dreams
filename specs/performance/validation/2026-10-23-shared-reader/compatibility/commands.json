@@ -1,0 +1,70 @@
+[
+  {
+    "mode": "normal",
+    "command": [
+      "python3",
+      "scripts/run-performance.py",
+      "--scenario",
+      "research/performance/scenarios/dense.json",
+      "--output",
+      "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-compatibility-smokes-2026-10-23/normal",
+      "--smoke",
+      "--runs",
+      "1"
+    ],
+    "exitCode": 0
+  },
+  {
+    "mode": "control",
+    "command": [
+      "python3",
+      "scripts/run-performance.py",
+      "--scenario",
+      "research/performance/scenarios/dense.json",
+      "--output",
+      "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-compatibility-smokes-2026-10-23/control",
+      "--smoke",
+      "--runs",
+      "1",
+      "--calibration",
+      "control"
+    ],
+    "exitCode": 1
+  },
+  {
+    "directory": "full",
+    "mode": "full",
+    "command": [
+      "python3",
+      "scripts/run-performance.py",
+      "--scenario",
+      "research/performance/scenarios/dense.json",
+      "--output",
+      "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-compatibility-smokes-2026-10-23/full",
+      "--smoke",
+      "--runs",
+      "1",
+      "--calibration",
+      "full"
+    ],
+    "exitCode": 0
+  },
+  {
+    "directory": "control-retry",
+    "mode": "control",
+    "command": [
+      "python3",
+      "scripts/run-performance.py",
+      "--scenario",
+      "research/performance/scenarios/dense.json",
+      "--output",
+      "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-compatibility-smokes-2026-10-23/control-retry",
+      "--smoke",
+      "--runs",
+      "1",
+      "--calibration",
+      "control"
+    ],
+    "exitCode": 0
+  }
+]

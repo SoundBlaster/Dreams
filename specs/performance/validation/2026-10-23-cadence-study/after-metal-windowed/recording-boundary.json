@@ -1,0 +1,113 @@
+{
+  "machAbsoluteEpoch": 10433240808614,
+  "timebaseNumerator": 125,
+  "timebaseDenominator": 3,
+  "recordingDurationSeconds": 60,
+  "recordEpochSeconds": 434718.3670255833,
+  "gapsPresentedBeforeRecordingEnd": 7,
+  "gapsPresentedAfterRecordingEnd": 13,
+  "gaps": [
+    {
+      "frame": 932,
+      "drawBeganMinusRecordingEndMs": -1420.6992498366162,
+      "presentedMinusRecordingEndMs": -1367.1201665420085
+    },
+    {
+      "frame": 937,
+      "drawBeganMinusRecordingEndMs": -1249.612583196722,
+      "presentedMinusRecordingEndMs": -1183.7884164997377
+    },
+    {
+      "frame": 943,
+      "drawBeganMinusRecordingEndMs": -1037.798916513566,
+      "presentedMinusRecordingEndMs": -992.1232915367
+    },
+    {
+      "frame": 945,
+      "drawBeganMinusRecordingEndMs": -966.7364581837319,
+      "presentedMinusRecordingEndMs": -912.9573332029395
+    },
+    {
+      "frame": 954,
+      "drawBeganMinusRecordingEndMs": -649.9499581987038,
+      "presentedMinusRecordingEndMs": -592.1266248333268
+    },
+    {
+      "frame": 959,
+      "drawBeganMinusRecordingEndMs": -476.35537484893575,
+      "presentedMinusRecordingEndMs": -429.62799983797595
+    },
+    {
+      "frame": 965,
+      "drawBeganMinusRecordingEndMs": -268.5757498838939,
+      "presentedMinusRecordingEndMs": -217.1297082095407
+    },
+    {
+      "frame": 1016,
+      "drawBeganMinusRecordingEndMs": 1471.6032918076962,
+      "presentedMinusRecordingEndMs": 1524.522541789338
+    },
+    {
+      "frame": 1019,
+      "drawBeganMinusRecordingEndMs": 1581.7273334832862,
+      "presentedMinusRecordingEndMs": 1632.8549584723078
+    },
+    {
+      "frame": 1026,
+      "drawBeganMinusRecordingEndMs": 1823.527833505068,
+      "presentedMinusRecordingEndMs": 1874.5196251547895
+    },
+    {
+      "frame": 1215,
+      "drawBeganMinusRecordingEndMs": 8133.8304584496655,
+      "presentedMinusRecordingEndMs": 8170.299541787244
+    },
+    {
+      "frame": 1218,
+      "drawBeganMinusRecordingEndMs": 8233.772041799966,
+      "presentedMinusRecordingEndMs": 8295.298458484467
+    },
+    {
+      "frame": 1341,
+      "drawBeganMinusRecordingEndMs": 12333.734291838482,
+      "presentedMinusRecordingEndMs": 12403.596000163816
+    },
+    {
+      "frame": 1349,
+      "drawBeganMinusRecordingEndMs": 12600.399375136476,
+      "presentedMinusRecordingEndMs": 12670.260333456099
+    },
+    {
+      "frame": 1379,
+      "drawBeganMinusRecordingEndMs": 13600.486375158653,
+      "presentedMinusRecordingEndMs": 13670.251458475832
+    },
+    {
+      "frame": 1381,
+      "drawBeganMinusRecordingEndMs": 13667.04504180234,
+      "presentedMinusRecordingEndMs": 13816.08358345693
+    },
+    {
+      "frame": 1400,
+      "drawBeganMinusRecordingEndMs": 14380.047750135418,
+      "presentedMinusRecordingEndMs": 14432.744750170968
+    },
+    {
+      "frame": 1407,
+      "drawBeganMinusRecordingEndMs": 14612.493041786365,
+      "presentedMinusRecordingEndMs": 14661.909375165123
+    },
+    {
+      "frame": 1412,
+      "drawBeganMinusRecordingEndMs": 14784.388125117403,
+      "presentedMinusRecordingEndMs": 14841.074458498042
+    },
+    {
+      "frame": 1458,
+      "drawBeganMinusRecordingEndMs": 16321.474250173196,
+      "presentedMinusRecordingEndMs": 16370.227625127882
+    }
+  ],
+  "sourceXMLSHA256": "7c412ee173b550430c7afc2ec1ae2549b245659c6dde0fe58f56344d9227a7b4",
+  "limit": "Timing classification only; neither phase proves cause."
+}

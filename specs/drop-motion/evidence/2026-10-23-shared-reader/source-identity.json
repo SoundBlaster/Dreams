@@ -1,0 +1,42 @@
+{
+  "sourceRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "a564760f6b25717155461529b2f51c1b6bd6ce7963108d4c1f047c5a6ff75918",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "7c27d8844f4fc8684c9ce97b43b77b6989597d15b6528fafb0afe7d19871d969",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ddc0d0d5bf4d20f4896d75ebb6ea0eaf259511fa5a333edc71dd1f01c41066a4",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "289b25331bf27bacad4d3946deef994828611125204e73d809260794152d85ae",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "sha256": "ad1ec0ad32bf748cab83603a69756a6c3da4e520c974e2eb5e8ad701cb8ad9ac",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "sha256": "d5eb90796a649e59b3fa891d3c436b20e51cf8daacde0b171fde3c3c0ecf5899",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "scopeNote": "Shared background read/cache/lease path; historical tests and measurements remain on their original source. Current bindings refreshed for affected reader/render dependencies."
+}

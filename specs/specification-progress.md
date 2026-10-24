@@ -769,6 +769,71 @@ the desired no-frame-I/O criterion of #42 is still outstanding. Overlay/capture
 and tvOS source/claims are unchanged. This macOS window baseline does not cover
 multi-renderer sharing, lock contention, cold storage or pixel/full-label latency.
 
+## 2026-10-23 — shared background mailbox reader
+
+Renderer.FeedInput now composes the newly recovered descriptive draft
+[dreams.feed.read](keyword-feed/README.md). SnapshotCache, SubscriptionLifetime,
+BackgroundObservation (DirectoryChanges/FallbackRefresh) and OfflineRefresh cover
+the macOS render consumer. Read/prune/lock work is moved to a concurrent utility
+task; ordinary draw reads MainActor-owned memory. Production renderers share the
+default reader, while per-renderer consumed IDs preserve delivery to every surface.
+Status RPC and legacy session listing remain on-demand synchronous consumers;
+producer hook/MCP semantics remain uncovered by this reader draft.
+
+Runtime `680833b` owns this change and the fixed alternating comparison protocol.
+The performance draft adds feed_comparison and independent background read samples;
+feedRefresh in an after-frame identifies consumed input, not I/O by that draw.
+Frame, process, source, runner and fixture identities remain distinct. Existing
+motion/search/head/pulse and preview_scale/preview_lifetime/preview_playback claims
+keep their IDs and requirements; renderer bindings are refreshed. Simulation,
+colour formulas and viewport code are unchanged. Preview still releases its
+renderer, which releases its reader lease. Overlay controller/display/capture
+source and requirements are unchanged; the Renderer map adds its ready-input
+assembly dependency without claiming physical overlay acceptance.
+
+Functional evidence covers cache retention during lock contention, expiry without
+a publisher write, directory replacement, last-consumer release/restart and two
+offscreen renderers displaying the same event. A parallel Metal fixture initially
+shared a mailbox with the crop test; its input was isolated, retaining exact pixel
+assertions. Historical passes are not relabeled. [Dated evidence](performance/validation/2026-10-23-shared-reader/README.md)
+separates tests, structural checks, paired window measurements and owner acceptance.
+Physical TV/multi-display performance, pixel/full-label event latency, cold storage
+and total CPU/energy remain unmeasured.
+
+Current incremental coverage (2026-10-23):
+
+| Role | Draft capability | Evidence / remaining work |
+| --- | --- | --- |
+| Renderer.FeedInput / KeywordFeedReader | dreams.feed.read | Source, lifecycle and two-renderer tests; paired latency benefit; rare cadence gaps unresolved |
+| PerformanceProbe.SyntheticFeed.BackgroundReads | dreams.performance.measure / feed_comparison | Five complete pairs plus separate two-pair diagnostic; no automatic performance acceptance |
+
+All 120 primary events arrived and all 420 after-reads were off main. Each pair's
+delivery p95 improved (778–1078 ms before, 139–177 ms after). Three after-only
+>50 ms presentation intervals occurred in the primary series and two more in
+the separate quiet diagnostic, versus none before. p99 stayed about 41.667 ms;
+this does not establish absence of regression. Cadence acceptance and issue #42
+remain open. All 15 raw reports and both variant identities are preserved.
+
+## 2026-10-23 — cadence investigation (no runtime change)
+
+[Diagnostic packet](performance/validation/2026-10-23-cadence-study/README.md)
+keeps three profiling attempts separate from the original five-pair experiment.
+FrameCPU/GPUCompletion/Presentation and BackgroundReads retain their source and
+`dreams.performance.measure` observation/provenance/feed_comparison requirements.
+Reader and parent assembly claims are unchanged; no runtime, map or binding changed.
+
+The final native trace uniquely joins 905 command buffers to application draws.
+For three covered long intervals, native commit-to-GPU wait is 0.48–0.62 ms, GPU
+execution 5.85–6.72 ms, and the remaining GPU-end-to-recorded-presentation wait
+35.99–58.94 ms. This locates those instrumented waits after GPU completion; it
+does not assign their cause or explain the five historical unprofiled gaps.
+The other three new gaps lie outside actual exported native coverage. One earlier
+trace failed finalization; another did not cover its save-phase gaps. All reports
+and failures are retained, without mixing profiler-confounded runs into baseline.
+Cadence acceptance remains open, PR #54 remains draft and #42 stays open. Next
+experiment: the same lightweight absolute GPU/commit observations on both variants,
+with observer overhead checked and alternating unprofiled runs.
+
 ## 2026-10-24 — native settings default rollout
 
 The owner explicitly requested native settings by default, superseding the earlier
@@ -822,3 +887,7 @@ requirements remain in force; performance and physical TV acceptance are unchang
 ## 2026-10-24 — pr53 main integration
 
 [Integration identities and scope](integration/2026-10-24/pr53/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
+
+## 2026-10-24 — pr54 main integration
+
+[Integration identities and scope](integration/2026-10-24/pr54/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.

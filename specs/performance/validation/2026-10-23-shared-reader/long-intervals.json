@@ -1,0 +1,66 @@
+{
+  "thresholdMs": 50,
+  "gaps": [
+    {
+      "group": "pairs",
+      "run": "04-after",
+      "presentationIntervalMs": 58.33291669841856,
+      "frame": 80,
+      "drawMs": 20.17562504624948,
+      "submissionIntervalMs": 33.10574998613447,
+      "gpuMs": 10.53387502906844,
+      "glyphRasterizations": 0,
+      "consumedFeed": false,
+      "backgroundReadsOverlapping": 0
+    },
+    {
+      "group": "pairs",
+      "run": "05-after",
+      "presentationIntervalMs": 62.49958334956318,
+      "frame": 120,
+      "drawMs": 5.057750036939979,
+      "submissionIntervalMs": 33.28170831082389,
+      "gpuMs": 2.506833348888904,
+      "glyphRasterizations": 0,
+      "consumedFeed": false,
+      "backgroundReadsOverlapping": 1
+    },
+    {
+      "group": "pairs",
+      "run": "05-after",
+      "presentationIntervalMs": 95.83270834991708,
+      "frame": 122,
+      "drawMs": 3.2232083613052964,
+      "submissionIntervalMs": 32.48262498527765,
+      "gpuMs": 5.760041705798358,
+      "glyphRasterizations": 0,
+      "consumedFeed": true,
+      "backgroundReadsOverlapping": 0
+    },
+    {
+      "group": "quiet-pairs",
+      "run": "01-after",
+      "presentationIntervalMs": 54.16629166575149,
+      "frame": 1345,
+      "drawMs": 3.783083346206695,
+      "submissionIntervalMs": 31.181958329398185,
+      "gpuMs": 2.6160000124946237,
+      "glyphRasterizations": 0,
+      "consumedFeed": false,
+      "backgroundReadsOverlapping": 0
+    },
+    {
+      "group": "quiet-pairs",
+      "run": "01-after",
+      "presentationIntervalMs": 66.66633335407823,
+      "frame": 1349,
+      "drawMs": 3.024666686542332,
+      "submissionIntervalMs": 32.43562497664243,
+      "gpuMs": 3.0141249881125987,
+      "glyphRasterizations": 0,
+      "consumedFeed": false,
+      "backgroundReadsOverlapping": 0
+    }
+  ],
+  "limits": "Temporal overlap is not causal attribution. This is not an Instruments trace; cadence acceptance remains open."
+}

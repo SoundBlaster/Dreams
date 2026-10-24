@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "runKind": "feed-baseline",
+  "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+  "runnerRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "binarySHA256": "0ed7e6fa955d99f4c64b1983cfbad1ff40e8cad156bd652aa30abf500dfb561e",
+  "workingTreeStatus": " M Makefile\n M specs/hypercode/README.md\n M specs/hypercode/overlay-session.hc\n M specs/hypercode/overlay-session.hcs\n M specs/hypercode/performance.hc\n M specs/hypercode/performance.hcs\n M specs/performance/specpm.yaml\n M specs/performance/specs/measurement.spec.yaml\n?? specs/hypercode/keyword-feed.hc\n?? specs/hypercode/keyword-feed.hcs\n?? specs/keyword-feed/\n",
+  "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+  "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+  "resourceSHA256": {
+    "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+    "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "python": "3.9.6 (default, Aug 17 2026, 12:07:42) \n[Clang 21.0.0 (clang-2100.3.34.1)]",
+  "sdk": "27.0",
+  "results": [
+    {
+      "file": "run-01.json",
+      "publication": "publish-01.json",
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/feed-before-29e07ea/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-feed",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/shared-reader-pairs-2026-10-23/04-before/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/shared-reader-pairs-2026-10-23/04-before/run-01.json"
+      ],
+      "exitCode": 0,
+      "valid": true
+    }
+  ]
+}

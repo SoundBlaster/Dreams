@@ -110,12 +110,12 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 14b9f3b35caca1d48b1a8c4428cdbac4693a6846
+    revision: c6da1a590ca7658dd885fa33096564d5830a4f81
   files:
     owned:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
-    - evidence/2026-10-24-main-integration/pr53/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
-    - evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
@@ -124,7 +124,9 @@ implementationBindings:
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift
     - evidence/2026-10-24-native-default/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
     border:
-    - evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift
+    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
     - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-24-main-integration/pr53/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift

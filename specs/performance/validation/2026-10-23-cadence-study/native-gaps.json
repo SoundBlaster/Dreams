@@ -1,0 +1,84 @@
+{
+  "runtimeRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "binarySHA256": "724dcc43ec2628ec349021e1d73465958fe312ec6e98cf9f3b4e43260647419e",
+  "targetPID": 44263,
+  "traceEpochSeconds": 434963.7548379167,
+  "timebase": {
+    "numerator": 125,
+    "denominator": 3
+  },
+  "nativeCommandCount": 905,
+  "matchedFrameCount": 905,
+  "unmatchedCommandBuffers": [],
+  "applicationGapFrames": [
+    332,
+    527,
+    827,
+    977,
+    1277,
+    1727
+  ],
+  "nativeCoveredGapFrames": [
+    977,
+    1277,
+    1727
+  ],
+  "maxGpuSpanDifferenceMs": 0.027125002816319466,
+  "gaps": [
+    {
+      "frame": 977,
+      "commandBufferID": 8926185154,
+      "creationAt": 435024.92384933267,
+      "committedAt": 435024.9296261247,
+      "gpuStartedAt": 435024.9301092917,
+      "gpuEndedAt": 435024.9368317497,
+      "completionObservedAt": 435024.9369259167,
+      "presentedAt": 435024.97281845845,
+      "presentationIntervalMs": 54.166250047273934,
+      "drawMs": 5.825291620567441,
+      "commitToGpuStartMs": 0.4831670084968209,
+      "gpuSpanMs": 6.722457997966558,
+      "reportedGpuMs": 6.722500023897737,
+      "gpuSpanDifferenceMs": 4.202593117952347e-05,
+      "gpuEndToPresentedMs": 35.98670876817778,
+      "readAttemptsWithin50msOfDraw": 0
+    },
+    {
+      "frame": 1277,
+      "commandBufferID": 8926185754,
+      "creationAt": 435034.9404314577,
+      "committedAt": 435034.9445321667,
+      "gpuStartedAt": 435034.9451189577,
+      "gpuEndedAt": 435034.9509701667,
+      "completionObservedAt": 435034.95106349967,
+      "presentedAt": 435035.0019095001,
+      "presentationIntervalMs": 58.33291669841856,
+      "drawMs": 4.132958361878991,
+      "commitToGpuStartMs": 0.5867910222150385,
+      "gpuSpanMs": 5.851208989042789,
+      "reportedGpuMs": 5.851208348758519,
+      "gpuSpanDifferenceMs": 6.402842700481415e-07,
+      "gpuEndToPresentedMs": 50.93933339230716,
+      "readAttemptsWithin50msOfDraw": 0
+    },
+    {
+      "frame": 1727,
+      "commandBufferID": 8926186654,
+      "creationAt": 435049.9404060417,
+      "committedAt": 435049.9447008747,
+      "gpuStartedAt": 435049.9453177077,
+      "gpuEndedAt": 435049.9511922917,
+      "completionObservedAt": 435049.9513170827,
+      "presentedAt": 435050.01013020845,
+      "presentationIntervalMs": 66.66612502885982,
+      "drawMs": 4.384708299767226,
+      "commitToGpuStartMs": 0.6168330437503755,
+      "gpuSpanMs": 5.874583963304758,
+      "reportedGpuMs": 5.874583323020488,
+      "gpuSpanDifferenceMs": 6.402842700481415e-07,
+      "gpuEndToPresentedMs": 58.937916764989495,
+      "readAttemptsWithin50msOfDraw": 0
+    }
+  ],
+  "limits": "Instrumented target-only evidence. Frame join uses creation within the single-threaded draw interval, unique IDs and matching native/API GPU spans. Coverage uses actual exported records, not requested window length. PresentedTime is the existing drawable timestamp, not physical scanout. No reader causality or historical-gap attribution."
+}

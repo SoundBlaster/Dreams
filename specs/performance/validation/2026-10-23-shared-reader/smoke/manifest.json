@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "runKind": "smoke",
+  "revision": "61e37d240e6d0e71eeb0f73144544f6858948be6",
+  "runnerRevision": "61e37d240e6d0e71eeb0f73144544f6858948be6",
+  "binarySHA256": "724dcc43ec2628ec349021e1d73465958fe312ec6e98cf9f3b4e43260647419e",
+  "workingTreeStatus": " M Sources/Dreams/app/providers/PerformanceRun.swift\n M Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift\n M Sources/Dreams/features/rain/model/RainPerformance.swift\n M Sources/Dreams/features/rain/ui/MatrixRain.swift\n M Sources/Dreams/features/rain/ui/RainRenderer.swift\n M Tests/DreamsTests/TransparentFadeRenderingTests.swift\n M scripts/analyze-feed-performance.py\n M scripts/run-feed-performance.py\n M scripts/test-feed-performance.py\n?? Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift\n?? Tests/DreamsTests/KeywordFeedReaderTests.swift\n?? research/performance/shared-reader-protocol.md\n?? scripts/compare-feed-performance.py\n?? scripts/run-feed-comparison.py\n",
+  "fixtureSHA256": "a8b32d89b7619674e7b9b88781198fd89c787e316154d0f3c32b5914b6d6a3c4",
+  "traceSHA256": "8d8b9dd072c875e657b66977f3c86cae4e32154c5d72c57069f56253a3fffba2",
+  "resourceSHA256": {
+    "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+    "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "python": "3.9.6 (default, Aug 17 2026, 12:07:42) \n[Clang 21.0.0 (clang-2100.3.34.1)]",
+  "sdk": "27.0",
+  "results": [
+    {
+      "file": "run-01.json",
+      "publication": "publish-01.json",
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-feed",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-measured-smoke-2026-10-23/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/reader-measured-smoke-2026-10-23/run-01.json"
+      ],
+      "exitCode": 0,
+      "valid": true
+    }
+  ]
+}

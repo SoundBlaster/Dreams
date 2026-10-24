@@ -108,15 +108,17 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 14b9f3b35caca1d48b1a8c4428cdbac4693a6846
+    revision: c6da1a590ca7658dd885fa33096564d5830a4f81
   files:
     owned:
     - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-24-main-integration/pr53/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift
     - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift
-    - evidence/2026-10-14-pulse/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift
+    - evidence/2026-10-23-shared-reader/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift
     border:
-    - evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/model/RainPerformance.swift
+    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal
-    - evidence/2026-10-23-feed/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift

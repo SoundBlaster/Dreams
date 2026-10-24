@@ -153,6 +153,9 @@ Ordinary behavior and stable claims remain unchanged; prior passes stay historic
 Fixed synthetic feed observation impact and current renderer dependencies:
 [2026-10-23](validation/2026-10-23-feed/README.md).
 
+Shared background reader dependency and unresolved cadence acceptance:
+[2026-10-23 shared reader](validation/2026-10-23-shared-reader/README.md).
+
 Native settings are the default as requested by the owner: [2026-10-24 rollout](validation/2026-10-24-native-default/README.md).
 The historical `default_off` claim ID is retained for traceability; its versioned
 requirement now selects native by default and preserves an explicit legacy override.

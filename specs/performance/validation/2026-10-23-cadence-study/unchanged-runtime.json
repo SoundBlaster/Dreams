@@ -1,0 +1,26 @@
+{
+  "runtimeRevision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "a564760f6b25717155461529b2f51c1b6bd6ce7963108d4c1f047c5a6ff75918"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "7c27d8844f4fc8684c9ce97b43b77b6989597d15b6528fafb0afe7d19871d969"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "ddc0d0d5bf4d20f4896d75ebb6ea0eaf259511fa5a333edc71dd1f01c41066a4"
+    },
+    {
+      "path": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "sha256": "289b25331bf27bacad4d3946deef994828611125204e73d809260794152d85ae"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "6aa3af45bdac82594dbf4e7ce39f002e1b06ab1d10c3b64f85c12a74e0bfa903"
+    }
+  ],
+  "sourceAndMapDiffFromStudyCheckpoint": ""
+}

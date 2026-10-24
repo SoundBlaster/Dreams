@@ -26,7 +26,11 @@ def analyze_run(report, publication, trace):
     if report.get("schemaVersion") != 3 or report.get("feedProbe") is not True or report.get("calibration") is not None:
         raise ValueError("A full feed probe is required")
     samples = report["samples"]
-    refreshes = [(s, s["feedRefresh"]) for s in samples if s.get("feedRefresh") is not None]
+    consuming_frames = [(s, s["feedRefresh"]) for s in samples if s.get("feedRefresh") is not None]
+    mode = report.get("feedReadMode", "synchronous-frame")
+    if mode not in ["synchronous-frame", "shared-background"]:
+        raise ValueError("Unknown feed read mode")
+    reads = report["feedReads"] if mode == "shared-background" else [r for _, r in consuming_frames]
     events = []
     for index, event in enumerate(trace["events"]):
         identity = str(uuid.uuid5(uuid.NAMESPACE_URL, f"dreams-feed/{trace['name']}/{index}"))
@@ -34,7 +38,7 @@ def analyze_run(report, publication, trace):
         if len(writes) != 1:
             raise ValueError("Expected exactly one publication per event")
         write = writes[0]
-        read = [r["ended"] for _, r in refreshes if r["succeeded"] and identity in [i.lower() for i in r["eventIDs"]]]
+        read = [r["ended"] for r in reads if r["succeeded"] and identity in [i.lower() for i in r["eventIDs"]]]
         shown = [s["presentedAt"] for s in samples if identity in [i.lower() for i in s.get("eventLetters", [])]
                  and s.get("presentedAt", 0) > 0 and s.get("gpuCompleted") and not s.get("gpuFailed")]
         first_read, first_shown = min(read, default=None), min(shown, default=None)
@@ -47,19 +51,25 @@ def analyze_run(report, publication, trace):
                        "readLatencyMs": (first_read - write["committed"]) * 1000 if valid else None,
                        "presentationLatencyLowerMs": (first_shown - write["committed"]) * 1000 if valid else None,
                        "presentationLatencyUpperMs": (first_shown - write["commitBegan"]) * 1000 if valid else None})
-    valid = (report["valid"] and publication["exitCode"] == 0 and bool(refreshes) and all(e["valid"] for e in events)
+    valid = (report["valid"] and publication["exitCode"] == 0 and bool(reads) and all(e["valid"] for e in events)
              and publication["remainingJSONFiles"] == trace["sessions"]
-             and all(r["messageCount"] == trace["sessions"] for _, r in refreshes if r["succeeded"]))
-    durations = [(r["ended"] - r["began"]) * 1000 for _, r in refreshes]
-    return {"valid": valid, "refreshes": len(refreshes), "failedRefreshes": sum(not r["succeeded"] for _, r in refreshes),
-            "mainThreadRefreshes": sum(r["onMainThread"] for _, r in refreshes),
-            "snapshotMs": metric(durations), "refreshDrawMs": metric([s["drawSeconds"] * 1000 for s, _ in refreshes]),
+             and all(r["messageCount"] == trace["sessions"] for r in reads if r["succeeded"]))
+    durations = [(r["ended"] - r["began"]) * 1000 for r in reads]
+    result = {"valid": valid, "refreshes": len(reads), "failedRefreshes": sum(not r["succeeded"] for r in reads),
+            "mainThreadRefreshes": sum(r["onMainThread"] for r in reads),
+            "snapshotMs": metric(durations), "refreshDrawMs": metric([s["drawSeconds"] * 1000 for s, _ in consuming_frames]),
             "otherDrawMs": metric([s["drawSeconds"] * 1000 for s in samples if s.get("feedRefresh") is None]),
             "presentationIntervalsMs": {k: v * 1000 if v is not None and k != "count" else v
                                         for k, v in report["summaries"]["presentation_interval_seconds"].items()},
             "intervalsOver50ms": report["intervalsOver50ms"], "intervalsOver100ms": report["intervalsOver100ms"],
             "glyphRasterizations": sum(s["glyphRasterizations"] for s in samples),
             "eventLatencyMs": metric([e["presentationLatencyUpperMs"] for e in events if e["valid"]]), "events": events}
+    if mode == "shared-background":
+        result["feedReadMode"] = mode
+        result["backgroundRefreshes"] = sum(not r["onMainThread"] for r in reads)
+        result["drawsConsumingFeed"] = len(consuming_frames)
+        result["feedCacheMs"] = metric([s["feedSeconds"] * 1000 for s in samples])
+    return result
 
 
 def analyze(directory):

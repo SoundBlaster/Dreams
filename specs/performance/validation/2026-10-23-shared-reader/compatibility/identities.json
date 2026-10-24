@@ -1,0 +1,30 @@
+{
+  "compatibility/full/run-01.json.gz": {
+    "archiveSHA256": "550ae285ed3117f0e146df93052496bceb625e132835c5c62271da50b7713dfb",
+    "uncompressedSHA256": "5f74db5d2a64539b3773a0e274d22c1a401f8e41e8a59adc254f0e195935d0a1",
+    "valid": true,
+    "occludedFrames": 0,
+    "mode": "full"
+  },
+  "compatibility/control-retry/run-01.json.gz": {
+    "archiveSHA256": "a6900e3ec5687a88133cae7123de0bd951f2c297e18f0c37dc5bf7847589e969",
+    "uncompressedSHA256": "a2eb1b82d5b3f3835e26da1c9615aa09b5d2bc64d619a0900ddc15da8f890088",
+    "valid": true,
+    "occludedFrames": 0,
+    "mode": "control"
+  },
+  "compatibility/normal/run-01.json.gz": {
+    "archiveSHA256": "faf83ff5cd3fe8f6bd27e29d87903783cf22de93578eea9604e0860b87a77891",
+    "uncompressedSHA256": "18f72537a0f3be6d6aff69282feb3ee380e95fafe4744b6f85265606a2504f89",
+    "valid": true,
+    "occludedFrames": 0,
+    "mode": "normal"
+  },
+  "compatibility/control/run-01.json.gz": {
+    "archiveSHA256": "47e477a52bc8ca8e437d4d7d33e2b14723bb98d007d1bb287146f5e2ca107d5d",
+    "uncompressedSHA256": "21ce2a7a30aa42bc46fd4e71b237d42ffe1c0a4f0a3a575a5751d25ac9d443b6",
+    "valid": false,
+    "occludedFrames": 40,
+    "mode": "control"
+  }
+}

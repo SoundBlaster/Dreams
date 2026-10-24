@@ -1,0 +1,16 @@
+RainOverlaySession
+  DisplayTargets
+  Presentation
+    OverlayWindows
+      InputRouting
+      ExitControls
+    FocusReturn
+  ExitInput
+    GlobalHotkey
+  SessionLifetime
+  CaptureVisibility
+  Renderer
+    FeedInput
+    DropMotion
+    GlyphSearch
+    GlyphPulse

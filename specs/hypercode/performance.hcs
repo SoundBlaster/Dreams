@@ -36,6 +36,10 @@ Publication:
 SnapshotObservation:
   source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
   scope: "opt-in-snapshot-API-wall-time-success-thread-and-IDs; not-syscall-counts"
+BackgroundReads:
+  source: "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift"
+  report: "feedReads-retained-independently-of-frames; feedRefresh-identifies-consumed-input-only"
+  comparison: "scripts/compare-feed-performance.py; distinct-runtime-and-runner-identities"
 DeliveryProxy:
   source: "scripts/analyze-feed-performance.py"
   scope: "first-presented-drawable-with-stable-event-letter-instance; not-pixel-or-full-label-proof"

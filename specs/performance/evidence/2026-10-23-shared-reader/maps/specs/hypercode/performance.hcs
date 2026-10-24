@@ -1,0 +1,58 @@
+PerformanceProbe:
+  source: "Sources/Dreams/app/providers/PerformanceRun.swift"
+  capability: "dreams.performance.measure"
+Scenario:
+  source: "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift"
+  boundary: "bounded-explicit-JSON; initially-empty-isolated-feed; default-simulation-seed; elapsed-clock"
+RunLifetime:
+  implementation: "Release-only; separate-window; no-production-delegate-or-migration; bounded-stop-and-drain"
+Measurement:
+  source: "Sources/Dreams/features/rain/model/RainPerformance.swift"
+  ownership: "opt-in-MainActor-recorder; bounded-per-run-samples; unavailable-data-is-absent"
+  full_collector: "enabled-only-during-regular-collection"
+FrameCPU:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  scope: "selected-elapsed-spans-and-application-resource-requests; not-CPU-utilization-or-allocator-events"
+GPUCompletion:
+  source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+  scope: "completed-command-buffer-timestamps; not-per-pass-counters"
+Presentation:
+  implementation: "actual-presentedTime; sort-timestamps-independent-of-callback-order"
+Calibration:
+  source: "Sources/Dreams/features/rain/model/RainCalibration.swift"
+  comparison: "scripts/analyze-calibration.py"
+  mode: "not-selected"
+  boundary: "same-outer-observer-for-both-modes; common-observer-cost-excluded; signed-paired-deltas-and-control-spread"
+ReportExport:
+  source: "scripts/run-performance.py"
+  implementation: "export-after-stop; preserve-all-runs-and-identities; smoke-is-not-baseline"
+SyntheticFeed:
+  mode: "absent"
+  boundary: "synthetic-contributor-probe; not-production-agent-integration-conformance"
+Publication:
+  source: "scripts/run-feed-performance.py"
+  input: "research/performance/feed-trace.json"
+  clock: "clock_gettime-CLOCK_UPTIME_RAW; atomic-rename-bracket; external-process"
+SnapshotObservation:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  scope: "opt-in-snapshot-API-wall-time-success-thread-and-IDs; not-syscall-counts"
+BackgroundReads:
+  source: "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift"
+  report: "feedReads-retained-independently-of-frames; feedRefresh-identifies-consumed-input-only"
+  comparison: "scripts/compare-feed-performance.py; distinct-runtime-and-runner-identities"
+DeliveryProxy:
+  source: "scripts/analyze-feed-performance.py"
+  scope: "first-presented-drawable-with-stable-event-letter-instance; not-pixel-or-full-label-proof"
+@probe[control]:
+  Measurement:
+    full_collector: "absent"
+  Calibration:
+    mode: "control"
+@probe[full]:
+  Measurement:
+    full_collector: "enabled-during-collection"
+  Calibration:
+    mode: "full"
+@probe[feed]:
+  SyntheticFeed:
+    mode: "fixed-external-trace"

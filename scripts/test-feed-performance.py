@@ -5,7 +5,10 @@ import importlib.util
 from pathlib import Path
 import subprocess
 import sys
+import json
+import tempfile
 import unittest
+from unittest.mock import patch
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,9 +23,44 @@ def load(name, path):
 
 analysis = load("feed_analysis", "analyze-feed-performance.py")
 runner = load("feed_runner", "run-feed-performance.py")
+comparison = load("feed_comparison", "compare-feed-performance.py")
 
 
 class FeedPerformanceTests(unittest.TestCase):
+    def test_comparison_requires_complete_matching_nominal_pairs(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            suite = {"runs": []}
+            def summary(path):
+                after = path.name.endswith("after")
+                row = {"thermalStates": [0], "eventLatencyMs": {"p95": 100 if after else 800},
+                       "mainThreadRefreshes": 0 if after else 60, "intervalsOver50ms": 0, "intervalsOver100ms": 0}
+                if after:
+                    row["feedReadMode"] = "shared-background"
+                return {"allValid": True, "runs": [row], "runKind": "feed-baseline", "identity": {"device": "test"}}
+            for pair in range(1, 6):
+                for variant in ["before", "after"]:
+                    path = root / f"{pair}-{variant}"
+                    path.mkdir()
+                    manifest = {k: "same" for k in ["fixtureSHA256", "traceSHA256", "resourceSHA256", "hardwareModel", "cpuModel", "sdk", "toolchain"]}
+                    manifest.update(revision=variant, binarySHA256=variant)
+                    (path / "manifest.json").write_text(json.dumps(manifest))
+                    (path / "scenario.json").write_text('{"warmupSeconds":30,"measureSeconds":60}')
+                    suite["runs"].append({"pair": pair, "variant": variant, "directory": path.name, "exitCode": 0})
+            (root / "suite.json").write_text(json.dumps(suite))
+            with patch.object(comparison.analysis, "analyze", side_effect=summary):
+                self.assertTrue(comparison.compare(root)["deliveryP95ImprovedEveryPair"])
+                path = root / "1-after/manifest.json"
+                manifest = json.loads(path.read_text())
+                manifest["resourceSHA256"] = "different"
+                path.write_text(json.dumps(manifest))
+                with self.assertRaisesRegex(ValueError, "Mismatched"):
+                    comparison.compare(root)
+                suite["runs"].pop()
+                (root / "suite.json").write_text(json.dumps(suite))
+                with self.assertRaisesRegex(ValueError, "Five complete"):
+                    comparison.compare(root)
+
     @unittest.skipUnless(sys.platform == "darwin", "macOS host clock")
     def test_host_clock_epoch_is_shared_across_processes(self):
         before = runner.host_time()
@@ -71,6 +109,20 @@ class FeedPerformanceTests(unittest.TestCase):
         self.assertFalse(analysis.analyze_run(report, publication, trace)["valid"])
         report, publication, trace = self.fixture()
         publication["remainingJSONFiles"] = 36
+        self.assertFalse(analysis.analyze_run(report, publication, trace)["valid"])
+
+    def test_background_reads_do_not_depend_on_frame_consumption(self):
+        report, publication, trace = self.fixture()
+        read = report["samples"][0].pop("feedRefresh")
+        read["onMainThread"] = False
+        report.update(feedReadMode="shared-background", feedReads=[read])
+        report["samples"][0]["feedSeconds"] = .00001
+        result = analysis.analyze_run(report, publication, trace)
+        self.assertTrue(result["valid"])
+        self.assertEqual(result["mainThreadRefreshes"], 0)
+        self.assertEqual(result["backgroundRefreshes"], 1)
+        self.assertEqual(result["drawsConsumingFeed"], 0)
+        report["feedReads"] = []
         self.assertFalse(analysis.analyze_run(report, publication, trace)["valid"])
 
     def test_generic_and_calibration_reports_are_rejected(self):

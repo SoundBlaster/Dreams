@@ -1,0 +1,2182 @@
+{
+  "schemaVersion": 1,
+  "identity": {
+    "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+    "traceSHA256": "24c59129d8627bcbbe5900d1077b49c7951056f5af4231595767c57670632328",
+    "resourceSHA256": {
+      "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+      "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+      "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+    },
+    "hardwareModel": "Mac16,8",
+    "cpuModel": "Apple M4 Pro",
+    "sdk": "27.0",
+    "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "display": {
+      "device": "Apple M4 Pro",
+      "os": "Version 27.0 (Build 26A428)",
+      "cpu": 12,
+      "backingScale": 2,
+      "screenMaximumFPS": 120,
+      "screenFrame": "{{0, 0}, {1512, 982}}"
+    }
+  },
+  "variants": {
+    "before": {
+      "revision": "29e07eac9ed6f98844bac9e74031cd3be62560ab",
+      "binarySHA256": "0ed7e6fa955d99f4c64b1983cfbad1ff40e8cad156bd652aa30abf500dfb561e"
+    },
+    "after": {
+      "revision": "680833b15edb0435c31bf3f4f1bc3c17ca934dd5",
+      "binarySHA256": "724dcc43ec2628ec349021e1d73465958fe312ec6e98cf9f3b4e43260647419e"
+    }
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "before": {
+        "valid": true,
+        "refreshes": 59,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 59,
+        "snapshotMs": {
+          "count": 59,
+          "p50": 2.6093750493600965,
+          "p95": 3.3948750351555645,
+          "p99": 5.399041692726314,
+          "max": 5.399041692726314
+        },
+        "refreshDrawMs": {
+          "count": 59,
+          "p50": 9.194833342917264,
+          "p95": 10.618416650686413,
+          "p99": 12.238125025760382,
+          "max": 12.238125025760382
+        },
+        "otherDrawMs": {
+          "count": 1743,
+          "p50": 6.987000000663102,
+          "p95": 8.279000001493841,
+          "p99": 8.645041612908244,
+          "max": 10.69720834493637
+        },
+        "presentationIntervalsMs": {
+          "count": 1801,
+          "maximum": 41.666499979328364,
+          "p50": 33.3331250003539,
+          "p95": 41.66633333079517,
+          "p99": 41.6664166841656
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 584.8470424534753,
+          "p95": 1052.0338757778518,
+          "p99": 1052.0338757778518,
+          "max": 1052.0338757778518
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 389931.833054958,
+            "publicationEnd": 389931.833428791,
+            "scheduleLatenessMs": 5.268999608233571,
+            "firstRead": 389932.1890723334,
+            "firstPresentedLetter": 389932.2558933334,
+            "readLatencyMs": 355.64354236703366,
+            "presentationLatencyLowerMs": 422.4645423819311,
+            "presentationLatencyUpperMs": 422.83837537979707
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 389936.33375325,
+            "publicationEnd": 389936.334121583,
+            "scheduleLatenessMs": 5.967291595879942,
+            "firstRead": 389937.28862354177,
+            "firstPresentedLetter": 389937.3558588334,
+            "readLatencyMs": 954.5019587967545,
+            "presentationLatencyLowerMs": 1021.7372504412197,
+            "presentationLatencyUpperMs": 1022.1055833972059
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 389940.933862708,
+            "publicationEnd": 389940.934236125,
+            "scheduleLatenessMs": 6.076749588828534,
+            "firstRead": 389941.3843920001,
+            "firstPresentedLetter": 389941.4849976251,
+            "readLatencyMs": 450.15587512170896,
+            "presentationLatencyLowerMs": 550.7615001406521,
+            "presentationLatencyUpperMs": 551.1349171283655
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 389945.530679333,
+            "publicationEnd": 389945.531014208,
+            "scheduleLatenessMs": 2.8933746507391334,
+            "firstRead": 389946.4847945001,
+            "firstPresentedLetter": 389946.57663004176,
+            "readLatencyMs": 953.7802921258844,
+            "presentationLatencyLowerMs": 1045.6158337765373,
+            "presentationLatencyUpperMs": 1045.9507087361999
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 389950.132890916,
+            "publicationEnd": 389950.133283291,
+            "scheduleLatenessMs": 5.104957614094019,
+            "firstRead": 389950.55112133344,
+            "firstPresentedLetter": 389950.61826954177,
+            "readLatencyMs": 417.83804242732003,
+            "presentationLatencyLowerMs": 484.9862507544458,
+            "presentationLatencyUpperMs": 485.3786257444881
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 389954.733777666,
+            "publicationEnd": 389954.734079666,
+            "scheduleLatenessMs": 5.991707614157349,
+            "firstRead": 389955.6842913334,
+            "firstPresentedLetter": 389955.7515682084,
+            "readLatencyMs": 950.2116673975252,
+            "presentationLatencyLowerMs": 1017.4885423621163,
+            "presentationLatencyUpperMs": 1017.7905423915945
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 389959.333359666,
+            "publicationEnd": 389959.333701708,
+            "scheduleLatenessMs": 5.5737075745128095,
+            "firstRead": 389959.81719004177,
+            "firstPresentedLetter": 389959.91820670845,
+            "readLatencyMs": 483.4883337607607,
+            "presentationLatencyLowerMs": 584.5050004427321,
+            "presentationLatencyUpperMs": 584.8470424534753
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 389963.932805416,
+            "publicationEnd": 389963.933217458,
+            "scheduleLatenessMs": 5.019457603339106,
+            "firstRead": 389964.88432266674,
+            "firstPresentedLetter": 389964.9848392918,
+            "readLatencyMs": 951.1052087182179,
+            "presentationLatencyLowerMs": 1051.621833757963,
+            "presentationLatencyUpperMs": 1052.0338757778518
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 389968.532658958,
+            "publicationEnd": 389968.533150958,
+            "scheduleLatenessMs": 4.872999619692564,
+            "firstRead": 389968.9182428334,
+            "firstPresentedLetter": 389969.0181455001,
+            "readLatencyMs": 385.09187538875267,
+            "presentationLatencyLowerMs": 484.99454208649695,
+            "presentationLatencyUpperMs": 485.4865421075374
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 389973.132715916,
+            "publicationEnd": 389973.133133583,
+            "scheduleLatenessMs": 4.92995762033388,
+            "firstRead": 389974.01815033343,
+            "firstPresentedLetter": 389974.1181113334,
+            "readLatencyMs": 885.0167504278943,
+            "presentationLatencyLowerMs": 984.9777503986843,
+            "presentationLatencyUpperMs": 985.3954173740931
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 389977.733926041,
+            "publicationEnd": 389977.734342833,
+            "scheduleLatenessMs": 6.140082608908415,
+            "firstRead": 389978.1185273334,
+            "firstPresentedLetter": 389978.1764173751,
+            "readLatencyMs": 384.1845004353672,
+            "presentationLatencyLowerMs": 442.07454210845754,
+            "presentationLatencyUpperMs": 442.4913341063075
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 389982.333847958,
+            "publicationEnd": 389982.33421575,
+            "scheduleLatenessMs": 6.0619995929300785,
+            "firstRead": 389983.2462227501,
+            "firstPresentedLetter": 389983.3138828334,
+            "readLatencyMs": 912.007000122685,
+            "presentationLatencyLowerMs": 979.6670834184624,
+            "presentationLatencyUpperMs": 980.0348753924482
+          }
+        ],
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "after": {
+        "valid": true,
+        "refreshes": 84,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 0,
+        "snapshotMs": {
+          "count": 84,
+          "p50": 1.8606666708365083,
+          "p95": 2.6802499778568745,
+          "p99": 3.195458382833749,
+          "max": 3.195458382833749
+        },
+        "refreshDrawMs": {
+          "count": 81,
+          "p50": 6.53937499737367,
+          "p95": 7.659208378754556,
+          "p99": 8.638625033199787,
+          "max": 8.638625033199787
+        },
+        "otherDrawMs": {
+          "count": 1720,
+          "p50": 6.951083370950073,
+          "p95": 7.705166644882411,
+          "p99": 8.410791691858321,
+          "max": 9.750458353664726
+        },
+        "presentationIntervalsMs": {
+          "count": 1800,
+          "maximum": 41.666500037536025,
+          "p50": 33.3331250003539,
+          "p95": 41.666416625957936,
+          "p99": 41.66645836085081
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 118.64562577102333,
+          "p95": 143.79629242466763,
+          "p99": 143.79629242466763,
+          "max": 143.79629242466763
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390022.399062125,
+            "publicationEnd": 390022.399358083,
+            "scheduleLatenessMs": 6.255041575059295,
+            "firstRead": 390022.42251412506,
+            "firstPresentedLetter": 390022.50111958344,
+            "readLatencyMs": 23.15604203613475,
+            "presentationLatencyLowerMs": 101.76150040933862,
+            "presentationLatencyUpperMs": 102.05745842540637
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390026.89889875,
+            "publicationEnd": 390026.899238875,
+            "scheduleLatenessMs": 6.09166658250615,
+            "firstRead": 390026.92273229174,
+            "firstPresentedLetter": 390027.0094227084,
+            "readLatencyMs": 23.493416723795235,
+            "presentationLatencyLowerMs": 110.18383339978755,
+            "presentationLatencyUpperMs": 110.52395839942619
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390031.499109208,
+            "publicationEnd": 390031.499486666,
+            "scheduleLatenessMs": 6.30212458781898,
+            "firstRead": 390031.5227363334,
+            "firstPresentedLetter": 390031.6427249584,
+            "readLatencyMs": 23.249667428899556,
+            "presentationLatencyLowerMs": 143.23829242493957,
+            "presentationLatencyUpperMs": 143.61575042130426
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390036.097073166,
+            "publicationEnd": 390036.097407083,
+            "scheduleLatenessMs": 4.266082600224763,
+            "firstRead": 390036.12092704175,
+            "firstPresentedLetter": 390036.2343609168,
+            "readLatencyMs": 23.519958718679845,
+            "presentationLatencyLowerMs": 136.9538337457925,
+            "presentationLatencyUpperMs": 137.2877507819794
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390040.699227958,
+            "publicationEnd": 390040.699542375,
+            "scheduleLatenessMs": 6.420874560717493,
+            "firstRead": 390040.7230140001,
+            "firstPresentedLetter": 390040.8009969584,
+            "readLatencyMs": 23.471625114325434,
+            "presentationLatencyLowerMs": 101.45458340412006,
+            "presentationLatencyUpperMs": 101.76900040823966
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390045.293760041,
+            "publicationEnd": 390045.29404025,
+            "scheduleLatenessMs": 0.9529576054774225,
+            "firstRead": 390045.3162398751,
+            "firstPresentedLetter": 390045.40929945844,
+            "readLatencyMs": 22.19962509116158,
+            "presentationLatencyLowerMs": 115.25920842541382,
+            "presentationLatencyUpperMs": 115.53941742749885
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390049.896018208,
+            "publicationEnd": 390049.896302833,
+            "scheduleLatenessMs": 3.2111245673149824,
+            "firstRead": 390049.91830029176,
+            "firstPresentedLetter": 390050.0342685001,
+            "readLatencyMs": 21.997458767145872,
+            "presentationLatencyLowerMs": 137.96566711971536,
+            "presentationLatencyUpperMs": 138.25029210420325
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390054.498774666,
+            "publicationEnd": 390054.49921825,
+            "scheduleLatenessMs": 5.967582575976849,
+            "firstRead": 390054.5226190001,
+            "firstPresentedLetter": 390054.6425709584,
+            "readLatencyMs": 23.400750127620995,
+            "presentationLatencyLowerMs": 143.35270843002945,
+            "presentationLatencyUpperMs": 143.79629242466763
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390059.094728041,
+            "publicationEnd": 390059.09508075,
+            "scheduleLatenessMs": 1.9209575839340687,
+            "firstRead": 390059.11787366675,
+            "firstPresentedLetter": 390059.21337366675,
+            "readLatencyMs": 22.792916744947433,
+            "presentationLatencyLowerMs": 118.29291674075648,
+            "presentationLatencyUpperMs": 118.64562577102333
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390063.696603541,
+            "publicationEnd": 390063.69673725,
+            "scheduleLatenessMs": 3.7964575458317995,
+            "firstRead": 390063.7199952501,
+            "firstPresentedLetter": 390063.8383427501,
+            "readLatencyMs": 23.258000088389963,
+            "presentationLatencyLowerMs": 141.6055000736378,
+            "presentationLatencyUpperMs": 141.73920912435278
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390068.294466166,
+            "publicationEnd": 390068.294866,
+            "scheduleLatenessMs": 1.659082598052919,
+            "firstRead": 390068.3171263751,
+            "firstPresentedLetter": 390068.4049787918,
+            "readLatencyMs": 22.260375088080764,
+            "presentationLatencyLowerMs": 110.11279176454991,
+            "presentationLatencyUpperMs": 110.51262577529997
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390072.894398041,
+            "publicationEnd": 390072.894728708,
+            "scheduleLatenessMs": 1.5909575740806758,
+            "firstRead": 390072.9179760001,
+            "firstPresentedLetter": 390073.01328133343,
+            "readLatencyMs": 23.247292090673,
+            "presentationLatencyLowerMs": 118.55262541212142,
+            "presentationLatencyUpperMs": 118.88329242356122
+          }
+        ],
+        "feedReadMode": "shared-background",
+        "backgroundRefreshes": 84,
+        "drawsConsumingFeed": 81,
+        "feedCacheMs": {
+          "count": 1801,
+          "p50": 0.0011666561476886272,
+          "p95": 0.005125009920448065,
+          "p99": 0.018749968148767948,
+          "max": 0.037624966353178024
+        },
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "deliveryP95DeltaMs": -908.2375833531842,
+      "over50msDelta": 0,
+      "over100msDelta": 0
+    },
+    {
+      "pair": 2,
+      "before": {
+        "valid": true,
+        "refreshes": 59,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 59,
+        "snapshotMs": {
+          "count": 59,
+          "p50": 2.450583328027278,
+          "p95": 3.439166641328484,
+          "p99": 4.806666634976864,
+          "max": 4.806666634976864
+        },
+        "refreshDrawMs": {
+          "count": 59,
+          "p50": 9.396791632752866,
+          "p95": 10.6178333517164,
+          "p99": 11.616083385888487,
+          "max": 11.616083385888487
+        },
+        "otherDrawMs": {
+          "count": 1757,
+          "p50": 6.963458377867937,
+          "p95": 8.206208352930844,
+          "p99": 8.707958331797272,
+          "max": 10.787874984089285
+        },
+        "presentationIntervalsMs": {
+          "count": 1815,
+          "maximum": 41.666500037536025,
+          "p50": 33.3331250003539,
+          "p95": 33.33320835372433,
+          "p99": 41.6664166841656
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 593.0174587410875,
+          "p95": 1060.7501667691395,
+          "p99": 1060.7501667691395,
+          "max": 1060.7501667691395
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390203.523221083,
+            "publicationEnd": 390203.523523833,
+            "scheduleLatenessMs": 5.614041234366596,
+            "firstRead": 390203.8540302917,
+            "firstPresentedLetter": 390203.94574179174,
+            "readLatencyMs": 330.50645870389417,
+            "presentationLatencyLowerMs": 422.2179587231949,
+            "presentationLatencyUpperMs": 422.520708758384
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390208.022440041,
+            "publicationEnd": 390208.022743375,
+            "scheduleLatenessMs": 4.832999256905168,
+            "firstRead": 390208.98111333343,
+            "firstPresentedLetter": 390209.04987454176,
+            "readLatencyMs": 958.3699584472924,
+            "presentationLatencyLowerMs": 1027.1311667747796,
+            "presentationLatencyUpperMs": 1027.434500749223
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390212.623223541,
+            "publicationEnd": 390212.623454583,
+            "scheduleLatenessMs": 5.616499285679311,
+            "firstRead": 390213.04998704174,
+            "firstPresentedLetter": 390213.1498472084,
+            "readLatencyMs": 426.5324587468058,
+            "presentationLatencyLowerMs": 526.3926254119724,
+            "presentationLatencyUpperMs": 526.6236673924141
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390217.222396375,
+            "publicationEnd": 390217.2226745,
+            "scheduleLatenessMs": 4.789333266671747,
+            "firstRead": 390218.18199829175,
+            "firstPresentedLetter": 390218.28314654174,
+            "readLatencyMs": 959.3237917288207,
+            "presentationLatencyLowerMs": 1060.4720417177305,
+            "presentationLatencyUpperMs": 1060.7501667691395
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390221.823423,
+            "publicationEnd": 390221.82378675,
+            "scheduleLatenessMs": 5.81595825497061,
+            "firstRead": 390222.2832117084,
+            "firstPresentedLetter": 390222.3497862084,
+            "readLatencyMs": 459.4249583897181,
+            "presentationLatencyLowerMs": 525.999458390288,
+            "presentationLatencyUpperMs": 526.3632084243
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390226.422706875,
+            "publicationEnd": 390226.423007625,
+            "scheduleLatenessMs": 5.099833302665502,
+            "firstRead": 390227.41531775007,
+            "firstPresentedLetter": 390227.48308558343,
+            "readLatencyMs": 992.3101250897162,
+            "presentationLatencyLowerMs": 1060.0779584492557,
+            "presentationLatencyUpperMs": 1060.3787084110081
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390231.023373708,
+            "publicationEnd": 390231.023667166,
+            "scheduleLatenessMs": 5.7666662614792585,
+            "firstRead": 390231.48309100006,
+            "firstPresentedLetter": 390231.61639116675,
+            "readLatencyMs": 459.4238340505399,
+            "presentationLatencyLowerMs": 592.724000744056,
+            "presentationLatencyUpperMs": 593.0174587410875
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390235.621760833,
+            "publicationEnd": 390235.622085666,
+            "scheduleLatenessMs": 4.1537912911735475,
+            "firstRead": 390236.5494306667,
+            "firstPresentedLetter": 390236.64969091676,
+            "readLatencyMs": 927.3450007312931,
+            "presentationLatencyLowerMs": 1027.6052507688291,
+            "presentationLatencyUpperMs": 1027.930083742831
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390240.223418,
+            "publicationEnd": 390240.223713958,
+            "scheduleLatenessMs": 5.810958275105804,
+            "firstRead": 390240.6491980001,
+            "firstPresentedLetter": 390240.7496636251,
+            "readLatencyMs": 425.48404209082946,
+            "presentationLatencyLowerMs": 525.9496670914814,
+            "presentationLatencyUpperMs": 526.2456251075491
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390244.823384916,
+            "publicationEnd": 390244.823686625,
+            "scheduleLatenessMs": 5.7778742630034685,
+            "firstRead": 390245.7152552501,
+            "firstPresentedLetter": 390245.81629662507,
+            "readLatencyMs": 891.5686251129955,
+            "presentationLatencyLowerMs": 992.6100000739098,
+            "presentationLatencyUpperMs": 992.9117090650834
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390249.422257416,
+            "publicationEnd": 390249.422553833,
+            "scheduleLatenessMs": 4.650374292396009,
+            "firstRead": 390249.7816076251,
+            "firstPresentedLetter": 390249.8496032084,
+            "readLatencyMs": 359.0537920827046,
+            "presentationLatencyLowerMs": 427.04937543021515,
+            "presentationLatencyUpperMs": 427.3457924136892
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390254.022167666,
+            "publicationEnd": 390254.022461333,
+            "scheduleLatenessMs": 4.560624249279499,
+            "firstRead": 390254.8494807501,
+            "firstPresentedLetter": 390254.9162362084,
+            "readLatencyMs": 827.0194170763716,
+            "presentationLatencyLowerMs": 893.7748753814958,
+            "presentationLatencyUpperMs": 894.0685424022377
+          }
+        ],
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "after": {
+        "valid": true,
+        "refreshes": 84,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 0,
+        "snapshotMs": {
+          "count": 84,
+          "p50": 2.004458336159587,
+          "p95": 3.5497083445079625,
+          "p99": 4.61637502303347,
+          "max": 4.61637502303347
+        },
+        "refreshDrawMs": {
+          "count": 84,
+          "p50": 6.797416659537703,
+          "p95": 7.902416691649705,
+          "p99": 8.689166628755629,
+          "max": 8.689166628755629
+        },
+        "otherDrawMs": {
+          "count": 1717,
+          "p50": 7.108208315912634,
+          "p95": 8.014916675165296,
+          "p99": 8.75887501752004,
+          "max": 10.626708331983536
+        },
+        "presentationIntervalsMs": {
+          "count": 1800,
+          "maximum": 49.99962501460686,
+          "p50": 33.3331250003539,
+          "p95": 41.66637500748038,
+          "p99": 41.6664166841656
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 107.87275043549016,
+          "p95": 165.71445908630267,
+          "p99": 165.71445908630267,
+          "max": 165.71445908630267
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390112.980139708,
+            "publicationEnd": 390112.980320333,
+            "scheduleLatenessMs": 5.520249542314559,
+            "firstRead": 390113.0030472084,
+            "firstPresentedLetter": 390113.0880124584,
+            "readLatencyMs": 22.72687543882057,
+            "presentationLatencyLowerMs": 107.69212542800233,
+            "presentationLatencyUpperMs": 107.87275043549016
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390117.480523166,
+            "publicationEnd": 390117.480780875,
+            "scheduleLatenessMs": 5.903707584366202,
+            "firstRead": 390117.5031635417,
+            "firstPresentedLetter": 390117.58798241674,
+            "readLatencyMs": 22.382666706107557,
+            "presentationLatencyLowerMs": 107.20154171576723,
+            "presentationLatencyUpperMs": 107.45925072114915
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390122.080570041,
+            "publicationEnd": 390122.080882041,
+            "scheduleLatenessMs": 5.950582621153444,
+            "firstRead": 390122.10433620843,
+            "firstPresentedLetter": 390122.2462845001,
+            "readLatencyMs": 23.454167414456606,
+            "presentationLatencyLowerMs": 165.40245909709483,
+            "presentationLatencyUpperMs": 165.71445908630267
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390126.676014208,
+            "publicationEnd": 390126.676423291,
+            "scheduleLatenessMs": 1.3947496190667152,
+            "firstRead": 390126.69889754173,
+            "firstPresentedLetter": 390126.8045873334,
+            "readLatencyMs": 22.47425075620413,
+            "presentationLatencyLowerMs": 128.1640424276702,
+            "presentationLatencyUpperMs": 128.57312540290877
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390131.277708458,
+            "publicationEnd": 390131.2780945,
+            "scheduleLatenessMs": 3.0889995978213847,
+            "firstRead": 390131.30223529175,
+            "firstPresentedLetter": 390131.3712236251,
+            "readLatencyMs": 24.140791734680533,
+            "presentationLatencyLowerMs": 93.12912507448345,
+            "presentationLatencyUpperMs": 93.51516707101837
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390135.878435083,
+            "publicationEnd": 390135.878839208,
+            "scheduleLatenessMs": 3.8156246300786734,
+            "firstRead": 390135.8941925001,
+            "firstPresentedLetter": 390135.9795262084,
+            "readLatencyMs": 15.35329211037606,
+            "presentationLatencyLowerMs": 100.68700043484569,
+            "presentationLatencyUpperMs": 101.09112539794296
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390140.4780825,
+            "publicationEnd": 390140.478409958,
+            "scheduleLatenessMs": 3.463041561190039,
+            "firstRead": 390140.5015516251,
+            "firstPresentedLetter": 390140.6128287501,
+            "readLatencyMs": 23.14166707219556,
+            "presentationLatencyLowerMs": 134.41879209131002,
+            "presentationLatencyUpperMs": 134.74625011440367
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390145.078676833,
+            "publicationEnd": 390145.079210291,
+            "scheduleLatenessMs": 4.057374608237296,
+            "firstRead": 390145.10257591674,
+            "firstPresentedLetter": 390145.2044648334,
+            "readLatencyMs": 23.36562576238066,
+            "presentationLatencyLowerMs": 125.25454245042056,
+            "presentationLatencyUpperMs": 125.78800041228533
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390149.679748958,
+            "publicationEnd": 390149.680237458,
+            "scheduleLatenessMs": 5.129499593749642,
+            "firstRead": 390149.7039712918,
+            "firstPresentedLetter": 390149.8044343334,
+            "readLatencyMs": 23.7338338047266,
+            "presentationLatencyLowerMs": 124.19687543297186,
+            "presentationLatencyUpperMs": 124.68537542736158
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390154.280830541,
+            "publicationEnd": 390154.281254583,
+            "scheduleLatenessMs": 6.211082567460835,
+            "firstRead": 390154.3047167917,
+            "firstPresentedLetter": 390154.4127370001,
+            "readLatencyMs": 23.46220874460414,
+            "presentationLatencyLowerMs": 131.48241711314768,
+            "presentationLatencyUpperMs": 131.90645910799503
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390158.881037125,
+            "publicationEnd": 390158.88145375,
+            "scheduleLatenessMs": 6.41766662010923,
+            "firstRead": 390158.8952247918,
+            "firstPresentedLetter": 390158.9793733334,
+            "readLatencyMs": 13.771041762083769,
+            "presentationLatencyLowerMs": 97.91958337882534,
+            "presentationLatencyUpperMs": 98.33620837889612
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390163.47792375,
+            "publicationEnd": 390163.478280875,
+            "scheduleLatenessMs": 3.3042915747500956,
+            "firstRead": 390163.50189779175,
+            "firstPresentedLetter": 390163.57934283343,
+            "readLatencyMs": 23.61691673286259,
+            "presentationLatencyLowerMs": 101.06195841217414,
+            "presentationLatencyUpperMs": 101.41908342484385
+          }
+        ],
+        "feedReadMode": "shared-background",
+        "backgroundRefreshes": 84,
+        "drawsConsumingFeed": 84,
+        "feedCacheMs": {
+          "count": 1801,
+          "p50": 0.0011249794624745846,
+          "p95": 0.006333284545689821,
+          "p99": 0.019749975763261318,
+          "max": 0.0741666299290955
+        },
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "deliveryP95DeltaMs": -895.0357076828368,
+      "over50msDelta": 0,
+      "over100msDelta": 0
+    },
+    {
+      "pair": 3,
+      "before": {
+        "valid": true,
+        "refreshes": 59,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 59,
+        "snapshotMs": {
+          "count": 59,
+          "p50": 2.190625004004687,
+          "p95": 3.205416665878147,
+          "p99": 4.989166685845703,
+          "max": 4.989166685845703
+        },
+        "refreshDrawMs": {
+          "count": 59,
+          "p50": 9.306458348874003,
+          "p95": 10.50899998517707,
+          "p99": 11.027125001419336,
+          "max": 11.027125001419336
+        },
+        "otherDrawMs": {
+          "count": 1757,
+          "p50": 6.833499995991588,
+          "p95": 7.7302916324697435,
+          "p99": 8.43158335192129,
+          "max": 10.17741666873917
+        },
+        "presentationIntervalsMs": {
+          "count": 1815,
+          "maximum": 41.666500037536025,
+          "p50": 33.3331250003539,
+          "p95": 41.666416625957936,
+          "p99": 41.66645830264315
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 595.4413337749429,
+          "p95": 1061.9531257543713,
+          "p99": 1061.9531257543713,
+          "max": 1061.9531257543713
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390294.54307925,
+            "publicationEnd": 390294.543349,
+            "scheduleLatenessMs": 3.4112082794308662,
+            "firstRead": 390295.0406249167,
+            "firstPresentedLetter": 390295.1409681251,
+            "readLatencyMs": 497.27591674309224,
+            "presentationLatencyLowerMs": 597.6191250956617,
+            "presentationLatencyUpperMs": 597.8888750541955
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390299.045466458,
+            "publicationEnd": 390299.045712291,
+            "scheduleLatenessMs": 5.798416270408779,
+            "firstRead": 390299.14061695844,
+            "firstPresentedLetter": 390299.1992743751,
+            "readLatencyMs": 94.90466746501625,
+            "presentationLatencyLowerMs": 153.56208413140848,
+            "presentationLatencyUpperMs": 153.80791708594188
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390303.645873291,
+            "publicationEnd": 390303.646134958,
+            "scheduleLatenessMs": 6.205249286722392,
+            "firstRead": 390304.24028787506,
+            "firstPresentedLetter": 390304.3659066251,
+            "readLatencyMs": 594.152917037718,
+            "presentationLatencyLowerMs": 719.7716670925729,
+            "presentationLatencyUpperMs": 720.0333341024816
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390308.242489833,
+            "publicationEnd": 390308.242796416,
+            "scheduleLatenessMs": 2.8217912768013775,
+            "firstRead": 390308.30708512507,
+            "firstPresentedLetter": 390308.44087945845,
+            "readLatencyMs": 64.28870907984674,
+            "presentationLatencyLowerMs": 198.08304245816544,
+            "presentationLatencyUpperMs": 198.38962546782568
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390312.845404833,
+            "publicationEnd": 390312.845641625,
+            "scheduleLatenessMs": 5.736791237723082,
+            "firstRead": 390313.3741962917,
+            "firstPresentedLetter": 390313.44084616675,
+            "readLatencyMs": 528.5546667291783,
+            "presentationLatencyLowerMs": 595.2045417507179,
+            "presentationLatencyUpperMs": 595.4413337749429
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390317.445436125,
+            "publicationEnd": 390317.44570625,
+            "scheduleLatenessMs": 5.768083268776536,
+            "firstRead": 390318.44062362507,
+            "firstPresentedLetter": 390318.4991458334,
+            "readLatencyMs": 994.9173750937916,
+            "presentationLatencyLowerMs": 1053.4395834547468,
+            "presentationLatencyUpperMs": 1053.7097084452398
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390322.045555375,
+            "publicationEnd": 390322.045874041,
+            "scheduleLatenessMs": 5.887333245482296,
+            "firstRead": 390322.5057232918,
+            "firstPresentedLetter": 390322.60745179176,
+            "readLatencyMs": 459.8492507939227,
+            "presentationLatencyLowerMs": 561.57775077736,
+            "presentationLatencyUpperMs": 561.8964167661034
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390326.645464666,
+            "publicationEnd": 390326.64573525,
+            "scheduleLatenessMs": 5.796624289359897,
+            "firstRead": 390327.6065259168,
+            "firstPresentedLetter": 390327.70741779177,
+            "readLatencyMs": 960.7906668097712,
+            "presentationLatencyLowerMs": 1061.682541796472,
+            "presentationLatencyUpperMs": 1061.9531257543713
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390331.245057791,
+            "publicationEnd": 390331.245200625,
+            "scheduleLatenessMs": 5.389749305322766,
+            "firstRead": 390331.67386941676,
+            "firstPresentedLetter": 390331.7657240834,
+            "readLatencyMs": 428.6687917774543,
+            "presentationLatencyLowerMs": 520.5234584282152,
+            "presentationLatencyUpperMs": 520.6662924028933
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390335.845392458,
+            "publicationEnd": 390335.845674291,
+            "scheduleLatenessMs": 5.724416289012879,
+            "firstRead": 390336.7734630001,
+            "firstPresentedLetter": 390336.8740234584,
+            "readLatencyMs": 927.788709057495,
+            "presentationLatencyLowerMs": 1028.349167376291,
+            "presentationLatencyUpperMs": 1028.6310003721155
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390340.441117833,
+            "publicationEnd": 390340.441471458,
+            "scheduleLatenessMs": 1.4497913070954382,
+            "firstRead": 390340.83985879173,
+            "firstPresentedLetter": 390340.9073299168,
+            "readLatencyMs": 398.3873337274417,
+            "presentationLatencyLowerMs": 465.8584587741643,
+            "presentationLatencyUpperMs": 466.2120837601833
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390345.04554825,
+            "publicationEnd": 390345.045909791,
+            "scheduleLatenessMs": 5.880208278540522,
+            "firstRead": 390345.9394680001,
+            "firstPresentedLetter": 390346.0072959584,
+            "readLatencyMs": 893.5582090634853,
+            "presentationLatencyLowerMs": 961.3861673860811,
+            "presentationLatencyUpperMs": 961.7477083811536
+          }
+        ],
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "after": {
+        "valid": true,
+        "refreshes": 84,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 0,
+        "snapshotMs": {
+          "count": 84,
+          "p50": 1.8027499900199473,
+          "p95": 2.643208368681371,
+          "p99": 3.5788333043456078,
+          "max": 3.5788333043456078
+        },
+        "refreshDrawMs": {
+          "count": 83,
+          "p50": 6.733833346515894,
+          "p95": 8.440374978818,
+          "p99": 9.127208322752267,
+          "max": 9.127208322752267
+        },
+        "otherDrawMs": {
+          "count": 1718,
+          "p50": 7.186083355918527,
+          "p95": 8.598375017754734,
+          "p99": 9.032958361785859,
+          "max": 10.517541668377817
+        },
+        "presentationIntervalsMs": {
+          "count": 1800,
+          "maximum": 49.999749986454844,
+          "p50": 33.3331250003539,
+          "p95": 41.666416625957936,
+          "p99": 41.66645830264315
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 107.39000007743016,
+          "p95": 160.8473337837495,
+          "p99": 160.8473337837495,
+          "max": 160.8473337837495
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390385.565521166,
+            "publicationEnd": 390385.565756083,
+            "scheduleLatenessMs": 4.266082600224763,
+            "firstRead": 390385.58825400006,
+            "firstPresentedLetter": 390385.66119883343,
+            "readLatencyMs": 22.49791705980897,
+            "presentationLatencyLowerMs": 95.44275043299422,
+            "presentationLatencyUpperMs": 95.67766741383821
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390390.067163291,
+            "publicationEnd": 390390.067450041,
+            "scheduleLatenessMs": 5.908207560423762,
+            "firstRead": 390390.09097191674,
+            "firstPresentedLetter": 390390.16116879176,
+            "readLatencyMs": 23.52187572978437,
+            "presentationLatencyLowerMs": 93.71875075157732,
+            "presentationLatencyUpperMs": 94.00550078134984
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390394.666957083,
+            "publicationEnd": 390394.667270333,
+            "scheduleLatenessMs": 5.701999587472528,
+            "firstRead": 390394.69068254175,
+            "firstPresentedLetter": 390394.82780441677,
+            "readLatencyMs": 23.4122087713331,
+            "presentationLatencyLowerMs": 160.53408378502354,
+            "presentationLatencyUpperMs": 160.8473337837495
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390399.267019375,
+            "publicationEnd": 390399.267433333,
+            "scheduleLatenessMs": 5.764291621744633,
+            "firstRead": 390399.2905624168,
+            "firstPresentedLetter": 390399.3944407084,
+            "readLatencyMs": 23.129083798266947,
+            "presentationLatencyLowerMs": 127.00737541308627,
+            "presentationLatencyUpperMs": 127.42133339634165
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390403.866279166,
+            "publicationEnd": 390403.866600291,
+            "scheduleLatenessMs": 5.024082609452307,
+            "firstRead": 390403.8890736251,
+            "firstPresentedLetter": 390403.9569101251,
+            "readLatencyMs": 22.473334101960063,
+            "presentationLatencyLowerMs": 90.30983410775661,
+            "presentationLatencyUpperMs": 90.63095907913521
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390408.464025458,
+            "publicationEnd": 390408.465905041,
+            "scheduleLatenessMs": 2.7703745872713625,
+            "firstRead": 390408.4847906667,
+            "firstPresentedLetter": 390408.5568795418,
+            "readLatencyMs": 18.885625700931996,
+            "presentationLatencyLowerMs": 90.97450075205415,
+            "presentationLatencyUpperMs": 92.85408380674198
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390413.0673965,
+            "publicationEnd": 390413.067782583,
+            "scheduleLatenessMs": 6.141416553873569,
+            "firstRead": 390413.09204979177,
+            "firstPresentedLetter": 390413.1985153334,
+            "readLatencyMs": 24.267208762466908,
+            "presentationLatencyLowerMs": 130.7327504036948,
+            "presentationLatencyUpperMs": 131.11883343663067
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390417.664775458,
+            "publicationEnd": 390417.665137875,
+            "scheduleLatenessMs": 3.5203745937906206,
+            "firstRead": 390417.6887190001,
+            "firstPresentedLetter": 390417.7984847084,
+            "readLatencyMs": 23.581125074997544,
+            "presentationLatencyLowerMs": 133.3468334050849,
+            "presentationLatencyUpperMs": 133.70925042545423
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390422.264115541,
+            "publicationEnd": 390422.2646975,
+            "scheduleLatenessMs": 2.8604576364159584,
+            "firstRead": 390422.28695629176,
+            "firstPresentedLetter": 390422.3984541668,
+            "readLatencyMs": 22.258791781496257,
+            "presentationLatencyLowerMs": 133.75666679348797,
+            "presentationLatencyUpperMs": 134.33862576493993
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390426.865931166,
+            "publicationEnd": 390426.866142333,
+            "scheduleLatenessMs": 4.6760825789533556,
+            "firstRead": 390426.8880356668,
+            "firstPresentedLetter": 390427.0067567917,
+            "readLatencyMs": 21.893333760090172,
+            "presentationLatencyLowerMs": 140.6144587090239,
+            "presentationLatencyUpperMs": 140.8256257418543
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390431.466003125,
+            "publicationEnd": 390431.466348541,
+            "scheduleLatenessMs": 4.748041625134647,
+            "firstRead": 390431.48405495845,
+            "firstPresentedLetter": 390431.5733931251,
+            "readLatencyMs": 17.706417420413345,
+            "presentationLatencyLowerMs": 107.04458405962214,
+            "presentationLatencyUpperMs": 107.39000007743016
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390436.066254166,
+            "publicationEnd": 390436.066535833,
+            "scheduleLatenessMs": 4.999082593712956,
+            "firstRead": 390436.0884854584,
+            "firstPresentedLetter": 390436.17336258345,
+            "readLatencyMs": 21.94962539942935,
+            "presentationLatencyLowerMs": 106.82675044517964,
+            "presentationLatencyUpperMs": 107.10841743275523
+          }
+        ],
+        "feedReadMode": "shared-background",
+        "backgroundRefreshes": 84,
+        "drawsConsumingFeed": 83,
+        "feedCacheMs": {
+          "count": 1801,
+          "p50": 0.0010416842997074127,
+          "p95": 0.003708351869136095,
+          "p99": 0.017083308193832636,
+          "max": 0.042041647247970104
+        },
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "deliveryP95DeltaMs": -901.1057919706218,
+      "over50msDelta": 0,
+      "over100msDelta": 0
+    },
+    {
+      "pair": 4,
+      "before": {
+        "valid": true,
+        "refreshes": 59,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 59,
+        "snapshotMs": {
+          "count": 59,
+          "p50": 2.7815832872875035,
+          "p95": 3.8557499647140503,
+          "p99": 6.549499987158924,
+          "max": 6.549499987158924
+        },
+        "refreshDrawMs": {
+          "count": 59,
+          "p50": 9.720499976538122,
+          "p95": 11.21933333342895,
+          "p99": 12.203916674479842,
+          "max": 12.203916674479842
+        },
+        "otherDrawMs": {
+          "count": 1758,
+          "p50": 7.2822917136363685,
+          "p95": 8.53979168459773,
+          "p99": 9.21304163057357,
+          "max": 10.90170833049342
+        },
+        "presentationIntervalsMs": {
+          "count": 1816,
+          "maximum": 49.99970836797729,
+          "p50": 33.3331250003539,
+          "p95": 41.6664166841656,
+          "p99": 41.666500037536025
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 619.5685007260181,
+          "p95": 1077.918583760038,
+          "p99": 1077.918583760038,
+          "max": 1077.918583760038
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390566.644705041,
+            "publicationEnd": 390566.645006166,
+            "scheduleLatenessMs": 1.8593742279335856,
+            "firstRead": 390567.06739591673,
+            "firstPresentedLetter": 390567.13499433344,
+            "readLatencyMs": 422.3897507181391,
+            "presentationLatencyLowerMs": 489.98816742096096,
+            "presentationLatencyUpperMs": 490.2892924146727
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390571.148708708,
+            "publicationEnd": 390571.149015041,
+            "scheduleLatenessMs": 5.863041209522635,
+            "firstRead": 390572.16845479177,
+            "firstPresentedLetter": 390572.22662729176,
+            "readLatencyMs": 1019.4397507584654,
+            "presentationLatencyLowerMs": 1077.6122507522814,
+            "presentationLatencyUpperMs": 1077.918583760038
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390575.748698041,
+            "publicationEnd": 390575.749071041,
+            "scheduleLatenessMs": 5.8523742482066154,
+            "firstRead": 390576.2666581668,
+            "firstPresentedLetter": 390576.36826654174,
+            "readLatencyMs": 517.5871257670224,
+            "presentationLatencyLowerMs": 619.1955007379875,
+            "presentationLatencyUpperMs": 619.5685007260181
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390580.348439333,
+            "publicationEnd": 390580.348631458,
+            "scheduleLatenessMs": 5.5936662829481065,
+            "firstRead": 390581.3012528334,
+            "firstPresentedLetter": 390581.4015664584,
+            "readLatencyMs": 952.6213753852062,
+            "presentationLatencyLowerMs": 1052.9350003926083,
+            "presentationLatencyUpperMs": 1053.1271253712475
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390584.946448166,
+            "publicationEnd": 390584.946842666,
+            "scheduleLatenessMs": 3.6024992004968226,
+            "firstRead": 390585.3683276251,
+            "firstPresentedLetter": 390585.43487308343,
+            "readLatencyMs": 421.48495907895267,
+            "presentationLatencyLowerMs": 488.03041741484776,
+            "presentationLatencyUpperMs": 488.4249174501747
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390589.548726,
+            "publicationEnd": 390589.549039208,
+            "scheduleLatenessMs": 5.880333250388503,
+            "firstRead": 390590.4679018751,
+            "firstPresentedLetter": 390590.53483937506,
+            "readLatencyMs": 918.8626671093516,
+            "presentationLatencyLowerMs": 985.800167080015,
+            "presentationLatencyUpperMs": 986.1133750528097
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390594.148381291,
+            "publicationEnd": 390594.148578708,
+            "scheduleLatenessMs": 5.535624222829938,
+            "firstRead": 390594.5588531251,
+            "firstPresentedLetter": 390594.6514785417,
+            "readLatencyMs": 410.2744170813821,
+            "presentationLatencyLowerMs": 502.89983372204006,
+            "presentationLatencyUpperMs": 503.09725070837885
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390598.748903541,
+            "publicationEnd": 390598.7492985,
+            "scheduleLatenessMs": 6.057874241378158,
+            "firstRead": 390599.65949925006,
+            "firstPresentedLetter": 390599.7514445001,
+            "readLatencyMs": 910.2007500478067,
+            "presentationLatencyLowerMs": 1002.1460001007654,
+            "presentationLatencyUpperMs": 1002.5409591034986
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390603.348774083,
+            "publicationEnd": 390603.349166875,
+            "scheduleLatenessMs": 5.928416270762682,
+            "firstRead": 390603.7221128334,
+            "firstPresentedLetter": 390603.85558404174,
+            "readLatencyMs": 372.94595839921385,
+            "presentationLatencyLowerMs": 506.4171667327173,
+            "presentationLatencyUpperMs": 506.8099587224424
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390607.94862525,
+            "publicationEnd": 390607.948924916,
+            "scheduleLatenessMs": 5.779583239927888,
+            "firstRead": 390608.8211523751,
+            "firstPresentedLetter": 390608.9805500001,
+            "readLatencyMs": 872.2274590982124,
+            "presentationLatencyLowerMs": 1031.6250841133296,
+            "presentationLatencyUpperMs": 1031.924750073813
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390612.544875875,
+            "publicationEnd": 390612.545186375,
+            "scheduleLatenessMs": 2.0302082411944866,
+            "firstRead": 390612.92074141675,
+            "firstPresentedLetter": 390612.98052350007,
+            "readLatencyMs": 375.5550417699851,
+            "presentationLatencyLowerMs": 435.3371250908822,
+            "presentationLatencyUpperMs": 435.6476250686683
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390617.148571166,
+            "publicationEnd": 390617.1489935,
+            "scheduleLatenessMs": 5.725499184336513,
+            "firstRead": 390617.98953004176,
+            "firstPresentedLetter": 390618.06382316677,
+            "readLatencyMs": 840.5365417711437,
+            "presentationLatencyLowerMs": 914.8296667844988,
+            "presentationLatencyUpperMs": 915.252000791952
+          }
+        ],
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "after": {
+        "valid": true,
+        "refreshes": 84,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 0,
+        "snapshotMs": {
+          "count": 84,
+          "p50": 1.9204166601411998,
+          "p95": 2.7839166577905416,
+          "p99": 5.405208328738809,
+          "max": 5.405208328738809
+        },
+        "refreshDrawMs": {
+          "count": 77,
+          "p50": 7.277500000782311,
+          "p95": 8.479041687678546,
+          "p99": 8.985374995972961,
+          "max": 8.985374995972961
+        },
+        "otherDrawMs": {
+          "count": 1724,
+          "p50": 7.54033331759274,
+          "p95": 8.544124953914434,
+          "p99": 9.070625004824251,
+          "max": 20.17562504624948
+        },
+        "presentationIntervalsMs": {
+          "count": 1800,
+          "maximum": 58.33291669841856,
+          "p50": 33.3331250003539,
+          "p95": 41.6664166841656,
+          "p99": 41.66645836085081
+        },
+        "intervalsOver50ms": 1,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 122.85037577385083,
+          "p95": 177.43833339773118,
+          "p99": 177.43833339773118,
+          "max": 177.43833339773118
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390476.112237458,
+            "publicationEnd": 390476.112452666,
+            "scheduleLatenessMs": 1.479874539654702,
+            "firstRead": 390476.13549679174,
+            "firstPresentedLetter": 390476.21476329176,
+            "readLatencyMs": 23.0441257590428,
+            "presentationLatencyLowerMs": 102.3106257780455,
+            "presentationLatencyUpperMs": 102.52583376131952
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390480.611616208,
+            "publicationEnd": 390480.61192425,
+            "scheduleLatenessMs": 0.8586245239712298,
+            "firstRead": 390480.63424179173,
+            "firstPresentedLetter": 390480.73139995843,
+            "readLatencyMs": 22.317541704978794,
+            "presentationLatencyLowerMs": 119.47570840129629,
+            "presentationLatencyUpperMs": 119.78375044418499
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390485.212264125,
+            "publicationEnd": 390485.212552166,
+            "scheduleLatenessMs": 1.5065415645949543,
+            "firstRead": 390485.2355619168,
+            "firstPresentedLetter": 390485.3897024584,
+            "readLatencyMs": 23.009750759229064,
+            "presentationLatencyLowerMs": 177.15029238024727,
+            "presentationLatencyUpperMs": 177.43833339773118
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390489.816260708,
+            "publicationEnd": 390489.816431833,
+            "scheduleLatenessMs": 5.5031245574355125,
+            "firstRead": 390489.83914441674,
+            "firstPresentedLetter": 390489.9563388751,
+            "readLatencyMs": 22.712583711836487,
+            "presentationLatencyLowerMs": 139.90704208845273,
+            "presentationLatencyUpperMs": 140.0781671400182
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390494.416735083,
+            "publicationEnd": 390494.417082583,
+            "scheduleLatenessMs": 5.977499531581998,
+            "firstRead": 390494.44005320844,
+            "firstPresentedLetter": 390494.52297533344,
+            "readLatencyMs": 22.97062543220818,
+            "presentationLatencyLowerMs": 105.89275043457747,
+            "presentationLatencyUpperMs": 106.24025046126917
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390499.016688125,
+            "publicationEnd": 390499.017050166,
+            "scheduleLatenessMs": 5.9305415488779545,
+            "firstRead": 390499.0337511668,
+            "firstPresentedLetter": 390499.1229448751,
+            "readLatencyMs": 16.70100080082193,
+            "presentationLatencyLowerMs": 105.8947091223672,
+            "presentationLatencyUpperMs": 106.25675012124702
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390503.615893291,
+            "publicationEnd": 390503.616175291,
+            "scheduleLatenessMs": 5.1357075572013855,
+            "firstRead": 390503.6382912084,
+            "firstPresentedLetter": 390503.7562476251,
+            "readLatencyMs": 22.115917410701513,
+            "presentationLatencyLowerMs": 140.0723340921104,
+            "presentationLatencyUpperMs": 140.35433408571407
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390508.215117125,
+            "publicationEnd": 390508.215396666,
+            "scheduleLatenessMs": 4.359541577287018,
+            "firstRead": 390508.23810479173,
+            "firstPresentedLetter": 390508.3562171251,
+            "readLatencyMs": 22.708125703502446,
+            "presentationLatencyLowerMs": 140.82045905524865,
+            "presentationLatencyUpperMs": 141.10000006621704
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390512.812217666,
+            "publicationEnd": 390512.812563833,
+            "scheduleLatenessMs": 1.460082596167922,
+            "firstRead": 390512.83623854176,
+            "firstPresentedLetter": 390512.9561867084,
+            "readLatencyMs": 23.674708732869476,
+            "presentationLatencyLowerMs": 143.62287538824603,
+            "presentationLatencyUpperMs": 143.96904240129516
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390517.41212275,
+            "publicationEnd": 390517.412453541,
+            "scheduleLatenessMs": 1.365166564937681,
+            "firstRead": 390517.43597966677,
+            "firstPresentedLetter": 390517.5644894168,
+            "readLatencyMs": 23.526125762145966,
+            "presentationLatencyLowerMs": 152.0358757697977,
+            "presentationLatencyUpperMs": 152.36666676355526
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390522.012147333,
+            "publicationEnd": 390522.012477458,
+            "scheduleLatenessMs": 1.3897495809942484,
+            "firstRead": 390522.0344678334,
+            "firstPresentedLetter": 390522.13112583343,
+            "readLatencyMs": 21.99037541868165,
+            "presentationLatencyLowerMs": 118.64837544271722,
+            "presentationLatencyUpperMs": 118.9785004244186
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390526.616578291,
+            "publicationEnd": 390526.616874541,
+            "scheduleLatenessMs": 5.820707534439862,
+            "firstRead": 390526.63889616675,
+            "firstPresentedLetter": 390526.73942866677,
+            "readLatencyMs": 22.02162577304989,
+            "presentationLatencyLowerMs": 122.55412578815594,
+            "presentationLatencyUpperMs": 122.85037577385083
+          }
+        ],
+        "feedReadMode": "shared-background",
+        "backgroundRefreshes": 84,
+        "drawsConsumingFeed": 77,
+        "feedCacheMs": {
+          "count": 1801,
+          "p50": 0.001500011421740055,
+          "p95": 0.003791647031903267,
+          "p99": 0.030499999411404133,
+          "max": 0.05833333125337958
+        },
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "deliveryP95DeltaMs": -900.4802503623068,
+      "over50msDelta": 1,
+      "over100msDelta": 0
+    },
+    {
+      "pair": 5,
+      "before": {
+        "valid": true,
+        "refreshes": 59,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 59,
+        "snapshotMs": {
+          "count": 59,
+          "p50": 2.6217499980702996,
+          "p95": 4.423250036779791,
+          "p99": 4.8202500329352915,
+          "max": 4.8202500329352915
+        },
+        "refreshDrawMs": {
+          "count": 59,
+          "p50": 9.555958327837288,
+          "p95": 11.157833330798894,
+          "p99": 12.10191665450111,
+          "max": 12.10191665450111
+        },
+        "otherDrawMs": {
+          "count": 1750,
+          "p50": 7.149249955546111,
+          "p95": 8.46741662826389,
+          "p99": 8.929500007070601,
+          "max": 10.829166625626385
+        },
+        "presentationIntervalsMs": {
+          "count": 1808,
+          "maximum": 49.999666633084416,
+          "p50": 33.3331250003539,
+          "p95": 41.6664166841656,
+          "p99": 41.66645836085081
+        },
+        "intervalsOver50ms": 0,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 246.31550040794536,
+          "p95": 778.0165424337611,
+          "p99": 778.0165424337611,
+          "max": 778.0165424337611
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390657.646264041,
+            "publicationEnd": 390657.646547333,
+            "scheduleLatenessMs": 4.245915915817022,
+            "firstRead": 390658.1335948751,
+            "firstPresentedLetter": 390658.2010567084,
+            "readLatencyMs": 487.0475421193987,
+            "presentationLatencyLowerMs": 554.509375419002,
+            "presentationLatencyUpperMs": 554.7926673898473
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390662.146106666,
+            "publicationEnd": 390662.146387208,
+            "scheduleLatenessMs": 4.088540910743177,
+            "firstRead": 390662.26399570843,
+            "firstPresentedLetter": 390662.33019591676,
+            "readLatencyMs": 117.60850041173398,
+            "presentationLatencyLowerMs": 183.80870873806998,
+            "presentationLatencyUpperMs": 184.0892507461831
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390666.747978166,
+            "publicationEnd": 390666.748345166,
+            "scheduleLatenessMs": 5.960040900390595,
+            "firstRead": 390667.4250731251,
+            "firstPresentedLetter": 390667.5259947084,
+            "readLatencyMs": 676.7279591294937,
+            "presentationLatencyLowerMs": 777.6495424332097,
+            "presentationLatencyUpperMs": 778.0165424337611
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390671.346318833,
+            "publicationEnd": 390671.346659333,
+            "scheduleLatenessMs": 4.3007079511880875,
+            "firstRead": 390671.49177858344,
+            "firstPresentedLetter": 390671.5926343334,
+            "readLatencyMs": 145.1192504609935,
+            "presentationLatencyLowerMs": 245.9750004345551,
+            "presentationLatencyUpperMs": 246.31550040794536
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390675.944481125,
+            "publicationEnd": 390675.944724208,
+            "scheduleLatenessMs": 2.4629998952150345,
+            "firstRead": 390676.59273091675,
+            "firstPresentedLetter": 390676.65093408345,
+            "readLatencyMs": 648.0067087686621,
+            "presentationLatencyLowerMs": 706.2098754686303,
+            "presentationLatencyUpperMs": 706.4529584604315
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390680.544124583,
+            "publicationEnd": 390680.544528958,
+            "scheduleLatenessMs": 2.1064579486846924,
+            "firstRead": 390680.6588512084,
+            "firstPresentedLetter": 390680.71757366677,
+            "readLatencyMs": 114.32225041789934,
+            "presentationLatencyLowerMs": 173.04470879025757,
+            "presentationLatencyUpperMs": 173.44908375525847
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390685.147508833,
+            "publicationEnd": 390685.147837125,
+            "scheduleLatenessMs": 5.490707873832434,
+            "firstRead": 390685.7256301251,
+            "firstPresentedLetter": 390685.85920620844,
+            "readLatencyMs": 577.7930000913329,
+            "presentationLatencyLowerMs": 711.369083437603,
+            "presentationLatencyUpperMs": 711.6973754600622
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390689.747985833,
+            "publicationEnd": 390689.748353166,
+            "scheduleLatenessMs": 5.967707897070795,
+            "firstRead": 390689.8251210834,
+            "firstPresentedLetter": 390689.9175126251,
+            "readLatencyMs": 76.7679174314253,
+            "presentationLatencyLowerMs": 169.15945912478492,
+            "presentationLatencyUpperMs": 169.52679213136435
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390694.344485833,
+            "publicationEnd": 390694.344746,
+            "scheduleLatenessMs": 2.4677079636603594,
+            "firstRead": 390694.8916362501,
+            "firstPresentedLetter": 390694.9841456251,
+            "readLatencyMs": 546.8902500579134,
+            "presentationLatencyLowerMs": 639.3996250699274,
+            "presentationLatencyUpperMs": 639.6597920684144
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390698.947941916,
+            "publicationEnd": 390698.94830125,
+            "scheduleLatenessMs": 5.923790915403515,
+            "firstRead": 390698.95809066674,
+            "firstPresentedLetter": 390699.0591185418,
+            "readLatencyMs": 9.78941674111411,
+            "presentationLatencyLowerMs": 110.81729177385569,
+            "presentationLatencyUpperMs": 111.17662576725706
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390703.544019333,
+            "publicationEnd": 390703.54438075,
+            "scheduleLatenessMs": 2.001207962166518,
+            "firstRead": 390704.05794345844,
+            "firstPresentedLetter": 390704.1257514584,
+            "readLatencyMs": 513.5627084528096,
+            "presentationLatencyLowerMs": 581.3707084162161,
+            "presentationLatencyUpperMs": 581.7321253707632
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390708.143951083,
+            "publicationEnd": 390708.144252125,
+            "scheduleLatenessMs": 1.9329579081386328,
+            "firstRead": 390708.15856129176,
+            "firstPresentedLetter": 390708.2340571251,
+            "readLatencyMs": 14.30916675599292,
+            "presentationLatencyLowerMs": 89.80500011239201,
+            "presentationLatencyUpperMs": 90.10604210197926
+          }
+        ],
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "after": {
+        "valid": true,
+        "refreshes": 84,
+        "failedRefreshes": 0,
+        "mainThreadRefreshes": 0,
+        "snapshotMs": {
+          "count": 84,
+          "p50": 1.9587916904129088,
+          "p95": 2.5768749765120447,
+          "p99": 4.331833333708346,
+          "max": 4.331833333708346
+        },
+        "refreshDrawMs": {
+          "count": 84,
+          "p50": 6.693541654385626,
+          "p95": 8.117666700854897,
+          "p99": 9.778958337847143,
+          "max": 9.778958337847143
+        },
+        "otherDrawMs": {
+          "count": 1717,
+          "p50": 7.097875000908971,
+          "p95": 8.176625007763505,
+          "p99": 8.670041686855257,
+          "max": 17.505916650407016
+        },
+        "presentationIntervalsMs": {
+          "count": 1800,
+          "maximum": 95.83270834991708,
+          "p50": 33.3331250003539,
+          "p95": 33.33320835372433,
+          "p99": 41.666416625957936
+        },
+        "intervalsOver50ms": 2,
+        "intervalsOver100ms": 0,
+        "glyphRasterizations": 28,
+        "eventLatencyMs": {
+          "count": 12,
+          "p50": 102.53220878075808,
+          "p95": 139.35541710816324,
+          "p99": 139.35541710816324,
+          "max": 139.35541710816324
+        },
+        "events": [
+          {
+            "id": "f2fc81dc-9680-5c45-8d9d-c0642f9046a7",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390748.510422208,
+            "publicationEnd": 390748.510732958,
+            "scheduleLatenessMs": 1.4043745468370616,
+            "firstRead": 390748.53486520844,
+            "firstPresentedLetter": 390748.6129544168,
+            "readLatencyMs": 24.132250458933413,
+            "presentationLatencyLowerMs": 102.22145880106837,
+            "presentationLatencyUpperMs": 102.53220878075808
+          },
+          {
+            "id": "e744efc9-3d49-5ebc-85bf-ed1df657358a",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390753.015149125,
+            "publicationEnd": 390753.016202541,
+            "scheduleLatenessMs": 6.131291564088315,
+            "firstRead": 390753.03838716674,
+            "firstPresentedLetter": 390753.1170910001,
+            "readLatencyMs": 22.18462573364377,
+            "presentationLatencyLowerMs": 100.88845907012,
+            "presentationLatencyUpperMs": 101.94187506567687
+          },
+          {
+            "id": "f62715a0-85c4-5812-a133-b60f15655e37",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390757.61149025,
+            "publicationEnd": 390757.611797,
+            "scheduleLatenessMs": 2.4724165559746325,
+            "firstRead": 390757.6351513751,
+            "firstPresentedLetter": 390757.7503935001,
+            "readLatencyMs": 23.354375094641,
+            "presentationLatencyLowerMs": 138.59650009544566,
+            "presentationLatencyUpperMs": 138.90325010288507
+          },
+          {
+            "id": "e2de05c1-ea18-5bb4-a479-c6e8db9ffc53",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390762.214832166,
+            "publicationEnd": 390762.215178166,
+            "scheduleLatenessMs": 5.814332573208958,
+            "firstRead": 390762.23829570843,
+            "firstPresentedLetter": 390762.35036295844,
+            "readLatencyMs": 23.117542441468686,
+            "presentationLatencyLowerMs": 135.18479245249182,
+            "presentationLatencyUpperMs": 135.53079246776178
+          },
+          {
+            "id": "ac27ae51-3a39-53ef-bafd-9fa41bb46973",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390766.815104041,
+            "publicationEnd": 390766.815518458,
+            "scheduleLatenessMs": 6.0862075770273805,
+            "firstRead": 390766.84185887506,
+            "firstPresentedLetter": 390766.9169992084,
+            "readLatencyMs": 26.340417040046304,
+            "presentationLatencyLowerMs": 101.4807503670454,
+            "presentationLatencyUpperMs": 101.89516737591475
+          },
+          {
+            "id": "f7279266-bd18-525c-b81b-cae73b64d6db",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390771.416164375,
+            "publicationEnd": 390771.416654083,
+            "scheduleLatenessMs": 7.146541611291468,
+            "firstRead": 390771.43339779176,
+            "firstPresentedLetter": 390771.51696866675,
+            "readLatencyMs": 16.743708751164377,
+            "presentationLatencyLowerMs": 100.31458374578506,
+            "presentationLatencyUpperMs": 100.80429172376171
+          },
+          {
+            "id": "c3f95e5c-240e-5e74-92bd-08ee4bec83cc",
+            "label": "CONTEXT",
+            "valid": true,
+            "publicationBegin": 390776.010915833,
+            "publicationEnd": 390776.011244375,
+            "scheduleLatenessMs": 1.8979995511472225,
+            "firstRead": 390776.0352511251,
+            "firstPresentedLetter": 390776.1502712501,
+            "readLatencyMs": 24.006750085391104,
+            "presentationLatencyLowerMs": 139.0268750838004,
+            "presentationLatencyUpperMs": 139.35541710816324
+          },
+          {
+            "id": "e6a4bf52-41d4-5a38-9d9a-55f4150938da",
+            "label": "TASK",
+            "valid": true,
+            "publicationBegin": 390780.614566,
+            "publicationEnd": 390780.614899458,
+            "scheduleLatenessMs": 5.548166576772928,
+            "firstRead": 390780.6362587917,
+            "firstPresentedLetter": 390780.75024079176,
+            "readLatencyMs": 21.359333710279316,
+            "presentationLatencyLowerMs": 135.3413337492384,
+            "presentationLatencyUpperMs": 135.67479175981134
+          },
+          {
+            "id": "a7412999-4485-5d1a-a9c3-268d275d928f",
+            "label": "TRACE_ALPHA",
+            "valid": true,
+            "publicationBegin": 390785.211149708,
+            "publicationEnd": 390785.211487916,
+            "scheduleLatenessMs": 2.1318746148608625,
+            "firstRead": 390785.2338051251,
+            "firstPresentedLetter": 390785.3502103751,
+            "readLatencyMs": 22.317209106404334,
+            "presentationLatencyLowerMs": 138.7224590871483,
+            "presentationLatencyUpperMs": 139.06066707568243
+          },
+          {
+            "id": "6ffa5721-7280-5d16-986a-0cbb0e9b49c6",
+            "label": "ПРОБА",
+            "valid": true,
+            "publicationBegin": 390789.814561875,
+            "publicationEnd": 390789.814896541,
+            "scheduleLatenessMs": 5.5440415744669735,
+            "firstRead": 390789.83662962506,
+            "firstPresentedLetter": 390789.9501798334,
+            "readLatencyMs": 21.733084053266793,
+            "presentationLatencyLowerMs": 135.28329238761216,
+            "presentationLatencyUpperMs": 135.61795838177204
+          },
+          {
+            "id": "d314f69f-65a4-52a0-aab0-c992ed02ed88",
+            "label": "swift test --filter Rain",
+            "valid": true,
+            "publicationBegin": 390794.414549625,
+            "publicationEnd": 390794.416035291,
+            "scheduleLatenessMs": 5.531791597604752,
+            "firstRead": 390794.4328458334,
+            "firstPresentedLetter": 390794.51681620843,
+            "readLatencyMs": 16.810542438179255,
+            "presentationLatencyLowerMs": 100.78091744799167,
+            "presentationLatencyUpperMs": 102.26658341707662
+          },
+          {
+            "id": "11db84d5-139e-5b45-ab8d-21eb7557b0b9",
+            "label": "DONE",
+            "valid": true,
+            "publicationBegin": 390799.016903541,
+            "publicationEnd": 390799.017276833,
+            "scheduleLatenessMs": 7.885707542300224,
+            "firstRead": 390799.0374002084,
+            "firstPresentedLetter": 390799.11678583344,
+            "readLatencyMs": 20.123375405091792,
+            "presentationLatencyLowerMs": 99.50900042895228,
+            "presentationLatencyUpperMs": 99.88229244481772
+          }
+        ],
+        "feedReadMode": "shared-background",
+        "backgroundRefreshes": 84,
+        "drawsConsumingFeed": 84,
+        "feedCacheMs": {
+          "count": 1801,
+          "p50": 0.0011249794624745846,
+          "p95": 0.005291658453643322,
+          "p99": 0.016416655853390694,
+          "max": 0.033750024158507586
+        },
+        "file": "run-01.json",
+        "thermalStates": [
+          0
+        ]
+      },
+      "deliveryP95DeltaMs": -638.6611253255978,
+      "over50msDelta": 2,
+      "over100msDelta": 0
+    }
+  ],
+  "allEventsDelivered": true,
+  "allAfterReadsOffMain": true,
+  "deliveryP95ImprovedEveryPair": true,
+  "longIntervalsDidNotIncreaseEveryPair": false,
+  "acceptance": "descriptive evidence; owner review required; no automatic issue closure",
+  "limits": "Presented-letter proxy, not pixels/full text. Snapshot thread observations plus source audit, not syscall tracing. No total CPU/energy/TV/multi-display claim; added observer overhead uncalibrated."
+}

@@ -1,0 +1,103 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.feed.read
+  title: SharedMailboxReader
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Give macOS render consumers ready shared mailbox input without synchronously accessing the mailbox inside a frame.
+scope:
+  boundedContext: agent_activity_reading
+  includes:
+  - Process-local default shared reader, consumer leases, immutable message/event/pressure snapshots and explicit isolated reader injection.
+  - Background filesystem notifications, fallback reads, expired-file pruning through KeywordFeed and recoverable directory replacement.
+  - Asynchronous fresh-input requests for offline images and opt-in read observations for contributor diagnostics.
+  excludes:
+  - Hook or MCP publishing, producer validation, status RPC and legacy session-listing semantics.
+  - tvOS, total app filesystem-I/O elimination, syscall tracing, hard real-time delivery or physical display acceptance.
+provides:
+  capabilities:
+  - id: dreams.feed.read
+    role: primary
+    summary: Share ready input between macOS renderers while performing mailbox reads and cleanup outside their synchronous frame paths.
+requires:
+  capabilities:
+  - id: platform.apple.filesystem_observation
+    summary: macOS directory notifications, nonblocking mailbox lock and Swift concurrent execution.
+interfaces:
+  inbound:
+  - id: render_consumer
+    kind: library
+    summary: MainActor consumers acquire a lease and synchronously read snapshot/revision; offline consumers may await refresh.
+    operations:
+    - name: acquire
+      inputs: []
+      outputs:
+      - name: subscription
+        type: idempotently cancelable MainActor lease; destruction also releases it
+    - name: snapshot_and_revision
+      inputs: []
+      outputs:
+      - name: value
+        type: Sendable messages, recent events, pressure, optional last read and monotonic local revision
+    - name: refresh
+      inputs: []
+      outputs:
+      - name: result
+        type: asynchronously await a read begun after the request; Bool success, false on failure/cancel/timeout
+  outbound: []
+constraints:
+- id: no_frame_mailbox_io
+  level: MUST
+  statement: MatrixRain.draw and RainRenderer.draw consume MainActor-owned memory without calling mailbox snapshot, file lock, traversal, decoding or pruning. The reader loop runs in an explicitly concurrent utility task. Source inspection and read-thread observations establish the application-level path; they are not a syscall trace or a claim that font/framework internals never perform I/O.
+- id: shared_snapshot
+  level: MUST
+  statement: Normal RainRenderer instances use one default process-local reader and one active observation loop for its consumers. Explicit isolated injection is allowed. Prepare recent-event filtering/sorting and action pressure once per reader snapshot. Every renderer independently remembers consumed event IDs so sharing cannot suppress delivery on another display.
+- id: freshness_and_expiry
+  level: MUST
+  statement: Coalesce directory events over 20 milliseconds and request fallback refresh every second. These are scheduling policies, not maximum delivery guarantees. Reconcile directory inode identity and reattach observation after replacement. Keep existing message expiry and eight-second recent-event filtering; expired files are removed by background snapshot processing.
+- id: errors
+  level: MUST
+  statement: On lock/read failure retain the previous successful messages and expose a failed attempt observation, while recalculating pressure/recent events against current time. Later notifications or fallback refresh retry. Do not block the frame waiting for input. Missing initial input is empty. Fresh-input requests are bounded to 64 pending waiters and return false on failed attempt, cancellation, no consumers or a two-second timeout.
+- id: lifetime
+  level: MUST
+  statement: Start observation on the first lease. Last-lease release cancels the loop and timer/watch resources, clears the cached input and invalidates publication from the previous generation. In-flight synchronous background I/O may finish; it cannot republish stale input after cancellation or a new generation. Close directory descriptors through watch cancellation. Offline timeout cleanup does not perform mailbox I/O.
+- id: assembly
+  level: MUST
+  statement: RainRenderer retains its lease across glyph-atlas replacement and releases it with the renderer. Preview hide/close continues to release its renderer; other visible renderers may keep the common reader active. Offline previewPNG may await fresh input before encoding. On-demand status/session-listing snapshot calls remain distinct and are not evidence for or against the synchronous render-path invariant.
+effects:
+  sideEffects:
+  - id: mailbox
+    kind: filesystem_write
+    summary: Background KeywordFeed.snapshot may create the private directory/lock and prune expired files; the reader does not publish or change live messages.
+  - id: background
+    kind: state_mutation
+    summary: Maintain bounded notification buffering, leases and cached snapshots; no saved settings or hook configuration changes.
+evidence:
+- id: validation
+  kind: test
+  path: validation/2026-10-23-shared-reader/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    behavior: medium
+  notes:
+  - Newly recovered descriptive draft for issue 42. Reader timing/ownership are the implemented change; existing producer contracts remain unexplored.
+  - Stable letters on a presented drawable are a diagnostic delivery proxy, not pixel or complete-label acceptance.
+implementationBindings:
+- id: reader_swift
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: c6da1a590ca7658dd885fa33096564d5830a4f81
+  files:
+    owned:
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
+    - evidence/2026-10-24-main-integration/pr54/source/Tests/DreamsTests/KeywordFeedReaderTests.swift
+    border:
+    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

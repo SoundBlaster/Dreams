@@ -1,0 +1,14 @@
+PerformanceProbe
+  Scenario
+  RunLifetime
+  Measurement
+    FrameCPU
+    GPUCompletion
+    Presentation
+  Calibration
+  SyntheticFeed
+    Publication
+    SnapshotObservation
+    BackgroundReads
+    DeliveryProxy
+  ReportExport

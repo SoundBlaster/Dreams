@@ -20,9 +20,9 @@ final class MatrixRain {
     private var glyphs: [String: SIMD4<Float>] = [:]
     private let matrixFont: NSFont
     private let wordFont: NSFont
-    private let feed = KeywordFeed()
+    private let feed: KeywordFeedReader
     private var messages: [KeywordMessage] = []
-    private var nextRefresh = 0.0
+    private var feedRevision = -1
     private let began = ProcessInfo.processInfo.systemUptime
     private var selections: [Int: (session: String, characters: [Character], color: SIMD4<Float>)] = [:]
     private var selectionCycle = -1
@@ -43,8 +43,9 @@ final class MatrixRain {
     private let symbols: [Character]
 
     init(device: any MTLDevice, library: any MTLLibrary, restoredGlyphs: Bool = false,
-         transparentBackground: Bool = false) throws {
+         transparentBackground: Bool = false, feed: KeywordFeedReader) throws {
         self.device = device
+        self.feed = feed
         self.transparentBackground = transparentBackground
         if let url = Bundle.module.url(forResource: "DreamsMatrix", withExtension: "ttf") {
             CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
@@ -125,21 +126,14 @@ final class MatrixRain {
               measurement: RainFrameMeasurement? = nil) {
         let feedBegan = measurement.map { _ in CACurrentMediaTime() }
         let now = ProcessInfo.processInfo.systemUptime
-        if now >= nextRefresh {
-            let snapshotBegan = measurement?.observeFeed == true ? CACurrentMediaTime() : nil
-            var succeeded = false
-            if let snapshot = try? feed.snapshot() { messages = snapshot; succeeded = true }
-            if let snapshotBegan {
-                let ended = CACurrentMediaTime()
-                measurement?.feedRefresh = RainFeedRefresh(began: snapshotBegan, ended: ended,
-                    succeeded: succeeded, onMainThread: Thread.isMainThread, messageCount: messages.count,
-                    eventIDs: succeeded ? messages.flatMap { ($0.events ?? []).map(\.id) } : [])
-            }
+        if feedRevision != feed.revision {
+            feedRevision = feed.revision
+            let snapshot = feed.snapshot
+            messages = snapshot.messages
+            if measurement?.observeFeed == true { measurement?.feedRefresh = snapshot.read }
             // Quantized targets avoid continuously restarting the smooth activity transition.
-            actionPressure = (KeywordMessage.pressure(messages) * 10).rounded() / 10
-            let recent = messages.flatMap { $0.events ?? [] }
-                .filter { Date().timeIntervalSince($0.time) < 8 }
-                .sorted { $0.time < $1.time }
+            actionPressure = (snapshot.pressure * 10).rounded() / 10
+            let recent = snapshot.recentEvents
             pendingEvents += recent.filter { !seenEvents.contains($0.id) }.suffix(6)
             seenEvents.formUnion(recent.map(\.id))
             if seenEvents.count > 1024 { seenEvents = Set(recent.map(\.id)) }
@@ -148,7 +142,6 @@ final class MatrixRain {
                 lastMessageUpdate = newest
                 surgePending = true
             }
-            nextRefresh = now + 1
         }
         if let feedBegan { measurement?.feedSeconds = CACurrentMediaTime() - feedBegan }
         let active = messages.filter { $0.expiresAt > Date() && $0.isWorking }
