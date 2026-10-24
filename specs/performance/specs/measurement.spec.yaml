@@ -115,17 +115,17 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: d86b7d2a208a11d74636d554795ba4f14740f653
+    revision: 58f4d3a1ec6188b01a55130b749ce51fa8707fc5
   files:
     owned:
     - evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/app/providers/PerformanceRun.swift
+    - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/app/providers/PerformanceRun.swift
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
-    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
-    - evidence/2026-10-23-shared-reader/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
+    - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-10-23-absolute-timeline/source/Tests/DreamsTests/RainPerformanceTests.swift
+    - evidence/2026-10-24-main-integration/pr55/source/Tests/DreamsTests/RainPerformanceTests.swift
     - evidence/2026-10-22-calibration/source/scripts/run-performance.py
     - evidence/2026-10-23-feed/source/scripts/summarize-performance.py
     - evidence/2026-10-24-main-integration/pr53/source/scripts/swift-macos.sh

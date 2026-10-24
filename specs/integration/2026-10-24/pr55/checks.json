@@ -1,0 +1,114 @@
+{
+  "sourceRevision": "58f4d3a1ec6188b01a55130b749ce51fa8707fc5",
+  "scope": "Integration structure/docs; app execution is separately checked by CI at the final pushed head.",
+  "commands": [
+    {
+      "command": [
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0,
+      "log": "specs.log.gz"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/check-docs.py"
+      ],
+      "exitCode": 0,
+      "log": "docs.log.gz"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "whitespace.log.gz"
+    },
+    {
+      "command": [
+        "zsh",
+        "scripts/swift-macos.sh",
+        "test",
+        "-c",
+        "release"
+      ],
+      "exitCode": 0,
+      "log": "swift-tests.log.gz"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-performance-reports.py"
+      ],
+      "exitCode": 0,
+      "log": "reports.log.gz"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-calibration.py"
+      ],
+      "exitCode": 0,
+      "log": "calibration.log.gz"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-feed-performance.py"
+      ],
+      "exitCode": 0,
+      "log": "feed.log.gz"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-cadence.py"
+      ],
+      "exitCode": 0,
+      "log": "cadence.log.gz"
+    },
+    {
+      "command": [
+        "swiftlint",
+        "lint",
+        "--strict",
+        "--quiet"
+      ],
+      "exitCode": 0,
+      "log": "swiftlint.log.gz"
+    }
+  ],
+  "tools": {
+    "python3": {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "exitCode": 0,
+      "identity": "Python 3.9.6"
+    },
+    "specpm": {
+      "command": [
+        "specpm",
+        "--version"
+      ],
+      "exitCode": 0,
+      "identity": "specpm 0.2.0"
+    },
+    "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode": {
+      "command": [
+        "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+        "--version"
+      ],
+      "exitCode": 1,
+      "identity": "error: cannot read --version"
+    }
+  },
+  "diagnostics": "HC/SpecPM have existing unresolved external/platform-capability warnings; no structural errors.",
+  "historicalRuntimeAcceptancePromoted": false,
+  "testScope": "Full Release Swift suite reports 88 tests in 21 suites, with opt-in Metal and Screener cases skipped. No physical-device or performance acceptance."
+}
