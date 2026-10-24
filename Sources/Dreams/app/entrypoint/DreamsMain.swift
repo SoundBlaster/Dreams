@@ -5,7 +5,7 @@ import MetalKit
 enum DreamsMain {
     @MainActor
     static func main() {
-        if CommandLine.arguments.contains("--performance-run") {
+        if CommandLine.arguments.contains("--performance-run") || CommandLine.arguments.contains("--performance-calibration") {
             PerformanceRun.run(arguments: CommandLine.arguments)
             return
         }

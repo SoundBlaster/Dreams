@@ -1,0 +1,60 @@
+{
+  "sourceRevision": "1b6ec9124b184e0c2c854bfd14b6b96f45d28336",
+  "scope": "Integration structure/docs; app execution is separately checked by CI at the final pushed head.",
+  "commands": [
+    {
+      "command": [
+        "make",
+        "specs-check",
+        "HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode"
+      ],
+      "exitCode": 0,
+      "log": "specs.log.gz"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/check-docs.py"
+      ],
+      "exitCode": 0,
+      "log": "docs.log.gz"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "whitespace.log.gz"
+    }
+  ],
+  "tools": {
+    "python3": {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "exitCode": 0,
+      "identity": "Python 3.9.6"
+    },
+    "specpm": {
+      "command": [
+        "specpm",
+        "--version"
+      ],
+      "exitCode": 0,
+      "identity": "specpm 0.2.0"
+    },
+    "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode": {
+      "command": [
+        "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+        "--version"
+      ],
+      "exitCode": 1,
+      "identity": "error: cannot read --version"
+    }
+  },
+  "diagnostics": "HC/SpecPM have existing unresolved external/platform-capability warnings; no structural errors.",
+  "historicalRuntimeAcceptancePromoted": false
+}

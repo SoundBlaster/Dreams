@@ -1,0 +1,2 @@
+PASS: bracketing/negative deltas, missing CPU, repeat counts and mixed binary/fixture rejection
+PASS: missing measurements stay null, invalid runs stay invalid, gzip and raw reports agree

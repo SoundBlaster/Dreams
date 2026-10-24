@@ -720,6 +720,29 @@ build/test/smoke evidence; the hardware baseline is not relabeled for that sourc
 Uncalibrated instrumentation overhead and interactive-host variance prevent a
 small-gain acceptance threshold. No optimization issue is closed by these data.
 
+## 2026-10-22 — collector calibration
+
+DesktopApplication.PerformanceProbe.Calibration extends the existing contributor
+boundary with control/full profiles and a common outer observer. Stable claims
+isolation/observation/lifetime/provenance remain; additive calibration covers
+matching identities, signed bracketing differences and explicit unresolved cost.
+[Current draft and evidence](performance/README.md) do not accept a performance budget.
+
+Runtime checkpoint `bb400f4` changes only diagnostic launch, calibration model,
+runners/analysis and tests. MatrixRain/RainRenderer/MatrixSimulation, user settings,
+macOS overlay/display lifecycle, integrations, glyph data and tvOS are unchanged.
+Existing drop_motion/search_occupancy/head_visibility/glyph_pulse and settings host
+preview_scale/playback_lifetime claims still apply; their pinned implementation
+files are byte-identical, so their current bindings and historical evidence stay
+intact. No coverage or acceptance is inferred for the excluded profiles.
+
+Fifteen valid calibration runs completed at runtime `bb400f4`, with five C/F/C
+blocks and nominal thermal states. Paired process CPU differences ranged from
+-0.085 to +0.401 ms/draw; absolute control spread reached 0.517 ms/draw. Cost is
+unresolved, not zero. Common-observer cost remains excluded and no historical
+percentile is corrected. Analysis-only checkpoint `7479e60` tightens hardware
+identity/status validation without changing any measured statistic or app source.
+
 ## 2026-10-24 — native settings default rollout
 
 The owner explicitly requested native settings by default, superseding the earlier
@@ -765,3 +788,7 @@ requirements remain in force; performance and physical TV acceptance are unchang
 ## 2026-10-24 — pr40 main integration
 
 [Integration identities and scope](integration/2026-10-24/pr40/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
+
+## 2026-10-24 — pr52 main integration
+
+[Integration identities and scope](integration/2026-10-24/pr52/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.

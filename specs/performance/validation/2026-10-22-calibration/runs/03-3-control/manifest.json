@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "runKind": "calibration",
+  "calibrationMode": "control",
+  "revision": "bb400f40a3ee9b950d91c65a19238b78b00108ec",
+  "workingTreeStatus": " M Makefile\n M research/performance/README.md\n M specs/hypercode/README.md\n M specs/hypercode/performance.hc\n M specs/hypercode/performance.hcs\n M specs/performance/README.md\n M specs/performance/specpm.yaml\n M specs/performance/specs/measurement.spec.yaml\n M specs/specification-progress.md\n?? specs/performance/evidence/2026-10-22-calibration/\n?? specs/performance/validation/2026-10-22-calibration/\n",
+  "binarySHA256": "2ad902ff1e2f404c7d511e2ffbdcd09e47dc1df66f957c398b2815d6ef415a95",
+  "resourceSHA256": {
+    "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+    "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "fixtureSHA256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+  "machine": "arm64",
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "sdk": "27.0",
+  "command": [
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/dist/Dreams.app/Contents/MacOS/Dreams",
+    "--performance-calibration",
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/calibration-2026-10-22/03-3-control/scenario.json"
+  ],
+  "results": [
+    {
+      "file": "run-01.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/dist/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-calibration",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/calibration-2026-10-22/03-3-control/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-4b967f9f500c9508/performance/calibration-2026-10-22/03-3-control/run-01.json",
+        "control"
+      ]
+    }
+  ]
+}

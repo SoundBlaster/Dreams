@@ -1,0 +1,46 @@
+Building for production...
+[Computing dependencies]
+[Pre-planning 1 / 423]
+[Planning deferred tasks]
+[8 / 60]
+[12 / 51] SystemPackage
+[20 / 55] DreamsSettingsUI
+[24 / 56] EventSource
+[28 / 57] Logging
+[33 / 59] SystemPackage
+[39 / 64] MCP
+[41 / 65] MCP
+[48 / 69] Dreams
+[51 / 71] Dreams
+[56 / 70] Dreams-product
+[59 / 74] Dreams-product
+[60 / 74] Dreams-product
+[64 / 74] DreamsTests-product
+[66 / 75] DreamsTests-product
+[70 / 74] DreamsTests-product
+[72 / 74] DreamsTests-product
+Build complete! (37.05 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite RainPerformanceTests started.
+􀟈  Suite RainCalibrationTests started.
+􀟈  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() started.
+􀟈  Test allScenarioFixturesAreBoundedAndFullySpecified() started.
+􀟈  Test percentilesUseNearestRankAndPreserveMissingData() started.
+􀟈  Test rejectsInvalidBoundsAndMissingRequiredInputs() started.
+􀟈  Test droppedPresentationAndAbsentCPUAreNotZeroCost() started.
+􀟈  Test commonObserverBoundsStorageAndSortsPresentationTime() started.
+􀟈  Test processCPUDeltaPreservesMissingAndRejectsReversedCounters() started.
+􀟈  Test droppedPresentationIsNotAZeroDurationFrame() started.
+􁁛  Test percentilesUseNearestRankAndPreserveMissingData() passed after 0.001 seconds.
+􁁛  Test processCPUDeltaPreservesMissingAndRejectsReversedCounters() passed after 0.001 seconds.
+􁁛  Test asynchronousCallbacksKeepFrameIdentityAndBoundMemory() passed after 0.001 seconds.
+􁁛  Test droppedPresentationAndAbsentCPUAreNotZeroCost() passed after 0.001 seconds.
+􁁛  Test commonObserverBoundsStorageAndSortsPresentationTime() passed after 0.001 seconds.
+􁁛  Suite RainCalibrationTests passed after 0.001 seconds.
+􁁛  Test droppedPresentationIsNotAZeroDurationFrame() passed after 0.001 seconds.
+􁁛  Test allScenarioFixturesAreBoundedAndFullySpecified() passed after 0.001 seconds.
+􁁛  Test rejectsInvalidBoundsAndMissingRequiredInputs() passed after 0.002 seconds.
+􁁛  Suite RainPerformanceTests passed after 0.002 seconds.
+􁁛  Test run with 8 tests in 2 suites passed after 0.002 seconds.

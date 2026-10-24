@@ -1,0 +1,26 @@
+[
+  {
+    "case": "missing-mode",
+    "exitCode": 1,
+    "output": "Dreams performance: Calibration requires control or full after the output path.\n",
+    "reportCreated": false
+  },
+  {
+    "case": "invalid-mode",
+    "exitCode": 1,
+    "output": "Dreams performance: Calibration requires control or full after the output path.\n",
+    "reportCreated": false
+  },
+  {
+    "case": "ambiguous-flags",
+    "exitCode": 1,
+    "output": "Dreams performance: Use --performance-run <scenario.json> <report.json> with isolated DREAMS_FEED_DIRECTORY and DREAMS_PERF_REVISION.\n",
+    "reportCreated": false
+  },
+  {
+    "case": "existing-output",
+    "exitCode": 1,
+    "output": "Dreams performance: The performance output must not already exist.\n",
+    "preserved": true
+  }
+]

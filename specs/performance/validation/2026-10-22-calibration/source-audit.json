@@ -1,0 +1,278 @@
+{
+  "currentSourceRevision": "7479e608be5bd53728eebf78dfd3f375e77360c9",
+  "measuredRuntimeRevision": "bb400f40a3ee9b950d91c65a19238b78b00108ec",
+  "allMatch": true,
+  "applicationOrTestChangesSinceMeasurement": [],
+  "currentBindings": [
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "b6c59e9512a8a420424102ac67a956363a80c9f4a57eeaf0af9fa4dc9bb661b2",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "sha256": "561b5e0e05d452de8e550f1b2d124bcf22a0c4eac35116becd132b044a1832d1",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "a51be1dd14fb34de712be5f20a21c0f1282b421f8c2aa472c3a178cddf733b2f",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "sha256": "bdb833e14c4f26f20bac7044dfaf4ad4740484070aea81a4bf5cbfa62d4a4912",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "21b73390045966ebda7078f01210abb4ee153973da0d6f940c8e4d26bb78b289",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "eade09198977479a9c682522e9ea0515941bc3d2c6e31bb8728cc7cb450b658c",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "sha256": "0531bdece3101c003b86eab260613a81a79b9a890ed9ffa36ffc7e9808fb299d",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "scripts/run-performance.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-performance.py",
+      "sha256": "f5dcbc7b5cc79190faff6e06500e359456afbaf91a5b56080105d390aa6f3789",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "scripts/summarize-performance.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/summarize-performance.py",
+      "sha256": "8061c599910e02e22efe2fc263b13f1acc9f5edab1eaa60dba36853d96021242",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "scripts/swift-macos.sh",
+      "snapshot": "evidence/2026-10-22-baseline/source/scripts/swift-macos.sh",
+      "sha256": "a5165bf53292441d50e54fea04284b49819f600f9cea83ec60de12803f804192",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "research/performance/scenarios/search-saturated.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json",
+      "sha256": "a409cb09c53af31d6733dae29ebb6ae3c079f6dafe3eb7ff8da9d11c96a41521",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "research/performance/scenarios/normal.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json",
+      "sha256": "6458f4282d75754a5baaf5bf85a1ac1264812ceb7ef6dae2b8f104a1a7c73887",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "research/performance/scenarios/dense-no-glow.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json",
+      "sha256": "77173c2e5faa93a8db55d454b722c2e52bb4a42a4397bc3b5aa11c633e0ecf5f",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "research/performance/scenarios/dense.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense.json",
+      "sha256": "578acf94702245c6866867690f872db0dd246d48b2c0fb2b4e399c878d202b63",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "research/performance/scenarios/preview-crop.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/preview-crop.json",
+      "sha256": "9dea4524c4b55abf08e3a09ea830876d71fcd940bf405b404025a42420a1f190",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "scripts/test-performance-reports.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/test-performance-reports.py",
+      "sha256": "71738303f1a7d58746ffb1de1629fe24168e08f8447d7f9fd5bfa7ca8f60667d",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "sha256": "c032603004438284a998781a7b0d32b1c909bb131c2f1d08057b1b7ccfd118bb",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "Tests/DreamsTests/RainCalibrationTests.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Tests/DreamsTests/RainCalibrationTests.swift",
+      "sha256": "15c9f8dee840ee006311e31e3f728e3d8d45fa7cc4d4435149408aebbeb9f905",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "scripts/run-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-calibration.py",
+      "sha256": "c6c157833f91a0ac0f0e609500ec135fa55d62d6266c5068f52fab591796284d",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "scripts/analyze-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/analyze-calibration.py",
+      "sha256": "1b838375ef2319fedf7a4fbc40d5e1d5418f8a06841e0fca695da6ae5cadcd32",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "scripts/test-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/test-calibration.py",
+      "sha256": "ea8547567d7949eef7a79dbd26ff0cb3c8651b35f162774d17f127bcfeee259f",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    },
+    {
+      "path": "research/performance/calibration-protocol.md",
+      "snapshot": "evidence/2026-10-22-calibration/source/research/performance/calibration-protocol.md",
+      "sha256": "aad3cb7a234f634d0affbf582be1c9b04aa1eeb7038ad358e47c0d663a9fc480",
+      "matchesCurrentSource": true,
+      "matchesWorkingFile": true
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/performance.hc",
+      "sha256": "075833b37f5fcdd23620ce45cb6d994b66f0c632c46372ddb050fa8f1f506e84",
+      "matchesSnapshot": true
+    },
+    {
+      "path": "specs/hypercode/performance.hcs",
+      "sha256": "ede9b14090ca8a1c7ff6c2890c1a3294f09fd1f885d225f5cca0921ba82be9cc",
+      "matchesSnapshot": true
+    }
+  ],
+  "rawReports": [
+    {
+      "file": "runs/02-1-control/run-01.json.gz",
+      "sha256": "aa3c59bfcdd3f06e8f16e834753315fd2d074cb44688448ac0fe5cca117509ee",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/05-3-control/run-01.json.gz",
+      "sha256": "75423e5304aed184fc95a9a8ccfc06d6975ef353b37ae5a68c818a233e0b53df",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/03-3-control/run-01.json.gz",
+      "sha256": "baf44e33a471ace82601634c61d2b20e69a2ae919d0e52f428b017c6d1070f40",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/05-2-full/run-01.json.gz",
+      "sha256": "8a96fb7f56f2bad50e149fffa408fe9817e071eeef65072444dd6a206211f9a6",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/04-1-control/run-01.json.gz",
+      "sha256": "342159467a3cd7bd5bdad5fa31730a3df2da732f7d6eaed02d0420d18eba198b",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/03-1-control/run-01.json.gz",
+      "sha256": "09a24eab066ac091a286c772862af599b1cb829acc778afb503ac7696ae252f5",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/04-3-control/run-01.json.gz",
+      "sha256": "a405943a8c3097fdc20b740208768b74287de23bb88d0f5f2c4c58b7014b5dbf",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/01-2-full/run-01.json.gz",
+      "sha256": "14eb6029b867b7f59865040c8c8d7abfeabf0e5f164b86c53aa83b1d9659b29c",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/02-3-control/run-01.json.gz",
+      "sha256": "c88b2a186e1805d88e0c140bc2621ab758b62f7b92195e61eb7e432461011c1c",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/05-1-control/run-01.json.gz",
+      "sha256": "96fcd0290a5c5c73e6c3e16b46c89c99af69b0d00889c7636fe58671e57e126d",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/03-2-full/run-01.json.gz",
+      "sha256": "b37710a64a9b6d35d24771d4c6297704bca20b6420a7034ed2392d12c6e15043",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/01-3-control/run-01.json.gz",
+      "sha256": "1b90eda32f69828e9a6289ab27ec2b0fea9ece06af15db874579fc005eebe1f0",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/04-2-full/run-01.json.gz",
+      "sha256": "bd839ee5b9bff27e6c53e20eb5c7440bf67c709973a7dda7c979b1b9a5d04d81",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/01-1-control/run-01.json.gz",
+      "sha256": "113fb3a08e15b0f52e1a2b1cce9f68a2dc438019c868b2dbb73bf7b7aaf48556",
+      "matchesOriginal": true
+    },
+    {
+      "file": "runs/02-2-full/run-01.json.gz",
+      "sha256": "fc36b1a611c5c8ba4e9470099a9bc1c7d1c6d6c83ebf683d844aefe41794717a",
+      "matchesOriginal": true
+    },
+    {
+      "file": "smoke/01-2-full/run-01.json.gz",
+      "sha256": "dfd34705b262a66447b65b4e1263692924fef0addbc9fd48a695443058925d33",
+      "matchesOriginal": true
+    },
+    {
+      "file": "smoke/01-3-control/run-01.json.gz",
+      "sha256": "ac0650bb0ad87cdabaa676861b390a17be60002d173a78ac33c566fcf2db1f39",
+      "matchesOriginal": true
+    },
+    {
+      "file": "smoke/01-1-control/run-01.json.gz",
+      "sha256": "6fca92d53852b04e1238e55df03aaba78ecaef1ebdca3e19a1fc391649a6c582",
+      "matchesOriginal": true
+    },
+    {
+      "file": "legacy-smoke/run-01.json.gz",
+      "sha256": "48fdb3f7467263a0a7b14055362d67d49a65252bc986d1fc52e9b26cd8351393",
+      "matchesOriginal": true
+    }
+  ]
+}

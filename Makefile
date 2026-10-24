@@ -107,6 +107,7 @@ test-tv:
 
 test-unit:
 	python3 scripts/test-performance-reports.py
+	python3 scripts/test-calibration.py
 	swiftc -swift-version 6 Sources/Dreams/features/rain/model/RainActivity.swift scripts/test-activity.swift -o .build/activity-checks
 	.build/activity-checks
 	swiftc -swift-version 6 Sources/Dreams/features/rain/model/MatrixSimulation.swift scripts/test-matrix.swift -o .build/matrix-checks
@@ -261,4 +262,6 @@ specs-check:
 
 	"$(HYPERCODE)" parse specs/hypercode/performance.hc
 	"$(HYPERCODE)" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs
+	"$(HYPERCODE)" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs --ctx probe=control
+	"$(HYPERCODE)" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs --ctx probe=full
 	"$(SPECPM)" validate specs/performance --json

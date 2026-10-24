@@ -1,0 +1,22 @@
+zsh scripts/build-app.sh release
+Built 28 film + 142 designed glyphs into /Users/egor/.codex/worktrees/performance-baseline/Dreams/research/glyphs/build: failed none, warnings none
+See /Users/egor/.codex/worktrees/performance-baseline/Dreams/research/glyphs/build/report.md and /Users/egor/.codex/worktrees/performance-baseline/Dreams/research/glyphs/build/proof.png
+Building for production...
+[Pre-planning 1 / 275]
+[Planning deferred tasks]
+[6 / 34]
+[10 / 33] Logging
+[16 / 36] DreamsSettingsUI
+[18 / 37] DreamsSettingsUI
+[22 / 38] EventSource
+[26 / 39] Logging
+[31 / 41] SystemPackage
+[37 / 46] MCP
+[39 / 47] MCP
+[45 / 50] Dreams-product
+[47 / 51] Dreams-product
+[49 / 51] Dreams-product
+[50 / 51] Dreams-product
+Build complete! (22.88 sec)
+/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app: replacing existing signature
+/Users/egor/.codex/worktrees/performance-baseline/Dreams/dist/Dreams.app

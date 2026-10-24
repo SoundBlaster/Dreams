@@ -1,0 +1,19 @@
+{
+  "sourceRevision": "7479e608be5bd53728eebf78dfd3f375e77360c9",
+  "measuredRuntimeRevision": "bb400f40a3ee9b950d91c65a19238b78b00108ec",
+  "scopeNote": "Analysis-only hardware identity/status validation; no measured application source changed. Every run/block statistic matches initial analysis.",
+  "files": [
+    {
+      "path": "scripts/analyze-calibration.py",
+      "sha256": "1b838375ef2319fedf7a4fbc40d5e1d5418f8a06841e0fca695da6ae5cadcd32",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/analyze-calibration.py",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/test-calibration.py",
+      "sha256": "ea8547567d7949eef7a79dbd26ff0cb3c8651b35f162774d17f127bcfeee259f",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/test-calibration.py",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

@@ -29,5 +29,13 @@ with tempfile.TemporaryDirectory(prefix="dreams-report-test-") as folder:
     (root / "run-01.json").write_text(json.dumps(report))
     assert module.summarize(root)["runs"][0]["drawP95ms"] == 4
     assert module.milliseconds({"count": 1, "p95": 0}, "p95") == 0
+    report["calibration"] = {"mode": "control"}
+    (root / "run-01.json").write_text(json.dumps(report))
+    try:
+        module.summarize(root)
+    except ValueError as error:
+        assert "analyze-calibration.py" in str(error)
+    else:
+        raise AssertionError("Control must not be summarized as a zero-cost full collector")
 
 print("PASS: missing measurements stay null, invalid runs stay invalid, gzip and raw reports agree")
