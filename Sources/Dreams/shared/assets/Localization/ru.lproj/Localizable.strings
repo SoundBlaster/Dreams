@@ -216,3 +216,6 @@
 "appMenu.minimize" = "Свернуть";
 "appMenu.zoom" = "Изменить масштаб";
 "appMenu.bringAllToFront" = "Все окна — на передний план";
+
+"menubar.show" = "Показывать значок в строке меню";
+"menubar.tip" = "Настройки можно открыть через Dreams > Настройки… или Dock.";

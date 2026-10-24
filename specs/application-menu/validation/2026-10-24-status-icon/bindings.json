@@ -1,0 +1,10 @@
+{
+  "sourceRevision": "f979c8c7d454589d225de75911c5fcdfe262c8b8",
+  "currentFullFileBindings": 235,
+  "textSnapshotSuffixMappings": [
+    "research/performance/feed-protocol.md.txt",
+    "research/performance/shared-reader-protocol.md.txt",
+    "research/performance/timestamp-protocol.md.txt"
+  ],
+  "problems": []
+}

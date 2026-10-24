@@ -26,6 +26,7 @@ LivePreview:
   playback: "local pause/play; Reduce Motion initially pauses and never auto-resumes; explicit Play allowed"
   failure: "native error and Retry; never starts an overlay"
 SettingsBinding:
+  menuBarIcon: "General native Toggle and legacy checkbox share showsMenuBarIcon; default/reset true; changes update existing status item; main menu and Dock still open settings"
   source: "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift"
   changes: "controller notifications; existing persistence/renderer effects; after any reset outcome, attempt current-shortcut registration and legacy sync, then refresh actual state; production reset command remains controller-owned; injectable reset command permits deterministic failure-path verification"
 ShortcutRecording:

@@ -216,3 +216,6 @@
 "appMenu.minimize" = "Minimize";
 "appMenu.zoom" = "Zoom";
 "appMenu.bringAllToFront" = "Bring All to Front";
+
+"menubar.show" = "Show icon in menu bar";
+"menubar.tip" = "You can still open settings from Dreams > Settings… or the Dock.";

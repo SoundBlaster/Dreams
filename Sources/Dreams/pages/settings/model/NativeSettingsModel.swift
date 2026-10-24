@@ -67,6 +67,10 @@ final class NativeSettingsModel {
         get { read(\.hideFromScreenshots) }
         set { controller.setHideFromScreenshots(newValue) }
     }
+    var showsMenuBarIcon: Bool {
+        get { read(\.showsMenuBarIcon) }
+        set { controller.showsMenuBarIcon = newValue }
+    }
     var runTime: Double {
         get { read(\.runTimeSeconds) }
         set {

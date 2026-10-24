@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.settings.host
   title: NativeSettingsHost
-  version: 0.1.0-draft.22
+  version: 0.1.0-draft.23
   status: draft
 intent:
   summary: Let macOS users change Dreams settings through native SwiftUI forms by default while retaining explicit legacy access.
@@ -72,6 +72,9 @@ constraints:
 - id: operation_semantics
   level: MUST
   statement: Background changes retain separate color/glow profiles, displays use existing reconciliation and hook actions use the existing installer. After reset success or failure, attempt to register the current controller stop shortcut and synchronize legacy controls before refreshing the actual state. Present reset errors and existing shortcut conflicts; Carbon registration remains fallible. Do not promise rollback or atomic reset beyond that controller.
+- id: menu_bar_icon
+  level: MUST
+  statement: General offers a localized native Show icon in menu bar toggle, backed by DreamsController.showsMenuBarIcon and the single saved preference. The legacy window offers an equivalent checkbox and stays synchronized with native edits. The default and reset are visible. Changes immediately update the status item without stopping rain, reinstalling shortcuts or changing interactive activation policy. Localized help explains Settings access through the Dreams main menu or Dock while hidden. Preserve a stable accessibility identifier and native switch state.
 - id: quick_appearance
   level: MUST
   statement: Native Appearance offers Classic, Dimmed and Monochrome recipes and eight named quick colors through native Toggles and Buttons. Recipes set only rain color, active-profile glow, shared brightness spread and pulse; grid, motion, glyphs, activity and agent settings are retained. Classic uses the existing active-background defaults; Dimmed reduces that green and glow; Monochrome uses neutral RGB. Color and glow retain the existing opaque/transparent storage split; spread and pulse stay shared. Quick colors change only active rain color. Selection is derived from actual color/glow/spread/pulse with numeric conversion tolerance, never a separately saved preset name. Unmatched manual values show Custom and remain editable with the native ColorPicker/sliders. Quick colors expose localized names and selected state; preview/window tint update through the existing owner notifications.
@@ -114,9 +117,14 @@ effects:
     kind: state_mutation
     summary: Explicit start/stop, window reopen, reset and hook buttons delegate to existing production operations.
 evidence:
+- id: menu_bar_visibility
+  kind: test
+  path: validation/2026-10-24-status-icon/README.md
+  supports:
+  - constraints
 - id: source
   kind: source
-  path: evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
   supports:
   - constraints
 - id: tests
@@ -167,7 +175,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -175,20 +183,20 @@ implementationBindings:
     - evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsScenarioTests.swift
     - evidence/2026-10-14/source/Package.resolved
     - evidence/2026-10-14/source/Package.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
-    - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
     - evidence/2026-10-19-no-toolbar/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
-    - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
-    - evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24-main-menu/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
-    - evidence/2026-10-24-main-integration/pr40/source/Tests/DreamsTests/NativeSettingsTests.swift
+    - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
@@ -204,6 +212,8 @@ implementationBindings:
     - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/model/NativeAppearancePreset.swift
     - evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/ui/NativeAppearanceChoices.swift
     - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeAppearanceTests.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/SettingsPageTests.swift
     border:
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift

@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.desktop.main_menu
   title: InteractiveApplicationMenu
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   status: draft
 intent:
   summary: Give interactive Dreams users standard macOS commands instead of an empty application menu.
@@ -11,8 +11,9 @@ scope:
   boundedContext: desktop_application_commands
   includes:
   - Interactive launch menu installation, standard application/edit/window commands and settings dispatch.
+  - Saved status-item visibility for launches that create a status item.
   excludes:
-  - Status-item menu contents, rain algorithms, agent/MCP operations and tvOS.
+  - Status-item action contents, rain algorithms, agent/MCP operations and tvOS.
 provides:
   capabilities:
   - id: dreams.desktop.main_menu
@@ -44,6 +45,9 @@ constraints:
 - id: localization
   level: MUST
   statement: Provide matching EN/RU labels using the existing localization owner. Use native AppKit menu items, panels and validation; no simulated menu controls or custom permission flow.
+- id: status_item_visibility
+  level: MUST
+  statement: The shared controller saves showsMenuBarIcon, defaulting to true when absent. Apply it to the existing NSStatusItem at setup and synchronously on settings notifications; changing visibility retains its menu and global stop-shortcut registration. Reset restores true. Interactive main-menu Settings and Dock reopening remain available while the status item is hidden. Publisher-only launches still create no status item. Accessory processes read the saved preference at setup; cross-process live synchronization is not promised. Remove the visibility observer and status item during terminal cleanup.
 effects:
   sideEffects:
   - id: menu_registration
@@ -52,7 +56,7 @@ effects:
 evidence:
 - id: validation
   kind: test
-  path: validation/2026-10-24/README.md
+  path: validation/2026-10-24-status-icon/README.md
   supports:
   - constraints
 provenance:
@@ -67,14 +71,17 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
   files:
     owned:
     - evidence/2026-10-24/source/Sources/Dreams/app/providers/ApplicationMenus.swift
-    - evidence/2026-10-24/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/app/providers/DreamsDelegate.swift
     - evidence/2026-10-24/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift
     - evidence/2026-10-24/source/scripts/Info.plist.in
-    border: []
+    border:
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift

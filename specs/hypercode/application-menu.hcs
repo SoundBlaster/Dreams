@@ -1,6 +1,6 @@
 ApplicationMenu:
   capability: "dreams.desktop.main_menu"
-  platform: "macOS interactive only"
+  platform: "macOS; main commands interactive only; status visibility for menu-bearing launches"
 LaunchInstallation:
   source: "Sources/Dreams/app/providers/DreamsDelegate.swift"
   lifecycle: "will-finish-launching; showsControls guard; before settings window"
@@ -13,3 +13,7 @@ SettingsDispatch:
 ResponderCommands:
   source: "Sources/Dreams/app/providers/ApplicationMenus.swift"
   routing: "native AppKit target/action; nil edit/window targets; no custom undo"
+StatusItemVisibility:
+  source: "Sources/Dreams/app/providers/DreamsDelegate.swift + features/rain/model/DreamsController.swift"
+  preference: "showsMenuBarIcon defaults true; native General and legacy share saved controller value; existing NSStatusItem.isVisible changes immediately; reset true"
+  lifetime: "install shortcuts regardless of icon presence; retain menu; cleanup observer/status item; interactive main-menu/Dock access remains"
