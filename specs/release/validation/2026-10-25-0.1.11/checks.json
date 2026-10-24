@@ -1,0 +1,78 @@
+{
+  "version": "0.1.11",
+  "baseMain": "76378005de72b6ecf0f066ae1f0210b55a36aea9",
+  "scope": "Release metadata only. Existing runtime and source bindings unchanged; historical tests retain their original revision. Final binary acceptance is separate.",
+  "specImpact": "NO-SPEC-IMPACT",
+  "files": [
+    {
+      "path": "VERSION",
+      "sha256": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132"
+    },
+    {
+      "path": "plugins/dreams-claude/.claude-plugin/plugin.json",
+      "sha256": "2b7a3d3132b6bfe130b01c1412dd6cc36a277c7d3cd716c8d066704ec9a9498c"
+    },
+    {
+      "path": "plugins/dreams-codex/plugin.json",
+      "sha256": "c77c4b50c705504b316bb23099333030b1c18ee8aa75fa749d54082cb2d65f0f"
+    },
+    {
+      "path": "Package.swift",
+      "sha256": "976e7543a0ce2a163df40c8493acb7cc4a8aaf2a28844ccb0f0789f4053c6786"
+    },
+    {
+      "path": "Package.resolved",
+      "sha256": "3bfb803b8d5e2d2bc976d79e2faf1afc6c731a98f51079705b667d931bdb69f5"
+    },
+    {
+      "path": "scripts/release.sh",
+      "sha256": "85b2592c16221415e91bd9145e82489a4db1cca8a8d3d07e045fb1f674109e9d"
+    },
+    {
+      "path": "scripts/swift-macos.sh",
+      "sha256": "ff04f621aa14e403fe9761a122b65f27b78ab385602b5cf0e2661a82fa35114e"
+    },
+    {
+      "path": "scripts/Info.plist.in",
+      "sha256": "21912b958ef9488b13e564ec056e7ff3a2a31e5ab5e923fc40a0fafd6e800554"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMatrix.ttf",
+      "sha256": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845"
+    },
+    {
+      "path": "Sources/Dreams/Matrix-Code.ttf",
+      "sha256": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+    },
+    {
+      "path": "assets/AppIcon.icns",
+      "sha256": "b4a74dfb5aaead2d9179c0fb79ca9c4e583301b0250a7a74f873cfef761bc74a"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "fbabef436c926f05fe8cbba9b4d377e03f224b89a7c4d235319de1dddef692d1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "5f911d611cd052249688422212dc25bb3e35817baba94ac0f6b75953a24f3cca"
+    }
+  ],
+  "commands": [
+    {
+      "command": "rtk proxy env DREAMS_FSD_TOOLING_DIR=/Users/egor/Development/GitHub/Dreams/.fsd-ios-tooling PYTHONPYCACHEPREFIX=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/bytecode RUFF_CACHE_DIR=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/ruff make lint plugins-check",
+      "exitCode": 0,
+      "log": "logs/local-checks.log.gz",
+      "rawSHA256": "3845ed9484be88b28869082e545b438321a1ca1dad87cacef83bd733c43412fe",
+      "archiveSHA256": "f930a8897b10a4411dbecd3a2a60eda56ee5024869b23f18dac38dbab7d8816e"
+    },
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/specs-check.log.gz",
+      "rawSHA256": "0bb5b041dc22dddf7170b3a06718651c13c540d96dcd4a6a599a45ff102d21aa",
+      "archiveSHA256": "9f383d7742e3e1848e44e052f30348939f8d7aef5518834242b879bd9ed1ea7a"
+    }
+  ],
+  "diagnostics": "Lint, plugin versions/hooks/MCP behavior, documentation links and HC/SpecPM profiles passed. Existing SwiftLint unused_import configuration and unresolved platform capability warnings remain.",
+  "distributionEvidence": "https://github.com/SoundBlaster/Dreams/releases/download/v0.1.11/release-verification.json"
+}
