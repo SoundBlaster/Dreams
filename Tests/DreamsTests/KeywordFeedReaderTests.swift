@@ -69,7 +69,7 @@ struct KeywordFeedReaderTests {
         let began = CACurrentMediaTime()
         // Reproduce an empty read completing after the boundary but before the publisher commits.
         #expect(await reader.refresh())
-        try feed.publish(sessionID: "first", words: ["WORK"], eventLabel: "TASK")
+        try await publish(feed: feed, reader: reader, sessionID: "first", words: ["WORK"], eventLabel: "TASK")
         try await waitForSessions(["first"], reader: reader, after: began)
         #expect(reader.snapshot.messages.map(\.sessionID) == ["first"])
         #expect(reader.snapshot.recentEvents.count == 1)
@@ -77,7 +77,7 @@ struct KeywordFeedReaderTests {
         first.cancel()
         #expect(reader.consumers == 1)
         let next = CACurrentMediaTime()
-        try feed.publish(sessionID: "second", words: ["WORK"])
+        try await publish(feed: feed, reader: reader, sessionID: "second", words: ["WORK"])
         try await waitForSessions(["first", "second"], reader: reader, after: next)
         #expect(reader.snapshot.messages.count == 2)
         second.cancel()
@@ -93,6 +93,22 @@ struct KeywordFeedReaderTests {
             _ = await reader.waitForRead(after: cursor)
             // An empty or temporarily busy read is not delivery. Await a later observation.
             cursor = (reader.snapshot.read?.ended ?? cursor).nextUp
+        }
+    }
+
+    private func publish(feed: KeywordFeed, reader: KeywordFeedReader, sessionID: String,
+                         words: [String], eventLabel: String? = nil) async throws {
+        let deadline = CACurrentMediaTime() + 5
+        while true {
+            do {
+                try feed.publish(sessionID: sessionID, words: words, eventLabel: eventLabel)
+                return
+            } catch DreamsError.unavailable(let message) where message == "Keyword mailbox is busy; retry the update." {
+                try #require(CACurrentMediaTime() < deadline, "Expected the fixture publisher to acquire the mailbox within five seconds")
+                // Finish a competing background read before retrying the nonblocking publisher.
+                // Delivery is still awaited separately after a successful commit, without requesting another read.
+                _ = await reader.refresh()
+            }
         }
     }
 
@@ -134,7 +150,7 @@ struct KeywordFeedReaderTests {
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         #expect(await reader.refresh())
         let began = CACurrentMediaTime()
-        try feed.publish(sessionID: "replacement", words: ["NEW"])
+        try await publish(feed: feed, reader: reader, sessionID: "replacement", words: ["NEW"])
         try await waitForSessions(["replacement"], reader: reader, after: began)
         #expect(reader.snapshot.messages.map(\.sessionID) == ["replacement"])
         lease?.cancel()

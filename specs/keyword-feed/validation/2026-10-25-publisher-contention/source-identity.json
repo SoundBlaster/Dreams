@@ -1,0 +1,11 @@
+{
+  "testSourceRevision": "9edaa7f3706743c95b70164232a80a996d4840af",
+  "productionCodeChanged": false,
+  "refreshedSnapshots": [
+    {
+      "path": "Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-25-publisher-contention/source/Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "sha256": "c463bf0e545b32136981c3acea2cf57797d0c016e880f5c9ea2e01b16e8426d1"
+    }
+  ]
+}

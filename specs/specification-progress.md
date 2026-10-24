@@ -5,6 +5,16 @@ changes. Initial scope: repository maintenance rules and the browser glyph
 editor on `96fef7ad121cf9ba278eabd878c5179fd754a0cd`. All recovered contracts are **descriptive drafts**;
 formal acceptance and runtime conformance remain separate owner decisions.
 
+## Release 0.1.11 metadata — 2026-10-25
+
+VERSION and both plugin manifests advance together after the six-PR integration
+on main `76378005de72b6ecf0f066ae1f0210b55a36aea9`. This release preparation has
+`Spec-ID: NO-SPEC-IMPACT`: no runtime, map, contract, source binding or accepted
+requirement changes. Existing settings, desktop ownership/menu, feed, FPS and TV
+claims retain their current identities and evidence. Packaging remains an
+unrecovered boundary. [Preparation and evidence scope](release/validation/2026-10-25-0.1.11/README.md)
+distinguishes metadata checks from final signed/notarized artifact verification.
+
 ## Notification-test delivery boundary — 2026-10-25
 
 `dreams.feed.read/shared_snapshot`, `freshness_and_expiry`, `errors` and `lifetime` retain their implementation requirements. The notification regression now waits for the expected session IDs instead of treating any read after a timestamp as message delivery, and explicitly forces the earlier empty-read race. The five-second test bound remains below the fixture's 30-second fallback. Production reader/publisher code is unchanged. [Source and checks](integration/2026-10-25/pr63-feed/README.md) retain the hosted failure separately from later passes.
@@ -1052,3 +1062,13 @@ physical install/launch.
 ## 2026-10-25 — pr64 combined-stack integration
 
 [Integration scope and identities](integration/2026-10-25/pr64/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.
+
+## Release fixture publisher contention — 2026-10-25
+
+A hosted all-tests invocation exposed the documented nonblocking publisher busy
+error racing a background reader after directory replacement. The fixture now
+retries only that error with a five-second bound and awaits delivery separately;
+production code, accepted requirements and map roles are unchanged.
+`dreams.feed.read/shared_snapshot`, `freshness_and_expiry`, `errors` and `lifetime`
+retain their semantics. The current test binding is refreshed while the failed
+hosted observation remains historical. [Source and checks](keyword-feed/validation/2026-10-25-publisher-contention/README.md).
