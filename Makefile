@@ -226,6 +226,10 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/application-instance.hc
+	"$(HYPERCODE)" validate specs/hypercode/application-instance.hc --hcs specs/hypercode/application-instance.hcs
+	"$(HYPERCODE)" validate specs/hypercode/application-instance.hc --hcs specs/hypercode/application-instance.hcs --ctx mode=publisher
+	"$(HYPERCODE)" validate specs/hypercode/application-instance.hc --hcs specs/hypercode/application-instance.hcs --ctx mode=controller
 	"$(HYPERCODE)" parse specs/hypercode/application-menu.hc
 	"$(HYPERCODE)" validate specs/hypercode/application-menu.hc --hcs specs/hypercode/application-menu.hcs
 	"$(SPECPM)" validate specs/application-menu --json

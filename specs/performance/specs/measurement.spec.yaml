@@ -115,10 +115,10 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9
+    revision: 713c518a4a713820107b600b669cb6019d03bc0f
   files:
     owned:
-    - evidence/2026-10-23-feed/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
     - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/app/providers/PerformanceRun.swift
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift

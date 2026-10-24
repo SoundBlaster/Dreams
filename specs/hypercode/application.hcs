@@ -3,7 +3,7 @@ Dreams:
   evidence_level: "partial-source-recovery-see-coverage"
 DesktopApplication:
   source: "Sources/Dreams/app/entrypoint/DreamsMain.swift"
-  detail_status: "overlay-recovered-other-UI-unexplored"
+  detail_status: "startup ownership, menu, settings and overlay recovered as scoped drafts"
 RainOverlaySession:
   source: "Sources/Dreams/features/rain/model/DreamsController.swift"
   detail: "overlay-session.hc + overlay-session.hcs"
@@ -40,3 +40,8 @@ ApplicationMenu:
   source: "Sources/Dreams/app/providers/ApplicationMenus.swift"
   capability: "dreams.desktop.main_menu"
   detail: "application-menu.hc + application-menu.hcs"
+
+InstanceOwnership:
+  source: "Sources/Dreams/app/providers/DesktopInstance.swift + app/entrypoint/DreamsMain.swift"
+  capability: "dreams.desktop.single_instance"
+  detail: "application-instance.hc + application-instance.hcs"

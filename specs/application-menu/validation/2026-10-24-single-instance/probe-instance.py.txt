@@ -1,0 +1,52 @@
+import concurrent.futures, json, os, subprocess, time, runpy, fcntl
+from pathlib import Path
+build=Path('/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129')
+binary=build/'dist/Dreams.app/Contents/MacOS/Dreams'
+owner=int((build/'instance-owner-pid.txt').read_text())
+def live(pid):
+    try: os.kill(pid,0); return True
+    except ProcessLookupError: return False
+assert live(owner)
+def launch(_):
+    start=time.monotonic()
+    result=subprocess.run([str(binary)],capture_output=True,text=True,timeout=15)
+    assert result.returncode==0,(result.returncode,result.stderr)
+    return {'exitCode':result.returncode,'seconds':round(time.monotonic()-start,3),'stdout':result.stdout,'stderr':result.stderr}
+with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool: duplicates=list(pool.map(launch,range(6)))
+rejected=[]
+for args in [['--mcp'],['--lab'],['--mcp','--render-demo',str(build/'unused-offline-output')]]:
+    result=subprocess.run([str(binary),*args],input='',capture_output=True,text=True,timeout=10)
+    assert result.returncode==1 and not result.stdout and 'another desktop instance' in result.stderr,(args,result)
+    rejected.append({'arguments':args,'exitCode':result.returncode,'stdout':result.stdout,'stderr':result.stderr.strip()})
+namespace=runpy.run_path('/Users/egor/.codex/worktrees/native-settings-default/Dreams/scripts/smoke.py',run_name='instance_probe')
+MCPClient=namespace['MCPClient']
+feed=build/'instance-publisher-feed';feed.mkdir(exist_ok=True)
+env=dict(os.environ,DREAMS_FEED_DIRECTORY=str(feed),DREAMS_LANGUAGE='en')
+clients=[];publishers=[]
+try:
+    for index in range(2):
+        client=MCPClient(env=env,publisher=True,executable=binary);clients.append(client)
+        initialized=client.request('initialize',{'protocolVersion':'2025-06-18','capabilities':{},'clientInfo':{'name':'instance-probe','version':'1'}})
+        client.send({'jsonrpc':'2.0','method':'notifications/initialized'})
+        tools=sorted(t['name'] for t in client.request('tools/list')['tools'])
+        assert tools==['dreams_clear_keywords','dreams_preview','dreams_publish_keywords','dreams_status'],tools
+        client.call('dreams_publish_keywords',{'session_id':f'instance-probe-{index}','keywords':['VERIFY']})
+        client.call('dreams_start',expect_error=True)
+        publishers.append({'pid':client.process.pid,'protocol':initialized['protocolVersion'],'tools':tools})
+    assert all(c.process.poll() is None for c in clients)
+    assert live(owner)
+finally:
+    for index,client in enumerate(clients):
+        try:client.call('dreams_clear_keywords',{'session_id':f'instance-probe-{index}'})
+        finally:client.close()
+lock=Path.home()/'Library/Application Support/Dreams/desktop-instance.lock'
+with lock.open('r+') as handle:
+    try:fcntl.flock(handle,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    except BlockingIOError:pass
+    else:raise AssertionError('Owner does not hold the shared desktop lease')
+rows=subprocess.check_output(['ps','-axo','pid=,comm='],text=True).splitlines()
+remaining=[int(r.strip().split(None,1)[0]) for r in rows if len(r.strip().split(None,1))==2 and r.strip().split(None,1)[1]==str(binary)]
+assert remaining==[owner],remaining
+report={'ownerPID':owner,'concurrentDuplicateLaunches':duplicates,'rejectedControllers':rejected,'simultaneousPublishers':publishers,'sharedLeaseHeldAfterPublishersExit':True,'remainingApplicationPIDs':remaining}
+(build/'instance-process-results.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(report,indent=2))

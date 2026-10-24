@@ -1,0 +1,24 @@
+DesktopInstance:
+  capability: "dreams.desktop.single_instance"
+  platform: "macOS user-local desktop ownership; TV excluded"
+LaunchModes:
+  source: "Sources/Dreams/app/providers/DesktopInstance.swift"
+  partition: "interactive/full-control MCP/lab exclusive; publisher-only MCP/hooks/offline render/performance independent"
+Admission:
+  source: "Sources/Dreams/app/entrypoint/DreamsMain.swift"
+  order: "admit before settings migration, desktop controller, menu, shortcuts and windows; duplicate GUI handoff; duplicate control stderr/nonzero"
+ProcessLease:
+  source: "Sources/Dreams/app/providers/DesktopInstance.swift"
+  lifetime: "user Application Support/Dreams/desktop-instance.lock; nonblocking exclusive flock; persistent inode; close-on-exec descriptor; close/crash releases; I/O failure closed"
+ReopenHandoff:
+  source: "Sources/Dreams/app/providers/DesktopInstance.swift"
+  delivery: "user-session DistributedNotificationCenter to sole lease owner; busy lease routes directly to owner; otherwise detect regular pre-lease current/legacy GUI and native NSWorkspace reopen without new instance; no full-control RPC forwarding"
+OwnerPresentation:
+  source: "Sources/Dreams/app/providers/DreamsDelegate.swift"
+  behavior: "only lease owner can promote accessory controller to regular app and show retained settings/main menu; independent publisher ignores reopen"
+@mode[publisher]:
+  Admission:
+    order: "independent helper; no desktop lease or reopen listener; no status item"
+@mode[controller]:
+  Admission:
+    order: "exclusive; duplicate fails before MCP transport/workspace construction; explicit GUI reopen may promote owner"

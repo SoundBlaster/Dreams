@@ -178,13 +178,13 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 864b3b77c5589e5c6d7b563696cf1aee84289859
+    revision: a0cd20994743c20f941414be99b407d9b00cd11c
   files:
     owned:
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     border: []

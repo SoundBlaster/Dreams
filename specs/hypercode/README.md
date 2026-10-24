@@ -91,5 +91,12 @@ status-item visibility. The [contract](../application-menu/README.md) keeps main
 commands interactive-only; menu-bearing accessory launches read the icon preference
 at setup. TV behavior remains outside the desktop command boundary.
 
+[Desktop instance ownership](application-instance.hc) /
+[properties](application-instance.hcs) describe startup admission, the user-local
+process lease and repeat-launch settings handoff. Validate default,
+`mode=publisher` and `mode=controller`; independent publishing is not a second
+desktop owner. Native reopen delivery and UI observations remain separate from
+structural validation.
+
 The [FPS readout](fps.hc) / [profiles](fps.hcs) recover the opt-in digit overlay
 and its platform-specific timestamp semantics; [contract](../fps/README.md).

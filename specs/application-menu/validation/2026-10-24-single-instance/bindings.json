@@ -1,0 +1,1943 @@
+{
+  "sourceRevision": "a0cd20994743c20f941414be99b407d9b00cd11c",
+  "count": 242,
+  "staleOrMissing": [],
+  "bindings": [
+    {
+      "spec": "specs/application-menu/specs/instance.spec.yaml",
+      "binding": "desktop_startup",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/DesktopInstance.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DesktopInstance.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/instance.spec.yaml",
+      "binding": "desktop_startup",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/instance.spec.yaml",
+      "binding": "desktop_startup",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/instance.spec.yaml",
+      "binding": "desktop_startup",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/DesktopInstanceTests.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Tests/DreamsTests/DesktopInstanceTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/instance.spec.yaml",
+      "binding": "desktop_startup",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/instance.spec.yaml",
+      "binding": "desktop_startup",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/instance.spec.yaml",
+      "binding": "desktop_startup",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/ApplicationMenus.swift",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/app/providers/ApplicationMenus.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/ApplicationMenusTests.swift",
+      "snapshot": "evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "owned",
+      "source": "scripts/Info.plist.in",
+      "snapshot": "evidence/2026-10-24/source/scripts/Info.plist.in",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/application-menu/specs/menu.spec.yaml",
+      "binding": "interactive_menu",
+      "kind": "border",
+      "source": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/DropHeadTests.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/DropHeadRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/Tests/DreamsTests/TransparentFadeRenderingTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/Rain.metal",
+      "snapshot": "evidence/2026-10-14-head/source/Sources/Dreams/Rain.metal",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/head.spec.yaml",
+      "binding": "head_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SearchOccupancyTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "scripts/test-matrix.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/scripts/test-matrix.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "binding": "motion_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/GlyphPulseTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/GlyphPulseRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "snapshot": "evidence/2026-10-24-native-default/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshot": "evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/DropDecelerationTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SearchOccupancyTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "scripts/test-matrix.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/scripts/test-matrix.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "binding": "search_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/checkpoints.spec.yaml",
+      "binding": "checkpoints_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/stroke_library.py",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke_library.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/checkpoints.spec.yaml",
+      "binding": "checkpoints_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/validate-stroke-project.cjs",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/validate-stroke-project.cjs",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/components.spec.yaml",
+      "binding": "components_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/stroke-editor.js",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor.js",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/components.spec.yaml",
+      "binding": "components_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/stroke-editor-model.js",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor-model.js",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/editor.spec.yaml",
+      "binding": "editor_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/stroke-editor.js",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor.js",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/editor.spec.yaml",
+      "binding": "editor_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/stroke-editor.html",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor.html",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/editor.spec.yaml",
+      "binding": "editor_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/stroke_editor.py",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke_editor.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/glyph-editor/specs/geometry.spec.yaml",
+      "binding": "geometry_implementation",
+      "kind": "owned",
+      "source": "scripts/glyphs/stroke-editor-model.js",
+      "snapshot": "evidence/2026-10-13/source/scripts/glyphs/stroke-editor-model.js",
+      "matches": true
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "binding": "reader_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "binding": "reader_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "binding": "reader_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Tests/DreamsTests/KeywordFeedReaderTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "binding": "reader_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/keyword-feed/specs/reader.spec.yaml",
+      "binding": "reader_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/displays.spec.yaml",
+      "binding": "displays_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainDisplaySelection.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/displays.spec.yaml",
+      "binding": "displays_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "snapshot": "evidence/2026-10-15-shortcut-retry/source/Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/lib/StopHotkey.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/presentation.spec.yaml",
+      "binding": "presentation_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/presentation.spec.yaml",
+      "binding": "presentation_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/session.spec.yaml",
+      "binding": "session_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/session.spec.yaml",
+      "binding": "session_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/model/RainScreenManager.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/session.spec.yaml",
+      "binding": "session_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/session.spec.yaml",
+      "binding": "session_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/session.spec.yaml",
+      "binding": "session_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/overlay-session/specs/session.spec.yaml",
+      "binding": "session_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/app/providers/PerformanceRun.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/app/providers/PerformanceRun.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/RainPerformanceTests.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr55/source/Tests/DreamsTests/RainPerformanceTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/run-performance.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-performance.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/summarize-performance.py",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/summarize-performance.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/swift-macos.sh",
+      "snapshot": "evidence/2026-10-24-main-integration/pr53/source/scripts/swift-macos.sh",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/scenarios/search-saturated.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/scenarios/normal.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/scenarios/dense-no-glow.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/scenarios/dense.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/dense.json",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/scenarios/preview-crop.json",
+      "snapshot": "evidence/2026-10-22-baseline/source/research/performance/scenarios/preview-crop.json",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/test-performance-reports.py",
+      "snapshot": "evidence/2026-10-23-feed/source/scripts/test-performance-reports.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Sources/Dreams/features/rain/model/RainCalibration.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/RainCalibrationTests.swift",
+      "snapshot": "evidence/2026-10-22-calibration/source/Tests/DreamsTests/RainCalibrationTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/run-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration/source/scripts/run-calibration.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/analyze-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/analyze-calibration.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/test-calibration.py",
+      "snapshot": "evidence/2026-10-22-calibration-analysis/source/scripts/test-calibration.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/calibration-protocol.md",
+      "snapshot": "evidence/2026-10-22-calibration/source/research/performance/calibration-protocol.md",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/run-feed-performance.py",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/run-feed-performance.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/analyze-feed-performance.py",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/analyze-feed-performance.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/test-feed-performance.py",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/test-feed-performance.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/feed-trace.json",
+      "snapshot": "evidence/2026-10-23-feed/source/research/performance/feed-trace.json",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/feed-protocol.md",
+      "snapshot": "evidence/2026-10-23-feed/source/research/performance/feed-protocol.md.txt",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/run-feed-comparison.py",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/run-feed-comparison.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/compare-feed-performance.py",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/scripts/compare-feed-performance.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/shared-reader-protocol.md",
+      "snapshot": "evidence/2026-10-23-shared-reader/source/research/performance/shared-reader-protocol.md.txt",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/analyze-cadence.py",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/analyze-cadence.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/run-cadence-experiment.py",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/run-cadence-experiment.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/test-cadence.py",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/scripts/test-cadence.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "research/performance/timestamp-protocol.md",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/research/performance/timestamp-protocol.md.txt",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "binding": "performance_swift_python",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Package.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Package.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeControlsPage.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeControlsPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeFormPage.swift",
+      "snapshot": "evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeFormPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift",
+      "snapshot": "evidence/2026-10-15-materials/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeMaterialsPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeNavigationPage.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeNavigationPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeTypographyPage.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/features/examples/ui/NativeTypographyPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/model/CatalogSection.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/model/CatalogSection.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/ui/CatalogPage.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/pages/catalog/ui/CatalogPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/en.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/shared/lib/CatalogStrings.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "snapshot": "evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "snapshot": "evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "scripts/swift-macos.sh",
+      "snapshot": "evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "scripts/build-settings-catalog.sh",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/build-settings-catalog.sh",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "snapshot": "evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "production_adoption",
+      "kind": "owned",
+      "source": "Package.swift",
+      "snapshot": "evidence/2026-10-14-native-host/source/Package.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "binding": "production_adoption",
+      "kind": "owned",
+      "source": "Package.resolved",
+      "snapshot": "evidence/2026-10-14-native-host/source/Package.resolved",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "snapshot": "evidence/2026-10-15-shortcut-retry/source/Tests/DreamsTests/StopShortcutRecorderTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SettingsScenarioTests.swift",
+      "snapshot": "evidence/2026-10-24-native-default/source/Tests/DreamsTests/SettingsScenarioTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Package.resolved",
+      "snapshot": "evidence/2026-10-14/source/Package.resolved",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Package.swift",
+      "snapshot": "evidence/2026-10-14/source/Package.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "snapshot": "evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/lib/Localization.swift",
+      "snapshot": "evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "snapshot": "evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "snapshot": "evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/NativePreviewTests.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Tests/DreamsTests/NativePreviewTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "scripts/test-native-settings-trace.py",
+      "snapshot": "evidence/2026-10-21-appearance/source/scripts/test-native-settings-trace.py",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "scripts/swift-macos.sh",
+      "snapshot": "evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "scripts/build-app.sh",
+      "snapshot": "evidence/2026-10-24-main-menu/source/scripts/build-app.sh",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "scripts/release.sh",
+      "snapshot": "evidence/2026-10-18-native-sliders/source/scripts/release.sh",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/NativeSettingsParityTests.swift",
+      "snapshot": "evidence/2026-10-19-parity-fixes/source/Tests/DreamsTests/NativeSettingsParityTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/model/NativeAppearancePreset.swift",
+      "snapshot": "evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/model/NativeAppearancePreset.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/NativeAppearanceChoices.swift",
+      "snapshot": "evidence/2026-10-21-appearance/source/Sources/Dreams/pages/settings/ui/NativeAppearanceChoices.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/NativeAppearanceTests.swift",
+      "snapshot": "evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeAppearanceTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "snapshot": "evidence/2026-10-19-content-icons/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsRowLabel.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/shared/lib/StopHotkey.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "snapshot": "evidence/2026-10-15-shortcut/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "snapshot": "evidence/2026-10-19-liquid-glass/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsMaterialPanel.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "snapshot": "evidence/2026-10-15-preview/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsPreviewRegion.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Packages/DreamsSettingsUI/Package.swift",
+      "snapshot": "evidence/2026-10-14-ui-border/source/Packages/DreamsSettingsUI/Package.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "snapshot": "evidence/2026-10-20-accessibility/source/Packages/DreamsSettingsUI/Sources/DreamsSettingsUI/SettingsSliderRow.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "binding": "native_host",
+      "kind": "border",
+      "source": "Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "snapshot": "evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/app/entrypoint/AppRoot.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/AppRoot.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/app/entrypoint/DreamsTVApp.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/DreamsTVApp.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/features/matrix/lib/ClockMask.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/ClockMask.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/features/matrix/lib/FilmAtlas.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/features/matrix/model/FilmGlyphs.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/features/matrix/ui/MatrixSurface.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/pages/clock/ui/ClockPage.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/pages/clock/ui/ClockPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "snapshot": "evidence/2026-10-21-focus-input/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-21-centered-menu/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-21-centered-menu/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Tests/DreamsTVTests.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/Tests/RainParityTests.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Tests/RainParityTests.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "tvOS/project.yml",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/project.yml",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Makefile",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Makefile",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "snapshot": "evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/Rain.metal",
+      "snapshot": "evidence/2026-10-21-parity/source/Sources/Dreams/Rain.metal",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "THIRD_PARTY_NOTICES.md",
+      "snapshot": "evidence/2026-10-21-parity/source/THIRD_PARTY_NOTICES.md",
+      "matches": true
+    },
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "LICENSE",
+      "snapshot": "evidence/2026-10-21-parity/source/LICENSE",
+      "matches": true
+    }
+  ]
+}

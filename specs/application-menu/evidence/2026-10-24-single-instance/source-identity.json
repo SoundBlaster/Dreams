@@ -1,0 +1,48 @@
+{
+  "sourceRevision": "a0cd20994743c20f941414be99b407d9b00cd11c",
+  "note": "Runtime commit identified; Makefile structure-check edits pinned separately by full-file hash in this specification commit.",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "2b8a32b8aa0c15e3bcd145a3440143e948dce8b367da1acd5a21706c35f807a1",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "bad8e752a63c968b3f7e6565eb2bed0a3dc956bbb478d9dadbb4bf559fc457b5",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/DesktopInstance.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DesktopInstance.swift",
+      "sha256": "10f13a92281f2c5e3cdf2f89f4aa0f987ac00da113cdd8806eaa2fb62c5797e8",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/DesktopInstanceTests.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Tests/DreamsTests/DesktopInstanceTests.swift",
+      "sha256": "58f56d1f260a858f7fc1573ba7b1071c8637de1243c69378deeb75702a9b95cc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift",
+      "sha256": "8973ae21450159b54903d0ec8989685ec6e7ad44fda969c0720f38abbb9c601d",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "sha256": "ad822e0169116bbace8b41c60d3c1df91da0a2ea0a40613d5d47f91e6f3a7d94",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift",
+      "sha256": "b1c3231b0d48dd19110988dfb5af2470733fe4fff5ab40e8d0543b8c2be955e4",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

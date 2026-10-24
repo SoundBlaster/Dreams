@@ -1,0 +1,177 @@
+{
+  "runtimeSourceRevision": "713c518a4a713820107b600b669cb6019d03bc0f",
+  "currentBindings": 248,
+  "staleOrMissing": 0,
+  "checks": [
+    {
+      "command": "swift test -c release with verified TB5 scratch/cache",
+      "exitCode": 0,
+      "logSha256": "563c7f8792f3f2c0b933a82f790bb5ddfc53f762733383a2e6abb309f9e66da4"
+    },
+    {
+      "command": "make specs-check HYPERCODE=<verified local Hypercode>",
+      "exitCode": 0,
+      "logSha256": "0bb5b041dc22dddf7170b3a06718651c13c540d96dcd4a6a599a45ff102d21aa"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "logSha256": "1032a584b12d8a9442be369de6fbc3099d233e1cfb1dbfb7dbb5ce0823e9f318"
+    },
+    {
+      "command": "make app with verified TB5 glyph/scratch/cache/bytecode paths",
+      "exitCode": 0,
+      "logSha256": "60b71e0ed5c195ab750bdf1ba97ab5f25a0fb80fe62f809510c7c1e5a0dfa6af"
+    },
+    {
+      "command": "six concurrent cold launches",
+      "exitCode": 0,
+      "logSha256": "2f03c6a700f82564bc4135db477f5d06223cb89a9b533e8eca421c0774893f78"
+    },
+    {
+      "command": "six warm launches, controller exclusion and two independent publishers",
+      "exitCode": 0,
+      "logSha256": "036dcfe6a02c5b2852c0f3863d2ec694dfcd427045b168b6ef09731898903e26"
+    }
+  ],
+  "status": "local checks passed; final pushed-head CI pending",
+  "testResult": "101 reported tests in 24 suites passed; default opt-in GPU/UI tests skipped",
+  "coldProbe": {
+    "coldConcurrentLaunches": 6,
+    "ownerPID": 68868,
+    "children": [
+      {
+        "pid": 68868,
+        "exitCode": null
+      },
+      {
+        "pid": 68869,
+        "exitCode": 0
+      },
+      {
+        "pid": 68871,
+        "exitCode": 0
+      },
+      {
+        "pid": 68872,
+        "exitCode": 0
+      },
+      {
+        "pid": 68873,
+        "exitCode": 0
+      },
+      {
+        "pid": 68874,
+        "exitCode": 0
+      }
+    ],
+    "persistentOwners": 1
+  },
+  "processProbe": {
+    "ownerPID": 68868,
+    "concurrentDuplicateLaunches": [
+      {
+        "exitCode": 0,
+        "seconds": 0.009,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "exitCode": 0,
+        "seconds": 0.009,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "exitCode": 0,
+        "seconds": 0.009,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "exitCode": 0,
+        "seconds": 0.008,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "exitCode": 0,
+        "seconds": 0.011,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "exitCode": 0,
+        "seconds": 0.008,
+        "stdout": "",
+        "stderr": ""
+      }
+    ],
+    "rejectedControllers": [
+      {
+        "arguments": [
+          "--mcp"
+        ],
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "Dreams: another desktop instance is running. Use --mcp --publisher for independent event publishing."
+      },
+      {
+        "arguments": [
+          "--lab"
+        ],
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "Dreams: another desktop instance is running. Use --mcp --publisher for independent event publishing."
+      },
+      {
+        "arguments": [
+          "--mcp",
+          "--render-demo",
+          "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/unused-offline-output"
+        ],
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "Dreams: another desktop instance is running. Use --mcp --publisher for independent event publishing."
+      }
+    ],
+    "simultaneousPublishers": [
+      {
+        "pid": 68888,
+        "protocol": "2025-06-18",
+        "tools": [
+          "dreams_clear_keywords",
+          "dreams_preview",
+          "dreams_publish_keywords",
+          "dreams_status"
+        ]
+      },
+      {
+        "pid": 68889,
+        "protocol": "2025-06-18",
+        "tools": [
+          "dreams_clear_keywords",
+          "dreams_preview",
+          "dreams_publish_keywords",
+          "dreams_status"
+        ]
+      }
+    ],
+    "sharedLeaseHeldAfterPublishersExit": true,
+    "remainingApplicationPIDs": [
+      68868
+    ]
+  },
+  "artifactSha256": "78af47869083f75a3ef4810c016964eefee42b216ee9454b6c97a4b17f361cf6",
+  "ciPredecessor": {
+    "run": 40129417179,
+    "result": "Canceled after test process stalled for about27 minutes following compilation; no test output before cancellation. Exact remote cause not established.",
+    "logSha256": "ddc950eb257d71367f9a773749693e2ba1470047b81446856056e68dd8ac0087"
+  },
+  "correction": "Retain synchronous app main; asynchronous workspace handoff only in a duplicate legacy GUI launch. Child process lock test uses selected PATH Python and nonblocking five-second readiness/termination bounds.",
+  "limits": [
+    "Local Swift/OS differs from hosted runner; CI must pass for final head.",
+    "Preserved real-Metal/native UI and physical TV observations remain historical unless explicitly rerun.",
+    "No release or physical Apple TV installation in this merge task."
+  ]
+}

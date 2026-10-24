@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "a0cd20994743c20f941414be99b407d9b00cd11c",
+  "note": "Runtime commit identified; Makefile structure-check edits pinned separately by full-file hash in this specification commit.",
+  "files": [
+    {
+      "path": "Makefile",
+      "snapshot": "evidence/2026-10-24-single-instance/source/Makefile",
+      "sha256": "b8430b642918ea4ec20230c33b962115c8eeb68235fc613534d5a9af82b2b4a3",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

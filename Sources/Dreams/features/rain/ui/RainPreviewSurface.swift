@@ -39,7 +39,7 @@ final class RainPreviewView: MTKView {
         if let window {
             observe(NSWindow.willCloseNotification, object: window) {
                 $0.closing = true
-                $0.session?.visibilityChanged(false, for: $0)
+                $0.session?.windowWillClose(for: $0)
             }
             observe(NSWindow.willMiniaturizeNotification, object: window) { $0.session?.visibilityChanged(false, for: $0) }
             for name in [NSWindow.didChangeOcclusionStateNotification, NSWindow.didMiniaturizeNotification,
@@ -68,6 +68,12 @@ final class RainPreviewView: MTKView {
 
     override func viewDidHide() { super.viewDidHide(); refreshVisibility() }
     override func viewDidUnhide() { super.viewDidUnhide(); refreshVisibility() }
+
+    /// A reused window can reopen before AppKit emits another didBecomeKey notification.
+    func windowDidReopen() {
+        closing = false
+        refreshVisibility()
+    }
 
     func refreshVisibility() {
         let visible = window.map { $0.isVisible && !$0.isMiniaturized && $0.occlusionState.contains(.visible) } ?? false

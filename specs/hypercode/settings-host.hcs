@@ -18,6 +18,8 @@ Forms:
   composition: "Rain pilot: scrollable title/description and three native groups; all sections use shared native regular Liquid Glass panel on macOS26+, regular material on macOS15 and opaque accessibility fallback, clipped to 16pt rounded corners"
   layout: "detail width >=700pt: form capped at 480pt, open preview min240pt receives remaining width; 16pt spacing and outer insets; narrower layouts put preview above form"
 LivePreview:
+  drawing: "continuous native MetalKit timer while playing/visible; event-driven single-frame draws while paused; mode switches explicitly"
+  reopen: "explicit window reopening clears close latch and replace only a previously closed Metal surface and refreshes visibility without awaiting didBecomeKey; preserve Play/Pause choice"
   source: "Sources/Dreams/features/rain/ui/RainPreviewSession.swift + RainPreviewSurface.swift; pages/settings/ui/NativePreviewPane.swift + NativeRainBackdrop.swift"
   renderer: "separate production RainRenderer; shared controller tuning; preview-local posed clock starts at six seconds"
   scale: "100% of hosting display in backing pixels; screen-sized viewport clipped at preview top-left; resize changes visible crop only"

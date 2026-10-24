@@ -1,0 +1,95 @@
+{
+  "ownerPID": 39604,
+  "concurrentDuplicateLaunches": [
+    {
+      "exitCode": 0,
+      "seconds": 0.011,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exitCode": 0,
+      "seconds": 0.011,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exitCode": 0,
+      "seconds": 0.018,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exitCode": 0,
+      "seconds": 0.018,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exitCode": 0,
+      "seconds": 0.016,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exitCode": 0,
+      "seconds": 0.015,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "rejectedControllers": [
+    {
+      "arguments": [
+        "--mcp"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Dreams: another desktop instance is running. Use --mcp --publisher for independent event publishing."
+    },
+    {
+      "arguments": [
+        "--lab"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Dreams: another desktop instance is running. Use --mcp --publisher for independent event publishing."
+    },
+    {
+      "arguments": [
+        "--mcp",
+        "--render-demo",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/unused-offline-output"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Dreams: another desktop instance is running. Use --mcp --publisher for independent event publishing."
+    }
+  ],
+  "simultaneousPublishers": [
+    {
+      "pid": 39623,
+      "protocol": "2025-06-18",
+      "tools": [
+        "dreams_clear_keywords",
+        "dreams_preview",
+        "dreams_publish_keywords",
+        "dreams_status"
+      ]
+    },
+    {
+      "pid": 39624,
+      "protocol": "2025-06-18",
+      "tools": [
+        "dreams_clear_keywords",
+        "dreams_preview",
+        "dreams_publish_keywords",
+        "dreams_status"
+      ]
+    }
+  ],
+  "sharedLeaseHeldAfterPublishersExit": true,
+  "remainingApplicationPIDs": [
+    39604
+  ]
+}

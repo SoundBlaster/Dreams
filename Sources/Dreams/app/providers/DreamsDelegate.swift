@@ -5,6 +5,7 @@ import AppKit
 final class DreamsDelegate: NSObject, NSApplicationDelegate {
     let controller = DreamsController()
     var showsControls = false
+    var ownsDesktop = false
     private lazy var settings = SettingsPageController(controller: controller)
     private(set) var statusItem: NSStatusItem?
     private var stopMenuItem: NSMenuItem?
@@ -20,8 +21,26 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        if showsControls { settings.showControls() }
+        guard ownsDesktop else { return false }
+        reopenSettings()
         return true
+    }
+
+    /// A GUI launch may reopen an existing accessory controller instead of creating another rain.
+    func reopenSettings() {
+        guard ownsDesktop else { return }
+        if !showsControls {
+            showsControls = true
+            NSApplication.shared.setActivationPolicy(.regular)
+            ApplicationMenus(settingsTarget: self, settingsAction: #selector(showControls)).install(in: NSApplication.shared)
+            if let menu = statusItem?.menu {
+                menu.insertItem(.separator(), at: 0)
+                let open = NSMenuItem(title: L("menu.openControls"), action: #selector(showControls), keyEquivalent: "")
+                open.target = self
+                menu.insertItem(open, at: 0)
+            }
+        }
+        settings.showControls()
     }
 
     func setupMenu() {

@@ -48,6 +48,48 @@ enum DreamsMain {
             }
             return
         }
+        let mode = DesktopInstance.Mode(arguments: CommandLine.arguments)
+        var instance: DesktopInstance?
+        if mode != .independent {
+            do {
+                let candidate = try DesktopInstance()
+                let acquired = try candidate.acquire()
+                let existing = acquired ? DesktopInstance.existingGUI() : nil
+                guard acquired && existing == nil else {
+                    candidate.release()
+                    if mode == .interactive {
+                        if let existing {
+                            // Only the short-lived legacy handoff needs an asynchronous workspace call.
+                            Task { @MainActor in
+                                do { try await DesktopInstance.reopen(existing); exit(0) }
+                                catch {
+                                    FileHandle.standardError.write(Data("Dreams: cannot reopen the desktop instance: \(error.localizedDescription)\n".utf8))
+                                    exit(1)
+                                }
+                            }
+                            dispatchMain()
+                        }
+                        DesktopInstance.requestReopen()
+                    }
+                    else {
+                        let message = "Dreams: another desktop instance is running. "
+                            + "Use --mcp --publisher for independent event publishing.\n"
+                        FileHandle.standardError.write(Data(message.utf8))
+                        exit(1)
+                    }
+                    return
+                }
+                instance = candidate
+            } catch {
+                FileHandle.standardError.write(Data("Dreams: cannot acquire or reopen the desktop instance: \(error.localizedDescription)\n".utf8))
+                exit(1)
+            }
+        }
+        runDesktop(instance: instance)
+    }
+
+    @MainActor
+    private static func runDesktop(instance: DesktopInstance?) {
         SettingsMigration.run()
         let publisherOnly = CommandLine.arguments.contains("--publisher")
         let interactive = !CommandLine.arguments.contains("--mcp")
@@ -63,7 +105,9 @@ enum DreamsMain {
         }
         let delegate = DreamsDelegate()
         delegate.showsControls = interactive
+        delegate.ownsDesktop = instance?.isOwner == true
         application.delegate = delegate
+        instance?.observeReopen { [weak delegate] in delegate?.reopenSettings() }
         if !publisherOnly { delegate.setupMenu() }
         if CommandLine.arguments.contains("--mcp") {
             Task {
@@ -100,7 +144,7 @@ enum DreamsMain {
                 catch { delegate.show(error: error) }
             }
         }
-        withExtendedLifetime(delegate) { application.run() }
+        withExtendedLifetime((delegate, instance)) { application.run() }
     }
 
 }

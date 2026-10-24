@@ -1,5 +1,6 @@
 Dreams
   DesktopApplication
+    InstanceOwnership
     ApplicationMenu
     RainOverlaySession
     SettingsPage

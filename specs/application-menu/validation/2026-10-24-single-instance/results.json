@@ -1,0 +1,97 @@
+{
+  "sourceRevision": "a0cd20994743c20f941414be99b407d9b00cd11c",
+  "profile": "macOS interactive + full-control/lab exclusion + independent MCP publishers; native settings preview reopening",
+  "tools": {
+    "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "specpm": "specpm 0.2.0",
+    "hypercodeBinary": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "hypercodeSha256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f",
+    "formatRFC": "SpecGraph-RFC-0001.md 0.0.1 draft",
+    "rfcSha256": "2cee49b7c98325cb947b240d7e65969cce0930feca6d43242c4d27893a088984"
+  },
+  "checks": [
+    {
+      "command": "swift test -c release --scratch-path <verified TB5>/swiftpm --cache-path /Volumes/TB5/Developer/Caches/swiftpm",
+      "exitCode": 0,
+      "result": "97 reported tests in 23 suites passed; default opt-in GPU/UI tests skipped",
+      "logSha256": "6e6243cdd13a433b10b1ac8743324e1d4dcbbfcfd3c666f3e3d3d3e775e34a2b"
+    },
+    {
+      "command": "DREAMS_TEST_METAL=1 DREAMS_FEED_DIRECTORY=<isolated TB5 feed> swift test -c release <same paths> --filter previewUsesSharedSettingsAndReleasesItsRendererWhenHidden",
+      "exitCode": 0,
+      "result": "1 real-Metal session test passed",
+      "logSha256": "bb012a3dd3687d5adf60a29093ebbbd8156bf2b37e179c2e6eaf9038fe0cd386"
+    },
+    {
+      "command": "make app with glyph output, Swift scratch/cache and Python bytecode routed to verified TB5",
+      "exitCode": 0,
+      "result": "Packaged development app built",
+      "logSha256": "2124dcbf822d05618b53d429366a48d702ca1179d154e7020b88726084581bd9"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "result": "HC maps/profiles and SpecPM structural checks; existing unresolved required-capability warnings retained",
+      "logSha256": "bbe66f8a5a2cc6430e5c5d5d40186797f469e6893c1cf52334cda9923b6eef39"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "result": "No lint errors; existing unused_import analyzer_rules warning retained",
+      "logSha256": "70cac6b262514eab2d7d8dc2d9aed71c08df00a94b939bb606ac38880e225613"
+    },
+    {
+      "command": "python3 scripts/check-docs.py after staging all new Markdown; git diff --cached --check",
+      "exitCode": 0,
+      "result": "185 Markdown files; no broken relative links; no whitespace errors"
+    }
+  ],
+  "bindingCheck": {
+    "count": 242,
+    "staleOrMissing": 0,
+    "evidence": "bindings.json"
+  },
+  "processChecks": {
+    "cold": "cold-results.json",
+    "warmAndPublishers": "process-results.json",
+    "scripts": [
+      "probe-instance-cold.py.txt",
+      "probe-instance.py.txt"
+    ]
+  },
+  "nativeObservation": {
+    "method": "delegated device-interaction / CUA on exact TB5 app path, PID39604",
+    "beforeClose": "20:19:09 and 20:19:17 screenshots show changed glyphs",
+    "afterCloseReopen": "20:19:28 and 20:19:32 screenshots show changed glyphs; direct duplicate exits0 in0.010s",
+    "statePreserved": "General section and Pause preview; no pause/play or tab workaround",
+    "limit": "CUA observation immediately reopens the closed window; stable closed state not established",
+    "installedApplicationsCopyChanged": false,
+    "testAppLeftRunning": true
+  },
+  "artifact": {
+    "path": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/dist/Dreams.app",
+    "binarySha256": "5074bd20268d3ffce46f3211ebdd04fcf9651f0532b9a8466470abf5c63bee10"
+  },
+  "initialCorrections": [
+    "Duplicate Launch Services reopening could fail under concurrent launches; busy leases now signal the owner directly.",
+    "Native preview close-latch reset and drawing-mode correction alone were insufficient; closed canvas replacement restored observed motion.",
+    "Exploratory hosted window test could not establish initial visibility and is not claimed as passing; it was removed. Existing event-pump helper remains.",
+    "A removed shared test helper caused a compile failure; restored before final successful suite.",
+    "Initial bare specs-check could not find Hypercode; rerun succeeded with the explicit verified binary."
+  ],
+  "scopeLimits": [
+    "Descriptive contracts remain drafts; no product acceptance inferred from structural checks.",
+    "Older binaries do not gain a lease retroactively; new startup detects compatible regular legacy GUI owners.",
+    "No CI polling, merge, release, tvOS execution or performance acceptance."
+  ],
+  "mapSha256": {
+    "specs/hypercode/application-menu.hcs": "db0e0009ef3dc8602326a21bddac84978e28ca46c08b4b7c43889e5ea37d9389",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/application.hcs": "d7845f4c1e292eddb20d0be1aec43f1002a25a4b49c1539f7234b88ac0522f84",
+    "specs/hypercode/application-instance.hcs": "7750c3c84032607540fd178798b5a9c63d91c1b45566536dc05ce815a14299da",
+    "specs/hypercode/application-instance.hc": "93e5597f727d8f6f383041cab8bbe75dd745903d2de49aab530f13088a42d7d0",
+    "specs/hypercode/application-menu.hc": "0062e761e22df747decc00db3934c34d7a081dca09002d0a87b3c0885cac23ae",
+    "specs/hypercode/application.hc": "c07545590da135585e2195f18c151e640fb1a22db1f8c77849d5cbfd28776994",
+    "specs/hypercode/settings-host.hcs": "eb24e48f81a28adc0c694c4efc4ca8a257f02e6a30bd4dc233e06a04cdbf672a"
+  }
+}

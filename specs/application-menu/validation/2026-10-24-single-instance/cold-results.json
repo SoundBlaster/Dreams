@@ -1,0 +1,31 @@
+{
+  "coldConcurrentLaunches": 6,
+  "ownerPID": 39604,
+  "children": [
+    {
+      "pid": 39602,
+      "exitCode": 0
+    },
+    {
+      "pid": 39603,
+      "exitCode": 0
+    },
+    {
+      "pid": 39604,
+      "exitCode": null
+    },
+    {
+      "pid": 39605,
+      "exitCode": 0
+    },
+    {
+      "pid": 39606,
+      "exitCode": 0
+    },
+    {
+      "pid": 39607,
+      "exitCode": 0
+    }
+  ],
+  "persistentOwners": 1
+}

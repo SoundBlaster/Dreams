@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.desktop.main_menu
   title: InteractiveApplicationMenu
-  version: 0.1.0-draft.2
+  version: 0.1.0-draft.3
   status: draft
 intent:
   summary: Give interactive Dreams users standard macOS commands instead of an empty application menu.
@@ -35,7 +35,7 @@ interfaces:
 constraints:
 - id: interactive_lifetime
   level: MUST
-  statement: Install NSApplication.mainMenu before the interactive settings window opens. Only showsControls launches install it; accessory MCP/lab/render modes do not acquire a menu bar. Retain the independent status-item menu and its existing actions.
+  statement: Install NSApplication.mainMenu before the interactive settings window opens. Initial accessory MCP/lab/render launches do not acquire a main menu. An exclusive full-control/lab desktop owner may install it when an explicit GUI reopen promotes that process to regular activation; publisher-only/offline processes cannot promote. Retain the independent status-item menu and its existing actions.
 - id: application_commands
   level: MUST
   statement: The Dreams submenu provides native About, Settings (Command-comma), Services, Hide Dreams (Command-H), Hide Others (Option-Command-H), Show All and Quit (Command-Q). About/hide/quit use NSApplication actions. Register the Services submenu as NSApplication.servicesMenu. Settings calls the existing settings owner through its delegate action, preserving reopening semantics.
@@ -71,14 +71,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 864b3b77c5589e5c6d7b563696cf1aee84289859
+    revision: 713c518a4a713820107b600b669cb6019d03bc0f
   files:
     owned:
     - evidence/2026-10-24/source/Sources/Dreams/app/providers/ApplicationMenus.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/app/providers/DreamsDelegate.swift
-    - evidence/2026-10-24/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
-    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
-    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift
     - evidence/2026-10-24/source/scripts/Info.plist.in
     border:

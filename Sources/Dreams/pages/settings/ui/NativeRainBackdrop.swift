@@ -16,6 +16,7 @@ struct NativeRainBackdrop: View {
 
     private var surface: some View {
         RainPreviewSurface(session: session)
+            .id(session.surfaceGeneration)
             .background(.black)
             .allowsHitTesting(false)
     }

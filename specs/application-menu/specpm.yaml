@@ -3,17 +3,19 @@ kind: SpecPackage
 metadata:
   id: dreams.application_menu
   name: Dreams native application menu
-  version: 0.1.0-draft.2
-  summary: Standard interactive macOS commands and saved status-item visibility.
+  version: 0.1.0-draft.3
+  summary: Native desktop commands, saved status-item visibility and single-instance ownership.
   license: MIT
   authors:
   - name: Dreams contributors
 specs:
 - path: specs/menu.spec.yaml
+- path: specs/instance.spec.yaml
 index:
   provides:
     capabilities:
     - dreams.desktop.main_menu
+    - dreams.desktop.single_instance
   requires:
     capabilities:
     - platform.apple.appkit

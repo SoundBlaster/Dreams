@@ -107,8 +107,10 @@ extension NativeSettingsTests {
         session.setVisible(true)
         #expect(session.errorMessage == nil)
         #expect(session.renderer != nil)
+        #expect(!view.enableSetNeedsDisplay && !view.isPaused)
         session.isPlaying = false
         #expect(view.isPaused)
+        #expect(view.enableSetNeedsDisplay)
         let time = session.time
         session.draw(in: view)
         #expect(session.time == time)
@@ -121,6 +123,7 @@ extension NativeSettingsTests {
         #expect(session.renderer?.rainPulseStrength == 0.8)
         #expect(session.renderer?.rainColumnCount == 48)
         session.isPlaying = true
+        #expect(!view.enableSetNeedsDisplay && !view.isPaused)
         session.draw(in: view)
         let runningTime = session.time
         try await Task.sleep(for: .milliseconds(20))
@@ -169,6 +172,26 @@ extension NativeSettingsTests {
         #expect(session.isVisible && session.renderer != nil)
         session.detach(replacement)
         #expect(session.renderer == nil && !session.isVisible)
+    }
+    @Test func onlyAClosedPreviewReplacesItsSurfaceOnReopen() {
+        _ = NSApplication.shared
+        let session = RainPreviewSession(controller: DreamsController())
+        let current = MTKView(frame: .zero)
+        let stale = MTKView(frame: .zero)
+        session.attach(current)
+        session.isPlaying = false
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 0)
+        session.windowWillClose(for: stale)
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 0)
+        session.windowWillClose(for: current)
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 1)
+        #expect(!session.isPlaying, "Reopening must preserve a deliberate pause")
+        session.windowDidReopen()
+        #expect(session.surfaceGeneration == 1)
+        session.detach(current)
     }
     /// SwiftPM tests do not run NSApplication.run; drain native window/display events explicitly.
     static func pumpPreviewEvents(milliseconds: Int) async throws {
