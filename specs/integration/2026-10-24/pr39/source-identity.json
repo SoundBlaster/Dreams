@@ -1,0 +1,90 @@
+{
+  "sourceRevision": "3b281857c194fe109312d153b2b4161030b6cbb3",
+  "snapshotRefreshOnly": true,
+  "historicalEvidencePreserved": true,
+  "bindings": [
+    {
+      "spec": "specs/tvos/specs/television.spec.yaml",
+      "capability": "dreams.tv.rain",
+      "binding": "television_swift",
+      "kind": "owned",
+      "source": "Makefile",
+      "previousSnapshot": "specs/tvos/evidence/2026-10-21-parity/source/Makefile",
+      "snapshot": "specs/tvos/evidence/2026-10-24-main-integration/pr39/source/Makefile",
+      "sha256": "b50f959fae765b9d332eb582cc799dc8203be18393effa2796145b869c30ff24",
+      "preservedClaims": [
+        "grid_and_motion",
+        "head_and_pulse",
+        "appearance",
+        "resources",
+        "persistent_tuning",
+        "remote_settings",
+        "clock",
+        "lifecycle",
+        "platform_boundary"
+      ]
+    },
+    {
+      "spec": "specs/overlay-session/specs/session.spec.yaml",
+      "capability": "dreams.overlay.session",
+      "binding": "session_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "previousSnapshot": "specs/overlay-session/evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "specs/overlay-session/evidence/2026-10-24-main-integration/pr39/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b",
+      "preservedClaims": [
+        "start_profiles",
+        "preflight_and_start",
+        "requested_vs_presented",
+        "selection_changes",
+        "stop_cleanup",
+        "resume_and_reopen",
+        "sleep_policy",
+        "capture_suspension",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/overlay-session/specs/exit.spec.yaml",
+      "capability": "dreams.overlay.exit",
+      "binding": "exit_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "previousSnapshot": "specs/overlay-session/evidence/2026-10-15-shortcut-retry/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "specs/overlay-session/evidence/2026-10-24-main-integration/pr39/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "9dcb87c339daddbc136952b10ece9e6f33c5df1ab8c4170fbc259be32ea8e09b",
+      "preservedClaims": [
+        "local_escape",
+        "all_displays",
+        "button_visibility",
+        "transparent_escape",
+        "hotkey_recording",
+        "registration_failure",
+        "callback_lifetime"
+      ]
+    }
+  ],
+  "maps": {
+    "specs/hypercode/application.hc": "c7a1fb43a4dd35e966f012baa16cfe0bd2c4e70b244faeec122341b471924177",
+    "specs/hypercode/application.hcs": "629dc6f35d5573afd4b12b8dfeef276aecb4cc94954bab96d8b6d494cb7b13e1",
+    "specs/hypercode/drop-motion.hc": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+    "specs/hypercode/drop-motion.hcs": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586",
+    "specs/hypercode/glyph-editor.hc": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+    "specs/hypercode/glyph-editor.hcs": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+    "specs/hypercode/glyph-pulse.hc": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+    "specs/hypercode/glyph-pulse.hcs": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+    "specs/hypercode/glyph-search.hc": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+    "specs/hypercode/glyph-search.hcs": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9",
+    "specs/hypercode/overlay-session.hc": "45b1f549dcb9231c3b2d40a3ef061ec8b7974326c60955e4b6707a3ccf52da01",
+    "specs/hypercode/overlay-session.hcs": "0de326bbcba74c85c9112f17ba4961191e771f811cce217192c961d482c977fb",
+    "specs/hypercode/performance.hc": "eecfa596fb09d998e0cd7bbea70a2cf9e0e65cc025597cc679acb98a979a3d53",
+    "specs/hypercode/performance.hcs": "77167e3dfc7839374b60dd56ef6dd20837e874423a2c826686828eece448e55e",
+    "specs/hypercode/settings-catalog.hc": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+    "specs/hypercode/settings-catalog.hcs": "3cfa711b0a5c469c041dcd7c4f585aef0bc5aa3e134ea077f1d174d8b045168d",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "e5e88c2464576834ea8b9318b34aa7711a37a2eb8db7ae4604e86beea03bb079",
+    "specs/hypercode/television.hc": "22e27690318135add27ae6cee5b6e5202c3e8dd535f271c08c5b66dd96760492",
+    "specs/hypercode/television.hcs": "d48d4d5e80f22f74195f1c253267b36a748bd9b5fd3a77b4325bddc183df1975"
+  }
+}

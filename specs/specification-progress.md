@@ -740,3 +740,7 @@ original source and profile. Packaging remains an unrecovered boundary.
 source/structural checks from signed/notarized artifact and publication verification
 attached to the GitHub release. Default route, legacy access and shared owner
 requirements remain in force; performance and physical TV acceptance are unchanged.
+
+## 2026-10-24 — pr39 main integration
+
+[Integration identities and scope](integration/2026-10-24/pr39/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
