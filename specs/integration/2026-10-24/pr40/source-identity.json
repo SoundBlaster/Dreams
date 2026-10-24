@@ -1,0 +1,241 @@
+{
+  "sourceRevision": "5f1c3fd54c06d949e8d70c13cfefefc5dcb1a065",
+  "snapshotRefreshOnly": true,
+  "historicalEvidencePreserved": true,
+  "bindings": [
+    {
+      "spec": "specs/settings-catalog/specs/catalog.spec.yaml",
+      "capability": "dreams.settings.catalog",
+      "binding": "catalog_swift",
+      "kind": "owned",
+      "source": "scripts/swift-macos.sh",
+      "previousSnapshot": "specs/settings-catalog/evidence/2026-10-24-0.1.10/source/scripts/swift-macos.sh",
+      "snapshot": "specs/settings-catalog/evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh",
+      "sha256": "ff04f621aa14e403fe9761a122b65f27b78ab385602b5cf0e2661a82fa35114e",
+      "preservedClaims": [
+        "native_controls",
+        "independent_host",
+        "ephemeral_fixtures",
+        "window_navigation",
+        "platform_availability",
+        "host_owned_binding",
+        "localization_and_packaging",
+        "preview_limit"
+      ]
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "capability": "dreams.settings.host",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "previousSnapshot": "specs/settings-host/evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "snapshot": "specs/settings-host/evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift",
+      "sha256": "f5564aa813fb95fcb28221bd69ca7377b164cdcb6d87e30e53fffa886b42d37d",
+      "preservedClaims": [
+        "default_off",
+        "native_controls",
+        "one_settings_owner",
+        "range_units",
+        "operation_semantics",
+        "quick_appearance",
+        "explicit_legacy_access",
+        "lifetime",
+        "overlay_exit",
+        "shortcut_recording",
+        "preview_limit",
+        "independent_preview",
+        "preview_scale",
+        "material_composition",
+        "preview_lifetime",
+        "preview_playback"
+      ]
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "capability": "dreams.settings.host",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "previousSnapshot": "specs/settings-host/evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshot": "specs/settings-host/evidence/2026-10-24-main-integration/pr40/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "sha256": "3d8a70142a54453ff96f2c2d6feacbe2ad589e02b7f130a188db14fd7b670859",
+      "preservedClaims": [
+        "default_off",
+        "native_controls",
+        "one_settings_owner",
+        "range_units",
+        "operation_semantics",
+        "quick_appearance",
+        "explicit_legacy_access",
+        "lifetime",
+        "overlay_exit",
+        "shortcut_recording",
+        "preview_limit",
+        "independent_preview",
+        "preview_scale",
+        "material_composition",
+        "preview_lifetime",
+        "preview_playback"
+      ]
+    },
+    {
+      "spec": "specs/settings-host/specs/host.spec.yaml",
+      "capability": "dreams.settings.host",
+      "binding": "native_host",
+      "kind": "owned",
+      "source": "scripts/swift-macos.sh",
+      "previousSnapshot": "specs/settings-host/evidence/2026-10-21-appearance/source/scripts/swift-macos.sh",
+      "snapshot": "specs/settings-host/evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh",
+      "sha256": "ff04f621aa14e403fe9761a122b65f27b78ab385602b5cf0e2661a82fa35114e",
+      "preservedClaims": [
+        "default_off",
+        "native_controls",
+        "one_settings_owner",
+        "range_units",
+        "operation_semantics",
+        "quick_appearance",
+        "explicit_legacy_access",
+        "lifetime",
+        "overlay_exit",
+        "shortcut_recording",
+        "preview_limit",
+        "independent_preview",
+        "preview_scale",
+        "material_composition",
+        "preview_lifetime",
+        "preview_playback"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "capability": "dreams.rain.search_occupancy",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-24-native-default/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "ffb6ccf4e3ba6ecc4fef280bb0ca35878b39056abebd611a98ab9578e472f299",
+      "preservedClaims": [
+        "simultaneous_share",
+        "tuning",
+        "burst",
+        "ink_lifetime",
+        "independent_motion",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/search.spec.yaml",
+      "capability": "dreams.rain.search_occupancy",
+      "binding": "search_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-24-native-default/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "36bad5424d29c21e7b09db9f61c80dee63e525d121729d0445bad752ec221558",
+      "preservedClaims": [
+        "simultaneous_share",
+        "tuning",
+        "burst",
+        "ink_lifetime",
+        "independent_motion",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/pulse.spec.yaml",
+      "capability": "dreams.rain.glyph_pulse",
+      "binding": "pulse_swift",
+      "kind": "border",
+      "source": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-24-native-default/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "be9a101a4d6bf7e8d43064ef5e534d5291b0604f4ba0cabb7357e4783b09e504",
+      "preservedClaims": [
+        "independent_phase",
+        "bounds_and_off",
+        "lifetime_and_head",
+        "assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "capability": "dreams.rain.drop_motion",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-24-native-default/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "ffb6ccf4e3ba6ecc4fef280bb0ca35878b39056abebd611a98ab9578e472f299",
+      "preservedClaims": [
+        "opt_in",
+        "kinematics",
+        "units_and_validation",
+        "deterministic_timing",
+        "tail_lifecycle",
+        "stable_packet",
+        "bounded_event",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/drop-motion/specs/motion.spec.yaml",
+      "capability": "dreams.rain.drop_motion",
+      "binding": "motion_swift",
+      "kind": "owned",
+      "source": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "previousSnapshot": "specs/drop-motion/evidence/2026-10-24-native-default/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "specs/drop-motion/evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "36bad5424d29c21e7b09db9f61c80dee63e525d121729d0445bad752ec221558",
+      "preservedClaims": [
+        "opt_in",
+        "kinematics",
+        "units_and_validation",
+        "deterministic_timing",
+        "tail_lifecycle",
+        "stable_packet",
+        "bounded_event",
+        "parent_assembly"
+      ]
+    },
+    {
+      "spec": "specs/performance/specs/measurement.spec.yaml",
+      "capability": "dreams.performance.measure",
+      "binding": "performance_swift_python",
+      "kind": "owned",
+      "source": "scripts/swift-macos.sh",
+      "previousSnapshot": "specs/performance/evidence/2026-10-22-baseline/source/scripts/swift-macos.sh",
+      "snapshot": "specs/performance/evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh",
+      "sha256": "ff04f621aa14e403fe9761a122b65f27b78ab385602b5cf0e2661a82fa35114e",
+      "preservedClaims": [
+        "isolation",
+        "observation",
+        "lifetime",
+        "provenance"
+      ]
+    }
+  ],
+  "maps": {
+    "specs/hypercode/application.hc": "c7a1fb43a4dd35e966f012baa16cfe0bd2c4e70b244faeec122341b471924177",
+    "specs/hypercode/application.hcs": "629dc6f35d5573afd4b12b8dfeef276aecb4cc94954bab96d8b6d494cb7b13e1",
+    "specs/hypercode/drop-motion.hc": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+    "specs/hypercode/drop-motion.hcs": "fe725fb6e729527576df27fcfad644c432384cff9fad04eb56c893616d321586",
+    "specs/hypercode/glyph-editor.hc": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+    "specs/hypercode/glyph-editor.hcs": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+    "specs/hypercode/glyph-pulse.hc": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+    "specs/hypercode/glyph-pulse.hcs": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+    "specs/hypercode/glyph-search.hc": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+    "specs/hypercode/glyph-search.hcs": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9",
+    "specs/hypercode/overlay-session.hc": "45b1f549dcb9231c3b2d40a3ef061ec8b7974326c60955e4b6707a3ccf52da01",
+    "specs/hypercode/overlay-session.hcs": "0de326bbcba74c85c9112f17ba4961191e771f811cce217192c961d482c977fb",
+    "specs/hypercode/performance.hc": "eecfa596fb09d998e0cd7bbea70a2cf9e0e65cc025597cc679acb98a979a3d53",
+    "specs/hypercode/performance.hcs": "77167e3dfc7839374b60dd56ef6dd20837e874423a2c826686828eece448e55e",
+    "specs/hypercode/settings-catalog.hc": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+    "specs/hypercode/settings-catalog.hcs": "3cfa711b0a5c469c041dcd7c4f585aef0bc5aa3e134ea077f1d174d8b045168d",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "956345e877454f50ff88e62e60d3f7ac223f513aa55b81cdf0fdc640d0d4ea95",
+    "specs/hypercode/television.hc": "22e27690318135add27ae6cee5b6e5202c3e8dd535f271c08c5b66dd96760492",
+    "specs/hypercode/television.hcs": "d48d4d5e80f22f74195f1c253267b36a748bd9b5fd3a77b4325bddc183df1975"
+  }
+}

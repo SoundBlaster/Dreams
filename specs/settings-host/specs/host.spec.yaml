@@ -167,7 +167,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: aa11113675d1a5046c01cfb570d939ae5df29b14
+    revision: 5f1c3fd54c06d949e8d70c13cfefefc5dcb1a065
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -186,9 +186,9 @@ implementationBindings:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-21-appearance/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
     - evidence/2026-10-21-appearance/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
-    - evidence/2026-10-14/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
+    - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
-    - evidence/2026-10-15-shortcut/source/Tests/DreamsTests/NativeSettingsTests.swift
+    - evidence/2026-10-24-main-integration/pr40/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-15-scale/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
@@ -196,7 +196,7 @@ implementationBindings:
     - evidence/2026-10-15-materials/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-15-materials/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
     - evidence/2026-10-21-appearance/source/scripts/test-native-settings-trace.py
-    - evidence/2026-10-21-appearance/source/scripts/swift-macos.sh
+    - evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh
     - evidence/2026-10-18-native-sliders/source/scripts/build-app.sh
     - evidence/2026-10-18-native-sliders/source/scripts/release.sh
     - evidence/2026-10-19-parity-fixes/source/Sources/Dreams/pages/settings/ui/DisplaySettingsView.swift
