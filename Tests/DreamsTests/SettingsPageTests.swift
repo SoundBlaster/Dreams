@@ -8,7 +8,7 @@ struct SettingsPageTests {
     @Test func settingsWindowKeepsControlsAndValues() throws {
         _ = NSApplication.shared
         let controller = DreamsController()
-        let page = SettingsPageController(controller: controller)
+        let page = SettingsPageController(controller: controller, nativeSettingsEnabled: false)
         page.showControls()
         defer {
             page.controlsWindow?.close()
