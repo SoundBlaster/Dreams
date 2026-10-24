@@ -9,7 +9,7 @@
     },
     {
       "command": "make lint",
-      "exitCode": 0,
+      "exitCode": 2,
       "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/paused-final-lint.log",
       "sha256": "5d4c40d2ea286f6eac753f895a292e2f94b42b6ad040ffc2f5c0848ec372d232"
     },
@@ -18,6 +18,13 @@
       "exitCode": 0,
       "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/paused-specs.log",
       "sha256": "87c2dad75d8bb3a996804b9a15afd4cfa6b3954e31bf8da1807c322ffe8cdccd"
+    },
+    {
+      "command": "make lint (after UTF-8 initializer correction)",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/paused-corrected-lint.log",
+      "sha256": "91203f727c9d44286aaee4a7dbfd1c9864d5d0b5e40150297b2eb35c8a604ea9",
+      "sourceRevision": "abc78f11d722f3086ff656c8c63d631b9cfb6547"
     }
   ],
   "tests": "19 tests passed on tvOS27 arm64 Simulator Release",
