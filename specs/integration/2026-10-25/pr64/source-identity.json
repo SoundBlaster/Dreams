@@ -1,0 +1,78 @@
+{
+  "runtimeSourceRevision": "713c518a4a713820107b600b669cb6019d03bc0f",
+  "affectedSpecs": [
+    "specs/application-menu/specs/instance.spec.yaml",
+    "specs/application-menu/specs/menu.spec.yaml",
+    "specs/overlay-session/specs/exit.spec.yaml",
+    "specs/performance/specs/measurement.spec.yaml",
+    "specs/settings-host/specs/host.spec.yaml",
+    "specs/tvos/specs/television.spec.yaml"
+  ],
+  "refreshedSnapshots": [
+    {
+      "path": "Sources/Dreams/app/providers/DesktopInstance.swift",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/providers/DesktopInstance.swift",
+      "sha256": "1698c1c4bb266ae0e38ece8f7691109c6194a0aa6c692e9fe939f1980a93bdba"
+    },
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "dfb9a9c2d8bbe02c2fc2af2d99f9416535a93b2aa03af159533b2e2f05622ebd"
+    },
+    {
+      "path": "Tests/DreamsTests/DesktopInstanceTests.swift",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr64-integration/source/Tests/DreamsTests/DesktopInstanceTests.swift",
+      "sha256": "87623adf82576ac2b9fb56fd9b0475bce3c350238a2bf56ebe3ab2285b77fee4"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "sha256": "8a01417ba99c892c91fddb50a68c9bfd9f27b2c6a2112e149a00dd1d581a537d"
+    },
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "dfb9a9c2d8bbe02c2fc2af2d99f9416535a93b2aa03af159533b2e2f05622ebd"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "d16e8abb152e4fd237381667c4f6933da4098f820a9d06f4056c63f6fb5ad7b8"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "specs/application-menu/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "c74ed8775bb0cd2b5989219a5fd4224b039a53e4effba9b73662619bc8b62635"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "specs/overlay-session/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "4f1adf769b2a25cf3873e9b996a14a2f5a2078a596b439a3e80b6ab8535e5fe7"
+    },
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "specs/performance/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "dfb9a9c2d8bbe02c2fc2af2d99f9416535a93b2aa03af159533b2e2f05622ebd"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "snapshot": "specs/settings-host/evidence/2026-10-25-pr64-integration/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift",
+      "sha256": "8a01417ba99c892c91fddb50a68c9bfd9f27b2c6a2112e149a00dd1d581a537d"
+    },
+    {
+      "path": "tvOS/Tests/RainParityTests.swift",
+      "snapshot": "specs/tvos/evidence/2026-10-25-pr64-integration/source/tvOS/Tests/RainParityTests.swift",
+      "sha256": "b55607ea92818d6c8b1d4ddb4ec3d8195e2aefeae3c290fe7e273b65101e2390"
+    },
+    {
+      "path": "tvOS/project.yml",
+      "snapshot": "specs/tvos/evidence/2026-10-25-pr64-integration/source/tvOS/project.yml",
+      "sha256": "cd69f5f6af10f631d0a67e7955993d090d5a8fbd7b63cd3f16171325637f13bf"
+    },
+    {
+      "path": "Makefile",
+      "snapshot": "specs/tvos/evidence/2026-10-25-pr64-integration/source/Makefile",
+      "sha256": "f55d3108972d31fb88bdccd50bde49eb4062d3f1292b9ec1b5c5e3e37b88f096"
+    }
+  ]
+}

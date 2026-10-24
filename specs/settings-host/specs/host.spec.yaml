@@ -186,7 +186,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: a0cd20994743c20f941414be99b407d9b00cd11c
+    revision: 713c518a4a713820107b600b669cb6019d03bc0f
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -209,7 +209,7 @@ implementationBindings:
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
-    - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-24-single-instance/source/Tests/DreamsTests/NativePreviewTests.swift

@@ -75,14 +75,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: a0cd20994743c20f941414be99b407d9b00cd11c
+    revision: 713c518a4a713820107b600b669cb6019d03bc0f
   files:
     owned:
-    - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DesktopInstance.swift
-    - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/providers/DesktopInstance.swift
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/app/providers/DreamsDelegate.swift
-    - evidence/2026-10-24-single-instance/source/Tests/DreamsTests/DesktopInstanceTests.swift
+    - evidence/2026-10-25-pr64-integration/source/Tests/DreamsTests/DesktopInstanceTests.swift
     border:
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
-    - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
+    - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
