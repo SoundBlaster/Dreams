@@ -1062,3 +1062,13 @@ physical install/launch.
 ## 2026-10-25 — pr64 combined-stack integration
 
 [Integration scope and identities](integration/2026-10-25/pr64/README.md) preserve the FPS/TV and macOS menu/settings requirements together. Changed full-file bindings are refreshed without adopting historical passes for the new SHA.
+
+## Release fixture publisher contention — 2026-10-25
+
+A hosted all-tests invocation exposed the documented nonblocking publisher busy
+error racing a background reader after directory replacement. The fixture now
+retries only that error with a five-second bound and awaits delivery separately;
+production code, accepted requirements and map roles are unchanged.
+`dreams.feed.read/shared_snapshot`, `freshness_and_expiry`, `errors` and `lifetime`
+retain their semantics. The current test binding is refreshed while the failed
+hosted observation remains historical. [Source and checks](keyword-feed/validation/2026-10-25-publisher-contention/README.md).

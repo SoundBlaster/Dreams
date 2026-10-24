@@ -2,9 +2,10 @@
 
 Base main: `76378005de72b6ecf0f066ae1f0210b55a36aea9`, after merging PRs #59–64.
 VERSION and the Claude/Codex plugin manifests advance together to 0.1.11.
-This preparation changes release metadata only; existing runtime, source bindings,
-Hypercode roles/profiles and SpecPM claims remain applicable without modification.
-`Spec-ID: NO-SPEC-IMPACT`. Packaging itself remains outside recovered coverage.
+The version bump itself has `Spec-ID: NO-SPEC-IMPACT`. A subsequent hosted failure
+required a [reader-fixture contention correction](../../../keyword-feed/validation/2026-10-25-publisher-contention/README.md).
+Its test binding is refreshed; production code, Hypercode roles/profiles and
+requirements remain unchanged. Packaging remains outside recovered coverage.
 
 The source identity and local metadata/structure checks are recorded in
 `checks.json`. Historical app, Metal, simulator and UI observations keep their

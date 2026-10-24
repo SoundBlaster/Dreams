@@ -1,0 +1,56 @@
+{
+  "testSourceRevision": "9edaa7f3706743c95b70164232a80a996d4840af",
+  "productionCodeChanged": false,
+  "checks": [
+    {
+      "command": "rtk proxy env DREAMS_SWIFT_SCRATCH_PATH=<verified TB5 SwiftPM build> DREAMS_SWIFT_CACHE_PATH=<verified TB5 cache> zsh scripts/swift-macos.sh test -c release --filter KeywordFeedReaderTests",
+      "exitCode": 0,
+      "log": "logs/reader-regression.log.gz",
+      "rawSHA256": "3671aefe3203af70951650eee98621b5a48c54294366736c9e7dede0a3212210",
+      "archiveSHA256": "12b21cae38152c7ab768a35e17843c291e2a5bc8952a63bc0b13c8f707eb4f93"
+    },
+    {
+      "command": "10 repeated same-source --skip-build KeywordFeedReaderTests runs, same wrapper and TB5 paths",
+      "exitCode": 0,
+      "log": "logs/reader-repeat.log.gz",
+      "rawSHA256": "139847ae03b3a79fb5c3319c613e218767bd6be6be8954243089dd9fb7b7e056",
+      "archiveSHA256": "a7e2f9cfb001ef0072703da7db05380d2c4569b99ed41c39c736e9d0a81648ac"
+    },
+    {
+      "command": "rtk proxy make test-settings (local PATH adapter adds --scratch-path and --cache-path to Swift invocations)",
+      "exitCode": 0,
+      "log": "logs/settings-final.log.gz",
+      "rawSHA256": "02efaca2f3e16bbf8c9584786c48e6ab1ebf8013c87eac6995ad91a9d3be4e56",
+      "archiveSHA256": "38725ff79394e42e507b91b1a29721427e968ec80d0876dc090c54916f7b5201"
+    },
+    {
+      "command": "rtk proxy make lint (per-process TB5 Python/Ruff paths; existing FSD tooling)",
+      "exitCode": 0,
+      "log": "logs/lint-final.log.gz",
+      "rawSHA256": "dff3ea57197fe942f11efe8105bd615c8cd86bdbb3b275c62bb0d1817c33a2c1",
+      "archiveSHA256": "f0e4eff5d2fff9cc087482073eeed2a5c3315b5b3471561f3e344ddc19b008b8"
+    },
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/specs-final.log.gz",
+      "rawSHA256": "0bb5b041dc22dddf7170b3a06718651c13c540d96dcd4a6a599a45ff102d21aa",
+      "archiveSHA256": "9f383d7742e3e1848e44e052f30348939f8d7aef5518834242b879bd9ed1ea7a"
+    }
+  ],
+  "tools": {
+    "specpm": "specpm 0.2.0",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "mapHashes": {
+    "specs/hypercode/keyword-feed.hc": "196bf28779d9b9a32fe9c7c46f0cf273ea9eeb704c829b0ddb5b6659291881d2",
+    "specs/hypercode/keyword-feed.hcs": "06320a070b6f95145e25ed10a9c823501e1ba435aba26eaba2bb34a8fc1c9f72"
+  },
+  "historicalFailure": {
+    "run": 40135742996,
+    "source": "62db429637deb4b5a25cb5daf3722df348d4f3f9",
+    "log": "historical-ci-failure.log.gz",
+    "reason": "Nonblocking publisher lock contention escaped the directory-replacement fixture."
+  },
+  "diagnostics": "101 tests in 24 suites passed; GPU/UI opt-ins retain their skips. Ten focused reader runs passed. Lint/docs and HC/SpecPM profiles passed with existing configuration/platform-capability warnings. Final pushed-head CI remains separately required."
+}
