@@ -119,17 +119,16 @@ struct KeywordFeed: Sendable {
         }
     }
 
-    func snapshot() throws -> [KeywordMessage] { try withLock { try readAndPrune() } }
+    func snapshot(at now: Date = Date()) throws -> [KeywordMessage] { try withLock { try readAndPrune(at: now) } }
 
     private func fileURL(_ sessionID: String) -> URL {
         let name = SHA256.hash(data: Data(sessionID.utf8)).map { String(format: "%02x", $0) }.joined()
         return directory.appendingPathComponent(name + ".json")
     }
 
-    private func readAndPrune() throws -> [KeywordMessage] {
+    private func readAndPrune(at now: Date = Date()) throws -> [KeywordMessage] {
         let urls = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: [.fileSizeKey])
         var messages: [KeywordMessage] = []
-        let now = Date()
         for url in urls where url.pathExtension == "json" {
             let size = (try? url.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? Int.max
             guard size <= 8192,
