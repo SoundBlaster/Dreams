@@ -69,6 +69,12 @@ final class RainPreviewView: MTKView {
     override func viewDidHide() { super.viewDidHide(); refreshVisibility() }
     override func viewDidUnhide() { super.viewDidUnhide(); refreshVisibility() }
 
+    /// A reused window can reopen before AppKit emits another didBecomeKey notification.
+    func windowDidReopen() {
+        closing = false
+        refreshVisibility()
+    }
+
     func refreshVisibility() {
         let visible = window.map { $0.isVisible && !$0.isMiniaturized && $0.occlusionState.contains(.visible) } ?? false
         session?.visibilityChanged(visible && !closing && !isHiddenOrHasHiddenAncestor && !NSApp.isHidden, for: self)

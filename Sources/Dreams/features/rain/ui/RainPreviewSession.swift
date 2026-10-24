@@ -43,6 +43,11 @@ final class RainPreviewSession: NSObject, MTKViewDelegate {
         setVisible(visible)
     }
 
+    func windowDidReopen() {
+        (view as? RainPreviewView)?.windowDidReopen()
+        refresh()
+    }
+
     func setVisible(_ visible: Bool) {
         guard isVisible != visible else { return }
         isVisible = visible

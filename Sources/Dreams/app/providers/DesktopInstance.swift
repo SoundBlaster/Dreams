@@ -9,11 +9,14 @@ final class DesktopInstance {
 
         init(arguments: [String]) {
             let independent = ["--performance-run", "--performance-calibration", "--performance-feed", "--hook",
-                "--install-hooks", "--uninstall-hooks", "--hooks-status", "--fixture-events", "--publish", "--render-demo"]
-            if arguments.contains(where: independent.contains)
-                || (arguments.contains("--mcp") && arguments.contains("--publisher")) {
+                "--install-hooks", "--uninstall-hooks", "--hooks-status", "--fixture-events", "--publish"]
+            if arguments.contains(where: independent.contains) {
                 self = .independent
-            } else if arguments.contains("--mcp") || arguments.contains("--lab") {
+            } else if arguments.contains("--mcp") {
+                self = arguments.contains("--publisher") ? .independent : .controller
+            } else if arguments.contains("--render-demo") {
+                self = .independent
+            } else if arguments.contains("--lab") {
                 self = .controller
             } else {
                 self = .interactive
