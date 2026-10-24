@@ -53,9 +53,10 @@ enum DreamsMain {
         if mode != .independent {
             do {
                 let candidate = try DesktopInstance()
-                let existing = DesktopInstance.existingGUI()
-                let acquired = try (existing == nil && candidate.acquire())
-                guard acquired else {
+                let acquired = try candidate.acquire()
+                let existing = acquired ? DesktopInstance.existingGUI() : nil
+                guard acquired && existing == nil else {
+                    candidate.release()
                     if mode == .interactive { try await DesktopInstance.reopen(existing) }
                     else {
                         let message = "Dreams: another desktop instance is running. "
