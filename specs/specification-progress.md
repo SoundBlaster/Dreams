@@ -977,3 +977,14 @@ motion/search/pulse contracts remain unchanged. [Dated evidence](tvos/validation
 The owner's A8 observation isolates Glow as a substantial cost; it does not
 establish GPU versus CPU attribution or a guaranteed frame rate. Measured
 comparison and a cheaper glow implementation remain backlog.
+
+## FPS inside rain cells — 2026-10-24
+
+Owner clarification replaces pixel-positioned overlay geometry with reserved
+rain cells on macOS and tvOS. `dreams.rain.fps` constraints.appearance and parent
+renderer assembly change; cadence/opt-in/lifetime semantics remain unchanged.
+[Current validation](fps/validation/2026-10-24-grid/README.md). Historical screenshots
+of the separate overlay do not establish the new grid placement. Paused-preview
+UI interaction could not be verified by the bounded simulator attempt; only a
+running rain frame was observed, distinct from the passing TV unit tests and
+physical install/launch.

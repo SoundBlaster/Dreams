@@ -1,0 +1,35 @@
+{
+  "sourceRevision": "869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/model/PresentedFPS.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/model/PresentedFPS.swift",
+      "sha256": "8a5f0c70c0f24bc22b6ff1d837fef22627099d8c7d2778f2384befa4832e6928",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/FPSOverlay.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift",
+      "sha256": "0f4e20128626b1024d5da1290ee16cb128ba857eae0baf92e6656acefd3fc13b",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "84e811cc460d2f53cd83bd220f1a5436581f3645f64fab8efc486b95f603a32e",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "6157b67ddb8fb3266dafa01a72b40861bb291d2316b2dc3e673d79e8c2d3262b",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/PresentedFPSTests.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/Tests/DreamsTests/PresentedFPSTests.swift",
+      "sha256": "cfdd320fe9ad12894e77f9ea3b1da344e9e28be3de2cd1f6d471ea7f09f775be",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

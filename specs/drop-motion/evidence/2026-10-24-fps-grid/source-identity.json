@@ -1,0 +1,17 @@
+{
+  "sourceRevision": "869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "84e811cc460d2f53cd83bd220f1a5436581f3645f64fab8efc486b95f603a32e",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "a3918ed8761a20677f8633f3cf9242b6a3499f27691b53494a484635f6d50006",
+      "snapshotKind": "full-file"
+    }
+  ]
+}

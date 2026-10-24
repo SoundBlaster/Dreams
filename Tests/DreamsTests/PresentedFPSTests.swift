@@ -3,6 +3,16 @@ import MetalKit
 @testable import Dreams
 
 struct PresentedFPSTests {
+    @Test func reservesActualVisibleGridCells() throws {
+        let grid = try #require(FPSGrid(columns: 160, rows: 90, visibleColumns: 40, row: 5))
+        #expect(grid.contains(column: 36, row: 5))
+        #expect(grid.contains(column: 38, row: 5))
+        #expect(!grid.contains(column: 39, row: 5))
+        #expect(!grid.contains(column: 38, row: 4))
+        #expect(grid.rect(column: 38).z == FPSGrid.glyphWidth / 160)
+        #expect(FPSGrid(columns: 160, rows: 90, visibleColumns: 4) == nil)
+    }
+
     @Test func measuresIntervalsAndUpdatesOncePerSecond() {
         let counter = PresentedFPS()
         let generation = counter.generation
@@ -33,7 +43,7 @@ struct PresentedFPSTests {
         let queue = try #require(device.makeCommandQueue())
         let command = try #require(queue.makeCommandBuffer())
         let encoder = try #require(command.makeRenderCommandEncoder(descriptor: pass))
-        overlay.draw(30, encoder: encoder, size: SIMD2(320, 180))
+        overlay.draw(30, encoder: encoder, grid: try #require(FPSGrid(columns: 16, rows: 9)))
         encoder.endEncoding()
         await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
             command.addCompletedHandler { _ in continuation.resume() }
@@ -46,7 +56,7 @@ struct PresentedFPSTests {
         }
         let ink = (0..<(320 * 180)).filter { pixels[$0 * 4] > 100 }
         #expect(ink.count > 50)
-        #expect(ink.allSatisfy { $0 % 320 > 240 && $0 / 320 >= 32 && $0 / 320 < 72 })
+        #expect(ink.allSatisfy { $0 % 320 > 240 && $0 / 320 >= 16 && $0 / 320 < 44 })
     }
 
     @Test func resetRejectsPendingCallbacksAndInvalidTimestamps() {

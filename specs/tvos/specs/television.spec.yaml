@@ -122,7 +122,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: abc78f11d722f3086ff656c8c63d631b9cfb6547
+    revision: 7dfe2ac8c33601aa2560c14d4b13a671d4fb4070
   files:
     owned:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift
@@ -131,7 +131,7 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift
     - evidence/2026-10-24-safe-identifier/source/tvOS/Sources/features/matrix/model/RainSettings.swift
-    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-10-24-fps-grid/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift

@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.rain.fps
   title: OptionalFrameCadenceReadout
-  version: 0.1.0-draft.2
+  version: 0.1.0-draft.3
   status: draft
 intent:
   summary: Let viewers inspect rain cadence without an external debugger.
@@ -17,7 +17,7 @@ provides:
   capabilities:
   - id: dreams.rain.fps
     role: primary
-    summary: Optional right-aligned numeric FPS readout in the upper-right corner.
+    summary: Optional right-aligned FPS digits in reserved cells of the rain grid.
 requires:
   capabilities:
   - id: platform.apple.metal_renderer
@@ -59,8 +59,14 @@ constraints:
   statement: Reset the sampling window when toggling or resuming the TV renderer or settings preview. Reject callbacks from earlier generations. Requested paused TV stills exclude FPS callbacks and readout. Keep state synchronized across Metal callback threads and the main renderer. A disabled readout is absent immediately; retained atlas resources can be reused on re-enable.
 - id: appearance
   level: MUST
-  statement: Use unmirrored DreamsMatrix-Regular digits with fixed spacing and a fixed right edge. Draw pale ink with a dark offset shadow through the existing Metal pass, without rain pulse, mutation, random brightness or glow. Preserve rain scale; anchor to actual drawable size even in a cropped settings preview, below its playback button. The offline PNG path does not add a live counter.
+  statement: Use unmirrored DreamsMatrix-Regular digits in three reserved rain cells, inset one complete row and column from the visible grid edge. Match the rain's quad size and spacing exactly; no independent pixel sizing, shadow or viewport. Skip the corresponding rain cores and halos without mutating simulation cells. Keep constant pale ink without pulse or mutation. Right-align up to three digits inside those cells. In a cropped macOS preview reserve cells relative to its visible full columns, below playback controls, while preserving production scale. A viewport narrower than five whole columns omits the counter. Offline PNGs omit it.
 evidence:
+- id: grid_validation
+  kind: test
+  path: validation/2026-10-24-grid/README.md
+  supports:
+  - constraints.appearance
+  - constraints.cadence
 - id: paused_tv_validation
   kind: test
   path: validation/2026-10-24-paused-preview.md
@@ -70,7 +76,8 @@ evidence:
   kind: test
   path: validation/2026-10-24/README.md
   supports:
-  - constraints
+  - constraints.cadence
+  - constraints.opt_in
 provenance:
   sourceConfidence:
     intent: high
@@ -83,13 +90,13 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 734bb95772389f91f66cec07bb2ab11647d90d57
+    revision: 869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9
   files:
     owned:
-    - evidence/2026-10-24/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
-    - evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift
-    - evidence/2026-10-24/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
-    - evidence/2026-10-24/source/Tests/DreamsTests/PresentedFPSTests.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift
+    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-24-fps-grid/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-10-24-fps-grid/source/Tests/DreamsTests/PresentedFPSTests.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Tests/RainParityTests.swift
     border: []
