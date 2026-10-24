@@ -35,3 +35,30 @@ final class PresentedFPS: Sendable {
         }
     }
 }
+
+/// Three reserved cells, inset one row/column from the visible rain grid edge.
+struct FPSGrid: Equatable {
+    static let glyphWidth: Float = 1.30 * (22.0 / 30.0) / (38.0 / 46.0)
+    let columns: Int
+    let rows: Int
+    let row: Int
+    let endColumn: Int
+
+    init?(columns: Int, rows: Int, visibleColumns: Int? = nil, row: Int = 1) {
+        let visible = min(columns, visibleColumns ?? columns)
+        guard visible >= 5, rows >= 3, row >= 0, row < rows else { return nil }
+        self.columns = columns
+        self.rows = rows
+        self.row = row
+        endColumn = visible - 1
+    }
+
+    func contains(column: Int, row: Int) -> Bool {
+        row == self.row && (endColumn - 3..<endColumn).contains(column)
+    }
+
+    func rect(column: Int) -> SIMD4<Float> {
+        SIMD4((Float(column) + (1 - Self.glyphWidth) / 2) / Float(columns),
+              (Float(row) - 0.16) / Float(rows), Self.glyphWidth / Float(columns), 1.32 / Float(rows))
+    }
+}
