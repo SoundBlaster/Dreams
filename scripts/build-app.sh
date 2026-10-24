@@ -3,8 +3,9 @@ set -euo pipefail
 dreams_root="${0:A:h:h}"
 cd "$dreams_root"
 dreams_configuration="${1:-release}"
-.venv/bin/python scripts/glyphs/pipeline.py build
-cp research/glyphs/build/DreamsMatrix.ttf Sources/Dreams/DreamsMatrix.ttf
+dreams_glyph_output="${DREAMS_GLYPH_OUTPUT:-$dreams_root/research/glyphs/build}"
+.venv/bin/python scripts/glyphs/pipeline.py build --out "$dreams_glyph_output"
+cp "$dreams_glyph_output/DreamsMatrix.ttf" Sources/Dreams/DreamsMatrix.ttf
 zsh "$dreams_root/scripts/swift-macos.sh" build -c "$dreams_configuration" --product Dreams
 dreams_bin="$(zsh "$dreams_root/scripts/swift-macos.sh" build -c "$dreams_configuration" --show-bin-path)"
 dreams_app="$dreams_root/dist/Dreams.app"

@@ -197,3 +197,22 @@
 "palette.pink" = "Pink";
 "palette.red" = "Red";
 "palette.white" = "White";
+
+"appMenu.about" = "About Dreams";
+"appMenu.settings" = "Settings…";
+"appMenu.services" = "Services";
+"appMenu.hide" = "Hide Dreams";
+"appMenu.hideOthers" = "Hide Others";
+"appMenu.showAll" = "Show All";
+"appMenu.edit" = "Edit";
+"appMenu.undo" = "Undo";
+"appMenu.redo" = "Redo";
+"appMenu.cut" = "Cut";
+"appMenu.copy" = "Copy";
+"appMenu.paste" = "Paste";
+"appMenu.selectAll" = "Select All";
+"appMenu.window" = "Window";
+"appMenu.close" = "Close Window";
+"appMenu.minimize" = "Minimize";
+"appMenu.zoom" = "Zoom";
+"appMenu.bringAllToFront" = "Bring All to Front";
