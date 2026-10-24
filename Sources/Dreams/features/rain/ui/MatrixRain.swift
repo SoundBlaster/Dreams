@@ -1,6 +1,7 @@
 import AppKit
 import CoreText
 import Metal
+import QuartzCore
 
 /// Instanced fixed glyphs: independent cursors type downward into a persistent grid.
 @MainActor
@@ -120,7 +121,9 @@ final class MatrixRain {
               deceleration: MatrixSimulation.Deceleration = .init(), searchFraction: Double = 0.1,
               pulseStrength: Double = 0.3,
               keywordTint: SIMD3<Float> = SIMD3(0.10, 0.65, 0.24), keywordBrightness: Double = 1,
-              rainTint: SIMD3<Float> = SIMD3(0.008, 0.26, 0.055)) {
+              rainTint: SIMD3<Float> = SIMD3(0.008, 0.26, 0.055),
+              measurement: RainFrameMeasurement? = nil) {
+        let feedBegan = measurement.map { _ in CACurrentMediaTime() }
         let now = ProcessInfo.processInfo.systemUptime
         if now >= nextRefresh {
             if let snapshot = try? feed.snapshot() { messages = snapshot }
@@ -139,6 +142,7 @@ final class MatrixRain {
             }
             nextRefresh = now + 1
         }
+        if let feedBegan { measurement?.feedSeconds = CACurrentMediaTime() - feedBegan }
         let active = messages.filter { $0.expiresAt > Date() && $0.isWorking }
         let t = previewTime ?? Float(now - began)
         let time = Double(t)
@@ -196,8 +200,11 @@ final class MatrixRain {
         pendingEvents.removeAll()
         // Event streams are one-shot packets and ignore the coverage; ordinary columns re-draw
         // whether they rain at the end of every pass.
+        let simulationBegan = measurement.map { _ in CACurrentMediaTime() }
         simulation!.advance(to: simulationClock, coverage: activity.coverage(at: time, density: density),
                             mutationRate: 1 + 2 * mutationPressure)
+        if let simulationBegan { measurement?.simulationSeconds = CACurrentMediaTime() - simulationBegan }
+        let instancesBegan = measurement.map { _ in CACurrentMediaTime() }
         let cycle = Int(simulationClock / 16)
         if cycle != selectionCycle || selections.isEmpty {
             selections.removeAll()
@@ -273,7 +280,7 @@ final class MatrixRain {
                 rgb = rgb * (1 - white) + SIMD3<Float>(0.86, 0.96, 0.88) * white
                 let wordExposure: Float = isKeyword ? Float(min(2, max(0, keywordBrightness))) : 1
                 rgb *= wordExposure
-                let uv = glyph(text, keyword: isKeyword && !mutating)
+                let uv = glyph(text, keyword: isKeyword && !mutating, measurement: measurement)
                 // Atlas cells have internal side bearings: let quads overlap those empty
                 // margins so visible ink nearly touches while glyphs remain large.
                 // Film reference: 22:30 versus the font's 38:46. Narrow the ink
@@ -295,20 +302,29 @@ final class MatrixRain {
                 cells.append(Cell(rect: rect, uv: uv, color: SIMD4(rgb * exposure, glyphAlpha)))
             }
         }
+        if let instancesBegan { measurement?.instancesSeconds = CACurrentMediaTime() - instancesBegan }
+        measurement?.coreInstances = cells.count
+        measurement?.haloInstances = halos.count
+        measurement?.columns = columns
+        measurement?.rows = rows
         guard !cells.isEmpty else { return }
+        let encodingBegan = measurement.map { _ in CACurrentMediaTime() }
         encoder.setRenderPipelineState(glowPipeline)
-        encode(halos, texture: glowAtlas, encoder: encoder, time: t, noise: 0, diffuse: true)
+        encode(halos, texture: glowAtlas, encoder: encoder, time: t, noise: 0, diffuse: true, measurement: measurement)
         encoder.setRenderPipelineState(pipeline)
-        encode(cells, texture: atlas, encoder: encoder, time: t, noise: 0.7)
+        encode(cells, texture: atlas, encoder: encoder, time: t, noise: 0.7, measurement: measurement)
+        if let encodingBegan { measurement?.encodingSeconds = CACurrentMediaTime() - encodingBegan }
     }
 
     private func encode(_ cells: [Cell], texture: any MTLTexture, encoder: any MTLRenderCommandEncoder,
-                        time: Float, noise: Float, diffuse: Bool = false) {
+                        time: Float, noise: Float, diffuse: Bool = false, measurement: RainFrameMeasurement? = nil) {
         guard !cells.isEmpty else { return }
         let buffer = cells.withUnsafeBytes { bytes in
             device.makeBuffer(bytes: bytes.baseAddress!, length: bytes.count, options: .storageModeShared)
         }
         guard let buffer else { return }
+        measurement?.bufferCreations += 1
+        measurement?.bufferBytes += cells.count * MemoryLayout<Cell>.stride
         encoder.setVertexBuffer(buffer, offset: 0, index: 0)
         encoder.setFragmentTexture(texture, index: 0)
         var parameters = SIMD4<Float>(time, noise, diffuse ? 1 : 0, transparentBackground ? 1 : 0)
@@ -321,10 +337,11 @@ final class MatrixRain {
         return value - floor(value)
     }
 
-    private func glyph(_ text: String, keyword: Bool) -> SIMD4<Float> {
+    private func glyph(_ text: String, keyword: Bool, measurement: RainFrameMeasurement? = nil) -> SIMD4<Float> {
         let key = (keyword ? "word:" : "code:") + text
         if let cached = glyphs[key] { return cached }
         guard glyphs.count < 1024 else { return glyphs["word:?"]! }
+        measurement?.glyphRasterizations += 1
         let width = 64, height = 64
         let font = keyword ? wordFont : matrixFont
         let line = CTLineCreateWithAttributedString(NSAttributedString(string: text,

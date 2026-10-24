@@ -31,3 +31,7 @@ SettingsCatalog:
   source: "Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog/app/entrypoint/DreamsSettingsCatalogApp.swift"
   detail: "settings-catalog.hc + settings-catalog.hcs"
   assembly: "standalone-app; production links UI library only, not catalog executable"
+PerformanceProbe:
+  source: "Sources/Dreams/app/providers/PerformanceRun.swift"
+  detail: "performance.hc + performance.hcs"
+  scope: "opt-in-bounded-macOS-windowed-probe; no-tvOS-or-fullscreen-acceptance"

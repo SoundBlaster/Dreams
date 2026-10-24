@@ -62,3 +62,8 @@ Other shader/atlas rendering and physical desktop compositing remain unexplored.
 The television detail covers shared motion/search/pulse adoption and native remote
 settings. Validate default and `clock=hidden`. Desktop contracts continue to exclude
 TV; a shared source does not transfer macOS execution evidence or acceptance.
+
+The [performance probe](performance.hc) / [properties](performance.hcs) describes
+opt-in bounded developer measurements separately from ordinary overlay/settings
+lifecycle. [Draft contract](../performance/README.md) and current evidence disclose
+hardware/profile limits; instrumentation does not establish optimization gains.

@@ -1,0 +1,9 @@
+Building for production...
+[Computing dependencies]
+Build complete! (0.41 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀙟  Suite RainTrailRenderingTests skipped.
+􀙟  Test captureTrailMotion() skipped.
+􁁛  Test run with 1 test in 1 suite passed after 0.001 seconds.

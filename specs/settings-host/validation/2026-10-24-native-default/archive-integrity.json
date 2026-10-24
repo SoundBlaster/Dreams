@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "path": "logs/dreams-native-default-build-tests.log.gz",
+      "rawSHA256": "00c20155dd2aa573c87bcfb879a769c80733fde09d22fac810b8f691e39a5268",
+      "archiveSHA256": "56938bfd466653a2c348bec97739d73bb0f278616a6a5fda26d7d92cf696f359"
+    },
+    {
+      "path": "logs/dreams-native-default-regression.log.gz",
+      "rawSHA256": "a8068ceeb723f830d2c3a1e621a6f8209b6368c2af51e42cd960a4ff5a7b1f89",
+      "archiveSHA256": "f11096facb6c9c26a1b764630189650ca2c34cff2b74e9b1244a380ae71df206"
+    },
+    {
+      "path": "logs/dreams-native-default-lint.log.gz",
+      "rawSHA256": "04ca028e40af252764b5e6e307d33eecb9c4d3bf44e852f8897124adcb2b3b00",
+      "archiveSHA256": "31e8e0d62e22ac9f79ef178ad205f5c2a7359a204553c54d8bbfd5bec476e6d7"
+    },
+    {
+      "path": "logs/dreams-native-default-specs.log.gz",
+      "rawSHA256": "22125605638c853a5cadb28724ef4f65189534ec832a72f22778f6e16eaa0421",
+      "archiveSHA256": "37730a7e38daabe526a6ecc6f86bd43248fd28ff67373d2f81d36cbfdf2032cb"
+    }
+  ]
+}

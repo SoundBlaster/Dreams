@@ -1,0 +1,11 @@
+{
+  "runtimeRevision": "210e6f19a36fb4ce94e4ce72438bdf070f64d526",
+  "previousBinarySHA256": "33f13443cf64744a66fb7907a51bf641b0dfc811466a8f2329b9594e12b574ed",
+  "installedBinarySHA256": "4505b3d359e963600dc5ea5554f86a35ce0b06d311a238b17818b2743143ddc3",
+  "installedVersion": "0.1.9",
+  "backup": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/installation/Dreams-before-native-default.app",
+  "previousBundle": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/installation/previous-active-bundle.app",
+  "installedPath": "/Applications/Dreams.app",
+  "launchArguments": [],
+  "signing": "local ad-hoc build; not a release/notarization claim"
+}

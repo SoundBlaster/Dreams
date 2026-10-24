@@ -1,0 +1,21 @@
+{
+  "appPath": "/Applications/Dreams.app",
+  "installedVersion": "0.1.9",
+  "installedBinarySHA256": "4505b3d359e963600dc5ea5554f86a35ce0b06d311a238b17818b2743143ddc3",
+  "observedProcess": "/Applications/Dreams.app/Contents/MacOS/Dreams",
+  "explicitSettingsArguments": false,
+  "observedNativeWindowIdentifier": "dreams.native-settings",
+  "observedSidebar": [
+    "General",
+    "Appearance",
+    "Rain",
+    "Background",
+    "Agent words",
+    "Displays",
+    "Advanced"
+  ],
+  "verificationMethod": "CUA accessibility state of /Applications/Dreams.app after ordinary open, not a test-only fixture.",
+  "existingNonSystemPreferenceKeysChecked": 15,
+  "changedExistingNonSystemPreferenceKeys": [],
+  "signing": "Local ad-hoc build; no notarization/release claim."
+}

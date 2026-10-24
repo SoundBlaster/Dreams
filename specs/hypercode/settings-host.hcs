@@ -3,7 +3,7 @@ SettingsPage:
   capability: "dreams.settings.host"
 LaunchRouting:
   source: "Sources/Dreams/shared/config/NativeSettingsFeature.swift"
-  default: "legacy unless --native-settings; --legacy-settings always wins"
+  default: "native; --legacy-settings always wins; --native-settings remains a compatible alias"
 NativePresentation:
   source: "Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift"
   minimum: "macOS 15; system material settings surfaces over one window-local live Metal backdrop"

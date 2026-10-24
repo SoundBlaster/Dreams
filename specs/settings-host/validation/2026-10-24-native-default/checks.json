@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-24",
+  "sourceRevision": "b541faf740c47658273e1b588829f1e17e645d3d",
+  "runtimeRevision": "210e6f19a36fb4ce94e4ce72438bdf070f64d526",
+  "workingTreeScope": "Current maps/contracts/docs and source evidence are staged on this source. Runtime source is identical to installed build; hashes identify dirty validation inputs.",
+  "tools": {
+    "specpm": "specpm 0.2.0",
+    "hypercodePath": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "commands": [
+    {
+      "command": "rtk proxy env DREAMS_FSD_TOOLING_DIR=/Users/egor/Development/GitHub/Dreams/.fsd-ios-tooling PYTHONPYCACHEPREFIX=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/bytecode RUFF_CACHE_DIR=/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/python/ruff make lint",
+      "exitCode": 0,
+      "log": "logs/dreams-native-default-lint.log.gz",
+      "diagnostics": "Architecture/SwiftLint/Ruff/shell and relative links in 134 Markdown files pass. Existing unused_import analyzer_rules warning."
+    },
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/dreams-native-default-specs.log.gz",
+      "diagnostics": "HC parse/profiles and SpecPM validation pass with existing external/platform capability warnings."
+    },
+    {
+      "command": "rtk proxy git diff --cached --check",
+      "exitCode": 0
+    }
+  ],
+  "sourceAudit": "source-audit.json",
+  "runtimeTests": [
+    "build-tests.json",
+    "regression.json"
+  ],
+  "installedUI": "ui-verification.json",
+  "inputs": [
+    {
+      "path": "specs/settings-host/specs/host.spec.yaml",
+      "sha256": "3b6a0a51356f91183746940f39c84406ba5903ead84ab13e2e8b2e1b53bfb9f7"
+    },
+    {
+      "path": "specs/settings-host/specpm.yaml",
+      "sha256": "17f24d673ade8292c632c9af5689ee5f4b4cdfcd95497f7929acc58bf981d8f9"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hc",
+      "sha256": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e"
+    },
+    {
+      "path": "specs/hypercode/settings-host.hcs",
+      "sha256": "e5e88c2464576834ea8b9318b34aa7711a37a2eb8db7ae4604e86beea03bb079"
+    },
+    {
+      "path": "specs/specification-progress.md",
+      "sha256": "9bb0ebf57406fe7cfb689806384ff1b858a7eaefd59b47eec6397a328f3abe1a"
+    },
+    {
+      "path": "specs/settings-host/README.md",
+      "sha256": "30a4707d6824204061a9f7b93e3e829776c0ff66633168f2888219d787002580"
+    },
+    {
+      "path": "Packages/DreamsSettingsUI/README.md",
+      "sha256": "eb17e8585a937eb757c81409d4b8b8a26d6daa05669e081624703bd62981d2f8"
+    },
+    {
+      "path": "specs/settings-host/validation/2026-10-24-native-default/README.md",
+      "sha256": "00396f852042d7d9e3fbedca9bade2ae1295d9c776484bac9d7ee3d5cd233fcd"
+    }
+  ],
+  "acceptance": "Owner-authorized default route verified in installed macOS app. Full VoiceOver/visual/compositor/performance/macOS15/physical-tvOS acceptance remains separate."
+}

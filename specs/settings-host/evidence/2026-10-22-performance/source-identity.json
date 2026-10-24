@@ -1,0 +1,15 @@
+{
+  "sourceRevision": "6cc029cc0f7755365e97f6a405b44163bc2ece87",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/ui/RainRenderer.swift",
+      "sha256": "eade09198977479a9c682522e9ea0515941bc3d2c6e31bb8728cc7cb450b658c",
+      "snapshot": "evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/ui/RainRenderer.swift"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/RainPerformance.swift",
+      "sha256": "a51be1dd14fb34de712be5f20a21c0f1282b421f8c2aa472c3a178cddf733b2f",
+      "snapshot": "evidence/2026-10-22-performance/source/Sources/Dreams/features/rain/model/RainPerformance.swift"
+    }
+  ]
+}

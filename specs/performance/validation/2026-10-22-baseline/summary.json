@@ -1,0 +1,381 @@
+{
+  "scope": "macOS windowed1920x1080 production renderer; empty isolated feed; instrumentation overhead uncalibrated",
+  "complete": true,
+  "identities": [
+    {
+      "revision": "6cc029cc0f7755365e97f6a405b44163bc2ece87",
+      "binarySHA256": "94602f8a1cebfb7385c97243a86c76fdb6fea7266a235b9050558e1a71ec90b9"
+    }
+  ],
+  "runs": [
+    {
+      "round": 1,
+      "scenario": "normal",
+      "valid": true,
+      "frames": 1696,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 4.592541721649468,
+      "simulationP95ms": 1.4887916622683406,
+      "instancesP95ms": 2.4892916553653777,
+      "gpuP95ms": 7.359999988693744,
+      "presentationP99ms": 49.99966669129208,
+      "observedFPS": 28.15831936707919,
+      "over50ms": 13,
+      "over100ms": 0
+    },
+    {
+      "round": 1,
+      "scenario": "dense",
+      "valid": true,
+      "frames": 1712,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 5.753125005867332,
+      "simulationP95ms": 1.2603749637492,
+      "instancesP95ms": 4.048208356834948,
+      "gpuP95ms": 7.124833355192095,
+      "presentationP99ms": 49.99962501460686,
+      "observedFPS": 28.26954833139108,
+      "over50ms": 11,
+      "over100ms": 0
+    },
+    {
+      "round": 1,
+      "scenario": "dense-no-glow",
+      "valid": true,
+      "frames": 1786,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 6.6958750248886645,
+      "simulationP95ms": 1.8431666539981961,
+      "instancesP95ms": 4.472541681025177,
+      "gpuP95ms": 3.726750030182302,
+      "presentationP99ms": 45.83300004014745,
+      "observedFPS": 29.68427878004075,
+      "over50ms": 2,
+      "over100ms": 0
+    },
+    {
+      "round": 2,
+      "scenario": "dense",
+      "valid": true,
+      "frames": 1729,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 6.488458369858563,
+      "simulationP95ms": 1.388499978929758,
+      "instancesP95ms": 4.646291665267199,
+      "gpuP95ms": 7.032083347439766,
+      "presentationP99ms": 49.99970830976963,
+      "observedFPS": 28.589786290028904,
+      "over50ms": 17,
+      "over100ms": 0
+    },
+    {
+      "round": 2,
+      "scenario": "dense-no-glow",
+      "valid": true,
+      "frames": 1701,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 6.045208312571049,
+      "simulationP95ms": 1.502791652455926,
+      "instancesP95ms": 4.168791696429253,
+      "gpuP95ms": 3.3657916355878115,
+      "presentationP99ms": 54.16620831238106,
+      "observedFPS": 28.093611386286742,
+      "over50ms": 20,
+      "over100ms": 0
+    },
+    {
+      "round": 2,
+      "scenario": "normal",
+      "valid": true,
+      "frames": 1691,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 5.050875013694167,
+      "simulationP95ms": 1.8034166423603892,
+      "instancesP95ms": 2.666125015821308,
+      "gpuP95ms": 6.9651249796152115,
+      "presentationP99ms": 54.16620831238106,
+      "observedFPS": 28.145410666177092,
+      "over50ms": 22,
+      "over100ms": 0
+    },
+    {
+      "round": 3,
+      "scenario": "dense-no-glow",
+      "valid": true,
+      "frames": 1701,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 6.457999988924712,
+      "simulationP95ms": 1.6807916690595448,
+      "instancesP95ms": 4.285500035621226,
+      "gpuP95ms": 3.444249974563718,
+      "presentationP99ms": 49.99962501460686,
+      "observedFPS": 28.237486167328736,
+      "over50ms": 13,
+      "over100ms": 0
+    },
+    {
+      "round": 3,
+      "scenario": "normal",
+      "valid": true,
+      "frames": 1714,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 2.0693333353847265,
+      "simulationP95ms": 0.6677916971966624,
+      "instancesP95ms": 1.2304583215154707,
+      "gpuP95ms": 8.37120832875371,
+      "presentationP99ms": 54.166166693903506,
+      "observedFPS": 28.4121376784856,
+      "over50ms": 29,
+      "over100ms": 0
+    },
+    {
+      "round": 3,
+      "scenario": "dense",
+      "valid": true,
+      "frames": 1707,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 5.722625006455928,
+      "simulationP95ms": 1.1692083207890391,
+      "instancesP95ms": 4.2131666559726,
+      "gpuP95ms": 7.83137499820441,
+      "presentationP99ms": 49.99962501460686,
+      "observedFPS": 28.194710378142265,
+      "over50ms": 14,
+      "over100ms": 0
+    },
+    {
+      "round": 4,
+      "scenario": "normal",
+      "valid": true,
+      "frames": 1715,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 4.8310833517462015,
+      "simulationP95ms": 1.6789999790489674,
+      "instancesP95ms": 2.6447916752658784,
+      "gpuP95ms": 7.495375000871718,
+      "presentationP99ms": 54.16620831238106,
+      "observedFPS": 28.309373719147356,
+      "over50ms": 25,
+      "over100ms": 0
+    },
+    {
+      "round": 4,
+      "scenario": "dense",
+      "valid": true,
+      "frames": 1744,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 6.521041679661721,
+      "simulationP95ms": 1.4441250241361558,
+      "instancesP95ms": 4.5719583868049085,
+      "gpuP95ms": 6.918541679624468,
+      "presentationP99ms": 49.99962501460686,
+      "observedFPS": 28.909716284314538,
+      "over50ms": 13,
+      "over100ms": 0
+    },
+    {
+      "round": 4,
+      "scenario": "dense-no-glow",
+      "valid": true,
+      "frames": 1708,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 6.309208343736827,
+      "simulationP95ms": 1.531041692942381,
+      "instancesP95ms": 4.386666638310999,
+      "gpuP95ms": 3.4746250021271408,
+      "presentationP99ms": 49.99970836797729,
+      "observedFPS": 28.32734196051413,
+      "over50ms": 17,
+      "over100ms": 0
+    },
+    {
+      "round": 5,
+      "scenario": "dense",
+      "valid": true,
+      "frames": 1718,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 6.366750050801784,
+      "simulationP95ms": 1.4765416854061186,
+      "instancesP95ms": 4.499833332374692,
+      "gpuP95ms": 8.112541632726789,
+      "presentationP99ms": 54.16620837058872,
+      "observedFPS": 28.413666254164376,
+      "over50ms": 22,
+      "over100ms": 0
+    },
+    {
+      "round": 5,
+      "scenario": "dense-no-glow",
+      "valid": true,
+      "frames": 1703,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 2.8715416556224227,
+      "simulationP95ms": 0.7353333057835698,
+      "instancesP95ms": 1.903166703414172,
+      "gpuP95ms": 3.076041641179472,
+      "presentationP99ms": 54.16620831238106,
+      "observedFPS": 28.257034846265192,
+      "over50ms": 27,
+      "over100ms": 0
+    },
+    {
+      "round": 5,
+      "scenario": "normal",
+      "valid": true,
+      "frames": 1739,
+      "thermalStates": [
+        0
+      ],
+      "drawP95ms": 4.476250032894313,
+      "simulationP95ms": 1.455041696317494,
+      "instancesP95ms": 2.4763750261627138,
+      "gpuP95ms": 7.074041641317308,
+      "presentationP99ms": 49.99962501460686,
+      "observedFPS": 28.858700576238363,
+      "over50ms": 16,
+      "over100ms": 1
+    }
+  ],
+  "groups": {
+    "normal": {
+      "count": 5,
+      "drawP95ms": {
+        "median": 4.592541721649468,
+        "minimum": 2.0693333353847265,
+        "maximum": 5.050875013694167
+      },
+      "simulationP95ms": {
+        "median": 1.4887916622683406,
+        "minimum": 0.6677916971966624,
+        "maximum": 1.8034166423603892
+      },
+      "instancesP95ms": {
+        "median": 2.4892916553653777,
+        "minimum": 1.2304583215154707,
+        "maximum": 2.666125015821308
+      },
+      "gpuP95ms": {
+        "median": 7.359999988693744,
+        "minimum": 6.9651249796152115,
+        "maximum": 8.37120832875371
+      },
+      "presentationP99ms": {
+        "median": 54.166166693903506,
+        "minimum": 49.99962501460686,
+        "maximum": 54.16620831238106
+      },
+      "observedFPS": {
+        "median": 28.309373719147356,
+        "minimum": 28.145410666177092,
+        "maximum": 28.858700576238363
+      }
+    },
+    "dense": {
+      "count": 5,
+      "drawP95ms": {
+        "median": 6.366750050801784,
+        "minimum": 5.722625006455928,
+        "maximum": 6.521041679661721
+      },
+      "simulationP95ms": {
+        "median": 1.388499978929758,
+        "minimum": 1.1692083207890391,
+        "maximum": 1.4765416854061186
+      },
+      "instancesP95ms": {
+        "median": 4.499833332374692,
+        "minimum": 4.048208356834948,
+        "maximum": 4.646291665267199
+      },
+      "gpuP95ms": {
+        "median": 7.124833355192095,
+        "minimum": 6.918541679624468,
+        "maximum": 8.112541632726789
+      },
+      "presentationP99ms": {
+        "median": 49.99962501460686,
+        "minimum": 49.99962501460686,
+        "maximum": 54.16620837058872
+      },
+      "observedFPS": {
+        "median": 28.413666254164376,
+        "minimum": 28.194710378142265,
+        "maximum": 28.909716284314538
+      }
+    },
+    "dense-no-glow": {
+      "count": 5,
+      "drawP95ms": {
+        "median": 6.309208343736827,
+        "minimum": 2.8715416556224227,
+        "maximum": 6.6958750248886645
+      },
+      "simulationP95ms": {
+        "median": 1.531041692942381,
+        "minimum": 0.7353333057835698,
+        "maximum": 1.8431666539981961
+      },
+      "instancesP95ms": {
+        "median": 4.285500035621226,
+        "minimum": 1.903166703414172,
+        "maximum": 4.472541681025177
+      },
+      "gpuP95ms": {
+        "median": 3.444249974563718,
+        "minimum": 3.076041641179472,
+        "maximum": 3.726750030182302
+      },
+      "presentationP99ms": {
+        "median": 49.99970836797729,
+        "minimum": 45.83300004014745,
+        "maximum": 54.16620831238106
+      },
+      "observedFPS": {
+        "median": 28.257034846265192,
+        "minimum": 28.093611386286742,
+        "maximum": 29.68427878004075
+      }
+    }
+  },
+  "pairedGPUCostReduction": [
+    0.4769351303541016,
+    0.521366361959685,
+    0.560198563425526,
+    0.4977807227265645,
+    0.6208288622186642
+  ],
+  "limitations": [
+    "No fullscreen or tvOS acceptance",
+    "No allocator, memory, power or scripted agent traffic measurements",
+    "Glow0 is a diagnostic change of workload, not a shipped optimization",
+    "No numerical budget or automatic issue closure"
+  ]
+}

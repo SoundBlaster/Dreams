@@ -24,6 +24,7 @@ final class RainRenderer: NSObject {
     var demoWorkingAgents: Int?
     var brightness: Float = 0.18
     private(set) var framesRendered = 0
+    var performanceRecorder: RainPerformanceRecorder?
 
     init(view: MTKView, restoredGlyphs: Bool = false, transparentBackground: Bool = false) throws {
         self.transparentBackground = transparentBackground
@@ -117,21 +118,37 @@ extension RainRenderer: @MainActor MTKViewDelegate {
     func draw(in view: MTKView) { draw(in: view, posedTime: nil) }
 
     func draw(in view: MTKView, posedTime: Float?, referenceSize: CGSize? = nil) {
+        let measurement = performanceRecorder.map { _ in RainFrameMeasurement() }
         guard let drawable = view.currentDrawable,
               let descriptor = view.currentRenderPassDescriptor,
               let buffer = queue.makeCommandBuffer(),
-              let encoder = buffer.makeRenderCommandEncoder(descriptor: descriptor) else { return }
+              let encoder = buffer.makeRenderCommandEncoder(descriptor: descriptor) else {
+            performanceRecorder?.missedDrawable()
+            return
+        }
         // A screen-sized viewport is clipped by the preview drawable, preserving physical glyph size.
         let size = referenceSize ?? view.drawableSize
         encoder.setViewport(MTLViewport(originX: 0, originY: 0, width: size.width, height: size.height, znear: 0, zfar: 1))
         keywords.draw(encoder: encoder,
             resolution: SIMD2(Float(size.width), Float(size.height)),
-            brightness: brightness, previewTime: posedTime, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
+            brightness: brightness, previewTime: posedTime, demoWorkingAgents: demoWorkingAgents,
+            columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
-            keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)
+            keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint, measurement: measurement)
         encoder.endEncoding()
         buffer.present(drawable)
+        if let recorder = performanceRecorder, let measurement, let id = recorder.append(measurement) {
+            buffer.addCompletedHandler { command in
+                let seconds = command.gpuEndTime - command.gpuStartTime
+                let failed = command.status != .completed
+                Task { @MainActor in recorder.completed(id, duration: seconds, failed: failed) }
+            }
+            drawable.addPresentedHandler { presented in
+                let time = presented.presentedTime
+                Task { @MainActor in recorder.presented(id, at: time) }
+            }
+        }
         buffer.commit()
         framesRendered += 1
     }

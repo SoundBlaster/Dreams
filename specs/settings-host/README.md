@@ -1,13 +1,13 @@
 # Native settings host (descriptive draft)
 
 The production app now has two settings presentations backed by the same
-`DreamsController`. The launch flag `--native-settings` opts into SwiftUI;
-absence preserves the existing AppKit window, and `--legacy-settings` wins
+`DreamsController`. SwiftUI is the default settings presentation;
+`--native-settings` remains a compatible explicit alias, and `--legacy-settings` wins
 if both flags appear. Nothing enables this feature through saved preferences.
 
 ```sh
 make app
-open -n dist/Dreams.app --args --native-settings
+rtk proxy open -n dist/Dreams.app
 make test-native-settings-trace
 # Optional compositor stills: unlocked GUI and previously granted Screen Recording access.
 DREAMS_NATIVE_CAPTURE_BACKEND=screen-capture-kit make test-native-settings-trace
@@ -138,3 +138,10 @@ Content setting icons: [2026-10-19-content-icons](validation/2026-10-19-content-
 Parity corrections: [2026-10-19-parity-fixes](validation/2026-10-19-parity-fixes/README.md).
 
 Accessibility audit and optional-help correction: [2026-10-20-accessibility](validation/2026-10-20-accessibility/README.md).
+
+Optional performance instrumentation source/impact: [2026-10-22](validation/2026-10-22-performance/README.md).
+Ordinary behavior and stable claims remain unchanged; prior passes stay historical.
+
+Native settings are the default as requested by the owner: [2026-10-24 rollout](validation/2026-10-24-native-default/README.md).
+The historical `default_off` claim ID is retained for traceability; its versioned
+requirement now selects native by default and preserves an explicit legacy override.

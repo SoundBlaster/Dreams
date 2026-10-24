@@ -5,6 +5,10 @@ import MetalKit
 enum DreamsMain {
     @MainActor
     static func main() {
+        if CommandLine.arguments.contains("--performance-run") {
+            PerformanceRun.run(arguments: CommandLine.arguments)
+            return
+        }
         if let hookIndex = CommandLine.arguments.firstIndex(of: "--hook") {
             guard CommandLine.arguments.indices.contains(hookIndex + 1) else { return }
             KeywordInput.runHook(source: CommandLine.arguments[hookIndex + 1])

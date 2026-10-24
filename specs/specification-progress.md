@@ -677,3 +677,66 @@ movement headings. Vertical List focus and reset confirmation remain guarded.
 commands, physical owner feedback on Release and pending physical remote swipe acceptance.
 The renderer was not changed; Release removed the owner's observed severe slowdown,
 without a valid Instruments trace or quantified performance acceptance.
+
+## 2026-10-22 — measurement-first performance probe
+
+New DesktopApplication.PerformanceProbe role covers a bounded macOS windowed
+production renderer for contributors. Its Scenario/RunLifetime/Measurement/
+ReportExport responsibilities map to the draft dreams.performance.measure claims
+isolation, observation, lifetime and provenance. [Probe contract and evidence](performance/README.md).
+
+Existing rain motion/search/head/pulse and preview_scale/lifecycle requirements
+remain unchanged: ordinary launches have no recorder and retain existing paths.
+CaptureVisibility and TV code are unchanged. Scripted agent traffic, native preview
+reopen/capture latency, full-screen/multi-display and physical TV measurement are
+explicit backlog. Existing historical passes are not evidence for this source.
+
+Current source binding refreshes for drop_motion/search_occupancy/head_visibility/
+glyph_pulse and settings host preview_scale/playback_lifetime retain stable IDs.
+The normal nil-recorder path preserves their requirements; changed renderer inputs
+and the optional recorder dependency have fresh snapshots. Overlay capture and
+TV bindings are unchanged because no owned source in those boundaries changed.
+
+Fifteen valid Release windowed runs (five each of normal, dense and dense-no-glow)
+are pinned to runtime `6cc029c`. The later `32ebeb5` probe guards have separate
+build/test/smoke evidence; the hardware baseline is not relabeled for that source.
+Uncalibrated instrumentation overhead and interactive-host variance prevent a
+small-gain acceptance threshold. No optimization issue is closed by these data.
+
+## 2026-10-24 — native settings default rollout
+
+The owner explicitly requested native settings by default, superseding the earlier
+opt-in rollout requirement. Runtime `210e6f1` changes only NativeSettingsFeature:
+ordinary launch selects native, --native-settings remains a compatible alias and
+--legacy-settings wins in either argument order. Legacy-only regression fixtures
+explicitly select their retained route at `b541faf`; shared controller, preferences,
+renderer and overlay algorithms are unchanged. The installed app opens the native
+window without either flag; existing application preference values were preserved.
+
+Host draft.21 and SettingsHost.FeatureFlag retain role/claim identities. The historical
+default_off claim ID is deliberately versioned with the new owner-authorized routing
+requirement, preserving earlier evidence rather than relabeling it. Native controls,
+one_settings_owner, explicit_legacy_access, lifetime and parent overlay-exit obligations
+remain in force. [Dated source/test/install evidence](settings-host/validation/2026-10-24-native-default/README.md)
+separates default routing from full accessibility, compositor and performance acceptance.
+
+Source identities also refresh legacy test fixtures for dreams.rain.drop_motion,
+search_occupancy and glyph_pulse without changing their requirements or maps.
+The audit found pre-existing snapshot drift in the build helper and several shared
+settings dependencies; current bytes are now pinned, with no historical test pass
+promoted to this source. Physical tvOS, capture/display routing and agent integrations
+remain outside this change. Local installation is ad-hoc signed, not a release.
+
+
+## 2026-10-24 — release 0.1.10 metadata
+
+VERSION and both plugin manifests advance together to 0.1.10 after merged native
+settings default rollout #56. No further runtime, map or contract behavior changes.
+Current host/catalog/motion bindings are audited byte-for-byte; pre-existing catalog
+build-helper snapshot drift is refreshed. Historical runtime/UI tests retain their
+original source and profile. Packaging remains an unrecovered boundary.
+
+[Metadata preparation](release/validation/2026-10-24-0.1.10/README.md) separates local
+source/structural checks from signed/notarized artifact and publication verification
+attached to the GitHub release. Default route, legacy access and shared owner
+requirements remain in force; performance and physical TV acceptance are unchanged.

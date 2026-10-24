@@ -1,0 +1,102 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.performance.measure
+  title: RendererPerformanceProbe
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Give contributors repeatable per-run renderer measurements with explicit scope, validity and provenance.
+scope:
+  boundedContext: performance_diagnostics
+  includes:
+  - Explicit bounded JSON scenarios, a single macOS windowed renderer, selected wall spans, GPU timestamps and actual presentation intervals.
+  - Bounded in-memory samples, isolated empty mailbox, Release-only launch and post-run JSON export.
+  excludes:
+  - Renderer optimization, user preferences, production overlay lifecycle, agent integrations and hooks.
+  - Allocator events, process memory, energy, per-pass GPU counters, fullscreen and multi-display acceptance or tvOS evidence.
+  - Automatic issue closure, quantified speedup, accepted budgets or an unmeasured zero-overhead claim.
+provides:
+  capabilities:
+  - id: dreams.performance.measure
+    role: primary
+    summary: Export identified bounded renderer samples and distinguish measured, unavailable and invalid observations.
+requires:
+  capabilities:
+  - id: platform.apple.metal_renderer
+    summary: macOS Metal/AppKit window, command completion and drawable presentation timestamps.
+interfaces:
+  inbound:
+  - id: scenario
+    kind: cli
+    summary: Explicit diagnostic launch before ordinary application state migration.
+    operations:
+    - name: --performance-run
+      inputs:
+      - name: paths
+        type: scenario JSON and output JSON; isolated empty DREAMS_FEED_DIRECTORY and caller-supplied DREAMS_PERF_REVISION
+      outputs:
+      - name: report
+        type: JSON with fixture identity, configuration, validity, raw samples, summaries and unavailable metrics
+  outbound: []
+constraints:
+- id: isolation
+  level: MUST
+  statement: Normal launches leave the recorder absent. Diagnostic launch precedes settings migration and production delegate construction. Require an empty explicit mailbox, never read the owner's live feed or write saved preferences. Scenario validation bounds duration, dimensions and tuning; Debug is rejected.
+- id: observation
+  level: MUST
+  statement: Record selected CPU elapsed spans separately from completed command-buffer GPU duration. Actual drawable presentation defines intervals, independently of callback delivery order. Missing or zero GPU/presentation timestamps remain absent. Buffer request counts are not allocator-event measurements. No claim for unmeasured platforms or profiles follows from macOS results.
+- id: lifetime
+  level: MUST
+  statement: Bound sample memory, stop after requested duration independently of draw delivery, pause drawing and allow at most three seconds for callback drain. Export only after collection. Overflow, GPU failure, incomplete callbacks, insufficient presentation, full occlusion or manual close must not be accepted as a valid baseline.
+- id: provenance
+  level: MUST
+  statement: Preserve fixture hash, caller source revision, binary digest and working-tree status through reports/manifest. Keep individual runs and distinguish smoke from baseline. The Python runner requires a new output directory. Caller is responsible for matching the executable to recorded source; a digest identifies bytes, not source-to-binary conformance.
+effects:
+  sideEffects:
+  - id: display
+    kind: state_mutation
+    summary: Open and close a temporary diagnostic window without starting production overlays.
+  - id: files
+    kind: filesystem_write
+    summary: Create per-run reports/manifests and a disposable isolated mailbox; no per-frame report I/O.
+evidence:
+- id: validation
+  kind: test
+  path: validation/2026-10-22-baseline/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    behavior: medium
+  notes:
+  - Owner agreed to measurement-first work for issues 41 through 49. This initial macOS probe is only the first bounded stage.
+  - Existing motion, head, pulse, preview-scale and capture requirements remain unchanged. Draft structural validation does not establish hardware performance acceptance.
+
+implementationBindings:
+- id: performance_swift_python
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 32ebeb5298f66766cca4673b7b4a905da17e425f
+  files:
+    owned:
+    - evidence/2026-10-22-baseline/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-22-probe-guards/source/Sources/Dreams/app/providers/PerformanceRun.swift
+    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
+    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
+    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-10-22-baseline/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-22-baseline/source/Tests/DreamsTests/RainPerformanceTests.swift
+    - evidence/2026-10-22-baseline/source/scripts/run-performance.py
+    - evidence/2026-10-22-probe-guards/source/scripts/summarize-performance.py
+    - evidence/2026-10-22-baseline/source/scripts/swift-macos.sh
+    - evidence/2026-10-22-baseline/source/research/performance/scenarios/search-saturated.json
+    - evidence/2026-10-22-baseline/source/research/performance/scenarios/normal.json
+    - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense-no-glow.json
+    - evidence/2026-10-22-baseline/source/research/performance/scenarios/dense.json
+    - evidence/2026-10-22-baseline/source/research/performance/scenarios/preview-crop.json
+    - evidence/2026-10-22-probe-guards/source/scripts/test-performance-reports.py
+    border: []
