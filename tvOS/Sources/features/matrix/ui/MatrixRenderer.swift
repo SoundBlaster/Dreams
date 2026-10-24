@@ -137,15 +137,17 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         guard let simulation, let pass = view.currentRenderPassDescriptor,
               let drawable = view.currentDrawable, let command = queue.makeCommandBuffer(),
               let encoder = command.makeRenderCommandEncoder(descriptor: pass) else { return }
-        let cells = makeCells(simulation: simulation, tuning: value, wallTime: now)
+        let fpsValue = value.showsFPS && !view.isPaused ? fps.value : nil
+        let readout = fpsValue == nil ? nil : FPSGrid(columns: columns, rows: rows)
+        let cells = makeCells(simulation: simulation, tuning: value, wallTime: now, reserved: readout)
         encode(cells.halos, texture: atlas.glow, pipeline: glowPipeline, diffuse: true, encoder: encoder)
         encode(cells.cores, texture: atlas.core, pipeline: corePipeline, diffuse: false, encoder: encoder)
         if value.showsFPS && !view.isPaused {
             if fpsOverlay == nil, let url = Bundle.main.url(forResource: "DreamsMatrix", withExtension: "ttf") {
                 fpsOverlay = try FPSOverlay(device: device, library: library, format: .bgra8Unorm_srgb, fontURL: url)
             }
-            if let value = fps.value {
-                fpsOverlay?.draw(value, encoder: encoder, size: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)))
+            if let value = fpsValue, let readout {
+                fpsOverlay?.draw(value, encoder: encoder, grid: readout)
             }
             let counter = fps, generation = fps.generation
             // tvOS does not expose MTLDrawable presentation callbacks. Report completed GPU frames.
@@ -159,19 +161,20 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     }
 
     /// Shared by the drawable path and deterministic renderer regression checks.
-    func makeCells(simulation: MatrixSimulation, tuning value: RainTuning, wallTime now: Double) -> (cores: [Cell], halos: [Cell]) {
+    func makeCells(simulation: MatrixSimulation, tuning value: RainTuning, wallTime now: Double, reserved: FPSGrid? = nil) -> (cores: [Cell], halos: [Cell]) {
         let columns = simulation.columns.count, rows = simulation.rows
         var cores: [Cell] = []
         var halos: [Cell] = []
         cores.reserveCapacity(columns * rows)
         halos.reserveCapacity(columns * rows)
-        let width: Float = 1.30 * (22.0 / 30.0) / (38.0 / 46.0)
+        let width = FPSGrid.glyphWidth
         let globalExposure = Float(value.brightness / 0.18)
         let offset = value.floatingClock
             ? driftLimits * SIMD2(Float(sin(now / 47)), Float(sin(now / 61))) : .zero
         let green = value.color.linear
         for column in simulation.columns.indices {
             for row in 0..<rows {
+                if reserved?.contains(column: column, row: row) == true { continue }
                 let symbol = simulation.columns[column].cells[row]
                 let opacity = value.glyphOpacity(simulation.opacity(column: column, row: row))
                 let head = simulation.headIntensity(column: column, row: row)

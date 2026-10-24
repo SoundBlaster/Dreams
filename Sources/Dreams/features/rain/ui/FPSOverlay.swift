@@ -1,7 +1,7 @@
 import CoreText
 import Metal
 
-/// A tiny, fixed-width readout using Dreams' own digits and the rain's Metal pipeline.
+/// Dreams digits occupying reserved rain cells, with the same quad size and spacing.
 @MainActor
 final class FPSOverlay {
     private struct Cell {
@@ -54,20 +54,14 @@ final class FPSOverlay {
         self.pipeline = try device.makeRenderPipelineState(descriptor: pipeline)
     }
 
-    func draw(_ value: Int, encoder: any MTLRenderCommandEncoder, size: SIMD2<Float>, transparent: Bool = false, topInset: Float = 32) {
+    func draw(_ value: Int, encoder: any MTLRenderCommandEncoder, grid: FPSGrid, transparent: Bool = false) {
         let digits = String(min(999, max(0, value))).compactMap(\.wholeNumberValue)
-        let side: Float = 40
-        let margin: Float = 32
         var cells: [Cell] = []
         for (index, digit) in digits.enumerated() {
-            let x = size.x - margin - Float(digits.count - index) * 26
-            let uv = SIMD4<Float>((Float(digit * 64) + 12) / 640, 12 / 64, 40 / 640, 40 / 64)
-            let rect = SIMD4<Float>(x / size.x, topInset / size.y, side / size.x, side / size.y)
-            let shadow = rect + SIMD4<Float>(2 / size.x, 2 / size.y, 0, 0)
-            cells.append(Cell(rect: shadow, uv: uv, color: SIMD4(0, 0, 0, 0.9)))
+            let uv = SIMD4<Float>((Float(digit * 64) + 18) / 640, 18 / 64, 28 / 640, 28 / 64)
+            let rect = grid.rect(column: grid.endColumn - digits.count + index)
             cells.append(Cell(rect: rect, uv: uv, color: SIMD4(0.86, 0.96, 0.88, 1)))
         }
-        encoder.setViewport(MTLViewport(originX: 0, originY: 0, width: Double(size.x), height: Double(size.y), znear: 0, zfar: 1))
         encoder.setRenderPipelineState(pipeline)
         cells.withUnsafeBytes { encoder.setVertexBytes($0.baseAddress!, length: $0.count, index: 0) }
         encoder.setFragmentTexture(texture, index: 0)

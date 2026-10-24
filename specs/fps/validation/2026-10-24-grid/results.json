@@ -1,0 +1,64 @@
+{
+  "runtimeRevision": "7dfe2ac8c33601aa2560c14d4b13a671d4fb4070",
+  "testBaseline": "869bb0c; subsequent merged change only replaces TV hardware identifier decoding with a lint-compliant failable UTF-8 initializer, validated by current physical Release build",
+  "commands": [
+    {
+      "command": "DREAMS_TEST_METAL=1 swift test -c release --filter PresentedFPS --scratch-path <TB5 checkout swiftpm> --cache-path <TB5 swiftpm cache>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/grid-fps-tests.log",
+      "sha256": "c6e1be9549ba2371f999beb1ddd2f08d12197dfc196446ec4755608a36f6fc9c"
+    },
+    {
+      "command": "swift test -c release --scratch-path <TB5 checkout swiftpm> --cache-path <TB5 swiftpm cache>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/grid-final-suite.log",
+      "sha256": "34e6776952391f11a443f3267cb79ad976c8eb3046ffe0f7a6a6be3db9801926"
+    },
+    {
+      "command": "make test-tv TV_DEVICE=<TV simulator> TV_DERIVED_DATA=<TB5 DerivedData> TV_TEST_OPTIONS=\"-configuration Release ENABLE_TESTABILITY=YES ONLY_ACTIVE_ARCH=YES\"",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/grid-tv-tests.log",
+      "sha256": "2da5311ab9e2936d3ac7963b3fe6e3e625ca020c9a207a88dc95b08dfeaf3cfe"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/grid-lint.log",
+      "sha256": "91203f727c9d44286aaee4a7dbfd1c9864d5d0b5e40150297b2eb35c8a604ea9"
+    },
+    {
+      "command": "make specs-check HYPERCODE=<local hypercode>",
+      "exitCode": 0,
+      "log": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/grid-specs.log",
+      "sha256": "d379502f61b7bf3afaf8ecf7d1f25f97d6e29ce061321745bf8a25d570e8a48c"
+    }
+  ],
+  "bindingAudit": {
+    "count": 229,
+    "stale": []
+  },
+  "mapHashes": {
+    "specs/hypercode/fps.hc": "e0ba171fd7f47bc8f4aa4f61c62fdc6915ca1cc54ff233faa29e83d59b8d1c08",
+    "specs/hypercode/fps.hcs": "e179e2d95cc04d02420d9da187b0b60ea7fdc4070d34bee4829d54fe42a547d1"
+  },
+  "acceptance": "descriptive draft; physical FPS accuracy and owner visual acceptance remain separate",
+  "device": {
+    "model": "physical AppleTV5,3/A8",
+    "runtimeRevision": "7dfe2ac8c33601aa2560c14d4b13a671d4fb4070",
+    "configuration": "Release ENABLE_TESTABILITY=NO",
+    "buildExitCode": 0,
+    "installExitCode": 0,
+    "launchExitCode": 0,
+    "appData": "preserved",
+    "visualAcceptance": false,
+    "receipts": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-cfe6caa373cec129/device-install/2026-10-24-grid-7dfe2ac"
+  },
+  "simulatorUI": {
+    "installedAndLaunched": true,
+    "argumentOnlyOverrides": true,
+    "preferencesChanged": false,
+    "visualAcceptance": false,
+    "reason": "DeviceInteraction session disappeared; fallback screenshot failed with permission error. No alignment screenshot available.",
+    "sessionClosed": true
+  }
+}

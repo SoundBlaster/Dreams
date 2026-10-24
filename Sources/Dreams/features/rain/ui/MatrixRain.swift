@@ -116,6 +116,7 @@ final class MatrixRain {
         for symbol in symbols { _ = glyph(String(symbol), keyword: false) }
     }
 
+    @discardableResult
     func draw(encoder: any MTLRenderCommandEncoder, resolution: SIMD2<Float>, brightness: Float,
               previewTime: Float? = nil, demoWorkingAgents: Int? = nil, columnCount: Int = 0, density: Double = 0.8,
               fadeRows: Double = 1, speed: Double = 1, brightnessSpread: Double = 1, glow: Double = 1, idleIntensity: Double = 0.2,
@@ -123,7 +124,8 @@ final class MatrixRain {
               pulseStrength: Double = 0.3,
               keywordTint: SIMD3<Float> = SIMD3(0.10, 0.65, 0.24), keywordBrightness: Double = 1,
               rainTint: SIMD3<Float> = SIMD3(0.008, 0.26, 0.055),
-              measurement: RainFrameMeasurement? = nil) {
+              measurement: RainFrameMeasurement? = nil, reserveFPS: Bool = false,
+              visibleSize: SIMD2<Float>? = nil, fpsTopInset: Float = 0) -> FPSGrid? {
         let feedBegan = measurement.map { _ in CACurrentMediaTime() }
         let now = ProcessInfo.processInfo.systemUptime
         if feedRevision != feed.revision {
@@ -165,19 +167,22 @@ final class MatrixRain {
         mutationPressure += (actionPressure - mutationPressure)
             * (1 - exp(-elapsed / (actionPressure > mutationPressure ? 0.8 : 3)))
         lastFrameTime = time
+        let aspect = max(0.1, resolution.x / max(1, resolution.y))
+        let columns = columnCount == 0 ? max(24, Int(aspect * 72)) : min(240, max(24, columnCount))
+        let rows = columnCount == 0 ? 72 : max(8, Int((Float(columns) / aspect).rounded()))
+        let visibleColumns = Int(((visibleSize?.x ?? resolution.x) / resolution.x * Float(columns)).rounded(.down))
+        let fpsRow = max(1, Int((fpsTopInset / resolution.y * Float(rows)).rounded(.up)))
+        let fpsGrid = reserveFPS ? FPSGrid(columns: columns, rows: rows, visibleColumns: visibleColumns, row: fpsRow) : nil
         guard activity.level(at: time) > 0.001 || !pendingEvents.isEmpty
             || pulseWords.values.contains(where: { $0.ends > simulationClock }) else {
             simulation = nil
             simulationClock = 0
             selections.removeAll()
-            return
+            return fpsGrid
         }
         // Activity transitions and texture noise stay on real time. Only the
         // rain's writing, mutation and dissolution clock follows this control.
         simulationClock += elapsed * min(3, max(0.25, speed))
-        let aspect = max(0.1, resolution.x / max(1, resolution.y))
-        let columns = columnCount == 0 ? max(24, Int(aspect * 72)) : min(240, max(24, columnCount))
-        let rows = columnCount == 0 ? 72 : max(8, Int((Float(columns) / aspect).rounded()))
         if simulation?.columns.count != columns || simulation?.rows != rows {
             pulseWords.removeAll()
             selections.removeAll()
@@ -237,6 +242,7 @@ final class MatrixRain {
             // A hook's first character belongs to the new head at the top of the screen.
             let wordStart = pulse != nil ? 0 : 2 + Int(hash(Float(column + cycle * 31)) * Float(lastStart - 2))
             for row in 0..<rows {
+                if fpsGrid?.contains(column: column, row: row) == true { continue }
                 let cell = simulation!.columns[column].cells[row]
                 let ink = cell.ink(brightnessSpread: brightnessSpread)
                 let visibility = cell.visibility
@@ -286,7 +292,7 @@ final class MatrixRain {
                 // margins so visible ink nearly touches while glyphs remain large.
                 // Film reference: 22:30 versus the font's 38:46. Narrow the ink
                 // around the cell center, keeping row spacing and glyph height.
-                let width: Float = 1.30 * (22.0 / 30.0) / (38.0 / 46.0)
+                let width = FPSGrid.glyphWidth
                 let rect = SIMD4<Float>((Float(column) + (1 - width) / 2) / Float(columns),
                     (Float(row) - 0.16) / Float(rows), width / Float(columns), 1.32 / Float(rows))
                 // A padded tile leaves room for the broad, low-intensity light skirt.
@@ -317,7 +323,7 @@ final class MatrixRain {
         measurement?.haloInstances = halos.count
         measurement?.columns = columns
         measurement?.rows = rows
-        guard !cells.isEmpty else { return }
+        guard !cells.isEmpty else { return fpsGrid }
         let encodingBegan = measurement.map { _ in CACurrentMediaTime() }
         encoder.setRenderPipelineState(glowPipeline)
         encode(halos, texture: glowAtlas, encoder: encoder, time: t, noise: 0, diffuse: true, measurement: measurement)
@@ -326,6 +332,7 @@ final class MatrixRain {
             measurement?.eventLetters.removeAll()
         }
         if let encodingBegan { measurement?.encodingSeconds = CACurrentMediaTime() - encodingBegan }
+        return fpsGrid
     }
 
     @discardableResult
