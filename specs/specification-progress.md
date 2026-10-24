@@ -956,3 +956,15 @@ requirements remain in force; performance and physical TV acceptance are unchang
 ## 2026-10-24 — pr55 main integration
 
 [Integration identities and scope](integration/2026-10-24/pr55/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
+
+## Interactive macOS menu — 2026-10-24
+
+Recover `DesktopApplication.ApplicationMenu` / `dreams.desktop.main_menu`:
+standard native application/edit/window commands are installed on regular
+interactive launch. The status-item menu and accessory entry paths remain
+separate. `dreams.settings.host` existing one-owner/reopen claims still apply:
+Command-comma invokes the same retained SettingsPageController. Overlay session
+and exit action semantics remain unchanged; only the app's main menu is added.
+`build-app.sh` accepts an optional glyph-output path so the required app build can
+keep generated glyph artifacts on the verified TB5 volume; its default and bundled
+font bytes are unchanged. [Validation](application-menu/validation/2026-10-24/README.md).

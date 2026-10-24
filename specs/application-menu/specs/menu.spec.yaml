@@ -1,0 +1,80 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.desktop.main_menu
+  title: InteractiveApplicationMenu
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Give interactive Dreams users standard macOS commands instead of an empty application menu.
+scope:
+  boundedContext: desktop_application_commands
+  includes:
+  - Interactive launch menu installation, standard application/edit/window commands and settings dispatch.
+  excludes:
+  - Status-item menu contents, rain algorithms, agent/MCP operations and tvOS.
+provides:
+  capabilities:
+  - id: dreams.desktop.main_menu
+    role: primary
+    summary: A localized standard menu bar using native AppKit actions and responder-chain validation.
+requires:
+  capabilities:
+  - id: platform.apple.appkit
+    summary: NSApplication, NSMenu and NSWindow provide command routing, native panels and menu validation.
+interfaces:
+  inbound:
+  - id: launch
+    kind: library
+    summary: DreamsDelegate applicationWillFinishLaunching installs menus only when showsControls is true.
+  - id: commands
+    kind: library
+    summary: Native NSMenuItem target/action and key equivalents expose commands; Settings reuses the retained settings owner.
+  outbound: []
+constraints:
+- id: interactive_lifetime
+  level: MUST
+  statement: Install NSApplication.mainMenu before the interactive settings window opens. Only showsControls launches install it; accessory MCP/lab/render modes do not acquire a menu bar. Retain the independent status-item menu and its existing actions.
+- id: application_commands
+  level: MUST
+  statement: The Dreams submenu provides native About, Settings (Command-comma), Services, Hide Dreams (Command-H), Hide Others (Option-Command-H), Show All and Quit (Command-Q). About/hide/quit use NSApplication actions. Register the Services submenu as NSApplication.servicesMenu. Settings calls the existing settings owner through its delegate action, preserving reopening semantics.
+- id: responder_commands
+  level: MUST
+  statement: Edit provides Undo/Redo, Cut/Copy/Paste and Select All with system key equivalents and nil targets for native responder-chain dispatch and validation. Window provides Close (Command-W), Minimize (Command-M), Zoom and Bring All to Front; window actions use the responder chain and register NSApplication.windowsMenu for native window management. Do not introduce a separate editing or undo implementation.
+- id: localization
+  level: MUST
+  statement: Provide matching EN/RU labels using the existing localization owner. Use native AppKit menu items, panels and validation; no simulated menu controls or custom permission flow.
+effects:
+  sideEffects:
+  - id: menu_registration
+    kind: state_mutation
+    summary: Set mainMenu, servicesMenu and windowsMenu on the interactive NSApplication.
+evidence:
+- id: validation
+  kind: test
+  path: validation/2026-10-24/README.md
+  supports:
+  - constraints
+provenance:
+  sourceConfidence:
+    intent: high
+    extraction: high
+    behavior: medium
+  notes:
+  - Previously only NSStatusItem.menu was constructed. Interactive activation used a regular NSApplication without mainMenu assignment, leaving the system application-menu placeholder empty. This recovered boundary remains a descriptive draft; source tests and native UI observation are distinct evidence.
+implementationBindings:
+- id: interactive_menu
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+  files:
+    owned:
+    - evidence/2026-10-24/source/Sources/Dreams/app/providers/ApplicationMenus.swift
+    - evidence/2026-10-24/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-24/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
+    - evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
+    - evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
+    - evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift
+    - evidence/2026-10-24/source/scripts/Info.plist.in
+    border: []

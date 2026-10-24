@@ -9,6 +9,11 @@ final class DreamsDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
     private var stopMenuItem: NSMenuItem?
 
+    func applicationWillFinishLaunching(_ notification: Foundation.Notification) {
+        guard showsControls else { return }
+        ApplicationMenus(settingsTarget: self, settingsAction: #selector(showControls)).install(in: NSApplication.shared)
+    }
+
     func applicationDidFinishLaunching(_ notification: Foundation.Notification) {
         if showsControls { settings.showControls() }
     }

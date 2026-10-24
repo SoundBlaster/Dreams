@@ -1,0 +1,28 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.application_menu
+  name: Dreams native application menu
+  version: 0.1.0-draft.1
+  summary: Standard AppKit menu bar for interactive macOS launches.
+  license: MIT
+  authors:
+  - name: Dreams contributors
+specs:
+- path: specs/menu.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.desktop.main_menu
+  requires:
+    capabilities:
+    - platform.apple.appkit
+compatibility:
+  platforms:
+  - macos
+  languages:
+  - name: swift
+foreignArtifacts:
+- format: markdown
+  path: README.md
+  role: documentation

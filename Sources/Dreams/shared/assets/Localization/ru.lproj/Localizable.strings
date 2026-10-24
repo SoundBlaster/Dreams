@@ -197,3 +197,22 @@
 "palette.pink" = "Розовый";
 "palette.red" = "Красный";
 "palette.white" = "Белый";
+
+"appMenu.about" = "О программе Dreams";
+"appMenu.settings" = "Настройки…";
+"appMenu.services" = "Службы";
+"appMenu.hide" = "Скрыть Dreams";
+"appMenu.hideOthers" = "Скрыть остальные";
+"appMenu.showAll" = "Показать все";
+"appMenu.edit" = "Правка";
+"appMenu.undo" = "Отменить";
+"appMenu.redo" = "Повторить";
+"appMenu.cut" = "Вырезать";
+"appMenu.copy" = "Скопировать";
+"appMenu.paste" = "Вставить";
+"appMenu.selectAll" = "Выбрать всё";
+"appMenu.window" = "Окно";
+"appMenu.close" = "Закрыть окно";
+"appMenu.minimize" = "Свернуть";
+"appMenu.zoom" = "Изменить масштаб";
+"appMenu.bringAllToFront" = "Все окна — на передний план";

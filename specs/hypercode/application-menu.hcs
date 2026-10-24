@@ -1,0 +1,15 @@
+ApplicationMenu:
+  capability: "dreams.desktop.main_menu"
+  platform: "macOS interactive only"
+LaunchInstallation:
+  source: "Sources/Dreams/app/providers/DreamsDelegate.swift"
+  lifecycle: "will-finish-launching; showsControls guard; before settings window"
+StandardCommands:
+  source: "Sources/Dreams/app/providers/ApplicationMenus.swift"
+  ownership: "mainMenu + servicesMenu + windowsMenu"
+SettingsDispatch:
+  source: "Sources/Dreams/app/providers/DreamsDelegate.swift"
+  routing: "Command-comma -> existing SettingsPageController.showControls"
+ResponderCommands:
+  source: "Sources/Dreams/app/providers/ApplicationMenus.swift"
+  routing: "native AppKit target/action; nil edit/window targets; no custom undo"

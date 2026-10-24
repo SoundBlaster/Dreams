@@ -1,0 +1,47 @@
+{
+  "sourceRevision": "83599b5034d0f5a8481a43e0f3157b4e6bec6101",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/ApplicationMenus.swift",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/app/providers/ApplicationMenus.swift",
+      "sha256": "ae38429e481dbd3fbb9c0f5c665ff1301ce8d70671d8d99ac5fc7918d733cb17",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "ee6acf46c4f4a5f4c6d223d0fd775c27429e822050217d8e7d3623805764b653",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/app/entrypoint/DreamsMain.swift",
+      "sha256": "8f9c56c88123ebaa61f58d37c13579c336ddf29d923cc4ece74ec26b0e045c70",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "9e87a8e31ddfe57e5a84ddb92b88caaebe5e1afbda1739155c90f7c5db140a6c",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "a20dbfaf56c6fb1bdd27a0e03343eda803dc21bd3c22df303331e529981c7d1a",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/ApplicationMenusTests.swift",
+      "snapshot": "evidence/2026-10-24/source/Tests/DreamsTests/ApplicationMenusTests.swift",
+      "sha256": "ac1890e3be7e4c713f7cbbdff5cdd38f232bad547172036b658ddb459ee5da37",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "scripts/Info.plist.in",
+      "snapshot": "evidence/2026-10-24/source/scripts/Info.plist.in",
+      "sha256": "21912b958ef9488b13e564ec056e7ff3a2a31e5ab5e923fc40a0fafd6e800554",
+      "snapshotKind": "full-file"
+    }
+  ]
+}
