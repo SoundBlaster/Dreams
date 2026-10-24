@@ -8,6 +8,10 @@ final class RainRenderer: NSObject {
     private let library: any MTLLibrary
     private let transparentBackground: Bool
     private var colorPixelFormat: MTLPixelFormat { transparentBackground ? .bgra8Unorm : .bgra8Unorm_srgb }
+    private let fps = PresentedFPS()
+    private var fpsOverlay: FPSOverlay?
+    var showsFPS = false { didSet { if showsFPS != oldValue { fps.reset() } } }
+    func resetFPS() { fps.reset() }
     var rainColumnCount = DreamsPreset.columnCount
     var rainDensity = DreamsPreset.density
     var rainFadeRows = DreamsPreset.fadeRows
@@ -142,6 +146,18 @@ extension RainRenderer: @MainActor MTKViewDelegate {
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             deceleration: rainDeceleration, searchFraction: rainSearchFraction, pulseStrength: rainPulseStrength,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint, measurement: measurement)
+        if showsFPS {
+            if fpsOverlay == nil, let url = Bundle.module.url(forResource: "DreamsMatrix", withExtension: "ttf") {
+                fpsOverlay = try? FPSOverlay(device: queue.device, library: library, format: colorPixelFormat, fontURL: url)
+            }
+            if let value = fps.value {
+                fpsOverlay?.draw(value, encoder: encoder,
+                    size: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)), transparent: transparentBackground,
+                    topInset: referenceSize == nil ? 32 : 112)
+            }
+            let counter = fps, generation = fps.generation
+            drawable.addPresentedHandler { counter.presented(at: $0.presentedTime, generation: generation) }
+        }
         encoder.endEncoding()
         buffer.present(drawable)
         var recordedID: Int?

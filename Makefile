@@ -226,6 +226,10 @@ HYPERCODE ?= hypercode
 SPECPM ?= specpm
 .PHONY: specs-check
 specs-check:
+	"$(HYPERCODE)" parse specs/hypercode/fps.hc
+	"$(HYPERCODE)" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs
+	"$(HYPERCODE)" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs --ctx platform=tvos
+	"$(SPECPM)" validate specs/fps --json
 	"$(HYPERCODE)" parse specs/hypercode/keyword-feed.hc
 	"$(HYPERCODE)" validate specs/hypercode/keyword-feed.hc --hcs specs/hypercode/keyword-feed.hcs
 	"$(SPECPM)" validate specs/keyword-feed --json

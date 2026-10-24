@@ -28,6 +28,9 @@ ClockMask:
 GlyphResources:
   source: "tvOS/Sources/features/matrix/lib/FilmAtlas.swift"
   implementation: "bundled-restored-PUA-or-classic-font; padded-atlas; mirrored-TV-variants; bundled-notices"
+FPSReadout:
+  detail: "fps.hc + fps.hcs"
+  capability: "dreams.rain.fps"
 @clock[hidden]:
   ClockMask:
     implementation: "mask-bypassed; ordinary-rain-exposure"

@@ -14,3 +14,4 @@ RainOverlaySession
     DropMotion
     GlyphSearch
     GlyphPulse
+    FPSReadout

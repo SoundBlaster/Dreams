@@ -47,6 +47,7 @@ struct RainTuning: Equatable {
     var color = RainColor()
     var restoredGlyphs = true
     var showsClock = true
+    var showsFPS = false
 
     var deceleration: MatrixSimulation.Deceleration {
         MatrixSimulation.Deceleration(enabled: decelerationEnabled, acceleration: acceleration)
@@ -113,6 +114,7 @@ final class RainSettings {
             defaults.set([value.color.red, value.color.green, value.color.blue], forKey: "rain.color")
             defaults.set(value.restoredGlyphs, forKey: "rain.restoredGlyphs")
             defaults.set(value.showsClock, forKey: "clock.visible")
+            defaults.set(value.showsFPS, forKey: "debug.showsFPS")
         }
     }
     private let defaults: UserDefaults
@@ -140,6 +142,7 @@ final class RainSettings {
                             decelerationEnabled: defaults.bool(forKey: "rain.decelerationEnabled"), acceleration: defaults.double(forKey: "rain.acceleration"),
                             brightnessSpread: defaults.double(forKey: "rain.brightnessSpread"), pulseStrength: defaults.double(forKey: "rain.pulseStrength"),
                             glow: defaults.double(forKey: "rain.glow"), color: color,
-                            restoredGlyphs: defaults.bool(forKey: "rain.restoredGlyphs"), showsClock: defaults.bool(forKey: "clock.visible")).normalized()
+                            restoredGlyphs: defaults.bool(forKey: "rain.restoredGlyphs"), showsClock: defaults.bool(forKey: "clock.visible"),
+                            showsFPS: defaults.bool(forKey: "debug.showsFPS")).normalized()
     }
 }

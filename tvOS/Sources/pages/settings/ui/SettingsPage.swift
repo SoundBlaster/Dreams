@@ -24,6 +24,11 @@ struct SettingsPage: View {
             motion
             appearance
             clock
+            Section("settings.advanced") {
+                Toggle("settings.fps", isOn: $settings.tuning.showsFPS)
+                    .accessibilityIdentifier("dreams.show-fps")
+                Text("settings.fps.hint").font(.callout).foregroundStyle(.secondary)
+            }
             Section {
                 Button("settings.reset", role: .destructive) { confirmsReset = true }
             }
