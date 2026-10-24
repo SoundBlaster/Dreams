@@ -91,6 +91,8 @@ final class RainPreviewSession: NSObject, MTKViewDelegate {
         guard let view else { return }
         let paused = !isPlaying || !isVisible || renderer == nil
         if paused || view.isPaused != paused { lastDraw = nil }
+        // Event-driven mode also stops MetalKit's internal render loop. Resume the timer explicitly.
+        if view.enableSetNeedsDisplay != paused { view.enableSetNeedsDisplay = paused }
         view.isPaused = paused
         if isVisible && renderer != nil { view.draw() }
     }
