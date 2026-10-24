@@ -1,0 +1,183 @@
+{
+  "sourceRevision": "1857e9288959006c738bc72b9c5e8edc4f3c083c",
+  "profile": "tvOS foreground; clock visible or hidden",
+  "files": [
+    {
+      "path": "tvOS/Sources/app/entrypoint/AppRoot.swift",
+      "sha256": "fca60c6a7d01daedcce1622d7ea9211571bfb6457d49a2ead7065be9e65bd8a0",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/AppRoot.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/app/entrypoint/DreamsTVApp.swift",
+      "sha256": "afb2d832df682e3705ace84364c21b48c42cefac08efbbb0d0eaba9cf541a637",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/DreamsTVApp.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/lib/ClockMask.swift",
+      "sha256": "c6bbe9ff8dec6cb57e50db12fcd038c42b6bd48112c7eb13757309acc174f343",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/ClockMask.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/lib/FilmAtlas.swift",
+      "sha256": "38d193a815c712bbecb82a4bb31537039d345c6b4bf0c4b8075345338f794a86",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/model/FilmGlyphs.swift",
+      "sha256": "571d0f45f0ccef00bef80f7de0dc87e6c4f1c662e81de7ed2f29395db29a011c",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "sha256": "af37674a4b54f4b4a5bc4a19e597faae0598954e0c5071a30c868b5c88e3f977",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/RainSettings.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "sha256": "6f4c31bb15819bdcac839be93907c24b3845eb0150f21611a207f7d62d43fce0",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/features/matrix/ui/MatrixSurface.swift",
+      "sha256": "254019532a95835140de9bb66201f124248ff8494533bbbb7ef4378f1fd15b6e",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/pages/clock/ui/ClockPage.swift",
+      "sha256": "aab61e7e492707618e27982dff339eb7429114cd842ef9c96e5ba60486a9ccff",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/pages/clock/ui/ClockPage.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "sha256": "d15435d42087fa8487d29c03ba47b0131526fb25aa10c6ac0e28ea32e251a958",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "sha256": "2b47b40dc7753bdd2733e1c5028efe65102250b16c09d69347ba714ac92b1b6a",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "sha256": "c1a99bd952ac9c27991504df886dc0a211feb040cba1979b5b89aaa0964d3430",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Tests/DreamsTVTests.swift",
+      "sha256": "4f2a578795afd9747d166600be4c8a713f35ee4936abc766f4b1e458a1161006",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/Tests/RainParityTests.swift",
+      "sha256": "7f82eb7044bdd07c0524bcecc3b7be85f692530af31c28a72ac3c2d432b0d7d8",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/Tests/RainParityTests.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "tvOS/project.yml",
+      "sha256": "101b762838b22b9f3263a587dd8023888cf9606d93029881d70f158f09fafd7e",
+      "snapshot": "evidence/2026-10-21-parity/source/tvOS/project.yml",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Makefile",
+      "sha256": "610a87a88406e237ebda5a07a15548e80bc1733122bf4958ad915ae4b68715f2",
+      "snapshot": "evidence/2026-10-21-parity/source/Makefile",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "9b52b9fd866333bb4d2cb02a78f758cd17e55225b9d513d41c290f10c1d6c6bc",
+      "snapshot": "evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "sha256": "ae2dd82640aed8358f53f98a38965a579765639a47f02ba42c4b33620f6b1fd5",
+      "snapshot": "evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "34d453f652e428f77837fc55708f8c723ef8729e82e72525c0cca738e67c5390",
+      "snapshot": "evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/Rain.metal",
+      "sha256": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+      "snapshot": "evidence/2026-10-21-parity/source/Sources/Dreams/Rain.metal",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "5f911d611cd052249688422212dc25bb3e35817baba94ac0f6b75953a24f3cca",
+      "snapshot": "evidence/2026-10-21-parity/source/THIRD_PARTY_NOTICES.md",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "fbabef436c926f05fe8cbba9b4d377e03f224b89a7c4d235319de1dddef692d1",
+      "snapshot": "evidence/2026-10-21-parity/source/LICENSE",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "resources": [
+    {
+      "path": "Sources/Dreams/DreamsMatrix.ttf",
+      "sha256": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+      "sourceRevision": "1857e9288959006c738bc72b9c5e8edc4f3c083c"
+    },
+    {
+      "path": "Sources/Dreams/Matrix-Code.ttf",
+      "sha256": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b",
+      "sourceRevision": "1857e9288959006c738bc72b9c5e8edc4f3c083c"
+    }
+  ],
+  "maps": [
+    {
+      "path": "specs/hypercode/application.hc",
+      "sha256": "4d9f5939b55e50e585e0824d6a76d3cb3e24b4f64af68824e90fc319c00e766b",
+      "snapshot": "evidence/2026-10-21-parity/maps/application.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/application.hcs",
+      "sha256": "edfd5d07648f578054b364d03a55b92412e7c40b7bf0afca2c3d4e41f1afd28e",
+      "snapshot": "evidence/2026-10-21-parity/maps/application.hcs",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/television.hc",
+      "sha256": "22e27690318135add27ae6cee5b6e5202c3e8dd535f271c08c5b66dd96760492",
+      "snapshot": "evidence/2026-10-21-parity/maps/television.hc",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "specs/hypercode/television.hcs",
+      "sha256": "83de9e9f69b3dfc6eae9b46736eecd48c84bbc4a2869c7e6ceeb23b08ba37833",
+      "snapshot": "evidence/2026-10-21-parity/maps/television.hcs",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "mapBaseRevision": "1857e9288959006c738bc72b9c5e8edc4f3c083c",
+  "dirtyMaps": [
+    "specs/hypercode/application.hcs",
+    "specs/hypercode/television.hc",
+    "specs/hypercode/television.hcs"
+  ],
+  "scopeNote": "TV host recovery and adoption; source snapshots include shared read-only dependencies. Fonts remain unchanged. Maps pinned separately by hashes; desktop contracts do not transfer acceptance."
+}

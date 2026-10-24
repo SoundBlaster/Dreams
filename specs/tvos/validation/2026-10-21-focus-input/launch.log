@@ -1,0 +1,11 @@
+ERROR: The application failed to launch. (com.apple.dt.CoreDeviceError error 10002 (0x2712))
+       BundleIdentifier = ru.egormerkushev.DreamsTV
+       ----------------------------------------
+           The request to open "ru.egormerkushev.DreamsTV" failed. (FBSOpenApplicationServiceErrorDomain error 1 (0x01))
+           NSLocalizedFailureReason = The request was denied by service delegate (PBProcessManager) for reason: Unspecified ("The app launch for ru.egormerkushev.DreamsTV failed: Error Domain=BSTransactionError Code=1 "Transaction failed. (System is asleep - foreground app launch forbidden)" UserInfo={error-reason=System is asleep - foreground app launch forbidden, transaction=<PBOpenAppTransition: 0x3019d7000>, NSLocalizedFailureReason=Transaction failed. (System is asleep - foreground app launch forbidden").
+           BSErrorCodeDescription = RequestDenied
+           FBSOpenApplicationRequestID = 0x3664
+       ----------------------------------------
+               The operation couldn’t be completed. The app launch for ru.egormerkushev.DreamsTV failed: Error Domain=BSTransactionError Code=1 "Transaction failed. (System is asleep - foreground app launch forbidden)" UserInfo={error-reason=System is asleep - foreground app launch forbidden, transaction=<PBOpenAppTransition: 0x3019d7000>, NSLocalizedFailureReason=Transaction failed. (System is asleep - foreground app launch forbidden)} (FBSOpenApplicationErrorDomain error 1 (0x01))
+               BSErrorCodeDescription = Unspecified
+               NSLocalizedFailureReason = The app launch for ru.egormerkushev.DreamsTV failed: Error Domain=BSTransactionError Code=1 "Transaction failed. (System is asleep - foreground app launch forbidden)" UserInfo={error-reason=System is asleep - foreground app launch forbidden, transaction=<PBOpenAppTransition: 0x3019d7000>, NSLocalizedFailureReason=Transaction failed. (System is asleep - foreground app launch forbidden)}

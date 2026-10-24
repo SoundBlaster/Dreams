@@ -32,7 +32,7 @@ formal acceptance and runtime conformance remain separate owner decisions.
 | GlyphEditor.ProjectTransfer | JSON/SVG consumer | Folded into editor | loadProject/save/export | Browser receipt is not saved-file evidence |
 | GlyphEditor.CheckpointLibrary | Editor tab / local disk | dreams.glyph.checkpoints | Pinned Python/Node adapter | Review concurrency/crash limits |
 | GlyphEditor.EditorBuild | Developer | Folded into editor | build + pipeline.toml | No font adoption claim |
-| TelevisionApplication / clock | Apple TV user | Integrated PR #8; coarse orientation, contract unexplored | Current rebased source 691d94b; simulator tests separate | Recover clock/settings contract on its own baseline |
+| TelevisionApplication / rain and clock | Apple TV user / clock on or hidden | dreams.tv.rain descriptive draft | [Current TV baseline](tvos/validation/2026-10-21-focus-input/README.md); shared simulation/pulse plus TV host | Owner reports Release slowdown resolved; physical swipe, measured performance and spoken VoiceOver remain unverified |
 
 Maps: [architecture index](hypercode/README.md). Contracts, claim origins,
 source bindings, scenarios and unresolved decisions:
@@ -619,6 +619,65 @@ historical evidence, not a new test claim for the release commit.
 metadata hashes, current host/catalog identity checks and signed/notarized artifact
 preparation separately from historical runtime tests and later GitHub publication.
 
+## 2026-10-21 — tvOS rain/settings parity
+
+User confirmed TV adoption of desktop rain controls while preserving TV clock and
+excluding agent integrations and desktop-window/session functions. New TV profile
+covers grid, motion, simultaneous search, independent real-time pulse, pale-head
+visibility/cycling, RGB/spread/glow, dynamic restored/classic glyph resources,
+normalized saved settings, native remote input, one live preview and reset.
+Existing TV density/exposure/clock defaults and mirror variants remain intentional
+compatibility choices; this is feature parity rather than pixel equality.
+
+[TV draft](tvos/README.md) recovers Lifecycle/Settings/Tuning and renderer children
+as one bounded capability; [matrix](../tvOS/parity.md) lists platform distinctions.
+Parent TelevisionApplication keeps its identity and points at the new detail.
+Desktop motion/search/head/pulse contracts keep their macOS scope and existing
+claim IDs. A provenance note now distinguishes later TV adoption rather than
+claiming TV still has no pulse option. No desktop implementation or agent paths
+change, and macOS test passes are not claimed as TV evidence.
+
+The [dated TV baseline](tvos/validation/2026-10-21-parity/README.md) pins source/map
+snapshots, command results and simulator observations. Earlier TV observations stay
+historical. New contracts remain descriptive drafts pending acceptance.
+
+## 2026-10-21 — centered TV settings panel and Play/Pause menu exit
+
+User requested centered settings with inner spacing and rounded corners, and
+Play/Pause to hide the menu. TV draft.2 updates remote_settings; Play/Pause opens
+settings from rain and closes the open menu, while Live preview retains its own
+pause toggle. Settings now uses 24-point inner padding and a 28-point rounded
+material surface, capped at 1100 points and centered in the available area.
+Lifecycle, tuning, renderer and desktop/agent boundaries are unchanged.
+
+[New TV validation](tvos/validation/2026-10-21-centered-menu/README.md) supersedes
+only the changed UI source/map identities; older tests and screenshots remain
+historical and are not presented as new passes. Stable TV role/claim IDs remain.
+
+## 2026-10-21 — TV settings focus overflow repair
+
+User's enlarged screenshot exposed flat side cuts on focused native rows. The
+inner List mask clipped tvOS focus expansion. Remove that mask and disable scroll viewport clipping; keep the
+24-point inner padding and rounded 28-point panel. Stable `remote_settings`,
+`lifecycle` and `platform_boundary` claims and HC roles still apply; no semantic
+contract or map rewrite is needed. The parent still owns one renderer and routes
+remote input to settings. Earlier statements that focus edges were clipping-free
+are superseded; their captures and results remain historical.
+
+[Current focus validation](tvos/validation/2026-10-21-focus-overflow/README.md) pins the changed
+Settings source and rechecks unchanged source/map/font identities. Contracts remain
+descriptive drafts; physical TV and spoken VoiceOver are still unverified.
+
+## 2026-10-21 — TV native horizontal input and Release feedback
+
+TV draft.3 retains `remote_settings` and existing roles/assembly obligations while
+explicitly covering touch-surface swipe adjustment through native failed focus
+movement headings. Vertical List focus and reset confirmation remain guarded.
+[Current baseline](tvos/validation/2026-10-21-focus-input/README.md) separates simulator
+commands, physical owner feedback on Release and pending physical remote swipe acceptance.
+The renderer was not changed; Release removed the owner's observed severe slowdown,
+without a valid Instruments trace or quantified performance acceptance.
+
 ## 2026-10-22 — measurement-first performance probe
 
 New DesktopApplication.PerformanceProbe role covers a bounded macOS windowed
@@ -681,3 +740,7 @@ original source and profile. Packaging remains an unrecovered boundary.
 source/structural checks from signed/notarized artifact and publication verification
 attached to the GitHub release. Default route, legacy access and shared owner
 requirements remain in force; performance and physical TV acceptance are unchanged.
+
+## 2026-10-24 — pr39 main integration
+
+[Integration identities and scope](integration/2026-10-24/pr39/README.md) preserve both incoming history and current main requirements. Dependency snapshot refreshes do not adopt older test passes as new evidence; performance acceptance and physical-device unknowns remain explicit.
