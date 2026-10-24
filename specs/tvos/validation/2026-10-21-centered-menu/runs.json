@@ -1,0 +1,38 @@
+{
+  "sourceRevision": "71e0977ed439bae7d7f316186e0c4f032dc71452",
+  "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+  "commands": [
+    {
+      "command": "make app-tv TV_DERIVED_DATA=/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/xcode/DerivedData",
+      "exitCode": 0,
+      "log": "build.log"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "lint.log",
+      "environment": {
+        "RUFF_CACHE_DIR": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/python/ruff",
+        "PYTHONPYCACHEPREFIX": "/Volumes/TB5/Developer/Builds/GitHub/Dreams-36273a9c832f69b9/python/bytecode"
+      }
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "structure.log",
+      "environment": {
+        "PYTHONPYCACHEPREFIX": "/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/python/bytecode"
+      }
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "log": "docs.log"
+    }
+  ],
+  "ui": {
+    "report": "report.md",
+    "simulator": "B29EC156-5EF9-4A56-8147-1C98D4E228DB",
+    "physicalDevice": false
+  }
+}

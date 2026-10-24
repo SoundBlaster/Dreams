@@ -14,7 +14,8 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     private let queue: MTLCommandQueue
     private let corePipeline: MTLRenderPipelineState
     private let glowPipeline: MTLRenderPipelineState
-    private let atlas: FilmAtlas
+    private var atlas: FilmAtlas
+    private var restoredGlyphs = true
     private var mask: ClockMask?
     private var maskKey = ""
     private var maskAspect = 0.0
@@ -84,9 +85,16 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     private func drawFrame(in view: MTKView) throws {
         let value = tuning.normalized()
         let aspect = view.drawableSize.width / view.drawableSize.height
-        let rows = max(12, Int((Double(value.columns) / aspect).rounded()))
-        if simulation?.columns.count != value.columns || simulation?.rows != rows {
-            simulation = MatrixSimulation(columnCount: value.columns, rows: rows, glyphCount: FilmGlyphs.variantCount,
+        let grid = value.grid(aspect: aspect)
+        let columns = grid.columns, rows = grid.rows
+        if restoredGlyphs != value.restoredGlyphs {
+            let replacement = try FilmAtlas(device: device, restored: value.restoredGlyphs)
+            atlas = replacement
+            restoredGlyphs = value.restoredGlyphs
+            simulation = nil
+        }
+        if simulation?.columns.count != columns || simulation?.rows != rows {
+            simulation = MatrixSimulation(columnCount: columns, rows: rows, glyphCount: atlas.variantCount,
                                           seed: UInt64.random(in: 1...UInt64.max), density: value.density, fadeRows: value.fade)
             clock = 0
             lastFrame = nil
@@ -96,9 +104,11 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         lastFrame = now
         simulation?.setDensity(value.density)
         simulation?.setFadeRows(value.fade)
+        simulation?.setDeceleration(value.deceleration)
+        simulation?.setSearchFraction(value.searchFraction)
         simulation?.advance(to: clock, mutationRate: 1.5)
         let appearanceChanged = maskTypeface != value.clockTypeface || maskSize != value.clockSize
-        if mask == nil || abs(maskAspect - aspect) > 0.001 || appearanceChanged || now >= nextClockCheck {
+        if value.showsClock && (mask == nil || abs(maskAspect - aspect) > 0.001 || appearanceChanged || now >= nextClockCheck) {
             nextClockCheck = now + 1
             let key = ClockMask.minuteKey(at: Date())
             if mask == nil || key != maskKey || abs(maskAspect - aspect) > 0.001 || appearanceChanged {
@@ -112,48 +122,65 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
                                     Float(max(0, min(0.16, (1 - bitmap.occupiedHeight) / 2 - 0.03))))
             }
         }
-        guard let simulation, let mask, let pass = view.currentRenderPassDescriptor,
+        guard let simulation, let pass = view.currentRenderPassDescriptor,
               let drawable = view.currentDrawable, let command = queue.makeCommandBuffer(),
               let encoder = command.makeRenderCommandEncoder(descriptor: pass) else { return }
+        let cells = makeCells(simulation: simulation, tuning: value, wallTime: now)
+        encode(cells.halos, texture: atlas.glow, pipeline: glowPipeline, diffuse: true, encoder: encoder)
+        encode(cells.cores, texture: atlas.core, pipeline: corePipeline, diffuse: false, encoder: encoder)
+        encoder.endEncoding()
+        command.present(drawable)
+        command.commit()
+    }
+
+    /// Shared by the drawable path and deterministic renderer regression checks.
+    func makeCells(simulation: MatrixSimulation, tuning value: RainTuning, wallTime now: Double) -> (cores: [Cell], halos: [Cell]) {
+        let columns = simulation.columns.count, rows = simulation.rows
         var cores: [Cell] = []
         var halos: [Cell] = []
-        cores.reserveCapacity(value.columns * rows)
-        halos.reserveCapacity(value.columns * rows)
+        cores.reserveCapacity(columns * rows)
+        halos.reserveCapacity(columns * rows)
         let width: Float = 1.30 * (22.0 / 30.0) / (38.0 / 46.0)
         let globalExposure = Float(value.brightness / 0.18)
         let offset = value.floatingClock
             ? driftLimits * SIMD2(Float(sin(now / 47)), Float(sin(now / 61))) : .zero
-        let green = SIMD3<Float>(0.008, 0.26, 0.055)
+        let green = value.color.linear
         for column in simulation.columns.indices {
             for row in 0..<rows {
                 let symbol = simulation.columns[column].cells[row]
                 let opacity = value.glyphOpacity(simulation.opacity(column: column, row: row))
-                guard symbol.glyph >= 0, !symbol.isGap, opacity > 0.002 else { continue }
-                let center = SIMD2((Float(column) + 0.5) / Float(value.columns), (Float(row) + 0.5) / Float(rows))
-                let exposure = globalExposure * (mask.illuminates(center: center - offset) ? 1.6 : 0.22)
-                let ink = symbol.ink(brightnessSpread: 0.51)
-                let head = simulation.headIntensity(column: column, row: row) * (symbol.ink > 0.45 ? 1 : 0.2)
-                let mutation = Float(max(0, 1 - (clock - symbol.flashedAt) / 0.28)) * 0.85
+                let head = simulation.headIntensity(column: column, row: row)
+                guard symbol.glyph >= 0, !symbol.isGap || head > 0, opacity > 0.002 else { continue }
+                let displayGlyph = simulation.headGlyph(column: column, row: row)
+                let center = SIMD2((Float(column) + 0.5) / Float(columns), (Float(row) + 0.5) / Float(rows))
+                let illuminated = value.showsClock && (mask?.illuminates(center: center - offset) ?? false)
+                let exposure = globalExposure * (value.showsClock ? (illuminated ? 1.6 : 0.22) : 1)
+                let ink = symbol.ink(brightnessSpread: value.brightnessSpread)
+                    * GlyphPulse.gain(at: now, column: column, row: row, strength: value.pulseStrength)
+                let mutation = Float(max(0, 1 - (simulation.time - symbol.flashedAt) / 0.28)) * 0.85
                 let white = max(head, mutation)
                 let tint = green * ink * opacity * (1 - white) + SIMD3<Float>(0.86, 0.96, 0.88) * white
-                let rect = SIMD4<Float>((Float(column) + (1 - width) / 2) / Float(value.columns),
-                                        (Float(row) - 0.16) / Float(rows), width / Float(value.columns), 1.32 / Float(rows))
-                let uv = FilmGlyphs.uv(for: symbol.glyph, inset: 18, side: 28, atlasWidth: 512, atlasHeight: 256)
+                let rect = SIMD4<Float>((Float(column) + (1 - width) / 2) / Float(columns),
+                                        (Float(row) - 0.16) / Float(rows), width / Float(columns), 1.32 / Float(rows))
+                let uv = FilmGlyphs.uv(for: displayGlyph, inset: 18, side: 28, atlasWidth: 512,
+                                      atlasHeight: Float(atlas.height), glyphCount: atlas.glyphCount)
                 cores.append(Cell(rect: rect, uv: uv, color: SIMD4(tint * exposure, 1)))
-                let glowUV = FilmGlyphs.uv(for: symbol.glyph, inset: 0, side: 64, atlasWidth: 512, atlasHeight: 256)
+                let glowUV = FilmGlyphs.uv(for: displayGlyph, inset: 0, side: 64, atlasWidth: 512,
+                                          atlasHeight: Float(atlas.height), glyphCount: atlas.glyphCount)
                 let haloRect = SIMD4<Float>(rect.x - rect.z * 18 / 28, rect.y - rect.w * 18 / 28,
                                             rect.z * 64 / 28, rect.w * 64 / 28)
-                let haloTint = green * 2.4 * (1 - white) + SIMD3<Float>(0.52, 0.95, 0.65) * white
+                let saturated = SIMD3(min(1, green.x * 2.4), min(1, green.y * 2.4), min(1, green.z * 2.4))
+                let haloTint = saturated * (1 - white) + SIMD3<Float>(0.52, 0.95, 0.65) * white
                 // The clock selects ink only. Boosting overlapping halos would reveal a green digit-shaped cloud.
-                halos.append(Cell(rect: haloRect, uv: glowUV,
-                                  color: SIMD4(haloTint * globalExposure * 0.22, (0.30 * ink * opacity + 0.75 * white) * 0.57)))
+                if value.glow > 0 {
+                    let haloExposure = globalExposure * (value.showsClock ? 0.22 : 1)
+                    halos.append(Cell(rect: haloRect, uv: glowUV,
+                                      color: SIMD4(haloTint * haloExposure,
+                                                   (0.30 * ink * opacity + 0.75 * white) * Float(value.glow))))
+                }
             }
         }
-        encode(halos, texture: atlas.glow, pipeline: glowPipeline, diffuse: true, encoder: encoder)
-        encode(cores, texture: atlas.core, pipeline: corePipeline, diffuse: false, encoder: encoder)
-        encoder.endEncoding()
-        command.present(drawable)
-        command.commit()
+        return (cores, halos)
     }
 
     private func encode(_ cells: [Cell], texture: MTLTexture, pipeline: MTLRenderPipelineState,

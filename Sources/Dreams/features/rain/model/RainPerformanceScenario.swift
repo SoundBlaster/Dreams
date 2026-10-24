@@ -20,7 +20,7 @@ struct RainPerformanceScenario: Codable, Equatable {
     let restoredGlyphs: Bool
     let transparent: Bool
 
-    func validate() throws {
+    func validate(feedObservation: Bool = false) throws {
         guard !name.isEmpty, name.count <= 80,
               warmupSeconds.isFinite, (0...120).contains(warmupSeconds),
               measureSeconds.isFinite, (1...300).contains(measureSeconds),
@@ -40,6 +40,9 @@ struct RainPerformanceScenario: Codable, Equatable {
         let gridRows = columns == 0 ? 72 : max(8, Int((Double(columns) / aspect).rounded()))
         guard gridColumns <= 65_536 / gridRows else {
             throw DreamsError.unavailable("Performance scenario grid exceeds 65536 cells.")
+        }
+        guard !feedObservation || (referenceWidth <= drawableWidth && referenceHeight <= drawableHeight) else {
+            throw DreamsError.unavailable("Feed measurements require the reference viewport to fit inside the drawable.")
         }
     }
 }

@@ -1,64 +1,89 @@
 # Dreams for Apple TV
 
-A standalone tvOS app: film-style Matrix rain with an `HH:mm` clock formed by a brightness mask on the glyph grid. Each glyph is one clock pixel: if its cell center falls inside a digit, the entire glyph brightens. The digit outline never clips the glyph. Diffuse glow remains at the background exposure, so overlapping halos do not form a green digit-shaped cloud. Local time updates once per minute.
+A standalone tvOS 18+ foreground app: the same stationary Matrix rain simulation as
+macOS, optionally forming an HH:mm clock by brightening whole glyphs. It is not a
+replacement for the Apple TV system screensaver. No hooks, MCP server, agent feed,
+desktop overlays or display-management dependencies are included.
 
-The app uses the same `MatrixSimulation.swift`, `Rain.metal` helpers and `DreamsMatrix.ttf` as macOS, through Xcode target membership. The macOS target and its controls remain unchanged. The tvOS renderer has no agent hooks, MCP server or desktop window dependencies.
+## Rain parity
 
-## Appearance and controls
+Shared target sources are MatrixSimulation, GlyphPulse, DreamsPreset and Rain.metal.
+The TV host applies density, speed, fade, simultaneous search, optional deceleration,
+brightness spread, real-time independent pulse, rain color and glow. Pale heads remain
+bright independently of random ink, keep cycling with trail search at0%, and remain
+visible on a packet gap. RGB input is sRGB; the renderer converts it to linear light.
 
-- 28 reconstructed film glyphs (`U+E001…U+E01C`), with normal and horizontally mirrored variants. Designed Latin/Cyrillic glyphs are excluded.
-- Glyphs remain stationary; writing and fading cursors move down each column. A mirror variant persists until the simulation replaces that glyph.
-- Film green, occasional pale glyphs, fixed phosphor grain and diffuse glow.
-- Select, Play/Pause or Back opens settings. Back or **Show clock** returns to the clock.
-- Focus a setting and use Left/Right to adjust it. Values persist between launches.
+The restored font repertoire is discovered from its private-use characters instead
+of hardcoding28 glyphs. The classic Matrix-Code option uses the same repertoire as
+macOS. TV retains normal and horizontally mirrored variants. Font resources and
+third-party notices are bundled; neither font reconstruction nor these checks assert
+film fidelity. See [parity matrix](parity.md) for defaults and platform distinctions.
 
-| Setting | Range | Default |
+| Setting | Range | TV default |
 |---|---|---|
-| Columns | 48–160, steps of 4 | 96 |
-| Rain density | 10–100%, steps of 5 percentage points | 82% |
-| Brightness | 2–35% | 18% |
-| Speed | 0.25–3× | 0.43× |
+| Automatic grid | On / Off; 72 rows, aspect-based columns | Off |
+| Manual columns | 24–240, step1 | 96 |
+| Rain density | 0–100%, step1 point | 82% |
+| Brightness | 2–35%, step1 point | 18% |
+| Speed | 0.25–3×, step0.01 | 0.43× |
 | Fade | 1–16 glyphs | 3 |
-| Floating clock | On / Off | On |
+| Simultaneously searching glyphs | 0–100%, step1 point | 10% |
+| Decelerate drops | On / Off | Off |
+| Acceleration | -120–0 glyph/s², step0.5 | -12 |
+| Brightness spread / pulse | 0–100%, step1 point | 51% / 30% |
+| Glow | 0–300%, step1 point | 57% |
+| Rain RGB channels | 0–100%, step1 point | 8.6% / 54.7% / 26% |
+| Restored glyphs | On / Off | On |
+| Show clock / floating clock | On / Off | On / On |
 | Clock font | System / Rounded / Monospaced | System |
-| Clock size | 50–115% | 100% |
+| Clock size | 50–115%, step5 points | 100% |
 
-Density controls packet length, random gaps and the pause between passes. At 100%, every column wraps immediately and has no random gaps: after a top-to-bottom warmup, all grid cells stay occupied. Fade still controls the sequential dimming at each packet's tail, with a 20% opacity floor at full density until the cursor replaces the glyph. Live density changes take effect as new packets are written, without revealing expired symbols.
+Existing TV preferences retain their keys and values. New preferences fall back to
+the shared macOS preset where applicable; existing TV density, brightness and clock
+defaults remain unchanged. Reset restores all TV defaults after confirmation.
 
-Clock motion shifts the sampling positions on a cached brightness mask; it never moves the underlying rain grid. Its slow horizontal and vertical paths are bounded by the measured text extents, leaving a margin at every edge. The mask is rebuilt only when the minute, font, size or screen aspect changes. Each visible glyph needs one bitmap lookup per frame, with no per-fragment clock-mask texture sampling.
+## Remote and lifecycle
 
-The clock runs while Dreams is the foreground app. It is not a replacement for the Apple TV system screensaver. Dreams disables the [idle timer](https://developer.apple.com/documentation/uikit/uiapplication/isidletimerdisabled) while the clock is active and restores it in settings or when inactive.
+Select, Play/Pause or Back opens settings from the rain. Settings use a scrollable
+system List with native Toggles and focusable Button adjustment rows (Slider is not
+available on tvOS). Horizontal focus movement adjusts values (directional presses and touch-surface swipes);
+Up/Down keeps native row navigation. Select increments a numeric row.
+Settings changes immediately affect the rain behind the centered, padded, rounded
+material panel. Play/Pause, Back or Show rain closes the open menu. The Live preview
+switch separately pauses/resumes rendering while settings are open.
+The preview does not create a second simulation or scale the full-screen rain down.
 
-## Build
+The clock mask brightens ink only; halos stay at background exposure to avoid a
+blurred digit-shaped cloud. Clock movement shifts sampling on a cached bitmap,
+never the glyph grid. Its mask refreshes on minute/font/size/aspect changes.
+Full density retains a dim occupied tail; a zero-opacity glyph is never revived.
+The idle timer is disabled only while the foreground rain page is active; it is
+restored in settings or when inactive. Rendering also pauses on inactivity, and
+teardown releases the Metal view delegate/renderer.
 
-Requires Xcode with the tvOS SDK, XcodeGen, and a tvOS 18+ simulator/device.
+## Build and verification
+
+Requires Xcode with tvOS SDK and XcodeGen. Generated project/build outputs are ignored.
+Use Release configuration for physical-device performance checks; simulator/Debug
+results do not establish frame rate on older Apple TV hardware.
 
 ```sh
-xcodegen generate --spec tvOS/project.yml
-xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
-  -destination 'generic/platform=tvOS Simulator' \
-  -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO build
+make app-tv
+make test-tv TV_DEVICE=<Apple-TV-simulator-UDID>
 ```
 
-For tests, select an installed Apple TV simulator:
+Local Egor-host builds use the required TB5 preflight and returned path:
 
 ```sh
-xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
-  -destination 'platform=tvOS Simulator,id=<UDID>' \
-  -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO test
-zsh scripts/lint-architecture.sh --root tvOS/Sources
+make app-tv TV_DERIVED_DATA=<verified-checkout-derived-data>
+make test-tv TV_DEVICE=<UDID> TV_DERIVED_DATA=<verified-checkout-derived-data> TV_TEST_OPTIONS='-parallel-testing-enabled NO'
 ```
 
-The generated project and build artifacts are ignored; `project.yml` is the source of truth. Device installation requires your signing team. The tvOS source tree follows the repository's FSD rules; app composition connects the clock and settings pages.
+Explicit product/intermediate roots override global Xcode custom locations, keeping
+each worktree's outputs separate. Source checkouts stay in place.
 
-## Verification
-
-Checked locally on Apple TV 4K (3rd generation, 1080p), tvOS 27 Simulator:
-
-- Twelve unit tests pass, covering actual font loading and runtime Metal shader compilation, whole-glyph selection, minute updates, mask silhouettes, three distinct system fonts at maximum size, preference persistence and bounds, sparse rain and sustained full-grid occupancy at 100% density.
-- Remote input opens settings using Select, Play/Pause or Back, changes the values, and returns to the clock using Back or Show clock.
-- Columns clamp to 48/160; clock size clamps to 50/115%. Changed preferences survive termination and relaunch.
-- The clock consists of illuminated rain glyphs and is upright and readable. All eight settings, the remote hint and Show clock fit on a 1080p screen.
-- `make lint`, the FSD regression checks and existing macOS simulation checks pass.
-
-Physical Apple TV performance, TV overscan and readability at viewing distance still need device verification. CI builds the tvOS target; the interactive Simulator checks are local.
+The dated [TV contract and verification](../specs/tvos/README.md) distinguishes unit/
+renderer-instance checks, simulator remote interaction, Metal build and physical
+Apple TV acceptance. A tvOS check does not establish macOS behavior or vice versa.
+Physical device performance, TV overscan/readability and spoken VoiceOver remain
+separate verification work.

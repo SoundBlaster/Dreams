@@ -81,6 +81,27 @@ final class NativeSettingsModel {
         get { Color(nsColor: read(\.rainColor)) }
         set { controller.rainColor = NSColor(newValue) }
     }
+    var appearancePreset: NativeAppearancePreset? {
+        NativeAppearancePreset.allCases.first {
+            $0.values(transparent: transparent).matches(color: read(\.rainColor), glow: read(\.rainGlow),
+                spread: read(\.rainBrightnessSpread), pulse: read(\.rainPulseStrength))
+        }
+    }
+    func applyAppearance(_ preset: NativeAppearancePreset) {
+        let values = preset.values(transparent: transparent)
+        controller.rainColor = values.nsColor
+        controller.rainGlow = values.glow
+        controller.rainBrightnessSpread = values.spread
+        controller.rainPulseStrength = values.pulse
+    }
+    func isSelected(_ swatch: NativeRainSwatch) -> Bool {
+        guard let current = read(\.rainColor).usingColorSpace(.sRGB) else { return false }
+        let target = swatch.color
+        return abs(current.redComponent - target.redComponent) < 0.0001
+            && abs(current.greenComponent - target.greenComponent) < 0.0001
+            && abs(current.blueComponent - target.blueComponent) < 0.0001
+    }
+    func applyColor(_ swatch: NativeRainSwatch) { controller.rainColor = swatch.color }
     var keywordColor: Color {
         get { Color(nsColor: read(\.keywordColor)) }
         set { controller.keywordColor = NSColor(newValue) }

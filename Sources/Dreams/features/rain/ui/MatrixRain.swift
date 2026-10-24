@@ -302,6 +302,7 @@ final class MatrixRain {
                         (0.30 * pulsedInk * inkOpacity + 0.75 * white) * glyphAlpha * Float(min(3, glow))))) }
                 cells.append(Cell(rect: rect, uv: uv, color: SIMD4(rgb * exposure, glyphAlpha)))
                 // First stable, non-space event letter submitted in the visible viewport.
+                // Feed runs reject scenarios whose reference viewport exceeds the drawable.
                 // Presentation of this drawable is a proxy; this is not pixel/OCR verification.
                 if let measurement, measurement.observeFeed, let pulse, isKeyword, !mutating,
                    !text.allSatisfy({ $0.isWhitespace }), glyphAlpha > 0.008, rgb.max() > 0,

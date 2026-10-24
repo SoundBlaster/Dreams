@@ -1,0 +1,62 @@
+Building for production...
+[Provisioning 1 / 22]
+[1 / 5] Dreams-product
+[4 / 14] DreamsTests-product
+[6 / 15] DreamsTests-product
+[9 / 13] DreamsTests-product
+[11 / 13] DreamsTests-product
+Build complete! (10.96 sec)
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􀟈  Suite NativeSettingsTests started.
+􀟈  Test appearanceRecipesUseSavedValuesWithoutChangingMotion(transparent:) started.
+􀟈  Test case passing 1 argument transparent → false to appearanceRecipesUseSavedValuesWithoutChangingMotion(transparent:) started.
+􀟈  Test case passing 1 argument transparent → true to appearanceRecipesUseSavedValuesWithoutChangingMotion(transparent:) started.
+􁁛  Test appearanceRecipesUseSavedValuesWithoutChangingMotion(transparent:) with 2 test cases passed after 0.050 seconds.
+􀟈  Test quickPaletteChangesOnlyActiveColorAndManualColorClearsSelection() started.
+􁁛  Test quickPaletteChangesOnlyActiveColorAndManualColorClearsSelection() passed after 0.002 seconds.
+􀟈  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() started.
+􁁛  Test backdropKeepsOneSurfaceAcrossAdaptiveLayout() passed after 0.210 seconds.
+􀙟  Test previewIsAPixelExactScreenCrop(columns:scale:) skipped.
+􀟈  Test previewIsLazyAndDoesNotRequestAnOverlay() started.
+􁁛  Test previewIsLazyAndDoesNotRequestAnOverlay() passed after 0.011 seconds.
+􀙟  Test previewUsesSharedSettingsAndReleasesItsRendererWhenHidden() skipped.
+􀙟  Test dismantlingAnOldSurfaceDoesNotStopItsReplacement() skipped.
+􀟈  Test displayTitlesIdentifyBuiltInMainAndExcludedDisplays() started.
+􁁛  Test displayTitlesIdentifyBuiltInMainAndExcludedDisplays() passed after 0.001 seconds.
+􀟈  Test runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 0.0, transparent → false to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 0.0, transparent → true to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 300.0, transparent → false to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 300.0, transparent → true to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 1800.0, transparent → false to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 1800.0, transparent → true to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 3600.0, transparent → false to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􀟈  Test case passing 2 arguments seconds → 3600.0, transparent → true to runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) started.
+􁁛  Test runtimeHintMatchesBackgroundDurationAndShortcut(seconds:transparent:) with 8 test cases passed after 0.007 seconds.
+􀟈  Test failedResetReconcilesThePartiallyChangedStopShortcut() started.
+􁁛  Test failedResetReconcilesThePartiallyChangedStopShortcut() passed after 0.001 seconds.
+􀟈  Test launchFlagDefaultsOffAndExplicitLegacyWins() started.
+􁁛  Test launchFlagDefaultsOffAndExplicitLegacyWins() passed after 0.001 seconds.
+􀟈  Test nativeBindingsUseTheProductionOwnerAndRejectInvalidValues() started.
+􁁛  Test nativeBindingsUseTheProductionOwnerAndRejectInvalidValues() passed after 0.003 seconds.
+􀟈  Test bothWindowsSharePreferencesAndOneActivityTimer() started.
+􁁛  Test bothWindowsSharePreferencesAndOneActivityTimer() passed after 0.133 seconds.
+􀙟  Test recordNativeFormsWithScreener() skipped.
+􀟈  Test extendedFunctionKeysHaveReadableNames() started.
+􁁛  Test extendedFunctionKeysHaveReadableNames() passed after 0.005 seconds.
+􀟈  Test recordingConsumesOnlyItsWindowAndEscapeCancelsWithoutCommit() started.
+􁁛  Test recordingConsumesOnlyItsWindowAndEscapeCancelsWithoutCommit() passed after 0.007 seconds.
+􀟈  Test recordingCommitsOnceAndRemovesLifecycleObservers() started.
+􁁛  Test recordingCommitsOnceAndRemovesLifecycleObservers() passed after 0.004 seconds.
+􀟈  Test recordingCancelsOnCloseFocusLossAndAppDeactivation() started.
+􁁛  Test recordingCancelsOnCloseFocusLossAndAppDeactivation() passed after 0.006 seconds.
+􀟈  Test nativeAndLegacyRecordingShareOwnerAndCleanup() started.
+􁁛  Test nativeAndLegacyRecordingShareOwnerAndCleanup() passed after 0.002 seconds.
+􀟈  Test occupiedShortcutKeepsSavedValueAndShowsNativeError() started.
+􁁛  Test occupiedShortcutKeepsSavedValueAndShowsNativeError() passed after 0.005 seconds.
+􀟈  Test retryAfterStartupConflictRestoresCarbonEventHandler() started.
+􁁛  Test retryAfterStartupConflictRestoresCarbonEventHandler() passed after 0.006 seconds.
+􁁛  Suite NativeSettingsTests passed after 0.459 seconds.
+􁁛  Test run with 21 tests in 1 suite passed after 0.459 seconds.

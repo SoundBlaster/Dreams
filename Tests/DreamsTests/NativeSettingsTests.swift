@@ -24,10 +24,12 @@ struct NativeSettingsTests {
         }
     }
 
-    @Test func launchFlagDefaultsOffAndExplicitLegacyWins() {
-        #expect(!NativeSettingsFeature.isEnabled(arguments: ["Dreams"]))
+    @Test func nativeSettingsAreDefaultAndExplicitLegacyWins() {
+        #expect(NativeSettingsFeature.isEnabled(arguments: ["Dreams"]))
         #expect(NativeSettingsFeature.isEnabled(arguments: ["Dreams", "--native-settings"]))
+        #expect(!NativeSettingsFeature.isEnabled(arguments: ["Dreams", "--legacy-settings"]))
         #expect(!NativeSettingsFeature.isEnabled(arguments: ["Dreams", "--native-settings", "--legacy-settings"]))
+        #expect(!NativeSettingsFeature.isEnabled(arguments: ["Dreams", "--legacy-settings", "--native-settings"]))
     }
 
     @Test func nativeBindingsUseTheProductionOwnerAndRejectInvalidValues() throws {
@@ -79,7 +81,7 @@ struct NativeSettingsTests {
         _ = NSApplication.shared
         let restore = Self.preserveDefaults()
         defer { restore() }
-        let page = SettingsPageController(controller: DreamsController(), nativeSettingsEnabled: true)
+        let page = SettingsPageController(controller: DreamsController())
         defer { page.controlsWindow?.close(); page.cleanUp() }
         page.showControls()
         let window = try #require(page.nativeWindow)

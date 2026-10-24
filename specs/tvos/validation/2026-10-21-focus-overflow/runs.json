@@ -1,0 +1,40 @@
+{
+  "sourceRevision": "3d2829e24453c6dac5a2c879822e50d7416bd9f8",
+  "cwd": "/Users/egor/.codex/worktrees/screen-management/Dreams",
+  "commands": [
+    {
+      "command": "make app-tv TV_DERIVED_DATA=/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/xcode/DerivedData",
+      "exitCode": 0,
+      "log": "build.log"
+    },
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "lint.log",
+      "environment": {
+        "RUFF_CACHE_DIR": "/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/python/ruff",
+        "PYTHONPYCACHEPREFIX": "/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/python/bytecode"
+      }
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "structure.log",
+      "environment": {
+        "PYTHONPYCACHEPREFIX": "/Volumes/TB5/Developer/Builds/GitHub/tvOS-437708809d8903fb/python/bytecode"
+      }
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "log": "docs.log"
+    }
+  ],
+  "ui": {
+    "report": "report.md",
+    "simulator": "B29EC156-5EF9-4A56-8147-1C98D4E228DB",
+    "physicalDevice": false,
+    "fullResolution": "1920x1080",
+    "firstAttempt": "d566578a16893d0804da883b8789aff7f26812b7: FAIL (native viewport clipped focus)"
+  }
+}

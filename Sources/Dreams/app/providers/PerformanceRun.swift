@@ -58,7 +58,7 @@ final class PerformanceRun: NSObject, MTKViewDelegate, NSWindowDelegate {
             application.finishLaunching()
             let data = try Data(contentsOf: URL(fileURLWithPath: arguments[index + 1]))
             let scenario = try JSONDecoder().decode(RainPerformanceScenario.self, from: data)
-            try scenario.validate()
+            try scenario.validate(feedObservation: isFeed)
             let run = try PerformanceRun(scenario: scenario, data: data,
                 output: URL(fileURLWithPath: arguments[index + 2]), calibrationMode: mode, feedProbe: isFeed)
             Task { @MainActor in run.start() }

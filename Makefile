@@ -86,17 +86,24 @@ lint-architecture:
 	zsh scripts/lint-architecture.sh --root tvOS/Sources
 	zsh scripts/lint-architecture.sh --root Packages/DreamsSettingsUI/Sources/DreamsSettingsCatalog
 
+TV_DERIVED_DATA ?= tvOS/.build
+TV_TEST_OPTIONS ?=
+
 .PHONY: app-tv test-tv
 app-tv:
 	xcodegen generate --spec tvOS/project.yml
 	xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
-		-destination 'generic/platform=tvOS Simulator' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO build
+		-destination 'generic/platform=tvOS Simulator' -derivedDataPath '$(abspath $(TV_DERIVED_DATA))' \
+		SYMROOT='$(abspath $(TV_DERIVED_DATA))/Build/Products' OBJROOT='$(abspath $(TV_DERIVED_DATA))/Build/Intermediates.noindex' \
+		CODE_SIGNING_ALLOWED=NO build
 
 test-tv:
 	@test -n "$(TV_DEVICE)" || { echo 'Usage: make test-tv TV_DEVICE=<simulator UDID>'; exit 1; }
 	xcodegen generate --spec tvOS/project.yml
 	xcodebuild -project tvOS/DreamsTV.xcodeproj -scheme DreamsTV \
-		-destination 'platform=tvOS Simulator,id=$(TV_DEVICE)' -derivedDataPath tvOS/.build CODE_SIGNING_ALLOWED=NO test
+		-destination 'platform=tvOS Simulator,id=$(TV_DEVICE)' -derivedDataPath '$(abspath $(TV_DERIVED_DATA))' \
+		SYMROOT='$(abspath $(TV_DERIVED_DATA))/Build/Products' OBJROOT='$(abspath $(TV_DERIVED_DATA))/Build/Intermediates.noindex' \
+		CODE_SIGNING_ALLOWED=NO $(TV_TEST_OPTIONS) test
 
 test-unit:
 	python3 scripts/test-performance-reports.py
@@ -221,6 +228,11 @@ specs-check:
 	"$(HYPERCODE)" parse specs/hypercode/keyword-feed.hc
 	"$(HYPERCODE)" validate specs/hypercode/keyword-feed.hc --hcs specs/hypercode/keyword-feed.hcs
 	"$(SPECPM)" validate specs/keyword-feed --json
+
+	"$(HYPERCODE)" parse specs/hypercode/television.hc
+	"$(HYPERCODE)" validate specs/hypercode/television.hc --hcs specs/hypercode/television.hcs
+	"$(HYPERCODE)" validate specs/hypercode/television.hc --hcs specs/hypercode/television.hcs --ctx clock=hidden
+	"$(SPECPM)" validate specs/tvos --json
 	"$(HYPERCODE)" parse specs/hypercode/glyph-pulse.hc
 	"$(HYPERCODE)" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs
 	"$(HYPERCODE)" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs --ctx pulse=off
