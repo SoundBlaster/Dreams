@@ -968,3 +968,21 @@ and exit action semantics remain unchanged; only the app's main menu is added.
 `build-app.sh` accepts an optional glyph-output path so the required app build can
 keep generated glyph artifacts on the verified TB5 volume; its default and bundled
 font bytes are unchanged. [Validation](application-menu/validation/2026-10-24/README.md).
+
+## Saved macOS status-icon visibility — 2026-10-24
+
+`DesktopApplication.ApplicationMenu.StatusItemVisibility` folds the minor native
+icon-presence preference into `dreams.desktop.main_menu/status_item_visibility`;
+`dreams.settings.host/menu_bar_icon` owns native General/legacy presentation.
+Runtime/test source `f979c8c7d454589d225de75911c5fcdfe262c8b8`: one saved controller value, default/reset visible,
+immediate visibility changes on the same NSStatusItem and unchanged shortcut/menu
+ownership. Interactive main-menu Settings and Dock reopening remain available.
+Accessory setup reads the saved value; publisher-only mode still has no item.
+
+Updated maps and current full-file bindings preserve stable claim IDs and draft
+acceptance. `dreams.overlay.session`, `dreams.overlay.exit`,
+`dreams.rain.drop_motion`, `dreams.rain.search_occupancy`,
+`dreams.rain.glyph_pulse` and `dreams.tv.rain` retain their algorithms and profile
+obligations; their changed full-file bindings are refreshed with a dated impact
+record, preserving previous evidence. TV execution/performance is not inferred
+from this macOS run. [Current checks](application-menu/validation/2026-10-24-status-icon/README.md).

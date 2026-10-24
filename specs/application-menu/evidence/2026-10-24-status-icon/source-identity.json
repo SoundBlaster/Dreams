@@ -1,0 +1,48 @@
+{
+  "sourceRevision": "f979c8c7d454589d225de75911c5fcdfe262c8b8",
+  "note": "New current full-file snapshots; earlier evidence remains historical. Unchanged consumers require separate profile acceptance.",
+  "files": [
+    {
+      "path": "Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/app/providers/DreamsDelegate.swift",
+      "sha256": "3be40bf5738407e26407bd74016e0f119c4a67bd41ee4fe0d801dbded67be4e3",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "36db3a110c4f52568403c357eceb56b430bb130fa6f54f23d73c929ce89e7ed0",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "6189edf77deb28faca4a50e67ae3bd126799d29481dba3df02123f23ce497cf7",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "3b21bf596a98cf1cc432ef8a69d5ca1b52e89736270e155b86d9d8e6dcb10a9d",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "5699e9f8267294b9cadadeb8f5445afa347e690bdf421c014d14778044e3bd48",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "sha256": "40cdb3c56901704f4e42303e0c9a807e4adf610a6eb9e7adebd66b1c86dda80e",
+      "snapshotKind": "full-file"
+    }
+  ],
+  "mapHashes": {
+    "specs/hypercode/application-menu.hc": "0062e761e22df747decc00db3934c34d7a081dca09002d0a87b3c0885cac23ae",
+    "specs/hypercode/application-menu.hcs": "986d82315a1ecd7012c54357bf7da85134c60e3b0a62fe1708a60a78b693fc5c",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "91bc94cac569b6ea9f977ed068c4c0336820bd93fb0c93467a4b8ffa08faf16a"
+  }
+}

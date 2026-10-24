@@ -3,3 +3,4 @@ ApplicationMenu
   StandardCommands
   SettingsDispatch
   ResponderCommands
+  StatusItemVisibility

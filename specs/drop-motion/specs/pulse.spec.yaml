@@ -110,16 +110,16 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 58f4d3a1ec6188b01a55130b749ce51fa8707fc5
+    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
   files:
     owned:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
     - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
-    - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseTests.swift
     - evidence/2026-10-14-pulse/source/Tests/DreamsTests/GlyphPulseRenderingTests.swift
     - evidence/2026-10-24-native-default/source/Tests/DreamsTests/GlyphPulseSettingsTests.swift
@@ -127,6 +127,6 @@ implementationBindings:
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
     - evidence/2026-10-23-feed/source/Sources/Dreams/pages/settings/model/NativeRainParameter.swift
-    - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
     - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift

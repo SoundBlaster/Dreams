@@ -121,7 +121,7 @@ evidence:
   - constraints.hotkey_recording
 - id: source_4
   kind: source
-  path: evidence/2026-10-24-main-integration/pr39/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
   supports:
   - constraints.all_displays
   - constraints.local_escape
@@ -130,7 +130,7 @@ evidence:
   - effects.input_registration
 - id: source_5
   kind: source
-  path: evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
+  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
   supports:
   - constraints.local_escape
   - constraints.all_displays
@@ -142,7 +142,7 @@ evidence:
   - constraints.callback_lifetime
 - id: fsd_source_7
   kind: source
-  path: evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+  path: evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
   supports:
   - constraints.callback_lifetime
 - id: recording_source
@@ -173,7 +173,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 83599b5034d0f5a8481a43e0f3157b4e6bec6101
+    revision: f979c8c7d454589d225de75911c5fcdfe262c8b8
   files:
     owned:
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/pages/settings/model/StopShortcutRecorder.swift
@@ -181,9 +181,9 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/ui/RainOverlayWindow.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/features/rain/lib/EmergencyHotkey.swift
     - evidence/2026-10-15-shortcut/source/Sources/Dreams/shared/lib/StopHotkey.swift
-    - evidence/2026-10-24-main-integration/pr39/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-15-preview/source/Sources/Dreams/features/rain/model/DreamsController.swift
-    - evidence/2026-10-24-main-menu/source/Sources/Dreams/app/providers/DreamsDelegate.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/app/providers/DreamsDelegate.swift
     - evidence/2026-10-14-native-host/source/Sources/Dreams/app/providers/DreamsMCPServer.swift
-    - evidence/2026-10-14-pulse/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     border: []

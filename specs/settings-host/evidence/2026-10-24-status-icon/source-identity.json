@@ -1,0 +1,66 @@
+{
+  "sourceRevision": "f979c8c7d454589d225de75911c5fcdfe262c8b8",
+  "note": "New current full-file snapshots; earlier evidence remains historical. Unchanged consumers require separate profile acceptance.",
+  "files": [
+    {
+      "path": "Sources/Dreams/features/rain/model/DreamsController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/model/DreamsController.swift",
+      "sha256": "3b21bf596a98cf1cc432ef8a69d5ca1b52e89736270e155b86d9d8e6dcb10a9d",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/model/NativeSettingsModel.swift",
+      "sha256": "9f6a80102145796551a75fbccecd7b4bccc258aa9cf07adff4f27ebc9b4fda7c",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift",
+      "sha256": "bc191d22d5b0959938b1f65a119ad3f0c2e83f027dfb1a4458bd70fa21f06f1e",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift",
+      "sha256": "360a71dbb10626fd737eea55af48e6476a0a02acab2c208a717db80c67405986",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift",
+      "sha256": "93b350531512800239f9f8b23708e17ed80ea970eeb3c3a3827ff4221cced76f",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings",
+      "sha256": "36db3a110c4f52568403c357eceb56b430bb130fa6f54f23d73c929ce89e7ed0",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings",
+      "sha256": "6189edf77deb28faca4a50e67ae3bd126799d29481dba3df02123f23ce497cf7",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/NativeSettingsTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift",
+      "sha256": "40cdb3c56901704f4e42303e0c9a807e4adf610a6eb9e7adebd66b1c86dda80e",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift",
+      "sha256": "5699e9f8267294b9cadadeb8f5445afa347e690bdf421c014d14778044e3bd48",
+      "snapshotKind": "full-file"
+    },
+    {
+      "path": "Tests/DreamsTests/SettingsPageTests.swift",
+      "snapshot": "evidence/2026-10-24-status-icon/source/Tests/DreamsTests/SettingsPageTests.swift",
+      "sha256": "afbfcb39c934f363d1e33c58e58c9df99647631061b767ea6607dd223755ace0",
+      "snapshotKind": "full-file"
+    }
+  ]
+}
