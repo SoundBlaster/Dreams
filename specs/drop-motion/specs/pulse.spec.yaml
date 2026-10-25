@@ -110,11 +110,11 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 864b3b77c5589e5c6d7b563696cf1aee84289859
+    revision: af94ff0eefd217468506b64072c8293c36a87e48
   files:
     owned:
     - evidence/2026-10-14-pulse/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
-    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift

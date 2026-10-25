@@ -1,0 +1,12 @@
+{
+  "appBuildSource": "c0dc67585501baf4d99236bc95223f3bf197e962",
+  "binarySHA256": "19a268505e778f6807153dcbc79d0db7fb4e087bc220bd729f0b574a14e357c1",
+  "signature": "ad-hoc local dev build; not a release artifact",
+  "lastObservedPID": 40597,
+  "exactPathConfirmedByPS": true,
+  "liveAutomaticClickVerified": false,
+  "reason": "Native CUA tool is absent; one Xcode My Mac device-session attempt returned Cannot select specified device. No session created, device booted or settings changed.",
+  "realMetalLongClockRegression": "passed at final test content af94ff0",
+  "originalIncidentStack": "Not captured; recovered-process sample retained locally only.",
+  "recoveredSampleSHA256": "bc58cc1b89ff569dd83d3dc1f81f81ed7d1b29acc0a348547f1dfb20cfc8d433"
+}

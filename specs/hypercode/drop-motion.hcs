@@ -1,5 +1,6 @@
 DropMotion:
   source: "Sources/Dreams/features/rain/model/MatrixSimulation.swift"
+  grid_clock: "optional nonnegative startTime offsets initial schedules; default zero; macOS MatrixRain rebuild warms at most the last six simulation seconds without resetting its renderer clock; TV retains its separate bounded reset"
   enabled: false
   acceleration: -12
   acceleration_units: "glyph-rows-per-simulation-second-squared"
