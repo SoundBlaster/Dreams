@@ -1,15 +1,59 @@
 import SwiftUI
 import UIKit
 
-private enum SettingsField: Hashable {
+enum SettingsField: Hashable {
     case automatic, columns, density, brightness, speed, fade, search, braking, acceleration
     case spread, pulse, glow, red, green, blue, glyphs, clock, floating, typeface, size, done
+
+    var isNumeric: Bool {
+        switch self {
+        case .columns, .density, .brightness, .speed, .fade, .search, .acceleration,
+             .spread, .pulse, .glow, .red, .green, .blue, .size: true
+        default: false
+        }
+    }
+
+    func adjust(_ tuning: inout RainTuning, by direction: Int) {
+        if self == .columns {
+            if !tuning.automaticColumns { tuning.columns += direction }
+            tuning = tuning.normalized()
+            return
+        }
+        if self == .typeface {
+            guard tuning.showsClock, abs(direction) == 1 else { return }
+            let fonts = ClockTypeface.allCases
+            let index = fonts.firstIndex(of: tuning.clockTypeface) ?? 0
+            tuning.clockTypeface = fonts[(index + direction + fonts.count) % fonts.count]
+            return
+        }
+        if self == .acceleration && !tuning.decelerationEnabled { return }
+        if self == .size && !tuning.showsClock { return }
+        let parameter: (WritableKeyPath<RainTuning, Double>, Double)? = switch self {
+        case .density: (\.density, 0.01)
+        case .brightness: (\.brightness, 0.01)
+        case .speed: (\.speed, 0.01)
+        case .fade: (\.fade, 1)
+        case .search: (\.searchFraction, 0.01)
+        case .acceleration: (\.acceleration, 0.5)
+        case .spread: (\.brightnessSpread, 0.01)
+        case .pulse: (\.pulseStrength, 0.01)
+        case .glow: (\.glow, 0.01)
+        case .red: (\.color.red, 0.01)
+        case .green: (\.color.green, 0.01)
+        case .blue: (\.color.blue, 0.01)
+        case .size: (\.clockSize, 0.05)
+        default: nil
+        }
+        if let (keyPath, step) = parameter { tuning[keyPath: keyPath] += Double(direction) * step }
+        tuning = tuning.normalized()
+    }
 }
 
 struct SettingsPage: View {
     @Bindable var settings: RainSettings
     @Binding var previewPlays: Bool
     @State private var confirmsReset = false
+    @State private var remoteHold = RemoteHoldState()
     let close: () -> Void
     @FocusState private var focusedField: SettingsField?
 
@@ -35,13 +79,19 @@ struct SettingsPage: View {
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIFocusSystem.movementDidFailNotification)) { notification in
-            guard !confirmsReset,
+            guard !confirmsReset, !remoteHold.active,
                   let context = notification.userInfo?[UIFocusSystem.focusUpdateContextUserInfoKey] as? UIFocusUpdateContext
             else { return }
             // A row has no horizontal focus neighbour. The focus engine reports both
             // touch-surface swipes and directional presses through this native path.
             if context.focusHeading == .left { adjustFocused(by: -1) }
             if context.focusHeading == .right { adjustFocused(by: 1) }
+        }
+        .background {
+            RemoteHoldAdjustment(enabled: !confirmsReset && focusedField?.isNumeric == true,
+                                 field: String(describing: focusedField),
+                                 holdChanged: { remoteHold.active = $0 }, adjust: { adjustFocused(by: $0) })
+                .allowsHitTesting(false)
         }
         // Keep room for tvOS focus expansion outside the List's layout bounds.
         .scrollClipDisabled()
@@ -121,33 +171,10 @@ struct SettingsPage: View {
 
     /// Native List focuses its cell; horizontal focus movement adjusts that row's value.
     private func adjustFocused(by direction: Int) {
-        if focusedField == .columns {
-            if !settings.tuning.automaticColumns { settings.tuning.columns += direction }
-            return
-        }
-        if focusedField == .typeface {
-            let fonts = ClockTypeface.allCases
-            let index = fonts.firstIndex(of: settings.tuning.clockTypeface) ?? 0
-            settings.tuning.clockTypeface = fonts[(index + direction + fonts.count) % fonts.count]
-            return
-        }
-        let parameter: (WritableKeyPath<RainTuning, Double>, Double)? = switch focusedField {
-        case .density: (\.density, 0.01)
-        case .brightness: (\.brightness, 0.01)
-        case .speed: (\.speed, 0.01)
-        case .fade: (\.fade, 1)
-        case .search: (\.searchFraction, 0.01)
-        case .acceleration: (\.acceleration, 0.5)
-        case .spread: (\.brightnessSpread, 0.01)
-        case .pulse: (\.pulseStrength, 0.01)
-        case .glow: (\.glow, 0.01)
-        case .red: (\.color.red, 0.01)
-        case .green: (\.color.green, 0.01)
-        case .blue: (\.color.blue, 0.01)
-        case .size: (\.clockSize, 0.05)
-        default: nil
-        }
-        if let (keyPath, step) = parameter { settings.tuning[keyPath: keyPath] += Double(direction) * step }
+        guard !confirmsReset, let focusedField else { return }
+        var tuning = settings.tuning
+        focusedField.adjust(&tuning, by: direction)
+        if tuning != settings.tuning { settings.tuning = tuning }
     }
 
     private func adjustment(_ title: LocalizedStringKey, value: Binding<Double>, step: Double, field: SettingsField,

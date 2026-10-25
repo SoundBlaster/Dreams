@@ -33,7 +33,7 @@
 "settings.blue" = "Rain color · blue";
 "settings.glyphs" = "Restored film glyphs";
 "settings.search.hint" = "Minimum share of visible glyphs searching simultaneously. Zero disables trail search; falling heads keep cycling.";
-"settings.adjust.hint" = "Press Left or Right to adjust. Select increases the value.";
+"settings.adjust.hint" = "Left and right adjust the value. Double-click or hold an edge to change by 10 steps. Select increases it.";
 "rain.accessibility" = "Matrix rain. Press Select or Play/Pause for settings.";
 "settings.preview" = "Live preview";
 "settings.reset" = "Restore defaults";
