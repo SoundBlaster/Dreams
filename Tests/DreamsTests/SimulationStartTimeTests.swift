@@ -1,7 +1,30 @@
+import MetalKit
 import Testing
 @testable import Dreams
 
 struct SimulationStartTimeTests {
+    @Test(.enabled(if: ProcessInfo.processInfo.environment["DREAMS_TEST_METAL"] == "1"))
+    @MainActor func automaticGridAfterLongSessionDoesNotReplayTheSession() async throws {
+        let renderer = try RainRenderer(view: MTKView(), restoredGlyphs: true)
+        renderer.rainColumnCount = 24
+        renderer.rainDensity = 1
+        renderer.rainFadeRows = 3
+        renderer.rainSpeed = 0.43
+        renderer.rainSearchFraction = 0.2
+        renderer.rainIdleIntensity = 1
+        renderer.rainDeceleration = .init(enabled: true, acceleration: -37.5)
+        let pixels = SIMD2<Int>(128, 128)
+        let screen = CGSize(width: 1512, height: 982)
+        _ = try await renderer.previewPNG(posedTime: 0, pixelSize: pixels, referenceSize: screen)
+        renderer.rainColumnCount = 0
+        let frame = RainFrameMeasurement()
+        let image = try await renderer.previewPNG(posedTime: 9 * 3600, pixelSize: pixels,
+                                                 referenceSize: screen, measurement: frame)
+        #expect(!image.isEmpty)
+        // A generous guard for this isolated CPU stage, not a full UI/GPU performance budget.
+        #expect(frame.simulationSeconds > 0 && frame.simulationSeconds < 1)
+    }
+
     @Test(arguments: [9 * 3600.0, 7 * 24 * 3600.0])
     func aFreshGridAtALateClockMatchesANewSession(start: Double) throws {
         let motion = MatrixSimulation.Deceleration(enabled: true, acceleration: -37.5)
