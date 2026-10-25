@@ -64,6 +64,9 @@ teardown releases the Metal view delegate/renderer.
 ## Build and verification
 
 Requires Xcode with tvOS SDK and XcodeGen. Generated project/build outputs are ignored.
+The App Store target uses `ru.egormerkushev.dreams.tv`, team `P8T2366K8X`, and
+independent TV version/build numbers in `project.yml` (initially `1.0` / `1`).
+See [App Store preparation](APP_STORE.md) for archive/export and remaining release gates.
 Use Release configuration for physical-device performance checks; simulator/Debug
 results do not establish frame rate on older Apple TV hardware.
 
