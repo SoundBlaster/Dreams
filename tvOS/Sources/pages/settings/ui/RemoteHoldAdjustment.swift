@@ -103,6 +103,7 @@ struct RemoteHoldAdjustment: UIViewRepresentable {
         }
 
         func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool {
+            guard gestureRecognizer.allowedPressTypes.contains(NSNumber(value: press.type.rawValue)) else { return false }
             // Prevent the focus engine's failed movement from counting this same
             // physical click as a swipe. Tap recognizers resolve single vs double.
             holdChanged(true)
