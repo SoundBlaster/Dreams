@@ -27,3 +27,5 @@ records common font-body sizing separately from punctuation, classic geometry,
 source font editing and physical/film-fidelity acceptance.
 
 [Denser ordinary-body packing](validation/2026-10-25-denser-glyphs/README.md) supersedes the first cap-height fit after owner feedback; historical evidence is preserved.
+
+[90-column defaults and coarse remote steps](validation/2026-10-25-remote-steps/README.md) preserve saved preferences and distinguish model/repeat tests from gesture/device acceptance.

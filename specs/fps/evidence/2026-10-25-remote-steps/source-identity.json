@@ -1,0 +1,8 @@
+{
+  "sourceRevision": "5936633762c5a380c7af11b7f3162d46504e4f0a",
+  "baseRevision": "bcf24bf49860bb04308aa0753b15a36e7fc17ba3",
+  "files": {
+    "tvOS/Tests/RainParityTests.swift": "46a4c99ca573a6b7a62d384d854803a93273385b78c515a4e6cb098b23175121"
+  },
+  "scope": "TV defaults/input change; FPS constraint semantics and renderer/shared sources unchanged."
+}

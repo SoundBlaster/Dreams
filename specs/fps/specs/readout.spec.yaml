@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.rain.fps
   title: OptionalFrameCadenceReadout
-  version: 0.1.0-draft.5
+  version: 0.1.0-draft.6
   status: draft
 intent:
   summary: Let viewers inspect rain cadence without an external debugger.
@@ -100,7 +100,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 8830eab2fc5361d1b154a5969d072fe15da579d2
+    revision: 5936633762c5a380c7af11b7f3162d46504e4f0a
   files:
     owned:
     - evidence/2026-10-25-glyph-spacing/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
@@ -108,6 +108,6 @@ implementationBindings:
     - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-25-glyph-spacing/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-25-glyph-spacing/source/Tests/DreamsTests/PresentedFPSTests.swift
-    - evidence/2026-10-25-glyph-spacing/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-25-remote-steps/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
     border: []

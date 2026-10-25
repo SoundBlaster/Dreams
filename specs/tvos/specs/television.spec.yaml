@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.tv.rain
   title: TelevisionRainAndClock
-  version: 0.1.0-draft.8
+  version: 0.1.0-draft.9
   status: draft
 intent:
   summary: Give Apple TV viewers the desktop rain's motion and appearance controls without agent or desktop-window integrations, preserving the optional TV clock.
@@ -67,10 +67,10 @@ constraints:
     For restored glyphs, compute one uniform scale from the font's common cap height and the cropped atlas window so the nominal common body spans1.12 rain rows. This intentional overhang lets shorter ordinary bodies nearly touch; it does not normalize each glyph separately. Apply it equally to both axes around each cell center; retain natural short-mark size, individual overshoots, padded UVs and aligned glow. Classic geometry stays unchanged. Do not alter font contours, row/column counts, simulation timing or saved tuning to close the visual gap. Pass the same scale to the FPS grid.
 - id: persistent_tuning
   level: MUST
-  statement: Preserve existing TV preference keys and TV defaults (manual96 columns, density0.82, brightness0.18 and clock on). New appearance/motion defaults come from shared DreamsPreset except the explicitly requested AppleTV5,3 Glow-zero hardware default. Normalize out-of-range and nonfinite numeric values. Reset persists all TV defaults after confirmation. TV state does not mutate desktop preferences.
+  statement: Preserve existing TV preference keys and TV defaults (manual90 columns for new/reset preferences; existing saved columns retained, density0.82, brightness0.18 and clock on). New appearance/motion defaults come from shared DreamsPreset except the explicitly requested AppleTV5,3 Glow-zero hardware default. Normalize out-of-range and nonfinite numeric values. Reset persists all TV defaults after confirmation. TV state does not mutate desktop preferences.
 - id: remote_settings
   level: MUST
-  statement: Use a scrollable system List, native Toggles and focusable native Button adjustment rows (Slider is unavailable on tvOS). Horizontal focus movement from directional presses or touch-surface swipes adjusts numeric values; vertical focus navigation remains native. Select increments. Ignore adjustment events while reset confirmation is presented. Expose localized names, values, adjustment hints and accessibility adjustment actions. Opening settings requests focus on Automatic columns. Present a centered settings panel with internal spacing and a rounded system-material background. Show rain, Back or PlayPause closes settings. PlayPause opens settings from rain; the separate Live preview toggle pauses/resumes rendering while the menu is open. Confirmation cancellation must not reset preferences.
+  statement: Use a scrollable system List, native Toggles and focusable native Button adjustment rows (Slider is unavailable on tvOS). Horizontal focus movement from directional presses or touch-surface swipes adjusts numeric values; vertical focus navigation remains native. Directional physical clicks use native tap recognizers; a single click changes one step; a double click changes ten steps without adding single-click actions. A left/right hold starts after0.5 seconds and repeats ten steps every0.2 seconds until release/cancellation. Suppress duplicate failed-focus notifications for those presses; retain touch-surface swipes as single steps and native vertical navigation. Ten steps means10 columns/fade glyphs,10 percentage points for percent fields,0.10 speed or5.0 acceleration units. Clamp at existing limits; ignore disabled/non-numeric controls, detach recognizers and cancel repeat work when the menu leaves its window or focus changes. Select increments. Ignore adjustment events while reset confirmation is presented. Expose localized names, values, adjustment hints and accessibility adjustment actions. Opening settings requests focus on Automatic columns. Present a centered settings panel with internal spacing and a rounded system-material background. Show rain, Back or PlayPause closes settings. PlayPause opens settings from rain; the separate Live preview toggle pauses/resumes rendering while the menu is open. Confirmation cancellation must not reset preferences.
 - id: clock
   level: MUST
   statement: Preserve an optional HH:mm whole-glyph brightness mask, three typefaces, size0.5...1.15 and bounded floating drift. Cache the mask by minute, font, size and aspect. Drift changes sample coordinates, not grid positions. Clock off bypasses mask exposure and presents a rain accessibility label without a time value.
@@ -101,6 +101,12 @@ effects:
     kind: state_mutation
     summary: Render local Metal frames and manage the foreground application's idle timer.
 evidence:
+- id: remote_steps_validation
+  kind: test
+  path: validation/2026-10-25-remote-steps/README.md
+  supports:
+  - constraints.persistent_tuning
+  - constraints.remote_settings
 - id: denser_glyph_validation
   kind: test
   path: validation/2026-10-25-denser-glyphs/README.md
@@ -144,7 +150,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 8830eab2fc5361d1b154a5969d072fe15da579d2
+    revision: 5936633762c5a380c7af11b7f3162d46504e4f0a
   files:
     owned:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift
@@ -152,15 +158,15 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/ClockMask.swift
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift
-    - evidence/2026-10-24-safe-identifier/source/tvOS/Sources/features/matrix/model/RainSettings.swift
+    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/features/matrix/model/RainSettings.swift
     - evidence/2026-10-25-glyph-spacing/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
-    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
-    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
-    - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
+    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
+    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
+    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
-    - evidence/2026-10-25-glyph-spacing/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-25-remote-steps/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-10-25-pr64-integration/source/Makefile
     - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
@@ -170,6 +176,8 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/LICENSE
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
     - evidence/2026-10-25-glyph-spacing/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
+    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/pages/settings/ui/RemoteHoldAdjustment.swift
+    - evidence/2026-10-25-remote-steps/source/tvOS/Tests/RemoteAdjustmentTests.swift
     border: []
 - id: television_packaging
   language: yaml

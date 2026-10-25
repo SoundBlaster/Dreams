@@ -1124,3 +1124,7 @@ unaccepted/unknown; historical evidence is preserved.
 ## Denser restored TV glyphs — 2026-10-25
 
 The owner rejected the first spacing result as too loose. `dreams.tv.rain/resources` now allows the nominal cap body to span1.12 rows with the same uniform XY factor. Ordinary short bodies gain near-contact packing; punctuation remains natural, classic/macOS geometry and grid/timing stay unchanged. Parent `fps` and `dreams.rain.fps/appearance` still inherit active rain sizing; no sampling/lifetime policy changes. [Current baseline](tvos/validation/2026-10-25-denser-glyphs/README.md) supersedes the rejected visual result, preserves old evidence and records source/test/visual limits. Physical-device/GPU acceptance remains outstanding.
+
+## TV90-column defaults and coarse remote input — 2026-10-25
+
+`dreams.tv.rain/persistent_tuning` now requires90 only for fresh/reset settings, preserving saved columns. `remote_settings` folds native directional single/double/hold handling into Settings: one versus ten existing unit steps, disabled/range guards, duplicate-focus suppression and repeat teardown. Parent lifecycle/paused_preview keep native focus and single-renderer obligations. FPS policies and runtime are unchanged; its changed test-file snapshot is refreshed. [Current baseline](tvos/validation/2026-10-25-remote-steps/README.md) separates25 test passes from the failed simulator interaction and pending physical gesture verification. No renderer or desktop behavior change.
