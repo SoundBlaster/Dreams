@@ -1,0 +1,79 @@
+{
+  "version": "0.1.12",
+  "baseMain": "909b538cafe43c4043036e5f77693c6b0566fc9f",
+  "specImpact": "NO-SPEC-IMPACT for version metadata only",
+  "files": [
+    {
+      "path": "VERSION",
+      "sha256": "0a6c8dc4148eed841498d2c2be544947a62f8f50c381b2e64bcd7ce40461cf34"
+    },
+    {
+      "path": "plugins/dreams-claude/.claude-plugin/plugin.json",
+      "sha256": "398249dcbf0f3e060a32f0341f831bb2f629b52b936107b311f1c2c509b27126"
+    },
+    {
+      "path": "plugins/dreams-codex/plugin.json",
+      "sha256": "e79cb62935bd9c7956b1d4de5fd63d5a759aafb874768bbbbdeaaae8e8d5e21f"
+    },
+    {
+      "path": "Package.swift",
+      "sha256": "976e7543a0ce2a163df40c8493acb7cc4a8aaf2a28844ccb0f0789f4053c6786"
+    },
+    {
+      "path": "Package.resolved",
+      "sha256": "3bfb803b8d5e2d2bc976d79e2faf1afc6c731a98f51079705b667d931bdb69f5"
+    },
+    {
+      "path": "scripts/release.sh",
+      "sha256": "85b2592c16221415e91bd9145e82489a4db1cca8a8d3d07e045fb1f674109e9d"
+    },
+    {
+      "path": "scripts/swift-macos.sh",
+      "sha256": "ff04f621aa14e403fe9761a122b65f27b78ab385602b5cf0e2661a82fa35114e"
+    },
+    {
+      "path": "scripts/Info.plist.in",
+      "sha256": "21912b958ef9488b13e564ec056e7ff3a2a31e5ab5e923fc40a0fafd6e800554"
+    },
+    {
+      "path": "Sources/Dreams/DreamsMatrix.ttf",
+      "sha256": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845"
+    },
+    {
+      "path": "Sources/Dreams/Matrix-Code.ttf",
+      "sha256": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+    },
+    {
+      "path": "assets/AppIcon.icns",
+      "sha256": "b4a74dfb5aaead2d9179c0fb79ca9c4e583301b0250a7a74f873cfef761bc74a"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "fbabef436c926f05fe8cbba9b4d377e03f224b89a7c4d235319de1dddef692d1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "5f911d611cd052249688422212dc25bb3e35817baba94ac0f6b75953a24f3cca"
+    }
+  ],
+  "currentBindings": 249,
+  "staleOrMissing": 0,
+  "checks": [
+    {
+      "command": "make lint plugins-check (verified local FSD tooling; per-process TB5 Python/Ruff paths)",
+      "exitCode": 0,
+      "log": "logs/local-checks.log.gz",
+      "rawSHA256": "94376b3c8f1e40addc4e2b3ac00f13f96fe7164ab58696fa3d09d7d98f8b76ca",
+      "archiveSHA256": "be40b03caaa242e68962ce4556a2306c960f975b7e5987df34f2e536e87e9f74"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "logs/specs-check.log.gz",
+      "rawSHA256": "6d6730427f577beeb614f02596b85bb24655da440e863b816f6b71eeb0a9fee1",
+      "archiveSHA256": "be9654b45065b2203d2cbaea903ad3be109ed3555c5f33b59634fa99f8af6d40"
+    }
+  ],
+  "diagnostics": "Metadata/plugin, lint/docs and HC/SpecPM checks passed, retaining existing lint configuration/platform-capability warnings. Runtime checks retain their grid-clock source identities; final binary verification is a separate release asset.",
+  "distributionEvidence": "https://github.com/SoundBlaster/Dreams/releases/download/v0.1.12/release-verification.json"
+}

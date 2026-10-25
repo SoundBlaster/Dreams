@@ -5,6 +5,16 @@ changes. Initial scope: repository maintenance rules and the browser glyph
 editor on `96fef7ad121cf9ba278eabd878c5179fd754a0cd`. All recovered contracts are **descriptive drafts**;
 formal acceptance and runtime conformance remain separate owner decisions.
 
+## Release 0.1.12 metadata — 2026-10-25
+
+VERSION and both plugin manifests advance to 0.1.12 after merging the grid-clock
+fix #66 on main `909b538cafe43c4043036e5f77693c6b0566fc9f`.
+`Spec-ID: NO-SPEC-IMPACT` applies to this metadata-only preparation. Runtime,
+current source bindings and the new grid lifetime requirements retain their
+identities; historical checks are not relabeled as binary acceptance.
+[Release preparation](release/validation/2026-10-25-0.1.12/README.md) separates
+the metadata checks from signed/notarized artifact and publication verification.
+
 ## Release 0.1.11 metadata — 2026-10-25
 
 VERSION and both plugin manifests advance together after the six-PR integration
