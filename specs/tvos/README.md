@@ -13,7 +13,11 @@ It recovers the TV host separately from existing macOS-only renderer contracts.
 | ClockMask | Does rain stay fixed? / clock | Mask samples entire glyph centers; bounded drift and cache invalidation |
 | Settings | Can a remote reach and edit every setting? / remote_settings | Native focus, scrolling, live preview, reset confirmation, localized accessibility |
 | Lifecycle | Who owns drawing and idle prevention? / lifecycle, platform_boundary | One renderer; scene/pause/teardown handling; no desktop or agent integration |
+| Packaging | Which Apple TV app and local artifact are built? / store_packaging | Registered TV identity, independent version/build, TV artwork and privacy manifest; local export is distinct from distribution and acceptance |
 
 [macOS/TV parity matrix](../../tvOS/parity.md) lists deliberate platform differences.
-[Current dated validation](validation/2026-10-21-focus-input/README.md) records source/map
+The [App Store target baseline](validation/2026-10-25-store-target/README.md) covers
+the registered identifier, local signed export, artwork, privacy and packaged
+resources separately from distribution, rights and physical-device acceptance.
+[Remote-input validation](validation/2026-10-21-focus-input/README.md) records source/map
 identities and separates checks from remaining physical-device/VoiceOver acceptance.

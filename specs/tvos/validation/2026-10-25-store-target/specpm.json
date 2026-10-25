@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    "dreams.tv.rain"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/television.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams Apple TV rain and clock",
+    "package_id": "dreams.television",
+    "version": "0.1.0-draft.6"
+  },
+  "status": "warning_only",
+  "warning_count": 2,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/television.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.tvos",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/television.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-25T09:15:23.617822+00:00",
+  "sourceRevision": "3d21233c0f90e827543a9329df7a7e49b4ffd4a9",
+  "profile": "TV_OS, local simulator+Release App Store export",
+  "acceptance": "descriptive draft; local packaging verification only",
+  "tools": {
+    "xcode": "27.1 (27A9275)",
+    "sdk": "appletvos27.0",
+    "asc": "5.3.3 (commit: unknown, date: unknown)",
+    "specpm": "specpm 0.2.0",
+    "hypercodePath": "/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f",
+    "xcodegen": "Version: 2.46.0"
+  },
+  "commands": [
+    {
+      "command": "python3 scripts/make-tv-assets.py (bundled Python/Pillow12.3.0; PYTHONDONTWRITEBYTECODE=1)",
+      "exitCode": 0,
+      "result": "24 committed asset files, 3048387 bytes, second regeneration byte-identical"
+    },
+    {
+      "command": "make app-tv TV_DERIVED_DATA=<verified checkout tvOS DerivedData>",
+      "exitCode": 0,
+      "log": "simulator-build.log.gz"
+    },
+    {
+      "command": "with_xcode_auth.py --profile <verified stored team profile> -- archive --project tvOS/DreamsTV.xcodeproj --scheme DreamsTV --configuration Release --archive-path <unique TB5 archive> --xcodebuild-flag=-destination --xcodebuild-flag=generic/platform=tvOS --xcodebuild-flag=-derivedDataPath --xcodebuild-flag=<checkout DerivedData> --xcodebuild-flag=-IDEBuildLocationStyle=Unique",
+      "exitCode": 0,
+      "log": "archive-final.log.gz"
+    },
+    {
+      "command": "with_xcode_auth.py --profile <same profile> -- export --archive-path <final TB5 archive> --ipa-path <final TB5 IPA> --export-options tvOS/ExportOptions-AppStore.plist --timeout 5m --output json",
+      "exitCode": 0,
+      "log": "export-final.log.gz"
+    },
+    {
+      "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=<same checkout DerivedData> TV_TEST_OPTIONS=-parallel-testing-enabled NO",
+      "exitCode": 0,
+      "result": "19 tests, zero failures",
+      "log": "tests-final.log.gz"
+    },
+    {
+      "command": "python3 scripts/check-tv-app.py <extracted first IPA>/Payload/DreamsTV.app --version 1.0 --build 1",
+      "exitCode": 1,
+      "result": "Missing bundled resource: LICENSE; regression guard before resource-phase fix"
+    },
+    {
+      "command": "python3 scripts/check-tv-app.py <extracted final IPA>/Payload/DreamsTV.app --version 1.0 --build 1",
+      "exitCode": 0,
+      "result": "bundle-check.json"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "specs-check.log.gz"
+    },
+    {
+      "command": "specpm validate specs/tvos --json",
+      "exitCode": 0,
+      "result": "specpm.json"
+    },
+    {
+      "command": "plutil -lint tvOS/Sources/shared/assets/PrivacyInfo.xcprivacy tvOS/ExportOptions-AppStore.plist",
+      "exitCode": 0
+    },
+    {
+      "command": "ruff check scripts",
+      "exitCode": 0
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "result": "199 Markdown files"
+    }
+  ],
+  "tvSpecWarnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/television.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.tvos",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/television.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    }
+  ],
+  "mapsAndContractsSHA256": {
+    "specs/hypercode/television.hc": "3242ba0ae6e4edb131bda66181f7cea8124c61187692228c7a602a6b1048c2c8",
+    "specs/hypercode/television.hcs": "df8921e03c8a43752e3dc81939a35410fabaca9a65e8aba476d519d996d7dbaa",
+    "specs/tvos/specpm.yaml": "c03abfed8ecad9a51ec09dd44c50896b48d001b39302a725c4c5661f9adcd84b",
+    "specs/tvos/specs/television.spec.yaml": "60281398a2ee47e6d744987a59f75dbb8666bf1f2bd529e25536216242c5bdf8"
+  },
+  "artifacts": {
+    "ipaPath": "/Volumes/TB5/Developer/Builds/GitHub/tvOS-d4c47af07211b4c8/store-readiness/DreamsTV-1.0-1-final.ipa",
+    "ipaSHA256": "efb6c2d7778d6fb3c1571c123dbaf5074532baa4bd3b5cdcbf4b0e8181eee501",
+    "appStoreSigned": true,
+    "uploaded": false,
+    "bundleCheck": "bundle-check.json"
+  },
+  "remaining": [
+    "Font redistribution-rights review",
+    "App Store acceptance of installed Xcode/SDK",
+    "Physical-device and sustained memory/performance checks",
+    "Observed simulator renderer diagnostics",
+    "TestFlight and store metadata/privacy/monetization decisions",
+    "Manual release selection and review/publication"
+  ],
+  "limits": [
+    "No macOS execution claim",
+    "No physical TV or long-run check",
+    "No upload, review, tester distribution or App Privacy mutation",
+    "No legal/visual/App Review acceptance inferred from structural or signing checks"
+  ]
+}

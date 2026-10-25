@@ -1,4 +1,5 @@
 TelevisionApplication
+  Packaging
   Lifecycle
   Settings
   Tuning

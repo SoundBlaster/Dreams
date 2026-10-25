@@ -1,0 +1,47 @@
+{
+  "bundleId": "ru.egormerkushev.dreams.tv",
+  "version": "1.0",
+  "build": "1",
+  "platforms": [
+    "AppleTVOS"
+  ],
+  "deviceFamily": [
+    3
+  ],
+  "minimumOS": "18.0",
+  "sdk": "appletvos27.0",
+  "xcodeBuild": "27A9275",
+  "team": "P8T2366K8X",
+  "applicationIdentifier": "P8T2366K8X.ru.egormerkushev.dreams.tv",
+  "getTaskAllow": false,
+  "signatureVerified": true,
+  "resources": [
+    "Assets.car",
+    "PrivacyInfo.xcprivacy",
+    "DreamsMatrix.ttf",
+    "Matrix-Code.ttf",
+    "Rain.metal",
+    "THIRD_PARTY_NOTICES.md",
+    "LICENSE"
+  ],
+  "privacy": {
+    "NSPrivacyTracking": false,
+    "NSPrivacyTrackingDomains": [],
+    "NSPrivacyCollectedDataTypes": [],
+    "NSPrivacyAccessedAPITypes": [
+      {
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+        "NSPrivacyAccessedAPITypeReasons": [
+          "CA92.1"
+        ]
+      }
+    ]
+  },
+  "icon": "App Icon",
+  "topShelf": {
+    "TVTopShelfPrimaryImageWide": "Top Shelf Image Wide",
+    "TVTopShelfPrimaryImage": "Top Shelf Image"
+  },
+  "signature": "Executable=/Volumes/TB5/Developer/Builds/GitHub/tvOS-d4c47af07211b4c8/store-readiness/ipa-final/Payload/DreamsTV.app/DreamsTV\nIdentifier=ru.egormerkushev.dreams.tv\nFormat=app bundle with Mach-O thin (arm64)\nCodeDirectory v=20400 size=3198 flags=0x0(none) hashes=89+7 location=embedded\nVersionPlatform=3\nVersionMin=1179648\nVersionSDK=1769472\nHash type=sha256 size=32\nCandidateCDHash sha256=ae9377c5152ddac495a3d828e82556061afc71fe\nCandidateCDHashFull sha256=ae9377c5152ddac495a3d828e82556061afc71fe66929d5744e2c32414fb7eb9\nHash choices=sha256\nCMSDigest=ae9377c5152ddac495a3d828e82556061afc71fe66929d5744e2c32414fb7eb9\nCMSDigestType=2\nExecutable Segment base=0\nExecutable Segment limit=262144\nExecutable Segment flags=0x1\nPage size=4096\nCDHash=ae9377c5152ddac495a3d828e82556061afc71fe\nSignature size=4759\nAuthority=Apple Distribution: Egor Merkushev (P8T2366K8X)\nAuthority=Apple Worldwide Developer Relations Certification Authority\nAuthority=Apple Root CA\nSigned Time=Oct 25, 2026 at 12:11:09\u202fPM\nInfo.plist entries=28\nTeamIdentifier=P8T2366K8X\nSealed Resources version=2 rules=10 files=10\nInternal requirements count=1 size=192\nTotal signatures=1\nChosen signature=1\n",
+  "linkedLibraries": "/Volumes/TB5/Developer/Builds/GitHub/tvOS-d4c47af07211b4c8/store-readiness/ipa-final/Payload/DreamsTV.app/DreamsTV:\n\t/System/Library/Frameworks/Foundation.framework/Foundation (compatibility version 300.0.0, current version 5027.0.69)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)\n\t/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation (compatibility version 150.0.0, current version 5027.0.69)\n\t/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics (compatibility version 64.0.0, current version 2049.0.0)\n\t/System/Library/Frameworks/CoreText.framework/CoreText (compatibility version 1.0.0, current version 904.0.0)\n\t/System/Library/Frameworks/Metal.framework/Metal (compatibility version 1.0.0, current version 382.5.3)\n\t/System/Library/Frameworks/MetalKit.framework/MetalKit (compatibility version 1.0.0, current version 174.4.0)\n\t/System/Library/Frameworks/QuartzCore.framework/QuartzCore (compatibility version 1.2.0, current version 1223.0.14)\n\t/System/Library/Frameworks/SwiftUI.framework/SwiftUI (compatibility version 1.0.0, current version 8.0.84)\n\t/System/Library/Frameworks/UIKit.framework/UIKit (compatibility version 1.0.0, current version 9127.0.84)\n\t/usr/lib/swift/libswiftCore.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftCoreAudio.dylib (compatibility version 1.0.0, current version 482.102.31, weak)\n\t/usr/lib/swift/libswiftCoreFoundation.dylib (compatibility version 1.0.0, current version 120.100.0)\n\t/usr/lib/swift/libswiftCoreImage.dylib (compatibility version 1.0.0, current version 3.0.0, weak)\n\t/usr/lib/swift/libswiftCoreLocation.dylib (compatibility version 1.0.0, current version 57.0.0, weak)\n\t/usr/lib/swift/libswiftDispatch.dylib (compatibility version 1.0.0, current version 1605.0.2, weak)\n\t/usr/lib/swift/libswiftMetal.dylib (compatibility version 1.0.0, current version 382.5.3, weak)\n\t/usr/lib/swift/libswiftMetalKit.dylib (compatibility version 1.0.0, current version 1.3.0, weak)\n\t/usr/lib/swift/libswiftModelIO.dylib (compatibility version 1.0.0, current version 2.0.0, weak)\n\t/usr/lib/swift/libswiftOSLog.dylib (compatibility version 1.0.0, current version 10.0.0, weak)\n\t/usr/lib/swift/libswiftObjectiveC.dylib (compatibility version 1.0.0, current version 973.1.0, weak)\n\t/usr/lib/swift/libswiftObservation.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftQuartzCore.dylib (compatibility version 1.0.0, current version 5.0.0, weak)\n\t/usr/lib/swift/libswiftSpatial.dylib (compatibility version 1.0.0, current version 1.0.0, weak)\n\t/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib (compatibility version 1.0.0, current version 919.0.1, weak)\n\t/usr/lib/swift/libswiftXPC.dylib (compatibility version 1.0.0, current version 167.0.2, weak)\n\t/usr/lib/swift/libswift_Builtin_float.dylib (compatibility version 0.0.0, current version 0.0.0, weak)\n\t/usr/lib/swift/libswift_Concurrency.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftos.dylib (compatibility version 1.0.0, current version 1090.0.0)\n\t/usr/lib/swift/libswiftsimd.dylib (compatibility version 1.0.0, current version 25.0.0, weak)\n"
+}

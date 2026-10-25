@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.tv.rain
   title: TelevisionRainAndClock
-  version: 0.1.0-draft.5
+  version: 0.1.0-draft.6
   status: draft
 intent:
   summary: Give Apple TV viewers the desktop rain's motion and appearance controls without agent or desktop-window integrations, preserving the optional TV clock.
@@ -88,6 +88,9 @@ constraints:
 - id: platform_boundary
   level: MUST
   statement: The TV target imports shared simulation, pulse, preset and shader sources through target membership without a dependency on the macOS executable, agent integration or desktop window lifecycle. macOS execution evidence does not establish TV behavior. Preserve EN/RU resources and the TV deployment target18.
+- id: store_packaging
+  level: MUST
+  statement: Generate the tvOS-only application from project.yml with Bundle ID ru.egormerkushev.dreams.tv, team P8T2366K8X, automatic signing and TV version/build numbers independent of the desktop VERSION. Bundle the TV layered icon, App Store icon, standard/wide Top Shelf art and privacy manifest declaring own-app UserDefaults reason CA92.1, no tracking and no collected data. App Store export options produce a local artifact without uploading it or rewriting version/build. The new identifier owns a separate sandbox and does not import the previous developer app's preferences. Packaging does not establish font redistribution rights, physical-device quality, App Store processing or review acceptance.
 effects:
   sideEffects:
   - id: preferences
@@ -97,6 +100,12 @@ effects:
     kind: state_mutation
     summary: Render local Metal frames and manage the foreground application's idle timer.
 evidence:
+- id: store_target_validation
+  kind: test
+  path: validation/2026-10-25-store-target/README.md
+  supports:
+  - constraints.store_packaging
+  - constraints.platform_boundary
 - id: paused_preview_validation
   kind: test
   path: validation/2026-10-24-paused-preview/README.md
@@ -139,7 +148,6 @@ implementationBindings:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
     - evidence/2026-10-25-pr64-integration/source/tvOS/Tests/RainParityTests.swift
-    - evidence/2026-10-25-pr64-integration/source/tvOS/project.yml
     - evidence/2026-10-25-pr64-integration/source/Makefile
     - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
@@ -147,4 +155,17 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/Sources/Dreams/Rain.metal
     - evidence/2026-10-21-parity/source/THIRD_PARTY_NOTICES.md
     - evidence/2026-10-21-parity/source/LICENSE
+    border: []
+- id: television_packaging
+  language: yaml
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 3d21233c0f90e827543a9329df7a7e49b4ffd4a9
+  files:
+    owned:
+    - evidence/2026-10-25-store-target/source/tvOS/project.yml
+    - evidence/2026-10-25-store-target/source/tvOS/ExportOptions-AppStore.plist
+    - evidence/2026-10-25-store-target/source/tvOS/Sources/shared/assets/PrivacyInfo.xcprivacy
+    - evidence/2026-10-25-store-target/source/scripts/make-tv-assets.py
+    - evidence/2026-10-25-store-target/source/scripts/check-tv-app.py
     border: []
