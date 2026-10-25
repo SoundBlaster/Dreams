@@ -186,7 +186,10 @@ final class MatrixRain {
         if simulation?.columns.count != columns || simulation?.rows != rows {
             pulseWords.removeAll()
             selections.removeAll()
-            simulation = MatrixSimulation(columnCount: columns, rows: rows, glyphCount: symbols.count, density: density, fadeRows: fadeRows)
+            // Seed a visible fresh grid without replaying the renderer's entire session.
+            // Keep the shared clock continuous for activity, event labels and keyword selection.
+            simulation = MatrixSimulation(columnCount: columns, rows: rows, glyphCount: symbols.count,
+                density: density, fadeRows: fadeRows, startTime: max(0, simulationClock - 6))
         }
         simulation!.setDensity(density)
         simulation!.setFadeRows(fadeRows)

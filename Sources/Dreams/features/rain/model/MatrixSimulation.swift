@@ -182,9 +182,12 @@ struct MatrixSimulation {
         fadeRows = min(16, max(1, value))
     }
 
+    /// Creates an empty grid whose schedules begin at the supplied simulation time.
     init(columnCount: Int, rows: Int, glyphCount: Int, seed: UInt64 = 0xD2EA_5EED,
-         density: Double = 0.8, fadeRows: Double = 1, deceleration: Deceleration = Deceleration()) {
+         density: Double = 0.8, fadeRows: Double = 1, deceleration: Deceleration = Deceleration(),
+         startTime: Double = 0) {
         self.rows = rows
+        time = startTime.isFinite ? max(0, startTime) : 0
         self.deceleration = deceleration
         self.glyphCount = glyphCount
         random = seed
@@ -199,7 +202,7 @@ struct MatrixSimulation {
             let lifetime = max(tailInterval, initialRows * interval)
             let fade = min(lifetime, self.fadeRows * tailInterval)
             columns.append(Column(cells: Array(repeating: Symbol(), count: rows),
-                nextWrite: delay, nextMutation: delay + 0.15 + unit() * 0.35,
+                nextWrite: time + delay, nextMutation: time + delay + 0.15 + unit() * 0.35,
                 interval: interval, hold: lifetime - fade,
                 fade: fade, generator: Generator(state: seed &+ UInt64(index) &* 7919)))
         }
