@@ -19,9 +19,14 @@ Owner decision (2026-10-25): the first tvOS release is a paid-upfront app — on
 purchase at download gives access to all included features. No subscription or
 in-app purchases are planned for this release.
 
-The base price/currency and launch territories remain open decisions. Confirm
-the account is ready to sell paid apps, then configure the selected App Store
-price and availability. Recording this decision does not change live pricing.
+The approved base price is **US$0.99 for the application itself**, using USA as
+the pricing base territory. Other storefront prices follow Apple's automatic
+equalization. See [Apple's app pricing guide](https://developer.apple.com/help/app-store-connect/manage-app-pricing/set-a-price/).
+Launch territories remain an open decision; confirm the account's paid-app
+agreements and commercial details before release. This price configuration does
+not publish the app or create any In-App Purchase products.
+ASC read-back on 2026-10-25 confirmed app6826786729, base/territory USA,
+currency USD, customerPrice0.99 and isFree=false.
 
 ## Resources and privacy
 
