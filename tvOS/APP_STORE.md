@@ -13,6 +13,16 @@ This identifier has its own sandbox. The previous developer installation with
 the new app cannot automatically read that app's preferences. No migration or
 uninstallation of the previous app is performed.
 
+## Distribution model
+
+Owner decision (2026-10-25): the first tvOS release is a paid-upfront app — one
+purchase at download gives access to all included features. No subscription or
+in-app purchases are planned for this release.
+
+The base price/currency and launch territories remain open decisions. Confirm
+the account is ready to sell paid apps, then configure the selected App Store
+price and availability. Recording this decision does not change live pricing.
+
 ## Resources and privacy
 
 `Sources/shared/assets/Assets.xcassets` contains the layered TV Home Screen icon,
@@ -81,8 +91,9 @@ linked libraries for review. It does not prove App Store acceptance or API behav
 - Upload the approved source/build to TestFlight under a separately authorized
   distribution step; retain its commit, version/build and device evidence.
 - Complete EN/RU metadata, screenshots, support/privacy URLs, App Privacy,
-  age rating, export-compliance answers, pricing/availability and applicable
-  agreements. Do not infer these answers solely from a passing build.
+  age rating and export-compliance answers. Configure the approved paid-upfront
+  price/availability and applicable agreements. Do not infer these answers solely
+  from a passing build.
 - Switch the store version to manual release before review (the initial 1.0
   record was observed with automatic `AFTER_APPROVAL` on 2026-10-25).
 - After attaching the intended build, run `asc release stage --dry-run`,
