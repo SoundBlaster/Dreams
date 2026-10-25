@@ -25,11 +25,12 @@ struct FilmAtlas {
         let name = restored ? "DreamsMatrix-Regular" : "Matrix-Code"
         let font = CTFontCreateWithName(name as CFString, 26, nil)
         guard CTFontCopyPostScriptName(font) as String == name else { throw MatrixRenderError.missingGlyph }
-        // Fit the font's common body to a rain row, not each glyph's ink bounds.
+        // Most restored bodies are shorter than the nominal cap height. Let that
+        // common body overhang the row slightly so ordinary forms nearly touch.
         // Keep short marks small and apply the same factor to both axes.
         let bodyHeight = Float(CTFontGetCapHeight(font))
         guard bodyHeight.isFinite, bodyHeight > 0 else { throw MatrixRenderError.missingGlyph }
-        glyphScale = restored ? 28 / (bodyHeight * FPSGrid.glyphHeight) : 1
+        glyphScale = restored ? 1.12 * 28 / (bodyHeight * FPSGrid.glyphHeight) : 1
         let scalars = FilmGlyphs.scalars(font: font, restored: restored)
         guard !scalars.isEmpty else { throw MatrixRenderError.missingGlyph }
         glyphCount = scalars.count

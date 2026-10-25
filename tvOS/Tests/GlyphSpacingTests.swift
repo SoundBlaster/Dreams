@@ -18,14 +18,19 @@ final class GlyphSpacingTests: XCTestCase {
         let fullBody = inkHeight(atlas: atlas, index: 20) // G21: body baseline0...cap780.
         let dash = inkHeight(atlas: atlas, index: 24) // G25: deliberately short.
         let coverage = Float(fullBody) / 28 * quad.w * 16
-        XCTAssertGreaterThanOrEqual(coverage, 0.97, "Full-height film bodies should nearly touch adjacent rows")
-        XCTAssertLessThan(coverage, 1.07, "Do not make the common body overlap whole rows")
+        XCTAssertGreaterThanOrEqual(coverage, 1.10, "Full bodies may overhang so shorter ordinary forms nearly touch")
+        XCTAssertLessThan(coverage, 1.18, "Keep the common-body overhang bounded")
         XCTAssertLessThan(Float(dash) / 28 * quad.w * 16, 0.25, "Do not fit punctuation independently")
         XCTAssertEqual(quad.z * 24 / (quad.w * 16), FPSGrid.glyphWidth / FPSGrid.glyphHeight, accuracy: 0.00001,
                        "Use one common factor on both axes, preserving the previous ink proportions")
         let fps = try XCTUnwrap(FPSGrid(columns: 24, rows: 16, glyphScale: atlas.glyphScale))
         XCTAssertEqual(fps.rect(column: 4).z, quad.z)
         XCTAssertEqual(fps.rect(column: 4).w, quad.w)
+        // G01...G22 are bodies; later entries include deliberate short marks.
+        // Measure the whole ordinary set, not just the nominal cap-height glyph.
+        let bodies = (0..<22).map { Float(inkHeight(atlas: atlas, index: $0)) / 28 * quad.w * 16 }.sorted()
+        XCTAssertGreaterThanOrEqual(bodies[5], 0.98, "At least three quarters of ordinary forms should fill a row")
+        print("Ordinary body row coverage: \(bodies)")
         print("Restored row coverage: \(coverage); short mark: \(Float(dash) / 28 * quad.w * 16); scale: \(atlas.glyphScale)")
     }
 
