@@ -3,6 +3,16 @@ import MetalKit
 @testable import Dreams
 
 struct PresentedFPSTests {
+    @Test func scaledDigitsStayCenteredInTheirReservedCells() throws {
+        let grid = try #require(FPSGrid(columns: 24, rows: 16, row: 4, glyphScale: 1.07))
+        let rect = grid.rect(column: 5)
+        #expect(abs(rect.x + rect.z / 2 - 5.5 / 24) < 0.000001)
+        #expect(abs(rect.y + rect.w / 2 - 4.5 / 16) < 0.000001)
+        #expect(abs(rect.z * 24 / (rect.w * 16) - FPSGrid.glyphWidth / FPSGrid.glyphHeight) < 0.000001)
+        #expect(FPSGrid(columns: 24, rows: 16, glyphScale: .nan) == nil)
+        #expect(FPSGrid(columns: 24, rows: 16, glyphScale: 0) == nil)
+    }
+
     @Test func reservesActualVisibleGridCells() throws {
         let grid = try #require(FPSGrid(columns: 160, rows: 90, visibleColumns: 40, row: 5))
         #expect(grid.contains(column: 36, row: 5))

@@ -126,10 +126,11 @@ final class RainParityTests: XCTestCase {
                 let row = simulation.columns[column].headRow
                 guard row >= 0, simulation.headIntensity(column: column, row: row) > 0.9 else { continue }
                 let symbol = simulation.columns[column].cells[row]
-                let width: Float = 1.30 * (22.0 / 30.0) / (38.0 / 46.0)
-                let x = (Float(column) + (1 - width) / 2) / 24
-                let y = (Float(row) - 0.16) / 16
-                let cell = try XCTUnwrap(cells.cores.first { abs($0.rect.x - x) < 0.00001 && abs($0.rect.y - y) < 0.00001 })
+                let x = (Float(column) + 0.5) / 24
+                let y = (Float(row) + 0.5) / 16
+                let cell = try XCTUnwrap(cells.cores.first {
+                    abs($0.rect.x + $0.rect.z / 2 - x) < 0.00001 && abs($0.rect.y + $0.rect.w / 2 - y) < 0.00001
+                })
                 let head = simulation.headIntensity(column: column, row: row)
                 XCTAssertEqual(cell.color.x, 0.86 * head, accuracy: 0.0001)
                 let glyph = simulation.headGlyph(column: column, row: row)
