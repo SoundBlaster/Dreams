@@ -92,12 +92,12 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 9edaa7f3706743c95b70164232a80a996d4840af
+    revision: af94ff0eefd217468506b64072c8293c36a87e48
   files:
     owned:
     - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
     - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
     - evidence/2026-10-25-publisher-contention/source/Tests/DreamsTests/KeywordFeedReaderTests.swift
     border:
-    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

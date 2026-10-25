@@ -1,0 +1,69 @@
+{
+  "runtimeSourceRevision": "af94ff0eefd217468506b64072c8293c36a87e48",
+  "productionSourceRevision": "c0dc67585501baf4d99236bc95223f3bf197e962",
+  "currentBindings": 249,
+  "staleOrMissing": 0,
+  "checks": [
+    {
+      "command": "zsh scripts/swift-macos.sh test -c release --filter SimulationStartTimeTests (TB5 scratch/cache)",
+      "exitCode": 0,
+      "testedSourceRevision": "c0dc67585501baf4d99236bc95223f3bf197e962",
+      "log": "logs/focused-tests.log.gz",
+      "rawSHA256": "28a928200b248e0935ebcbc870b41e02351c31203eff67c218a9402542370949",
+      "archiveSHA256": "52c3b48b677e7e55d3c73f3eba96b7dea98c1be4325cdd7c389e863553a5f623"
+    },
+    {
+      "command": "DREAMS_TEST_METAL=1 zsh scripts/swift-macos.sh test -c release --filter SimulationStartTimeTests (TB5 scratch/cache)",
+      "exitCode": 0,
+      "testedSourceRevision": "af94ff0eefd217468506b64072c8293c36a87e48",
+      "log": "logs/metal-grid-regression.log.gz",
+      "rawSHA256": "c4aeff584b24feac8c41c6afe33945c52bd5346f90bee74e665681d0e25c85ee",
+      "archiveSHA256": "9e8e206182a139bddc127a4cb6c902925d4bcdf5e1112710bac0745e16dce515"
+    },
+    {
+      "command": "make test-unit (verified local Swift/Swiftc PATH routing adapter; .build symlink to per-worktree TB5 scratch)",
+      "exitCode": 0,
+      "testedSourceRevision": "af94ff0eefd217468506b64072c8293c36a87e48",
+      "log": "logs/full-unit-final.log.gz",
+      "rawSHA256": "d645b70508f965806ba21b6d5e238f2dd9bd7e465124d842d0cef547940d1472",
+      "archiveSHA256": "8bc8c3018a0ded9321c42ae66cdd201c79b52547294cfe769ec52fa41396d4bc"
+    },
+    {
+      "command": "DREAMS_GLYPH_OUTPUT=<verified TB5>/glyphs DREAMS_SWIFT_SCRATCH_PATH=<verified TB5>/swiftpm DREAMS_SWIFT_CACHE_PATH=<verified TB5 cache> make app",
+      "exitCode": 0,
+      "testedSourceRevision": "c0dc67585501baf4d99236bc95223f3bf197e962",
+      "log": "logs/build-app.log.gz",
+      "rawSHA256": "2ba8e00b394efdb16e9af8c28f4b45ed78b23021dd1dae0f3bfefdae43a06e88",
+      "archiveSHA256": "95080f85817b40b73991d715cdefd19b7070def48c1f8817cb45e0cc1ef3cd28"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "testedSourceRevision": "af94ff0eefd217468506b64072c8293c36a87e48",
+      "log": "logs/specs-check-final.log.gz",
+      "rawSHA256": "6d6730427f577beeb614f02596b85bb24655da440e863b816f6b71eeb0a9fee1",
+      "archiveSHA256": "be9654b45065b2203d2cbaea903ad3be109ed3555c5f33b59634fa99f8af6d40"
+    },
+    {
+      "command": "make lint (verified FSD tooling and TB5 Python/Ruff paths)",
+      "exitCode": 0,
+      "testedSourceRevision": "af94ff0eefd217468506b64072c8293c36a87e48",
+      "log": "logs/lint-final.log.gz",
+      "rawSHA256": "3e775387b35bce2c9f2d86454e807b2616dbd8c3c1a3da7aa751e1712af0474e",
+      "archiveSHA256": "532af384aef5e4531ec17eab5a9a454db71f36e4da25fcfb0300cb53e9852714"
+    }
+  ],
+  "tools": {
+    "specpm": "specpm 0.2.0",
+    "hypercodeSHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "mapHashes": {
+    "specs/hypercode/drop-motion.hc": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+    "specs/hypercode/drop-motion.hcs": "6d0a250aa0018fec4fed96dc82cf07a9d4d5e424cbf7cc33fd21d05ac7238e14",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "d420bd99217c9788e71f1beb0aa8fb576482e948f3946160e1f489855c16f153"
+  },
+  "diagnostics": "104 tests in 25 suites passed in the full default run (opt-ins skipped). Three focused tests passed with real Metal enabled. Build/lint/docs and full HC/SpecPM profiles passed, retaining existing SwiftLint unused_import configuration and unresolved platform-capability warnings.",
+  "status": "Local code, actual Metal, build and structure checks passed. Hosted CI pending push; native UI automation unavailable.",
+  "acceptance": "Descriptive drafts; no new physical TV, whole-UI SLA, collector-overhead or general renderer cadence acceptance."
+}

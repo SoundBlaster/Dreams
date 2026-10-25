@@ -1,4 +1,4 @@
-# Current runtime: 6cc029cc0f7755365e97f6a405b44163bc2ece87; validation/2026-10-22-performance/README.md
+# Current source: af94ff0eefd217468506b64072c8293c36a87e48; ../../integration/2026-10-25/grid-clock/README.md
 apiVersion: specpm.dev/v0.1
 kind: BoundarySpec
 metadata:
@@ -81,7 +81,7 @@ effects:
 evidence:
 - id: search_source
   kind: source
-  path: evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  path: evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints
 - id: search_tests
@@ -125,15 +125,15 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 864b3b77c5589e5c6d7b563696cf1aee84289859
+    revision: af94ff0eefd217468506b64072c8293c36a87e48
   files:
     owned:
-    - evidence/2026-10-14-head-cycle/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings

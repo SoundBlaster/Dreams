@@ -1,0 +1,75 @@
+{
+  "runtimeSourceRevision": "af94ff0eefd217468506b64072c8293c36a87e48",
+  "affectedSpecs": [
+    "specs/drop-motion/specs/head.spec.yaml",
+    "specs/drop-motion/specs/motion.spec.yaml",
+    "specs/drop-motion/specs/pulse.spec.yaml",
+    "specs/drop-motion/specs/search.spec.yaml",
+    "specs/keyword-feed/specs/reader.spec.yaml",
+    "specs/performance/specs/measurement.spec.yaml",
+    "specs/tvos/specs/television.spec.yaml"
+  ],
+  "refreshedSnapshots": [
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "b5970b6e3f0db0b1c52664fc58da6c2f5e7b9a8feeb4a6cbf2ae1a293fc15730"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "e4bbcf20515472132179e5e1455119954c08475d113c92a1608d8dcda8cb671f"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "b5970b6e3f0db0b1c52664fc58da6c2f5e7b9a8feeb4a6cbf2ae1a293fc15730"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "e4bbcf20515472132179e5e1455119954c08475d113c92a1608d8dcda8cb671f"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "e4bbcf20515472132179e5e1455119954c08475d113c92a1608d8dcda8cb671f"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "b5970b6e3f0db0b1c52664fc58da6c2f5e7b9a8feeb4a6cbf2ae1a293fc15730"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "e4bbcf20515472132179e5e1455119954c08475d113c92a1608d8dcda8cb671f"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/keyword-feed/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "e4bbcf20515472132179e5e1455119954c08475d113c92a1608d8dcda8cb671f"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "snapshot": "specs/performance/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/ui/MatrixRain.swift",
+      "sha256": "e4bbcf20515472132179e5e1455119954c08475d113c92a1608d8dcda8cb671f"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "specs/performance/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "b5970b6e3f0db0b1c52664fc58da6c2f5e7b9a8feeb4a6cbf2ae1a293fc15730"
+    },
+    {
+      "path": "Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "snapshot": "specs/tvos/evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift",
+      "sha256": "b5970b6e3f0db0b1c52664fc58da6c2f5e7b9a8feeb4a6cbf2ae1a293fc15730"
+    },
+    {
+      "path": "Tests/DreamsTests/SimulationStartTimeTests.swift",
+      "snapshot": "specs/drop-motion/evidence/2026-10-25-grid-clock/source/Tests/DreamsTests/SimulationStartTimeTests.swift",
+      "sha256": "ad30940d19dfe5ea5dd9bff765f022105faf575e449a72edb8432410a8504a55"
+    }
+  ],
+  "productionSourceRevision": "c0dc67585501baf4d99236bc95223f3bf197e962"
+}

@@ -1,0 +1,57 @@
+{
+  "before": {
+    "timedOut": true,
+    "limitSeconds": 45,
+    "wallSeconds": 45.002842625,
+    "stdout": null
+  },
+  "after": [
+    {
+      "exitCode": 0,
+      "wallSeconds": 0.44678470800000003,
+      "cpuSeconds": 0.034199,
+      "output": {
+        "advanceWallSeconds": 0.0219683333998546,
+        "scenario": "new-grid-after-nine-hour-session",
+        "simulationTime": 13932,
+        "target": 13932,
+        "visible": 3963
+      },
+      "stderr": ""
+    },
+    {
+      "exitCode": 0,
+      "wallSeconds": 0.023484791000000005,
+      "cpuSeconds": 0.019468,
+      "output": {
+        "advanceWallSeconds": 0.01421675004530698,
+        "scenario": "new-grid-after-nine-hour-session",
+        "simulationTime": 13932,
+        "target": 13932,
+        "visible": 3963
+      },
+      "stderr": ""
+    },
+    {
+      "exitCode": 0,
+      "wallSeconds": 0.020061458000000032,
+      "cpuSeconds": 0.016543999999999996,
+      "output": {
+        "advanceWallSeconds": 0.011988083366304636,
+        "scenario": "new-grid-after-nine-hour-session",
+        "simulationTime": 13932,
+        "target": 13932,
+        "visible": 3963
+      },
+      "stderr": ""
+    }
+  ],
+  "archive": "logs/reproducer-inputs-results.tar.gz",
+  "archiveSHA256": "83910cbadf9cf37edd96de2dfca9e1b612889ad1a716d969ec8b9d0c9c7bd29d",
+  "compileCommand": "swiftc -O -module-cache-path <TB5>/module-cache <before-or-after>/MatrixSimulation.swift <before-or-after>/main.swift -o <before-or-after>/replay",
+  "runBoundSeconds": {
+    "before": 45,
+    "after": 10
+  },
+  "limits": "Optimized pure simulation scenario on the current host. Source-backed replay diagnosis, not original click timing, a clean-host performance study or device FPS acceptance."
+}

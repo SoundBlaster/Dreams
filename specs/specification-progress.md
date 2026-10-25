@@ -1072,3 +1072,14 @@ production code, accepted requirements and map roles are unchanged.
 `dreams.feed.read/shared_snapshot`, `freshness_and_expiry`, `errors` and `lifetime`
 retain their semantics. The current test binding is refreshed while the failed
 hosted observation remains historical. [Source and checks](keyword-feed/validation/2026-10-25-publisher-contention/README.md).
+
+## Grid rebuild clock — 2026-10-25
+
+The reported Automatic-grid freeze exposes a zero-origin replacement being
+advanced through the whole renderer session. Runtime adds an explicit simulation
+origin and a macOS warmup bounded to six recent simulation seconds, preserving
+renderer time and all saved tuning. Existing TV zero/bounded reset is unchanged.
+`dreams.rain.drop_motion/grid_rebuild_clock` is folded into the current motion
+boundary; deterministic timing and native preview scale retain their existing
+obligations. Source bindings/properties and [dated checks](integration/2026-10-25/grid-clock/README.md)
+are refreshed while historical observations and draft acceptance stay separate.
