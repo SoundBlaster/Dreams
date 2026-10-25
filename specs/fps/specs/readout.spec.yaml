@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.rain.fps
   title: OptionalFrameCadenceReadout
-  version: 0.1.0-draft.4
+  version: 0.1.0-draft.5
   status: draft
 intent:
   summary: Let viewers inspect rain cadence without an external debugger.
@@ -61,6 +61,11 @@ constraints:
   level: MUST
   statement: Use unmirrored DreamsMatrix-Regular digits in three reserved rain cells, inset one complete row and column from the visible grid edge. Match the rain's quad size and spacing exactly; no independent pixel sizing, shadow or viewport. On TV, inherit the active atlas's common-body scale, keeping centers fixed and classic scale one. Skip the corresponding rain cores and halos without mutating simulation cells. Keep constant pale ink without pulse or mutation. Right-align up to three digits inside those cells. In a cropped macOS preview reserve cells relative to its visible full columns, below playback controls, while preserving production scale. A viewport narrower than five whole columns omits the counter. Offline PNGs omit it.
 evidence:
+- id: denser_tv_validation
+  kind: test
+  path: validation/2026-10-25-denser-glyphs.md
+  supports:
+  - constraints.appearance
 - id: tv_body_spacing_validation
   kind: test
   path: validation/2026-10-25-glyph-spacing.md
@@ -95,7 +100,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: b34f92a831851701b3f64d7f630c6581901a418d
+    revision: 8830eab2fc5361d1b154a5969d072fe15da579d2
   files:
     owned:
     - evidence/2026-10-25-glyph-spacing/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
@@ -104,5 +109,5 @@ implementationBindings:
     - evidence/2026-10-25-glyph-spacing/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-25-glyph-spacing/source/Tests/DreamsTests/PresentedFPSTests.swift
     - evidence/2026-10-25-glyph-spacing/source/tvOS/Tests/RainParityTests.swift
-    - evidence/2026-10-25-glyph-spacing/source/tvOS/Tests/GlyphSpacingTests.swift
+    - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
     border: []

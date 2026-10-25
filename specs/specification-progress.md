@@ -1120,3 +1120,7 @@ size; shared FPS geometry defaults to scale1. [Current baseline](tvos/validation
 separates actual raster/renderer tests, analytical prior coverage and simulator
 visual/device limits. Font rights, film fidelity and physical performance remain
 unaccepted/unknown; historical evidence is preserved.
+
+## Denser restored TV glyphs — 2026-10-25
+
+The owner rejected the first spacing result as too loose. `dreams.tv.rain/resources` now allows the nominal cap body to span1.12 rows with the same uniform XY factor. Ordinary short bodies gain near-contact packing; punctuation remains natural, classic/macOS geometry and grid/timing stay unchanged. Parent `fps` and `dreams.rain.fps/appearance` still inherit active rain sizing; no sampling/lifetime policy changes. [Current baseline](tvos/validation/2026-10-25-denser-glyphs/README.md) supersedes the rejected visual result, preserves old evidence and records source/test/visual limits. Physical-device/GPU acceptance remains outstanding.

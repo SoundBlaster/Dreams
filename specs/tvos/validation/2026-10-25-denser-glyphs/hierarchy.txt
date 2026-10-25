@@ -1,0 +1,11 @@
+Device orientation: Unknown
+------------------------
+Application bundle identifier: ru.egormerkushev.dreams.tv
+Application UI orientation: Unknown
+Application, pid: 71525, label: 'Dreams'
+ Window, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+  Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+   Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+    Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+     Other, {{0.0, 0.0}, {1920.0, 1080.0}}, hitPoint: {960.0, 540.0}
+      Other, {{0.0, 0.0}, {1920.0, 1080.0}}, label: 'Matrix clock. Press Select or Play/Pause for settings.', value: 5:27 PM, Focused, hitPoint: {960.0, 540.0}

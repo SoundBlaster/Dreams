@@ -16,3 +16,5 @@ readout remains historical evidence only. [Current validation](validation/2026-1
 
 [TV common-body scale adoption](validation/2026-10-25-glyph-spacing.md) keeps
 FPS quads aligned with the active TV rain while the default macOS scale stays1.
+
+[Denser ordinary-body packing](validation/2026-10-25-denser-glyphs.md) supersedes the first cap-height fit after owner feedback; historical evidence is preserved.
