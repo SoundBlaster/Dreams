@@ -21,3 +21,7 @@ the registered identifier, local signed export, artwork, privacy and packaged
 resources separately from distribution, rights and physical-device acceptance.
 [Remote-input validation](validation/2026-10-21-focus-input/README.md) records source/map
 identities and separates checks from remaining physical-device/VoiceOver acceptance.
+
+[Restored body-spacing validation](validation/2026-10-25-glyph-spacing/README.md)
+records common font-body sizing separately from punctuation, classic geometry,
+source font editing and physical/film-fidelity acceptance.

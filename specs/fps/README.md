@@ -13,3 +13,6 @@ The owner clarified on 2026-10-24 that the count belongs inside the rain grid.
 It now reserves three cells, using identical glyph quad size and grid spacing;
 their rain cores/halos are skipped. The previous independent pixel-positioned
 readout remains historical evidence only. [Current validation](validation/2026-10-24-grid/README.md).
+
+[TV common-body scale adoption](validation/2026-10-25-glyph-spacing.md) keeps
+FPS quads aligned with the active TV rain while the default macOS scale stays1.
