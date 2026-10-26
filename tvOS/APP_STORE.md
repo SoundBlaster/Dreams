@@ -28,6 +28,18 @@ not publish the app or create any In-App Purchase products.
 ASC read-back on 2026-10-25 confirmed app6826786729, base/territory USA,
 currency USD, customerPrice0.99 and isFree=false.
 
+## Store descriptions
+
+The Russian description was approved by the owner on 2026-10-26;
+the English version follows the same content and tone:
+
+- [Russian](app-store/descriptions/ru.txt)
+- [English (US)](app-store/descriptions/en-US.txt)
+
+These plain-text sources are for the App Store Description field. Editing them
+does not upload metadata to App Store Connect. Both describe the current TV
+rain, optional clock, remote settings and foreground-only application scope.
+
 ## Resources and privacy
 
 `Sources/shared/assets/Assets.xcassets` contains the layered TV Home Screen icon,
