@@ -35,10 +35,13 @@ the English version follows the same content and tone:
 
 - [Russian](app-store/descriptions/ru.txt)
 - [English (US)](app-store/descriptions/en-US.txt)
+- [Spanish (Mexico)](app-store/descriptions/es-MX.txt)
 
 These plain-text sources are for the App Store Description field. Editing them
-does not upload metadata to App Store Connect. Both describe the current TV
+does not upload metadata to App Store Connect. All three describe the current TV
 rain, optional clock, remote settings and foreground-only application scope.
+Canonical [metadata sources](app-store/README.md) include the subtitles, keywords
+and URLs for each locale; descriptions match the plain-text files exactly.
 
 ## Resources and privacy
 
