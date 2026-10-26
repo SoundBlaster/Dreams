@@ -95,3 +95,17 @@ Content-rights declaration remains unset pending the documented font-rights
 review. Launch territories require the owner's choice. App Privacy publication
 and agreement readiness still require a working Apple web session or manual
 verification. These remain separate from the completed API fields.
+
+## App Privacy preparation on 2026-10-26
+
+[App Privacy declaration](app-privacy.json) is the prepared desired declaration
+for the TV-only app: DATA_NOT_COLLECTED. It follows the installed asc5.17.0
+canonical privacy JSON schema and the reviewed TV target, which stores preferences
+locally and has no network integration or analytics SDK. It is separate from the
+already populated Apple TV policy text and from PrivacyInfo.xcprivacy.
+
+This draft has not been applied or published. The current CLI reports no usable
+web session, so remote privacy state, live catalog validation and publication
+remain unverified. Once authentication works, run a fresh privacy pull and plan
+before applying; never infer live state from this file. Launch availability also
+remains unchanged while the owner considers EU distribution requirements.
