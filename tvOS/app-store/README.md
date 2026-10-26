@@ -56,3 +56,17 @@ reported existing-locale conflicts for ru/es-MX version records automatically
 created by Apple. A fresh dry-run targeted two version-localization updates;
 the second apply succeeded. Existing screenshots were not changed by this
 metadata update. No build upload, review submission or public release occurred.
+
+## Localized screenshots verified on 2026-10-26
+
+[Upload manifest](screenshots.json) records asset IDs, order, dimensions and
+checksums read back from App Store Connect. RU contains rain, clock and a newly
+captured Russian menu; es-MX contains the same language-independent rain and clock
+frames without a menu. No Spanish app interface is implied. All five assets
+reached COMPLETE at 1920×1080 and their MD5 checksums match the supplied files.
+The initial es-MX clock processing wait timed out, but a later read-back confirmed
+completion for that same asset without reuploading or creating a duplicate.
+
+The original captures remain on the local build volume; retrieve the uploaded
+assets with `asc screenshots download` using the corresponding version
+localization ID. No app source changed during screenshot preparation.
