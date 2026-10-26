@@ -22,7 +22,10 @@ in-app purchases are planned for this release.
 The approved base price is **US$0.99 for the application itself**, using USA as
 the pricing base territory. Other storefront prices follow Apple's automatic
 equalization. See [Apple's app pricing guide](https://developer.apple.com/help/app-store-connect/manage-app-pricing/set-a-price/).
-Launch territories remain an open decision; confirm the account's paid-app
+Owner decision (2026-10-26): enable all 148 current Apple territories outside the
+EU and exclude all 27 EU members; automatic availability in future territories is
+disabled. The exact selection and API read-back are recorded in the
+[availability record](app-store/availability.json). Confirm the account's paid-app
 agreements and commercial details before release. This price configuration does
 not publish the app or create any In-App Purchase products.
 ASC read-back on 2026-10-25 confirmed app6826786729, base/territory USA,
@@ -114,7 +117,8 @@ linked libraries for review. It does not prove App Store acceptance or API behav
   compliance for the eventual build. EN/RU/es-MX metadata, localized screenshot
   sets, privacy text, age rating4+, category, copyright and review contacts were
   verified through the API on 2026-10-26; see [store field record](app-store/README.md).
-  Confirm launch availability, applicable agreements and content rights. Do not
+  Launch availability was verified as 148 non-EU territories; confirm applicable
+  agreements, any required trader-status declaration and content rights. Do not
   infer those answers solely from a passing build.
 - Retain manual release for version1.0: changed from the initially observed
   AFTER_APPROVAL to MANUAL and verified on 2026-10-26.

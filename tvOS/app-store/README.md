@@ -92,7 +92,7 @@ localization ID. No app source changed during screenshot preparation.
 - No build was uploaded or attached; version 1.0 remains PREPARE_FOR_SUBMISSION.
 
 Content-rights declaration remains unset pending the documented font-rights
-review. Launch territories require the owner's choice. App Privacy publication
+review. Launch territories were configured separately below. App Privacy publication
 and agreement readiness still require a working Apple web session or manual
 verification. These remain separate from the completed API fields.
 
@@ -107,5 +107,22 @@ already populated Apple TV policy text and from PrivacyInfo.xcprivacy.
 This draft has not been applied or published. The current CLI reports no usable
 web session, so remote privacy state, live catalog validation and publication
 remain unverified. Once authentication works, run a fresh privacy pull and plan
-before applying; never infer live state from this file. Launch availability also
-remains unchanged while the owner considers EU distribution requirements.
+before applying; never infer live state from this file. This authentication blocker
+does not prevent the separately verified public-API availability configuration below.
+
+
+## Launch availability verified on 2026-10-26
+
+The owner selected all current Apple territories except European Union members.
+The [availability record](availability.json) retains the exact ISO3 selection:
+148 available territories and all 27 EU members unavailable, from Apple's catalog
+of 175. A paginated public-API read-back matched both sets exactly.
+`availableInNewTerritories` is false, so future territories require an explicit
+decision. The UK, Norway and Switzerland remain included because they are not EU
+members. The EU reference is the [official member-country list](https://european-union.europa.eu/principles-countries-history/eu-countries_en).
+
+These flags configure a future release. Apple's current territory statuses include
+CANNOT_SELL and AVAILABLE_FOR_SALE_UNRELEASED_APP; this is not evidence of a live
+listing or completed commercial agreements. No build was uploaded or attached.
+No DSA trader status or public trader contact details were supplied; verify any
+remaining account-level declaration requirement separately before submission.
