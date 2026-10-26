@@ -43,3 +43,16 @@ of translations follows the explicit reviewed-text approval step.
 Historical evidence remains separate from later uploads. This source addition
 does not itself prove metadata has been applied, screenshots copied, TestFlight
 uploaded or the store version submitted.
+
+## Remote verification on 2026-10-26
+
+After the owner approved the reviewed three-locale text, canonical metadata was
+applied to app 6826786729, TV_OS version 1.0. A fresh metadata pull confirmed
+all seven supplied fields per locale (three app-info, four version fields)
+exactly match these files for en-US, ru and es-MX.
+
+The first apply succeeded for app-info records and en-US version fields, then
+reported existing-locale conflicts for ru/es-MX version records automatically
+created by Apple. A fresh dry-run targeted two version-localization updates;
+the second apply succeeded. Existing screenshots were not changed by this
+metadata update. No build upload, review submission or public release occurred.
