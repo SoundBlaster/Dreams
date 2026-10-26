@@ -1,0 +1,7 @@
+Dreams is a tvOS-only ambient digital rain application with an optional clock. It works offline and does not require an account, login, demo credentials, subscription or in-app purchase.
+
+Launch the app to see the rain. Press Select or Play/Pause to open settings. Move up/down to choose a setting; swipe or press left/right to adjust numeric values. The Clock section lets you show or hide the clock and choose its typeface, size and floating movement.
+
+Settings apply immediately. Live preview animates the rain behind the menu; when disabled, changing a setting updates a still frame. Press Play/Pause, Back, or choose Show rain to close settings.
+
+The app displays its own foreground scene and does not replace the Apple TV system screensaver. Rain and clock settings are saved locally. No additional hardware or external service is required.

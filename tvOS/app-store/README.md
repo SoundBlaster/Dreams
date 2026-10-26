@@ -9,7 +9,7 @@ The app name remains Dreams TV in every locale.
 - [Russian description](descriptions/ru.txt)
 - [English description](descriptions/en-US.txt)
 - [Mexican Spanish description](descriptions/es-MX.txt)
-- `metadata/app-info/*.json`: name, subtitle and privacy URL.
+- `metadata/app-info/*.json`: name, subtitle, privacy URL and Apple TV privacy policy text.
 - `metadata/version/1.0/*.json`: description, keywords and support/marketing URLs.
 
 The JSON descriptions must exactly match the corresponding plain-text files,
@@ -70,3 +70,28 @@ completion for that same asset without reuploading or creating a duplicate.
 The original captures remain on the local build volume; retrieve the uploaded
 assets with `asc screenshots download` using the corresponding version
 localization ID. No app source changed during screenshot preparation.
+
+## API field verification on 2026-10-26
+
+- Apple calculated the global age rating FOUR_PLUS (4+) after the questionnaire
+  was completed with all content/capability answers NONE/false. The accepted
+  [answers](age-rating-answers.json) do not opt into the Kids category or impose
+  an age override.
+- Primary category: ENTERTAINMENT.
+- Copyright: 2026 Egor Merkushev.
+- Version 1.0 release type: MANUAL.
+- Apple TV privacy policy text is populated in en-US, ru and es-MX. Sources:
+  [English](privacy/en-US.txt) and [Russian](privacy/ru.txt). es-MX intentionally
+  uses English policy text, matching its English privacy URL. This does not
+  publish or confirm the separate App Privacy data-collection declaration.
+- App Review contact fields use the owner's supplied details and were read back
+  exactly. Private contact/phone receipts stay outside the repository. The
+  [review instructions](review-notes.txt) require no demo account.
+- Fresh metadata pull matches every supplied field. The readiness check no
+  longer reports missing age rating, category, review details or copyright.
+- No build was uploaded or attached; version 1.0 remains PREPARE_FOR_SUBMISSION.
+
+Content-rights declaration remains unset pending the documented font-rights
+review. Launch territories require the owner's choice. App Privacy publication
+and agreement readiness still require a working Apple web session or manual
+verification. These remain separate from the completed API fields.

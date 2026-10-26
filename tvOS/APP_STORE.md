@@ -110,12 +110,14 @@ linked libraries for review. It does not prove App Store acceptance or API behav
   persisted tuning, frame cadence and a sustained-memory run.
 - Upload the approved source/build to TestFlight under a separately authorized
   distribution step; retain its commit, version/build and device evidence.
-- Complete EN/RU metadata, screenshots, support/privacy URLs, App Privacy,
-  age rating and export-compliance answers. Configure the approved paid-upfront
-  price/availability and applicable agreements. Do not infer these answers solely
-  from a passing build.
-- Switch the store version to manual release before review (the initial 1.0
-  record was observed with automatic `AFTER_APPROVAL` on 2026-10-25).
+- Publish/verify the separate App Privacy declaration and complete export
+  compliance for the eventual build. EN/RU/es-MX metadata, localized screenshot
+  sets, privacy text, age rating4+, category, copyright and review contacts were
+  verified through the API on 2026-10-26; see [store field record](app-store/README.md).
+  Confirm launch availability, applicable agreements and content rights. Do not
+  infer those answers solely from a passing build.
+- Retain manual release for version1.0: changed from the initially observed
+  AFTER_APPROVAL to MANUAL and verified on 2026-10-26.
 - After attaching the intended build, run `asc release stage --dry-run`,
   `asc validate` and `asc review doctor` with `--platform TV_OS` where supported.
   Review submission and public release remain separate authorized actions.
