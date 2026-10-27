@@ -1,0 +1,58 @@
+{
+  "preparedDate": "2026-10-27",
+  "appId": "6826786729",
+  "sourceSHA": "b3b6fbc553226bc0f1fa2342d9bd32337d4b5e96",
+  "runtimeSourceSHA": "dfa87c906a141a5d7c6d6cab6ffecdf9bc710bf5",
+  "runtimeNote": "Application sources and assets unchanged between runtime source and archived source; later commits contain listing/media documentation only.",
+  "archiveFileName": "DreamsTV.xcarchive",
+  "ipaFileName": "DreamsTV-1.0-1.ipa",
+  "ipaSHA256": "0e59754d8da50be85ed625f32aabb05993242dbd6979ec07e86106d21f9800bd",
+  "ipaBytes": 3739301,
+  "binarySHA256": "a00f2bb5cad8846286afcc80617f3d2ec111d17f6776298ab7a94b01f9858d86",
+  "architecture": "arm64",
+  "bundleId": "ru.egormerkushev.dreams.tv",
+  "version": "1.0",
+  "build": "1",
+  "platforms": [
+    "AppleTVOS"
+  ],
+  "deviceFamily": [
+    3
+  ],
+  "sdk": "appletvos27.0",
+  "xcodeBuild": "27A9275",
+  "minimumOS": "18.0",
+  "team": "P8T2366K8X",
+  "getTaskAllow": false,
+  "signatureVerified": true,
+  "primaryIcon": "App Icon",
+  "profileExpiration": "2027-07-02T14:15:10Z",
+  "privacyVerified": true,
+  "requiredResourcesVerified": true,
+  "noDesktopFrameworkLinks": true,
+  "localExportOnly": true,
+  "uploaded": false,
+  "submitted": false,
+  "compiledMarketingIcon": {
+    "width": 1280,
+    "height": 768,
+    "opaque": true,
+    "sha1Digest": "9DEF73ADE6B8F7E480B2B6E6A77C41E7EC4193032DDFB024488BE72F4601624F"
+  },
+  "layeredTVIconsVerified": true,
+  "topShelfAssetsVerified": true,
+  "exportMethod": "app-store-connect",
+  "exportDestination": "export",
+  "schemaAndStructuralChanges": false,
+  "claims": [
+    "dreams.tv.rain/store_packaging",
+    "dreams.tv.rain/resources",
+    "dreams.tv.rain/platform_boundary"
+  ],
+  "warnings": [
+    "AppIntents metadata extraction skipped because target has no AppIntents.framework dependency."
+  ],
+  "deviceRunForThisIPA": false,
+  "appStoreProcessingVerified": false,
+  "reviewAcceptanceVerified": false
+}

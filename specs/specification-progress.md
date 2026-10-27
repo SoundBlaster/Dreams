@@ -1128,3 +1128,14 @@ The owner rejected the first spacing result as too loose. `dreams.tv.rain/resour
 ## TV90-column defaults and coarse remote input — 2026-10-25
 
 `dreams.tv.rain/persistent_tuning` now requires90 only for fresh/reset settings, preserving saved columns. `remote_settings` folds native directional single/double/hold handling into Settings: one versus ten existing unit steps, disabled/range guards, duplicate-focus suppression and repeat teardown. Parent lifecycle/paused_preview keep native focus and single-renderer obligations. FPS policies and runtime are unchanged; its changed test-file snapshot is refreshed. [Current baseline](tvos/validation/2026-10-25-remote-steps/README.md) separates25 test passes from the failed simulator interaction and pending physical gesture verification. No renderer or desktop behavior change.
+
+
+## Local TV App Store archive — 2026-10-27
+
+`dreams.tv.rain/store_packaging`, `resources` and `platform_boundary` keep their
+requirements, source bindings and descriptive-draft acceptance. The existing
+Dreams icon was retained; no implementation or contract changed.
+[New artifact evidence](tvos/validation/2026-10-27-store-archive/README.md) records
+local archive/export and independent IPA/signature/resource checks for source
+b3b6fbc, including the compiled store icon. Prior runtime/device evidence remains
+historical; no build upload, TestFlight, review or public release occurred.

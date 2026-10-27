@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-27",
+  "sourceSHA": "b3b6fbc553226bc0f1fa2342d9bd32337d4b5e96",
+  "profile": "local App Store export; TV_OS; no upload",
+  "tools": {
+    "xcode": "27.1",
+    "xcodeBuild": "27A9275",
+    "sdk": "appletvos27.0",
+    "asc": "5.17.0 (commit: unknown, date: unknown)"
+  },
+  "sourceAndMapSHA256": {
+    "tvOS/project.yml": "3b5d68e0cbd67d0b1f7d655b2761ce9c2ba376340858e4a4437c64ef34149c02",
+    "tvOS/ExportOptions-AppStore.plist": "2e9c6cdac547ea092c4b317d1ed20538561133692938853dfc17c6bbbbe3787a",
+    "scripts/check-tv-app.py": "656f2446b21bf139ec2d3b888e01c5c02a587f0d8a19d37f8ad64d8d197e0276",
+    "specs/hypercode/television.hc": "3242ba0ae6e4edb131bda66181f7cea8124c61187692228c7a602a6b1048c2c8",
+    "specs/hypercode/television.hcs": "93890f42f1588ff10fe81aa383e65fa01e2909e989bfbfb677b2a3847a63aa2f"
+  },
+  "checks": [
+    {
+      "command": "xcodegen generate --spec tvOS/project.yml",
+      "exitCode": 0
+    },
+    {
+      "command": "with_xcode_auth.py --profile PROFILE -- archive --project tvOS/DreamsTV.xcodeproj --scheme DreamsTV --configuration Release --archive-path \"$TV_ARCHIVE_PATH\" [TB5 path overrides]",
+      "exitCode": 0
+    },
+    {
+      "command": "with_xcode_auth.py --profile PROFILE -- export --archive-path \"$TV_ARCHIVE_PATH\" --export-options tvOS/ExportOptions-AppStore.plist --ipa-path \"$TV_IPA_PATH\" --timeout 10m",
+      "exitCode": 0
+    },
+    {
+      "command": "python3 scripts/check-tv-app.py \"$EXTRACTED_TV_APP\" --version 1.0 --build 1",
+      "exitCode": 0
+    },
+    {
+      "command": "xcrun assetutil --info \"$EXTRACTED_TV_APP/Assets.car\"",
+      "exitCode": 0
+    },
+    {
+      "command": "lipo -archs \"$EXTRACTED_TV_APP/DreamsTV\"",
+      "exitCode": 0,
+      "result": "arm64"
+    }
+  ],
+  "pathNote": "Exact commands and full diagnostics remain beside the local archive. Environment placeholders avoid committing host-specific build paths.",
+  "structuralValidation": "Not rerun: no schema, source, HC/HCS or SpecPM contract changed; new evidence/docs only.",
+  "acceptance": "descriptive draft unchanged; physical-device behavior and App Store acceptance unverified"
+}

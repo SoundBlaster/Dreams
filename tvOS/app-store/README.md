@@ -170,3 +170,15 @@ The API still returns zero dimensions for previewImage, so the rendered poster
 and playback in the store UI have not been verified. Do not equate the selected
 timecode with observed poster pixels. No app build was uploaded/attached and no
 review submission or public release occurred.
+
+
+## Local App Store IPA prepared on 2026-10-27
+
+[Artifact manifest](build-1.0-1.json) and the
+[dated verification record](../../specs/tvos/validation/2026-10-27-store-archive/README.md)
+record Dreams TV1.0/build1 exported from source
+`b3b6fbc553226bc0f1fa2342d9bd32337d4b5e96`. The existing Dreams mark is packaged,
+including the compiled1280×768 store icon. Signing, tvOS-only identity, privacy,
+fonts/notices and resources passed independent checks of the extracted IPA.
+The archive, IPA and full logs remain under the checkout's verified TB5 build
+root in `app-store/2026-10-27-1.0-1`. No build was uploaded or submitted.
