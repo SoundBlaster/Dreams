@@ -104,9 +104,11 @@ linked libraries for review. It does not prove App Store acceptance or API behav
 
 ## Remaining release gates
 
-- Resolve the reconstructed font's pending redistribution rights review documented
-  in [third-party notices](../THIRD_PARTY_NOTICES.md) and [glyph provenance](../research/glyphs/PIPELINE.md).
-  Packaging the existing assets does not establish permission or film fidelity.
+- The owner closed the internal DreamsMatrix pre-release rights-review gate on
+  2026-10-27 and authorized proceeding with the self-created font. Retain the
+  [decision and complaint-response plan](app-store/release-decisions.md),
+  [provenance](../research/glyphs/PIPELINE.md) and existing third-party notices.
+  This owner decision does not record outside clearance or establish film fidelity.
 - Confirm the installed Xcode/SDK is accepted for App Store submission.
 - Verify Release on the owner's older Apple TV and a current Apple TV 4K:
   remote focus/swipes/Select/Back/PlayPause, paused/live preview, clock, errors,

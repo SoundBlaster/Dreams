@@ -182,3 +182,15 @@ including the compiled1280×768 store icon. Signing, tvOS-only identity, privacy
 fonts/notices and resources passed independent checks of the extracted IPA.
 The archive, IPA and full logs remain under the checkout's verified TB5 build
 root in `app-store/2026-10-27-1.0-1`. No build was uploaded or submitted.
+
+
+## Owner font-release decision on 2026-10-27
+
+The owner closed the internal pre-release redistribution-rights-review gate for
+the self-created DreamsMatrix font and authorized proceeding with it. The
+[release decision](release-decisions.md) preserves the authorship statement,
+existing provenance, separate MIT Matrix-Code notice and intended response to a
+complaint. No outside clearance or legal conclusion is asserted. Earlier pending
+review notes remain historical. This documentation-only decision leaves the
+prepared IPA, notices and runtime/source bindings unchanged. No content-rights
+answer or other App Store Connect field was changed by this decision.
