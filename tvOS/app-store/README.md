@@ -149,8 +149,24 @@ TV was untouched. Full-file decode passed; automated detection found no black in
 longer and no frozen intervals of0.5s or longer. Five exported timeline frames
 and native scene stills were visually sampled. These are local media checks, not
 a frame-cadence benchmark. The manifest records them separately from owner
-approval and App Store processing: the draft has not been uploaded. This is
+approval and App Store processing: the initial draft had not been uploaded. The separately dated upload below
+records its later delivery. This is
 store-media work with `Spec-ID: NO-SPEC-IMPACT`; runtime/maps/contracts and their
 source bindings are unchanged.
 
 Reference: [Apple App Preview specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/app-preview-specifications).
+
+
+## App Preview upload verified on 2026-10-27
+
+After owner approval, the exact reviewed MP4 was uploaded once to each of en-US,
+ru and es-MX for TV_OS1.0. Fresh reads returned one APPLE_TV preview per locale,
+all with assetDeliveryState COMPLETE,34,729,129bytes and source MD5
+`683861eee083a08f075bde72cc656dcf`. The [video manifest](app-preview.json) retains
+the three asset/set IDs and exact read-back. Poster-frame timecode `00:00:13:00`
+was applied and verified for each copy, selecting the glyph-clock scene.
+
+The API still returns zero dimensions for previewImage, so the rendered poster
+and playback in the store UI have not been verified. Do not equate the selected
+timecode with observed poster pixels. No app build was uploaded/attached and no
+review submission or public release occurred.

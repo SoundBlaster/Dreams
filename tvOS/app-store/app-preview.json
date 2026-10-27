@@ -6,7 +6,7 @@
   "runtimeSourceSHA": "dfa87c906a141a5d7c6d6cab6ffecdf9bc710bf5",
   "binarySHA256": "bbb0196b89410e752ff85188c77a661b7ce57240e42ebf077163aaab51dbdbd2",
   "captureDevice": "Apple TV 4K 3rd generation at1080p; tvOS27.0",
-  "state": "local draft; not uploaded; owner review pending",
+  "state": "uploaded; all three locales report COMPLETE; owner authorized upload on 2026-10-27",
   "fileName": "dreams-tv-app-preview.mp4",
   "sha256": "3e9137df122036f53f11b64b7f73a70770bebae3303edffa7164ee45eea5f648",
   "bytes": 34729129,
@@ -117,7 +117,52 @@
     "fullDecode": "passed; no black intervals >=0.2s or freezes >=0.5s detected",
     "visualSampling": "five exported timeline frames plus native scene stills reviewed; clock recognizable at full size, limited at thumbnail size",
     "physicalDevicePerformance": "not established",
-    "appStoreProcessing": "not uploaded"
+    "appStoreProcessing": "API assetDeliveryState COMPLETE for en-US, ru and es-MX; checksums, sizes and selected poster timecode read back exactly. Rendered poster/playback not verified; previewImage dimensions remain zero in API."
   },
-  "preferencesRestored": true
+  "preferencesRestored": true,
+  "upload": {
+    "verifiedDate": "2026-10-27",
+    "locales": {
+      "en-US": {
+        "versionLocalizationId": "de78d5df-0265-477e-ab85-496777ade65c",
+        "setId": "d7694c23-382e-4ff1-a7c0-01371a288bb7",
+        "assetId": "ddc00019-6e87-8fa9-8109-bcc3bf94fa46",
+        "state": "COMPLETE",
+        "md5": "683861eee083a08f075bde72cc656dcf",
+        "fileSize": 34729129,
+        "posterTimeCode": "00:00:13:00",
+        "previewImageDimensions": [
+          0,
+          0
+        ]
+      },
+      "ru": {
+        "versionLocalizationId": "4bc612af-ae28-43eb-ba12-b182ce16f97a",
+        "setId": "a7dde56d-c2c7-456f-bace-f8339aa16274",
+        "assetId": "40400019-6e87-8fa9-811b-5b6bbea29f6e",
+        "state": "COMPLETE",
+        "md5": "683861eee083a08f075bde72cc656dcf",
+        "fileSize": 34729129,
+        "posterTimeCode": "00:00:13:00",
+        "previewImageDimensions": [
+          0,
+          0
+        ]
+      },
+      "es-MX": {
+        "versionLocalizationId": "cf018a65-3bb3-4d3d-89dc-d0295f4cfdc7",
+        "setId": "351bb1d8-6857-4e78-a2d0-d37708c296d3",
+        "assetId": "65c00019-6e87-8fa9-811e-c2e4f0ff6a0d",
+        "state": "COMPLETE",
+        "md5": "683861eee083a08f075bde72cc656dcf",
+        "fileSize": 34729129,
+        "posterTimeCode": "00:00:13:00",
+        "previewImageDimensions": [
+          0,
+          0
+        ]
+      }
+    },
+    "buildUploadedOrSubmitted": false
+  }
 }
