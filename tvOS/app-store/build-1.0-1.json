@@ -31,7 +31,7 @@
   "requiredResourcesVerified": true,
   "noDesktopFrameworkLinks": true,
   "localExportOnly": true,
-  "uploaded": false,
+  "uploaded": true,
   "submitted": false,
   "compiledMarketingIcon": {
     "width": 1280,
@@ -54,5 +54,26 @@
   ],
   "deviceRunForThisIPA": false,
   "appStoreProcessingVerified": false,
-  "reviewAcceptanceVerified": false
+  "reviewAcceptanceVerified": false,
+  "upload": {
+    "date": "2026-10-27",
+    "buildId": "4e007dbd-f8ec-4e20-8bae-ed808b7553d6",
+    "uploadId": "4e007dbd-f8ec-4e20-8bae-ed808b7553d6",
+    "fileId": "c7093a2b-c227-4377-85f3-03479f51d1e3",
+    "processingState": "VALID",
+    "buildAudienceType": "APP_STORE_ELIGIBLE",
+    "version": "1.0",
+    "build": "1",
+    "platform": "TV_OS",
+    "serverChecksumVerified": false,
+    "serverChecksumNote": "Apple supplied no checksum for upload verification. Local IPA SHA256 was checked before upload.",
+    "appStoreVersionState": "PREPARE_FOR_SUBMISSION",
+    "attachedToVersion": false,
+    "reviewSubmitted": false,
+    "releaseType": "MANUAL",
+    "icons": {
+      "APP_STORE": "1280x768",
+      "TV_OS_HOME_SCREEN": "400x240"
+    }
+  }
 }

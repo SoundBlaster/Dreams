@@ -194,3 +194,22 @@ complaint. No outside clearance or legal conclusion is asserted. Earlier pending
 review notes remain historical. This documentation-only decision leaves the
 prepared IPA, notices and runtime/source bindings unchanged. No content-rights
 answer or other App Store Connect field was changed by this decision.
+
+
+## Build upload verified on 2026-10-27
+
+After the owner authorized upload, Dreams TV1.0/build1 from the verified local
+IPA was uploaded to App Store Connect. The upload returned success and a fresh
+build read returned processingState VALID, platform TV_OS and APP_STORE_ELIGIBLE.
+The [artifact manifest](build-1.0-1.json) records the exact build, upload and
+file IDs. Apple supplied no upload checksum, so remote checksum verification was
+not available; the local IPA SHA256 matched the archived manifest immediately
+before upload. Apple's build icon list includes both the1280×768 App Store icon
+and the400×240 TV Home Screen icon.
+
+A fresh version read shows PREPARE_FOR_SUBMISSION, release type MANUAL, with no
+build attached and no submission. Upload is not App Review submission, public
+release, or TestFlight group distribution. An older empty AWAITING_UPLOAD record
+remains untouched. Owner reports the Paid Apps Agreement active until September
+2027 and chooses to defer updating banking details; that account assertion was
+not independently verified here.
