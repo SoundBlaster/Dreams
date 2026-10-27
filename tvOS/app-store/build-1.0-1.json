@@ -53,7 +53,7 @@
     "AppIntents metadata extraction skipped because target has no AppIntents.framework dependency."
   ],
   "deviceRunForThisIPA": false,
-  "appStoreProcessingVerified": false,
+  "appStoreProcessingVerified": true,
   "reviewAcceptanceVerified": false,
   "upload": {
     "date": "2026-10-27",
@@ -68,12 +68,25 @@
     "serverChecksumVerified": false,
     "serverChecksumNote": "Apple supplied no checksum for upload verification. Local IPA SHA256 was checked before upload.",
     "appStoreVersionState": "PREPARE_FOR_SUBMISSION",
-    "attachedToVersion": false,
+    "attachedToVersion": true,
     "reviewSubmitted": false,
     "releaseType": "MANUAL",
     "icons": {
       "APP_STORE": "1280x768",
       "TV_OS_HOME_SCREEN": "400x240"
-    }
+    },
+    "usesNonExemptEncryption": false
+  },
+  "testflight": {
+    "verifiedDate": "2026-10-27",
+    "groupName": "Internal Testers",
+    "groupId": "5c039b95-f268-4225-8082-324acf8ea09a",
+    "groupType": "INTERNAL",
+    "explicitBuildMembership": true,
+    "internalBuildState": "IN_BETA_TESTING",
+    "ownerTesterState": "INVITED",
+    "testerAccepted": false,
+    "installationVerified": false,
+    "externalDistribution": false
   }
 }

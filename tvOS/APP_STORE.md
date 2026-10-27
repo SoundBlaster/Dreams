@@ -115,8 +115,9 @@ linked libraries for review. It does not prove App Store acceptance or API behav
   persisted tuning, frame cadence and a sustained-memory run.
 - The owner-authorized 1.0/build1 IPA upload completed on 2026-10-27; Apple
   reports it VALID. See [upload record](app-store/README.md). Attaching a build
-  to the version, assigning TestFlight groups and review submission remain
-  separate steps; retain commit, version/build and device evidence.
+  to version1.0 and internal TestFlight group assignment were subsequently
+  verified. The owner tester is INVITED; acceptance and device installation
+  remain unverified. App Review submission remains a separate action.
 - Publish/verify the separate App Privacy declaration and complete export
   compliance for the eventual build. EN/RU/es-MX metadata, localized screenshot
   sets, privacy text, age rating4+, category, copyright and review contacts were

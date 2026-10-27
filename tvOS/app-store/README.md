@@ -213,3 +213,26 @@ release, or TestFlight group distribution. An older empty AWAITING_UPLOAD record
 remains untouched. Owner reports the Paid Apps Agreement active until September
 2027 and chooses to defer updating banking details; that account assertion was
 not independently verified here.
+
+
+## Version attachment and internal TestFlight on 2026-10-27
+
+After owner authorization, the existing VALID1.0/build1 was attached to TV_OS
+version1.0; a fresh version read confirms the exact build relationship,
+PREPARE_FOR_SUBMISSION, MANUAL release and no review submission. The staged
+metadata plan had zero additions, edits or deletions. The stage command completed
+attachment but exited1 on its subsequent readiness check because content rights
+have not been declared. Its suggested no-third-party-content answer must not be
+assumed: the app bundles a separately licensed third-party font and notices.
+
+The TV source and bundled dependencies were examined for encryption; the build
+uses no non-exempt encryption. The build attribute was set to false and read back.
+The internal TestFlight group was created and the build added explicitly; a fresh
+read reports IN_BETA_TESTING. The owner's App Store Connect account was added to
+the group and is INVITED, pending acceptance. No physical-device installation
+has been observed. [Artifact manifest](build-1.0-1.json) records the group and
+verified state without publishing the owner's email. No external beta or App
+Review submission was made.
+
+References: [Apple encryption requirements](https://developer.apple.com/documentation/security/complying-with-encryption-export-regulations),
+[TestFlight export compliance](https://developer.apple.com/help/app-store-connect/test-a-beta-version/provide-export-compliance-information-for-beta-builds).
