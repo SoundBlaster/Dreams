@@ -126,3 +126,31 @@ CANNOT_SELL and AVAILABLE_FOR_SALE_UNRELEASED_APP; this is not evidence of a liv
 listing or completed commercial agreements. No build was uploaded or attached.
 No DSA trader status or public trader contact details were supplied; verify any
 remaining account-level declaration requirement separately before submission.
+
+
+## App Preview draft on 2026-10-27
+
+The [video manifest](app-preview.json) records a local 25-second, language-neutral
+App Preview draft: green rain (0–9s), a stationary glyph clock (9–19s) and cyan rain
+(19–25s). All scenes were recorded from the installed TV Release in the 1080p
+simulator. The binary hash matches the earlier screenshot build; application
+sources have no changes since runtime source dfa87c906a141a5d7c6d6cab6ffecdf9bc710bf5.
+
+The export is MP4/H.264 High Level4.0,1920×1080,30fps,750frames, about11.1Mbps,
+with a silent48kHz stereo AAC track. Editing trims footage and joins it at real
+speed; it adds no interface, text, music or generated animation. The clock uses
+actual settings, including120columns, fade16 and reduced brightness variation.
+It remains formed from moving glyphs and can be hard to read at small sizes.
+
+Raw takes, command/encoding records, checks and the final MP4 remain in the local
+TB5 build root under `store-preview-2026-10-27`; large media are not committed.
+The simulator preferences were restored and the app stopped. The physical Apple
+TV was untouched. Full-file decode passed; automated detection found no black intervals of0.2s or
+longer and no frozen intervals of0.5s or longer. Five exported timeline frames
+and native scene stills were visually sampled. These are local media checks, not
+a frame-cadence benchmark. The manifest records them separately from owner
+approval and App Store processing: the draft has not been uploaded. This is
+store-media work with `Spec-ID: NO-SPEC-IMPACT`; runtime/maps/contracts and their
+source bindings are unchanged.
+
+Reference: [Apple App Preview specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/app-preview-specifications).
