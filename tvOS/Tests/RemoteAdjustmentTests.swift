@@ -3,6 +3,21 @@ import XCTest
 
 final class RemoteAdjustmentTests: XCTestCase {
     @MainActor
+    func testFailedPendingHoldReleasesSwipeSuppressionOnReset() {
+        let view = RemoteHoldAdjustment.HoldView()
+        var active = false
+        var steps: [Int] = []
+        view.holdChanged = { active = $0 }
+        view.adjust = { steps.append($0) }
+        let hold = view.recognizers.compactMap { $0 as? DirectionalHoldRecognizer }.first!
+        hold.trackPress()
+        XCTAssertTrue(active)
+        hold.reset()
+        XCTAssertFalse(active)
+        XCTAssertTrue(steps.isEmpty)
+    }
+
+    @MainActor
     func testHoldRepeatsTenStepsAndDetachingStopsPendingWork() async throws {
         let view = RemoteHoldAdjustment.HoldView()
         var steps: [Int] = []

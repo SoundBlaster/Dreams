@@ -107,6 +107,11 @@ evidence:
   supports:
   - constraints.persistent_tuning
   - constraints.remote_settings
+- id: remote_cancel_validation
+  kind: test
+  path: validation/2026-10-28-remote-cancel/README.md
+  supports:
+  - constraints.remote_settings
 - id: denser_glyph_validation
   kind: test
   path: validation/2026-10-25-denser-glyphs/README.md
@@ -176,8 +181,8 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/LICENSE
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
     - evidence/2026-10-25-glyph-spacing/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
-    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/pages/settings/ui/RemoteHoldAdjustment.swift
-    - evidence/2026-10-25-remote-steps/source/tvOS/Tests/RemoteAdjustmentTests.swift
+    - evidence/2026-10-28-remote-cancel/source/tvOS/Sources/pages/settings/ui/RemoteHoldAdjustment.swift
+    - evidence/2026-10-28-remote-cancel/source/tvOS/Tests/RemoteAdjustmentTests.swift
     border: []
 - id: television_packaging
   language: yaml

@@ -1,5 +1,8 @@
 import SwiftUI
 import UIKit
+// UIGestureRecognizer subclass overrides are declared in this UIKit submodule.
+// swiftlint:disable:next duplicate_imports
+import UIKit.UIGestureRecognizerSubclass
 
 @MainActor
 final class RemoteHoldState {
@@ -32,7 +35,9 @@ struct RemoteHoldAdjustment: UIViewRepresentable {
         private var repeating: Task<Void, Never>?
         private weak var attachedWindow: UIWindow?
         lazy var recognizers: [UIGestureRecognizer] = [UIPress.PressType.leftArrow, .rightArrow].flatMap { type in
-            let hold = UILongPressGestureRecognizer(target: self, action: #selector(held(_:)))
+            let hold = DirectionalHoldRecognizer(target: self, action: #selector(held(_:)))
+            hold.pressStarted = { [weak self] in self?.holdChanged(true) }
+            hold.pressFinished = { [weak self] in self?.stop() }
             hold.minimumPressDuration = 0.5
             let double = UITapGestureRecognizer(target: self, action: #selector(clicked(_:)))
             double.numberOfTapsRequired = 2
@@ -104,15 +109,37 @@ struct RemoteHoldAdjustment: UIViewRepresentable {
 
         func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool {
             guard gestureRecognizer.allowedPressTypes.contains(NSNumber(value: press.type.rawValue)) else { return false }
-            // Prevent the focus engine's failed movement from counting this same
-            // physical click as a swipe. Tap recognizers resolve single vs double.
-            holdChanged(true)
             return true
         }
 
         func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                                shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
             !recognizers.contains { $0 === otherGestureRecognizer }
+        }
+    }
+}
+
+/// A failed recognizer does not invoke its action, so release suppression on reset too.
+final class DirectionalHoldRecognizer: UILongPressGestureRecognizer {
+    var pressStarted: () -> Void = {}
+    var pressFinished: () -> Void = {}
+    private var receivedPress = false
+
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent) {
+        trackPress()
+        super.pressesBegan(presses, with: event)
+    }
+
+    func trackPress() {
+        receivedPress = true
+        pressStarted()
+    }
+
+    override func reset() {
+        super.reset()
+        if receivedPress {
+            receivedPress = false
+            pressFinished()
         }
     }
 }

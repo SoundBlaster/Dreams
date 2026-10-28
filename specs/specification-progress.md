@@ -1,5 +1,14 @@
 # Dreams specification progress
 
+## TV remote cancellation — 2026-10-28
+
+`dreams.tv.rain/remote_settings` retains swipe and cancellation requirements;
+the Settings role now clears suppression when a pending directional hold resets.
+Parent lifecycle and paused-preview obligations remain unchanged. The [new
+baseline](tvos/validation/2026-10-28-remote-cancel/README.md) identifies changed
+source snapshots and separates a direct cleanup test from unverified physical
+remote gesture arbitration. Existing TV contract acceptance remains draft.
+
 Goal: maintain compact architecture maps and consumer contracts alongside code
 changes. Initial scope: repository maintenance rules and the browser glyph
 editor on `96fef7ad121cf9ba278eabd878c5179fd754a0cd`. All recovered contracts are **descriptive drafts**;
