@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.fps
   name: Dreams optional FPS readout
-  version: 0.1.0-draft.3
+  version: 0.1.0-draft.5
   summary: Opt-in frame cadence readout using Dreams digits on macOS and tvOS.
   license: MIT
   authors:

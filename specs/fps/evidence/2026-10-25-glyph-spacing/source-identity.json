@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "b34f92a831851701b3f64d7f630c6581901a418d",
+  "baseRevision": "471dccec452c5507045c2e4726e55f06c69f2d83",
+  "files": {
+    "Sources/Dreams/features/rain/model/PresentedFPS.swift": "af28e9e409c5798e72425ebab3b25dcd920ac4595aad3ec99402ed2e2b51ebb7",
+    "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift": "cfe8bf43abaa1e8b0aee68424adf1cc1be6bbda0fcb974254cb39e65f02757b1",
+    "Tests/DreamsTests/PresentedFPSTests.swift": "b9273c545ae3fd9dae0e93d3c4a5eb0f7cc1ded62d07f591f989f4fe6013d42a",
+    "tvOS/Tests/RainParityTests.swift": "fb8937cd5965696881248df2e3514e6179352bb932a1d0c88c3211856df48996",
+    "tvOS/Tests/GlyphSpacingTests.swift": "ee612e59eac6cdedc5f80dd8341397b3e0e7701fb74edee01dd450e02a422774"
+  },
+  "unchangedFontSHA256": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+  "unchangedClassicFontSHA256": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b",
+  "acceptance": "descriptive draft; actual raster geometry and simulator tests, not physical-device or film-fidelity acceptance"
+}

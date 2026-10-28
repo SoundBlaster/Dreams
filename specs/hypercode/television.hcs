@@ -35,9 +35,11 @@ ClockMask:
 GlyphResources:
   source: "tvOS/Sources/features/matrix/lib/FilmAtlas.swift"
   implementation: "bundled-restored-PUA-or-classic-font; padded-atlas; mirrored-TV-variants; bundled-notices"
+  spacing: "restored-nominal-cap-height-spans-1.12-rows-for-near-contact-ordinary-bodies; uniform-XY-scale; natural-short-marks; classic-unchanged"
 FPSReadout:
   detail: "fps.hc + fps.hcs"
   capability: "dreams.rain.fps"
+  sizing: "inherit-active-TV-atlas-common-body-scale"
 @clock[hidden]:
   ClockMask:
     implementation: "mask-bypassed; ordinary-rain-exposure"

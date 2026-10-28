@@ -1,0 +1,9 @@
+{
+  "sourceRevision": "8830eab2fc5361d1b154a5969d072fe15da579d2",
+  "baseRevision": "d9b25326f0f901a1da7142accd1388f2f05c14b9",
+  "files": {
+    "tvOS/Sources/features/matrix/lib/FilmAtlas.swift": "6663a146568854e318a9964b16be897034d44812c2a21d0e418903adb8f2f08e",
+    "tvOS/Tests/GlyphSpacingTests.swift": "6b3138fe63937a2474fafeabf889decdda00ff1dff6e2cda267741f298e9a93b"
+  },
+  "scope": "Uniform restored TV glyph scale only; previous unchanged snapshots remain applicable; no font/grid/simulation changes."
+}

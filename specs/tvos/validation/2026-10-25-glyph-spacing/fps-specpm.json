@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    "dreams.rain.fps"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/readout.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams optional FPS readout",
+    "package_id": "dreams.fps",
+    "version": "0.1.0-draft.4"
+  },
+  "status": "warning_only",
+  "warning_count": 2,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/readout.spec.yaml",
+      "message": "Required capability is not resolved by MVP validation: platform.apple.metal_renderer",
+      "severity": "warning"
+    },
+    {
+      "code": "unknown_interface_kind",
+      "field": "interfaces.inbound.0.kind",
+      "file": "specs/readout.spec.yaml",
+      "message": "Unknown interface kind: ui",
+      "severity": "warning"
+    }
+  ]
+}

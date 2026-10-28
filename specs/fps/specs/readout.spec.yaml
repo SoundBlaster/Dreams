@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.rain.fps
   title: OptionalFrameCadenceReadout
-  version: 0.1.0-draft.3
+  version: 0.1.0-draft.5
   status: draft
 intent:
   summary: Let viewers inspect rain cadence without an external debugger.
@@ -59,8 +59,18 @@ constraints:
   statement: Reset the sampling window when toggling or resuming the TV renderer or settings preview. Reject callbacks from earlier generations. Requested paused TV stills exclude FPS callbacks and readout. Keep state synchronized across Metal callback threads and the main renderer. A disabled readout is absent immediately; retained atlas resources can be reused on re-enable.
 - id: appearance
   level: MUST
-  statement: Use unmirrored DreamsMatrix-Regular digits in three reserved rain cells, inset one complete row and column from the visible grid edge. Match the rain's quad size and spacing exactly; no independent pixel sizing, shadow or viewport. Skip the corresponding rain cores and halos without mutating simulation cells. Keep constant pale ink without pulse or mutation. Right-align up to three digits inside those cells. In a cropped macOS preview reserve cells relative to its visible full columns, below playback controls, while preserving production scale. A viewport narrower than five whole columns omits the counter. Offline PNGs omit it.
+  statement: Use unmirrored DreamsMatrix-Regular digits in three reserved rain cells, inset one complete row and column from the visible grid edge. Match the rain's quad size and spacing exactly; no independent pixel sizing, shadow or viewport. On TV, inherit the active atlas's common-body scale, keeping centers fixed and classic scale one. Skip the corresponding rain cores and halos without mutating simulation cells. Keep constant pale ink without pulse or mutation. Right-align up to three digits inside those cells. In a cropped macOS preview reserve cells relative to its visible full columns, below playback controls, while preserving production scale. A viewport narrower than five whole columns omits the counter. Offline PNGs omit it.
 evidence:
+- id: denser_tv_validation
+  kind: test
+  path: validation/2026-10-25-denser-glyphs.md
+  supports:
+  - constraints.appearance
+- id: tv_body_spacing_validation
+  kind: test
+  path: validation/2026-10-25-glyph-spacing.md
+  supports:
+  - constraints.appearance
 - id: grid_validation
   kind: test
   path: validation/2026-10-24-grid/README.md
@@ -90,13 +100,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 869bb0c635d87a3ee5a03a1731b1ec7e95bcb5e9
+    revision: 8830eab2fc5361d1b154a5969d072fe15da579d2
   files:
     owned:
-    - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
+    - evidence/2026-10-25-glyph-spacing/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
     - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift
     - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-10-24-fps-grid/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
-    - evidence/2026-10-24-fps-grid/source/Tests/DreamsTests/PresentedFPSTests.swift
-    - evidence/2026-10-24-paused-preview/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-25-glyph-spacing/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-10-25-glyph-spacing/source/Tests/DreamsTests/PresentedFPSTests.swift
+    - evidence/2026-10-25-glyph-spacing/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
     border: []

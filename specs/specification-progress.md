@@ -1109,3 +1109,18 @@ checks, including the missing-LICENSE defect caught in the first IPA and its fix
 Old evidence stays historical. Draft acceptance, font redistribution rights,
 physical-device/long-run quality, toolchain acceptance, TestFlight and public
 release remain separate gates. Simulator runtime diagnostics are preserved.
+
+## Restored TV glyph row spacing — 2026-10-25
+
+`dreams.tv.rain/resources` folds common cap-height sizing into GlyphResources;
+parent `fps` / `dreams.rain.fps/appearance` propagate the same geometry to the
+reserved readout. Atlas UVs/contours, repertoire, simulation/tuning and classic
+geometry retain their existing obligations. The macOS rain keeps its current
+size; shared FPS geometry defaults to scale1. [Current baseline](tvos/validation/2026-10-25-glyph-spacing/README.md)
+separates actual raster/renderer tests, analytical prior coverage and simulator
+visual/device limits. Font rights, film fidelity and physical performance remain
+unaccepted/unknown; historical evidence is preserved.
+
+## Denser restored TV glyphs — 2026-10-25
+
+The owner rejected the first spacing result as too loose. `dreams.tv.rain/resources` now allows the nominal cap body to span1.12 rows with the same uniform XY factor. Ordinary short bodies gain near-contact packing; punctuation remains natural, classic/macOS geometry and grid/timing stay unchanged. Parent `fps` and `dreams.rain.fps/appearance` still inherit active rain sizing; no sampling/lifetime policy changes. [Current baseline](tvos/validation/2026-10-25-denser-glyphs/README.md) supersedes the rejected visual result, preserves old evidence and records source/test/visual limits. Physical-device/GPU acceptance remains outstanding.

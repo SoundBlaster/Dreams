@@ -3,7 +3,7 @@ kind: BoundarySpec
 metadata:
   id: dreams.tv.rain
   title: TelevisionRainAndClock
-  version: 0.1.0-draft.6
+  version: 0.1.0-draft.8
   status: draft
 intent:
   summary: Give Apple TV viewers the desktop rain's motion and appearance controls without agent or desktop-window integrations, preserving the optional TV clock.
@@ -64,6 +64,7 @@ constraints:
 - id: resources
   level: MUST
   statement: Discover restored private-use scalars from the bundled DreamsMatrix font, excluding designed Latin/Cyrillic. Classic mode uses the same Matrix-Code repertoire as macOS. Retain TV horizontal mirror variants and size the atlas for the selected repertoire. Prepare a replacement atlas before adoption; restarting the TV grid on repertoire change avoids obsolete indices. Bundle both fonts and third-party notices. Missing Metal/font/shader resources stop rendering with a visible localized failure route to settings.
+    For restored glyphs, compute one uniform scale from the font's common cap height and the cropped atlas window so the nominal common body spans1.12 rain rows. This intentional overhang lets shorter ordinary bodies nearly touch; it does not normalize each glyph separately. Apply it equally to both axes around each cell center; retain natural short-mark size, individual overshoots, padded UVs and aligned glow. Classic geometry stays unchanged. Do not alter font contours, row/column counts, simulation timing or saved tuning to close the visual gap. Pass the same scale to the FPS grid.
 - id: persistent_tuning
   level: MUST
   statement: Preserve existing TV preference keys and TV defaults (manual96 columns, density0.82, brightness0.18 and clock on). New appearance/motion defaults come from shared DreamsPreset except the explicitly requested AppleTV5,3 Glow-zero hardware default. Normalize out-of-range and nonfinite numeric values. Reset persists all TV defaults after confirmation. TV state does not mutate desktop preferences.
@@ -100,6 +101,18 @@ effects:
     kind: state_mutation
     summary: Render local Metal frames and manage the foreground application's idle timer.
 evidence:
+- id: denser_glyph_validation
+  kind: test
+  path: validation/2026-10-25-denser-glyphs/README.md
+  supports:
+  - constraints.resources
+  - constraints.fps
+- id: glyph_spacing_validation
+  kind: test
+  path: validation/2026-10-25-glyph-spacing/README.md
+  supports:
+  - constraints.resources
+  - constraints.fps
 - id: store_target_validation
   kind: test
   path: validation/2026-10-25-store-target/README.md
@@ -131,23 +144,23 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: af94ff0eefd217468506b64072c8293c36a87e48
+    revision: 8830eab2fc5361d1b154a5969d072fe15da579d2
   files:
     owned:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/DreamsTVApp.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/ClockMask.swift
-    - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
+    - evidence/2026-10-25-denser-glyphs/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift
     - evidence/2026-10-24-safe-identifier/source/tvOS/Sources/features/matrix/model/RainSettings.swift
-    - evidence/2026-10-24-fps-grid/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-10-25-glyph-spacing/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
-    - evidence/2026-10-25-pr64-integration/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-10-25-glyph-spacing/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-10-25-pr64-integration/source/Makefile
     - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
@@ -155,6 +168,8 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/Sources/Dreams/Rain.metal
     - evidence/2026-10-21-parity/source/THIRD_PARTY_NOTICES.md
     - evidence/2026-10-21-parity/source/LICENSE
+    - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
+    - evidence/2026-10-25-glyph-spacing/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
     border: []
 - id: television_packaging
   language: yaml

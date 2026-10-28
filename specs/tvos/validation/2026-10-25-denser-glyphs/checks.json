@@ -1,0 +1,65 @@
+{
+  "sourceRevision": "8830eab2fc5361d1b154a5969d072fe15da579d2",
+  "priorRevision": "d9b25326f0f901a1da7142accd1388f2f05c14b9",
+  "commands": [
+    {
+      "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=<verified checkout TB5 DerivedData> TV_TEST_OPTIONS=-parallel-testing-enabled NO",
+      "exitCode": 0,
+      "passed": 21,
+      "skipped": 0,
+      "summary": "test-summary.json"
+    },
+    {
+      "command": "swiftlint lint --strict --quiet",
+      "exitCode": 0,
+      "diagnostics": "existing unused_import analyzer_rules warning"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "diagnostics": "existing provider warnings"
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "files": 202
+    }
+  ],
+  "raster": {
+    "threshold": 32,
+    "ordinaryCount": 22,
+    "ordinaryMin": 0.848284,
+    "ordinaryLowerQuartile": 1.074493,
+    "ordinaryMax": 1.2441499,
+    "ordinaryAtLeastOneRow": 21,
+    "G21": 1.1310455,
+    "G25": 0.22620909,
+    "uniformXYScale": 1.1995935
+  },
+  "visual": {
+    "method": "Xcode launch/hierarchy followed by root simctl populated screenshot",
+    "image": "tv-rain-denser.png",
+    "imageSHA256": "444962e031b62fc06ae78df5387b19c906f7f0b79c8d2f62787c39543d4ed18b",
+    "detail": "tv-rain-detail.png",
+    "crop": [
+      1020,
+      470,
+      1270,
+      850
+    ],
+    "enlargement": 2,
+    "resampling": "nearest",
+    "device": "B29EC156-5EF9-4A56-8147-1C98D4E228DB",
+    "physical": false,
+    "preferencesChanged": false,
+    "acceptance": "owner decision pending; no film fidelity or performance claim"
+  },
+  "mapAndContractSHA256": {
+    "specs/hypercode/television.hc": "3242ba0ae6e4edb131bda66181f7cea8124c61187692228c7a602a6b1048c2c8",
+    "specs/hypercode/television.hcs": "b6902a3f20e04e5649b1cd6aab6afc611f6d1af962e767b87dc40945cf235555",
+    "specs/hypercode/fps.hc": "e0ba171fd7f47bc8f4aa4f61c62fdc6915ca1cc54ff233faa29e83d59b8d1c08",
+    "specs/hypercode/fps.hcs": "4691d86dcf1d76d6e60bb272ca93206fcbe96c77c9849737624f81fdb3e4134c",
+    "specs/tvos/specs/television.spec.yaml": "322d972b34c3c844fa50d9c569b7da689d0f5b748dcbfaaced3adb3b64bd70ff",
+    "specs/fps/specs/readout.spec.yaml": "82aadf70781f24fd771a4dcb4bcbe17ab0a99a725907c4a6a15419aa3930ebc1"
+  }
+}

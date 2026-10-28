@@ -138,7 +138,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
               let drawable = view.currentDrawable, let command = queue.makeCommandBuffer(),
               let encoder = command.makeRenderCommandEncoder(descriptor: pass) else { return }
         let fpsValue = value.showsFPS && !view.isPaused ? fps.value : nil
-        let readout = fpsValue == nil ? nil : FPSGrid(columns: columns, rows: rows)
+        let readout = fpsValue == nil ? nil : FPSGrid(columns: columns, rows: rows, glyphScale: atlas.glyphScale)
         let cells = makeCells(simulation: simulation, tuning: value, wallTime: now, reserved: readout)
         encode(cells.halos, texture: atlas.glow, pipeline: glowPipeline, diffuse: true, encoder: encoder)
         encode(cells.cores, texture: atlas.core, pipeline: corePipeline, diffuse: false, encoder: encoder)
@@ -167,7 +167,8 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         var halos: [Cell] = []
         cores.reserveCapacity(columns * rows)
         halos.reserveCapacity(columns * rows)
-        let width = FPSGrid.glyphWidth
+        let width = FPSGrid.glyphWidth * atlas.glyphScale
+        let height = FPSGrid.glyphHeight * atlas.glyphScale
         let globalExposure = Float(value.brightness / 0.18)
         let offset = value.floatingClock
             ? driftLimits * SIMD2(Float(sin(now / 47)), Float(sin(now / 61))) : .zero
@@ -189,7 +190,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
                 let white = max(head, mutation)
                 let tint = green * ink * opacity * (1 - white) + SIMD3<Float>(0.86, 0.96, 0.88) * white
                 let rect = SIMD4<Float>((Float(column) + (1 - width) / 2) / Float(columns),
-                                        (Float(row) - 0.16) / Float(rows), width / Float(columns), 1.32 / Float(rows))
+                                        (Float(row) + (1 - height) / 2) / Float(rows), width / Float(columns), height / Float(rows))
                 let uv = FilmGlyphs.uv(for: displayGlyph, inset: 18, side: 28, atlasWidth: 512,
                                       atlasHeight: Float(atlas.height), glyphCount: atlas.glyphCount)
                 cores.append(Cell(rect: rect, uv: uv, color: SIMD4(tint * exposure, 1)))

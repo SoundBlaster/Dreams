@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-25T13:31:14.654797+00:00",
+  "sourceRevision": "b34f92a831851701b3f64d7f630c6581901a418d",
+  "baseRevision": "471dccec452c5507045c2e4726e55f06c69f2d83",
+  "sourceIdentity": "../../evidence/2026-10-25-glyph-spacing/source-identity.json",
+  "acceptance": "descriptive draft; no physical/performance/film-fidelity acceptance",
+  "tools": {
+    "xcode": "27.1 (27A9275)",
+    "tvSDK": "27.0",
+    "specpm": "specpm 0.2.0",
+    "hypercodeBinarySHA256": "6503784100372b8fe93d0a794caf80bfbfc47da880874b2b9177267d34a26b9f"
+  },
+  "commands": [
+    {
+      "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=<verified tvOS checkout DerivedData> TV_TEST_OPTIONS=-parallel-testing-enabled NO",
+      "exitCode": 0,
+      "tests": 21,
+      "log": "tests.log.gz"
+    },
+    {
+      "command": "swift test -c release --scratch-path <verified root checkout SwiftPM> --cache-path <verified shared SwiftPM cache> --filter PresentedFPSTests",
+      "exitCode": 0,
+      "reportedTests": 5,
+      "metalOptInSkipped": true,
+      "log": "mac-fps-tests.log.gz"
+    },
+    {
+      "command": "swiftlint lint --strict --quiet",
+      "exitCode": 0,
+      "diagnostic": "Existing unused_import analyzer_rules configuration warning"
+    },
+    {
+      "command": "make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "specs.log.gz"
+    }
+  ],
+  "rasterMeasurement": {
+    "threshold": 32,
+    "fullGlyph": "PUA G21",
+    "fullInkPixels": 20,
+    "priorFixedQuadHeight": 1.32,
+    "atlasCorePixels": 28,
+    "beforeCoverageAnalytical": 0.942857142857143,
+    "afterCoverageObserved": 1.009862,
+    "shortGlyph": "PUA G25",
+    "shortInkPixels": 4,
+    "shortCoverageObserved": 0.2019724,
+    "uniformXYScale": 1.0710657,
+    "beforeEvidence": "Calculated with prior quad and unchanged actual raster; no old-app screenshot",
+    "afterEvidence": "Actual FilmAtlas core texture sampled and MatrixRenderer.makeCells quads measured"
+  },
+  "visual": {
+    "status": "after-frame observed",
+    "method": "simctl launch + io screenshot; saved native PNG",
+    "device": "B29EC156-5EF9-4A56-8147-1C98D4E228DB",
+    "bundleId": "ru.egormerkushev.dreams.tv",
+    "image": "tv-rain-after.png",
+    "imageSHA256": "7f0d29df799a7b1a1ea63247d5bd11993862c797b4cc8fbe6bfeb62d3434d7ed",
+    "limits": [
+      "No before-app screenshot",
+      "No hierarchy: Xcode tools requested project approval; no runtime session opened",
+      "Bounded agent did not open a session within budget",
+      "No menu/preferences edited for this screenshot",
+      "FPS off in the captured frame, so its size alignment is covered only by tests",
+      "No physical-device or performance/fidelity acceptance"
+    ]
+  },
+  "remaining": [
+    "Physical Apple TV acceptance",
+    "Frame cadence and GPU cost measurement of larger quads",
+    "Font redistribution rights",
+    "Film reference is qualitative; no fidelity acceptance",
+    "Owner confirmation of inferred vertical-TV issue"
+  ],
+  "mapAndContractSHA256": {
+    "specs/hypercode/television.hc": "3242ba0ae6e4edb131bda66181f7cea8124c61187692228c7a602a6b1048c2c8",
+    "specs/hypercode/television.hcs": "bec753a7977beee4d9f74ddec05d013d91fc9647966eea33546bbb55f9857aa8",
+    "specs/hypercode/fps.hc": "e0ba171fd7f47bc8f4aa4f61c62fdc6915ca1cc54ff233faa29e83d59b8d1c08",
+    "specs/hypercode/fps.hcs": "4691d86dcf1d76d6e60bb272ca93206fcbe96c77c9849737624f81fdb3e4134c",
+    "specs/tvos/specs/television.spec.yaml": "77c02a9e3e52b2dcfd866ea3369af437e1254c1258f8107e9c405d79f0707a8b",
+    "specs/fps/specs/readout.spec.yaml": "0bb14c7758a380bfffa5a7986ac639c306b0231c333ebe47ed2ca1fc3f32ea2b"
+  }
+}
