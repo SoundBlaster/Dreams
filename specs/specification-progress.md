@@ -1093,3 +1093,19 @@ renderer time and all saved tuning. Existing TV zero/bounded reset is unchanged.
 boundary; deterministic timing and native preview scale retain their existing
 obligations. Source bindings/properties and [dated checks](integration/2026-10-25/grid-clock/README.md)
 are refreshed while historical observations and draft acceptance stay separate.
+
+## Apple TV App Store target — 2026-10-25
+
+`TelevisionApplication.Packaging` contributes `dreams.tv.rain/store_packaging`:
+registered TV identity, independent version/build, TV icon/Top Shelf assets,
+privacy manifest and local signed export. Existing resources/platform_boundary
+claims keep fonts/notices, tvOS18+, shared-source and no-desktop/no-agent
+obligations. Runtime algorithms, keys and other roles/claim IDs are unchanged;
+the new identifier owns a distinct sandbox without automatic preference migration.
+
+The packaging binding and [dated baseline](tvos/validation/2026-10-25-store-target/README.md)
+record actual archive/export, bundle inspection, simulator tests and structural
+checks, including the missing-LICENSE defect caught in the first IPA and its fix.
+Old evidence stays historical. Draft acceptance, font redistribution rights,
+physical-device/long-run quality, toolchain acceptance, TestFlight and public
+release remain separate gates. Simulator runtime diagnostics are preserved.

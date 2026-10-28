@@ -2,6 +2,12 @@ TelevisionApplication:
   source: "tvOS/Sources/app/entrypoint/DreamsTVApp.swift"
   capability: "dreams.tv.rain"
   scope: "foreground-tvOS-18+-no-agent-integrations-or-desktop-windows"
+Packaging:
+  source: "tvOS/project.yml"
+  export: "tvOS/ExportOptions-AppStore.plist"
+  privacy: "tvOS/Sources/shared/assets/PrivacyInfo.xcprivacy"
+  assets: "tvOS/Sources/shared/assets/Assets.xcassets"
+  implementation: "ru.egormerkushev.dreams.tv; team-P8T2366K8X; independent-TV-version-build; automatic-signing; local-export-only"
 Lifecycle:
   source: "tvOS/Sources/app/entrypoint/AppRoot.swift"
   assembly: "one-renderer; active-scene rain; settings-preview-pause; idle-timer-only-on-rain-page"
