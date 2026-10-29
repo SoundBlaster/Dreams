@@ -9,6 +9,7 @@ extension SettingsPageController {
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered, defer: false)
             window.title = "Dreams"
+            window.appearance = NSAppearance(named: .darkAqua)
             window.titleVisibility = .hidden
             window.titlebarAppearsTransparent = true
             window.titlebarSeparatorStyle = .none

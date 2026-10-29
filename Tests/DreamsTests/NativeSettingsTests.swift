@@ -116,11 +116,13 @@ struct NativeSettingsTests {
         defer { page.controlsWindow?.close(); page.cleanUp() }
         page.showControls()
         let window = try #require(page.nativeWindow)
+        #expect(window.appearance?.name == .darkAqua)
         let model = try #require(page.nativeModel)
         #expect(page.controlsWindow == nil)
         #expect(window.identifier?.rawValue == "dreams.native-settings")
         let timer = try #require(page.activityTimer)
         page.showLegacyControls()
+        #expect(page.controlsWindow?.appearance?.name == .darkAqua)
         #expect(page.activityTimer === timer)
         model[parameter: .speed] = 0.43
         let speed = try #require(page.controlsByID["dreams.rain-speed"] as? NSSlider)

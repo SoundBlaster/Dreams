@@ -62,7 +62,7 @@ constraints:
   statement: Native settings are selected without launch arguments. --legacy-settings selects the legacy window and wins regardless of --native-settings or argument order; --native-settings remains a compatible explicit native alias. There is no saved enablement key. The stable default_off identifier is retained for historical traceability; this version intentionally supersedes its previous opt-in requirement at the owner's request.
 - id: native_controls
   level: MUST
-  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable. The native host hides the window toolbar and title with system APIs while retaining titled-window controls, a full-size content view and native window dragging. Section titles live inside settings panels. The sidebar has a noninteractive identity header with the current application icon, Dreams title and Agentic Screensaver subtitle above the native section list. Its text uses semantic styles and a combined accessibility element; its background supports native window dragging. The sidebar remains visible in a balanced NavigationSplitView with constant all-column visibility. There is no hide/show button, app-owned hide shortcut or collapsed-detail recovery layout. Native controls expose the existing localized parameter help. General shares the context-sensitive duration/exit explanation with legacy and gives Start the system Return default action. Display rows share built-in/main/agent-workspace suffixes and tooltips with legacy. App build/release and native trace helpers use the active compiler SDK and matching linked SDK metadata, preserving the package deployment target.
+  statement: Use system SwiftUI NavigationSplitView, sidebar List, grouped Form, Section, Slider, Toggle, Picker, ColorPicker, buttons and alerts. The app links only the composition library, not the catalog executable. Native and legacy settings windows use dark Aqua regardless of system appearance. The native host hides the window toolbar and title with system APIs while retaining titled-window controls, a full-size content view and native window dragging. Section titles live inside settings panels. The sidebar has a noninteractive identity header with the current application icon, Dreams title and Agentic Screensaver subtitle above the native section list. Its text uses semantic styles and a combined accessibility element; its background supports native window dragging. The sidebar remains visible in a balanced NavigationSplitView with constant all-column visibility. There is no hide/show button, app-owned hide shortcut or collapsed-detail recovery layout. Native controls expose the existing localized parameter help. General shares the context-sensitive duration/exit explanation with legacy and gives Start the system Return default action. Display rows share built-in/main/agent-workspace suffixes and tooltips with legacy. App build/release and native trace helpers use the active compiler SDK and matching linked SDK metadata, preserving the package deployment target.
 - id: one_settings_owner
   level: MUST
   statement: Native bindings use the existing DreamsController values and operations without independently persisting a second model. Controller settings/display notifications refresh the native adapter and an existing legacy window.
@@ -151,6 +151,12 @@ evidence:
   path: validation/2026-10-24-native-default/README.md
   supports:
   - constraints
+- id: dark_window_validation
+  kind: test
+  path: validation/2026-10-29-dark-window/README.md
+  supports:
+  - constraints.native_controls
+  - constraints.explicit_legacy_access
 - id: appearance_validation
   kind: test
   path: validation/2026-10-21-appearance/README.md
@@ -200,14 +206,14 @@ implementationBindings:
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/pages/settings/ui/NativeIntegrationForms.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/NativeSettingsForms.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativeSettingsPage.swift
-    - evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
+    - evidence/2026-10-29-dark-window/source/Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
+    - evidence/2026-10-29-dark-window/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/ru.lproj/Localizable.strings
     - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
-    - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/NativeSettingsTests.swift
+    - evidence/2026-10-29-dark-window/source/Tests/DreamsTests/NativeSettingsTests.swift
     - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift

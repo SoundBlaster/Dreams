@@ -1,5 +1,14 @@
 # Dreams specification progress
 
+## Dark desktop settings — 2026-10-29
+
+Native and legacy settings windows request Dark Aqua independent of the system
+theme. Stable `dreams.settings.host/native_controls` and
+`explicit_legacy_access` retain their identities; preview tint and lifecycle
+remain unchanged. See [baseline](settings-host/validation/2026-10-29-dark-window/README.md).
+The contract remains a descriptive draft; visual and accessibility evidence are
+separate from compilation.
+
 Goal: maintain compact architecture maps and consumer contracts alongside code
 changes. Initial scope: repository maintenance rules and the browser glyph
 editor on `96fef7ad121cf9ba278eabd878c5179fd754a0cd`. All recovered contracts are **descriptive drafts**;
