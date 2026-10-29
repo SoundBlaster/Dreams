@@ -11,6 +11,7 @@ extension SettingsPageController {
             let window = DreamsControlsWindow(contentRect: NSRect(x: 0, y: 0, width: 460, height: 600),
                 styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
             window.title = "Dreams"
+            window.appearance = NSAppearance(named: .darkAqua)
             window.isReleasedWhenClosed = false
             window.onEscape = { [weak self] in self?.controller.handleEscape() }
 
