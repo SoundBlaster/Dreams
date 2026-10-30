@@ -1,5 +1,15 @@
 # Dreams specification progress
 
+## Screener Metal debugging — 2026-10-30
+
+The test-only native settings recorder adds a four-frame ScreenCaptureKit
+workflow for Metal preview debugging. Production settings and rendering do not
+change; `dreams.settings.host/native_controls`, `independent_preview`,
+`preview_playback` and `preview_reopen` retain their existing draft requirements.
+The new [validation baseline](settings-host/validation/2026-10-30-metal-trace/README.md)
+separates test-hosted compositor/MCP observations from independent app,
+physical-input and broader capture acceptance.
+
 ## Release 0.1.13 metadata — 2026-10-29
 
 VERSION and plugin manifests advance together for the desktop release after

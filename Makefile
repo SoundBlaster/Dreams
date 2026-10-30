@@ -26,6 +26,7 @@ help:
 		'  make test-displays    Opt-in live display lifecycle and Screener settings trace' \
 		'  make test-exit        Opt-in Esc, exit button, focus and display unplug checks' \
 		'  make test-native-settings-trace Record native SwiftUI form states with Screener' \
+		'  make trace-metal      Record a short Screener compositor trace of the live Metal preview' \
 		'  make test-gui-trace   Record settings scenarios with Screener (local GUI session)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
@@ -130,6 +131,10 @@ test-settings:
 .PHONY: test-native-settings-trace
 test-native-settings-trace:
 	python3 scripts/test-native-settings-trace.py
+
+.PHONY: trace-metal
+trace-metal:
+	python3 scripts/test-native-settings-trace.py --metal
 
 test-gui-trace:
 	python3 scripts/test-gui-trace.py

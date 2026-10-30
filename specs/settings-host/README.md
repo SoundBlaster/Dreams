@@ -11,7 +11,20 @@ rtk proxy open -n dist/Dreams.app
 make test-native-settings-trace
 # Optional compositor stills: unlocked GUI and previously granted Screen Recording access.
 DREAMS_NATIVE_CAPTURE_BACKEND=screen-capture-kit make test-native-settings-trace
+# Short compositor trace of the real Metal preview for Screener MCP.
+make trace-metal
 ```
+
+`make trace-metal` records the test-hosted production settings window with four
+named rain and appearance checkpoints, including pause and resume. It requires
+an unlocked macOS GUI and existing Screen Recording authorization for the test
+process. A missing authorization or unavailable window is an error; it never
+silently substitutes hierarchy capture or the desktop. It stores completed
+traces in `~/Library/Caches/Screener/Traces` unless `DREAMS_TRACE_DIRECTORY` is
+set. In Screener MCP, call `screener.sessions`, choose `Dreams-Metal-preview`,
+then use `screener.timeline` and `screener.frame` with the returned IDs. The
+test mutates its model programmatically, uses a disposable feed and restores
+saved preferences; it does not validate physical keyboard or pointer actions.
 
 The native window uses NavigationSplitView, a selection List, grouped Form,
 Section, Slider, Toggle, Picker, ColorPicker, native buttons, error alerts
