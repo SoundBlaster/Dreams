@@ -1,0 +1,7178 @@
+{
+  "attribution": "Based on KanjiVG, copyright Ulrich Apel and contributors; https://kanjivg.tagaini.net/ ; CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/ . Modified by Dreams: pressure profiles, brush outlines and optional reflection.",
+  "glyphs": [
+    {
+      "character": "ア",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.64,
+          "segments": [
+            {
+              "end": [
+                27.125,
+                29.5
+              ],
+              "kind": "arc",
+              "mid": [
+                23.609375,
+                29.40625
+              ],
+              "start": [
+                20,
+                28
+              ]
+            },
+            {
+              "end": [
+                35,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                30.828125,
+                28.84375
+              ],
+              "start": [
+                27.125,
+                29.5
+              ]
+            },
+            {
+              "end": [
+                59.875,
+                24
+              ],
+              "kind": "arc",
+              "mid": [
+                47.671875,
+                26.1875
+              ],
+              "start": [
+                35,
+                28
+              ]
+            },
+            {
+              "end": [
+                81,
+                20
+              ],
+              "kind": "arc",
+              "mid": [
+                71.140625,
+                21.8125
+              ],
+              "start": [
+                59.875,
+                24
+              ]
+            },
+            {
+              "end": [
+                87,
+                24
+              ],
+              "kind": "line",
+              "mid": [
+                84,
+                22
+              ],
+              "start": [
+                81,
+                20
+              ]
+            },
+            {
+              "end": [
+                76.25,
+                34.25
+              ],
+              "kind": "arc",
+              "mid": [
+                82,
+                29.21875
+              ],
+              "start": [
+                87,
+                24
+              ]
+            },
+            {
+              "end": [
+                64,
+                43
+              ],
+              "kind": "arc",
+              "mid": [
+                70.125,
+                38.90625
+              ],
+              "start": [
+                76.25,
+                34.25
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                57,
+                48
+              ],
+              "kind": "arc",
+              "mid": [
+                56.875,
+                42
+              ],
+              "start": [
+                53,
+                39
+              ]
+            },
+            {
+              "end": [
+                47.625,
+                73.25
+              ],
+              "kind": "arc",
+              "mid": [
+                53.484375,
+                61.09375
+              ],
+              "start": [
+                57,
+                48
+              ]
+            },
+            {
+              "end": [
+                30,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                39.703125,
+                84.28125
+              ],
+              "start": [
+                47.625,
+                73.25
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "イ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                71.75,
+                19.5
+              ],
+              "kind": "arc",
+              "mid": [
+                71.5,
+                16.875
+              ],
+              "start": [
+                69,
+                15
+              ]
+            },
+            {
+              "end": [
+                67,
+                27
+              ],
+              "kind": "arc",
+              "mid": [
+                70.125,
+                22.875
+              ],
+              "start": [
+                71.75,
+                19.5
+              ]
+            },
+            {
+              "end": [
+                44.875,
+                49.125
+              ],
+              "kind": "arc",
+              "mid": [
+                56.265625,
+                38.859375
+              ],
+              "start": [
+                67,
+                27
+              ]
+            },
+            {
+              "end": [
+                19,
+                66
+              ],
+              "kind": "arc",
+              "mid": [
+                32.546875,
+                58.078125
+              ],
+              "start": [
+                44.875,
+                49.125
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                59,
+                53
+              ],
+              "kind": "arc",
+              "mid": [
+                58.125,
+                46
+              ],
+              "start": [
+                55,
+                42
+              ]
+            },
+            {
+              "end": [
+                59,
+                94
+              ],
+              "kind": "line",
+              "mid": [
+                59,
+                73.5
+              ],
+              "start": [
+                59,
+                53
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ウ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.22,
+          "segments": [
+            {
+              "end": [
+                55,
+                20
+              ],
+              "kind": "arc",
+              "mid": [
+                54.75,
+                14.875
+              ],
+              "start": [
+                50,
+                12
+              ]
+            },
+            {
+              "end": [
+                55,
+                30
+              ],
+              "kind": "line",
+              "mid": [
+                55,
+                25
+              ],
+              "start": [
+                55,
+                20
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.95,
+          "segments": [
+            {
+              "end": [
+                29,
+                41
+              ],
+              "kind": "arc",
+              "mid": [
+                28.125,
+                35
+              ],
+              "start": [
+                25,
+                32
+              ]
+            },
+            {
+              "end": [
+                30,
+                57
+              ],
+              "kind": "line",
+              "mid": [
+                29.5,
+                49
+              ],
+              "start": [
+                29,
+                41
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.47,
+          "segments": [
+            {
+              "end": [
+                54.25,
+                33.25
+              ],
+              "kind": "arc",
+              "mid": [
+                41.15625,
+                34.90625
+              ],
+              "start": [
+                29,
+                36
+              ]
+            },
+            {
+              "end": [
+                78,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                66.96875,
+                31.21875
+              ],
+              "start": [
+                54.25,
+                33.25
+              ]
+            },
+            {
+              "end": [
+                85,
+                32
+              ],
+              "kind": "line",
+              "mid": [
+                81.5,
+                30.5
+              ],
+              "start": [
+                78,
+                29
+              ]
+            },
+            {
+              "end": [
+                69.25,
+                64.5
+              ],
+              "kind": "arc",
+              "mid": [
+                79.09375,
+                47.875
+              ],
+              "start": [
+                85,
+                32
+              ]
+            },
+            {
+              "end": [
+                40,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                56.03125,
+                80.375
+              ],
+              "start": [
+                69.25,
+                64.5
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "エ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                35.75,
+                36.5
+              ],
+              "kind": "arc",
+              "mid": [
+                32.1875,
+                36.40625
+              ],
+              "start": [
+                29,
+                35
+              ]
+            },
+            {
+              "end": [
+                44,
+                35
+              ],
+              "kind": "arc",
+              "mid": [
+                39.6875,
+                35.84375
+              ],
+              "start": [
+                35.75,
+                36.5
+              ]
+            },
+            {
+              "end": [
+                74,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                61.625,
+                32
+              ],
+              "start": [
+                44,
+                35
+              ]
+            },
+            {
+              "end": [
+                81,
+                32
+              ],
+              "kind": "line",
+              "mid": [
+                77.5,
+                30.5
+              ],
+              "start": [
+                74,
+                29
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.18,
+          "segments": [
+            {
+              "end": [
+                56,
+                47
+              ],
+              "kind": "arc",
+              "mid": [
+                56.375,
+                39.5
+              ],
+              "start": [
+                53,
+                35
+              ]
+            },
+            {
+              "end": [
+                54,
+                74
+              ],
+              "kind": "line",
+              "mid": [
+                55,
+                60.5
+              ],
+              "start": [
+                56,
+                47
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                25.25,
+                77.5
+              ],
+              "kind": "arc",
+              "mid": [
+                20.9375,
+                77.40625
+              ],
+              "start": [
+                17,
+                76
+              ]
+            },
+            {
+              "end": [
+                35,
+                76
+              ],
+              "kind": "arc",
+              "mid": [
+                29.9375,
+                76.84375
+              ],
+              "start": [
+                25.25,
+                77.5
+              ]
+            },
+            {
+              "end": [
+                61.125,
+                72.625
+              ],
+              "kind": "arc",
+              "mid": [
+                48.109375,
+                74.078125
+              ],
+              "start": [
+                35,
+                76
+              ]
+            },
+            {
+              "end": [
+                82,
+                70
+              ],
+              "kind": "arc",
+              "mid": [
+                72.828125,
+                71.359375
+              ],
+              "start": [
+                61.125,
+                72.625
+              ]
+            },
+            {
+              "end": [
+                92,
+                74
+              ],
+              "kind": "line",
+              "mid": [
+                87,
+                72
+              ],
+              "start": [
+                82,
+                70
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "オ",
+      "mirror": false,
+      "placement": {
+        "scale": 1.2366003257015012,
+        "x": -9.708184201447892,
+        "y": -6.733109307858944
+      },
+      "stretch": 1,
+      "strokes": [
+        {
+          "endCap": "round",
+          "endWidth": 7.5,
+          "peak": 0.5,
+          "segments": [
+            {
+              "end": [
+                77.088,
+                33.9921
+              ],
+              "kind": "line",
+              "mid": [
+                57.14805,
+                33.965199999999996
+              ],
+              "start": [
+                37.2081,
+                33.9383
+              ]
+            }
+          ],
+          "startCap": "round",
+          "startWidth": 7.5,
+          "width": 7.5
+        },
+        {
+          "endCap": "round",
+          "endWidth": 10,
+          "peak": 0.5,
+          "segments": [
+            {
+              "end": [
+                63.6479,
+                87.135
+              ],
+              "kind": "arc",
+              "mid": [
+                61.9923,
+                53.7224
+              ],
+              "start": [
+                62.0557,
+                11.8444
+              ]
+            }
+          ],
+          "startCap": "round",
+          "startWidth": 10,
+          "width": 10
+        },
+        {
+          "endCap": "round",
+          "endWidth": 3.2,
+          "peak": 0.05,
+          "segments": [
+            {
+              "end": [
+                26.2655,
+                87.4591
+              ],
+              "kind": "arc",
+              "mid": [
+                49.1132,
+                68.6058
+              ],
+              "start": [
+                60.888,
+                36.2024
+              ]
+            }
+          ],
+          "startCap": "round",
+          "startWidth": 10.2,
+          "width": 12.8
+        }
+      ]
+    },
+    {
+      "character": "カ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.43,
+          "segments": [
+            {
+              "end": [
+                30.25,
+                42.5
+              ],
+              "kind": "arc",
+              "mid": [
+                26.625,
+                42.40625
+              ],
+              "start": [
+                23,
+                41
+              ]
+            },
+            {
+              "end": [
+                39,
+                41
+              ],
+              "kind": "arc",
+              "mid": [
+                34.25,
+                41.84375
+              ],
+              "start": [
+                30.25,
+                42.5
+              ]
+            },
+            {
+              "end": [
+                60.25,
+                37.5
+              ],
+              "kind": "arc",
+              "mid": [
+                50,
+                39.34375
+              ],
+              "start": [
+                39,
+                41
+              ]
+            },
+            {
+              "end": [
+                77,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                69.375,
+                35.65625
+              ],
+              "start": [
+                60.25,
+                37.5
+              ]
+            },
+            {
+              "end": [
+                85,
+                38
+              ],
+              "kind": "line",
+              "mid": [
+                81,
+                36
+              ],
+              "start": [
+                77,
+                34
+              ]
+            },
+            {
+              "end": [
+                78.75,
+                64.125
+              ],
+              "kind": "arc",
+              "mid": [
+                82.34375,
+                50.734375
+              ],
+              "start": [
+                85,
+                38
+              ]
+            },
+            {
+              "end": [
+                68,
+                88
+              ],
+              "kind": "arc",
+              "mid": [
+                74.03125,
+                76.953125
+              ],
+              "start": [
+                78.75,
+                64.125
+              ]
+            },
+            {
+              "end": [
+                65,
+                90
+              ],
+              "kind": "line",
+              "mid": [
+                66.5,
+                89
+              ],
+              "start": [
+                68,
+                88
+              ]
+            },
+            {
+              "end": [
+                53,
+                81
+              ],
+              "kind": "line",
+              "mid": [
+                59,
+                85.5
+              ],
+              "start": [
+                65,
+                90
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                57.625,
+                19.25
+              ],
+              "kind": "arc",
+              "mid": [
+                56.015625,
+                16.75
+              ],
+              "start": [
+                53,
+                15
+              ]
+            },
+            {
+              "end": [
+                57,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                57.921875,
+                22.875
+              ],
+              "start": [
+                57.625,
+                19.25
+              ]
+            },
+            {
+              "end": [
+                22,
+                87
+              ],
+              "kind": "arc",
+              "mid": [
+                43.625,
+                60.875
+              ],
+              "start": [
+                57,
+                28
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "キ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                33.625,
+                40.375
+              ],
+              "kind": "arc",
+              "mid": [
+                30.171875,
+                40.390625
+              ],
+              "start": [
+                27,
+                39
+              ]
+            },
+            {
+              "end": [
+                41,
+                38
+              ],
+              "kind": "arc",
+              "mid": [
+                37.265625,
+                39.421875
+              ],
+              "start": [
+                33.625,
+                40.375
+              ]
+            },
+            {
+              "end": [
+                58,
+                33
+              ],
+              "kind": "arc",
+              "mid": [
+                49.5,
+                35.59375
+              ],
+              "start": [
+                41,
+                38
+              ]
+            },
+            {
+              "end": [
+                72,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                65.75,
+                30.40625
+              ],
+              "start": [
+                58,
+                33
+              ]
+            },
+            {
+              "end": [
+                79,
+                30
+              ],
+              "kind": "line",
+              "mid": [
+                75.5,
+                29
+              ],
+              "start": [
+                72,
+                28
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                26.125,
+                65.875
+              ],
+              "kind": "arc",
+              "mid": [
+                21.921875,
+                66.234375
+              ],
+              "start": [
+                18,
+                65
+              ]
+            },
+            {
+              "end": [
+                35,
+                63
+              ],
+              "kind": "arc",
+              "mid": [
+                30.515625,
+                64.578125
+              ],
+              "start": [
+                26.125,
+                65.875
+              ]
+            },
+            {
+              "end": [
+                60.625,
+                54.875
+              ],
+              "kind": "arc",
+              "mid": [
+                48.234375,
+                58.703125
+              ],
+              "start": [
+                35,
+                63
+              ]
+            },
+            {
+              "end": [
+                81,
+                49
+              ],
+              "kind": "arc",
+              "mid": [
+                71.703125,
+                51.609375
+              ],
+              "start": [
+                60.625,
+                54.875
+              ]
+            },
+            {
+              "end": [
+                88,
+                51
+              ],
+              "kind": "line",
+              "mid": [
+                84.5,
+                50
+              ],
+              "start": [
+                81,
+                49
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.82,
+          "segments": [
+            {
+              "end": [
+                51,
+                19.125
+              ],
+              "kind": "arc",
+              "mid": [
+                49.0625,
+                16.734375
+              ],
+              "start": [
+                46,
+                15
+              ]
+            },
+            {
+              "end": [
+                53,
+                27
+              ],
+              "kind": "arc",
+              "mid": [
+                52.1875,
+                22.453125
+              ],
+              "start": [
+                51,
+                19.125
+              ]
+            },
+            {
+              "end": [
+                56.75,
+                53.625
+              ],
+              "kind": "arc",
+              "mid": [
+                54.6875,
+                39.796875
+              ],
+              "start": [
+                53,
+                27
+              ]
+            },
+            {
+              "end": [
+                62,
+                81
+              ],
+              "kind": "arc",
+              "mid": [
+                59.1875,
+                67.640625
+              ],
+              "start": [
+                56.75,
+                53.625
+              ]
+            },
+            {
+              "end": [
+                66,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                64,
+                88.25
+              ],
+              "start": [
+                62,
+                81
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ク",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                49,
+                30
+              ],
+              "kind": "arc",
+              "mid": [
+                51.875,
+                21.625
+              ],
+              "start": [
+                48,
+                17
+              ]
+            },
+            {
+              "end": [
+                28,
+                56
+              ],
+              "kind": "arc",
+              "mid": [
+                40,
+                44.125
+              ],
+              "start": [
+                49,
+                30
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.44,
+          "segments": [
+            {
+              "end": [
+                75,
+                24
+              ],
+              "kind": "arc",
+              "mid": [
+                61.375,
+                27.875
+              ],
+              "start": [
+                47,
+                31
+              ]
+            },
+            {
+              "end": [
+                82,
+                28
+              ],
+              "kind": "line",
+              "mid": [
+                78.5,
+                26
+              ],
+              "start": [
+                75,
+                24
+              ]
+            },
+            {
+              "end": [
+                26,
+                93
+              ],
+              "kind": "arc",
+              "mid": [
+                58.875,
+                65.375
+              ],
+              "start": [
+                82,
+                28
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ケ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                40,
+                30
+              ],
+              "kind": "arc",
+              "mid": [
+                42.875,
+                20.75
+              ],
+              "start": [
+                39,
+                16
+              ]
+            },
+            {
+              "end": [
+                30.875,
+                45.25
+              ],
+              "kind": "arc",
+              "mid": [
+                35.859375,
+                37.625
+              ],
+              "start": [
+                40,
+                30
+              ]
+            },
+            {
+              "end": [
+                18,
+                59
+              ],
+              "kind": "arc",
+              "mid": [
+                24.953125,
+                52.5
+              ],
+              "start": [
+                30.875,
+                45.25
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                43.375,
+                39.375
+              ],
+              "kind": "arc",
+              "mid": [
+                39.359375,
+                39.390625
+              ],
+              "start": [
+                36,
+                38
+              ]
+            },
+            {
+              "end": [
+                53,
+                37
+              ],
+              "kind": "arc",
+              "mid": [
+                47.953125,
+                38.421875
+              ],
+              "start": [
+                43.375,
+                39.375
+              ]
+            },
+            {
+              "end": [
+                69.5,
+                33
+              ],
+              "kind": "arc",
+              "mid": [
+                61.34375,
+                35.1875
+              ],
+              "start": [
+                53,
+                37
+              ]
+            },
+            {
+              "end": [
+                83,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                76.90625,
+                30.8125
+              ],
+              "start": [
+                69.5,
+                33
+              ]
+            },
+            {
+              "end": [
+                91,
+                32
+              ],
+              "kind": "line",
+              "mid": [
+                87,
+                30.5
+              ],
+              "start": [
+                83,
+                29
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                66.125,
+                40.375
+              ],
+              "kind": "arc",
+              "mid": [
+                65.265625,
+                37.765625
+              ],
+              "start": [
+                63,
+                36
+              ]
+            },
+            {
+              "end": [
+                64,
+                50
+              ],
+              "kind": "arc",
+              "mid": [
+                65.671875,
+                44.296875
+              ],
+              "start": [
+                66.125,
+                40.375
+              ]
+            },
+            {
+              "end": [
+                52.75,
+                75
+              ],
+              "kind": "arc",
+              "mid": [
+                59.3125,
+                63.0625
+              ],
+              "start": [
+                64,
+                50
+              ]
+            },
+            {
+              "end": [
+                34,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                44.3125,
+                85.4375
+              ],
+              "start": [
+                52.75,
+                75
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "コ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.59,
+          "segments": [
+            {
+              "end": [
+                34.625,
+                35.5
+              ],
+              "kind": "arc",
+              "mid": [
+                30.765625,
+                35.40625
+              ],
+              "start": [
+                27,
+                34
+              ]
+            },
+            {
+              "end": [
+                43,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                38.671875,
+                34.84375
+              ],
+              "start": [
+                34.625,
+                35.5
+              ]
+            },
+            {
+              "end": [
+                77,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                61.5,
+                31
+              ],
+              "start": [
+                43,
+                34
+              ]
+            },
+            {
+              "end": [
+                84,
+                32
+              ],
+              "kind": "line",
+              "mid": [
+                80.5,
+                30
+              ],
+              "start": [
+                77,
+                28
+              ]
+            },
+            {
+              "end": [
+                79.75,
+                54.375
+              ],
+              "kind": "arc",
+              "mid": [
+                81.78125,
+                42.953125
+              ],
+              "start": [
+                84,
+                32
+              ]
+            },
+            {
+              "end": [
+                77,
+                76
+              ],
+              "kind": "arc",
+              "mid": [
+                78.09375,
+                65.609375
+              ],
+              "start": [
+                79.75,
+                54.375
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                32.75,
+                79.5
+              ],
+              "kind": "arc",
+              "mid": [
+                28.78125,
+                79.40625
+              ],
+              "start": [
+                25,
+                78
+              ]
+            },
+            {
+              "end": [
+                42,
+                78
+              ],
+              "kind": "arc",
+              "mid": [
+                37.09375,
+                78.84375
+              ],
+              "start": [
+                32.75,
+                79.5
+              ]
+            },
+            {
+              "end": [
+                61.125,
+                76.125
+              ],
+              "kind": "arc",
+              "mid": [
+                52.078125,
+                76.828125
+              ],
+              "start": [
+                42,
+                78
+              ]
+            },
+            {
+              "end": [
+                75,
+                75
+              ],
+              "kind": "arc",
+              "mid": [
+                68.859375,
+                75.609375
+              ],
+              "start": [
+                61.125,
+                76.125
+              ]
+            },
+            {
+              "end": [
+                83,
+                78
+              ],
+              "kind": "line",
+              "mid": [
+                79,
+                76.5
+              ],
+              "start": [
+                75,
+                75
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "サ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                24.25,
+                46.5
+              ],
+              "kind": "arc",
+              "mid": [
+                19.9375,
+                46.40625
+              ],
+              "start": [
+                16,
+                45
+              ]
+            },
+            {
+              "end": [
+                34,
+                45
+              ],
+              "kind": "arc",
+              "mid": [
+                28.9375,
+                45.84375
+              ],
+              "start": [
+                24.25,
+                46.5
+              ]
+            },
+            {
+              "end": [
+                62.75,
+                41.125
+              ],
+              "kind": "arc",
+              "mid": [
+                48.5625,
+                42.921875
+              ],
+              "start": [
+                34,
+                45
+              ]
+            },
+            {
+              "end": [
+                84,
+                38
+              ],
+              "kind": "arc",
+              "mid": [
+                75.0625,
+                39.515625
+              ],
+              "start": [
+                62.75,
+                41.125
+              ]
+            },
+            {
+              "end": [
+                94,
+                41
+              ],
+              "kind": "line",
+              "mid": [
+                89,
+                39.5
+              ],
+              "start": [
+                84,
+                38
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                37.875,
+                26.125
+              ],
+              "kind": "arc",
+              "mid": [
+                36.046875,
+                23.734375
+              ],
+              "start": [
+                33,
+                22
+              ]
+            },
+            {
+              "end": [
+                39,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                38.765625,
+                29.453125
+              ],
+              "start": [
+                37.875,
+                26.125
+              ]
+            },
+            {
+              "end": [
+                40,
+                65
+              ],
+              "kind": "line",
+              "mid": [
+                39.5,
+                49.5
+              ],
+              "start": [
+                39,
+                34
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.09,
+          "segments": [
+            {
+              "end": [
+                71.875,
+                19.125
+              ],
+              "kind": "arc",
+              "mid": [
+                70.046875,
+                16.734375
+              ],
+              "start": [
+                67,
+                15
+              ]
+            },
+            {
+              "end": [
+                73,
+                27
+              ],
+              "kind": "arc",
+              "mid": [
+                72.765625,
+                22.453125
+              ],
+              "start": [
+                71.875,
+                19.125
+              ]
+            },
+            {
+              "end": [
+                72,
+                46
+              ],
+              "kind": "line",
+              "mid": [
+                72.5,
+                36.5
+              ],
+              "start": [
+                73,
+                27
+              ]
+            },
+            {
+              "end": [
+                43,
+                96
+              ],
+              "kind": "arc",
+              "mid": [
+                64.25,
+                74.75
+              ],
+              "start": [
+                72,
+                46
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "シ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                44.625,
+                20.875
+              ],
+              "kind": "arc",
+              "mid": [
+                40.859375,
+                19.109375
+              ],
+              "start": [
+                37,
+                18
+              ]
+            },
+            {
+              "end": [
+                50,
+                26
+              ],
+              "kind": "arc",
+              "mid": [
+                47.828125,
+                23.203125
+              ],
+              "start": [
+                44.625,
+                20.875
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                32,
+                43.375
+              ],
+              "kind": "arc",
+              "mid": [
+                27.59375,
+                41.265625
+              ],
+              "start": [
+                23,
+                40
+              ]
+            },
+            {
+              "end": [
+                38,
+                49
+              ],
+              "kind": "arc",
+              "mid": [
+                35.65625,
+                46.046875
+              ],
+              "start": [
+                32,
+                43.375
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.08,
+          "segments": [
+            {
+              "end": [
+                37.125,
+                84.625
+              ],
+              "kind": "arc",
+              "mid": [
+                33.328125,
+                85.484375
+              ],
+              "start": [
+                30,
+                84
+              ]
+            },
+            {
+              "end": [
+                45,
+                80
+              ],
+              "kind": "arc",
+              "mid": [
+                41.109375,
+                82.453125
+              ],
+              "start": [
+                37.125,
+                84.625
+              ]
+            },
+            {
+              "end": [
+                71,
+                59.25
+              ],
+              "kind": "arc",
+              "mid": [
+                58.65625,
+                70.5625
+              ],
+              "start": [
+                45,
+                80
+              ]
+            },
+            {
+              "end": [
+                91,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                81.84375,
+                46.8125
+              ],
+              "start": [
+                71,
+                59.25
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ス",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.36,
+          "segments": [
+            {
+              "end": [
+                39,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                33.625,
+                30.125
+              ],
+              "start": [
+                29,
+                29
+              ]
+            },
+            {
+              "end": [
+                54,
+                25.5
+              ],
+              "kind": "arc",
+              "mid": [
+                46.21875,
+                27.34375
+              ],
+              "start": [
+                39,
+                29
+              ]
+            },
+            {
+              "end": [
+                69,
+                22
+              ],
+              "kind": "arc",
+              "mid": [
+                61.78125,
+                23.65625
+              ],
+              "start": [
+                54,
+                25.5
+              ]
+            },
+            {
+              "end": [
+                73,
+                25
+              ],
+              "kind": "line",
+              "mid": [
+                71,
+                23.5
+              ],
+              "start": [
+                69,
+                22
+              ]
+            },
+            {
+              "end": [
+                53.125,
+                57.875
+              ],
+              "kind": "arc",
+              "mid": [
+                64.984375,
+                41.296875
+              ],
+              "start": [
+                73,
+                25
+              ]
+            },
+            {
+              "end": [
+                19,
+                87
+              ],
+              "kind": "arc",
+              "mid": [
+                37.703125,
+                73.515625
+              ],
+              "start": [
+                53.125,
+                57.875
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.7,
+          "segments": [
+            {
+              "end": [
+                75.25,
+                67.125
+              ],
+              "kind": "arc",
+              "mid": [
+                66.625,
+                59.671875
+              ],
+              "start": [
+                58,
+                54
+              ]
+            },
+            {
+              "end": [
+                88,
+                84
+              ],
+              "kind": "arc",
+              "mid": [
+                82.75,
+                75.515625
+              ],
+              "start": [
+                75.25,
+                67.125
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "セ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.77,
+          "segments": [
+            {
+              "end": [
+                27,
+                49
+              ],
+              "kind": "arc",
+              "mid": [
+                21.625,
+                49.625
+              ],
+              "start": [
+                17,
+                48
+              ]
+            },
+            {
+              "end": [
+                53.875,
+                42
+              ],
+              "kind": "arc",
+              "mid": [
+                39.921875,
+                45.6875
+              ],
+              "start": [
+                27,
+                49
+              ]
+            },
+            {
+              "end": [
+                80,
+                35
+              ],
+              "kind": "arc",
+              "mid": [
+                67.640625,
+                38.3125
+              ],
+              "start": [
+                53.875,
+                42
+              ]
+            },
+            {
+              "end": [
+                85,
+                38
+              ],
+              "kind": "line",
+              "mid": [
+                82.5,
+                36.5
+              ],
+              "start": [
+                80,
+                35
+              ]
+            },
+            {
+              "end": [
+                69,
+                56
+              ],
+              "kind": "arc",
+              "mid": [
+                78.125,
+                47
+              ],
+              "start": [
+                85,
+                38
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.07,
+          "segments": [
+            {
+              "end": [
+                43,
+                25
+              ],
+              "kind": "arc",
+              "mid": [
+                41.625,
+                20
+              ],
+              "start": [
+                38,
+                18
+              ]
+            },
+            {
+              "end": [
+                42.625,
+                48.25
+              ],
+              "kind": "arc",
+              "mid": [
+                42.859375,
+                36.25
+              ],
+              "start": [
+                43,
+                25
+              ]
+            },
+            {
+              "end": [
+                43,
+                70
+              ],
+              "kind": "arc",
+              "mid": [
+                42.578125,
+                59.875
+              ],
+              "start": [
+                42.625,
+                48.25
+              ]
+            },
+            {
+              "end": [
+                46.5,
+                80.25
+              ],
+              "kind": "arc",
+              "mid": [
+                44.1875,
+                76.25
+              ],
+              "start": [
+                43,
+                70
+              ]
+            },
+            {
+              "end": [
+                56,
+                83
+              ],
+              "kind": "arc",
+              "mid": [
+                50.3125,
+                82.375
+              ],
+              "start": [
+                46.5,
+                80.25
+              ]
+            },
+            {
+              "end": [
+                85,
+                81
+              ],
+              "kind": "arc",
+              "mid": [
+                70.875,
+                82.375
+              ],
+              "start": [
+                56,
+                83
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ソ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                35,
+                43
+              ],
+              "kind": "arc",
+              "mid": [
+                31.75,
+                32.625
+              ],
+              "start": [
+                24,
+                23
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                85,
+                35
+              ],
+              "kind": "arc",
+              "mid": [
+                86.625,
+                24.375
+              ],
+              "start": [
+                83,
+                19
+              ]
+            },
+            {
+              "end": [
+                64.125,
+                69
+              ],
+              "kind": "arc",
+              "mid": [
+                76.578125,
+                52.65625
+              ],
+              "start": [
+                85,
+                35
+              ]
+            },
+            {
+              "end": [
+                32,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                48.859375,
+                83.09375
+              ],
+              "start": [
+                64.125,
+                69
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "タ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                47,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                50,
+                21.125
+              ],
+              "start": [
+                47,
+                17
+              ]
+            },
+            {
+              "end": [
+                26,
+                57
+              ],
+              "kind": "arc",
+              "mid": [
+                38.75,
+                43.375
+              ],
+              "start": [
+                47,
+                29
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.44,
+          "segments": [
+            {
+              "end": [
+                61.25,
+                28.25
+              ],
+              "kind": "arc",
+              "mid": [
+                53.625,
+                29.90625
+              ],
+              "start": [
+                46,
+                31
+              ]
+            },
+            {
+              "end": [
+                75,
+                24
+              ],
+              "kind": "arc",
+              "mid": [
+                68.5,
+                26.21875
+              ],
+              "start": [
+                61.25,
+                28.25
+              ]
+            },
+            {
+              "end": [
+                82,
+                28
+              ],
+              "kind": "line",
+              "mid": [
+                78.5,
+                26
+              ],
+              "start": [
+                75,
+                24
+              ]
+            },
+            {
+              "end": [
+                60.375,
+                65.125
+              ],
+              "kind": "arc",
+              "mid": [
+                72.546875,
+                47.453125
+              ],
+              "start": [
+                82,
+                28
+              ]
+            },
+            {
+              "end": [
+                26,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                45.015625,
+                80.734375
+              ],
+              "start": [
+                60.375,
+                65.125
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                59,
+                61
+              ],
+              "kind": "arc",
+              "mid": [
+                50.875,
+                52
+              ],
+              "start": [
+                42,
+                46
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "チ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.13,
+          "segments": [
+            {
+              "end": [
+                69.875,
+                19.5
+              ],
+              "kind": "arc",
+              "mid": [
+                71.015625,
+                17.25
+              ],
+              "start": [
+                70,
+                15
+              ]
+            },
+            {
+              "end": [
+                63,
+                24
+              ],
+              "kind": "arc",
+              "mid": [
+                67.046875,
+                21.75
+              ],
+              "start": [
+                69.875,
+                19.5
+              ]
+            },
+            {
+              "end": [
+                28,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                45.875,
+                30.125
+              ],
+              "start": [
+                63,
+                24
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                26.25,
+                53.5
+              ],
+              "kind": "arc",
+              "mid": [
+                21.9375,
+                53.40625
+              ],
+              "start": [
+                18,
+                52
+              ]
+            },
+            {
+              "end": [
+                36,
+                52
+              ],
+              "kind": "arc",
+              "mid": [
+                30.9375,
+                52.84375
+              ],
+              "start": [
+                26.25,
+                53.5
+              ]
+            },
+            {
+              "end": [
+                63.25,
+                48.625
+              ],
+              "kind": "arc",
+              "mid": [
+                50.09375,
+                50.359375
+              ],
+              "start": [
+                36,
+                52
+              ]
+            },
+            {
+              "end": [
+                83,
+                46
+              ],
+              "kind": "arc",
+              "mid": [
+                74.53125,
+                47.078125
+              ],
+              "start": [
+                63.25,
+                48.625
+              ]
+            },
+            {
+              "end": [
+                92,
+                49
+              ],
+              "kind": "line",
+              "mid": [
+                87.5,
+                47.5
+              ],
+              "start": [
+                83,
+                46
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.15,
+          "segments": [
+            {
+              "end": [
+                58,
+                40
+              ],
+              "kind": "arc",
+              "mid": [
+                57.125,
+                32.875
+              ],
+              "start": [
+                54,
+                28
+              ]
+            },
+            {
+              "end": [
+                58,
+                56
+              ],
+              "kind": "line",
+              "mid": [
+                58,
+                48
+              ],
+              "start": [
+                58,
+                40
+              ]
+            },
+            {
+              "end": [
+                51.375,
+                79
+              ],
+              "kind": "arc",
+              "mid": [
+                56.234375,
+                68.15625
+              ],
+              "start": [
+                58,
+                56
+              ]
+            },
+            {
+              "end": [
+                35,
+                96
+              ],
+              "kind": "arc",
+              "mid": [
+                44.078125,
+                88.34375
+              ],
+              "start": [
+                51.375,
+                79
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ツ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                28,
+                34.125
+              ],
+              "kind": "arc",
+              "mid": [
+                25.78125,
+                30.328125
+              ],
+              "start": [
+                23,
+                27
+              ]
+            },
+            {
+              "end": [
+                30,
+                42
+              ],
+              "kind": "arc",
+              "mid": [
+                29.46875,
+                38.109375
+              ],
+              "start": [
+                28,
+                34.125
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                54,
+                36
+              ],
+              "kind": "arc",
+              "mid": [
+                52.375,
+                27.875
+              ],
+              "start": [
+                47,
+                19
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                84,
+                38
+              ],
+              "kind": "arc",
+              "mid": [
+                86.25,
+                29.625
+              ],
+              "start": [
+                84,
+                25
+              ]
+            },
+            {
+              "end": [
+                63.25,
+                68.75
+              ],
+              "kind": "arc",
+              "mid": [
+                75.3125,
+                54.03125
+              ],
+              "start": [
+                84,
+                38
+              ]
+            },
+            {
+              "end": [
+                32,
+                92
+              ],
+              "kind": "arc",
+              "mid": [
+                48.5625,
+                81.59375
+              ],
+              "start": [
+                63.25,
+                68.75
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "テ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                49,
+                23
+              ],
+              "kind": "arc",
+              "mid": [
+                41.625,
+                24.125
+              ],
+              "start": [
+                35,
+                23
+              ]
+            },
+            {
+              "end": [
+                73,
+                17
+              ],
+              "kind": "arc",
+              "mid": [
+                62.5,
+                20
+              ],
+              "start": [
+                49,
+                23
+              ]
+            },
+            {
+              "end": [
+                79,
+                20
+              ],
+              "kind": "line",
+              "mid": [
+                76,
+                18.5
+              ],
+              "start": [
+                73,
+                17
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                27.25,
+                46.5
+              ],
+              "kind": "arc",
+              "mid": [
+                22.9375,
+                46.40625
+              ],
+              "start": [
+                19,
+                45
+              ]
+            },
+            {
+              "end": [
+                37,
+                45
+              ],
+              "kind": "arc",
+              "mid": [
+                31.9375,
+                45.84375
+              ],
+              "start": [
+                27.25,
+                46.5
+              ]
+            },
+            {
+              "end": [
+                63,
+                41
+              ],
+              "kind": "arc",
+              "mid": [
+                50.09375,
+                42.90625
+              ],
+              "start": [
+                37,
+                45
+              ]
+            },
+            {
+              "end": [
+                83,
+                37
+              ],
+              "kind": "arc",
+              "mid": [
+                74.40625,
+                39.09375
+              ],
+              "start": [
+                63,
+                41
+              ]
+            },
+            {
+              "end": [
+                92,
+                40
+              ],
+              "kind": "line",
+              "mid": [
+                87.5,
+                38.5
+              ],
+              "start": [
+                83,
+                37
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                59,
+                55
+              ],
+              "kind": "arc",
+              "mid": [
+                60.25,
+                46.625
+              ],
+              "start": [
+                57,
+                42
+              ]
+            },
+            {
+              "end": [
+                48.25,
+                77.875
+              ],
+              "kind": "arc",
+              "mid": [
+                54.75,
+                67.140625
+              ],
+              "start": [
+                59,
+                55
+              ]
+            },
+            {
+              "end": [
+                30,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                39.875,
+                86.921875
+              ],
+              "start": [
+                48.25,
+                77.875
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ト",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                48,
+                26
+              ],
+              "kind": "arc",
+              "mid": [
+                46.375,
+                18.125
+              ],
+              "start": [
+                41,
+                14
+              ]
+            },
+            {
+              "end": [
+                48,
+                94
+              ],
+              "kind": "line",
+              "mid": [
+                48,
+                60
+              ],
+              "start": [
+                48,
+                26
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                64.125,
+                50.375
+              ],
+              "kind": "arc",
+              "mid": [
+                56.609375,
+                45.984375
+              ],
+              "start": [
+                49,
+                43
+              ]
+            },
+            {
+              "end": [
+                77,
+                63
+              ],
+              "kind": "arc",
+              "mid": [
+                71.078125,
+                56.078125
+              ],
+              "start": [
+                64.125,
+                50.375
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ナ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                25.75,
+                46.5
+              ],
+              "kind": "arc",
+              "mid": [
+                21.78125,
+                46.40625
+              ],
+              "start": [
+                18,
+                45
+              ]
+            },
+            {
+              "end": [
+                35,
+                45
+              ],
+              "kind": "arc",
+              "mid": [
+                30.09375,
+                45.84375
+              ],
+              "start": [
+                25.75,
+                46.5
+              ]
+            },
+            {
+              "end": [
+                61.625,
+                40.625
+              ],
+              "kind": "arc",
+              "mid": [
+                48.265625,
+                42.765625
+              ],
+              "start": [
+                35,
+                45
+              ]
+            },
+            {
+              "end": [
+                83,
+                37
+              ],
+              "kind": "arc",
+              "mid": [
+                73.671875,
+                38.671875
+              ],
+              "start": [
+                61.625,
+                40.625
+              ]
+            },
+            {
+              "end": [
+                92,
+                40
+              ],
+              "kind": "line",
+              "mid": [
+                87.5,
+                38.5
+              ],
+              "start": [
+                83,
+                37
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.08,
+          "segments": [
+            {
+              "end": [
+                56.875,
+                18.125
+              ],
+              "kind": "arc",
+              "mid": [
+                55.046875,
+                15.734375
+              ],
+              "start": [
+                52,
+                14
+              ]
+            },
+            {
+              "end": [
+                58,
+                26
+              ],
+              "kind": "arc",
+              "mid": [
+                57.765625,
+                21.453125
+              ],
+              "start": [
+                56.875,
+                18.125
+              ]
+            },
+            {
+              "end": [
+                58,
+                46
+              ],
+              "kind": "line",
+              "mid": [
+                58,
+                36
+              ],
+              "start": [
+                58,
+                26
+              ]
+            },
+            {
+              "end": [
+                34,
+                97
+              ],
+              "kind": "arc",
+              "mid": [
+                52,
+                75.625
+              ],
+              "start": [
+                58,
+                46
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ニ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                38.25,
+                35.5
+              ],
+              "kind": "arc",
+              "mid": [
+                34.34375,
+                35.40625
+              ],
+              "start": [
+                31,
+                34
+              ]
+            },
+            {
+              "end": [
+                47,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                42.53125,
+                34.84375
+              ],
+              "start": [
+                38.25,
+                35.5
+              ]
+            },
+            {
+              "end": [
+                60.75,
+                31
+              ],
+              "kind": "arc",
+              "mid": [
+                53.875,
+                32.5
+              ],
+              "start": [
+                47,
+                34
+              ]
+            },
+            {
+              "end": [
+                73,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                67.25,
+                29.5
+              ],
+              "start": [
+                60.75,
+                31
+              ]
+            },
+            {
+              "end": [
+                80,
+                31
+              ],
+              "kind": "line",
+              "mid": [
+                76.5,
+                29.5
+              ],
+              "start": [
+                73,
+                28
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                25.375,
+                76.5
+              ],
+              "kind": "arc",
+              "mid": [
+                20.953125,
+                76.40625
+              ],
+              "start": [
+                17,
+                75
+              ]
+            },
+            {
+              "end": [
+                36,
+                75
+              ],
+              "kind": "arc",
+              "mid": [
+                30.359375,
+                75.84375
+              ],
+              "start": [
+                25.375,
+                76.5
+              ]
+            },
+            {
+              "end": [
+                62.5,
+                72.125
+              ],
+              "kind": "arc",
+              "mid": [
+                49.53125,
+                73.515625
+              ],
+              "start": [
+                36,
+                75
+              ]
+            },
+            {
+              "end": [
+                83,
+                70
+              ],
+              "kind": "arc",
+              "mid": [
+                73.96875,
+                70.921875
+              ],
+              "start": [
+                62.5,
+                72.125
+              ]
+            },
+            {
+              "end": [
+                94,
+                75
+              ],
+              "kind": "line",
+              "mid": [
+                88.5,
+                72.5
+              ],
+              "start": [
+                83,
+                70
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ヌ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.44,
+          "segments": [
+            {
+              "end": [
+                37.625,
+                28.5
+              ],
+              "kind": "arc",
+              "mid": [
+                33.765625,
+                28.40625
+              ],
+              "start": [
+                30,
+                27
+              ]
+            },
+            {
+              "end": [
+                46,
+                27
+              ],
+              "kind": "arc",
+              "mid": [
+                41.671875,
+                27.84375
+              ],
+              "start": [
+                37.625,
+                28.5
+              ]
+            },
+            {
+              "end": [
+                61.125,
+                24
+              ],
+              "kind": "arc",
+              "mid": [
+                53.609375,
+                25.5
+              ],
+              "start": [
+                46,
+                27
+              ]
+            },
+            {
+              "end": [
+                74,
+                21
+              ],
+              "kind": "arc",
+              "mid": [
+                68.078125,
+                22.5
+              ],
+              "start": [
+                61.125,
+                24
+              ]
+            },
+            {
+              "end": [
+                81,
+                25
+              ],
+              "kind": "line",
+              "mid": [
+                77.5,
+                23
+              ],
+              "start": [
+                74,
+                21
+              ]
+            },
+            {
+              "end": [
+                22,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                57.5,
+                63.25
+              ],
+              "start": [
+                81,
+                25
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                61.125,
+                57.625
+              ],
+              "kind": "arc",
+              "mid": [
+                50.609375,
+                49.328125
+              ],
+              "start": [
+                40,
+                43
+              ]
+            },
+            {
+              "end": [
+                80,
+                79
+              ],
+              "kind": "arc",
+              "mid": [
+                71.078125,
+                67.609375
+              ],
+              "start": [
+                61.125,
+                57.625
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ネ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                48,
+                14.75
+              ],
+              "kind": "arc",
+              "mid": [
+                44.3125,
+                12.96875
+              ],
+              "start": [
+                41,
+                11
+              ]
+            },
+            {
+              "end": [
+                55,
+                20
+              ],
+              "kind": "arc",
+              "mid": [
+                51.6875,
+                16.90625
+              ],
+              "start": [
+                48,
+                14.75
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.43,
+          "segments": [
+            {
+              "end": [
+                36,
+                37
+              ],
+              "kind": "arc",
+              "mid": [
+                30.625,
+                38.25
+              ],
+              "start": [
+                26,
+                38
+              ]
+            },
+            {
+              "end": [
+                53,
+                32.5
+              ],
+              "kind": "arc",
+              "mid": [
+                44.5,
+                34.75
+              ],
+              "start": [
+                36,
+                37
+              ]
+            },
+            {
+              "end": [
+                67,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                60.75,
+                30.25
+              ],
+              "start": [
+                53,
+                32.5
+              ]
+            },
+            {
+              "end": [
+                70,
+                30
+              ],
+              "kind": "line",
+              "mid": [
+                68.5,
+                29
+              ],
+              "start": [
+                67,
+                28
+              ]
+            },
+            {
+              "end": [
+                45.625,
+                55.125
+              ],
+              "kind": "arc",
+              "mid": [
+                59.171875,
+                42.515625
+              ],
+              "start": [
+                70,
+                30
+              ]
+            },
+            {
+              "end": [
+                16,
+                75
+              ],
+              "kind": "arc",
+              "mid": [
+                30.765625,
+                66.421875
+              ],
+              "start": [
+                45.625,
+                55.125
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                52,
+                66
+              ],
+              "kind": "arc",
+              "mid": [
+                51.875,
+                58
+              ],
+              "start": [
+                51,
+                53
+              ]
+            },
+            {
+              "end": [
+                51,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                51.5,
+                80.375
+              ],
+              "start": [
+                52,
+                66
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.72,
+          "segments": [
+            {
+              "end": [
+                75.375,
+                61.75
+              ],
+              "kind": "arc",
+              "mid": [
+                68.546875,
+                57.8125
+              ],
+              "start": [
+                62,
+                55
+              ]
+            },
+            {
+              "end": [
+                85,
+                73
+              ],
+              "kind": "arc",
+              "mid": [
+                81.265625,
+                66.8125
+              ],
+              "start": [
+                75.375,
+                61.75
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ノ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                72,
+                39
+              ],
+              "kind": "arc",
+              "mid": [
+                74.875,
+                28.375
+              ],
+              "start": [
+                71,
+                23
+              ]
+            },
+            {
+              "end": [
+                52.875,
+                68.625
+              ],
+              "kind": "arc",
+              "mid": [
+                63.796875,
+                54.328125
+              ],
+              "start": [
+                72,
+                39
+              ]
+            },
+            {
+              "end": [
+                24,
+                93
+              ],
+              "kind": "arc",
+              "mid": [
+                39.515625,
+                81.609375
+              ],
+              "start": [
+                52.875,
+                68.625
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ハ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                39,
+                46
+              ],
+              "kind": "arc",
+              "mid": [
+                42,
+                37.625
+              ],
+              "start": [
+                39,
+                33
+              ]
+            },
+            {
+              "end": [
+                14,
+                76
+              ],
+              "kind": "arc",
+              "mid": [
+                27.625,
+                62.5
+              ],
+              "start": [
+                39,
+                46
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                94,
+                72
+              ],
+              "kind": "arc",
+              "mid": [
+                82.125,
+                49.625
+              ],
+              "start": [
+                65,
+                34
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ヒ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                39.375,
+                46.5
+              ],
+              "kind": "arc",
+              "mid": [
+                35.359375,
+                46.8125
+              ],
+              "start": [
+                32,
+                46
+              ]
+            },
+            {
+              "end": [
+                49,
+                44
+              ],
+              "kind": "arc",
+              "mid": [
+                43.953125,
+                45.4375
+              ],
+              "start": [
+                39.375,
+                46.5
+              ]
+            },
+            {
+              "end": [
+                63,
+                40.375
+              ],
+              "kind": "arc",
+              "mid": [
+                56.5625,
+                42.328125
+              ],
+              "start": [
+                49,
+                44
+              ]
+            },
+            {
+              "end": [
+                74,
+                36
+              ],
+              "kind": "arc",
+              "mid": [
+                68.6875,
+                38.234375
+              ],
+              "start": [
+                63,
+                40.375
+              ]
+            },
+            {
+              "end": [
+                81,
+                39
+              ],
+              "kind": "line",
+              "mid": [
+                77.5,
+                37.5
+              ],
+              "start": [
+                74,
+                36
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.76,
+          "segments": [
+            {
+              "end": [
+                33.75,
+                20.25
+              ],
+              "kind": "arc",
+              "mid": [
+                31.625,
+                17.75
+              ],
+              "start": [
+                28,
+                16
+              ]
+            },
+            {
+              "end": [
+                35,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                34.75,
+                23.875
+              ],
+              "start": [
+                33.75,
+                20.25
+              ]
+            },
+            {
+              "end": [
+                34,
+                71
+              ],
+              "kind": "line",
+              "mid": [
+                34.5,
+                50
+              ],
+              "start": [
+                35,
+                29
+              ]
+            },
+            {
+              "end": [
+                36.75,
+                81.375
+              ],
+              "kind": "arc",
+              "mid": [
+                34.625,
+                76.984375
+              ],
+              "start": [
+                34,
+                71
+              ]
+            },
+            {
+              "end": [
+                47,
+                85
+              ],
+              "kind": "arc",
+              "mid": [
+                40.75,
+                84.078125
+              ],
+              "start": [
+                36.75,
+                81.375
+              ]
+            },
+            {
+              "end": [
+                64.875,
+                84.75
+              ],
+              "kind": "arc",
+              "mid": [
+                56.265625,
+                85.25
+              ],
+              "start": [
+                47,
+                85
+              ]
+            },
+            {
+              "end": [
+                82,
+                83
+              ],
+              "kind": "arc",
+              "mid": [
+                73.296875,
+                83.875
+              ],
+              "start": [
+                64.875,
+                84.75
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "フ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "round",
+          "endWidth": 5,
+          "peak": 0.44,
+          "segments": [
+            {
+              "end": [
+                31.551,
+                30.8333
+              ],
+              "kind": "line",
+              "mid": [
+                31.624,
+                41.70325
+              ],
+              "start": [
+                31.697,
+                52.5732
+              ]
+            },
+            {
+              "end": [
+                73.853,
+                30.4995
+              ],
+              "kind": "line",
+              "mid": [
+                52.702,
+                30.666400000000003
+              ],
+              "start": [
+                31.551,
+                30.8333
+              ]
+            },
+            {
+              "end": [
+                74.1037,
+                55.4194
+              ],
+              "kind": "line",
+              "mid": [
+                73.97835,
+                42.959450000000004
+              ],
+              "start": [
+                73.853,
+                30.4995
+              ]
+            },
+            {
+              "end": [
+                36.699,
+                88.352
+              ],
+              "kind": "arc",
+              "mid": [
+                61.7304,
+                79.987
+              ],
+              "start": [
+                74.1037,
+                55.4194
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ヘ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.95,
+          "segments": [
+            {
+              "end": [
+                20,
+                51
+              ],
+              "kind": "arc",
+              "mid": [
+                17,
+                50.9375
+              ],
+              "start": [
+                14,
+                49
+              ]
+            },
+            {
+              "end": [
+                26,
+                47
+              ],
+              "kind": "arc",
+              "mid": [
+                23,
+                49.5625
+              ],
+              "start": [
+                20,
+                51
+              ]
+            },
+            {
+              "end": [
+                38,
+                35
+              ],
+              "kind": "line",
+              "mid": [
+                32,
+                41
+              ],
+              "start": [
+                26,
+                47
+              ]
+            },
+            {
+              "end": [
+                48,
+                36
+              ],
+              "kind": "arc",
+              "mid": [
+                42.625,
+                33.25
+              ],
+              "start": [
+                38,
+                35
+              ]
+            },
+            {
+              "end": [
+                71,
+                56.375
+              ],
+              "kind": "arc",
+              "mid": [
+                59.6875,
+                46.328125
+              ],
+              "start": [
+                48,
+                36
+              ]
+            },
+            {
+              "end": [
+                94,
+                76
+              ],
+              "kind": "arc",
+              "mid": [
+                82.3125,
+                66.234375
+              ],
+              "start": [
+                71,
+                56.375
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ホ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                26.75,
+                41
+              ],
+              "kind": "arc",
+              "mid": [
+                23.1875,
+                40.5625
+              ],
+              "start": [
+                20,
+                39
+              ]
+            },
+            {
+              "end": [
+                35,
+                40
+              ],
+              "kind": "arc",
+              "mid": [
+                30.6875,
+                40.6875
+              ],
+              "start": [
+                26.75,
+                41
+              ]
+            },
+            {
+              "end": [
+                58.75,
+                37
+              ],
+              "kind": "arc",
+              "mid": [
+                47.0625,
+                38.5
+              ],
+              "start": [
+                35,
+                40
+              ]
+            },
+            {
+              "end": [
+                78,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                69.3125,
+                35.5
+              ],
+              "start": [
+                58.75,
+                37
+              ]
+            },
+            {
+              "end": [
+                87,
+                37
+              ],
+              "kind": "line",
+              "mid": [
+                82.5,
+                35.5
+              ],
+              "start": [
+                78,
+                34
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.82,
+          "segments": [
+            {
+              "end": [
+                56,
+                25
+              ],
+              "kind": "arc",
+              "mid": [
+                55,
+                18.875
+              ],
+              "start": [
+                51,
+                15
+              ]
+            },
+            {
+              "end": [
+                56,
+                83
+              ],
+              "kind": "line",
+              "mid": [
+                56,
+                54
+              ],
+              "start": [
+                56,
+                25
+              ]
+            },
+            {
+              "end": [
+                54,
+                92
+              ],
+              "kind": "arc",
+              "mid": [
+                55.375,
+                89
+              ],
+              "start": [
+                56,
+                83
+              ]
+            },
+            {
+              "end": [
+                43,
+                85
+              ],
+              "kind": "line",
+              "mid": [
+                48.5,
+                88.5
+              ],
+              "start": [
+                54,
+                92
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                25.625,
+                69.375
+              ],
+              "kind": "arc",
+              "mid": [
+                27.734375,
+                63.515625
+              ],
+              "start": [
+                29,
+                57
+              ]
+            },
+            {
+              "end": [
+                20,
+                78
+              ],
+              "kind": "arc",
+              "mid": [
+                22.953125,
+                74.296875
+              ],
+              "start": [
+                25.625,
+                69.375
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                88,
+                76
+              ],
+              "kind": "arc",
+              "mid": [
+                82.75,
+                64
+              ],
+              "start": [
+                73,
+                55
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "マ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.68,
+          "segments": [
+            {
+              "end": [
+                31,
+                31
+              ],
+              "kind": "arc",
+              "mid": [
+                25.125,
+                32.125
+              ],
+              "start": [
+                20,
+                31
+              ]
+            },
+            {
+              "end": [
+                56.125,
+                27.5
+              ],
+              "kind": "arc",
+              "mid": [
+                43.328125,
+                29.34375
+              ],
+              "start": [
+                31,
+                31
+              ]
+            },
+            {
+              "end": [
+                82,
+                24
+              ],
+              "kind": "arc",
+              "mid": [
+                69.109375,
+                25.65625
+              ],
+              "start": [
+                56.125,
+                27.5
+              ]
+            },
+            {
+              "end": [
+                87,
+                28
+              ],
+              "kind": "line",
+              "mid": [
+                84.5,
+                26
+              ],
+              "start": [
+                82,
+                24
+              ]
+            },
+            {
+              "end": [
+                71.25,
+                47.125
+              ],
+              "kind": "arc",
+              "mid": [
+                79.59375,
+                37.703125
+              ],
+              "start": [
+                87,
+                28
+              ]
+            },
+            {
+              "end": [
+                54,
+                64
+              ],
+              "kind": "arc",
+              "mid": [
+                62.53125,
+                55.984375
+              ],
+              "start": [
+                71.25,
+                47.125
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                53.375,
+                65.125
+              ],
+              "kind": "arc",
+              "mid": [
+                46.140625,
+                58.078125
+              ],
+              "start": [
+                39,
+                53
+              ]
+            },
+            {
+              "end": [
+                64,
+                81
+              ],
+              "kind": "arc",
+              "mid": [
+                59.671875,
+                73.109375
+              ],
+              "start": [
+                53.375,
+                65.125
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ミ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                54.375,
+                23.625
+              ],
+              "kind": "arc",
+              "mid": [
+                46.359375,
+                20.890625
+              ],
+              "start": [
+                39,
+                19
+              ]
+            },
+            {
+              "end": [
+                69,
+                32
+              ],
+              "kind": "arc",
+              "mid": [
+                62.203125,
+                27.296875
+              ],
+              "start": [
+                54.375,
+                23.625
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                54.75,
+                50.125
+              ],
+              "kind": "arc",
+              "mid": [
+                46.78125,
+                47.046875
+              ],
+              "start": [
+                39,
+                45
+              ]
+            },
+            {
+              "end": [
+                69,
+                59
+              ],
+              "kind": "arc",
+              "mid": [
+                62.34375,
+                54.140625
+              ],
+              "start": [
+                54.75,
+                50.125
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                55.375,
+                82
+              ],
+              "kind": "arc",
+              "mid": [
+                43.265625,
+                77.4375
+              ],
+              "start": [
+                32,
+                74
+              ]
+            },
+            {
+              "end": [
+                78,
+                96
+              ],
+              "kind": "arc",
+              "mid": [
+                67.296875,
+                88.0625
+              ],
+              "start": [
+                55.375,
+                82
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ム",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                55.875,
+                24.25
+              ],
+              "kind": "arc",
+              "mid": [
+                54.828125,
+                21.75
+              ],
+              "start": [
+                52,
+                20
+              ]
+            },
+            {
+              "end": [
+                53,
+                33
+              ],
+              "kind": "arc",
+              "mid": [
+                55.234375,
+                27.875
+              ],
+              "start": [
+                55.875,
+                24.25
+              ]
+            },
+            {
+              "end": [
+                25,
+                81
+              ],
+              "kind": "arc",
+              "mid": [
+                39.375,
+                58.875
+              ],
+              "start": [
+                53,
+                33
+              ]
+            },
+            {
+              "end": [
+                30,
+                84
+              ],
+              "kind": "line",
+              "mid": [
+                27.5,
+                82.5
+              ],
+              "start": [
+                25,
+                81
+              ]
+            },
+            {
+              "end": [
+                81,
+                73
+              ],
+              "kind": "arc",
+              "mid": [
+                57,
+                78.875
+              ],
+              "start": [
+                30,
+                84
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                89,
+                87
+              ],
+              "kind": "arc",
+              "mid": [
+                81.75,
+                70.5
+              ],
+              "start": [
+                70,
+                57
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "メ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                73,
+                32
+              ],
+              "kind": "arc",
+              "mid": [
+                75.875,
+                21.875
+              ],
+              "start": [
+                72,
+                17
+              ]
+            },
+            {
+              "end": [
+                53.625,
+                66
+              ],
+              "kind": "arc",
+              "mid": [
+                64.765625,
+                49.5625
+              ],
+              "start": [
+                73,
+                32
+              ]
+            },
+            {
+              "end": [
+                23,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                39.671875,
+                80.9375
+              ],
+              "start": [
+                53.625,
+                66
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                59.875,
+                51.375
+              ],
+              "kind": "arc",
+              "mid": [
+                48.078125,
+                43.203125
+              ],
+              "start": [
+                36,
+                37
+              ]
+            },
+            {
+              "end": [
+                80,
+                74
+              ],
+              "kind": "arc",
+              "mid": [
+                70.734375,
+                61.609375
+              ],
+              "start": [
+                59.875,
+                51.375
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "モ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                34.625,
+                28.5
+              ],
+              "kind": "arc",
+              "mid": [
+                31.171875,
+                28.40625
+              ],
+              "start": [
+                28,
+                27
+              ]
+            },
+            {
+              "end": [
+                42,
+                27
+              ],
+              "kind": "arc",
+              "mid": [
+                38.265625,
+                27.84375
+              ],
+              "start": [
+                34.625,
+                28.5
+              ]
+            },
+            {
+              "end": [
+                58.75,
+                23.5
+              ],
+              "kind": "arc",
+              "mid": [
+                50.75,
+                25.34375
+              ],
+              "start": [
+                42,
+                27
+              ]
+            },
+            {
+              "end": [
+                71,
+                20
+              ],
+              "kind": "arc",
+              "mid": [
+                65.625,
+                21.65625
+              ],
+              "start": [
+                58.75,
+                23.5
+              ]
+            },
+            {
+              "end": [
+                78,
+                23
+              ],
+              "kind": "line",
+              "mid": [
+                74.5,
+                21.5
+              ],
+              "start": [
+                71,
+                20
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                24.875,
+                55
+              ],
+              "kind": "arc",
+              "mid": [
+                21.203125,
+                54.5625
+              ],
+              "start": [
+                18,
+                53
+              ]
+            },
+            {
+              "end": [
+                34,
+                54
+              ],
+              "kind": "arc",
+              "mid": [
+                29.109375,
+                54.6875
+              ],
+              "start": [
+                24.875,
+                55
+              ]
+            },
+            {
+              "end": [
+                59.5,
+                49.75
+              ],
+              "kind": "arc",
+              "mid": [
+                47.21875,
+                51.78125
+              ],
+              "start": [
+                34,
+                54
+              ]
+            },
+            {
+              "end": [
+                79,
+                47
+              ],
+              "kind": "arc",
+              "mid": [
+                70.28125,
+                48.09375
+              ],
+              "start": [
+                59.5,
+                49.75
+              ]
+            },
+            {
+              "end": [
+                88,
+                49
+              ],
+              "kind": "line",
+              "mid": [
+                83.5,
+                48
+              ],
+              "start": [
+                79,
+                47
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.94,
+          "segments": [
+            {
+              "end": [
+                47,
+                40
+              ],
+              "kind": "arc",
+              "mid": [
+                46.75,
+                32.375
+              ],
+              "start": [
+                45,
+                27
+              ]
+            },
+            {
+              "end": [
+                47,
+                72
+              ],
+              "kind": "line",
+              "mid": [
+                47,
+                56
+              ],
+              "start": [
+                47,
+                40
+              ]
+            },
+            {
+              "end": [
+                49.75,
+                82.375
+              ],
+              "kind": "arc",
+              "mid": [
+                47.625,
+                77.984375
+              ],
+              "start": [
+                47,
+                72
+              ]
+            },
+            {
+              "end": [
+                60,
+                86
+              ],
+              "kind": "arc",
+              "mid": [
+                53.75,
+                85.078125
+              ],
+              "start": [
+                49.75,
+                82.375
+              ]
+            },
+            {
+              "end": [
+                84,
+                84
+              ],
+              "kind": "arc",
+              "mid": [
+                72.75,
+                85.375
+              ],
+              "start": [
+                60,
+                86
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ヤ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.68,
+          "segments": [
+            {
+              "end": [
+                24.75,
+                47.375
+              ],
+              "kind": "arc",
+              "mid": [
+                20.78125,
+                47.390625
+              ],
+              "start": [
+                17,
+                46
+              ]
+            },
+            {
+              "end": [
+                34,
+                45
+              ],
+              "kind": "arc",
+              "mid": [
+                29.09375,
+                46.421875
+              ],
+              "start": [
+                24.75,
+                47.375
+              ]
+            },
+            {
+              "end": [
+                58.125,
+                39
+              ],
+              "kind": "arc",
+              "mid": [
+                46.109375,
+                42
+              ],
+              "start": [
+                34,
+                45
+              ]
+            },
+            {
+              "end": [
+                80,
+                33
+              ],
+              "kind": "arc",
+              "mid": [
+                69.578125,
+                36
+              ],
+              "start": [
+                58.125,
+                39
+              ]
+            },
+            {
+              "end": [
+                88,
+                37
+              ],
+              "kind": "line",
+              "mid": [
+                84,
+                35
+              ],
+              "start": [
+                80,
+                33
+              ]
+            },
+            {
+              "end": [
+                69,
+                56
+              ],
+              "kind": "arc",
+              "mid": [
+                79.25,
+                46.5
+              ],
+              "start": [
+                88,
+                37
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                41.125,
+                21.125
+              ],
+              "kind": "arc",
+              "mid": [
+                39.078125,
+                18.734375
+              ],
+              "start": [
+                36,
+                17
+              ]
+            },
+            {
+              "end": [
+                44,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                42.609375,
+                24.453125
+              ],
+              "start": [
+                41.125,
+                21.125
+              ]
+            },
+            {
+              "end": [
+                51.25,
+                61.5
+              ],
+              "kind": "arc",
+              "mid": [
+                47.34375,
+                44.78125
+              ],
+              "start": [
+                44,
+                29
+              ]
+            },
+            {
+              "end": [
+                60,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                55.53125,
+                78.21875
+              ],
+              "start": [
+                51.25,
+                61.5
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ユ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.55,
+          "segments": [
+            {
+              "end": [
+                35.625,
+                35.5
+              ],
+              "kind": "arc",
+              "mid": [
+                31.765625,
+                35.40625
+              ],
+              "start": [
+                28,
+                34
+              ]
+            },
+            {
+              "end": [
+                44,
+                34
+              ],
+              "kind": "arc",
+              "mid": [
+                39.671875,
+                34.84375
+              ],
+              "start": [
+                35.625,
+                35.5
+              ]
+            },
+            {
+              "end": [
+                69,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                58,
+                31.875
+              ],
+              "start": [
+                44,
+                34
+              ]
+            },
+            {
+              "end": [
+                76,
+                33
+              ],
+              "kind": "line",
+              "mid": [
+                72.5,
+                31
+              ],
+              "start": [
+                69,
+                29
+              ]
+            },
+            {
+              "end": [
+                69,
+                74
+              ],
+              "kind": "arc",
+              "mid": [
+                71.75,
+                53.5
+              ],
+              "start": [
+                76,
+                33
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                24.25,
+                78.5
+              ],
+              "kind": "arc",
+              "mid": [
+                19.9375,
+                78.40625
+              ],
+              "start": [
+                16,
+                77
+              ]
+            },
+            {
+              "end": [
+                34,
+                77
+              ],
+              "kind": "arc",
+              "mid": [
+                28.9375,
+                77.84375
+              ],
+              "start": [
+                24.25,
+                78.5
+              ]
+            },
+            {
+              "end": [
+                60.625,
+                74.625
+              ],
+              "kind": "arc",
+              "mid": [
+                47.265625,
+                75.671875
+              ],
+              "start": [
+                34,
+                77
+              ]
+            },
+            {
+              "end": [
+                82,
+                73
+              ],
+              "kind": "arc",
+              "mid": [
+                72.671875,
+                73.765625
+              ],
+              "start": [
+                60.625,
+                74.625
+              ]
+            },
+            {
+              "end": [
+                92,
+                77
+              ],
+              "kind": "line",
+              "mid": [
+                87,
+                75
+              ],
+              "start": [
+                82,
+                73
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ヨ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.49,
+          "segments": [
+            {
+              "end": [
+                34.75,
+                30.5
+              ],
+              "kind": "arc",
+              "mid": [
+                30.78125,
+                30.40625
+              ],
+              "start": [
+                27,
+                29
+              ]
+            },
+            {
+              "end": [
+                44,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                39.09375,
+                29.84375
+              ],
+              "start": [
+                34.75,
+                30.5
+              ]
+            },
+            {
+              "end": [
+                61.875,
+                26.875
+              ],
+              "kind": "arc",
+              "mid": [
+                53.078125,
+                28.078125
+              ],
+              "start": [
+                44,
+                29
+              ]
+            },
+            {
+              "end": [
+                76,
+                24
+              ],
+              "kind": "arc",
+              "mid": [
+                69.734375,
+                25.484375
+              ],
+              "start": [
+                61.875,
+                26.875
+              ]
+            },
+            {
+              "end": [
+                83,
+                28
+              ],
+              "kind": "line",
+              "mid": [
+                79.5,
+                26
+              ],
+              "start": [
+                76,
+                24
+              ]
+            },
+            {
+              "end": [
+                79,
+                79
+              ],
+              "kind": "line",
+              "mid": [
+                81,
+                53.5
+              ],
+              "start": [
+                83,
+                28
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.95,
+          "segments": [
+            {
+              "end": [
+                36.125,
+                55.5
+              ],
+              "kind": "arc",
+              "mid": [
+                31.921875,
+                55.40625
+              ],
+              "start": [
+                28,
+                54
+              ]
+            },
+            {
+              "end": [
+                45,
+                54
+              ],
+              "kind": "arc",
+              "mid": [
+                40.515625,
+                54.84375
+              ],
+              "start": [
+                36.125,
+                55.5
+              ]
+            },
+            {
+              "end": [
+                62.125,
+                52.625
+              ],
+              "kind": "arc",
+              "mid": [
+                53.703125,
+                53.265625
+              ],
+              "start": [
+                45,
+                54
+              ]
+            },
+            {
+              "end": [
+                80,
+                52
+              ],
+              "kind": "arc",
+              "mid": [
+                70.734375,
+                52.171875
+              ],
+              "start": [
+                62.125,
+                52.625
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                30.25,
+                81.5
+              ],
+              "kind": "arc",
+              "mid": [
+                25.9375,
+                81.40625
+              ],
+              "start": [
+                22,
+                80
+              ]
+            },
+            {
+              "end": [
+                40,
+                80
+              ],
+              "kind": "arc",
+              "mid": [
+                34.9375,
+                80.84375
+              ],
+              "start": [
+                30.25,
+                81.5
+              ]
+            },
+            {
+              "end": [
+                77,
+                77
+              ],
+              "kind": "arc",
+              "mid": [
+                60,
+                78.5
+              ],
+              "start": [
+                40,
+                80
+              ]
+            },
+            {
+              "end": [
+                85,
+                80
+              ],
+              "kind": "line",
+              "mid": [
+                81,
+                78.5
+              ],
+              "start": [
+                77,
+                77
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ラ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.91,
+          "segments": [
+            {
+              "end": [
+                43.625,
+                22.5
+              ],
+              "kind": "arc",
+              "mid": [
+                40.171875,
+                22.40625
+              ],
+              "start": [
+                37,
+                21
+              ]
+            },
+            {
+              "end": [
+                51,
+                21
+              ],
+              "kind": "arc",
+              "mid": [
+                47.265625,
+                21.84375
+              ],
+              "start": [
+                43.625,
+                22.5
+              ]
+            },
+            {
+              "end": [
+                73,
+                16
+              ],
+              "kind": "arc",
+              "mid": [
+                63.5,
+                18.875
+              ],
+              "start": [
+                51,
+                21
+              ]
+            },
+            {
+              "end": [
+                80,
+                19
+              ],
+              "kind": "line",
+              "mid": [
+                76.5,
+                17.5
+              ],
+              "start": [
+                73,
+                16
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.44,
+          "segments": [
+            {
+              "end": [
+                32.25,
+                44.5
+              ],
+              "kind": "arc",
+              "mid": [
+                27.9375,
+                44.40625
+              ],
+              "start": [
+                24,
+                43
+              ]
+            },
+            {
+              "end": [
+                42,
+                43
+              ],
+              "kind": "arc",
+              "mid": [
+                36.9375,
+                43.84375
+              ],
+              "start": [
+                32.25,
+                44.5
+              ]
+            },
+            {
+              "end": [
+                78,
+                35
+              ],
+              "kind": "arc",
+              "mid": [
+                61.875,
+                39.375
+              ],
+              "start": [
+                42,
+                43
+              ]
+            },
+            {
+              "end": [
+                85,
+                39
+              ],
+              "kind": "line",
+              "mid": [
+                81.5,
+                37
+              ],
+              "start": [
+                78,
+                35
+              ]
+            },
+            {
+              "end": [
+                31,
+                95
+              ],
+              "kind": "arc",
+              "mid": [
+                63.25,
+                71.125
+              ],
+              "start": [
+                85,
+                39
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "リ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                36.875,
+                21
+              ],
+              "kind": "arc",
+              "mid": [
+                35.046875,
+                18.71875
+              ],
+              "start": [
+                32,
+                17
+              ]
+            },
+            {
+              "end": [
+                38,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                37.765625,
+                24.03125
+              ],
+              "start": [
+                36.875,
+                21
+              ]
+            },
+            {
+              "end": [
+                38,
+                59
+              ],
+              "kind": "line",
+              "mid": [
+                38,
+                43.5
+              ],
+              "start": [
+                38,
+                28
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.09,
+          "segments": [
+            {
+              "end": [
+                76,
+                27
+              ],
+              "kind": "arc",
+              "mid": [
+                74.375,
+                18.625
+              ],
+              "start": [
+                69,
+                14
+              ]
+            },
+            {
+              "end": [
+                75,
+                52
+              ],
+              "kind": "line",
+              "mid": [
+                75.5,
+                39.5
+              ],
+              "start": [
+                76,
+                27
+              ]
+            },
+            {
+              "end": [
+                47,
+                97
+              ],
+              "kind": "arc",
+              "mid": [
+                67.375,
+                78.25
+              ],
+              "start": [
+                75,
+                52
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ル",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.1,
+          "segments": [
+            {
+              "end": [
+                37,
+                42
+              ],
+              "kind": "arc",
+              "mid": [
+                36.75,
+                34.5
+              ],
+              "start": [
+                32,
+                30
+              ]
+            },
+            {
+              "end": [
+                14,
+                91
+              ],
+              "kind": "arc",
+              "mid": [
+                30,
+                69.125
+              ],
+              "start": [
+                37,
+                42
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.68,
+          "segments": [
+            {
+              "end": [
+                61,
+                28
+              ],
+              "kind": "arc",
+              "mid": [
+                59.375,
+                21
+              ],
+              "start": [
+                54,
+                17
+              ]
+            },
+            {
+              "end": [
+                60,
+                83
+              ],
+              "kind": "line",
+              "mid": [
+                60.5,
+                55.5
+              ],
+              "start": [
+                61,
+                28
+              ]
+            },
+            {
+              "end": [
+                63,
+                85
+              ],
+              "kind": "line",
+              "mid": [
+                61.5,
+                84
+              ],
+              "start": [
+                60,
+                83
+              ]
+            },
+            {
+              "end": [
+                97,
+                53
+              ],
+              "kind": "arc",
+              "mid": [
+                80.75,
+                70.875
+              ],
+              "start": [
+                63,
+                85
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "レ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.64,
+          "segments": [
+            {
+              "end": [
+                39,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                36.875,
+                21.5
+              ],
+              "start": [
+                31,
+                17
+              ]
+            },
+            {
+              "end": [
+                38,
+                84
+              ],
+              "kind": "line",
+              "mid": [
+                38.5,
+                56.5
+              ],
+              "start": [
+                39,
+                29
+              ]
+            },
+            {
+              "end": [
+                41,
+                86
+              ],
+              "kind": "line",
+              "mid": [
+                39.5,
+                85
+              ],
+              "start": [
+                38,
+                84
+              ]
+            },
+            {
+              "end": [
+                94,
+                47
+              ],
+              "kind": "arc",
+              "mid": [
+                68.625,
+                69.5
+              ],
+              "start": [
+                41,
+                86
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ロ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                27.875,
+                35.125
+              ],
+              "kind": "arc",
+              "mid": [
+                26.046875,
+                32.734375
+              ],
+              "start": [
+                23,
+                31
+              ]
+            },
+            {
+              "end": [
+                29,
+                43
+              ],
+              "kind": "arc",
+              "mid": [
+                28.765625,
+                38.453125
+              ],
+              "start": [
+                27.875,
+                35.125
+              ]
+            },
+            {
+              "end": [
+                33,
+                83
+              ],
+              "kind": "line",
+              "mid": [
+                31,
+                63
+              ],
+              "start": [
+                29,
+                43
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.59,
+          "segments": [
+            {
+              "end": [
+                54.5,
+                32.875
+              ],
+              "kind": "arc",
+              "mid": [
+                41.28125,
+                34.484375
+              ],
+              "start": [
+                29,
+                36
+              ]
+            },
+            {
+              "end": [
+                77,
+                29
+              ],
+              "kind": "arc",
+              "mid": [
+                66.96875,
+                31.078125
+              ],
+              "start": [
+                54.5,
+                32.875
+              ]
+            },
+            {
+              "end": [
+                84,
+                33
+              ],
+              "kind": "line",
+              "mid": [
+                80.5,
+                31
+              ],
+              "start": [
+                77,
+                29
+              ]
+            },
+            {
+              "end": [
+                77,
+                77
+              ],
+              "kind": "arc",
+              "mid": [
+                80.125,
+                55
+              ],
+              "start": [
+                84,
+                33
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.9,
+          "segments": [
+            {
+              "end": [
+                55,
+                77.125
+              ],
+              "kind": "arc",
+              "mid": [
+                43.90625,
+                78.109375
+              ],
+              "start": [
+                33,
+                79
+              ]
+            },
+            {
+              "end": [
+                74,
+                76
+              ],
+              "kind": "arc",
+              "mid": [
+                65.34375,
+                76.328125
+              ],
+              "start": [
+                55,
+                77.125
+              ]
+            },
+            {
+              "end": [
+                82,
+                78
+              ],
+              "kind": "line",
+              "mid": [
+                78,
+                77
+              ],
+              "start": [
+                74,
+                76
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ワ",
+      "mirror": false,
+      "stretch": 1,
+      "strokes": [
+        {
+          "endCap": "round",
+          "endWidth": 4,
+          "peak": 0.5,
+          "segments": [
+            {
+              "end": [
+                71.3058,
+                26.1651
+              ],
+              "kind": "line",
+              "mid": [
+                48.773300000000006,
+                26.306849999999997
+              ],
+              "start": [
+                26.2408,
+                26.4486
+              ]
+            },
+            {
+              "end": [
+                71.7109,
+                47.9896
+              ],
+              "kind": "line",
+              "mid": [
+                71.50835000000001,
+                37.07735
+              ],
+              "start": [
+                71.3058,
+                26.1651
+              ]
+            },
+            {
+              "end": [
+                26.638,
+                90.5436
+              ],
+              "kind": "arc",
+              "mid": [
+                55.7241,
+                82.0987
+              ],
+              "start": [
+                71.7109,
+                47.9896
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 13,
+          "width": 13
+        }
+      ]
+    },
+    {
+      "character": "ヲ",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.85,
+          "segments": [
+            {
+              "end": [
+                35.125,
+                23.625
+              ],
+              "kind": "arc",
+              "mid": [
+                32.015625,
+                23.828125
+              ],
+              "start": [
+                29,
+                23
+              ]
+            },
+            {
+              "end": [
+                42,
+                22
+              ],
+              "kind": "arc",
+              "mid": [
+                38.421875,
+                22.859375
+              ],
+              "start": [
+                35.125,
+                23.625
+              ]
+            },
+            {
+              "end": [
+                70,
+                16
+              ],
+              "kind": "arc",
+              "mid": [
+                57.5,
+                19
+              ],
+              "start": [
+                42,
+                22
+              ]
+            },
+            {
+              "end": [
+                76,
+                18
+              ],
+              "kind": "line",
+              "mid": [
+                73,
+                17
+              ],
+              "start": [
+                70,
+                16
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.95,
+          "segments": [
+            {
+              "end": [
+                31.75,
+                45.5
+              ],
+              "kind": "arc",
+              "mid": [
+                28.1875,
+                45.40625
+              ],
+              "start": [
+                25,
+                44
+              ]
+            },
+            {
+              "end": [
+                40,
+                44
+              ],
+              "kind": "arc",
+              "mid": [
+                35.6875,
+                44.84375
+              ],
+              "start": [
+                31.75,
+                45.5
+              ]
+            },
+            {
+              "end": [
+                58.875,
+                40.375
+              ],
+              "kind": "arc",
+              "mid": [
+                49.296875,
+                42.328125
+              ],
+              "start": [
+                40,
+                44
+              ]
+            },
+            {
+              "end": [
+                77,
+                36
+              ],
+              "kind": "arc",
+              "mid": [
+                68.265625,
+                38.234375
+              ],
+              "start": [
+                58.875,
+                40.375
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.09,
+          "segments": [
+            {
+              "end": [
+                82,
+                39
+              ],
+              "kind": "line",
+              "mid": [
+                79.5,
+                37.5
+              ],
+              "start": [
+                77,
+                36
+              ]
+            },
+            {
+              "end": [
+                63.125,
+                69.5
+              ],
+              "kind": "arc",
+              "mid": [
+                74.203125,
+                54.90625
+              ],
+              "start": [
+                82,
+                39
+              ]
+            },
+            {
+              "end": [
+                33,
+                94
+              ],
+              "kind": "arc",
+              "mid": [
+                49.234375,
+                82.59375
+              ],
+              "start": [
+                63.125,
+                69.5
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    },
+    {
+      "character": "ン",
+      "mirror": false,
+      "stretch": 0.85,
+      "strokes": [
+        {
+          "endCap": "flat",
+          "endWidth": 5,
+          "peak": 0.75,
+          "segments": [
+            {
+              "end": [
+                36,
+                28.375
+              ],
+              "kind": "arc",
+              "mid": [
+                31.1875,
+                25.171875
+              ],
+              "start": [
+                26,
+                23
+              ]
+            },
+            {
+              "end": [
+                43,
+                36
+              ],
+              "kind": "arc",
+              "mid": [
+                40.0625,
+                32.140625
+              ],
+              "start": [
+                36,
+                28.375
+              ]
+            }
+          ],
+          "startCap": "sharp",
+          "startWidth": 5,
+          "width": 7.5
+        },
+        {
+          "endCap": "sharp",
+          "endWidth": 5,
+          "peak": 0.08,
+          "segments": [
+            {
+              "end": [
+                35.125,
+                84.5
+              ],
+              "kind": "arc",
+              "mid": [
+                31.609375,
+                85.0625
+              ],
+              "start": [
+                28,
+                83
+              ]
+            },
+            {
+              "end": [
+                43,
+                80
+              ],
+              "kind": "arc",
+              "mid": [
+                38.828125,
+                82.4375
+              ],
+              "start": [
+                35.125,
+                84.5
+              ]
+            },
+            {
+              "end": [
+                91,
+                38
+              ],
+              "kind": "arc",
+              "mid": [
+                69.25,
+                60.875
+              ],
+              "start": [
+                43,
+                80
+              ]
+            }
+          ],
+          "startCap": "flat",
+          "startWidth": 5,
+          "width": 7.5
+        }
+      ]
+    }
+  ],
+  "schema": "dreams.stroke-editor/v1"
+}
