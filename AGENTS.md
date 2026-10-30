@@ -65,3 +65,19 @@ or make Hypercode/SpecPM executable application configuration.
   `make specs-check` with `hypercode` and `specpm` available (or explicit overrides).
 - Preserve actual distinctions between local checks, CI, screenshots, physical
   devices and releases. A release/submission follows its own authorized scope.
+
+## Local builds on the TB5 SSD
+
+On Egor's macOS host, before local builds, tests, package resolution, or dependency
+installs, read and apply the `tb5-build-cache` skill:
+`/Users/egor/.codex/skills/tb5-build-cache/SKILL.md`.
+Run its read-only `scripts/tb5_paths.py --project <package-or-workspace-root>`
+preflight, then use the returned paths for supported build outputs and caches.
+Keep build outputs separate for every checkout/worktree. Preserve the repository's
+required build/check entry points and adapt their supported path overrides;
+verify actual output locations instead of assuming an environment variable took effect.
+If the expected SSD is unavailable, report the failure and continue independent
+source work; do not silently fall back to the internal disk. Keep source checkouts
+in place. This local routing rule does not apply to CI or other hosts and does not
+authorize migrating or deleting existing artifacts. An explicit user-selected
+build location takes precedence.
