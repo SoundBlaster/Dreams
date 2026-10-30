@@ -1,5 +1,13 @@
 # Dreams specification progress
 
+## Release 0.1.13 metadata — 2026-10-29
+
+VERSION and plugin manifests advance together for the desktop release after
+the dark settings window change. Spec-ID: NO-SPEC-IMPACT: release metadata
+does not alter runtime or existing settings-host requirements. Previous test
+and visual evidence remains tied to its original source; packaging and
+notarization are verified separately for the release artifact.
+
 ## Dark desktop settings — 2026-10-29
 
 Native and legacy settings windows request Dark Aqua independent of the system
