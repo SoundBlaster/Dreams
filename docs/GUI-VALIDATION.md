@@ -85,3 +85,20 @@ rendered frames. Those partial traces are not passing evidence. The committed tr
 scenario intentionally covers settings only; live rendering is checked in the application.
 
 PR #8 remains unmerged pending the remaining runtime checks.
+
+## Subsequent Metal capture pilot
+
+The separate [Metal boundary pilot](validation/metal-pilot-2026-10-12/README.md)
+compares actual MTKView pixels, AppKit view capture, experimental macOS
+ScreenCaptureKit and system screenshots. It does not change the historical
+settings-only evidence or claim a released macOS capture backend.
+
+The packaged-backend probe requires an explicit local Screener checkout:
+
+```sh
+rtk proxy make capture-metal-pilot SCREENER_PATH=/path/to/Screener
+```
+
+Normal builds retain the released 0.1.0 dependency. The opt-in pilot links the
+local `ScreenerScreenCaptureKit` product and records source hashes in run.json.
+See `docs/validation/packaged-backend-2026-10-12/README.md` for the fresh comparison.

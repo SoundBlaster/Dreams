@@ -1,10 +1,10 @@
-.build/
+.build
 dist/
 .DS_Store
 artifacts/
 .venv/
 research/glyphs/build/
-.build/
+.build
 __pycache__/
 *.pyc
 .fsd-ios-tooling/

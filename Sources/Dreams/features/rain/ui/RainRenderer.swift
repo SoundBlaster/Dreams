@@ -20,6 +20,10 @@ final class RainRenderer: NSObject {
     var demoWorkingAgents: Int?
     var brightness: Float = 0.18
     private(set) var framesRendered = 0
+    #if DREAMS_METAL_PILOT
+    var pilotTime: Float?
+    var pilotTexture: (any MTLTexture)?
+    #endif
 
     init(view: MTKView, restoredGlyphs: Bool = false, transparentBackground: Bool = false) throws {
         self.transparentBackground = transparentBackground
@@ -107,12 +111,20 @@ extension RainRenderer: @MainActor MTKViewDelegate {
               let descriptor = view.currentRenderPassDescriptor,
               let buffer = queue.makeCommandBuffer(),
               let encoder = buffer.makeRenderCommandEncoder(descriptor: descriptor) else { return }
+        #if DREAMS_METAL_PILOT
+        let posedTime = pilotTime
+        #else
+        let posedTime: Float? = nil
+        #endif
         keywords.draw(encoder: encoder,
             resolution: SIMD2(Float(view.drawableSize.width), Float(view.drawableSize.height)),
-            brightness: brightness, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
+            brightness: brightness, previewTime: posedTime, columnCount: rainColumnCount, density: rainDensity, fadeRows: rainFadeRows,
             speed: rainSpeed, brightnessSpread: rainBrightnessSpread, glow: rainGlow, idleIntensity: rainIdleIntensity,
             keywordTint: keywordTint, keywordBrightness: keywordBrightness, rainTint: rainTint)
         encoder.endEncoding()
+        #if DREAMS_METAL_PILOT
+        pilotTexture = drawable.texture
+        #endif
         buffer.present(drawable)
         buffer.commit()
         framesRendered += 1

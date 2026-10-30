@@ -23,6 +23,7 @@ help:
 		'  make lint             SwiftLint (strict), ruff, shell syntax, documentation links' \
 		'  make lint-architecture Strict FSD structure and Swift symbol dependencies' \
 		'  make test-unit        Tests that need no app bundle (activity model, typing model)' \
+		'  make capture-metal-pilot  Compare AppKit / Metal / system window capture (opt-in)' \
 		'  make test-gui-trace   Record settings scenarios with Screener (local GUI session)' \
 		'  make test             Everything: unit tests, localization, hooks installer, MCP smoke' \
 		'  make glyphs           Rebuild the font from research/glyphs (strict checks)' \
@@ -166,3 +167,7 @@ uninstall-purge:
 
 clean:
 	rm -rf .build dist
+
+.PHONY: capture-metal-pilot
+capture-metal-pilot:
+	python3 scripts/metal-capture-pilot.py --screener-path "$(SCREENER_PATH)"
