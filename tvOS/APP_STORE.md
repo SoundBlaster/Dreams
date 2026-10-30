@@ -22,11 +22,29 @@ in-app purchases are planned for this release.
 The approved base price is **US$0.99 for the application itself**, using USA as
 the pricing base territory. Other storefront prices follow Apple's automatic
 equalization. See [Apple's app pricing guide](https://developer.apple.com/help/app-store-connect/manage-app-pricing/set-a-price/).
-Launch territories remain an open decision; confirm the account's paid-app
+Owner decision (2026-10-26): enable all 148 current Apple territories outside the
+EU and exclude all 27 EU members; automatic availability in future territories is
+disabled. The exact selection and API read-back are recorded in the
+[availability record](app-store/availability.json). Confirm the account's paid-app
 agreements and commercial details before release. This price configuration does
 not publish the app or create any In-App Purchase products.
 ASC read-back on 2026-10-25 confirmed app6826786729, base/territory USA,
 currency USD, customerPrice0.99 and isFree=false.
+
+## Store descriptions
+
+The Russian description was approved by the owner on 2026-10-26;
+the English version follows the same content and tone:
+
+- [Russian](app-store/descriptions/ru.txt)
+- [English (US)](app-store/descriptions/en-US.txt)
+- [Spanish (Mexico)](app-store/descriptions/es-MX.txt)
+
+These plain-text sources are for the App Store Description field. Editing them
+does not upload metadata to App Store Connect. All three describe the current TV
+rain, optional clock, remote settings and foreground-only application scope.
+Canonical [metadata sources](app-store/README.md) include the subtitles, keywords
+and URLs for each locale; descriptions match the plain-text files exactly.
 
 ## Resources and privacy
 
@@ -86,21 +104,29 @@ linked libraries for review. It does not prove App Store acceptance or API behav
 
 ## Remaining release gates
 
-- Resolve the reconstructed font's pending redistribution rights review documented
-  in [third-party notices](../THIRD_PARTY_NOTICES.md) and [glyph provenance](../research/glyphs/PIPELINE.md).
-  Packaging the existing assets does not establish permission or film fidelity.
+- The owner closed the internal DreamsMatrix pre-release rights-review gate on
+  2026-10-27 and authorized proceeding with the self-created font. Retain the
+  [decision and complaint-response plan](app-store/release-decisions.md),
+  [provenance](../research/glyphs/PIPELINE.md) and existing third-party notices.
+  This owner decision does not record outside clearance or establish film fidelity.
 - Confirm the installed Xcode/SDK is accepted for App Store submission.
 - Verify Release on the owner's older Apple TV and a current Apple TV 4K:
   remote focus/swipes/Select/Back/PlayPause, paused/live preview, clock, errors,
   persisted tuning, frame cadence and a sustained-memory run.
-- Upload the approved source/build to TestFlight under a separately authorized
-  distribution step; retain its commit, version/build and device evidence.
-- Complete EN/RU metadata, screenshots, support/privacy URLs, App Privacy,
-  age rating and export-compliance answers. Configure the approved paid-upfront
-  price/availability and applicable agreements. Do not infer these answers solely
-  from a passing build.
-- Switch the store version to manual release before review (the initial 1.0
-  record was observed with automatic `AFTER_APPROVAL` on 2026-10-25).
+- The owner-authorized 1.0/build1 IPA upload completed on 2026-10-27; Apple
+  reports it VALID. See [upload record](app-store/README.md). Attaching a build
+  to version1.0 and internal TestFlight group assignment were subsequently
+  verified. The owner tester is INVITED; acceptance and device installation
+  remain unverified. App Review submission remains a separate action.
+- Publish/verify the separate App Privacy declaration and complete export
+  compliance for the eventual build. EN/RU/es-MX metadata, localized screenshot
+  sets, privacy text, age rating4+, category, copyright and review contacts were
+  verified through the API on 2026-10-26; see [store field record](app-store/README.md).
+  Launch availability was verified as 148 non-EU territories; confirm applicable
+  agreements, any required trader-status declaration and content rights. Do not
+  infer those answers solely from a passing build.
+- Retain manual release for version1.0: changed from the initially observed
+  AFTER_APPROVAL to MANUAL and verified on 2026-10-26.
 - After attaching the intended build, run `asc release stage --dry-run`,
   `asc validate` and `asc review doctor` with `--platform TV_OS` where supported.
   Review submission and public release remain separate authorized actions.

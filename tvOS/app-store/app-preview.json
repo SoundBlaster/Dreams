@@ -1,0 +1,168 @@
+{
+  "preparedDate": "2026-10-27",
+  "appId": "6826786729",
+  "platform": "TV_OS",
+  "version": "1.0",
+  "runtimeSourceSHA": "dfa87c906a141a5d7c6d6cab6ffecdf9bc710bf5",
+  "binarySHA256": "bbb0196b89410e752ff85188c77a661b7ce57240e42ebf077163aaab51dbdbd2",
+  "captureDevice": "Apple TV 4K 3rd generation at1080p; tvOS27.0",
+  "state": "uploaded; all three locales report COMPLETE; owner authorized upload on 2026-10-27",
+  "fileName": "dreams-tv-app-preview.mp4",
+  "sha256": "3e9137df122036f53f11b64b7f73a70770bebae3303edffa7164ee45eea5f648",
+  "bytes": 34729129,
+  "durationSeconds": 25.0,
+  "video": {
+    "codec": "h264",
+    "profile": "High",
+    "level": 40,
+    "width": 1920,
+    "height": 1080,
+    "frameRate": "30/1",
+    "frames": 750,
+    "pixelFormat": "yuv420p",
+    "bitRate": 11101763
+  },
+  "audio": {
+    "codec": "aac",
+    "channels": 2,
+    "sampleRate": 48000,
+    "content": "silent; no music or narration"
+  },
+  "editing": "Native recordings, real-time motion, straight cuts; no synthetic graphics or language overlays. First second trimmed from each take.",
+  "scenes": [
+    {
+      "rawFile": "01-green.mov",
+      "rawSHA256": "8fcc4f1b58da67312857fa2b5f0c5ce1b7246f48c59a1550ac3c08811a398702",
+      "rawStartSeconds": 1,
+      "outputStartSeconds": 0,
+      "durationSeconds": 9,
+      "settings": {
+        "columns": 90,
+        "density": 1.0,
+        "speed": 0.43,
+        "fade": 3,
+        "restoredGlyphs": true,
+        "color": [
+          0.086,
+          0.547,
+          0.26
+        ],
+        "searchFraction": 0.1,
+        "pulseStrength": 0.3,
+        "clockFloating": false,
+        "fps": false,
+        "clock": false,
+        "brightness": 0.18,
+        "brightnessSpread": 0.35,
+        "glow": 0.45
+      }
+    },
+    {
+      "rawFile": "02-clock-long-fade.mov",
+      "rawSHA256": "2e95f83861b70826adc1d176a5cc3882c77edf0bb8ecd21acb97a25dad1674ca",
+      "rawStartSeconds": 1,
+      "outputStartSeconds": 9,
+      "durationSeconds": 10,
+      "settings": {
+        "columns": 120,
+        "density": 1.0,
+        "speed": 0.43,
+        "fade": 16,
+        "restoredGlyphs": true,
+        "color": [
+          0.086,
+          0.547,
+          0.26
+        ],
+        "searchFraction": 0.03,
+        "pulseStrength": 0.15,
+        "clockFloating": false,
+        "fps": false,
+        "clock": true,
+        "clockSize": 1.1,
+        "brightness": 0.24,
+        "brightnessSpread": 0,
+        "glow": 0.15
+      }
+    },
+    {
+      "rawFile": "03-cyan.mov",
+      "rawSHA256": "9e625b7a61dc75119d20b75bb06ab1c3489d45da101e4fabb169a9abae0caa6f",
+      "rawStartSeconds": 1,
+      "outputStartSeconds": 19,
+      "durationSeconds": 6,
+      "settings": {
+        "columns": 90,
+        "density": 1.0,
+        "speed": 0.43,
+        "fade": 3,
+        "restoredGlyphs": true,
+        "color": [
+          0.04,
+          0.62,
+          1.0
+        ],
+        "searchFraction": 0.1,
+        "pulseStrength": 0.3,
+        "clockFloating": false,
+        "fps": false,
+        "clock": false,
+        "brightness": 0.22,
+        "brightnessSpread": 0.35,
+        "glow": 0.45
+      }
+    }
+  ],
+  "verification": {
+    "fullDecode": "passed; no black intervals >=0.2s or freezes >=0.5s detected",
+    "visualSampling": "five exported timeline frames plus native scene stills reviewed; clock recognizable at full size, limited at thumbnail size",
+    "physicalDevicePerformance": "not established",
+    "appStoreProcessing": "API assetDeliveryState COMPLETE for en-US, ru and es-MX; checksums, sizes and selected poster timecode read back exactly. Rendered poster/playback not verified; previewImage dimensions remain zero in API."
+  },
+  "preferencesRestored": true,
+  "upload": {
+    "verifiedDate": "2026-10-27",
+    "locales": {
+      "en-US": {
+        "versionLocalizationId": "de78d5df-0265-477e-ab85-496777ade65c",
+        "setId": "d7694c23-382e-4ff1-a7c0-01371a288bb7",
+        "assetId": "ddc00019-6e87-8fa9-8109-bcc3bf94fa46",
+        "state": "COMPLETE",
+        "md5": "683861eee083a08f075bde72cc656dcf",
+        "fileSize": 34729129,
+        "posterTimeCode": "00:00:13:00",
+        "previewImageDimensions": [
+          0,
+          0
+        ]
+      },
+      "ru": {
+        "versionLocalizationId": "4bc612af-ae28-43eb-ba12-b182ce16f97a",
+        "setId": "a7dde56d-c2c7-456f-bace-f8339aa16274",
+        "assetId": "40400019-6e87-8fa9-811b-5b6bbea29f6e",
+        "state": "COMPLETE",
+        "md5": "683861eee083a08f075bde72cc656dcf",
+        "fileSize": 34729129,
+        "posterTimeCode": "00:00:13:00",
+        "previewImageDimensions": [
+          0,
+          0
+        ]
+      },
+      "es-MX": {
+        "versionLocalizationId": "cf018a65-3bb3-4d3d-89dc-d0295f4cfdc7",
+        "setId": "351bb1d8-6857-4e78-a2d0-d37708c296d3",
+        "assetId": "65c00019-6e87-8fa9-811e-c2e4f0ff6a0d",
+        "state": "COMPLETE",
+        "md5": "683861eee083a08f075bde72cc656dcf",
+        "fileSize": 34729129,
+        "posterTimeCode": "00:00:13:00",
+        "previewImageDimensions": [
+          0,
+          0
+        ]
+      }
+    },
+    "buildUploadedOrSubmitted": false
+  }
+}

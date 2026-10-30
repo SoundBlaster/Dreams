@@ -1,0 +1,6 @@
+{
+  "name": "Dreams TV",
+  "subtitle": "Lluvia digital con reloj",
+  "privacyPolicyUrl": "https://egormerkushev.ru/dreams/privacy/?lang=en",
+  "privacyPolicyText": "Dreams for Apple TV — Privacy Policy\nLast updated: October 25, 2026\n\nDreams renders animated glyph rain and an optional clock locally on Apple TV.\nNo account is required. The app does not transmit your preferences or rendered\ncontent to the developer and contains no advertising, tracking or third-party\nanalytics SDKs. Rain and clock preferences are saved locally and can be reset\nin settings. Removing the app removes its local data.\n\nApple distributes the app and handles purchases according to its own privacy\npolicy. The developer does not receive payment-card details. Apple may process\nstore and diagnostic information according to your Apple settings and policies.\n\nIf you email support, your email address, message and attachments are processed\nto answer your request. Do not send sensitive information. You may request\ndeletion of support correspondence held by the developer by contacting:\nEgor Merkushev, egor.merkushev@yandex.ru.\n\nThis policy covers the tvOS app, not the separate macOS app or its agent\nintegrations. The public website policy also describes website hosting:\nhttps://egormerkushev.ru/dreams/privacy/"
+}

@@ -1,0 +1,61 @@
+{
+  "verifiedDate": "2026-10-26",
+  "appId": "6826786729",
+  "platform": "TV_OS",
+  "version": "1.0",
+  "captureSourceSHA": "dfa87c906a141a5d7c6d6cab6ffecdf9bc710bf5",
+  "currentSourceSHA": "8a63009ae9b1d8ccb18c424d0525c892ef4044cc",
+  "sourceNote": "App source and RU resources unchanged since captured Release build; later commits are store metadata/docs. Simulator capture is not physical-device performance evidence.",
+  "locales": {
+    "ru": {
+      "setId": "26494c3a-07fc-41f1-ad25-a8876638f5e3",
+      "screenshots": [
+        {
+          "fileName": "01-rain.png",
+          "assetId": "e2400019-6e87-8fa9-8019-bdf550864190",
+          "md5": "3c74670e5302225db1d940bed59d5793",
+          "width": 1920,
+          "height": 1080,
+          "state": "COMPLETE"
+        },
+        {
+          "fileName": "02-clock.png",
+          "assetId": "70000019-6e87-8fa9-8025-338e551cbe3d",
+          "md5": "8f94d1caa384d8d5bd8ba206b5cd7725",
+          "width": 1920,
+          "height": 1080,
+          "state": "COMPLETE"
+        },
+        {
+          "fileName": "03-settings.png",
+          "assetId": "fe000019-6e87-8fa9-8013-1dc9c30bac94",
+          "md5": "1ba8e474467ccae86295e3f30971119d",
+          "width": 1920,
+          "height": 1080,
+          "state": "COMPLETE"
+        }
+      ]
+    },
+    "es-MX": {
+      "setId": "f431913b-023d-4771-9a7c-00539005251b",
+      "screenshots": [
+        {
+          "fileName": "01-rain.png",
+          "assetId": "69800019-6e87-8fa9-800e-5d6425624e65",
+          "md5": "3c74670e5302225db1d940bed59d5793",
+          "width": 1920,
+          "height": 1080,
+          "state": "COMPLETE"
+        },
+        {
+          "fileName": "02-clock.png",
+          "assetId": "f6000019-6e87-8fa9-8031-1c0b2f3bb29a",
+          "md5": "8f94d1caa384d8d5bd8ba206b5cd7725",
+          "width": 1920,
+          "height": 1080,
+          "state": "COMPLETE"
+        }
+      ]
+    }
+  }
+}

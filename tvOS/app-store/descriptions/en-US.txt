@@ -1,0 +1,7 @@
+Dreams turns your Apple TV screen into a living canvas of digital rain. Streams of glowing symbols fall, shift, and gradually fade, evoking the familiar atmosphere of computer worlds. Let the rain set the mood while you work, talk, or enjoy a quiet evening.
+
+Time becomes part of the picture. Turn on the clock, and digits emerge among the falling symbols, formed from the raindrops themselves. Choose a typeface, adjust the size, and let the clock drift gently across the screen.
+
+The rain can have a character of its own. Change its color, density, falling speed, trail length, and glow. Add pulsing brightness and rapid symbol changes. Adjust settings with your remote, and see the results immediately with live preview.
+
+Dreams is made for Apple TV and requires tvOS 18 or later. Open the app, choose your look, and press Play/Pause to hide the menu and leave just the rain on screen. The app runs while open and does not replace the Apple TV system screensaver.
