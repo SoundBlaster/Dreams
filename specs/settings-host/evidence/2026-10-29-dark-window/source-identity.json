@@ -1,0 +1,12 @@
+{
+  "baseRevision": "6d9db3470bf3d03597cf5c18e9e3d74b0dd58705",
+  "files": {
+    "Sources/Dreams/pages/settings/ui/NativeSettingsWindow.swift": "d731dc61a8b41ce91daf7dd1c615cac82b4a4cb927d3cbf49736f64368d6b0c2",
+    "Sources/Dreams/pages/settings/ui/SettingsWindow.swift": "e6fb6ded6d6b29231d8eb28b2584636fb2b5a3657b84ff5828721c81d5cd4a67",
+    "Tests/DreamsTests/NativeSettingsTests.swift": "bdd47968ef0a52a2be20c810099356e0c3e73ea93a58ce1c126cc0e4783e798b"
+  },
+  "maps": {
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/settings-host.hcs": "399b5443cfd0150de2b14d768bef3d7f3efd17184b3fc9047771272038917132"
+  }
+}

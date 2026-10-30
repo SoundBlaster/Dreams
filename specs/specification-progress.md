@@ -1,5 +1,22 @@
 # Dreams specification progress
 
+## Release 0.1.13 metadata — 2026-10-29
+
+VERSION and plugin manifests advance together for the desktop release after
+the dark settings window change. Spec-ID: NO-SPEC-IMPACT: release metadata
+does not alter runtime or existing settings-host requirements. Previous test
+and visual evidence remains tied to its original source; packaging and
+notarization are verified separately for the release artifact.
+
+## Dark desktop settings — 2026-10-29
+
+Native and legacy settings windows request Dark Aqua independent of the system
+theme. Stable `dreams.settings.host/native_controls` and
+`explicit_legacy_access` retain their identities; preview tint and lifecycle
+remain unchanged. See [baseline](settings-host/validation/2026-10-29-dark-window/README.md).
+The contract remains a descriptive draft; visual and accessibility evidence are
+separate from compilation.
+
 ## TV remote cancellation — 2026-10-28
 
 `dreams.tv.rain/remote_settings` retains swipe and cancellation requirements;
