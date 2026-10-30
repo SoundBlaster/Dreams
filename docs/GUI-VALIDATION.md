@@ -1,5 +1,33 @@
 # FSD GUI validation
 
+## Current Metal preview trace
+
+For a short trace of the production native settings UI and live Metal preview:
+
+```sh
+make trace-metal
+```
+
+On the configured macOS host, apply the TB5 preflight and pass the resulting
+`DREAMS_SWIFTPM_SCRATCH_PATH` and `DREAMS_SWIFTPM_CACHE_PATH` as described in
+`AGENTS.md` before running this build-backed command.
+
+This opt-in scenario uses the pinned Screener 0.2.0 compositor backend and
+records `metal.rain.playing`, `metal.rain.paused`, `metal.rain.resumed` and
+`metal.appearance`. It requires an unlocked GUI and existing Screen Recording
+permission; failures do not fall back to AppKit or capture the desktop. The
+output identifies the `.vtrace` directory. With the default trace directory,
+Screener MCP can find `Dreams-Metal-preview` through `screener.sessions`, then
+inspect markers and frames with `screener.timeline` and `screener.frame`.
+Set `DREAMS_LANGUAGE` to `en` or `ru` as needed. The scenario drives the model
+programmatically in a test host with an isolated feed and restores saved
+preferences. It does not record an independently running app or verify physical
+inputs. Use `DREAMS_TRACE_DIRECTORY` only if the MCP reader is configured to
+read that directory.
+
+The following earlier records describe their original versions and remain
+historical evidence.
+
 Local validation on 2026-10-12 (Europe/Moscow), macOS 27.0 (26A428),
 arm64, Swift 6.4, Xcode 27, built-in Retina display (1512 × 982 points).
 Production code tested: PR #8, commit `74405855b6081faaa6626b5eb32f1934327428fe`.

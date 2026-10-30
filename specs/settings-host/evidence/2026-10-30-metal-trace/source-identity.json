@@ -1,0 +1,16 @@
+{
+  "baseRevision": "935ea3b832083764c9e5ee655cc9b1784caeb6ef",
+  "scope": "test-only Screener Metal trace, dirty-source hashes",
+  "files": [
+    {
+      "path": "Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "snapshot": "specs/settings-host/evidence/2026-10-30-metal-trace/source/Tests/DreamsTests/NativeSettingsTraceTests.swift",
+      "sha256": "51223023520a295de119c662692a3019a84dacf91fed899d2fd023054847dd53"
+    },
+    {
+      "path": "scripts/test-native-settings-trace.py",
+      "snapshot": "specs/settings-host/evidence/2026-10-30-metal-trace/source/scripts/test-native-settings-trace.py",
+      "sha256": "285f40340fc7b5376b6270666cb740d3ba683dbfba5d10cd24a0568917a60095"
+    }
+  ]
+}

@@ -214,13 +214,13 @@ implementationBindings:
     - evidence/2026-10-24-main-integration/pr40/source/Sources/Dreams/shared/config/NativeSettingsFeature.swift
     - evidence/2026-10-14/source/Sources/Dreams/shared/lib/Localization.swift
     - evidence/2026-10-29-dark-window/source/Tests/DreamsTests/NativeSettingsTests.swift
-    - evidence/2026-10-21-appearance/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
+    - evidence/2026-10-30-metal-trace/source/Tests/DreamsTests/NativeSettingsTraceTests.swift
     - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/features/rain/ui/RainPreviewSession.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/features/rain/ui/RainPreviewSurface.swift
     - evidence/2026-10-19-no-preview-outline/source/Sources/Dreams/pages/settings/ui/NativePreviewPane.swift
     - evidence/2026-10-24-single-instance/source/Tests/DreamsTests/NativePreviewTests.swift
     - evidence/2026-10-24-single-instance/source/Sources/Dreams/pages/settings/ui/NativeRainBackdrop.swift
-    - evidence/2026-10-21-appearance/source/scripts/test-native-settings-trace.py
+    - evidence/2026-10-30-metal-trace/source/scripts/test-native-settings-trace.py
     - evidence/2026-10-24-main-integration/pr40/source/scripts/swift-macos.sh
     - evidence/2026-10-24-main-menu/source/scripts/build-app.sh
     - evidence/2026-10-18-native-sliders/source/scripts/release.sh
