@@ -40,8 +40,8 @@ struct RainTuning: Equatable {
     static let fadeRange = 1.0...16.0
     static let clockSizeRange = 0.5...1.15
 
-    // Preserve existing TV preferences/defaults; new controls use the macOS preset.
-    var columns = 96
+    // Existing saved values survive; new controls use the macOS preset.
+    var columns = 90
     var density = 0.82
     var brightness = 0.18
     var speed = 0.43
@@ -139,7 +139,7 @@ final class RainSettings {
         var initial = RainTuning()
         initial.glow = TVHardwareDefaults.glow(machine: machine)
         defaultTuning = initial
-        defaults.register(defaults: ["rain.columns": 96, "rain.density": 0.82, "rain.brightness": 0.18, "rain.speed": 0.43, "rain.fade": 3.0,
+        defaults.register(defaults: ["rain.columns": initial.columns, "rain.density": 0.82, "rain.brightness": 0.18, "rain.speed": 0.43, "rain.fade": 3.0,
                                      "clock.floating": true, "clock.typeface": "system", "clock.size": 1.0,
                                      "rain.automaticColumns": false, "rain.searchFraction": DreamsPreset.searchFraction,
                                      "rain.decelerationEnabled": DreamsPreset.decelerationEnabled, "rain.acceleration": DreamsPreset.deceleration,

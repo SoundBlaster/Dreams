@@ -1,0 +1,45 @@
+{
+  "sourceRevision": "5936633762c5a380c7af11b7f3162d46504e4f0a",
+  "commands": [
+    {
+      "command": "rtk proxy make specs-check HYPERCODE=/Users/egor/Development/GitHub/0AL/Hypercode/.build/debug/hypercode",
+      "exitCode": 0,
+      "log": "specs.log.gz"
+    },
+    {
+      "command": "rtk proxy swiftlint lint --strict --quiet",
+      "exitCode": 0,
+      "log": "lint.log.gz"
+    },
+    {
+      "command": "rtk proxy python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "log": "links.log.gz"
+    },
+    {
+      "command": "make test-tv with verified checkout TB5 DerivedData and simulator B29EC156-5EF9-4A56-8147-1C98D4E228DB",
+      "exitCode": 0,
+      "tests": 25,
+      "log": "remote-final-tests.log.gz"
+    },
+    {
+      "command": "xcodebuild Release build with local installed-identity override",
+      "exitCode": 0,
+      "log": "remote-release-build.log.gz"
+    }
+  ],
+  "acceptance": "descriptive draft; physical gestures unverified",
+  "maps": {
+    "specs/hypercode/television.hc": "3242ba0ae6e4edb131bda66181f7cea8124c61187692228c7a602a6b1048c2c8",
+    "specs/hypercode/television.hcs": "93890f42f1588ff10fe81aa383e65fa01e2909e989bfbfb677b2a3847a63aa2f",
+    "specs/tvos/specs/television.spec.yaml": "afe87bcb4206fb843dbc408f7855c33c887bf8c873cfb5736cb373b55a829add",
+    "specs/fps/specs/readout.spec.yaml": "611ea4268ba93a448684d17ac3ab1b9a880120897313d5aa3337c76ad147e379"
+  },
+  "physical": {
+    "model": "AppleTV5,3",
+    "installed": true,
+    "bundleId": "ru.egormerkushev.DreamsTV",
+    "launch": "rejected because device asleep; remote wake attempt pending",
+    "gestureAcceptance": false
+  }
+}

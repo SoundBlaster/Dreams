@@ -17,6 +17,15 @@ remain unchanged. See [baseline](settings-host/validation/2026-10-29-dark-window
 The contract remains a descriptive draft; visual and accessibility evidence are
 separate from compilation.
 
+## TV remote cancellation — 2026-10-28
+
+`dreams.tv.rain/remote_settings` retains swipe and cancellation requirements;
+the Settings role now clears suppression when a pending directional hold resets.
+Parent lifecycle and paused-preview obligations remain unchanged. The [new
+baseline](tvos/validation/2026-10-28-remote-cancel/README.md) identifies changed
+source snapshots and separates a direct cleanup test from unverified physical
+remote gesture arbitration. Existing TV contract acceptance remains draft.
+
 Goal: maintain compact architecture maps and consumer contracts alongside code
 changes. Initial scope: repository maintenance rules and the browser glyph
 editor on `96fef7ad121cf9ba278eabd878c5179fd754a0cd`. All recovered contracts are **descriptive drafts**;
@@ -1141,3 +1150,7 @@ unaccepted/unknown; historical evidence is preserved.
 ## Denser restored TV glyphs — 2026-10-25
 
 The owner rejected the first spacing result as too loose. `dreams.tv.rain/resources` now allows the nominal cap body to span1.12 rows with the same uniform XY factor. Ordinary short bodies gain near-contact packing; punctuation remains natural, classic/macOS geometry and grid/timing stay unchanged. Parent `fps` and `dreams.rain.fps/appearance` still inherit active rain sizing; no sampling/lifetime policy changes. [Current baseline](tvos/validation/2026-10-25-denser-glyphs/README.md) supersedes the rejected visual result, preserves old evidence and records source/test/visual limits. Physical-device/GPU acceptance remains outstanding.
+
+## TV90-column defaults and coarse remote input — 2026-10-25
+
+`dreams.tv.rain/persistent_tuning` now requires90 only for fresh/reset settings, preserving saved columns. `remote_settings` folds native directional single/double/hold handling into Settings: one versus ten existing unit steps, disabled/range guards, duplicate-focus suppression and repeat teardown. Parent lifecycle/paused_preview keep native focus and single-renderer obligations. FPS policies and runtime are unchanged; its changed test-file snapshot is refreshed. [Current baseline](tvos/validation/2026-10-25-remote-steps/README.md) separates25 test passes from the failed simulator interaction and pending physical gesture verification. No renderer or desktop behavior change.

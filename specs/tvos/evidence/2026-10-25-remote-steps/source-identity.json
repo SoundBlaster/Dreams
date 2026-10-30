@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "5936633762c5a380c7af11b7f3162d46504e4f0a",
+  "baseRevision": "bcf24bf49860bb04308aa0753b15a36e7fc17ba3",
+  "files": {
+    "tvOS/Sources/features/matrix/model/RainSettings.swift": "52ee124753250798d671b1591efdb52edf09dce0eb5c221d3837843968bc60d5",
+    "tvOS/Sources/pages/settings/ui/SettingsPage.swift": "85565a1a40eabb467e37ec27ec497d9fa63a73427cc91a34ac942da7402b497b",
+    "tvOS/Sources/pages/settings/ui/RemoteHoldAdjustment.swift": "8733c2d43b5bb23083750110cb011cc48285c335cb7678cec5fd5a5cc59e9210",
+    "tvOS/Sources/shared/assets/en.lproj/Localizable.strings": "ab00a69499acdf35180b4a68e0b3dcc2fbbec13fa3f7042e74b3ec0dfa9555a1",
+    "tvOS/Sources/shared/assets/ru.lproj/Localizable.strings": "fed33d7aa97b8d7959c4aab81acc959330383501ca963ace9143bc41e6b43e54",
+    "tvOS/Tests/RainParityTests.swift": "46a4c99ca573a6b7a62d384d854803a93273385b78c515a4e6cb098b23175121",
+    "tvOS/Tests/RemoteAdjustmentTests.swift": "6056f34b276a724b59471ae8bb1148849b067acfe00eed3a2b9f9cc88847b0f0"
+  },
+  "scope": "TV defaults/input change; FPS constraint semantics and renderer/shared sources unchanged."
+}

@@ -5,6 +5,20 @@ import XCTest
 
 @MainActor
 final class RainParityTests: XCTestCase {
+    func testNinetyColumnDefaultPreservesSavedValuesAndResetAdoptsNewDefault() throws {
+        let name = "DreamsTVColumnDefaults.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: name))
+        defer { defaults.removePersistentDomain(forName: name) }
+        XCTAssertEqual(RainTuning().columns, 90)
+        XCTAssertEqual(RainSettings(defaults: defaults).tuning.columns, 90)
+        defaults.set(96, forKey: "rain.columns")
+        let settings = RainSettings(defaults: defaults)
+        XCTAssertEqual(settings.tuning.columns, 96, "A saved value is not a default migration")
+        settings.reset()
+        XCTAssertEqual(settings.tuning.columns, 90)
+        XCTAssertEqual(RainSettings(defaults: defaults).tuning.columns, 90)
+    }
+
     func testNewOptionsMigrateExistingPreferencesAndPersist() throws {
         let name = "DreamsTVParityTests.\(UUID().uuidString)"
         let defaults = try XCTUnwrap(UserDefaults(suiteName: name))

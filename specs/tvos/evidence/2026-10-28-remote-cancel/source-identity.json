@@ -1,0 +1,12 @@
+{
+  "baseRevision": "dfa87c906a141a5d7c6d6cab6ffecdf9bc710bf5",
+  "files": {
+    "tvOS/Sources/pages/settings/ui/RemoteHoldAdjustment.swift": "fa20b1686412173cc981a857ce1d3189a0a5c3543cc50b44d0832282106f4a00",
+    "tvOS/Tests/RemoteAdjustmentTests.swift": "286af578fd42f69367803f4ce8828165138986fb04ef90851db553a4a1e16412"
+  },
+  "maps": {
+    "specs/hypercode/television.hc": "3242ba0ae6e4edb131bda66181f7cea8124c61187692228c7a602a6b1048c2c8",
+    "specs/hypercode/television.hcs": "93890f42f1588ff10fe81aa383e65fa01e2909e989bfbfb677b2a3847a63aa2f"
+  },
+  "note": "Source snapshot includes a later lint-only comment; behavioral test used identical code. Base revision does not identify changed files."
+}
