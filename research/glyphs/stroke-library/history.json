@@ -55,8 +55,62 @@
       "label": "オ · округлые окончания · ручная версия 3",
       "parent": null,
       "projectHash": "56bcad6e982f325be6708ae5b04c025db491c48997fac11061e47114b6872b11"
+    },
+    {
+      "attributionChanged": false,
+      "changedGlyphs": [
+        "オ"
+      ],
+      "createdAt": "2026-10-12T22:17:12.306145+00:00",
+      "id": "278fb97113c84336be9d1ba347a80c14",
+      "label": "オ · круглый",
+      "parent": "688c0d7c4deb435290f9366ebf91fa15",
+      "projectHash": "047b188dbb9d3ac028450fac4ecaa29707069620f9469dda3761cddebf87f931"
+    },
+    {
+      "attributionChanged": false,
+      "changedGlyphs": [
+        "フ",
+        "ワ"
+      ],
+      "createdAt": "2026-10-12T22:57:57.009976+00:00",
+      "id": "97d7ffc2549848af962835173f459add",
+      "label": "フ · начало",
+      "parent": "278fb97113c84336be9d1ba347a80c14",
+      "projectHash": "6a080d183871ba9c72eb12f72bff62300b83727773e086bef62a431280c18283"
+    },
+    {
+      "attributionChanged": false,
+      "changedGlyphs": [],
+      "createdAt": "2026-10-12T23:02:19.957208+00:00",
+      "id": "2f0e147bcd3e441b945e5450c8d05c24",
+      "label": "オ · с фоном",
+      "parent": "97d7ffc2549848af962835173f459add",
+      "projectHash": "6a080d183871ba9c72eb12f72bff62300b83727773e086bef62a431280c18283"
+    },
+    {
+      "attributionChanged": false,
+      "changedGlyphs": [
+        "オ"
+      ],
+      "createdAt": "2026-10-12T23:11:40.971228+00:00",
+      "id": "da741aacd8b94e38aa297316cb2a33fc",
+      "label": "オ · вписанный",
+      "parent": "2f0e147bcd3e441b945e5450c8d05c24",
+      "projectHash": "660dc904b208017e05e7e8616f3a0c0787f4cad0d7102db9786831eeb13f9917"
+    },
+    {
+      "attributionChanged": false,
+      "changedGlyphs": [
+        "ワ"
+      ],
+      "createdAt": "2026-10-12T23:16:33.759778+00:00",
+      "id": "38d0ef2e821a43eea35e19229fb581f3",
+      "label": "オ · вписанный",
+      "parent": "da741aacd8b94e38aa297316cb2a33fc",
+      "projectHash": "d0387e9219a90124b7b86c84a40b86f6231e6873d2dcf70996071cdf6e40429f"
     }
   ],
-  "head": "688c0d7c4deb435290f9366ebf91fa15",
+  "head": "38d0ef2e821a43eea35e19229fb581f3",
   "schema": "dreams.stroke-library/v1"
 }
