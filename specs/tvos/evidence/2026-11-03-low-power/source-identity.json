@@ -1,0 +1,12 @@
+{
+  "sourceRevision": "80d05cde2e56a009ed0989d7965488ac9ed8ab7f",
+  "baseRevision": "550a2859dd7dcf80966fd53f71f4714edc82be57",
+  "files": {
+    "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift": "571bb3d98d65d48b7c0b8096d94ad32c1020e89a8476edf2869f308e56fc2190",
+    "tvOS/Tests/RainParityTests.swift": "ac5dc6830430cb0111929faaaf752389082e26d8dcf8646fb43ee62085d5cd8e",
+    "Makefile": "3e5381acff5e2ae7d00b1372360317e5ccd63367bbe3043a10b2a2671383ceb9",
+    "Sources/Dreams/Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+    "tvOS/project.yml": "3dafe934663f914384241b6dcd6025995db0b2d1856badeafdfe53d26845c62c"
+  },
+  "acceptance": "Descriptive draft; source binding refreshed for low power policy; runtime device acceptance pending."
+}

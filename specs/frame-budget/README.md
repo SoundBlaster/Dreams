@@ -3,7 +3,7 @@
 [Contract](specs/budget.spec.yaml), [map](../hypercode/frame-budget.hc),
 [validation](validation/2026-11-03/README.md).
 
-Glow above zero keeps the historical 30 fps request on macOS and tvOS. With Glow
+Low Power Mode requests 30 fps on macOS and tvOS. Glow above zero also keeps the historical 30 fps request. With Glow
 at zero the renderer follows its screen's maximum refresh, capped at 120 fps, and
 re-evaluates after window attachment or a move to another display. Halo work below
 a 1/16384 coverage floor is skipped both on the CPU (instances) and in the diffuse

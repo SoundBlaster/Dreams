@@ -1,5 +1,9 @@
 # Dreams specification progress
 
+## Low Power Mode — 2026-11-03
+
+`dreams.rain.frame_budget/glow_frame_rate` requests 30 fps in system Low Power Mode on both profiles and restores the prior Glow/screen policy on exit. Changes take effect on the next drawn frame. FrameBudget, FPS, drop-motion, feed, performance, settings-host and television bindings now point to the new source baseline; earlier measurements remain historical. [Validation](frame-budget/validation/2026-11-03-low-power/README.md) records tests and unverified device/power behavior.
+
 ## Rain frame budget — 2026-11-03
 
 New descriptive draft `dreams.rain.frame_budget` (`glow_frame_rate`,

@@ -160,16 +160,16 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 8deda1e1d38b1349cad78cca966749ce5c827a9f
+    revision: 80d05cde2e56a009ed0989d7965488ac9ed8ab7f
   files:
     owned:
     - evidence/2026-10-25-grid-clock/source/Tests/DreamsTests/SimulationStartTimeTests.swift
     - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
-    - evidence/2026-11-03-frame-budget/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-11-03-frame-budget/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings

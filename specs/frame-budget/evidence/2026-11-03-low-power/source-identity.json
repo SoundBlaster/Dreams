@@ -1,0 +1,15 @@
+{
+  "sourceRevision": "80d05cde2e56a009ed0989d7965488ac9ed8ab7f",
+  "baseRevision": "550a2859dd7dcf80966fd53f71f4714edc82be57",
+  "files": {
+    "Sources/Dreams/features/rain/model/RainFrameBudget.swift": "08f457a3568a785d0893620690a1c6834f094e3d857e2de8de4bd84a4d9a4330",
+    "Sources/Dreams/features/rain/ui/RainRenderer.swift": "20246272d0693172cc0e85d478d62ec1988daf7bdc018acdeb2284cc612a8bab",
+    "Sources/Dreams/features/rain/ui/MatrixRain.swift": "c4805c20fbccdea088293b50bb133815059fd299cfd25d529f9951e6dc8a8e0c",
+    "Sources/Dreams/Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+    "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift": "571bb3d98d65d48b7c0b8096d94ad32c1020e89a8476edf2869f308e56fc2190",
+    "tvOS/project.yml": "3dafe934663f914384241b6dcd6025995db0b2d1856badeafdfe53d26845c62c",
+    "Tests/DreamsTests/RainFrameBudgetTests.swift": "7875daca8b02a36a8308e45f18787562d04d6446d9dd186ebbc2b97d3ac57123",
+    "tvOS/Tests/RainParityTests.swift": "ac5dc6830430cb0111929faaaf752389082e26d8dcf8646fb43ee62085d5cd8e"
+  },
+  "acceptance": "Descriptive draft; source binding refreshed for low power policy; runtime device acceptance pending."
+}
