@@ -4,6 +4,14 @@ import Testing
 @testable import Dreams
 
 struct RainFrameBudgetTests {
+    @Test func lowPowerOverridesGlowAndScreenRate() {
+        for glow in [0.0, 1.0] {
+            for screen in [0, 60, 120, 240] {
+                #expect(RainFrameBudget.framesPerSecond(glow: glow, screenMaximum: screen, lowPower: true) == 30)
+            }
+        }
+        #expect(RainFrameBudget.framesPerSecond(glow: 0, screenMaximum: 120, lowPower: false) == 120)
+    }
     @Test func glowKeepsTheThirtyFrameBudget() {
         for screen in [0, 60, 120, 240] {
             #expect(RainFrameBudget.framesPerSecond(glow: 1, screenMaximum: screen) == 30)

@@ -94,7 +94,8 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         let value = tuning.normalized()
         // Glow keeps 30 fps; without it the view follows its screen, up to 120.
         let rate = RainFrameBudget.framesPerSecond(glow: value.glow,
-            screenMaximum: view.window?.windowScene?.screen.maximumFramesPerSecond ?? 0)
+            screenMaximum: view.window?.windowScene?.screen.maximumFramesPerSecond ?? 0,
+            lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled)
         if view.preferredFramesPerSecond != rate { view.preferredFramesPerSecond = rate }
         if fpsEnabled != value.showsFPS { fps.reset(); fpsEnabled = value.showsFPS }
         let aspect = view.drawableSize.width / view.drawableSize.height
