@@ -21,6 +21,7 @@ targets:
       - path: ../Sources/Dreams/features/rain/model/PresentedFPS.swift
       - path: ../Sources/Dreams/features/rain/ui/FPSOverlay.swift
       - path: ../Sources/Dreams/features/rain/model/GlyphPulse.swift
+      - path: ../Sources/Dreams/features/rain/model/RainFrameBudget.swift
       - path: ../Sources/Dreams/features/rain/config/DreamsPreset.swift
       - path: ../Sources/Dreams/Rain.metal
         buildPhase:

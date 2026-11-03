@@ -182,4 +182,23 @@ final class RainParityTests: XCTestCase {
         XCTAssertEqual(stable.cores.map(\.color), later.cores.map(\.color))
         XCTAssertTrue(stable.halos.isEmpty)
     }
+
+    func testRendererSkipsInvisibleHalosAndKeepsTheGlowFrameBudget() throws {
+        let view = MTKView()
+        let renderer = try MatrixRenderer(view: view) { XCTFail("Renderer failed") }
+        defer { view.isPaused = true; view.delegate = nil }
+        XCTAssertEqual(view.preferredFramesPerSecond, 30)
+        let atlas = try FilmAtlas(device: XCTUnwrap(view.device))
+        var rain = MatrixSimulation(columnCount: 24, rows: 16, glyphCount: atlas.variantCount, seed: 23, density: 1)
+        rain.advance(to: 10)
+        var tuning = RainTuning(density: 1)
+        tuning.showsClock = false
+        let visible = renderer.makeCells(simulation: rain, tuning: tuning, wallTime: 1)
+        XCTAssertFalse(visible.halos.isEmpty)
+        XCTAssertTrue(visible.halos.allSatisfy { $0.color.w >= RainFrameBudget.minimumHaloAlpha })
+        tuning.glow = 0.00001
+        let faint = renderer.makeCells(simulation: rain, tuning: tuning, wallTime: 1)
+        XCTAssertEqual(faint.cores.map(\.rect), visible.cores.map(\.rect))
+        XCTAssertTrue(faint.halos.isEmpty, "Halos below the shader's visible floor are not submitted")
+    }
 }

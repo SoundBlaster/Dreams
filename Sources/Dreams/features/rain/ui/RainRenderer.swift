@@ -19,7 +19,7 @@ final class RainRenderer: NSObject {
     var rainTint = SIMD3<Float>(0.008, 0.26, 0.055)
     var keywordBrightness = DreamsPreset.keywordBrightness
     var rainIdleIntensity = DreamsPreset.idleIntensity
-    var rainGlow = DreamsPreset.glow
+    var rainGlow = DreamsPreset.glow { didSet { if rainGlow != oldValue, let view { applyFrameBudget(to: view) } } }
     var rainSpeed = DreamsPreset.speed
     var rainSearchFraction = DreamsPreset.searchFraction
     var rainDeceleration = MatrixSimulation.Deceleration()
@@ -31,6 +31,8 @@ final class RainRenderer: NSObject {
     var performanceRecorder: RainPerformanceRecorder?
     let feedReader: KeywordFeedReader
     private let feedSubscription: KeywordFeedSubscription
+    private weak var view: MTKView?
+    private weak var frameBudgetScreen: NSScreen?
 
     init(view: MTKView, restoredGlyphs: Bool = false, transparentBackground: Bool = false,
          feedReader: KeywordFeedReader = .shared) throws {
@@ -52,10 +54,19 @@ final class RainRenderer: NSObject {
         view.colorPixelFormat = colorPixelFormat
         if transparentBackground { view.colorspace = CGColorSpace(name: CGColorSpace.sRGB) }
         view.framebufferOnly = true
-        view.preferredFramesPerSecond = 30
+        self.view = view
+        applyFrameBudget(to: view)
         view.delegate = self
         view.clearColor = MTLClearColorMake(0, 0, 0, transparentBackground ? 0 : 1)
         view.layer?.isOpaque = !transparentBackground
+    }
+
+    /// Glow keeps 30 fps; without it the view follows its screen, up to 120.
+    private func applyFrameBudget(to view: MTKView) {
+        let screen = view.window?.screen
+        frameBudgetScreen = screen
+        let rate = RainFrameBudget.framesPerSecond(glow: rainGlow, screenMaximum: screen?.maximumFramesPerSecond ?? 0)
+        if view.preferredFramesPerSecond != rate { view.preferredFramesPerSecond = rate }
     }
 
     func setRestoredGlyphs(_ enabled: Bool) throws {
@@ -128,6 +139,8 @@ extension RainRenderer: @MainActor MTKViewDelegate {
     func draw(in view: MTKView) { draw(in: view, posedTime: nil) }
 
     func draw(in view: MTKView, posedTime: Float?, referenceSize: CGSize? = nil) {
+        // The window can be attached after construction or move to another display.
+        if view.window?.screen !== frameBudgetScreen { applyFrameBudget(to: view) }
         let measurement = performanceRecorder.map { RainFrameMeasurement(observeFeed: $0.observeFeed) }
         guard let drawable = view.currentDrawable,
               let descriptor = view.currentRenderPassDescriptor,
