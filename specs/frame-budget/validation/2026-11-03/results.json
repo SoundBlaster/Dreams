@@ -1,0 +1,74 @@
+{
+  "runtimeRevision": "8deda1e1d38b1349cad78cca966749ce5c827a9f",
+  "baseRevision": "4569dfc2597e846ce9b492cee1ed45a02e42a6d6",
+  "host": "MacBook Pro, Apple M4 Pro, built-in Liquid Retina XDR 3024x1964 (ProMotion, maximumFramesPerSecond 120), macOS Darwin 27.0.0",
+  "binaries": {
+    "before": "f9737051449eca55afdf42b76af715078604158be81368c3c2488262a846046f",
+    "after": "de375dca73cbbce8e71fe86bba3252aae64b223e6cd701eb1eac830a6535feca"
+  },
+  "tdd": {
+    "red1": "New tests without RainFrameBudget: compile failure (cannot find 'RainFrameBudget'), logs/red1.log.gz",
+    "red2": "Policy file only, renderers unchanged, 1/512 floor and glow 0.0001: invisibleHalosAreNotSubmitted failed (counts[1] == 0); policy and rendererAppliesTheGlowBudgetToItsView passed because 30 fps was already the fixed request, logs/red2.log.gz",
+    "green": "logs/green-focused.log.gz (1/512 floor, before threshold change) and final logs/metal-focused.log.gz (1/16384, glow 0.00001)",
+    "tvOS": "The TV test was written before the TV implementation but first executed after it; no TV Red was observed"
+  },
+  "commands": [
+    {
+      "command": "make lint",
+      "exitCode": 0,
+      "log": "logs/lint.log.gz"
+    },
+    {
+      "command": "scripts/swift-macos.sh test -c release (TB5 scratch/cache)",
+      "exitCode": 0,
+      "result": "110 tests in 27 suites passed; GPU/UI opt-ins skipped",
+      "log": "logs/full-suite.log.gz"
+    },
+    {
+      "command": "DREAMS_TEST_METAL=1 DREAMS_FEED_DIRECTORY=<temp> scripts/swift-macos.sh test -c release --filter 'RainFrameBudget|GlyphPulseRendering|TransparentFadeRendering|DropHeadRendering|RainTrailRendering|PresentedFPS'",
+      "exitCode": 0,
+      "result": "16 tests in 7 suites passed",
+      "log": "logs/metal-focused.log.gz"
+    },
+    {
+      "command": "make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=<TB5 tvOS DerivedData> TV_TEST_OPTIONS='-parallel-testing-enabled NO'",
+      "exitCode": 0,
+      "result": "27 TV tests passed on the Apple TV 4K (3rd generation) simulator",
+      "log": "logs/tv-tests.log.gz"
+    },
+    {
+      "command": "make specs-check HYPERCODE=<local hypercode>",
+      "exitCode": 0,
+      "result": "all HC maps ok; SpecPM warning_only; new package adds only the shared required_capability_unresolved warning",
+      "log": "logs/specs-check.log.gz"
+    },
+    {
+      "command": "make app (before and after, TB5 SwiftPM scratch/glyph output)",
+      "exitCode": 0,
+      "logs": [
+        "logs/build-before.log.gz",
+        "logs/build-after.log.gz"
+      ]
+    }
+  ],
+  "pixelIdentity": {
+    "command": "DREAMS_FEED_DIRECTORY=<empty temp> Dreams --render-demo <dir> (180 posed frames, 1512x982, opaque, default glow) for both binaries",
+    "isolation": "Without an isolated feed, the live mailbox (this session's hooks) made two runs of the same baseline binary differ from frame 16; those comparisons were discarded",
+    "candidates": {
+      "1/512": "max 15/255, 6.4% pixels changed (60 sampled frames)",
+      "1/2048": "max 4, 1.64%",
+      "1/4096": "max 3, 0.33%",
+      "1/8192": "max 2, 0.0011%",
+      "1/16384": "identical",
+      "1/65536": "identical"
+    },
+    "final": "1/16384: all 180 frames byte-identical in RGBA (max channel diff 0)",
+    "notCovered": "transparent overlay pixels (covered only by existing TransparentFadeRenderingTests), tvOS pixels, live compositor"
+  },
+  "performance": {
+    "protocol": "scripts/run-performance.py, 3 runs per scenario, 30 s warmup + 60 s measurement, windowed macOS probe; retina fixtures copy normal/dense/dense-no-glow with 3024x1964 drawable/reference",
+    "runs": "runs/before/<scenario>, runs/after/<scenario> (manifest, scenario, compressed per-run reports, summary.json); all 36 runs valid",
+    "limits": "Windowed single renderer on the built-in display; not fullscreen overlay, multi-display, power/thermal or Apple TV device evidence"
+  },
+  "bindingRefresh": "Full-file snapshots under evidence/2026-11-03-frame-budget in drop-motion, fps, keyword-feed, performance, settings-host and tvos; the tvos Makefile snapshot includes the follow-up specs-check target added in the documentation commit"
+}

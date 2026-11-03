@@ -1,0 +1,82 @@
+apiVersion: specpm.dev/v0.1
+kind: BoundarySpec
+metadata:
+  id: dreams.rain.frame_budget
+  title: RainFrameBudget
+  version: 0.1.0-draft.1
+  status: draft
+intent:
+  summary: Spend display refresh only where Glow does not already dominate frame cost, and skip halo work that cannot change pixels.
+scope:
+  boundedContext: rain_rendering_cost
+  includes:
+  - Requested MTKView frame rate on macOS rain/preview/probe renderers and the tvOS renderer.
+  - CPU halo instance submission and the diffuse halo fragment path shared through Rain.metal.
+  excludes:
+  - Glow appearance, core glyph shading, simulation timing, settings UI, FPS readout semantics, power/thermal budgets and physical Apple TV acceptance.
+provides:
+  capabilities:
+  - id: dreams.rain.frame_budget
+    role: primary
+    summary: Glow-dependent preferredFramesPerSecond and an invisible-halo coverage floor.
+requires:
+  capabilities:
+  - id: platform.apple.metal_renderer
+    summary: MTKView preferredFramesPerSecond, NSScreen/UIScreen maximumFramesPerSecond and instanced Metal halo draws.
+interfaces:
+  inbound:
+  - id: glow_and_screen
+    kind: library
+    summary: Current Glow tuning and the hosting window's screen.
+    operations:
+    - name: RainFrameBudget.framesPerSecond
+      inputs:
+      - name: glow
+        type: Double, 0...3
+      - name: screenMaximum
+        type: Int; 0 when the view has no window/screen
+      outputs:
+      - name: framesPerSecond
+        type: 30 with Glow above zero or an unknown screen; otherwise min(screen maximum, 120)
+  outbound:
+  - id: renderer_requests
+    kind: library
+    summary: Renderers set MTKView.preferredFramesPerSecond and omit halos below the shared floor.
+constraints:
+- id: glow_frame_rate
+  level: MUST
+  statement: With Glow above zero (or a non-finite value) request 30 fps. With Glow exactly zero request the hosting screen's maximumFramesPerSecond, capped at 120. A view without a window/screen requests 30. macOS applies the policy at construction, on every Glow change and before a draw whose window screen differs from the last evaluated screen, so window attachment and moves between displays take effect on the next frame. tvOS evaluates the normalized tuning and its window scene's screen at each drawn frame. Simulation, pulse and wall-clock behavior stay time-based; a higher rate changes cadence, not motion speed. Offline posed PNG renders are unaffected.
+- id: invisible_halo_floor
+  level: MUST
+  statement: The shared floor is 1/16384 halo coverage (RainFrameBudget.minimumHaloAlpha, mirrored literally in matrixFragment). The diffuse fragment returns zero before evaluating light clouds when sampled atlas alpha times instance alpha is below the floor. macOS and tvOS do not submit a halo instance whose alpha is below the floor; because atlas alpha never exceeds one, every fragment of such an instance would return zero, so CPU culling adds no further visual change. The floor keeps a skipped contribution below half an sRGB step at black for halo colors up to 2.6. Glow zero still emits no halos. Do not substitute the coarser 1/512 floor, which measurably darkened near-black skirts.
+evidence:
+- id: validation
+  kind: test
+  path: validation/2026-11-03/README.md
+  supports:
+  - constraints.glow_frame_rate
+  - constraints.invisible_halo_floor
+provenance:
+  sourceConfidence:
+    intent: high
+    extraction: high
+    behavior: medium
+  notes:
+  - Owner-requested performance change (first performance PR). The 30 fps glow budget, the 120 fps cap and visual equivalence were requested; the 1/16384 floor is an implementation choice bracketed by offscreen pixel comparisons. Descriptive draft; windowed macOS probe measurements are not fullscreen, multi-display, power or tvOS device acceptance.
+implementationBindings:
+- id: frame_budget
+  language: swift
+  source:
+    repository: https://github.com/SoundBlaster/Dreams
+    revision: 8deda1e1d38b1349cad78cca966749ce5c827a9f
+  files:
+    owned:
+    - evidence/2026-11-03/source/Sources/Dreams/features/rain/model/RainFrameBudget.swift
+    - evidence/2026-11-03/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-11-03/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-11-03/source/Sources/Dreams/Rain.metal
+    - evidence/2026-11-03/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-11-03/source/tvOS/project.yml
+    - evidence/2026-11-03/source/Tests/DreamsTests/RainFrameBudgetTests.swift
+    - evidence/2026-11-03/source/tvOS/Tests/RainParityTests.swift
+    border: []

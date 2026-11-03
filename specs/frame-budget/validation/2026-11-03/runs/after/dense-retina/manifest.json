@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "runKind": "baseline",
+  "calibrationMode": null,
+  "revision": "4569dfc2597e846ce9b492cee1ed45a02e42a6d6",
+  "workingTreeStatus": " M Makefile\n M Sources/Dreams/Rain.metal\n M Sources/Dreams/features/rain/ui/MatrixRain.swift\n M Sources/Dreams/features/rain/ui/RainRenderer.swift\n M docs/REFERENCE.md\n M specs/hypercode/overlay-session.hc\n M specs/hypercode/overlay-session.hcs\n M specs/hypercode/television.hc\n M specs/hypercode/television.hcs\n M tvOS/Sources/features/matrix/ui/MatrixRenderer.swift\n M tvOS/Tests/RainParityTests.swift\n M tvOS/project.yml\n?? .asc/\n?? .swiftpm/\n?? Sources/Dreams/features/rain/model/RainFrameBudget.swift\n?? Tests/DreamsTests/RainFrameBudgetTests.swift\n?? specs/frame-budget/\n?? specs/hypercode/frame-budget.hc\n?? specs/hypercode/frame-budget.hcs\n",
+  "binarySHA256": "de375dca73cbbce8e71fe86bba3252aae64b223e6cd701eb1eac830a6535feca",
+  "resourceSHA256": {
+    "Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+    "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "fixtureSHA256": "9834b322c09db92425d6195ea5a2c959c63680cf5f9e3c231e9d73b255dcb390",
+  "machine": "arm64",
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "sdk": "27.0",
+  "command": [
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-after/Dreams.app/Contents/MacOS/Dreams",
+    "--performance-run",
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/after/dense-retina/scenario.json"
+  ],
+  "results": [
+    {
+      "file": "run-01.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-after/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-run",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/after/dense-retina/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/after/dense-retina/run-01.json"
+      ]
+    },
+    {
+      "file": "run-02.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-after/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-run",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/after/dense-retina/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/after/dense-retina/run-02.json"
+      ]
+    },
+    {
+      "file": "run-03.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-after/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-run",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/after/dense-retina/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/after/dense-retina/run-03.json"
+      ]
+    }
+  ]
+}

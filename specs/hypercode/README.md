@@ -100,3 +100,5 @@ structural validation.
 
 The [FPS readout](fps.hc) / [profiles](fps.hcs) recover the opt-in digit overlay
 and its platform-specific timestamp semantics; [contract](../fps/README.md).
+
+[Frame budget](frame-budget.hc) / [profiles](frame-budget.hcs) describe the glow-dependent frame-rate request and the shared invisible-halo floor under both Renderer roles; validate the default and `platform=tvos`. [Draft contract](../frame-budget/README.md).

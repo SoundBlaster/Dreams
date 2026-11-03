@@ -1,0 +1,8 @@
+{
+  "sourceRevision": "8deda1e1d38b1349cad78cca966749ce5c827a9f",
+  "baseRevision": "4569dfc2597e846ce9b492cee1ed45a02e42a6d6",
+  "files": {
+    "Sources/Dreams/features/rain/ui/RainRenderer.swift": "6514c40a38cb9c572832e0d2c54178bc9f87df9ef7f47641a1c42cc159bcea16"
+  },
+  "acceptance": "descriptive draft; refreshed full-file bindings for the frame-budget change; offscreen pixel identity, unit/simulator tests and windowed macOS probe only"
+}

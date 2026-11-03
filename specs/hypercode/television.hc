@@ -9,3 +9,4 @@ TelevisionApplication
     ClockMask
     GlyphResources
     FPSReadout
+    FrameBudget

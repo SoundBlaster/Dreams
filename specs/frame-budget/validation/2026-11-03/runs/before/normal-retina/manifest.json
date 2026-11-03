@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "runKind": "baseline",
+  "calibrationMode": null,
+  "revision": "4569dfc2597e846ce9b492cee1ed45a02e42a6d6",
+  "workingTreeStatus": " M tvOS/Tests/RainParityTests.swift\n?? .asc/\n?? .swiftpm/\n?? Tests/DreamsTests/RainFrameBudgetTests.swift\n?? specs/frame-budget/\n",
+  "binarySHA256": "f9737051449eca55afdf42b76af715078604158be81368c3c2488262a846046f",
+  "resourceSHA256": {
+    "Rain.metal": "e2b0b498eb5fdbc49a87697536638fddb396936327f134bca0387c3689f8d3e6",
+    "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "fixtureSHA256": "a1d8e3f563379f2913c557ca998d366880c4c2c128b48a18e2966537aed0f315",
+  "machine": "arm64",
+  "hardwareModel": "Mac16,8",
+  "cpuModel": "Apple M4 Pro",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "sdk": "27.0",
+  "command": [
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-before/Dreams.app/Contents/MacOS/Dreams",
+    "--performance-run",
+    "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/before/normal-retina/scenario.json"
+  ],
+  "results": [
+    {
+      "file": "run-01.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-before/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-run",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/before/normal-retina/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/before/normal-retina/run-01.json"
+      ]
+    },
+    {
+      "file": "run-02.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-before/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-run",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/before/normal-retina/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/before/normal-retina/run-02.json"
+      ]
+    },
+    {
+      "file": "run-03.json",
+      "exitCode": 0,
+      "valid": true,
+      "command": [
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/bin-before/Dreams.app/Contents/MacOS/Dreams",
+        "--performance-run",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/before/normal-retina/scenario.json",
+        "/Volumes/TB5/Developer/Builds/GitHub/Dreams-15017784a0f35c81/perf/before/normal-retina/run-03.json"
+      ]
+    }
+  ]
+}

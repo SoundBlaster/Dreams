@@ -3,7 +3,7 @@ kind: SpecPackage
 metadata:
   id: dreams.keyword_feed_reader
   name: Dreams shared feed reader
-  version: 0.1.0-draft.1
+  version: 0.1.0-draft.2
   summary: Ready mailbox snapshots for macOS render consumers without frame-path mailbox I/O.
   license: MIT
   authors:
