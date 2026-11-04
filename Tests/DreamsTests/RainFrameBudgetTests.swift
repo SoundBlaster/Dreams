@@ -4,6 +4,10 @@ import Testing
 @testable import Dreams
 
 struct RainFrameBudgetTests {
+    @Test func defaultGlowIsDisabledForBothBackgrounds() {
+        #expect(DreamsPreset.glow == 0)
+        #expect(DreamsPreset.transparentGlow == 0)
+    }
     @Test func lowPowerOverridesGlowAndScreenRate() {
         for glow in [0.0, 1.0] {
             for screen in [0, 60, 120, 240] {

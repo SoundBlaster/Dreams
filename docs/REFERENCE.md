@@ -27,7 +27,7 @@ dist/Dreams.app/Contents/MacOS/Dreams --lab
 
 ## Default look
 
-The defaults live in `DreamsPreset` (`Sources/Dreams/features/rain/config/DreamsPreset.swift`) and apply until the user changes a setting: density 0%, fade width 3 glyphs, speed 0.43×, brightness spread 51%, glow 57% (0% on a transparent background), calm background 77%, word colour (0, 255, 100) at 200% brightness, restored film glyphs on. To see the default look on this Mac, erase the saved values: `defaults delete ru.egormerkushev.dreams`.
+The defaults live in `DreamsPreset` (`Sources/Dreams/features/rain/config/DreamsPreset.swift`) and apply until the user changes a setting: density 0%, fade width 3 glyphs, speed 0.43×, brightness spread 51%, glow 0% for both backgrounds, calm background 77%, word colour (0, 255, 100) at 200% brightness, restored film glyphs on. Saved glow settings are preserved.
 
 ## MCP
 
@@ -176,7 +176,7 @@ All settings are applied immediately and saved between launches. **Reset to Defa
 - **Fade width** (1–16 glyphs, default 3): how many rows dissolve at once from the top edge of a tail, measured at its slower speed. At 1 the next glyph starts to fade after the previous has gone; at 16 the edge is soft. It applies to new streams regardless of density.
 - **Rain speed** (0.25×–3×, default 0.43×): changes the pace of printing, mutation and fading together while preserving the stretching profile in cells; the decay time of agent activity stays the same.
 - **Brightness spread** (0–100%, default 51%): at 0 ordinary green glyphs all have the same brightness, at 100% the original random range is used. White flashes and tail fading remain.
-- **Glow** (0–300%, default 57%, 0% when transparent): the strength of the diffuse halo; 0% turns it off and keeps the brightness of the glyphs themselves. It is stored separately for the black and the transparent background (`rainGlow` and `transparentRainGlow`, default 0), and the slider shows the value of the selected mode.
+- **Glow** (0–300%, default 0%): the strength of the diffuse halo; 0% turns it off and keeps the brightness of the glyphs themselves. It is stored separately for the black and the transparent background (`rainGlow` and `transparentRainGlow`), and the slider shows the value of the selected mode.
 - **Calm background** (0–100%, default 77%): the background that the rain decays to after a surge. 0% is a black screen between messages. The background stays muted; a surge always runs at full strength. Without any active agents only sparse columns at 35% of normal exposure remain; with work the rain brightens smoothly over 1.8 s and returns to idle in 4 s. At density 100% every column rains even at idle, only dimmer.
 - **Rain colour**: stored separately for the black background (`rainColor`, default the classic dark green) and the transparent one (`transparentRainColor`, default a light mint so the letters read on bright wallpapers). The swatch shows the colour as it appears on screen; the halo follows the colour. `rain_color_rgb` (linear RGB) is reported in the status.
 - **Agent words**: colour and brightness are set separately from the rain. Default colour bright green (0, 255, 100); brightness 0–200%, default 200%; 0% hides the words. The colour applies to the letters and their glow; short light heads are kept.

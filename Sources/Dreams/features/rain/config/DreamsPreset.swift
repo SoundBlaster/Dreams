@@ -9,7 +9,7 @@ enum DreamsPreset {
     static let deceleration = MatrixSimulation.Deceleration.defaultAcceleration
     static let brightnessSpread = 0.51
     static let pulseStrength = 0.3
-    static let glow = 0.57
+    static let glow = 0.0
     static let transparentGlow = 0.0
     static let idleIntensity = 0.77
     static let keywordColor = [0.0, 1.0, 0.39]

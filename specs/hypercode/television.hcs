@@ -20,7 +20,7 @@ Settings:
   play_pause: "open-settings-from-rain; close-open-menu; preview-pause-is-a-separate-toggle"
 Tuning:
   source: "tvOS/Sources/features/matrix/model/RainSettings.swift"
-  implementation: "normalized-persistent-TV-preferences; new-and-reset-columns-90; preserve-saved-columns-and-old-keys; A8-default-and-reset-glow-zero"
+  implementation: "normalized-persistent-TV-preferences; new-and-reset-columns-90; preserve-saved-columns-and-old-keys; all-hardware-default-and-reset-glow-zero"
 Renderer:
   source: "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift"
   assembly: "one-Metal-surface; linear-sRGB-input; cached-clock-mask; no-agent-feed"
