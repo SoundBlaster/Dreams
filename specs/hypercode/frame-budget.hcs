@@ -1,0 +1,17 @@
+FrameBudget:
+  capability: "dreams.rain.frame_budget"
+  profiles: "macOS-NSScreen; tvOS-UIScreen"
+  source: "Sources/Dreams/features/rain/model/RainFrameBudget.swift"
+FrameRate:
+  source: "Sources/Dreams/features/rain/ui/RainRenderer.swift"
+  policy: "glow-above-zero-30; glow-zero-screen-maximum-capped-120; unknown-screen-30"
+  reevaluation: "construction; glow-change; draw-with-changed-window-screen"
+HaloFloor:
+  source: "Sources/Dreams/features/rain/ui/MatrixRain.swift + Sources/Dreams/Rain.metal"
+  floor: "coverage-1/16384; CPU-instance-skip; diffuse-fragment-early-zero-before-light-cloud"
+@platform[tvos]:
+  FrameRate:
+    source: "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift"
+    reevaluation: "every-drawn-frame-from-normalized-tuning-and-window-scene-screen"
+  HaloFloor:
+    source: "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift + shared Rain.metal"

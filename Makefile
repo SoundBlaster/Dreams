@@ -243,6 +243,10 @@ specs-check:
 	"$(HYPERCODE)" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs
 	"$(HYPERCODE)" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs --ctx platform=tvos
 	"$(SPECPM)" validate specs/fps --json
+	"$(HYPERCODE)" parse specs/hypercode/frame-budget.hc
+	"$(HYPERCODE)" validate specs/hypercode/frame-budget.hc --hcs specs/hypercode/frame-budget.hcs
+	"$(HYPERCODE)" validate specs/hypercode/frame-budget.hc --hcs specs/hypercode/frame-budget.hcs --ctx platform=tvos
+	"$(SPECPM)" validate specs/frame-budget --json
 	"$(HYPERCODE)" parse specs/hypercode/keyword-feed.hc
 	"$(HYPERCODE)" validate specs/hypercode/keyword-feed.hc --hcs specs/hypercode/keyword-feed.hcs
 	"$(SPECPM)" validate specs/keyword-feed --json

@@ -1,0 +1,29 @@
+apiVersion: specpm.dev/v0.1
+kind: SpecPackage
+metadata:
+  id: dreams.frame_budget
+  name: Dreams rain frame budget
+  version: 0.1.0-draft.1
+  summary: Glow-dependent frame-rate requests and invisible-halo culling on macOS and tvOS.
+  license: MIT
+  authors:
+  - name: Dreams contributors
+specs:
+- path: specs/budget.spec.yaml
+index:
+  provides:
+    capabilities:
+    - dreams.rain.frame_budget
+  requires:
+    capabilities:
+    - platform.apple.metal_renderer
+compatibility:
+  platforms:
+  - macos
+  - tvos
+  languages:
+  - name: swift
+foreignArtifacts:
+- format: markdown
+  path: README.md
+  role: documentation

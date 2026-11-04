@@ -155,7 +155,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 5936633762c5a380c7af11b7f3162d46504e4f0a
+    revision: 8deda1e1d38b1349cad78cca966749ce5c827a9f
   files:
     owned:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift
@@ -164,19 +164,19 @@ implementationBindings:
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift
     - evidence/2026-10-25-remote-steps/source/tvOS/Sources/features/matrix/model/RainSettings.swift
-    - evidence/2026-10-25-glyph-spacing/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-11-03-frame-budget/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
     - evidence/2026-10-25-remote-steps/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
     - evidence/2026-10-25-remote-steps/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
     - evidence/2026-10-25-remote-steps/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
-    - evidence/2026-10-25-remote-steps/source/tvOS/Tests/RainParityTests.swift
-    - evidence/2026-10-25-pr64-integration/source/Makefile
+    - evidence/2026-11-03-frame-budget/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-11-03-frame-budget/source/Makefile
     - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
-    - evidence/2026-10-21-parity/source/Sources/Dreams/Rain.metal
+    - evidence/2026-11-03-frame-budget/source/Sources/Dreams/Rain.metal
     - evidence/2026-10-21-parity/source/THIRD_PARTY_NOTICES.md
     - evidence/2026-10-21-parity/source/LICENSE
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
@@ -188,10 +188,10 @@ implementationBindings:
   language: yaml
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 3d21233c0f90e827543a9329df7a7e49b4ffd4a9
+    revision: 8deda1e1d38b1349cad78cca966749ce5c827a9f
   files:
     owned:
-    - evidence/2026-10-25-store-target/source/tvOS/project.yml
+    - evidence/2026-11-03-frame-budget/source/tvOS/project.yml
     - evidence/2026-10-25-store-target/source/tvOS/ExportOptions-AppStore.plist
     - evidence/2026-10-25-store-target/source/tvOS/Sources/shared/assets/PrivacyInfo.xcprivacy
     - evidence/2026-10-25-store-target/source/scripts/make-tv-assets.py

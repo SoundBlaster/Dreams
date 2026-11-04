@@ -1,5 +1,17 @@
 # Dreams specification progress
 
+## Rain frame budget — 2026-11-03
+
+New descriptive draft `dreams.rain.frame_budget` (`glow_frame_rate`,
+`invisible_halo_floor`) adds a FrameBudget role under both Renderer maps.
+Glow above zero keeps 30 fps; Glow zero follows the screen up to 120 fps. Halos
+below 1/16384 coverage are skipped on the CPU and in the diffuse fragment. Motion, head,
+search, pulse, FPS, feed, performance, settings-host and TV claims keep their
+identities; offscreen output is byte-identical. Their full-file bindings are refreshed.
+The FPS readout now samples the faster no-glow cadence; its semantics are
+unchanged. [Validation](frame-budget/validation/2026-11-03/README.md) separates
+tests, pixel identity and windowed probe numbers from device/fullscreen acceptance.
+
 ## Screener Metal debugging — 2026-10-30
 
 The test-only native settings recorder adds a four-frame ScreenCaptureKit
@@ -76,7 +88,7 @@ distinguishes metadata checks from final signed/notarized artifact verification.
 | RainOverlaySession.Presentation | User / windows and focus | dreams.overlay.presentation | reconcile/close, panel config | Verify focus/OS resource failures |
 | RainOverlaySession.ExitInput | User / local Esc, button, global hotkey | dreams.overlay.exit | [Current retry fix](overlay-session/validation/2026-10-15-shortcut-retry/README.md) | Review rollback/status O2 |
 | RainOverlaySession.SessionLifetime / CaptureVisibility | Controller consumer | Folded into session | start/stop/resume, screenshot watcher | Capture-aware status corrected; pixels remain unproven |
-| RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance, search and pulse recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
+| RainOverlaySession.Renderer | Presentation consumer | Partial: motion, head appearance, search, pulse and frame budget recovered; other rendering unexplored | Renderer/configuration plus drop-motion detail | Shader/atlas remain unexplored |
 | RainOverlaySession.Renderer.DropMotion | macOS rain viewer / off or decelerating | dreams.rain.drop_motion | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); prior braking evidence preserved | Review terminal-speed assumption; other renderer behavior unexplored |
 | RainOverlaySession.Renderer.DropMotion.HeadAppearance | macOS rain viewer / opaque or transparent | dreams.rain.head_visibility | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md); model and offscreen GPU checks | Physical desktop compositor acceptance remains unobserved |
 | RainOverlaySession.Renderer.GlyphPulse | macOS glyph viewer / opaque, transparent, off | dreams.rain.glyph_pulse | Current 96bda65 [shortcut retry integration](drop-motion/validation/2026-10-15-shortcut-retry/README.md) | Physical desktop compositor acceptance remains unobserved |

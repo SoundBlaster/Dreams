@@ -56,7 +56,7 @@ Any other stdio MCP client, including Claude, uses the same executable and `--mc
 | `dreams_publish_keywords` | Replace this session's keywords: `session_id`, `keywords`, optional `color`, `ttl_seconds` |
 | `dreams_clear_keywords` | Remove the keywords of the given `session_id` only |
 
-`brightness` is a multiplier on the shader's linear RGB, not the system backlight. Output is SDR sRGB at a 30 fps target. `frames_rendered` counts submitted command buffers, not measured GPU completions. The visual settings are read-only through MCP (`dreams_status` reports them); they are changed in the window.
+`brightness` is a multiplier on the shader's linear RGB, not the system backlight. Output is SDR sRGB. With Glow above zero the renderer requests 30 fps; with Glow at zero it requests the current screen's maximum, capped at 120 fps, and re-checks when the window moves to another display (a view outside a window keeps 30). Halos whose coverage is below 1/16384 are neither submitted nor shaded; offscreen renders stay pixel-identical. `frames_rendered` counts submitted command buffers, not measured GPU completions. The visual settings are read-only through MCP (`dreams_status` reports them); they are changed in the window.
 
 **One process controls the fullscreen overlay and the virtual display.** Desktop ownership is enforced by a shared user-local process lease before UI or server startup. Repeat GUI launches reopen the existing owner; a second full-control MCP/lab launch fails with a stderr diagnostic. Publisher-only connections do not take the lease or promote to a settings app on reopen. That is either the normal app or a single MCP client started with `--mcp`. Other sessions can run `--mcp --publisher`: they get only status, preview, publish_keywords and clear_keywords. Publishers exchange keywords through a shared local mailbox but cannot control someone else's fullscreen. On EOF the controlling MCP process removes its animation and virtual display; a publisher exiting does not remove its keywords before their TTL expires. `rain_visible` in `dreams_status` means rain is requested, owns overlay windows and is not temporarily suspended for the screenshot picker. `rain_suspended_for_capture` reports that temporary hiding, including its restore grace period. `rain_requested`, window ownership, expiry and the sleep assertion remain active during suspension; these flags do not prove actual pixel visibility or capture exclusion.
 
@@ -321,7 +321,7 @@ make test-displays
 
 The trace is written under `~/Library/Caches/Screener/Traces` for inspection through Screener MCP. This scenario needs a logged-in graphical session and Metal; it is disabled in the ordinary unit test run. A physical USB-C monitor with a closed MacBook lid still needs a hardware check.
 
-To record 180 real Metal frames (6 seconds at 30 fps) without fullscreen:
+To record 180 real Metal frames (6 seconds of posed 30 fps time, independent of the live frame-rate policy) without fullscreen:
 
 ```sh
 dist/Dreams.app/Contents/MacOS/Dreams --render-demo artifacts/typing-frames

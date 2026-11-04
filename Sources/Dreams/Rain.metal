@@ -61,6 +61,9 @@ fragment float4 matrixFragment(MatrixOutput in [[stage_in]], texture2d<float> at
     constexpr sampler glyphSampler(filter::linear, address::clamp_to_edge);
     float alpha = atlas.sample(glyphSampler, in.uv).r;
     if (noiseParameters.z > 0.5) {
+        // RainFrameBudget.minimumHaloAlpha: this skirt stays under half an sRGB step; skip the clouds.
+        float coverage = alpha * in.color.a;
+        if (coverage < 1.0 / 16384.0) return float4(0);
         // Smooth, loosely mottled scattering. Fine phosphor grain stays in the core.
         float2 drift = float2(noiseParameters.x * 0.025, -noiseParameters.x * 0.020);
         float cloud = 0.70 * lightCloud(in.localUV * float2(5, 6) + drift, in.seed)
@@ -68,7 +71,7 @@ fragment float4 matrixFragment(MatrixOutput in [[stage_in]], texture2d<float> at
         float2 edge = min(in.localUV, 1.0 - in.localUV);
         float skirt = smoothstep(0.0, 0.12, min(edge.x, edge.y));
         return float4(compositingColor(in.color.rgb, noiseParameters.w > 0.5),
-            alpha * in.color.a * (0.65 + 0.65 * cloud) * skirt);
+            coverage * (0.65 + 0.65 * cloud) * skirt);
     }
     float gain = 1;
     if (noiseParameters.y > 0 && alpha > 0.01) {

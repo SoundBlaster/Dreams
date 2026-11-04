@@ -71,7 +71,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
         view.device = device
         view.colorPixelFormat = .bgra8Unorm_srgb
         view.clearColor = MTLClearColorMake(0, 0, 0, 1)
-        view.preferredFramesPerSecond = 30
+        view.preferredFramesPerSecond = RainFrameBudget.glowFramesPerSecond
         view.delegate = self
     }
 
@@ -92,6 +92,10 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
 
     private func drawFrame(in view: MTKView) throws {
         let value = tuning.normalized()
+        // Glow keeps 30 fps; without it the view follows its screen, up to 120.
+        let rate = RainFrameBudget.framesPerSecond(glow: value.glow,
+            screenMaximum: view.window?.windowScene?.screen.maximumFramesPerSecond ?? 0)
+        if view.preferredFramesPerSecond != rate { view.preferredFramesPerSecond = rate }
         if fpsEnabled != value.showsFPS { fps.reset(); fpsEnabled = value.showsFPS }
         let aspect = view.drawableSize.width / view.drawableSize.height
         let grid = value.grid(aspect: aspect)
@@ -201,11 +205,11 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
                 let saturated = SIMD3(min(1, green.x * 2.4), min(1, green.y * 2.4), min(1, green.z * 2.4))
                 let haloTint = saturated * (1 - white) + SIMD3<Float>(0.52, 0.95, 0.65) * white
                 // The clock selects ink only. Boosting overlapping halos would reveal a green digit-shaped cloud.
-                if value.glow > 0 {
+                // Below the shader's floor every halo fragment returns zero coverage.
+                let haloAlpha = (0.30 * ink * opacity + 0.75 * white) * Float(value.glow)
+                if value.glow > 0, haloAlpha >= RainFrameBudget.minimumHaloAlpha {
                     let haloExposure = globalExposure * (value.showsClock ? 0.22 : 1)
-                    halos.append(Cell(rect: haloRect, uv: glowUV,
-                                      color: SIMD4(haloTint * haloExposure,
-                                                   (0.30 * ink * opacity + 0.75 * white) * Float(value.glow))))
+                    halos.append(Cell(rect: haloRect, uv: glowUV, color: SIMD4(haloTint * haloExposure, haloAlpha)))
                 }
             }
         }

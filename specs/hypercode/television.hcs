@@ -41,6 +41,9 @@ FPSReadout:
   detail: "fps.hc + fps.hcs"
   capability: "dreams.rain.fps"
   sizing: "inherit-active-TV-atlas-common-body-scale"
+FrameBudget:
+  detail: "frame-budget.hc + frame-budget.hcs --ctx platform=tvos"
+  capability: "dreams.rain.frame_budget"
 @clock[hidden]:
   ClockMask:
     implementation: "mask-bypassed; ordinary-rain-exposure"

@@ -1,0 +1,15 @@
+{
+  "sourceRevision": "8deda1e1d38b1349cad78cca966749ce5c827a9f",
+  "baseRevision": "4569dfc2597e846ce9b492cee1ed45a02e42a6d6",
+  "files": {
+    "Sources/Dreams/features/rain/model/RainFrameBudget.swift": "b9d57f82f131fdcc1bc798e32db8a5d66341b95c5ee4069693cb72e60e192a96",
+    "Sources/Dreams/features/rain/ui/RainRenderer.swift": "6514c40a38cb9c572832e0d2c54178bc9f87df9ef7f47641a1c42cc159bcea16",
+    "Sources/Dreams/features/rain/ui/MatrixRain.swift": "c4805c20fbccdea088293b50bb133815059fd299cfd25d529f9951e6dc8a8e0c",
+    "Sources/Dreams/Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+    "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift": "80591f55ecff3f7486faad9b3b83fc6d64bad118b70871f96bd695a18fa02ae4",
+    "tvOS/project.yml": "3dafe934663f914384241b6dcd6025995db0b2d1856badeafdfe53d26845c62c",
+    "Tests/DreamsTests/RainFrameBudgetTests.swift": "8fe543b765e9575707ce81f9b15de0881a98f108bba0609550229f2859dc90b3",
+    "tvOS/Tests/RainParityTests.swift": "ac5dc6830430cb0111929faaaf752389082e26d8dcf8646fb43ee62085d5cd8e"
+  },
+  "acceptance": "descriptive draft; refreshed full-file bindings for the frame-budget change; offscreen pixel identity, unit/simulator tests and windowed macOS probe only"
+}

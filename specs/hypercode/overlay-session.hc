@@ -15,3 +15,4 @@ RainOverlaySession
     GlyphSearch
     GlyphPulse
     FPSReadout
+    FrameBudget

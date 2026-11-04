@@ -1,0 +1,10 @@
+{
+  "sourceRevision": "8deda1e1d38b1349cad78cca966749ce5c827a9f",
+  "baseRevision": "4569dfc2597e846ce9b492cee1ed45a02e42a6d6",
+  "files": {
+    "Sources/Dreams/features/rain/ui/RainRenderer.swift": "6514c40a38cb9c572832e0d2c54178bc9f87df9ef7f47641a1c42cc159bcea16",
+    "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift": "80591f55ecff3f7486faad9b3b83fc6d64bad118b70871f96bd695a18fa02ae4",
+    "tvOS/Tests/RainParityTests.swift": "ac5dc6830430cb0111929faaaf752389082e26d8dcf8646fb43ee62085d5cd8e"
+  },
+  "acceptance": "descriptive draft; refreshed full-file bindings for the frame-budget change; offscreen pixel identity, unit/simulator tests and windowed macOS probe only"
+}

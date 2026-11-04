@@ -306,9 +306,12 @@ final class MatrixRain {
                 // The rain's halo follows its colour, a few times brighter than the letters.
                 let haloTint = (isKeyword ? keywordTint : (rainTint * 2.4).clamped(lowerBound: .zero, upperBound: SIMD3<Float>(repeating: 1))) * (1 - white)
                     + SIMD3<Float>(0.52, 0.95, 0.65) * white
-                if glow > 0 { halos.append(Cell(rect: glowRect, uv: glowUV,
-                    color: SIMD4(haloTint * exposure * wordExposure,
-                        (0.30 * pulsedInk * inkOpacity + 0.75 * white) * glyphAlpha * Float(min(3, glow))))) }
+                // Below the shader's floor every halo fragment returns zero coverage.
+                let haloAlpha = (0.30 * pulsedInk * inkOpacity + 0.75 * white) * glyphAlpha * Float(min(3, glow))
+                if glow > 0, haloAlpha >= RainFrameBudget.minimumHaloAlpha {
+                    halos.append(Cell(rect: glowRect, uv: glowUV,
+                        color: SIMD4(haloTint * exposure * wordExposure, haloAlpha)))
+                }
                 cells.append(Cell(rect: rect, uv: uv, color: SIMD4(rgb * exposure, glyphAlpha)))
                 // First stable, non-space event letter submitted in the visible viewport.
                 // Feed runs reject scenarios whose reference viewport exceeds the drawable.
