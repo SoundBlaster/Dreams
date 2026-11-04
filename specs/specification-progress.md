@@ -1,5 +1,14 @@
 # Dreams specification progress
 
+## Metal system screen saver experiment — 2026-11-05
+
+The separate experimental system host now compiles the existing Metal renderer
+and resources; no production source or existing desktop/tvOS claim changes.
+Renderer initialization and pause toggling were observed in a separate local
+probe, not the system host. Drawing, settings, agent feed, lifecycle and host
+access remain unverified and are not covered by existing overlay contracts.
+See experiments/system-screensaver/README.md for the scoped baseline.
+
 ## System screen saver experiment — 2026-11-04
 
 An isolated AppKit `.saver` probe under `experiments/system-screensaver`
