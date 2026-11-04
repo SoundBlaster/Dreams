@@ -1,5 +1,14 @@
 # Dreams specification progress
 
+## System screen saver experiment — 2026-11-04
+
+An isolated AppKit `.saver` probe under `experiments/system-screensaver`
+adds a new, unaccepted system-host profile. It does not alter the desktop overlay,
+renderer, agent feed, tvOS behavior or their existing claims; no existing runtime
+evidence is transferred to this separate host. System-host lifecycle, rendering,
+locking and integration are unexplored draft boundaries pending device observation
+and a dedicated map and contract when production integration is undertaken.
+
 ## Release 0.1.14 metadata — 2026-11-04
 
 VERSION and both plugin manifests advance together for the desktop release. Spec-ID: NO-SPEC-IMPACT: release metadata does not change runtime or existing contracts. Previous tests and device observations remain tied to their original revisions; packaging and notarization require separate verification.
