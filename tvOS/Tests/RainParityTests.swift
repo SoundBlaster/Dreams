@@ -63,6 +63,18 @@ final class RainParityTests: XCTestCase {
         XCTAssertEqual(TVHardwareDefaults.glow(machine: "unknown"), DreamsPreset.glow)
     }
 
+    func testGlowDefaultAndSavedPreferenceOnNewerHardware() throws {
+        let name = "DreamsTVGlowDefault.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: name))
+        defer { defaults.removePersistentDomain(forName: name) }
+        let settings = RainSettings(defaults: defaults, machine: "AppleTV6,2")
+        XCTAssertEqual(settings.tuning.glow, 0)
+        settings.tuning.glow = 0.57
+        XCTAssertEqual(RainSettings(defaults: defaults, machine: "AppleTV6,2").tuning.glow, 0.57)
+        settings.reset()
+        XCTAssertEqual(settings.tuning.glow, 0)
+    }
+
     func testPausedEditsDoNotAdvanceSimulation() throws {
         let view = MTKView(frame: CGRect(x: 0, y: 0, width: 640, height: 360))
         let renderer = try MatrixRenderer(view: view) { XCTFail("renderer failed") }
