@@ -141,7 +141,7 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchOccupancyTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/SearchSettingsTraceTests.swift
     - evidence/2026-10-14-native-host/source/scripts/test-matrix.swift
-    - evidence/2026-10-24-status-icon/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
+    - evidence/2026-11-04-default-glow/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsWindow.swift
     - evidence/2026-10-24-status-icon/source/Tests/DreamsTests/SettingsPageTests.swift
     border:

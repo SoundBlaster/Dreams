@@ -1,5 +1,9 @@
 # Dreams specification progress
 
+## Glow default — 2026-11-04
+
+Shared DreamsPreset now defaults Glow to zero for new and reset macOS and tvOS settings; explicit saved values stay intact. Native Classic and Dimmed recipes derive their Glow from the active default, while Monochrome retains its explicit value. Updated `dreams.tv.rain/a8_glow_default` and `dreams.settings.host/quick_appearance`; drop-motion and application-menu claims remain semantically unchanged. See [validation](tvos/validation/2026-11-04-default-glow/README.md).
+
 ## Low Power Mode — 2026-11-03
 
 `dreams.rain.frame_budget/glow_frame_rate` requests 30 fps in system Low Power Mode on both profiles and restores the prior Glow/screen policy on exit. Changes take effect on the next drawn frame. FrameBudget, FPS, drop-motion, feed, performance, settings-host and television bindings now point to the new source baseline; earlier measurements remain historical. [Validation](frame-budget/validation/2026-11-03-low-power/README.md) records tests and unverified device/power behavior.
