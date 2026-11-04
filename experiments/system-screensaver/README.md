@@ -3,7 +3,9 @@
 An isolated macOS `.saver` lifecycle probe using the public ScreenSaver framework.
 It compiles the production Metal renderer and its font and shader resources into
 the module. It currently uses renderer defaults, not saved Dreams settings.
-The renderer attempts to observe the agent feed; access and behavior within the
+The current rain color is published by the experimental desktop build through
+`ScreenSaverDefaults` and read when the saver view initializes. The other
+settings still use renderer defaults. The renderer attempts to observe the agent feed; access and behavior within the
 system host are not yet verified.
 It is not a release product and is not installed or selected automatically.
 
@@ -50,3 +52,15 @@ Swift source SHA-256: `3d19b8599255746bd879242b5fe64c8167beef1160ade19f6baf2f48f
 build script: `a5d5ebec454738f8f157b4edede2a4ae818aad6fdc6f78534885685b625e13be`;
 RainRenderer: `20246272d0693172cc0e85d478d62ec1988daf7bdc018acdeb2284cc612a8bab`;
 MatrixRain: `c4805c20fbccdea088293b50bb133815059fd299cfd25d529f9951e6dc8a8e0c`.
+
+## Color exchange probe — 2026-11-05
+
+The desktop publishes its currently selected sRGB rain color on initialization
+and changes; the saver reads and converts it to linear light at initialization.
+Missing or invalid values retain the renderer default. Swift debug app and saver
+compiled on Apple Silicon. Separate unsandboxed processes wrote and read a
+dedicated test domain and verified the sRGB conversion. The first probe without
+explicit synchronization failed after immediate writer exit; synchronization
+was added and the probe passed. System host access, preference propagation,
+actual displayed color and live updates have not been verified. Existing app
+settings remain the authoritative source; the published value is a copy.

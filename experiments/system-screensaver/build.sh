@@ -28,6 +28,7 @@ xcrun swiftc -swift-version 5 -parse-as-library -emit-library \
   "$root/Sources/Dreams/entities/agent-activity/model/HookWord.swift" \
   "$root/Sources/Dreams/entities/agent-activity/model/ToolCallLine.swift" \
   "$root/Sources/Dreams/shared/lib/DreamsError.swift" \
+  "$root/Sources/Dreams/shared/lib/ScreenSaverRainColor.swift" \
   "$root/Sources/Dreams/shared/lib/Localization.swift" \
   -o "$bundle/Contents/MacOS/DreamsSystemSaver"
 codesign --force --sign - "$bundle"

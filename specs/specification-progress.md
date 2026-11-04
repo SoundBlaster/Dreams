@@ -1,5 +1,15 @@
 # Dreams specification progress
 
+## Experimental system saver color — 2026-11-05
+
+Desktop controller initialization and color changes now publish the active
+sRGB rain color to the experimental saver module's defaults; its renderer reads
+it on initialization. Existing settings host and overlay color obligations
+remain unchanged, while their full-file source identity has changed. New
+system-host color sharing is an unaccepted, unmapped experiment: a separate
+process probe passed, but system host access and displayed color remain
+unverified. See experiments/system-screensaver/README.md.
+
 ## Metal system screen saver experiment — 2026-11-05
 
 The separate experimental system host now compiles the existing Metal renderer

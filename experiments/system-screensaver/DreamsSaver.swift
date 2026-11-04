@@ -27,7 +27,9 @@ final class DreamsSystemSaverView: ScreenSaverView {
         view.isPaused = true
         view.enableSetNeedsDisplay = false
         do {
-            renderer = try RainRenderer(view: view)
+            let renderer = try RainRenderer(view: view)
+            if let color = ScreenSaverRainColor.read() { renderer.rainTint = color }
+            self.renderer = renderer
             metalView = view
             addSubview(view)
         } catch {

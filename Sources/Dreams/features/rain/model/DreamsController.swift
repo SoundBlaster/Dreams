@@ -26,6 +26,7 @@ final class DreamsController: NSObject {
 
     override init() {
         super.init()
+        publishScreenSaverRainColor()
         NotificationCenter.default.addObserver(self, selector: #selector(screenParametersChanged),
             name: NSApplication.didChangeScreenParametersNotification, object: nil)
     }
@@ -420,9 +421,15 @@ final class DreamsController: NSObject {
             guard let rgb = rainColor.usingColorSpace(.sRGB) else { return }
             UserDefaults.standard.set([rgb.redComponent, rgb.greenComponent, rgb.blueComponent],
                 forKey: transparentBackground ? "transparentRainColor" : "rainColor")
+            publishScreenSaverRainColor()
             screenManager.renderers.forEach { $0.rainTint = rainTint }
             settingsChanged()
         }
+    }
+
+    private func publishScreenSaverRainColor() {
+        guard let rgb = rainColor.usingColorSpace(.sRGB) else { return }
+        ScreenSaverRainColor.write([Double(rgb.redComponent), Double(rgb.greenComponent), Double(rgb.blueComponent)])
     }
 
     private var rainTint: SIMD3<Float> {
