@@ -8,8 +8,8 @@ enum RainFrameBudget {
 
     /// Glow keeps the 30 fps budget. Without it the rain follows the screen, capped at 120.
     /// An unknown screen (a view outside a window) keeps the glow budget.
-    static func framesPerSecond(glow: Double, screenMaximum: Int) -> Int {
-        guard glow <= 0, screenMaximum > 0 else { return glowFramesPerSecond }
+    static func framesPerSecond(glow: Double, screenMaximum: Int, lowPower: Bool = false) -> Int {
+        guard !lowPower, glow <= 0, screenMaximum > 0 else { return glowFramesPerSecond }
         return min(maximumFramesPerSecond, screenMaximum)
     }
 }

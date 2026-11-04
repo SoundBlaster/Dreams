@@ -33,6 +33,7 @@ final class RainRenderer: NSObject {
     private let feedSubscription: KeywordFeedSubscription
     private weak var view: MTKView?
     private weak var frameBudgetScreen: NSScreen?
+    private var frameBudgetLowPower = false
 
     init(view: MTKView, restoredGlyphs: Bool = false, transparentBackground: Bool = false,
          feedReader: KeywordFeedReader = .shared) throws {
@@ -65,7 +66,9 @@ final class RainRenderer: NSObject {
     private func applyFrameBudget(to view: MTKView) {
         let screen = view.window?.screen
         frameBudgetScreen = screen
-        let rate = RainFrameBudget.framesPerSecond(glow: rainGlow, screenMaximum: screen?.maximumFramesPerSecond ?? 0)
+        frameBudgetLowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
+        let rate = RainFrameBudget.framesPerSecond(glow: rainGlow, screenMaximum: screen?.maximumFramesPerSecond ?? 0,
+                                                   lowPower: frameBudgetLowPower)
         if view.preferredFramesPerSecond != rate { view.preferredFramesPerSecond = rate }
     }
 
@@ -140,7 +143,9 @@ extension RainRenderer: @MainActor MTKViewDelegate {
 
     func draw(in view: MTKView, posedTime: Float?, referenceSize: CGSize? = nil) {
         // The window can be attached after construction or move to another display.
-        if view.window?.screen !== frameBudgetScreen { applyFrameBudget(to: view) }
+        if view.window?.screen !== frameBudgetScreen || ProcessInfo.processInfo.isLowPowerModeEnabled != frameBudgetLowPower {
+            applyFrameBudget(to: view)
+        }
         let measurement = performanceRecorder.map { RainFrameMeasurement(observeFeed: $0.observeFeed) }
         guard let drawable = view.currentDrawable,
               let descriptor = view.currentRenderPassDescriptor,

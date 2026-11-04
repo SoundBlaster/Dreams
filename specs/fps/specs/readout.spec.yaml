@@ -100,14 +100,14 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 8deda1e1d38b1349cad78cca966749ce5c827a9f
+    revision: 80d05cde2e56a009ed0989d7965488ac9ed8ab7f
   files:
     owned:
     - evidence/2026-10-25-glyph-spacing/source/Sources/Dreams/features/rain/model/PresentedFPS.swift
     - evidence/2026-10-24-fps-grid/source/Sources/Dreams/features/rain/ui/FPSOverlay.swift
-    - evidence/2026-11-03-frame-budget/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-11-03-frame-budget/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
+    - evidence/2026-11-03-low-power/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-25-glyph-spacing/source/Tests/DreamsTests/PresentedFPSTests.swift
-    - evidence/2026-11-03-frame-budget/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-11-03-low-power/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Tests/GlyphSpacingTests.swift
     border: []

@@ -1,0 +1,10 @@
+{
+  "sourceRevision": "80d05cde2e56a009ed0989d7965488ac9ed8ab7f",
+  "baseRevision": "550a2859dd7dcf80966fd53f71f4714edc82be57",
+  "files": {
+    "Sources/Dreams/features/rain/ui/MatrixRain.swift": "c4805c20fbccdea088293b50bb133815059fd299cfd25d529f9951e6dc8a8e0c",
+    "Sources/Dreams/Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+    "Sources/Dreams/features/rain/ui/RainRenderer.swift": "20246272d0693172cc0e85d478d62ec1988daf7bdc018acdeb2284cc612a8bab"
+  },
+  "acceptance": "Descriptive draft; source binding refreshed for low power policy; runtime device acceptance pending."
+}
