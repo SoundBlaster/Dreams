@@ -1,5 +1,9 @@
 # Dreams specification progress
 
+## Release 0.1.14 metadata — 2026-11-04
+
+VERSION and both plugin manifests advance together for the desktop release. Spec-ID: NO-SPEC-IMPACT: release metadata does not change runtime or existing contracts. Previous tests and device observations remain tied to their original revisions; packaging and notarization require separate verification.
+
 ## Glow default — 2026-11-04
 
 Shared DreamsPreset now defaults Glow to zero for new and reset macOS and tvOS settings; explicit saved values stay intact. Native Classic and Dimmed recipes derive their Glow from the active default, while Monochrome retains its explicit value. Updated `dreams.tv.rain/a8_glow_default` and `dreams.settings.host/quick_appearance`; drop-motion and application-menu claims remain semantically unchanged. See [validation](tvos/validation/2026-11-04-default-glow/README.md).
