@@ -1,0 +1,7 @@
+{
+  "base_revision": "d1e9881",
+  "state": "working tree snapshots; changed files are not at base revision",
+  "sha256": {
+    "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift": "4c69c634b682a9d4ab5c9bb37f7e8fdd163ae9a862a40072244d18c1573a82bf"
+  }
+}

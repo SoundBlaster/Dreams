@@ -61,6 +61,12 @@ final class RainParityTests: XCTestCase {
         XCTAssertEqual(settings.tuning.glow, 0)
         XCTAssertEqual(TVHardwareDefaults.glow(machine: "AppleTV6,2"), DreamsPreset.glow)
         XCTAssertEqual(TVHardwareDefaults.glow(machine: "unknown"), DreamsPreset.glow)
+        XCTAssertFalse(settings.supportsGlow)
+        XCTAssertTrue(RainSettings(defaults: defaults, machine: "AppleTV6,2").supportsGlow)
+        XCTAssertTrue(TVHardwareDefaults.supportsGlow(machine: "unknown"))
+        XCTAssertEqual(TVHardwareDefaults.effectiveGlow(1.25, machine: "AppleTV5,3"), 0)
+        XCTAssertEqual(TVHardwareDefaults.effectiveGlow(1.25, machine: "AppleTV6,2"), 1.25)
+        XCTAssertEqual(TVHardwareDefaults.effectiveGlow(1.25, machine: "unknown"), 1.25)
     }
 
     func testGlowDefaultAndSavedPreferenceOnNewerHardware() throws {

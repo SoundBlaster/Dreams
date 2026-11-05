@@ -1,0 +1,12 @@
+{
+  "base_revision": "d1e9881",
+  "state": "working tree snapshots; changed files are not at base revision",
+  "sha256": {
+    "tvOS/Sources/features/matrix/model/RainSettings.swift": "fe65707fad3875ad9aebb1de88e26545115de033eca149edfec4af899802baf3",
+    "tvOS/Sources/features/matrix/ui/MatrixRenderer.swift": "4c69c634b682a9d4ab5c9bb37f7e8fdd163ae9a862a40072244d18c1573a82bf",
+    "tvOS/Sources/pages/settings/ui/SettingsPage.swift": "6bd223019c7eefb0e74c66657b11cff3a324d6381102a84f0afb7d9b99616130",
+    "tvOS/Sources/shared/assets/en.lproj/Localizable.strings": "4f6dc2bd145a0a6d28a376bb52a49585dcca1cfcfe62fe85857242111c4a3e69",
+    "tvOS/Sources/shared/assets/ru.lproj/Localizable.strings": "5d8c691353c861cfcb0c0a2c7f33e68f9eb3c6c75ff88c56fb7ebb77157bb2bc",
+    "tvOS/Tests/RainParityTests.swift": "36ccd67124f058a0122b0838a090eb40c0b303f8a438e267090aa278193727b1"
+  }
+}

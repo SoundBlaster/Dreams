@@ -11,6 +11,10 @@ enum TVHardwareDefaults {
     }
 
     static func glow(machine: String) -> Double { machine == "AppleTV5,3" ? 0 : DreamsPreset.glow }
+    static func supportsGlow(machine: String) -> Bool { machine != "AppleTV5,3" }
+    static func effectiveGlow(_ requested: Double, machine: String) -> Double {
+        supportsGlow(machine: machine) ? requested : 0
+    }
 }
 
 enum ClockTypeface: String, CaseIterable {
@@ -131,11 +135,13 @@ final class RainSettings {
     }
     private let defaults: UserDefaults
     private let defaultTuning: RainTuning
+    let supportsGlow: Bool
 
     func reset() { tuning = defaultTuning }
 
     init(defaults: UserDefaults = .standard, machine: String = TVHardwareDefaults.machineIdentifier) {
         self.defaults = defaults
+        supportsGlow = TVHardwareDefaults.supportsGlow(machine: machine)
         var initial = RainTuning()
         initial.glow = TVHardwareDefaults.glow(machine: machine)
         defaultTuning = initial

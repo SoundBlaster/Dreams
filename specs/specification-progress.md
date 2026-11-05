@@ -1,5 +1,15 @@
 # Dreams specification progress
 
+## Apple TV HD glow suspension — 2026-11-05
+
+The revised draft `dreams.tv.rain/a8_glow_default` temporarily forces effective
+Glow to zero for AppleTV5,3 and replaces its control with a localized explanation.
+Saved preferences remain intact except on an explicit reset; other and unknown
+models retain the adjustable value. This changes the previous draft requirement
+that permitted manual A8 enabling, at the user's request. The separate frame-budget
+policy receives effective Glow; its existing frame rate requirement remains.
+Device frame rate and tvOS release behavior require independent verification.
+
 ## Release 0.1.14 metadata — 2026-11-04
 
 VERSION and both plugin manifests advance together for the desktop release. Spec-ID: NO-SPEC-IMPACT: release metadata does not change runtime or existing contracts. Previous tests and device observations remain tied to their original revisions; packaging and notarization require separate verification.
