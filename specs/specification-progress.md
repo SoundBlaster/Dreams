@@ -1,5 +1,40 @@
 # Dreams specification progress
 
+## Experimental saver startup diagnostics — 2026-11-05
+
+The system-host experiment retries a failed renderer setup at animation start,
+reloads the shared color on each start and logs setup duration and state.
+Existing desktop and tvOS claims are unchanged; system-host startup and color
+remain unaccepted and unverified. See experiments/system-screensaver/README.md.
+
+## Experimental system saver color — 2026-11-05
+
+Desktop controller initialization and color changes now publish the active
+sRGB rain color to the experimental saver module's defaults; its renderer reads
+it on initialization. Existing settings host and overlay color obligations
+remain unchanged, while their full-file source identity has changed. New
+system-host color sharing is an unaccepted, unmapped experiment: a separate
+process probe passed, but system host access and displayed color remain
+unverified. See experiments/system-screensaver/README.md.
+
+## Metal system screen saver experiment — 2026-11-05
+
+The separate experimental system host now compiles the existing Metal renderer
+and resources; no production source or existing desktop/tvOS claim changes.
+Renderer initialization and pause toggling were observed in a separate local
+probe, not the system host. Drawing, settings, agent feed, lifecycle and host
+access remain unverified and are not covered by existing overlay contracts.
+See experiments/system-screensaver/README.md for the scoped baseline.
+
+## System screen saver experiment — 2026-11-04
+
+An isolated AppKit `.saver` probe under `experiments/system-screensaver`
+adds a new, unaccepted system-host profile. It does not alter the desktop overlay,
+renderer, agent feed, tvOS behavior or their existing claims; no existing runtime
+evidence is transferred to this separate host. System-host lifecycle, rendering,
+locking and integration are unexplored draft boundaries pending device observation
+and a dedicated map and contract when production integration is undertaken.
+
 ## Release 0.1.14 metadata — 2026-11-04
 
 VERSION and both plugin manifests advance together for the desktop release. Spec-ID: NO-SPEC-IMPACT: release metadata does not change runtime or existing contracts. Previous tests and device observations remain tied to their original revisions; packaging and notarization require separate verification.
