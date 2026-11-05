@@ -82,7 +82,7 @@ constraints:
   statement: With Live preview off in an active settings scene, coalesce tuning edits into one requested Metal frame without continuous animation. Focus-only updates must not request frames. Retain simulation time and wall-time appearance phase for nonstructural edits; resume excludes paused wall time. Grid/font edits rebuild with the renderer's stable seed and a bounded two-to-eight-second sample so the still is populated. Suppress FPS sampling/overlay on a requested paused frame. An inactive scene permits no drawing.
 - id: a8_glow_default
   level: MUST
-  statement: On AppleTV5,3 (A8), new preferences and reset use Glow zero. Preserve any existing saved Glow value and allow manual enabling. All other and unknown hardware also use Glow zero by shared default; this changes a default, not the glow algorithm or a performance guarantee.
+  statement: On AppleTV5,3 (A8), new preferences and reset use Glow zero. Temporarily render with Glow zero regardless of a saved value and replace its adjustment with a localized explanation. Preserve an existing saved value unless the user resets settings. Other and unknown hardware retain their saved and adjustable Glow values and use zero by shared default. This policy does not guarantee a particular frame rate.
 - id: fps
   level: MUST
   statement: Expose an optional default-off FPS toggle in Advanced. Use dreams.rain.fps with successful GPU completion timestamps, persistent preferences and reset-off semantics. Keep clock and rain behavior independent of the diagnostic readout.
@@ -135,6 +135,10 @@ evidence:
   path: validation/2026-10-24-paused-preview/README.md
   supports:
   - constraints.paused_preview
+- id: a8_glow_suspension_validation
+  kind: test
+  path: validation/2026-11-05-a8-glow/README.md
+  supports:
   - constraints.a8_glow_default
 - id: validation
   kind: test
@@ -163,15 +167,15 @@ implementationBindings:
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/ClockMask.swift
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift
-    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/features/matrix/model/RainSettings.swift
-    - evidence/2026-11-03-low-power/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
+    - evidence/2026-11-05-a8-glow/source/tvOS/Sources/features/matrix/model/RainSettings.swift
+    - evidence/2026-11-05-a8-glow/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/features/matrix/ui/MatrixSurface.swift
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/pages/clock/ui/ClockPage.swift
-    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
-    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
-    - evidence/2026-10-25-remote-steps/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
+    - evidence/2026-11-05-a8-glow/source/tvOS/Sources/pages/settings/ui/SettingsPage.swift
+    - evidence/2026-11-05-a8-glow/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
+    - evidence/2026-11-05-a8-glow/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
-    - evidence/2026-11-04-default-glow/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-11-05-a8-glow/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-11-03-low-power/source/Makefile
     - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift

@@ -28,6 +28,7 @@
 "settings.spread" = "Разброс яркости";
 "settings.pulse" = "Пульсация яркости";
 "settings.glow" = "Свечение";
+"settings.glow.unavailable" = "Свечение временно отключено на Apple TV HD для повышения производительности.";
 "settings.red" = "Цвет дождя · красный";
 "settings.green" = "Цвет дождя · зелёный";
 "settings.blue" = "Цвет дождя · синий";

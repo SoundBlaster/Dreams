@@ -28,6 +28,7 @@
 "settings.spread" = "Brightness spread";
 "settings.pulse" = "Brightness pulse";
 "settings.glow" = "Glow";
+"settings.glow.unavailable" = "Glow is temporarily unavailable on Apple TV HD to improve performance.";
 "settings.red" = "Rain color · red";
 "settings.green" = "Rain color · green";
 "settings.blue" = "Rain color · blue";

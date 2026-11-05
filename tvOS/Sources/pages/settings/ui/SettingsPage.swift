@@ -145,7 +145,11 @@ struct SettingsPage: View {
             adjustment("settings.brightness", value: $settings.tuning.brightness, step: 0.01, field: .brightness)
             adjustment("settings.spread", value: $settings.tuning.brightnessSpread, step: 0.01, field: .spread)
             adjustment("settings.pulse", value: $settings.tuning.pulseStrength, step: 0.01, field: .pulse)
-            adjustment("settings.glow", value: $settings.tuning.glow, step: 0.01, field: .glow)
+            if settings.supportsGlow {
+                adjustment("settings.glow", value: $settings.tuning.glow, step: 0.01, field: .glow)
+            } else {
+                Text("settings.glow.unavailable").font(.callout).foregroundStyle(.secondary)
+            }
             adjustment("settings.red", value: $settings.tuning.color.red, step: 0.01, field: .red)
             adjustment("settings.green", value: $settings.tuning.color.green, step: 0.01, field: .green)
             adjustment("settings.blue", value: $settings.tuning.color.blue, step: 0.01, field: .blue)
