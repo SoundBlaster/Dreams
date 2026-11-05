@@ -64,3 +64,13 @@ explicit synchronization failed after immediate writer exit; synchronization
 was added and the probe passed. System host access, preference propagation,
 actual displayed color and live updates have not been verified. Existing app
 settings remain the authoritative source; the published value is a copy.
+
+## Startup diagnostics — 2026-11-05
+
+The view retries renderer initialization when startAnimation is called after
+initialization failure and reloads the color on each start. NSLog records
+initialization duration, color availability and start/stop. In a separate
+unsandboxed local probe initialization took 2.590 s, color was available and
+the Metal view paused and unpaused. System-host behavior, first presented frame,
+intermittent black screens and cross-sandbox color access remain unverified.
+These timings are one observation, not a performance baseline.

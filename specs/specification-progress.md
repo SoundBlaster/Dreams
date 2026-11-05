@@ -1,5 +1,12 @@
 # Dreams specification progress
 
+## Experimental saver startup diagnostics — 2026-11-05
+
+The system-host experiment retries a failed renderer setup at animation start,
+reloads the shared color on each start and logs setup duration and state.
+Existing desktop and tvOS claims are unchanged; system-host startup and color
+remain unaccepted and unverified. See experiments/system-screensaver/README.md.
+
 ## Experimental system saver color — 2026-11-05
 
 Desktop controller initialization and color changes now publish the active
