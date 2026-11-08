@@ -66,6 +66,17 @@ or make Hypercode/SpecPM executable application configuration.
 - Preserve actual distinctions between local checks, CI, screenshots, physical
   devices and releases. A release/submission follows its own authorized scope.
 
+## Pre-release pull request check
+
+Before any release or submission, inspect all open pull requests in the
+repository and determine which are required for that specific release. Merge
+the required pull requests into the release base before building and releasing;
+verify that the release artifact is built from a revision containing them.
+For every pull request left open, explicitly record why it is not required for
+this release. Do not release while the status of any open pull request or its
+relevance to the release is unresolved. Report the check and its decisions in
+the release handoff.
+
 ## Local builds on the TB5 SSD
 
 On Egor's macOS host, before local builds, tests, package resolution, or dependency
