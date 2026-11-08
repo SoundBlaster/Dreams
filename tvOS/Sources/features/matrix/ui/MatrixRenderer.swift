@@ -34,6 +34,7 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     private var renderedWallTime: Double?
     private var lastFrame: CFTimeInterval?
     private var failed = false
+    private let machine = TVHardwareDefaults.machineIdentifier
     private let onFailure: () -> Void
 
     init(view: MTKView, onFailure: @escaping () -> Void) throws {
@@ -91,7 +92,8 @@ final class MatrixRenderer: NSObject, MTKViewDelegate {
     }
 
     private func drawFrame(in view: MTKView) throws {
-        let value = tuning.normalized()
+        var value = tuning.normalized()
+        value.glow = TVHardwareDefaults.effectiveGlow(value.glow, machine: machine)
         // Glow keeps 30 fps; without it the view follows its screen, up to 120.
         let rate = RainFrameBudget.framesPerSecond(glow: value.glow,
             screenMaximum: view.window?.windowScene?.screen.maximumFramesPerSecond ?? 0,
