@@ -111,7 +111,7 @@ implementationBindings:
     revision: 80d05cde2e56a009ed0989d7965488ac9ed8ab7f
   files:
     owned:
-    - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-11-15-simulation-cow/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadTests.swift
     - evidence/2026-10-14-head-cycle/source/Tests/DreamsTests/DropHeadRenderingTests.swift

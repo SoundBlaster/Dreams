@@ -164,7 +164,7 @@ implementationBindings:
     owned:
     - evidence/2026-10-24-paused-preview/source/tvOS/Sources/app/entrypoint/AppRoot.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/app/entrypoint/DreamsTVApp.swift
-    - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/lib/ClockMask.swift
+    - evidence/2026-11-15-simulation-cow/source/tvOS/Sources/features/matrix/lib/ClockMask.swift
     - evidence/2026-10-25-denser-glyphs/source/tvOS/Sources/features/matrix/lib/FilmAtlas.swift
     - evidence/2026-10-21-parity/source/tvOS/Sources/features/matrix/model/FilmGlyphs.swift
     - evidence/2026-11-05-a8-glow/source/tvOS/Sources/features/matrix/model/RainSettings.swift
@@ -175,9 +175,9 @@ implementationBindings:
     - evidence/2026-11-05-a8-glow/source/tvOS/Sources/shared/assets/en.lproj/Localizable.strings
     - evidence/2026-11-05-a8-glow/source/tvOS/Sources/shared/assets/ru.lproj/Localizable.strings
     - evidence/2026-10-21-parity/source/tvOS/Tests/DreamsTVTests.swift
-    - evidence/2026-11-05-a8-glow/source/tvOS/Tests/RainParityTests.swift
+    - evidence/2026-11-15-simulation-cow/source/tvOS/Tests/RainParityTests.swift
     - evidence/2026-11-03-low-power/source/Makefile
-    - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-11-15-simulation-cow/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-10-21-parity/source/Sources/Dreams/features/rain/model/GlyphPulse.swift
     - evidence/2026-11-04-default-glow/source/Sources/Dreams/features/rain/config/DreamsPreset.swift
     - evidence/2026-11-03-low-power/source/Sources/Dreams/Rain.metal

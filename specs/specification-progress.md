@@ -1,5 +1,9 @@
 # Dreams specification progress
 
+## Simulation copy-on-write and TV clock formatting — 2026-11-15
+
+Shared simulation skips the no-op visibility pass and transfers cell ownership before mutations; TV clock formatting reuses its formatter. `dreams.tv.rain/clock`, `grid_and_motion`, `dreams.rain.drop_motion`, `dreams.rain.search_occupancy`, `dreams.rain.head_visibility` and measurement claims retain their identities and draft status. Current affected source snapshots and [validation](tvos/validation/2026-11-15-simulation-cow/README.md) supersede historical source bindings; earlier results remain historical. macOS timings are isolated simulation measurements, not TV performance; physical TV FPS and visual behavior remain unverified.
+
 ## Apple TV HD glow suspension — 2026-11-05
 
 The revised draft `dreams.tv.rain/a8_glow_default` temporarily forces effective
