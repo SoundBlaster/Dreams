@@ -16,7 +16,7 @@ Source SHA-256:
 - macOS 27, M4 Pro, Swift 6.4: `DREAMS_SWIFT_SCRATCH_PATH=<TB5/swiftpm> DREAMS_SWIFT_CACHE_PATH=/Volumes/TB5/Developer/Caches/swiftpm zsh scripts/swift-macos.sh test -c release`: exit 0, 113 tests passed; opt-in rendering tests were skipped.
 - `make test-tv TV_DEVICE=B29EC156-5EF9-4A56-8147-1C98D4E228DB TV_DERIVED_DATA=<TB5/xcode/DerivedData> TV_TEST_OPTIONS='-parallel-testing-enabled NO'`: exit 0, 28 simulator tests passed. The first run had two glow assertions fail because their fixtures assumed the old nonzero default; the corrected fixtures explicitly set glow to 1.
 - `make specs-check HYPERCODE=<TB5>/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode`: exit 0; full diagnostics in `specs-check.log`. SpecPM 0.2.0 reports unresolved external capabilities as warnings. Hypercode binary SHA-256 `f9631fa8c2dcfe6c1afd57c4919617e13e84838bfc289fb94440740231684e76`.
-- Physical Apple TV HD (AppleTV5,3): Release device build and installation succeeded. Launch was rejected because the device was asleep; FPS and physical behavior were not measured.
+- Physical Apple TV HD (AppleTV5,3): Release device build and installation succeeded. After waking the device and launching the installed build, the owner reported 50 FPS at 240 columns on 2026-11-15. Other tuning and frame timing were not recorded; this is a user observation, not a controlled before/after measurement.
 
 ## Isolated simulation timings
 
@@ -27,4 +27,4 @@ Source SHA-256:
 | 100 | 112.84 ms | 72.08 ms | 158008 / 158008 |
 | 190 | 229.85 ms | 151.72 ms | 312199 / 312199 |
 
-Checksums are coarse witnesses, not proof of complete state equality. The added automated test compares cell glyphs, visibility and write times between implicit and explicit full visibility and checks retained snapshots. The next evidence needed is repeatable Release FPS and frame timing on physical Apple TV under matched settings.
+Checksums are coarse witnesses, not proof of complete state equality. The added automated test compares cell glyphs, visibility and write times between implicit and explicit full visibility and checks retained snapshots. Repeatable frame timing and before/after data under matched settings remain unmeasured on physical Apple TV.
