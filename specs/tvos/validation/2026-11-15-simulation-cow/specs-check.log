@@ -1,0 +1,827 @@
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/application-instance.hc
+DesktopInstance
+  LaunchModes
+  Admission
+  ProcessLease
+  ReopenHandoff
+  OwnerPresentation
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/application-instance.hc --hcs specs/hypercode/application-instance.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/application-instance.hc --hcs specs/hypercode/application-instance.hcs --ctx mode=publisher
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/application-instance.hc --hcs specs/hypercode/application-instance.hcs --ctx mode=controller
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/application-menu.hc
+ApplicationMenu
+  LaunchInstallation
+  StandardCommands
+  SettingsDispatch
+  ResponderCommands
+  StatusItemVisibility
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/application-menu.hc --hcs specs/hypercode/application-menu.hcs
+ok: no issues found
+"specpm" validate specs/application-menu --json
+{
+  "capabilities": [
+    "dreams.desktop.main_menu",
+    "dreams.desktop.single_instance"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/instance.spec.yaml",
+    "specs/menu.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams native application menu",
+    "package_id": "dreams.application_menu",
+    "version": "0.1.0-draft.3"
+  },
+  "status": "warning_only",
+  "warning_count": 4,
+  "warnings": [
+    {
+      "code": "duplicate_boundary_document_id",
+      "field": "interfaces.outbound.0.id",
+      "file": "specs/instance.spec.yaml",
+      "message": "ID is reused across BoundarySpec sections: reopen (constraints.2.id, interfaces.outbound.0.id)",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/menu.spec.yaml",
+      "message": "No local provider declares platform.apple.appkit. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/instance.spec.yaml",
+      "message": "No local provider declares platform.apple.appkit. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.appkit. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/fps.hc
+FPSReadout
+  Preferences
+  Sampling
+  DigitOverlay
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/fps.hc --hcs specs/hypercode/fps.hcs --ctx platform=tvos
+ok: no issues found
+"specpm" validate specs/fps --json
+{
+  "capabilities": [
+    "dreams.rain.fps"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/readout.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams optional FPS readout",
+    "package_id": "dreams.fps",
+    "version": "0.1.0-draft.7"
+  },
+  "status": "warning_only",
+  "warning_count": 3,
+  "warnings": [
+    {
+      "code": "unknown_interface_kind",
+      "field": "interfaces.inbound.0.kind",
+      "file": "specs/readout.spec.yaml",
+      "message": "Unknown interface kind: ui",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/readout.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/frame-budget.hc
+FrameBudget
+  FrameRate
+  HaloFloor
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/frame-budget.hc --hcs specs/hypercode/frame-budget.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/frame-budget.hc --hcs specs/hypercode/frame-budget.hcs --ctx platform=tvos
+ok: no issues found
+"specpm" validate specs/frame-budget --json
+{
+  "capabilities": [
+    "dreams.rain.frame_budget"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/budget.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams rain frame budget",
+    "package_id": "dreams.frame_budget",
+    "version": "0.1.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 2,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/budget.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/keyword-feed.hc
+KeywordFeedReader
+  SnapshotCache
+  SubscriptionLifetime
+  BackgroundObservation
+    DirectoryChanges
+    FallbackRefresh
+  OfflineRefresh
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/keyword-feed.hc --hcs specs/hypercode/keyword-feed.hcs
+ok: no issues found
+"specpm" validate specs/keyword-feed --json
+{
+  "capabilities": [
+    "dreams.feed.read"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/reader.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams shared feed reader",
+    "package_id": "dreams.keyword_feed_reader",
+    "version": "0.1.0-draft.2"
+  },
+  "status": "warning_only",
+  "warning_count": 2,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/reader.spec.yaml",
+      "message": "No local provider declares platform.apple.filesystem_observation. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.filesystem_observation. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/television.hc
+TelevisionApplication
+  Packaging
+  Lifecycle
+  Settings
+  Tuning
+  Renderer
+    Simulation
+    Appearance
+    ClockMask
+    GlyphResources
+    FPSReadout
+    FrameBudget
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/television.hc --hcs specs/hypercode/television.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/television.hc --hcs specs/hypercode/television.hcs --ctx clock=hidden
+ok: no issues found
+"specpm" validate specs/tvos --json
+{
+  "capabilities": [
+    "dreams.tv.rain"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/television.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams Apple TV rain and clock",
+    "package_id": "dreams.television",
+    "version": "0.1.0-draft.10"
+  },
+  "status": "warning_only",
+  "warning_count": 4,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/television.spec.yaml",
+      "message": "No local provider declares platform.apple.tvos. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/television.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.tvos. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/glyph-pulse.hc
+GlyphPulse
+  Phase
+  Exposure
+  Tuning
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs --ctx pulse=off
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-pulse.hc --hcs specs/hypercode/glyph-pulse.hcs --ctx background=transparent
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/settings-host.hc
+SettingsPage
+  LaunchRouting
+  NativePresentation
+    Navigation
+    Forms
+    LivePreview
+  SettingsBinding
+  ShortcutRecording
+  LegacyAccess
+  WindowLifetime
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=legacy
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/settings-host.hc --hcs specs/hypercode/settings-host.hcs --ctx settings=native
+ok: no issues found
+"specpm" validate specs/settings-host --json
+{
+  "capabilities": [
+    "dreams.settings.host"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/host.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams native settings host",
+    "package_id": "dreams.settings_host",
+    "version": "0.1.0-draft.26"
+  },
+  "status": "warning_only",
+  "warning_count": 6,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/host.spec.yaml",
+      "message": "No local provider declares dreams.settings.ui. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/host.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/host.spec.yaml",
+      "message": "No local provider declares platform.apple.swiftui. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.swiftui. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares dreams.settings.ui. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/settings-catalog.hc
+SettingsCatalog
+  NativeComponents
+  FixtureForms
+  WindowNavigation
+  MaterialSamples
+  Packaging
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/settings-catalog.hc --hcs specs/hypercode/settings-catalog.hcs
+ok: no issues found
+"specpm" validate specs/settings-catalog --json
+{
+  "capabilities": [
+    "dreams.settings.catalog",
+    "dreams.settings.ui"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/catalog.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams native settings catalog",
+    "package_id": "dreams.settings_catalog",
+    "version": "0.1.0-draft.11"
+  },
+  "status": "warning_only",
+  "warning_count": 2,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/catalog.spec.yaml",
+      "message": "No local provider declares platform.apple.swiftui. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.swiftui. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/application.hc
+Dreams
+  DesktopApplication
+    InstanceOwnership
+    ApplicationMenu
+    RainOverlaySession
+    SettingsPage
+    PerformanceProbe
+  TelevisionApplication
+  SettingsCatalog
+  AgentIntegrations
+  GlyphToolchain
+    GlyphEditor
+    FontBuild
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/application.hc --hcs specs/hypercode/application.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/glyph-editor.hc
+GlyphEditor
+  EditingSession
+  Geometry
+  SharedStrokes
+  VisualGuides
+  ProjectTransfer
+  CheckpointLibrary
+  EditorBuild
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-editor.hc --hcs specs/hypercode/glyph-editor.hcs --ctx mode=standalone
+ok: no issues found
+"specpm" validate specs/glyph-editor --json
+{
+  "capabilities": [
+    "dreams.glyph.checkpoints",
+    "dreams.glyph.components",
+    "dreams.glyph.editor",
+    "dreams.glyph.geometry"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/checkpoints.spec.yaml",
+    "specs/components.spec.yaml",
+    "specs/editor.spec.yaml",
+    "specs/geometry.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams glyph workspace contracts",
+    "package_id": "dreams.glyph_workspace",
+    "version": "0.1.0-draft.1"
+  },
+  "status": "warning_only",
+  "warning_count": 6,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "No local provider declares platform.node.execution. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/checkpoints.spec.yaml",
+      "message": "No local provider declares platform.posix.filesystem. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/editor.spec.yaml",
+      "message": "No local provider declares platform.browser.editor_host. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.node.execution. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.posix.filesystem. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.browser.editor_host. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/overlay-session.hc
+RainOverlaySession
+  DisplayTargets
+  Presentation
+    OverlayWindows
+      InputRouting
+      ExitControls
+    FocusReturn
+  ExitInput
+    GlobalHotkey
+  SessionLifetime
+  CaptureVisibility
+  Renderer
+    FeedInput
+    DropMotion
+    GlyphSearch
+    GlyphPulse
+    FPSReadout
+    FrameBudget
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx background=transparent
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx entry=agent
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/overlay-session.hc --hcs specs/hypercode/overlay-session.hcs --ctx background=transparent --ctx entry=agent
+ok: no issues found
+"specpm" validate specs/overlay-session --json
+{
+  "capabilities": [
+    "dreams.overlay.displays",
+    "dreams.overlay.exit",
+    "dreams.overlay.presentation",
+    "dreams.overlay.session"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/displays.spec.yaml",
+    "specs/exit.spec.yaml",
+    "specs/presentation.spec.yaml",
+    "specs/session.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams overlay and exit contracts",
+    "package_id": "dreams.overlay_session",
+    "version": "0.1.0-draft.2"
+  },
+  "status": "warning_only",
+  "warning_count": 11,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "No local provider declares platform.apple.windowserver. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/presentation.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/exit.spec.yaml",
+      "message": "No local provider declares platform.apple.windowserver. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/exit.spec.yaml",
+      "message": "No local provider declares platform.apple.carbon_hotkeys. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "No local provider declares platform.apple.windowserver. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "No local provider declares platform.apple.power_assertions. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/session.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.windowserver. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.carbon_hotkeys. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.power_assertions. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/drop-motion.hc
+DropMotion
+  HeadArrival
+  HeadAppearance
+  TailLifetime
+  EventLifetime
+  Tuning
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/drop-motion.hc --hcs specs/hypercode/drop-motion.hcs --ctx motion=decelerating
+ok: no issues found
+"specpm" validate specs/drop-motion --json
+{
+  "capabilities": [
+    "dreams.rain.drop_motion",
+    "dreams.rain.glyph_pulse",
+    "dreams.rain.head_visibility",
+    "dreams.rain.search_occupancy"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/head.spec.yaml",
+    "specs/motion.spec.yaml",
+    "specs/pulse.spec.yaml",
+    "specs/search.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams rain motion and appearance",
+    "package_id": "dreams.drop_motion",
+    "version": "0.4.0-draft.4"
+  },
+  "status": "warning_only",
+  "warning_count": 8,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/motion.spec.yaml",
+      "message": "No local provider declares platform.apple.windowserver. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/motion.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/search.spec.yaml",
+      "message": "No local provider declares platform.apple.windowserver. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/search.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/head.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/pulse.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.windowserver. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/glyph-search.hc
+GlyphSearch
+  Population
+  Quota
+  BurstLifecycle
+  Tuning
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=disabled
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/glyph-search.hc --hcs specs/hypercode/glyph-search.hcs --ctx search=saturated
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" parse specs/hypercode/performance.hc
+PerformanceProbe
+  Scenario
+  RunLifetime
+  Measurement
+    FrameCPU
+    GPUCompletion
+    Presentation
+  Calibration
+  SyntheticFeed
+    Publication
+    SnapshotObservation
+    BackgroundReads
+    DeliveryProxy
+  ReportExport
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs --ctx probe=control
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs --ctx probe=full
+ok: no issues found
+"/Volumes/TB5/Developer/Builds/GitHub/Hypercode-4345ff8dcac12189/swiftpm/arm64-apple-macosx/debug/hypercode" validate specs/hypercode/performance.hc --hcs specs/hypercode/performance.hcs --ctx probe=feed
+ok: no issues found
+"specpm" validate specs/performance --json
+{
+  "capabilities": [
+    "dreams.performance.measure"
+  ],
+  "checked_files": [
+    "specpm.yaml",
+    "specs/measurement.spec.yaml"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "intent_mappings": [],
+  "intents": [],
+  "package_identity": {
+    "name": "Dreams performance probe",
+    "package_id": "dreams.performance",
+    "version": "0.1.0-draft.6"
+  },
+  "status": "warning_only",
+  "warning_count": 2,
+  "warnings": [
+    {
+      "code": "required_capability_unresolved",
+      "field": "requires.capabilities",
+      "file": "specs/measurement.spec.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    },
+    {
+      "code": "required_capability_unresolved",
+      "field": "index.requires.capabilities",
+      "file": "specpm.yaml",
+      "message": "No local provider declares platform.apple.metal_renderer. External providers were not checked.",
+      "severity": "warning"
+    }
+  ]
+}

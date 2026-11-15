@@ -268,7 +268,13 @@ struct MatrixSimulation {
                 continue
             }
             var column = columns[index]
-            for row in column.cells.indices { column.cells[row].visibility = min(column.cells[row].visibility, visible) }
+            if visibility != nil {
+                // Transfer ownership before changing cells to avoid copying the whole column.
+                columns[index].cells = []
+                for row in column.cells.indices {
+                    column.cells[row].visibility = min(column.cells[row].visibility, visible)
+                }
+            }
             if !column.isEnabled {
                 column.isEnabled = true
                 column.nextRow = 0
@@ -346,6 +352,8 @@ struct MatrixSimulation {
         let position = Position(column: index, row: columns[index].nextRow)
         removePosition(position)
         var column = columns[index]
+        // The column is restored before any other simulation method can observe it.
+        columns[index].cells = []
         let eventTime = column.nextWrite
         let row = column.nextRow
         if row == 0 {

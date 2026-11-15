@@ -2,6 +2,27 @@ import Testing
 @testable import Dreams
 
 struct SearchOccupancyTests {
+    @Test func implicitVisibilityMatchesFullVisibilityAndPreservesSnapshots() {
+        var implicit = MatrixSimulation(columnCount: 8, rows: 72, glyphCount: 57, seed: 17, density: 0.82)
+        implicit.advance(to: 2, visibility: Array(repeating: 0.4, count: 8))
+        var explicit = implicit
+        let snapshot = implicit.columns.map { $0.cells.map(\.visibility) }
+        let snapshotGlyphs = implicit.columns.map { $0.cells.map(\.glyph) }
+        let heldColumns = implicit.columns
+        for frame in 101...500 {
+            let time = Double(frame) / 50
+            implicit.advance(to: time)
+            explicit.advance(to: time, visibility: Array(repeating: 1, count: 8))
+        }
+        for index in implicit.columns.indices {
+            #expect(implicit.columns[index].cells.map(\.glyph) == explicit.columns[index].cells.map(\.glyph))
+            #expect(implicit.columns[index].cells.map(\.visibility) == explicit.columns[index].cells.map(\.visibility))
+            #expect(implicit.columns[index].cells.map(\.writtenAt) == explicit.columns[index].cells.map(\.writtenAt))
+            #expect(heldColumns[index].cells.map(\.visibility) == snapshot[index])
+            #expect(heldColumns[index].cells.map(\.glyph) == snapshotGlyphs[index])
+        }
+    }
+
     @Test(arguments: [0.0, 0.01, 0.1, 0.5, 1.0], [1, 9])
     func fractionIsOfAllLiveGlyphsRatherThanOfColumns(fraction: Double, columnCount: Int) {
         var rain = MatrixSimulation(columnCount: columnCount, rows: 72, glyphCount: 57, density: 0.5)

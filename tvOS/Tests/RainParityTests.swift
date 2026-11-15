@@ -186,6 +186,7 @@ final class RainParityTests: XCTestCase {
         rain.advance(to: 10)
         var tuning = RainTuning(density: 1)
         tuning.showsClock = false
+        tuning.glow = 1
         tuning.pulseStrength = 1
         let first = renderer.makeCells(simulation: rain, tuning: tuning, wallTime: 1)
         let second = renderer.makeCells(simulation: rain, tuning: tuning, wallTime: 2)
@@ -211,6 +212,7 @@ final class RainParityTests: XCTestCase {
         rain.advance(to: 10)
         var tuning = RainTuning(density: 1)
         tuning.showsClock = false
+        tuning.glow = 1
         let visible = renderer.makeCells(simulation: rain, tuning: tuning, wallTime: 1)
         XCTAssertFalse(visible.halos.isEmpty)
         XCTAssertTrue(visible.halos.allSatisfy { $0.color.w >= RainFrameBudget.minimumHaloAlpha })

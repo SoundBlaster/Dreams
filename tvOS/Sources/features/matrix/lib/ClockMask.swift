@@ -16,12 +16,16 @@ struct ClockMask {
         return pixels[y * width + x] >= 128
     }
 
-    static func minuteKey(at date: Date) -> String {
+    private static let minuteFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = .autoupdatingCurrent
         formatter.dateFormat = "HH:mm"
-        return formatter.string(from: date)
+        return formatter
+    }()
+
+    static func minuteKey(at date: Date) -> String {
+        minuteFormatter.string(from: date)
     }
 
     @MainActor

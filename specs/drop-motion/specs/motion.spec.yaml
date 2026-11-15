@@ -110,7 +110,7 @@ effects:
 evidence:
 - id: simulation_source
   kind: source
-  path: evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+  path: evidence/2026-11-15-simulation-cow/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
   supports:
   - constraints.opt_in
   - constraints.kinematics
@@ -164,7 +164,7 @@ implementationBindings:
   files:
     owned:
     - evidence/2026-10-25-grid-clock/source/Tests/DreamsTests/SimulationStartTimeTests.swift
-    - evidence/2026-10-25-grid-clock/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
+    - evidence/2026-11-15-simulation-cow/source/Sources/Dreams/features/rain/model/MatrixSimulation.swift
     - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
