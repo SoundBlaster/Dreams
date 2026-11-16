@@ -1,0 +1,380 @@
+[
+  {
+    "group": "sdk",
+    "pair": 1,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 26.83076407762946,
+    "gpuP50ms": 0.7822500192560256,
+    "gpuP95ms": 1.0186666622757912,
+    "instanceP50ms": 2.7308749849908054,
+    "presentationP99ms": 16.680791683029383,
+    "frames": 1803,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.975596228509,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.05934879166306928
+  },
+  {
+    "group": "sdk",
+    "pair": 1,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 24.01942651364527,
+    "gpuP50ms": 0.7869999972172081,
+    "gpuP95ms": 1.1534999939613044,
+    "instanceP50ms": 2.2082916693761945,
+    "presentationP99ms": 16.68075000634417,
+    "frames": 1801,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.978900610771,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.05862574995262548
+  },
+  {
+    "group": "sdk",
+    "pair": 2,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 27.050130352120345,
+    "gpuP50ms": 0.7800000021234155,
+    "gpuP95ms": 1.029416627716273,
+    "instanceP50ms": 3.1927916570566595,
+    "presentationP99ms": 16.680791683029383,
+    "frames": 1801,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.980011104943,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.05696749995695427
+  },
+  {
+    "group": "sdk",
+    "pair": 2,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 27.09506389746741,
+    "gpuP50ms": 0.78112498158589,
+    "gpuP95ms": 1.0043749934993684,
+    "instanceP50ms": 2.844958333298564,
+    "presentationP99ms": 16.680791683029383,
+    "frames": 1800,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.982222222223,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.0599287916556932
+  },
+  {
+    "group": "sdk",
+    "pair": 3,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 26.2725986118216,
+    "gpuP50ms": 0.7812499534338713,
+    "gpuP95ms": 1.0143333347514272,
+    "instanceP50ms": 2.5740833370946348,
+    "presentationP99ms": 16.680833301506937,
+    "frames": 1802,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.977247502775,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.05841350002447143
+  },
+  {
+    "group": "sdk",
+    "pair": 3,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 27.039589749472327,
+    "gpuP50ms": 0.783999974373728,
+    "gpuP95ms": 1.0787916835397482,
+    "instanceP50ms": 2.9104999848641455,
+    "presentationP99ms": 16.680791683029383,
+    "frames": 1802,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.980022197558,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.05788712500361726
+  },
+  {
+    "group": "strip-glow",
+    "pair": 1,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 20.601835750755928,
+    "gpuP50ms": 3.88437497895211,
+    "gpuP95ms": 4.637916630599648,
+    "instanceP50ms": 3.8530833553522825,
+    "presentationP99ms": 50.041791633702815,
+    "frames": 900,
+    "over50ms": 45,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.976666666667,
+    "meanHaloInstances": 14399.976666666667,
+    "constructionSeconds": 0.05814454169012606
+  },
+  {
+    "group": "strip-glow",
+    "pair": 1,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 21.272093318002376,
+    "gpuP50ms": 4.359750018920749,
+    "gpuP95ms": 5.125625000800937,
+    "instanceP50ms": 3.8510416634380817,
+    "presentationP99ms": 50.04175001522526,
+    "frames": 901,
+    "over50ms": 40,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.981132075472,
+    "meanHaloInstances": 14399.981132075472,
+    "constructionSeconds": 0.0592317083501257
+  },
+  {
+    "group": "strip-glow",
+    "pair": 2,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 18.55779343156793,
+    "gpuP50ms": 3.8949999725446105,
+    "gpuP95ms": 4.699374956544489,
+    "instanceP50ms": 3.7312500062398612,
+    "presentationP99ms": 50.04183331038803,
+    "frames": 901,
+    "over50ms": 78,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.981132075472,
+    "meanHaloInstances": 14399.981132075472,
+    "constructionSeconds": 0.05727116670459509
+  },
+  {
+    "group": "strip-glow",
+    "pair": 2,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 18.388514789594264,
+    "gpuP50ms": 4.331250034738332,
+    "gpuP95ms": 5.105041665956378,
+    "instanceP50ms": 3.74829163774848,
+    "presentationP99ms": 50.041791691910475,
+    "frames": 900,
+    "over50ms": 77,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.978888888889,
+    "meanHaloInstances": 14399.978888888889,
+    "constructionSeconds": 0.05793629167601466
+  },
+  {
+    "group": "strip-glow",
+    "pair": 3,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 18.801214877426016,
+    "gpuP50ms": 3.8907916750758886,
+    "gpuP95ms": 4.936999990604818,
+    "instanceP50ms": 3.740416665095836,
+    "presentationP99ms": 50.041791691910475,
+    "frames": 900,
+    "over50ms": 94,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.978888888889,
+    "meanHaloInstances": 14399.978888888889,
+    "constructionSeconds": 0.059690208348911256
+  },
+  {
+    "group": "strip-glow",
+    "pair": 3,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 19.455056088413606,
+    "gpuP50ms": 4.313624987844378,
+    "gpuP95ms": 5.347166676074266,
+    "instanceP50ms": 3.778291691560298,
+    "presentationP99ms": 50.041791691910475,
+    "frames": 901,
+    "over50ms": 91,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.976692563818,
+    "meanHaloInstances": 14399.976692563818,
+    "constructionSeconds": 0.05796541669405997
+  },
+  {
+    "group": "strip-no-glow",
+    "pair": 1,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 27.02935903059613,
+    "gpuP50ms": 0.6249166326597333,
+    "gpuP95ms": 0.8739583427086473,
+    "instanceP50ms": 2.7699582860805094,
+    "presentationP99ms": 16.680833301506937,
+    "frames": 1802,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.977802441732,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.05865025002276525
+  },
+  {
+    "group": "strip-no-glow",
+    "pair": 1,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 26.757938953043276,
+    "gpuP50ms": 0.7806250359863043,
+    "gpuP95ms": 0.9695833432488143,
+    "instanceP50ms": 2.7912083314731717,
+    "presentationP99ms": 16.680791624821723,
+    "frames": 1801,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.976124375347,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.1670577916665934
+  },
+  {
+    "group": "strip-no-glow",
+    "pair": 2,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 27.30674449543582,
+    "gpuP50ms": 0.6250416627153754,
+    "gpuP95ms": 0.8819999638944864,
+    "instanceP50ms": 2.8778749983757734,
+    "presentationP99ms": 16.680833301506937,
+    "frames": 1801,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.977234869517,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.05786749999970198
+  },
+  {
+    "group": "strip-no-glow",
+    "pair": 2,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 27.263977825269297,
+    "gpuP50ms": 0.7834999705664814,
+    "gpuP95ms": 1.0317499982193112,
+    "instanceP50ms": 2.9200416756793857,
+    "presentationP99ms": 16.680791683029383,
+    "frames": 1801,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.978345363686,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.058642291638534516
+  },
+  {
+    "group": "strip-no-glow",
+    "pair": 3,
+    "variant": "after",
+    "valid": true,
+    "cpuPercent": 25.13618638907297,
+    "gpuP50ms": 0.6237083580344915,
+    "gpuP95ms": 0.8736666641198099,
+    "instanceP50ms": 2.2735417005605996,
+    "presentationP99ms": 16.680791624821723,
+    "frames": 1801,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.974458634093,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.057696208357810974
+  },
+  {
+    "group": "strip-no-glow",
+    "pair": 3,
+    "variant": "before",
+    "valid": true,
+    "cpuPercent": 25.731223623925654,
+    "gpuP50ms": 0.7820416940376163,
+    "gpuP95ms": 1.0128750000149012,
+    "instanceP50ms": 2.3633333039470017,
+    "presentationP99ms": 16.680791624821723,
+    "frames": 1801,
+    "over50ms": 0,
+    "over100ms": 0,
+    "thermal": [
+      0
+    ],
+    "unpresented": 0,
+    "meanCoreInstances": 14399.985008328706,
+    "meanHaloInstances": 0,
+    "constructionSeconds": 0.057413875008933246
+  }
+]

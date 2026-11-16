@@ -40,8 +40,10 @@ done
 dreams_manifest="$(swift package "${dreams_package_options[@]}" dump-package)"
 [[ "$(print -r -- "$dreams_manifest" | plutil -extract platforms.0.platformName raw -o - -)" == macos ]]
 dreams_minimum="$(print -r -- "$dreams_manifest" | plutil -extract platforms.0.version raw -o - -)"
-dreams_sdk="$(xcrun --sdk macosx --show-sdk-path)"
-dreams_sdk_version="$(xcrun --sdk macosx --show-sdk-version)"
+# CLT-only hosts may need an installed SDK whose SwiftUI plugins are available.
+dreams_sdk_name="${DREAMS_MACOS_SDK:-macosx}"
+dreams_sdk="$(xcrun --sdk "$dreams_sdk_name" --show-sdk-path)"
+dreams_sdk_version="$(xcrun --sdk "$dreams_sdk_name" --show-sdk-version)"
 
 swift "$dreams_command" --sdk "$dreams_sdk" \
   -Xlinker -platform_version -Xlinker macos -Xlinker "$dreams_minimum" -Xlinker "$dreams_sdk_version" "$@"

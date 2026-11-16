@@ -1,0 +1,64 @@
+{
+  "toolchain": "Xcode 27.2 (27B52), Swift 6.4.2, SDK 27.2; arm64 Release, macOS minimum 15.0",
+  "buildLocation": ".build-sdk27 (existing aotd Mac mini checkout; Egor TB5 rule not applicable)",
+  "commands": [
+    {
+      "command": "DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer DREAMS_SWIFT_SCRATCH_PATH=$PWD/.build-sdk27 DREAMS_SWIFT_CACHE_PATH=$PWD/.build/package-cache DREAMS_TEST_METAL=1 DREAMS_STORAGE_OUTPUT=<before> zsh scripts/swift-macos.sh test -c release --filter RainInstanceStorageTests",
+      "exitCode": 1,
+      "meaning": "eight expected baseline retention failures; complete snapshots recorded"
+    },
+    {
+      "command": "same toolchain/cache/isolated feed, DREAMS_STORAGE_OUTPUT=<after> DREAMS_STORAGE_BASELINE=<before> test -c release --filter RainInstanceStorageTests",
+      "exitCode": 0,
+      "meaning": "3 transition cases; 11 exact pixel comparisons"
+    },
+    {
+      "command": "same toolchain/cache/isolated feed, DREAMS_TEST_METAL=1 DREAMS_STORAGE_BASELINE=<before> DREAMS_REPLAY_OUTPUT=<new> DREAMS_REPLAY_BASELINE=<previous> zsh scripts/swift-macos.sh test -c release",
+      "exitCode": 0,
+      "meaning": "116 tests, 30 suites; interactive/device suites skipped"
+    },
+    {
+      "command": "same toolchain/cache, DREAMS_GLYPH_OUTPUT=<artifact>/glyph-build make app",
+      "exitCode": 0
+    },
+    {
+      "command": "DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer caffeinate -d -i -u -t 600 python3 artifacts/storage-review-20261116/run-comparison.py artifacts/storage-review-20261116/plan.json",
+      "exitCode": 0,
+      "meaning": "8 valid 10s warmup + 20s collection runs; idle-controller restored"
+    },
+    {
+      "command": "make specs-check",
+      "exitCode": 2,
+      "diagnostic": "hypercode missing, child exit 127"
+    },
+    {
+      "command": "specpm validate specs/performance --json",
+      "exitCode": 127,
+      "diagnostic": "specpm missing"
+    },
+    {
+      "command": "ruby -ryaml with YAML.load_file for affected packages",
+      "exitCode": 0,
+      "tool": "Ruby 2.6.10; syntax only"
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "meaning": "229 Markdown files"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "codesign --verify --deep --strict <candidate and installed app>",
+      "exitCode": 0
+    }
+  ],
+  "limits": [
+    "No RSS/peak/allocator-event claim",
+    "No new power or speedup claim",
+    "No official HC/SpecPM validation; required skills unavailable",
+    "No fullscreen, physical-display or tvOS acceptance"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "toolchain": "Xcode 27.2 27B52; Swift 6.4.2 swiftlang-6.4.2.1.9; SDK 27.2; arm64 macOS 15.0",
+  "checks": [
+    {
+      "command": "DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer DREAMS_SWIFT_SCRATCH_PATH=$PWD/.build-sdk27 DREAMS_SWIFT_CACHE_PATH=$PWD/.build/package-cache DREAMS_GLYPH_OUTPUT=$PWD/artifacts/sdk-20261116/glyph-build make app",
+      "variants": [
+        "baseline",
+        "strip"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": "same DEVELOPER_DIR/scratch/cache, isolated DREAMS_FEED_DIRECTORY, DREAMS_REPLAY_OUTPUT, DREAMS_REPLAY_BASELINE; DREAMS_TEST_METAL=1 zsh scripts/swift-macos.sh test -c release",
+      "exitCode": 0,
+      "result": "115 tests in 29 suites; opt-in device/interactive tests skipped"
+    },
+    {
+      "command": "make specs-check",
+      "exitCode": 2,
+      "diagnostic": "hypercode command not found; child exit 127"
+    },
+    {
+      "command": "specpm validate specs/performance --json",
+      "exitCode": 127,
+      "diagnostic": "specpm command not found"
+    },
+    {
+      "command": "ruby -ryaml with YAML.load_file for affected package YAML files",
+      "exitCode": 0,
+      "scope": "syntax only, not SpecPM"
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ]
+}

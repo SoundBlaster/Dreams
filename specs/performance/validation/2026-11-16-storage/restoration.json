@@ -1,0 +1,19 @@
+{
+  "configHashesUnchanged": true,
+  "launchAgent": [
+    [
+      "47310",
+      "1",
+      "ru.egormerkushev.dreams.idle"
+    ]
+  ],
+  "children": [
+    "47330 47310 /Applications/Dreams.app/Contents/MacOS/Dreams"
+  ],
+  "status": {
+    "idle_threshold_seconds": 300,
+    "rain_visible": true,
+    "manual": false,
+    "session_available": true
+  }
+}

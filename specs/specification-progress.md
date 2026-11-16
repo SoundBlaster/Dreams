@@ -1,5 +1,43 @@
 # Dreams specification progress
 
+## Retained instance capacity review — 2026-11-16
+
+macOS MatrixRain now releases obsolete CPU instance storage on substantial grid
+shrink, Glow-off and inactive draws, preserving ordinary frame reuse. Current
+bindings and [dated evidence](performance/validation/2026-11-16-storage/README.md)
+record capacity bytes separately from RSS and allocator events. Motion, search,
+head/pulse, frame-budget, feed and measurement claim identities remain unchanged;
+overlay/preview/FPS ownership was revisited. Earlier CPU/GPU claims remain
+historical with an explicit retention caveat. HC/SpecPM tools/skills remain missing;
+draft acceptance and unexplored renderer/controller/platform coverage are unchanged.
+
+## macOS shader topology and SDK comparison — 2026-11-16
+
+The CPU checkpoint is `c73807d`. Desktop rain now uses four strip vertices per
+glyph; shared shader math and the six-vertex FPS/TV entry point are preserved.
+Affected current full-file bindings and [dated validation](performance/validation/2026-11-16-sdk-gpu/README.md)
+separate source review, exact replay observations, SDK/compiler comparison and GPU
+measurements. Stable motion/search/head/pulse/feed/frame-budget/measurement and TV
+claim identities remain descriptive drafts. Parent overlay/preview/FPS/TV assembly
+obligations were revisited; TV execution and official HC/SpecPM validation remain
+unverified. Earlier source/test evidence remains historical. Full shader/atlas and
+external-controller coverage is still backlog, not implied by this narrow change.
+
+## macOS glyph lookup and CPU instance capacity — 2026-11-16
+
+`MatrixRain` now indexes its prebuilt code atlas by simulation glyph ID and reuses
+CPU instance-array capacity. Motion, search, head visibility, pulse, frame-budget,
+feed and measurement claim identities/requirements are unchanged; affected source
+bindings and [candidate validation](performance/validation/2026-11-16-cpu-gpu/README.md)
+identify the base plus working-tree hashes. Overlay, preview and FPS parent
+obligations were revisited; tvOS renderer behavior is outside this change.
+Historical test passes remain tied to their original source. New Release tests and
+32 byte-identical replay PNGs cover only their stated scope. Official HC/SpecPM
+validation remains pending because the required tools and specification skills
+are unavailable on this host. Descriptive-draft acceptance is unchanged; the
+[local investigation](../research/performance/2026-11-16-cpu-gpu.md) records timing
+method, raw evidence, build constraints and remaining work.
+
 ## Release 0.1.15 metadata — 2026-11-15
 
 `VERSION` and both plugin manifests advance together. Spec-ID: NO-SPEC-IMPACT: release metadata does not change runtime contracts. The system screen saver experiment in PR #82 is excluded because it remains a draft with unresolved integration and is not required for the desktop optimization release; PR #85 is included in the release base. Existing tests and device observations remain tied to their original revisions.

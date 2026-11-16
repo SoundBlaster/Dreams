@@ -18,6 +18,17 @@ final class MatrixRain {
     private let atlas: any MTLTexture
     private let glowAtlas: any MTLTexture
     private var glyphs: [String: SIMD4<Float>] = [:]
+    /// The simulation already identifies code glyphs by repertoire index.
+    private var codeUVs: [SIMD4<Float>] = []
+    // Encoding copies these values into Metal-owned storage before the next draw.
+    private var cells: [Cell] = []
+    private var halos: [Cell] = []
+    /// Read-only storage diagnostics; integer identities do not retain the arrays or trigger CoW.
+    var instanceStorage: (coreCapacity: Int, haloCapacity: Int, coreIdentity: UInt, haloIdentity: UInt) {
+        (cells.capacity, halos.capacity,
+         cells.withUnsafeBufferPointer { UInt(bitPattern: $0.baseAddress) },
+         halos.withUnsafeBufferPointer { UInt(bitPattern: $0.baseAddress) })
+    }
     private let matrixFont: NSFont
     private let wordFont: NSFont
     private let feed: KeywordFeedReader
@@ -88,7 +99,7 @@ final class MatrixRain {
             symbols = Array("モエヤキオカ7ケサスz152ヨタワ4ネヌナ98ヒ0ホア3ウセ¦:\"꞊ミラリ╌ツテニハソ▪コシマムメー©*+<>|\u{E937}")
         }
         let descriptor = MTLRenderPipelineDescriptor()
-        descriptor.vertexFunction = library.makeFunction(name: "matrixVertex")
+        descriptor.vertexFunction = library.makeFunction(name: "matrixStripVertex")
         descriptor.fragmentFunction = library.makeFunction(name: "matrixFragment")
         let color = descriptor.colorAttachments[0]!
         color.pixelFormat = transparentBackground ? .bgra8Unorm : .bgra8Unorm_srgb
@@ -113,7 +124,7 @@ final class MatrixRain {
         self.atlas = atlas
         self.glowAtlas = glowAtlas
         _ = glyph("?", keyword: true)
-        for symbol in symbols { _ = glyph(String(symbol), keyword: false) }
+        for symbol in symbols { codeUVs.append(glyph(String(symbol), keyword: false)) }
     }
 
     @discardableResult
@@ -178,12 +189,19 @@ final class MatrixRain {
             simulation = nil
             simulationClock = 0
             selections.removeAll()
+            cells = []
+            halos = []
             return fpsGrid
         }
         // Activity transitions and texture noise stay on real time. Only the
         // rain's writing, mutation and dissolution clock follows this control.
         simulationClock += elapsed * min(3, max(0.25, speed))
         if simulation?.columns.count != columns || simulation?.rows != rows {
+            // Drop a previous, much larger grid's high-water storage. Keep slack for
+            // nearby resizes and the existing minimum core reservation (32 rows).
+            let capacityLimit = 2 * columns * max(rows, 32)
+            if cells.capacity > capacityLimit { cells = [] }
+            if halos.capacity > capacityLimit { halos = [] }
             pulseWords.removeAll()
             selections.removeAll()
             // Seed a visible fresh grid without replaying the renderer's entire session.
@@ -232,8 +250,8 @@ final class MatrixRain {
             selectionCycle = cycle
         }
         selections = selections.filter { selection in active.contains { $0.sessionID == selection.value.session } }
-        var cells: [Cell] = []
-        var halos: [Cell] = []
+        cells.removeAll(keepingCapacity: true)
+        halos.removeAll(keepingCapacity: glow > 0)
         cells.reserveCapacity(columns * 32)
         let exposure = max(0.15, brightness / 0.18) * (0.35 + 0.65 * activity.workBlend(at: time))
         for column in 0..<columns {
@@ -264,7 +282,6 @@ final class MatrixRain {
                     && wordIndex < selection!.characters.count && cell.writtenAt >= (pulse?.began ?? Double(cycle * 16))
                 // Packet gaps stay empty in the trail, but cannot hide the drop itself.
                 guard !cell.isGap || isKeyword || head > 0 else { continue }
-                let text: String
                 var rgb: SIMD3<Float>
                 if isKeyword && keywordBrightness <= 0.001 { continue }
                 let pulsedInk = ink * GlyphPulse.gain(at: time, column: column, row: row, strength: pulseStrength)
@@ -276,13 +293,12 @@ final class MatrixRain {
                 let mutating = isKeyword && cell.glyph >= 0
                     && (head > 0 || (search?.row == row && search?.writtenAt == cell.writtenAt)
                         || (cell.changedAt > cell.writtenAt && simulationClock - cell.changedAt < 0.15))
-                if isKeyword, let selection {
-                    text = mutating ? String(symbols[displayGlyph]) : String(selection.characters[wordIndex])
+                let text = isKeyword && !mutating ? String(selection!.characters[wordIndex]) : nil
+                if isKeyword {
                     // Same ink as the rain (brightness spread included); colour and the
                     // word brightness setting are the only differences.
                     rgb = keywordTint * pulsedInk * inkOpacity
                 } else {
-                    text = String(symbols[displayGlyph])
                     let tint = rainTint + SIMD3<Float>(0, 0, 0.02 * cell.warmth)
                     rgb = tint * pulsedInk * inkOpacity
                 }
@@ -290,7 +306,9 @@ final class MatrixRain {
                 rgb = rgb * (1 - white) + SIMD3<Float>(0.86, 0.96, 0.88) * white
                 let wordExposure: Float = isKeyword ? Float(min(2, max(0, keywordBrightness))) : 1
                 rgb *= wordExposure
-                let uv = glyph(text, keyword: isKeyword && !mutating, measurement: measurement)
+                // Stable keywords retain the lazy Unicode cache; rain and searching
+                // keyword cells use the exact UVs prepared with the original atlas.
+                let uv = text.map { glyph($0, keyword: true, measurement: measurement) } ?? codeUVs[displayGlyph]
                 // Atlas cells have internal side bearings: let quads overlap those empty
                 // margins so visible ink nearly touches while glyphs remain large.
                 // Film reference: 22:30 versus the font's 38:46. Narrow the ink
@@ -316,7 +334,7 @@ final class MatrixRain {
                 // First stable, non-space event letter submitted in the visible viewport.
                 // Feed runs reject scenarios whose reference viewport exceeds the drawable.
                 // Presentation of this drawable is a proxy; this is not pixel/OCR verification.
-                if let measurement, measurement.observeFeed, let pulse, isKeyword, !mutating,
+                if let measurement, measurement.observeFeed, let pulse, let text,
                    !text.allSatisfy({ $0.isWhitespace }), glyphAlpha > 0.008, rgb.max() > 0,
                    rect.x < 1, rect.y < 1, rect.x + rect.z > 0, rect.y + rect.w > 0,
                    !measurement.eventLetters.contains(pulse.eventID) {
@@ -355,7 +373,7 @@ final class MatrixRain {
         encoder.setFragmentTexture(texture, index: 0)
         var parameters = SIMD4<Float>(time, noise, diffuse ? 1 : 0, transparentBackground ? 1 : 0)
         encoder.setFragmentBytes(&parameters, length: MemoryLayout<SIMD4<Float>>.stride, index: 0)
-        encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6, instanceCount: cells.count)
+        encoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4, instanceCount: cells.count)
         return true
     }
 
