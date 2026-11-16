@@ -1,5 +1,9 @@
 # Dreams specification progress
 
+## Release 0.1.16 metadata — 2026-11-16
+
+`VERSION` and both plugin manifests advance together for the desktop release. Spec-ID: NO-SPEC-IMPACT: release metadata does not change runtime contracts. PR #87 is included in the release base; experimental system screen saver PR #82 remains a draft and is not required for this release. Existing performance and test evidence remains tied to its measured source and platform.
+
 ## Retained instance capacity review — 2026-11-16
 
 macOS MatrixRain now releases obsolete CPU instance storage on substantial grid
