@@ -69,6 +69,9 @@ evidence:
 - id: sdk_gpu_20261116
   kind: test
   path: validation/2026-11-16-sdk-gpu/README.md
+- id: storage_20261116
+  kind: test
+  path: validation/2026-11-16-storage/README.md
 provenance:
   sourceConfidence:
     intent: high
@@ -81,12 +84,12 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: c73807d2eb97ac863738d1bba20af3db1190f90b
+    revision: c194bd95c757b65d886f7427aa72310bef006eb5
   files:
     owned:
     - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/model/RainFrameBudget.swift
     - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/RainRenderer.swift
-    - evidence/2026-11-16-sdk-gpu/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-11-16-storage/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-11-16-sdk-gpu/source/Sources/Dreams/Rain.metal
     - evidence/2026-11-05-a8-glow/source/tvOS/Sources/features/matrix/ui/MatrixRenderer.swift
     - evidence/2026-11-03-low-power/source/tvOS/project.yml

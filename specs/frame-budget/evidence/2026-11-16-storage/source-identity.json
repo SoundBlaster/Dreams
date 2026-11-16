@@ -1,0 +1,40 @@
+{
+  "baseRevision": "c194bd95c757b65d886f7427aa72310bef006eb5",
+  "overlay": "baseline plus dated local storage policy; hashes identify tested sources, not base SHA alone",
+  "sourceSHA256": {
+    "Sources/Dreams/features/rain/ui/MatrixRain.swift": "917b3e770f7e7b36eefba4dcc00817c728558b7ffc3c375f63e626554d9e0fbc"
+  },
+  "mapSHA256": {
+    "specs/hypercode/television.hcs": "461198c87dcacad77dfc3ed3712893c6587e28401577ff3cde02113658436539",
+    "specs/hypercode/settings-catalog.hcs": "3cfa711b0a5c469c041dcd7c4f585aef0bc5aa3e134ea077f1d174d8b045168d",
+    "specs/hypercode/fps.hc": "e0ba171fd7f47bc8f4aa4f61c62fdc6915ca1cc54ff233faa29e83d59b8d1c08",
+    "specs/hypercode/glyph-pulse.hc": "223ad5e28969cd2df1a4d271e7072d3c4624dfca018b1f0d3b45811c1ead00df",
+    "specs/hypercode/application-menu.hcs": "db0e0009ef3dc8602326a21bddac84978e28ca46c08b4b7c43889e5ea37d9389",
+    "specs/hypercode/fps.hcs": "4691d86dcf1d76d6e60bb272ca93206fcbe96c77c9849737624f81fdb3e4134c",
+    "specs/hypercode/frame-budget.hcs": "d164b878d4341696777994c63b16a77ef85dc091e5637f206b2ed1517905e225",
+    "specs/hypercode/settings-host.hc": "17c88eda8078395cff8db6dccff75ece562f0de2bef22c7cff7a3337d6417c0e",
+    "specs/hypercode/drop-motion.hcs": "6d0a250aa0018fec4fed96dc82cf07a9d4d5e424cbf7cc33fd21d05ac7238e14",
+    "specs/hypercode/application.hcs": "d7845f4c1e292eddb20d0be1aec43f1002a25a4b49c1539f7234b88ac0522f84",
+    "specs/hypercode/application-instance.hcs": "7750c3c84032607540fd178798b5a9c63d91c1b45566536dc05ce815a14299da",
+    "specs/hypercode/settings-catalog.hc": "9dd643bb4ac8027c0a40d28b233f492934d55fe0348070932f6c55b51728cfb7",
+    "specs/hypercode/television.hc": "de44f06c65b7fd18460ee7f7f2100e733eac3859780495696e5c3c9f4f54e55e",
+    "specs/hypercode/keyword-feed.hcs": "06320a070b6f95145e25ed10a9c823501e1ba435aba26eaba2bb34a8fc1c9f72",
+    "specs/hypercode/application-instance.hc": "93e5597f727d8f6f383041cab8bbe75dd745903d2de49aab530f13088a42d7d0",
+    "specs/hypercode/overlay-session.hcs": "217e24b021b0aa99b12784727352a73f36e662b8f8b00c2a0f0a3356a9ffe44e",
+    "specs/hypercode/performance.hcs": "2496fb843003fc22afa814d0819a2e9f8b5380997863163150756b03c11811e8",
+    "specs/hypercode/frame-budget.hc": "85c564ec5c862f45ae6494a835f8a3344e15189730ee08b7042b3b928fb5d745",
+    "specs/hypercode/application-menu.hc": "0062e761e22df747decc00db3934c34d7a081dca09002d0a87b3c0885cac23ae",
+    "specs/hypercode/application.hc": "c07545590da135585e2195f18c151e640fb1a22db1f8c77849d5cbfd28776994",
+    "specs/hypercode/glyph-search.hc": "8e3bb46c46311abd291ef4834dc7fe97fb586f6928eddc52842264253aca1f6f",
+    "specs/hypercode/settings-host.hcs": "399b5443cfd0150de2b14d768bef3d7f3efd17184b3fc9047771272038917132",
+    "specs/hypercode/overlay-session.hc": "72383b2d6eb2d59819bf2a2c27bcae4f8fc9ba6b24c606b8a42e40b1e173a13b",
+    "specs/hypercode/glyph-editor.hc": "f05398e8ee17fb3903e0b577d65e2f20bc2de6dccf5dab212c9be808bc9d13f5",
+    "specs/hypercode/drop-motion.hc": "ce0d935d7ba76c6ade998eca21d676ee8f7b09dce92eb514b15144fdcdd20b0d",
+    "specs/hypercode/glyph-editor.hcs": "a165c255f6f577ed921ae1ecc014f9975a3d9f0955730d0ed1013d8c6ef88fd4",
+    "specs/hypercode/keyword-feed.hc": "196bf28779d9b9a32fe9c7c46f0cf273ea9eeb704c829b0ddb5b6659291881d2",
+    "specs/hypercode/glyph-pulse.hcs": "06dde9f68b34032a1d8034f50d4b1fbe291b2445d9c36103b01c2506b5e41764",
+    "specs/hypercode/performance.hc": "0e21993b478c0282d556fad1806d90f413f4c3f8eab2c8b3768166a44c195a88",
+    "specs/hypercode/glyph-search.hcs": "330e94c6edd78e030939244ef156ef6d7bfa41f1123aeb5c8fa68d2bde2695d9"
+  },
+  "acceptance": "descriptive drafts unchanged; no release or device acceptance"
+}

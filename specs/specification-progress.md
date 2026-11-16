@@ -1,5 +1,16 @@
 # Dreams specification progress
 
+## Retained instance capacity review — 2026-11-16
+
+macOS MatrixRain now releases obsolete CPU instance storage on substantial grid
+shrink, Glow-off and inactive draws, preserving ordinary frame reuse. Current
+bindings and [dated evidence](performance/validation/2026-11-16-storage/README.md)
+record capacity bytes separately from RSS and allocator events. Motion, search,
+head/pulse, frame-budget, feed and measurement claim identities remain unchanged;
+overlay/preview/FPS ownership was revisited. Earlier CPU/GPU claims remain
+historical with an explicit retention caveat. HC/SpecPM tools/skills remain missing;
+draft acceptance and unexplored renderer/controller/platform coverage are unchanged.
+
 ## macOS shader topology and SDK comparison — 2026-11-16
 
 The CPU checkpoint is `c73807d`. Desktop rain now uses four strip vertices per

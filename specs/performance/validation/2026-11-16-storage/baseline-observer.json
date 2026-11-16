@@ -1,0 +1,6 @@
+{
+  "base": "c194bd95c757b65d886f7427aa72310bef006eb5",
+  "instrumentation": "read-only instanceStorage getter, identical in baseline and candidate; no production draw behavior change",
+  "reconstructedSourceSHA256": "5aaa679e53dd84b3d35141507ffaa17a3c1f772783c2b24fd19c9758c8151888",
+  "metric": "Array.capacity * Cell.stride; not RSS or allocation event tracing"
+}

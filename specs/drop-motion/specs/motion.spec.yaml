@@ -145,6 +145,9 @@ evidence:
 - id: sdk_gpu_20261116
   kind: test
   path: validation/2026-11-16-sdk-gpu/README.md
+- id: storage_20261116
+  kind: test
+  path: validation/2026-11-16-storage/README.md
 provenance:
   sourceConfidence:
     intent: high
@@ -166,7 +169,7 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: c73807d2eb97ac863738d1bba20af3db1190f90b
+    revision: c194bd95c757b65d886f7427aa72310bef006eb5
   files:
     owned:
     - evidence/2026-10-25-grid-clock/source/Tests/DreamsTests/SimulationStartTimeTests.swift
@@ -175,7 +178,7 @@ implementationBindings:
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/DropDecelerationSettingsTests.swift
     - evidence/2026-10-14-native-host/source/Tests/DreamsTests/RainTrailRenderingTests.swift
-    - evidence/2026-11-16-sdk-gpu/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-11-16-storage/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/features/rain/model/DreamsController.swift
     - evidence/2026-10-24-status-icon/source/Sources/Dreams/pages/settings/ui/SettingsPageController.swift
     - evidence/2026-10-25-pr63-integration/source/Sources/Dreams/shared/assets/Localization/en.lproj/Localizable.strings

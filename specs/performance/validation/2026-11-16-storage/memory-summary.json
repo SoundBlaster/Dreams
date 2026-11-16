@@ -1,0 +1,198 @@
+{
+  "elementStrideBytes": 48,
+  "metric": "reserved Swift Array element payload (capacity * stride), excluding headers, allocator metadata, Metal buffers and process RSS",
+  "observations": {
+    "before": {
+      "glow-off": [
+        {
+          "coreCapacity": 174762,
+          "coreCount": 102480,
+          "haloCapacity": 125610,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "large"
+        },
+        {
+          "coreCapacity": 174762,
+          "coreCount": 102480,
+          "haloCapacity": 125610,
+          "haloCount": 0,
+          "retainedElementBytes": 14417856,
+          "step": "off"
+        },
+        {
+          "coreCapacity": 174762,
+          "coreCount": 102480,
+          "haloCapacity": 125610,
+          "haloCount": 0,
+          "retainedElementBytes": 14417856,
+          "step": "off-again"
+        },
+        {
+          "coreCapacity": 174762,
+          "coreCount": 102480,
+          "haloCapacity": 125610,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "on-again"
+        }
+      ],
+      "inactive": [
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 174762,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "large"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 0,
+          "haloCapacity": 174762,
+          "haloCount": 0,
+          "retainedElementBytes": 14417856,
+          "step": "inactive"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 0,
+          "haloCapacity": 174762,
+          "haloCount": 0,
+          "retainedElementBytes": 14417856,
+          "step": "inactive-again"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 1875,
+          "haloCapacity": 174762,
+          "haloCount": 1875,
+          "retainedElementBytes": 14417856,
+          "step": "reactivated"
+        }
+      ],
+      "resize": [
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 174762,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "large"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 34247,
+          "haloCapacity": 174762,
+          "haloCount": 34247,
+          "retainedElementBytes": 14417856,
+          "step": "nearby"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 336,
+          "haloCapacity": 174762,
+          "haloCount": 336,
+          "retainedElementBytes": 14417856,
+          "step": "small"
+        }
+      ]
+    },
+    "after": {
+      "glow-off": [
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 174762,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "large"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 0,
+          "haloCount": 0,
+          "retainedElementBytes": 6029280,
+          "step": "off"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 0,
+          "haloCount": 0,
+          "retainedElementBytes": 6029280,
+          "step": "off-again"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 174762,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "on-again"
+        }
+      ],
+      "inactive": [
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 174762,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "large"
+        },
+        {
+          "coreCapacity": 0,
+          "coreCount": 0,
+          "haloCapacity": 0,
+          "haloCount": 0,
+          "retainedElementBytes": 0,
+          "step": "inactive"
+        },
+        {
+          "coreCapacity": 0,
+          "coreCount": 0,
+          "haloCapacity": 0,
+          "haloCount": 0,
+          "retainedElementBytes": 0,
+          "step": "inactive-again"
+        },
+        {
+          "coreCapacity": 7850,
+          "coreCount": 1875,
+          "haloCapacity": 2730,
+          "haloCount": 1875,
+          "retainedElementBytes": 507840,
+          "step": "reactivated"
+        }
+      ],
+      "resize": [
+        {
+          "coreCapacity": 125610,
+          "coreCount": 102480,
+          "haloCapacity": 174762,
+          "haloCount": 102480,
+          "retainedElementBytes": 14417856,
+          "step": "large"
+        },
+        {
+          "coreCapacity": 125610,
+          "coreCount": 34247,
+          "haloCapacity": 174762,
+          "haloCount": 34247,
+          "retainedElementBytes": 14417856,
+          "step": "nearby"
+        },
+        {
+          "coreCapacity": 1023,
+          "coreCount": 336,
+          "haloCapacity": 596,
+          "haloCount": 336,
+          "retainedElementBytes": 77712,
+          "step": "small"
+        }
+      ]
+    }
+  }
+}

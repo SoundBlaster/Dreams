@@ -106,6 +106,9 @@ evidence:
 - id: sdk_gpu_20261116
   kind: test
   path: validation/2026-11-16-sdk-gpu/README.md
+- id: storage_20261116
+  kind: test
+  path: validation/2026-11-16-storage/README.md
 provenance:
   sourceConfidence:
     intent: high
@@ -121,14 +124,15 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: c73807d2eb97ac863738d1bba20af3db1190f90b
+    revision: c194bd95c757b65d886f7427aa72310bef006eb5
   files:
     owned:
     - evidence/2026-10-25-pr64-integration/source/Sources/Dreams/app/entrypoint/DreamsMain.swift
     - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/app/providers/PerformanceRun.swift
     - evidence/2026-10-23-absolute-timeline/source/Sources/Dreams/features/rain/model/RainPerformance.swift
     - evidence/2026-10-24-main-integration/pr55/source/Sources/Dreams/features/rain/model/RainPerformanceScenario.swift
-    - evidence/2026-11-16-sdk-gpu/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-11-16-storage/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-11-16-storage/source/Tests/DreamsTests/RainInstanceStorageTests.swift
     - evidence/2026-11-16-sdk-gpu/source/Tests/DreamsTests/RainQuadRenderingTests.swift
     - evidence/2026-11-16-cpu-gpu/source/Tests/DreamsTests/RainReplayRenderingTests.swift
     - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

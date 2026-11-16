@@ -23,6 +23,12 @@ final class MatrixRain {
     // Encoding copies these values into Metal-owned storage before the next draw.
     private var cells: [Cell] = []
     private var halos: [Cell] = []
+    /// Read-only storage diagnostics; integer identities do not retain the arrays or trigger CoW.
+    var instanceStorage: (coreCapacity: Int, haloCapacity: Int, coreIdentity: UInt, haloIdentity: UInt) {
+        (cells.capacity, halos.capacity,
+         cells.withUnsafeBufferPointer { UInt(bitPattern: $0.baseAddress) },
+         halos.withUnsafeBufferPointer { UInt(bitPattern: $0.baseAddress) })
+    }
     private let matrixFont: NSFont
     private let wordFont: NSFont
     private let feed: KeywordFeedReader
@@ -183,12 +189,19 @@ final class MatrixRain {
             simulation = nil
             simulationClock = 0
             selections.removeAll()
+            cells = []
+            halos = []
             return fpsGrid
         }
         // Activity transitions and texture noise stay on real time. Only the
         // rain's writing, mutation and dissolution clock follows this control.
         simulationClock += elapsed * min(3, max(0.25, speed))
         if simulation?.columns.count != columns || simulation?.rows != rows {
+            // Drop a previous, much larger grid's high-water storage. Keep slack for
+            // nearby resizes and the existing minimum core reservation (32 rows).
+            let capacityLimit = 2 * columns * max(rows, 32)
+            if cells.capacity > capacityLimit { cells = [] }
+            if halos.capacity > capacityLimit { halos = [] }
             pulseWords.removeAll()
             selections.removeAll()
             // Seed a visible fresh grid without replaying the renderer's entire session.
@@ -238,7 +251,7 @@ final class MatrixRain {
         }
         selections = selections.filter { selection in active.contains { $0.sessionID == selection.value.session } }
         cells.removeAll(keepingCapacity: true)
-        halos.removeAll(keepingCapacity: true)
+        halos.removeAll(keepingCapacity: glow > 0)
         cells.reserveCapacity(columns * 32)
         let exposure = max(0.15, brightness / 0.18) * (0.35 + 0.65 * activity.workBlend(at: time))
         for column in 0..<columns {
