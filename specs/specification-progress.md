@@ -1,5 +1,17 @@
 # Dreams specification progress
 
+## macOS shader topology and SDK comparison — 2026-11-16
+
+The CPU checkpoint is `c73807d`. Desktop rain now uses four strip vertices per
+glyph; shared shader math and the six-vertex FPS/TV entry point are preserved.
+Affected current full-file bindings and [dated validation](performance/validation/2026-11-16-sdk-gpu/README.md)
+separate source review, exact replay observations, SDK/compiler comparison and GPU
+measurements. Stable motion/search/head/pulse/feed/frame-budget/measurement and TV
+claim identities remain descriptive drafts. Parent overlay/preview/FPS/TV assembly
+obligations were revisited; TV execution and official HC/SpecPM validation remain
+unverified. Earlier source/test evidence remains historical. Full shader/atlas and
+external-controller coverage is still backlog, not implied by this narrow change.
+
 ## macOS glyph lookup and CPU instance capacity — 2026-11-16
 
 `MatrixRain` now indexes its prebuilt code atlas by simulation glyph ID and reuses

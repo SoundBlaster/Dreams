@@ -83,6 +83,9 @@ evidence:
 - id: cpu_gpu_20261116
   kind: test
   path: validation/2026-11-16-cpu-gpu/README.md
+- id: sdk_gpu_20261116
+  kind: test
+  path: validation/2026-11-16-sdk-gpu/README.md
 provenance:
   sourceConfidence:
     intent: high
@@ -95,12 +98,12 @@ implementationBindings:
   language: swift
   source:
     repository: https://github.com/SoundBlaster/Dreams
-    revision: 48027fb5e79efdb96a3b3bf62cd70e88f2663bc3
+    revision: c73807d2eb97ac863738d1bba20af3db1190f90b
   files:
     owned:
     - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeed.swift
     - evidence/2026-10-24-main-integration/pr54/source/Sources/Dreams/entities/agent-activity/model/KeywordFeedReader.swift
     - evidence/2026-10-25-publisher-contention/source/Tests/DreamsTests/KeywordFeedReaderTests.swift
     border:
-    - evidence/2026-11-16-cpu-gpu/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
+    - evidence/2026-11-16-sdk-gpu/source/Sources/Dreams/features/rain/ui/MatrixRain.swift
     - evidence/2026-11-03-low-power/source/Sources/Dreams/features/rain/ui/RainRenderer.swift

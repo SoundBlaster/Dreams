@@ -10,11 +10,8 @@ struct MatrixOutput {
     uint seed [[flat]];
 };
 
-vertex MatrixOutput matrixVertex(uint vertexID [[vertex_id]], uint instanceID [[instance_id]],
-    const device MatrixCell *cells [[buffer(0)]]) {
-    float2 corners[] = {float2(0,0), float2(1,0), float2(0,1), float2(1,0), float2(1,1), float2(0,1)};
+MatrixOutput matrixCorner(float2 corner, uint instanceID, const device MatrixCell *cells) {
     MatrixCell cell = cells[instanceID];
-    float2 corner = corners[vertexID];
     float2 position = cell.rect.xy + corner * cell.rect.zw;
     MatrixOutput out;
     out.position = float4(position.x * 2 - 1, 1 - position.y * 2, 0, 1);
@@ -24,6 +21,19 @@ vertex MatrixOutput matrixVertex(uint vertexID [[vertex_id]], uint instanceID [[
     uint2 grid = uint2(cell.rect.xy * 65535.0);
     out.seed = grid.x * 1597334677u ^ grid.y * 3812015801u;
     return out;
+}
+
+// Keep the six-vertex entry point for the FPS overlay and television renderer.
+vertex MatrixOutput matrixVertex(uint vertexID [[vertex_id]], uint instanceID [[instance_id]],
+    const device MatrixCell *cells [[buffer(0)]]) {
+    float2 corners[] = {float2(0,0), float2(1,0), float2(0,1), float2(1,0), float2(1,1), float2(0,1)};
+    return matrixCorner(corners[vertexID], instanceID, cells);
+}
+
+vertex MatrixOutput matrixStripVertex(uint vertexID [[vertex_id]], uint instanceID [[instance_id]],
+    const device MatrixCell *cells [[buffer(0)]]) {
+    float2 corners[] = {float2(0,0), float2(1,0), float2(0,1), float2(1,1)};
+    return matrixCorner(corners[vertexID], instanceID, cells);
 }
 
 // Integer hashing avoids extra textures and trigonometry for per-glyph phosphor grain.

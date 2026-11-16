@@ -1,5 +1,8 @@
 # Television rain and clock — descriptive draft
 
+Latest affected bindings: [2026-11-16 SDK/shader baseline](validation/2026-11-16-sdk-gpu/README.md).
+Prior dated source validation remains historical; descriptive-draft acceptance is unchanged.
+
 The [draft boundary](specs/television.spec.yaml) covers `dreams.tv.rain` and the
 [television map](../hypercode/television.hc) / [properties](../hypercode/television.hcs).
 It recovers the TV host separately from existing macOS-only renderer contracts.

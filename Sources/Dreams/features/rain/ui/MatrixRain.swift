@@ -93,7 +93,7 @@ final class MatrixRain {
             symbols = Array("モエヤキオカ7ケサスz152ヨタワ4ネヌナ98ヒ0ホア3ウセ¦:\"꞊ミラリ╌ツテニハソ▪コシマムメー©*+<>|\u{E937}")
         }
         let descriptor = MTLRenderPipelineDescriptor()
-        descriptor.vertexFunction = library.makeFunction(name: "matrixVertex")
+        descriptor.vertexFunction = library.makeFunction(name: "matrixStripVertex")
         descriptor.fragmentFunction = library.makeFunction(name: "matrixFragment")
         let color = descriptor.colorAttachments[0]!
         color.pixelFormat = transparentBackground ? .bgra8Unorm : .bgra8Unorm_srgb
@@ -360,7 +360,7 @@ final class MatrixRain {
         encoder.setFragmentTexture(texture, index: 0)
         var parameters = SIMD4<Float>(time, noise, diffuse ? 1 : 0, transparentBackground ? 1 : 0)
         encoder.setFragmentBytes(&parameters, length: MemoryLayout<SIMD4<Float>>.stride, index: 0)
-        encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6, instanceCount: cells.count)
+        encoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4, instanceCount: cells.count)
         return true
     }
 

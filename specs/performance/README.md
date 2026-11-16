@@ -1,6 +1,9 @@
 # Performance measurement — descriptive draft
 
-Latest macOS `MatrixRain` binding and candidate checks:
+Latest affected bindings: [2026-11-16 SDK/shader baseline](validation/2026-11-16-sdk-gpu/README.md).
+Prior dated source validation remains historical; descriptive-draft acceptance is unchanged.
+
+Previous CPU-only `MatrixRain` baseline (before the shader change):
 [2026-11-16 CPU/GPU baseline](validation/2026-11-16-cpu-gpu/README.md).
 Earlier dated results below remain historical for changed renderer source;
 requirements and descriptive-draft acceptance are unchanged. Official HC/SpecPM

@@ -1,0 +1,18 @@
+{
+  "baseCommit": "c73807d2eb97ac863738d1bba20af3db1190f90b",
+  "files": {
+    "artifacts/sdk-20261116/baseline/Dreams.app/Contents/MacOS/Dreams": "0bf184cb40fc1d40ac51d305652cd61d42b0f78f56e435b29efd48f4d4368007",
+    "artifacts/sdk-20261116/baseline/Dreams.app/Contents/Resources/Dreams_Dreams.bundle/Contents/Resources/Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+    "artifacts/sdk-20261116/baseline/Dreams.app/Contents/Resources/Dreams_Dreams.bundle/Contents/Resources/DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+    "artifacts/sdk-20261116/baseline/Dreams.app/Contents/Resources/Dreams_Dreams.bundle/Contents/Resources/Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+  },
+  "sources": {
+    "Sources/Dreams/Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+    "Sources/Dreams/features/rain/ui/MatrixRain.swift": "33ecbc3783a9e01cbaaed6f2133d8992f78b5a1e27bcf9cd517275e6e0486844",
+    "Package.resolved": "3bfb803b8d5e2d2bc976d79e2faf1afc6c731a98f51079705b667d931bdb69f5"
+  },
+  "compiler": "Apple Swift version 6.4.2 (swiftlang-6.4.2.1.9 clang-2100.4.1.1)\nTarget: arm64-apple-macosx27.2.0",
+  "buildMetadata": "artifacts/sdk-20261116/baseline/Dreams.app/Contents/MacOS/Dreams:\nLoad command 11\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 15.0\n      sdk 27.2\n   ntools 1\n     tool LD\n  version 27106.1\n",
+  "patch": "",
+  "scope": "local ad-hoc signed experiment; no install/release; runtime Metal source compilation on the same host OS"
+}
