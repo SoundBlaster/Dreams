@@ -1,0 +1,33 @@
+{
+  "baseRevision": "48027fb5e79efdb96a3b3bf62cd70e88f2663bc3",
+  "sourceBlobBaseline": "2b0b8f2dc66c315ba2fd90dc4e8f8b8bf540eed2",
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.2.0",
+  "sdk": "macosx26.5",
+  "configuration": "Release",
+  "minimumMacOS": "15.0",
+  "buildCommand": "DREAMS_MACOS_SDK=macosx26.5 DREAMS_SWIFT_CACHE_PATH=<checkout>/.build/package-cache DREAMS_GLYPH_OUTPUT=<artifacts>/glyph-build make app",
+  "variantSources": {
+    "before": "artifacts/perf-20261116/MatrixRain.before.swift",
+    "after": "Sources/Dreams/features/rain/ui/MatrixRain.swift"
+  },
+  "variants": {
+    "before": {
+      "binarySHA256": "5ddc6653e34f69f80784c15f8457fef7fcd6b6d3a87a2f82add92220684d7ede",
+      "matrixRainSHA256": "c4805c20fbccdea088293b50bb133815059fd299cfd25d529f9951e6dc8a8e0c",
+      "resources": {
+        "Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+        "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+        "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+      }
+    },
+    "after": {
+      "binarySHA256": "a5b8208063a7bee02f837bd87ff6dd022d15d6cfc7c811b1ece3e041b0414164",
+      "matrixRainSHA256": "33ecbc3783a9e01cbaaed6f2133d8992f78b5a1e27bcf9cd517275e6e0486844",
+      "resources": {
+        "Rain.metal": "2a7812e06fcb046d3462b5c748b76faf1e0aac4668f97d473734f385c12756bd",
+        "DreamsMatrix.ttf": "db267086e233b2c6d1cd30abe917873886664686e7adb9a2d205e164f8c35845",
+        "Matrix-Code.ttf": "5dff3023c91291d28dffc32fd74f5edbbca1969f25077d0499b1f000cabdec5b"
+      }
+    }
+  }
+}

@@ -1,5 +1,11 @@
 # Shared mailbox reader — descriptive draft
 
+Latest macOS `MatrixRain` binding and candidate checks:
+[2026-11-16 CPU/GPU baseline](validation/2026-11-16-cpu-gpu/README.md).
+Earlier dated results below remain historical for changed renderer source;
+requirements and descriptive-draft acceptance are unchanged. Official HC/SpecPM
+validation of this candidate is pending because those tools are unavailable.
+
 The [contract](specs/reader.spec.yaml) covers macOS rain consumers of ready mailbox
 snapshots. [Map](../hypercode/keyword-feed.hc) and
 [properties](../hypercode/keyword-feed.hcs) separate the cache, subscription

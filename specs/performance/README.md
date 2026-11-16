@@ -1,5 +1,11 @@
 # Performance measurement — descriptive draft
 
+Latest macOS `MatrixRain` binding and candidate checks:
+[2026-11-16 CPU/GPU baseline](validation/2026-11-16-cpu-gpu/README.md).
+Earlier dated results below remain historical for changed renderer source;
+requirements and descriptive-draft acceptance are unchanged. Official HC/SpecPM
+validation of this candidate is pending because those tools are unavailable.
+
 The [draft contract](specs/measurement.spec.yaml) describes the contributor-facing
 opt-in probe. [Usage and limits](../../research/performance/README.md),
 [plan](../../research/performance-measurement-plan.md) and

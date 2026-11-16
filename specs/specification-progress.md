@@ -1,5 +1,20 @@
 # Dreams specification progress
 
+## macOS glyph lookup and CPU instance capacity — 2026-11-16
+
+`MatrixRain` now indexes its prebuilt code atlas by simulation glyph ID and reuses
+CPU instance-array capacity. Motion, search, head visibility, pulse, frame-budget,
+feed and measurement claim identities/requirements are unchanged; affected source
+bindings and [candidate validation](performance/validation/2026-11-16-cpu-gpu/README.md)
+identify the base plus working-tree hashes. Overlay, preview and FPS parent
+obligations were revisited; tvOS renderer behavior is outside this change.
+Historical test passes remain tied to their original source. New Release tests and
+32 byte-identical replay PNGs cover only their stated scope. Official HC/SpecPM
+validation remains pending because the required tools and specification skills
+are unavailable on this host. Descriptive-draft acceptance is unchanged; the
+[local investigation](../research/performance/2026-11-16-cpu-gpu.md) records timing
+method, raw evidence, build constraints and remaining work.
+
 ## Release 0.1.15 metadata — 2026-11-15
 
 `VERSION` and both plugin manifests advance together. Spec-ID: NO-SPEC-IMPACT: release metadata does not change runtime contracts. The system screen saver experiment in PR #82 is excluded because it remains a draft with unresolved integration and is not required for the desktop optimization release; PR #85 is included in the release base. Existing tests and device observations remain tied to their original revisions.
